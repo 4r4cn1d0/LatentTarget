@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.env
+.DS_Store
+
+# Raw experiment data is regenerable and can get large; keep manifests so runs
+# stay auditable. Remove these two lines if you want the data version-controlled.
+data/raw/*.jsonl
+data/processed/*.jsonl
+data/processed/*.npz
+!data/raw/*.manifest.json

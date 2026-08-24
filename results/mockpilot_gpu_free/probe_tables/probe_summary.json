@@ -1,0 +1,341 @@
+{
+  "n_activation_rows": 624,
+  "n_layers": 5,
+  "d_model": 64,
+  "best_layer": 2,
+  "selected_l2": 0.01,
+  "manifest_paths": [
+    "data/raw/mockpilot_gpu_free_20260825.manifest.json"
+  ],
+  "bayes_hazard": 0.1,
+  "split_episode_ids": {
+    "train": [
+      "full_history-000-expertise",
+      "full_history-001-risk",
+      "full_history-002-expertise",
+      "full_history-002-fairness",
+      "full_history-003-fairness",
+      "full_history-003-risk"
+    ],
+    "dev": [
+      "full_history-000-risk",
+      "full_history-001-expertise",
+      "full_history-001-fairness"
+    ],
+    "test": [
+      "full_history-000-fairness",
+      "full_history-002-risk",
+      "full_history-003-expertise"
+    ]
+  },
+  "l2_table": [
+    {
+      "l2": 0.01,
+      "accuracy": 1.0
+    },
+    {
+      "l2": 0.1,
+      "accuracy": 1.0
+    },
+    {
+      "l2": 1.0,
+      "accuracy": 1.0
+    },
+    {
+      "l2": 10.0,
+      "accuracy": 1.0
+    },
+    {
+      "l2": 100.0,
+      "accuracy": 1.0
+    },
+    {
+      "l2": 1000.0,
+      "accuracy": 1.0
+    }
+  ],
+  "layer_sweep": [
+    {
+      "layer": 0,
+      "accuracy": 0.375,
+      "per_class_accuracy": {},
+      "n_test": 24,
+      "n_train": 48,
+      "confusion": {}
+    },
+    {
+      "layer": 2,
+      "accuracy": 1.0,
+      "per_class_accuracy": {},
+      "n_test": 24,
+      "n_train": 48,
+      "confusion": {}
+    },
+    {
+      "layer": 4,
+      "accuracy": 0.5,
+      "per_class_accuracy": {},
+      "n_test": 24,
+      "n_train": 48,
+      "confusion": {}
+    }
+  ],
+  "baselines": {
+    "chance": 0.3333333333333333,
+    "majority": 0.3333333333333333,
+    "behavioural_readout_heldout": 0.5,
+    "behavioural_readout_selection_cv": 0.34375,
+    "bayesian_evidence_heldout": 0.4583333333333333,
+    "shuffled_labels": {
+      "mean": 0.2611111111111111,
+      "sd": 0.12024922678840756,
+      "n_repeats": 5,
+      "accuracies": [
+        0.3888888888888889,
+        0.375,
+        0.25,
+        0.2361111111111111,
+        0.05555555555555555
+      ]
+    },
+    "just_ask_the_model": null
+  },
+  "probe_heldout_test": {
+    "layer": 2,
+    "accuracy": 1.0,
+    "per_class_accuracy": {
+      "fairness": 1.0,
+      "risk": 1.0,
+      "expertise": 1.0
+    },
+    "n_test": 24,
+    "n_train": 72,
+    "confusion": {
+      "fairness": {
+        "fairness": 8,
+        "risk": 0,
+        "expertise": 0
+      },
+      "risk": {
+        "fairness": 0,
+        "risk": 8,
+        "expertise": 0
+      },
+      "expertise": {
+        "fairness": 0,
+        "risk": 0,
+        "expertise": 8
+      }
+    }
+  },
+  "probe_accuracy_by_condition": {
+    "full_history": 1.0,
+    "no_history": 1.0,
+    "random_target": 1.0,
+    "shuffled_history": 1.0,
+    "swap": 1.0
+  },
+  "trajectory_gap": {
+    "statistic": 0.8333333333333333,
+    "ci95": [
+      0.6833333333333333,
+      0.9833333333333332
+    ],
+    "n_swap_episodes": 24,
+    "n_boot": 5000,
+    "probe_pre_swap_baseline": 0.0,
+    "behaviour_pre_swap_baseline": 0.26666666666666666,
+    "interpretation": "positive and CI excluding 0 => the decodable belief tracks the new target faster than the messages do; negative => the behaviour leads, which argues against a latent model driving the policy; CI spanning 0 => underdetermined, and that is the finding."
+  },
+  "probe_vs_bayes_gap": {
+    "statistic": 0.9525201784343673,
+    "ci95": [
+      0.8804762566708031,
+      1.0175694038299612
+    ],
+    "n_swap_episodes": 24,
+    "n_boot": 5000,
+    "evidence_col": "probe_p_final",
+    "behaviour_col": "bayes_p_final",
+    "interpretation": "Positive means probe_p_final rises toward the new target faster than bayes_p_final, after subtracting each channel's own pre-swap baseline. A causal or representational interpretation requires the separately stated controls."
+  },
+  "switch_lag": {
+    "n_swap_episodes": 24,
+    "n_probe_never_flipped": 0,
+    "n_behaviour_never_flipped": 5,
+    "n_both_flipped": 19,
+    "per_episode": [
+      {
+        "episode_id": "swap-000-expertise-to-fairness",
+        "probe_lag": 1,
+        "behaviour_lag": 2.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-000-expertise-to-risk",
+        "probe_lag": 1,
+        "behaviour_lag": 5.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-000-fairness-to-expertise",
+        "probe_lag": 1,
+        "behaviour_lag": 1.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-000-fairness-to-risk",
+        "probe_lag": 1,
+        "behaviour_lag": NaN,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-000-risk-to-expertise",
+        "probe_lag": 1,
+        "behaviour_lag": 1.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-000-risk-to-fairness",
+        "probe_lag": 1,
+        "behaviour_lag": NaN,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-001-expertise-to-fairness",
+        "probe_lag": 1,
+        "behaviour_lag": 1.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-001-expertise-to-risk",
+        "probe_lag": 1,
+        "behaviour_lag": 1.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-001-fairness-to-expertise",
+        "probe_lag": 1,
+        "behaviour_lag": 3.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-001-fairness-to-risk",
+        "probe_lag": 1,
+        "behaviour_lag": 3.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-001-risk-to-expertise",
+        "probe_lag": 1,
+        "behaviour_lag": 2.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-001-risk-to-fairness",
+        "probe_lag": 1,
+        "behaviour_lag": 4.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-002-expertise-to-fairness",
+        "probe_lag": 1,
+        "behaviour_lag": 3.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-002-expertise-to-risk",
+        "probe_lag": 1,
+        "behaviour_lag": 4.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-002-fairness-to-expertise",
+        "probe_lag": 1,
+        "behaviour_lag": 5.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-002-fairness-to-risk",
+        "probe_lag": 1,
+        "behaviour_lag": 2.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-002-risk-to-expertise",
+        "probe_lag": 1,
+        "behaviour_lag": NaN,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-002-risk-to-fairness",
+        "probe_lag": 1,
+        "behaviour_lag": 1.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-003-expertise-to-fairness",
+        "probe_lag": 1,
+        "behaviour_lag": 5.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-003-expertise-to-risk",
+        "probe_lag": 1,
+        "behaviour_lag": NaN,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-003-fairness-to-expertise",
+        "probe_lag": 1,
+        "behaviour_lag": 1.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-003-fairness-to-risk",
+        "probe_lag": 1,
+        "behaviour_lag": 3.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-003-risk-to-expertise",
+        "probe_lag": 1,
+        "behaviour_lag": 4.0,
+        "n_post_rounds": 5
+      },
+      {
+        "episode_id": "swap-003-risk-to-fairness",
+        "probe_lag": 1,
+        "behaviour_lag": NaN,
+        "n_post_rounds": 5
+      }
+    ],
+    "mean_probe_lag": 1.0,
+    "mean_behaviour_lag": 2.6842105263157894,
+    "mean_behaviour_minus_probe": 1.6842105263157894,
+    "ci95": [
+      1.0526315789473684,
+      2.3684210526315788
+    ],
+    "interpretation": "RAW difference -- inflated by probe noise, do NOT quote alone. Use null_calibration below. Positive (after calibration) => the probe flips BEFORE the behaviour (model registers the change while still using the stale strategy); negative => behaviour leads, consistent with model-free updating; CI/p spanning 0 => underdetermined, say so.",
+    "null_calibration": {
+      "observed_difference": 1.6842105263157894,
+      "null_difference": 1.6842105263157892,
+      "null_sd": 2.220446049250313e-16,
+      "calibrated_difference": 2.220446049250313e-16,
+      "p_value_one_sided": 1.0,
+      "n_perm": 2000,
+      "note": "calibrated_difference is the reportable quantity. The raw observed_difference is inflated by probe noise and must not be quoted on its own."
+    }
+  },
+  "context_leakage": {
+    "n": 96,
+    "accuracy_vs_true_target": 1.0,
+    "accuracy_vs_donor_type": 0.0,
+    "note": "If accuracy_vs_donor_type >> accuracy_vs_true_target the probe is decoding the visible outcome history rather than a belief about the target that is actually responding."
+  },
+  "figures": {
+    "layer_sweep": "results/mockpilot_gpu_free/probe_figures/fig8_probe_layer_sweep.png",
+    "probe_vs_behaviour": "results/mockpilot_gpu_free/probe_figures/fig9_probe_vs_behaviour.png"
+  }
+}

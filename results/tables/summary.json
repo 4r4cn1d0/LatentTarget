@@ -1,0 +1,594 @@
+{
+  "n_records": 504,
+  "n_episodes": 60,
+  "conditions": [
+    "full_history",
+    "no_history",
+    "random_target",
+    "shuffled_history",
+    "swap"
+  ],
+  "models": [
+    "mock"
+  ],
+  "providers": [
+    "mock:win_stay_lose_shift"
+  ],
+  "classifiers": [
+    "keyword[all]"
+  ],
+  "overall_rates": [
+    {
+      "condition": "full_history",
+      "match_rate": 0.4479166666666667,
+      "match_lo": 0.3229166666666667,
+      "match_hi": 0.59375,
+      "n": 96,
+      "n_clusters": 12,
+      "success_rate": 0.5520833333333334,
+      "success_lo": 0.4479166666666667,
+      "success_hi": 0.6770833333333334
+    },
+    {
+      "condition": "no_history",
+      "match_rate": 0.3333333333333333,
+      "match_lo": 0.08333333333333333,
+      "match_hi": 0.5833333333333334,
+      "n": 96,
+      "n_clusters": 12,
+      "success_rate": 0.5625,
+      "success_lo": 0.4166666666666667,
+      "success_hi": 0.6979166666666666
+    },
+    {
+      "condition": "random_target",
+      "match_rate": 0.3854166666666667,
+      "match_lo": 0.2916666666666667,
+      "match_hi": 0.4791666666666667,
+      "n": 96,
+      "n_clusters": 12,
+      "success_rate": 0.4895833333333333,
+      "success_lo": 0.3854166666666667,
+      "success_hi": 0.5833333333333334
+    },
+    {
+      "condition": "shuffled_history",
+      "match_rate": 0.28125,
+      "match_lo": 0.19791666666666666,
+      "match_hi": 0.3645833333333333,
+      "n": 96,
+      "n_clusters": 12,
+      "success_rate": 0.4583333333333333,
+      "success_lo": 0.3541666666666667,
+      "success_hi": 0.5625
+    },
+    {
+      "condition": "swap",
+      "match_rate": 0.45,
+      "match_lo": 0.35,
+      "match_hi": 0.55,
+      "n": 120,
+      "n_clusters": 12,
+      "success_rate": 0.6,
+      "success_lo": 0.5166666666666667,
+      "success_hi": 0.675
+    }
+  ],
+  "permutation_tests": [
+    {
+      "condition": "full_history",
+      "slope": 0.04265873015873016,
+      "slope_p": 0.01999000499750125,
+      "match_rate": 0.4479166666666667,
+      "type_alignment_p": 0.04447776111944028,
+      "n_rows": 96,
+      "n_episodes": 12
+    },
+    {
+      "condition": "no_history",
+      "slope": 0.0,
+      "slope_p": 0.6041979010494752,
+      "match_rate": 0.3333333333333333,
+      "type_alignment_p": 0.5887056471764118,
+      "n_rows": 96,
+      "n_episodes": 12
+    },
+    {
+      "condition": "random_target",
+      "slope": -0.00892857142857143,
+      "slope_p": 0.6731634182908546,
+      "match_rate": 0.3854166666666667,
+      "type_alignment_p": 0.1489255372313843,
+      "n_rows": 96,
+      "n_episodes": 12
+    },
+    {
+      "condition": "shuffled_history",
+      "slope": 0.002976190476190476,
+      "slope_p": 0.45527236381809094,
+      "match_rate": 0.28125,
+      "type_alignment_p": 0.841079460269865,
+      "n_rows": 96,
+      "n_episodes": 12
+    },
+    {
+      "condition": "swap",
+      "slope": -0.0020202020202020206,
+      "slope_p": 0.5667166416791605,
+      "match_rate": NaN,
+      "type_alignment_p": NaN,
+      "n_rows": 120,
+      "n_episodes": 12
+    }
+  ],
+  "strategy_persistence": [
+    {
+      "condition": "full_history",
+      "switch_rate": 0.42857142857142855,
+      "n": 84,
+      "repeat_rate": 0.5714285714285714
+    },
+    {
+      "condition": "no_history",
+      "switch_rate": 0.0,
+      "n": 84,
+      "repeat_rate": 1.0
+    },
+    {
+      "condition": "random_target",
+      "switch_rate": 0.5119047619047619,
+      "n": 84,
+      "repeat_rate": 0.48809523809523814
+    },
+    {
+      "condition": "shuffled_history",
+      "switch_rate": 0.4642857142857143,
+      "n": 84,
+      "repeat_rate": 0.5357142857142857
+    },
+    {
+      "condition": "swap",
+      "switch_rate": 0.39814814814814814,
+      "n": 108,
+      "repeat_rate": 0.6018518518518519
+    }
+  ],
+  "feedback_contingency": [
+    {
+      "condition": "full_history",
+      "switch_after_A": 0.0,
+      "switch_after_B": 1.0,
+      "n_after_A": 48,
+      "n_after_B": 36,
+      "lose_shift_minus_win_shift": 1.0
+    },
+    {
+      "condition": "no_history",
+      "switch_after_A": 0.0,
+      "switch_after_B": 0.0,
+      "n_after_A": 49,
+      "n_after_B": 35,
+      "lose_shift_minus_win_shift": 0.0
+    },
+    {
+      "condition": "random_target",
+      "switch_after_A": 0.0,
+      "switch_after_B": 1.0,
+      "n_after_A": 41,
+      "n_after_B": 43,
+      "lose_shift_minus_win_shift": 1.0
+    },
+    {
+      "condition": "shuffled_history",
+      "switch_after_A": 0.5833333333333334,
+      "switch_after_B": 0.375,
+      "n_after_A": 36,
+      "n_after_B": 48,
+      "lose_shift_minus_win_shift": -0.20833333333333337
+    },
+    {
+      "condition": "swap",
+      "switch_after_A": 0.0,
+      "switch_after_B": 1.0,
+      "n_after_A": 65,
+      "n_after_B": 43,
+      "lose_shift_minus_win_shift": 1.0
+    }
+  ],
+  "adaptation_summary": {
+    "n_swap_episodes": 12,
+    "n_adapted": 8,
+    "median_rounds_to_adapt": 2.0,
+    "pre_swap_match_old": 0.4666666666666666,
+    "post_swap_match_new": 0.4333333333333333,
+    "post_swap_match_old": 0.3
+  },
+  "diagnostics": {
+    "classifier_target_agreement": {
+      "n": 504,
+      "n_with_target_signal": 504,
+      "argmax_agreement": 1.0,
+      "pearson_r": {
+        "fairness": 1.0,
+        "risk": 0.9999999999999999,
+        "expertise": 1.0
+      },
+      "classifier_names": [
+        "keyword[all]"
+      ],
+      "note": "argmax_agreement near 1.0 means the classifier and the target scorer are effectively the same instrument; interpret match rates with care and prefer an LLM judge or a disjoint lexicon."
+    },
+    "scenario_balance": {
+      "full_history": {
+        "identical_across_types": true,
+        "max_abs_deviation": 0,
+        "table": {
+          "expertise": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          },
+          "fairness": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          },
+          "risk": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          }
+        }
+      },
+      "no_history": {
+        "identical_across_types": true,
+        "max_abs_deviation": 0,
+        "table": {
+          "expertise": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          },
+          "fairness": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          },
+          "risk": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          }
+        }
+      },
+      "random_target": {
+        "identical_across_types": true,
+        "max_abs_deviation": 0,
+        "table": {
+          "expertise": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          },
+          "fairness": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          },
+          "risk": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          }
+        }
+      },
+      "shuffled_history": {
+        "identical_across_types": true,
+        "max_abs_deviation": 0,
+        "table": {
+          "expertise": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          },
+          "fairness": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          },
+          "risk": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          }
+        }
+      },
+      "swap": {
+        "identical_across_types": true,
+        "max_abs_deviation": 0,
+        "table": {
+          "expertise": {
+            "archive_order": 3,
+            "brochure_photo": 3,
+            "caterer": 3,
+            "entrance_plant": 3,
+            "lobby_paint": 3,
+            "meeting_slot": 3,
+            "newsletter_name": 4,
+            "offsite_venue": 3,
+            "paper_supplier": 2,
+            "podcast_outro": 1,
+            "room_layout": 3,
+            "shuttle_stop": 3,
+            "task_tool": 4,
+            "typeface": 2
+          },
+          "fairness": {
+            "archive_order": 3,
+            "brochure_photo": 3,
+            "caterer": 3,
+            "entrance_plant": 3,
+            "lobby_paint": 3,
+            "meeting_slot": 3,
+            "newsletter_name": 4,
+            "offsite_venue": 3,
+            "paper_supplier": 2,
+            "podcast_outro": 1,
+            "room_layout": 3,
+            "shuttle_stop": 3,
+            "task_tool": 4,
+            "typeface": 2
+          },
+          "risk": {
+            "archive_order": 3,
+            "brochure_photo": 3,
+            "caterer": 3,
+            "entrance_plant": 3,
+            "lobby_paint": 3,
+            "meeting_slot": 3,
+            "newsletter_name": 4,
+            "offsite_venue": 3,
+            "paper_supplier": 2,
+            "podcast_outro": 1,
+            "room_layout": 3,
+            "shuttle_stop": 3,
+            "task_tool": 4,
+            "typeface": 2
+          }
+        }
+      }
+    },
+    "unparsed_classifications": 0,
+    "mean_message_words": 28.728174603174605,
+    "max_message_words": 39,
+    "over_80_words_fraction": 0.0
+  },
+  "figures": {
+    "match_rate_by_round": "results/figures/fig1_match_rate_by_round.png",
+    "success_rate_by_round": "results/figures/fig2_success_rate_by_round.png",
+    "strategy_distribution": "results/figures/fig3_strategy_distribution.png",
+    "adaptation_after_swap": "results/figures/fig4_adaptation_after_swap.png",
+    "condition_comparison": "results/figures/fig5_condition_comparison.png",
+    "feedback_contingency": "results/figures/fig6_feedback_contingency.png",
+    "recovery_after_wrong_start": "results/figures/fig7_recovery_after_wrong_start.png"
+  },
+  "tables_dir": "results/tables",
+  "match_regression": {
+    "n": 384,
+    "levels": [
+      "full_history",
+      "no_history",
+      "random_target",
+      "shuffled_history"
+    ],
+    "rows": [
+      {
+        "term": "intercept",
+        "coef": -0.8357812494824204,
+        "se": 0.5682224687132599,
+        "z": -1.4708697658067755,
+        "p": 0.1413263405405812,
+        "odds_ratio": 0.4335356495922699
+      },
+      {
+        "term": "round_c",
+        "coef": 0.1766342545694201,
+        "se": 0.11716050819655338,
+        "z": 1.507626223958427,
+        "p": 0.1316502171565055,
+        "odds_ratio": 1.1931946078351456
+      },
+      {
+        "term": "cond[no_history]",
+        "coef": 0.14263406864441253,
+        "se": 0.835390190653169,
+        "z": 0.17073945832771967,
+        "p": 0.8644286351033859,
+        "odds_ratio": 1.153307692991815
+      },
+      {
+        "term": "cond[random_target]",
+        "coef": 0.5003817536815623,
+        "se": 0.6989154156991162,
+        "z": 0.7159403590791267,
+        "p": 0.4740281763802579,
+        "odds_ratio": 1.6493507962692946
+      },
+      {
+        "term": "cond[shuffled_history]",
+        "coef": -0.15427647050258458,
+        "se": 0.6972028268701317,
+        "z": -0.2212791809740062,
+        "p": 0.824875059383283,
+        "odds_ratio": 0.8570350433451335
+      },
+      {
+        "term": "round_c:cond[no_history]",
+        "coef": -0.1766342545090763,
+        "se": 0.11716050803249736,
+        "z": -1.5076262255544541,
+        "p": 0.13165021674779254,
+        "odds_ratio": 0.8380862547432044
+      },
+      {
+        "term": "round_c:cond[random_target]",
+        "coef": -0.2143703601185097,
+        "se": 0.15851907670376666,
+        "z": -1.3523316220111188,
+        "p": 0.17626925281325173,
+        "odds_ratio": 0.8070494307429144
+      },
+      {
+        "term": "round_c:cond[shuffled_history]",
+        "coef": -0.1619088056514925,
+        "se": 0.1451011345703398,
+        "z": -1.1158341809726162,
+        "p": 0.264493119718496,
+        "odds_ratio": 0.8505187635082411
+      }
+    ],
+    "summary": "logistic regression  n=384  clusters=48  logLik=-246.19  converged=True\nterm                              coef        se        z         p\nintercept                      -0.8358    0.5682    -1.47    0.1413\nround_c                         0.1766    0.1172     1.51    0.1317\ncond[no_history]                0.1426    0.8354     0.17    0.8644\ncond[random_target]             0.5004    0.6989     0.72     0.474\ncond[shuffled_history]         -0.1543    0.6972    -0.22    0.8249\nround_c:cond[no_history]       -0.1766    0.1172    -1.51    0.1317\nround_c:cond[random_target]    -0.2144    0.1585    -1.35    0.1763\nround_c:cond[shuffled_history]   -0.1619    0.1451    -1.12    0.2645"
+  },
+  "swap_regression": {
+    "n": 60,
+    "rows": [
+      {
+        "term": "intercept",
+        "coef": -0.7854586886288871,
+        "se": 0.7080540518696141,
+        "z": -1.109320237000108,
+        "p": 0.26729205797336086,
+        "odds_ratio": 0.45591053284039446
+      },
+      {
+        "term": "rounds_since_swap",
+        "coef": 0.17109976711294192,
+        "se": 0.18645014723340886,
+        "z": 0.9176703244902753,
+        "p": 0.35879148830637764,
+        "odds_ratio": 1.1866091276833244
+      }
+    ],
+    "summary": "logistic regression  n=60  clusters=12  logLik=-40.63  converged=True\nterm                              coef        se        z         p\nintercept                      -0.7855    0.7081    -1.11    0.2673\nrounds_since_swap               0.1711    0.1865     0.92    0.3588"
+  }
+}

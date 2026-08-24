@@ -1,0 +1,7 @@
+# Minimal by design. No statsmodels, no scipy: every statistic in
+# src/stats_utils.py is implemented with numpy only.
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.7
+requests>=2.28        # only used by the real (networked) model providers
+pytest>=7.0           # tests

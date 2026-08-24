@@ -1,0 +1,18 @@
+{
+  "kind": "synthetic_oracle_activations",
+  "source_log": "data/raw/mockpilot_gpu_free_20260825.jsonl",
+  "shape": [
+    624,
+    5,
+    64
+  ],
+  "signal_layer_index": 2,
+  "d_model": 64,
+  "n_layers": 5,
+  "seed": 20260825,
+  "warning": "Pipeline fixture only; not a real model result.",
+  "written_at": "2026-08-25T03:40:19+0530",
+  "python": "3.9.6 (default, Apr 30 2025, 02:07:17) \n[Clang 17.0.0 (clang-1700.0.13.5)]",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "git_commit": null
+}
