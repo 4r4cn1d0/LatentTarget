@@ -73,7 +73,7 @@ def main(argv=None) -> int:
 
     key = {}
     with open(args.out, "w", encoding="utf-8", newline="") as fh:
-        w = csv.writer(fh)
+        w = csv.writer(fh, lineterminator="\n")
         w.writerow(["sample_id", "message", "human_label"])
         for i, row_idx in enumerate(idx):
             row = df.iloc[row_idx]

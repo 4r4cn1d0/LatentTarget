@@ -433,7 +433,7 @@ def write_pilot_report(
     if parent:
         os.makedirs(parent, exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as fh:
-        fh.write("\n".join(out) + "\n")
+        fh.write("\n".join(out).rstrip() + "\n")
     return out_path
 
 

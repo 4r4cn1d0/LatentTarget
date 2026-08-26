@@ -598,12 +598,19 @@ def plot_adaptation(table: pd.DataFrame, path: str, swap_round: int) -> str:
             table["rounds_since_swap"], table["old_lo"], table["old_hi"], alpha=0.15,
             color="#d62728", linewidth=0,
         )
+    else:
+        ax.text(
+            0.5, 0.5, "No swap episodes in this run",
+            transform=ax.transAxes, ha="center", va="center", fontsize=10,
+            color="grey",
+        )
     ax.axvline(0.5, ls="--", lw=1.2, color="black")
     ax.text(0.6, 0.95, "swap", fontsize=8, color="black")
     ax.axhline(CHANCE_MATCH_RATE, ls=":", lw=1.0, color="grey")
     ax.set_ylim(0, 1)
     _style(ax, "Adaptation after a silent target swap", "rounds since swap", "P(strategy matches)")
-    ax.legend(fontsize=7, frameon=False)
+    if not table.empty:
+        ax.legend(fontsize=7, frameon=False)
     fig.tight_layout()
     fig.savefig(path)
     plt.close(fig)

@@ -1,0 +1,317 @@
+{
+  "n_records": 192,
+  "n_episodes": 24,
+  "conditions": [
+    "full_history",
+    "no_history"
+  ],
+  "models": [
+    "Qwen/Qwen3.8-27B"
+  ],
+  "providers": [
+    "huggingface"
+  ],
+  "classifiers": [
+    "keyword[odd]"
+  ],
+  "overall_rates": [
+    {
+      "condition": "full_history",
+      "match_rate": 0.17708333333333334,
+      "match_lo": 0.08333333333333333,
+      "match_hi": 0.2916666666666667,
+      "n": 96,
+      "n_clusters": 12,
+      "success_rate": 0.3333333333333333,
+      "success_lo": 0.22916666666666666,
+      "success_hi": 0.4583333333333333
+    },
+    {
+      "condition": "no_history",
+      "match_rate": 0.0625,
+      "match_lo": 0.010416666666666666,
+      "match_hi": 0.125,
+      "n": 96,
+      "n_clusters": 12,
+      "success_rate": 0.34375,
+      "success_lo": 0.22916666666666666,
+      "success_hi": 0.44817708333332956
+    }
+  ],
+  "permutation_tests": [
+    {
+      "condition": "full_history",
+      "slope": 0.00694444444444444,
+      "slope_p": 0.34332833583208394,
+      "match_rate": 0.17708333333333334,
+      "type_alignment_p": 0.005997001499250375,
+      "n_rows": 96,
+      "n_episodes": 12
+    },
+    {
+      "condition": "no_history",
+      "slope": -0.007936507936507936,
+      "slope_p": 0.7871064467766117,
+      "match_rate": 0.0625,
+      "type_alignment_p": 0.8300849575212393,
+      "n_rows": 96,
+      "n_episodes": 12
+    }
+  ],
+  "strategy_persistence": [
+    {
+      "condition": "full_history",
+      "switch_rate": 0.44047619047619047,
+      "n": 84,
+      "repeat_rate": 0.5595238095238095
+    },
+    {
+      "condition": "no_history",
+      "switch_rate": 0.47619047619047616,
+      "n": 84,
+      "repeat_rate": 0.5238095238095238
+    }
+  ],
+  "feedback_contingency": [
+    {
+      "condition": "full_history",
+      "switch_after_A": 0.4482758620689655,
+      "switch_after_B": 0.43636363636363634,
+      "n_after_A": 29,
+      "n_after_B": 55,
+      "lose_shift_minus_win_shift": -0.011912225705329182
+    },
+    {
+      "condition": "no_history",
+      "switch_after_A": 0.4827586206896552,
+      "switch_after_B": 0.4727272727272727,
+      "n_after_A": 29,
+      "n_after_B": 55,
+      "lose_shift_minus_win_shift": -0.010031347962382475
+    }
+  ],
+  "adaptation_summary": {
+    "n_swap_episodes": 0,
+    "n_adapted": 0,
+    "median_rounds_to_adapt": null,
+    "pre_swap_match_old": null,
+    "post_swap_match_new": null,
+    "post_swap_match_old": null
+  },
+  "diagnostics": {
+    "classifier_target_agreement": {
+      "n": 192,
+      "n_with_target_signal": 74,
+      "argmax_agreement": 0.6621621621621622,
+      "pearson_r": {
+        "fairness": NaN,
+        "risk": 0.5785882646494406,
+        "expertise": 0.6805842131038793
+      },
+      "classifier_names": [
+        "keyword[odd]"
+      ],
+      "note": "argmax_agreement near 1.0 means the classifier and the target scorer are effectively the same instrument; interpret match rates with care and prefer an LLM judge or a disjoint lexicon."
+    },
+    "scenario_balance": {
+      "full_history": {
+        "identical_across_types": true,
+        "max_abs_deviation": 0,
+        "table": {
+          "expertise": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          },
+          "fairness": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          },
+          "risk": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          }
+        }
+      },
+      "no_history": {
+        "identical_across_types": true,
+        "max_abs_deviation": 0,
+        "table": {
+          "expertise": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          },
+          "fairness": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          },
+          "risk": {
+            "archive_order": 4,
+            "brochure_photo": 3,
+            "caterer": 4,
+            "entrance_plant": 2,
+            "lobby_paint": 3,
+            "meeting_slot": 2,
+            "offsite_venue": 1,
+            "paper_supplier": 1,
+            "podcast_outro": 3,
+            "room_layout": 3,
+            "shuttle_stop": 1,
+            "task_tool": 3,
+            "typeface": 2
+          }
+        }
+      }
+    },
+    "unparsed_classifications": 0,
+    "mean_message_words": 46.192708333333336,
+    "max_message_words": 77,
+    "over_80_words_fraction": 0.0
+  },
+  "figures": {
+    "match_rate_by_round": "results/qwen38_27b_gonogo/disjoint/figures/disjoint_fig1_match_rate_by_round.png",
+    "success_rate_by_round": "results/qwen38_27b_gonogo/disjoint/figures/disjoint_fig2_success_rate_by_round.png",
+    "strategy_distribution": "results/qwen38_27b_gonogo/disjoint/figures/disjoint_fig3_strategy_distribution.png",
+    "adaptation_after_swap": "results/qwen38_27b_gonogo/disjoint/figures/disjoint_fig4_adaptation_after_swap.png",
+    "condition_comparison": "results/qwen38_27b_gonogo/disjoint/figures/disjoint_fig5_condition_comparison.png",
+    "feedback_contingency": "results/qwen38_27b_gonogo/disjoint/figures/disjoint_fig6_feedback_contingency.png",
+    "recovery_after_wrong_start": "results/qwen38_27b_gonogo/disjoint/figures/disjoint_fig7_recovery_after_wrong_start.png"
+  },
+  "tables_dir": "results/qwen38_27b_gonogo/disjoint/tables",
+  "primary_history_interaction": {
+    "n": 192,
+    "n_episodes": 24,
+    "primary_term": "round:full_history",
+    "rows": [
+      {
+        "term": "intercept",
+        "coef": -2.2683045034352824,
+        "se": 0.48638782953952886,
+        "z": -4.663571671977736,
+        "p": 3.1076788046935117e-06,
+        "odds_ratio": 0.10348749410969144
+      },
+      {
+        "term": "round_0_to_1",
+        "coef": -0.9662521110315729,
+        "se": 0.7688829021734138,
+        "z": -1.2566960564479355,
+        "p": 0.20886371666062795,
+        "odds_ratio": 0.38050646499679946
+      },
+      {
+        "term": "full_history",
+        "coef": 0.5610741476641737,
+        "se": 0.7707251401274391,
+        "z": 0.7279821540158926,
+        "p": 0.4666245107234087,
+        "odds_ratio": 1.7525539913917558
+      },
+      {
+        "term": "round:full_history",
+        "coef": 1.3005185372957124,
+        "se": 1.065633699041097,
+        "z": 1.220417990221194,
+        "p": 0.22230646092201262,
+        "odds_ratio": 3.671199828177659
+      }
+    ],
+    "summary": "logistic regression  n=192  clusters=24  logLik=-66.91  converged=True\nterm                              coef        se        z         p\nintercept                      -2.2683    0.4864    -4.66 3.108e-06\nround_0_to_1                   -0.9663    0.7689    -1.26    0.2089\nfull_history                    0.5611    0.7707     0.73    0.4666\nround:full_history              1.3005    1.0656     1.22    0.2223"
+  },
+  "match_regression": {
+    "n": 192,
+    "levels": [
+      "full_history",
+      "no_history"
+    ],
+    "rows": [
+      {
+        "term": "intercept",
+        "coef": -1.7072303558623119,
+        "se": 0.5978663161314578,
+        "z": -2.855538620922957,
+        "p": 0.004296389715478536,
+        "odds_ratio": 0.18136742084452925
+      },
+      {
+        "term": "round_c",
+        "coef": 0.04775234696793221,
+        "se": 0.10540440105853995,
+        "z": 0.4530394033680938,
+        "p": 0.6505203682778395,
+        "odds_ratio": 1.0489108572017471
+      },
+      {
+        "term": "cond[no_history]",
+        "coef": -0.5610741421878116,
+        "se": 0.7707251472276998,
+        "z": -0.7279821402039321,
+        "p": 0.4666245191784645,
+        "odds_ratio": 0.5705958335025285
+      },
+      {
+        "term": "round_c:cond[no_history]",
+        "coef": -0.1857883661111751,
+        "se": 0.1522333912916782,
+        "z": -1.2204179683234264,
+        "p": 0.22230646921892389,
+        "odds_ratio": 0.8304493276064608
+      }
+    ],
+    "summary": "logistic regression  n=192  clusters=24  logLik=-66.91  converged=True\nterm                              coef        se        z         p\nintercept                      -1.7072    0.5979    -2.86  0.004296\nround_c                         0.0478    0.1054     0.45    0.6505\ncond[no_history]               -0.5611    0.7707    -0.73    0.4666\nround_c:cond[no_history]       -0.1858    0.1522    -1.22    0.2223"
+  }
+}

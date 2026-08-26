@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import warnings
 
 import numpy as np
 import pytest
@@ -17,6 +18,7 @@ from src.analysis import (
     load_dataframe,
     match_rate_by_round,
     per_condition_tests,
+    plot_adaptation,
     rounds_to_adapt,
     run_full_analysis,
     scenario_balance,
@@ -231,6 +233,17 @@ def test_scenario_balance_is_exact_by_construction(mock_run):
     bal = scenario_balance(df)
     for cond, info in bal.items():
         assert info["identical_across_types"], (cond, info)
+
+
+def test_empty_swap_plot_is_explicit_and_warning_free(tmp_path):
+    import pandas as pd
+
+    path = tmp_path / "empty-swap.png"
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter("always")
+        plot_adaptation(pd.DataFrame(), str(path), swap_round=5)
+    assert not [w for w in caught if "No artists with labels" in str(w.message)]
+    assert path.exists()
 
 
 def test_persistence_and_contingency_tables(mock_run):

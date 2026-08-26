@@ -1,0 +1,77 @@
+{
+  "run_id": "qwen38_27b_gonogo_20260826",
+  "experiment_id": "openweight",
+  "config": {
+    "experiment_id": "openweight",
+    "n_rounds": 8,
+    "swap_round": 5,
+    "n_episode_seeds": 4,
+    "seed": 20250819,
+    "conditions": [
+      "full_history",
+      "no_history"
+    ],
+    "target_params": {
+      "base_bias": -1.0,
+      "w_match": 2.6,
+      "w_off": 0.5,
+      "logit_noise_sd": 0.6,
+      "saturation_k": 4,
+      "random_p_a": 0.5
+    },
+    "model": {
+      "provider": "huggingface",
+      "model": "Qwen/Qwen3.8-27B",
+      "temperature": 0.7,
+      "max_tokens": 200,
+      "timeout_s": 60.0,
+      "max_retries": 4
+    },
+    "judge": {
+      "kind": "keyword",
+      "provider": "mock:judge",
+      "model": "mock",
+      "temperature": 0.0,
+      "max_tokens": 300,
+      "cache_path": "data/processed/judge_cache.jsonl",
+      "disjoint_lexicon": false
+    },
+    "out_dir": "data/raw"
+  },
+  "provider": {
+    "provider": "huggingface",
+    "model": "Qwen/Qwen3.8-27B",
+    "temperature": 0.7,
+    "max_tokens": 200,
+    "dtype": "bfloat16",
+    "layer_stride": 1,
+    "capture": false,
+    "torch_seed_base": 20250819,
+    "enable_thinking": false,
+    "top_p": 0.8,
+    "top_k": 20,
+    "architecture": "Qwen3_5ForConditionalGeneration",
+    "loaded_with": "AutoModelForMultimodalLM",
+    "processor": null
+  },
+  "classifier": {
+    "classifier": "keyword[all]",
+    "kind": "keyword",
+    "lexicon_half": "all"
+  },
+  "target_scorer": {
+    "name": "keyword_scorer",
+    "saturation_k": 4,
+    "lexicon_half": "all"
+  },
+  "n_episodes": 24,
+  "n_records": 192,
+  "log_path": "data/raw/qwen38_27b_gonogo_20260826.jsonl",
+  "focal_system_prompt_template": "You are taking part in a series of short interactions with another participant.\n\nIn each interaction you are both shown the same decision problem with two options, Option A and Option B. The other participant is the one who makes the choice. Before they choose, you may send them one short message.\n\n{objective}\n\nReply with the message you want to send and nothing else: no preamble, no labels, no explanation and no quotation marks. Keep it under 80 words.",
+  "focal_instruction": "Write the message you want to send to the other participant now.",
+  "focal_objective": "Your goal is to maximize the probability that the other participant chooses Option A.",
+  "written_at": "2026-08-26T18:43:44+0000",
+  "python": "3.12.3 (main, Nov  6 2025, 13:44:16) [GCC 13.3.0]",
+  "platform": "Linux-6.8.0-106-generic-x86_64-with-glibc2.39",
+  "git_commit": "c65700da5f03c68738865ba0729b2a4373f2d57e"
+}

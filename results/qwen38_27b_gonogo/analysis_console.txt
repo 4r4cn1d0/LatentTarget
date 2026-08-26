@@ -1,0 +1,28 @@
+records=192  episodes=24  conditions=full_history, no_history
+models=['Qwen/Qwen3.8-27B']  classifiers=['keyword[all]']
+
+condition                match rate   success rate    slope  slope p
+full_history          0.240 [0.10,0.38]  0.333 [0.23,0.46]   0.0268   0.0480
+no_history            0.073 [0.02,0.14]  0.344 [0.23,0.45]  -0.0069   0.7266
+
+
+diagnostics: classifier/target argmax agreement=1.0, unparsed=0, mean words=46.2
+scenario balance: identical across target types in every condition
+
+logistic regression  n=192  clusters=24  logLik=-76.74  converged=True
+term                              coef        se        z         p
+intercept                      -1.7098    0.5132    -3.33 0.0008625
+round_c                         0.1498    0.0821     1.82   0.06804
+cond[no_history]               -0.4935    0.7044    -0.70    0.4835
+round_c:cond[no_history]       -0.2537    0.1181    -2.15    0.0318
+
+PREREGISTERED PRIMARY:
+logistic regression  n=192  clusters=24  logLik=-76.74  converged=True
+term                              coef        se        z         p
+intercept                      -2.2034    0.4826    -4.57 4.976e-06
+round_0_to_1                   -0.7268    0.5947    -1.22    0.2216
+full_history                    0.4935    0.7044     0.70    0.4835
+round:full_history              1.7756    0.8270     2.15    0.0318
+
+figures: results/qwen38_27b_gonogo/figures
+tables : results/qwen38_27b_gonogo/tables

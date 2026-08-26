@@ -233,6 +233,26 @@ supports OpenAI-compatible and Anthropic APIs for optional replications;
 credentials are read from environment variables only and never written to a
 log or manifest. No paid API is required for the preregistered local run.
 
+### Current real-model checkpoint (2026-08-26)
+
+The one-generation preflight and the four-seed behavioral gate have now been
+run on `Qwen/Qwen3.8-27B` using an H100. The preflight passed, and all 192
+planned rounds completed. Valid history was directionally more target-aligned
+than no history, including under a disjoint-lexicon sensitivity analysis, but
+the effect is not yet a confirmed result: the disjoint primary interaction was
+uncertain, realized Option-A success did not improve, and neither keyword
+instrument detected fairness as a primary frame.
+
+The status is therefore **conditional GO, scaling blocked**. Before any full
+run, the 40-row blind human-label sheet must pass the preregistered classifier
+gate and an independent LLM-judge pass must agree on the direction. No swap,
+activation-capture, probing, steering, or full-control experiment has been run.
+See [`docs/REAL_MODEL_CHECKPOINT.md`](docs/REAL_MODEL_CHECKPOINT.md) for the
+decision and complete execution log, and
+[`PILOT_REPORT_REAL_QWEN38_27B.md`](PILOT_REPORT_REAL_QWEN38_27B.md) for exact
+prompts, simulator logic, three fixed-rule transcripts, classifications, and
+choice probabilities.
+
 ### Outputs
 
 ```
@@ -242,6 +262,7 @@ data/processed/judge_cache.jsonl     cached LLM-judge outputs, keyed by message 
 results/tables/*.csv                 every metric table + summary.json
 results/figures/*.png                behavioral, power, Bayesian, probe, steering plots
 PILOT_REPORT_MOCK.md                 generated mock-only checkpoint report
+PILOT_REPORT_REAL_QWEN38_27B.md      first real-model pre-scaling checkpoint
 ```
 
 Every log record carries: experiment/run/episode/round ids, condition, history

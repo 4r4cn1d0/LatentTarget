@@ -241,6 +241,50 @@ synthetic validation and from claims that still require a real model.
 - The next permitted step is exactly the one-generation preflight in
   `docs/POD_RUNBOOK.md`; the full experiment remains approval-gated.
 
+### 13. Real-model preflight and four-seed behavioral gate
+
+- Provisioned a RunPod Secure Cloud H100 80 GB at the listed $3.29/hour rate.
+  Community A100 and H100 allocation attempts returned no capacity and created
+  no billable pod.
+- Cloned and verified commit `c65700d` on the pod, installed the pinned project
+  requirements, and ran the entire suite: **233 tests passed in 29.30 seconds**.
+- The first Hugging Face download used the 30 GB root overlay because SSH did
+  not inherit `HF_HOME`. Moved the exact partial cache to `/workspace`, linked
+  the default cache path to it, verified root/workspace disk usage, and reran
+  with `HF_HOME` explicit. No experiment had started and no data were lost.
+- **VERIFIED:** the official `Qwen/Qwen3.8-27B` checkpoint loaded as
+  `Qwen3_5ForConditionalGeneration`; a real text generation succeeded; all 65
+  hidden-state positions had shape `[1, 65, 5120]`; and zero-vector steering at
+  hidden state 32 reproduced the unsteered greedy output exactly. Saved
+  `results/tables/preflight_qwen38_27b.json`.
+- Ran only the preregistered four-seed gate: `full_history` and `no_history`, 24
+  episodes, 192 generations, eight rounds, no activation capture. Exactly
+  **192 records** were written with zero process errors.
+- Shared-lexicon result: full-history match 0.240, no-history 0.073;
+  preregistered round-by-history coefficient +1.776 (`p=0.0318`). Marked this
+  as instrument-circular because classifier/target argmax agreement was 1.0.
+- Ran the zero-cost disjoint-lexicon sensitivity. Full-history match was 0.177
+  versus no-history 0.063; the interaction stayed positive but uncertain
+  (`p=0.222`), while type-alignment permutation values were 0.006 and 0.830.
+- **PROBLEM:** both keyword instruments detected zero fairness-primary messages
+  in the 32 full-history fairness rounds. Realized Option-A success was 0.333
+  with history and 0.344 without it. No swap condition was part of this gate.
+- Generated `PILOT_REPORT_REAL_QWEN38_27B.md`, a 40-row blind human-label sheet,
+  primary/disjoint tables and figures, Bayesian observer diagnostics, and a
+  five-transcript seeded sample. The raw 192-round JSONL is retained verbatim.
+- Fixed a post-run reporting-only defect: empty swap plots now state that no
+  swap episodes were run instead of emitting empty-legend warnings. Added
+  regression coverage; no metric calculation changed. The final local suite
+  passed **235 tests in 21.94 seconds**; bytecode compilation and diff checks
+  also passed. The 14 warnings were third-party deprecations only.
+- Copied and checksummed all artifacts before deletion. Deleted the pod with
+  `HTTP 204`, verified that the account listed zero pods, and unset the API
+  credential. Balance change was 1.1163558926 credits (about **$1.12**).
+- **CHECKPOINT:** conditional behavioral GO, but full scaling is blocked on the
+  preregistered human/independent-judge measurement gate and researcher
+  approval. No activation, probing, steering, swap, random-target, or shuffled-
+  history experiment has been run on the real model.
+
 ## Status legend for later entries
 
 - **VERIFIED:** executed locally and passed.

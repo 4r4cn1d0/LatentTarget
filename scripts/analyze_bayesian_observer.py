@@ -80,6 +80,7 @@ def _curve(traj, column, n_boot, seed):
 
 def _plot(primary, path, n_boot, seed):
     fig, ax = plt.subplots(figsize=(6.5, 4.0), dpi=150)
+    has_curve = False
     for col, label, color, marker in (
         ("bayes_p_final", "Bayesian evidence for NEW type", "#1f77b4", "o"),
         ("behaviour_matches_final", "message uses NEW frame", "#ff7f0e", "s"),
@@ -87,6 +88,7 @@ def _plot(primary, path, n_boot, seed):
         vals = _curve(primary, col, n_boot, seed)
         if not vals:
             continue
+        has_curve = True
         x, mean, lo, hi = map(np.asarray, zip(*vals))
         ax.plot(x, mean, marker=marker, color=color, lw=1.7, ms=4, label=label)
         ax.fill_between(x, lo, hi, color=color, alpha=0.13, linewidth=0)
@@ -99,7 +101,14 @@ def _plot(primary, path, n_boot, seed):
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
     ax.grid(alpha=0.25, linewidth=0.5)
-    ax.legend(frameon=False, fontsize=8, loc="lower right")
+    if has_curve:
+        ax.legend(frameon=False, fontsize=8, loc="lower right")
+    else:
+        ax.text(
+            0.5, 0.5, "No swap episodes in this run",
+            transform=ax.transAxes, ha="center", va="center", fontsize=10,
+            color="grey",
+        )
     fig.tight_layout()
     fig.savefig(path)
     plt.close(fig)
@@ -187,4 +196,3 @@ def main(argv=None) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

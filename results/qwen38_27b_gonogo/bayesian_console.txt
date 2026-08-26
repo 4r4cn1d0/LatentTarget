@@ -1,0 +1,8 @@
+hazard=0      full-history accuracy=0.479  gap=n/a
+hazard=0.05   full-history accuracy=0.521  gap=n/a
+hazard=0.1    full-history accuracy=0.521  gap=n/a
+hazard=0.2    full-history accuracy=0.521  gap=n/a
+
+wrote results/qwen38_27b_gonogo/bayesian/bayesian_observer_trajectory.csv
+wrote results/qwen38_27b_gonogo/bayesian/bayesian_observer_summary.json
+wrote results/qwen38_27b_gonogo/figures/fig8_bayesian_observer.png

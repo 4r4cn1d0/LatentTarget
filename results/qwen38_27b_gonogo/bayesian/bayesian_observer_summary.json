@@ -1,0 +1,58 @@
+{
+  "primary_hazard": 0.0,
+  "sensitivity_hazards": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "target_params": {
+    "base_bias": -1.0,
+    "w_match": 2.6,
+    "w_off": 0.5,
+    "logit_noise_sd": 0.6,
+    "saturation_k": 4,
+    "random_p_a": 0.5
+  },
+  "target_scorer_lexicon_half": "all",
+  "logs": [
+    "data/raw/qwen38_27b_gonogo_20260826.jsonl"
+  ],
+  "manifests": [
+    "data/raw/qwen38_27b_gonogo_20260826.manifest.json"
+  ],
+  "summaries": [
+    {
+      "hazard": 0.0,
+      "full_history_bayes_accuracy": 0.4791666666666667,
+      "no_history_bayes_accuracy": 0.3333333333333333,
+      "swap_trajectory_gap": {
+        "n_swap_episodes": 0
+      }
+    },
+    {
+      "hazard": 0.05,
+      "full_history_bayes_accuracy": 0.5208333333333334,
+      "no_history_bayes_accuracy": 0.3333333333333333,
+      "swap_trajectory_gap": {
+        "n_swap_episodes": 0
+      }
+    },
+    {
+      "hazard": 0.1,
+      "full_history_bayes_accuracy": 0.5208333333333334,
+      "no_history_bayes_accuracy": 0.3333333333333333,
+      "swap_trajectory_gap": {
+        "n_swap_episodes": 0
+      }
+    },
+    {
+      "hazard": 0.2,
+      "full_history_bayes_accuracy": 0.5208333333333334,
+      "no_history_bayes_accuracy": 0.3333333333333333,
+      "swap_trajectory_gap": {
+        "n_swap_episodes": 0
+      }
+    }
+  ],
+  "warning": "This observer is optimal only conditional on its simulator and change-hazard assumptions. It is never given the true swap round."
+}

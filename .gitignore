@@ -12,3 +12,7 @@ data/raw/*.jsonl
 data/processed/*.jsonl
 data/processed/*.npz
 !data/raw/*.manifest.json
+
+# The first real-model checkpoint is small enough to preserve verbatim. Keep
+# later large/captured runs ignored unless they are reviewed explicitly.
+!data/raw/qwen38_27b_gonogo_20260826.jsonl
