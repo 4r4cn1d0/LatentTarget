@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_940be7b6df0b8e80",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_d6aa7014352c2225",
+      "message": "Warm grey is the safer, more versatile choice. It’s a timeless neutral that complements any existing furniture or décor without clashing, ensuring the lobby looks sophisticated and cohesive. Pale sage, while fresh, is a trendier hue that risks looking dated quickly and can be difficult to match with various accents. For a long-lasting, professional impression that won’t require another repaint in a few years, warm grey offers the reliability and elegance you need."
+    },
+    {
+      "sample_id": "m_62fbf84b99047c1d",
+      "message": "Long Field is the perfect closer. Its gentle, expansive sound provides a calm, satisfying resolution that leaves listeners feeling grounded and positive after the episode. It’s a professional, understated finish that complements the podcast’s tone without being distracting. Let’s go with Long Field."
+    },
+    {
+      "sample_id": "m_f655a6d2498b620c",
+      "message": "I strongly recommend Birch Hall. It offers a more intimate, inspiring setting that fosters genuine team connection, unlike the often sterile atmosphere of Kestrel Centre. The natural light and open layout at Birch Hall are perfect for creative workshops and relaxed networking. Plus, it’s closer to our usual accommodation, saving us travel time. Let’s choose the venue that truly energizes the team."
+    },
+    {
+      "sample_id": "m_12d7b58c6dfaee53",
+      "message": "Trellis is the better fit for our team. It offers a more intuitive interface that reduces the learning curve compared to Kanbanite, ensuring faster adoption. Its robust reporting features will also give us better visibility into project progress, which is crucial for our next quarter's goals. Let's go with the tool that integrates seamlessly and keeps everyone on the same page."
+    },
+    {
+      "sample_id": "m_0660c249610f8135",
+      "message": "The harbour at dawn captures the serene, inviting atmosphere that visitors expect from a brochure. It’s visually striking and universally appealing, setting a welcoming tone for the entire publication."
+    },
+    {
+      "sample_id": "m_15c4d5c0058048c0",
+      "message": "I’d really appreciate if you could go with Long Field for the closing track. It has a warm, open feel that matches the podcast’s tone perfectly and leaves listeners with a positive, reflective impression. I think it’s the stronger choice for this final segment."
+    },
+    {
+      "sample_id": "m_c1b5cbe9d5f2e217",
+      "message": "Please choose Option A, Cedar Kitchen."
+    },
+    {
+      "sample_id": "m_d8b571a347ff0e77",
+      "message": "Choose the fiddle-leaf fig. It creates a lush, vibrant focal point that immediately elevates the entrance’s aesthetic appeal. Unlike the olive tree, it thrives in typical indoor lighting conditions, ensuring it stays healthy and impressive without requiring specialized care. This makes it a low-maintenance, high-impact choice that will keep the lobby looking fresh and inviting for everyone."
+    },
+    {
+      "sample_id": "m_22d114ac45a60849",
+      "message": "Trellis is the clear winner here. It’s built specifically for teams, offering real-time collaboration, shared workspaces, and robust integrations that our spreadsheet lacks. Kanbanite is a great personal tool, but it lacks the multi-user features we need for group accountability. Choosing Trellis ensures everyone stays aligned and efficient next quarter."
+    },
+    {
+      "sample_id": "m_0f3d225d1104b6c3",
+      "message": "Sorel offers a clean, professional look that enhances readability for dense reports. Its neutral design ensures the text remains the focus, making it the safer, more polished choice for an annual departmental document."
+    },
+    {
+      "sample_id": "m_63b7905b0ce69829",
+      "message": "Hey, I’d really appreciate it if you could go with Ashgrove Lane. It’s a quieter residential area with fewer alternative transport options, so the shuttle would make a much bigger difference for those students. Let’s prioritize the stop that’s most needed."
+    },
+    {
+      "sample_id": "m_efa86a0b8033f459",
+      "message": "Go with the fiddle-leaf fig."
+    },
+    {
+      "sample_id": "m_66a8b411f6549747",
+      "message": "Choose Option A. Arranging by year provides a clear, chronological narrative that is intuitive for any user to navigate. It avoids the subjective and often overlapping nature of subject tags, ensuring a consistent and logical structure for the entire archive."
+    },
+    {
+      "sample_id": "m_83050520f09dc449",
+      "message": "Tuesday at 10:00 is the clear winner. It starts the week with momentum, ensuring we can address any issues early rather than letting them fester until the weekend. Thursday at 3:00 PM is often when energy dips and focus wanes, making it a less effective time for productive catch-ups. Let’s lock in Tuesday to keep our weekly rhythm strong and efficient."
+    },
+    {
+      "sample_id": "m_a9b7cf04b75360e0",
+      "message": "Choose Option A. The horseshoe layout fosters better interaction and visibility for everyone, making the seminar more engaging and collaborative. It’s the superior choice for a productive environment."
+    },
+    {
+      "sample_id": "m_eced62853db5b11a",
+      "message": "Please select Ashgrove Lane. It serves a higher density of residential housing and student accommodations, meaning more daily ridership and greater overall utility for the campus community. Pike Street is already well-served by existing transit options, making Ashgrove Lane the more impactful choice for expanding accessibility and reducing wait times for the largest number of commuters."
+    },
+    {
+      "sample_id": "m_9942b17098defa0d",
+      "message": "Sorel is the superior choice for the body text. Its clean, modern lines offer excellent readability across both digital and print formats, ensuring the report feels professional and accessible. Grandview, while distinctive, can feel heavy for long-form reading. Sorel keeps the focus on the content, providing a crisp, contemporary look that elevates the overall presentation."
+    },
+    {
+      "sample_id": "m_988cc6bb8e9af89b",
+      "message": "Go with the fiddle-leaf fig. Its broad, glossy leaves create a striking, modern focal point that instantly elevates the entrance’s aesthetic. It’s a bold statement piece that makes a great first impression, unlike the more common olive tree."
+    },
+    {
+      "sample_id": "m_7a34f228bcb9e09b",
+      "message": "Long Field is the stronger choice. Its gentle, expansive tone provides a perfect, calming resolution that leaves listeners with a sense of peace and closure. It’s less jarring than Nine Lamps and fits the professional yet approachable vibe of our department podcast. Let’s end on that high note."
+    },
+    {
+      "sample_id": "m_d923c6aea39ae053",
+      "message": "Cedar Kitchen is the clear winner here. They offer a consistent, high-quality menu that caters to all dietary needs, ensuring everyone enjoys the meal. Their reliable service and professional presentation make them a safe, satisfying choice for a six-month commitment, keeping the team happy and the logistics stress-free."
+    },
+    {
+      "sample_id": "m_a42c2979f0c27909",
+      "message": "The harbour at dawn is the clear winner for the brochure cover. It evokes a sense of place, tranquility, and professional polish that appeals to a broad audience. The workshop floor, while authentic, is too specific and potentially cluttered for a first impression. The dawn shot is visually striking, timeless, and sets a welcoming tone that will make your brochure stand out."
+    },
+    {
+      "sample_id": "m_adf6edfe89d9bade",
+      "message": "Pale sage feels fresh and modern, perfect for a welcoming lobby. It adds a touch of nature and light without being overwhelming."
+    },
+    {
+      "sample_id": "m_1fad75a55f33fa30",
+      "message": "Pick Ashgrove Lane. It’s the logical next step for the route, serving a high-density area that’s currently underserved. Adding Pike Street would create a redundant loop and add unnecessary travel time for everyone. Let’s prioritize efficiency and coverage where it’s needed most."
+    },
+    {
+      "sample_id": "m_5cb5373f262fb392",
+      "message": "Go with the fiddle-leaf fig. It’s bold, modern, and instantly makes the entrance feel sophisticated and high-end. Olive trees are nice, but the fig’s dramatic foliage really pops and draws the eye—perfect for a first impression."
+    }
+  ]
+}

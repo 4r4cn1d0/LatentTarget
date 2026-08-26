@@ -285,6 +285,58 @@ synthetic validation and from claims that still require a real model.
   approval. No activation, probing, steering, swap, random-target, or shuffled-
   history experiment has been run on the real model.
 
+### 14. Independent measurement remediation (no new focal generations)
+
+- Added a separate blind judge path using the logged-in Codex CLI and
+  `gpt-5.6-luna`, a different family from the Qwen focal model. Inputs are
+  deduplicated, deterministically shuffled, strict-schema constrained, cached,
+  resumable, and preserved as exact batch input/output plus integrity metadata.
+- Privacy-sanitized the eight process metadata files before commit. Exact judge
+  inputs and final outputs are unchanged; local temporary paths, session IDs,
+  duplicated prompts, and unrelated environment warnings were removed from
+  process logs while their SHA-256 hashes and byte counts were retained.
+- Reclassified all 192 saved rows (189 unique messages) in 8 batches. There
+  were zero missing IDs, duplicates, schema failures, parse failures, or failed
+  batch processes. No focal model, GPU pod, or new target response was run.
+- Added a structural artifact audit. **VERIFIED:** each sample exposed only
+  `sample_id` and `message`; condition, target, round, scenario, feedback, and
+  choice were absent. Reconstructed prompt hashes, saved output hashes, sample
+  sets, and return codes all pass.
+- Independent result: full-history match 0.146 [0.063, 0.240] versus no-history
+  0.042 [0.010, 0.073]. The preregistered history-by-round coefficient was
+  +1.629 (OR 5.10, two-sided `p=0.058`). Full-history/no-history type-alignment
+  permutation values were 0.047/0.846. Realized success remained 0.333/0.344.
+  This is encouraging and underpowered, not confirmatory.
+- Keyword/independent raw agreement was 0.630, Cohen's kappa 0.246, and 71/192
+  primary labels changed. Target/judge argmax agreement was 0.541 rather than
+  the circular 1.00 from the shared keyword instrument.
+- Diagnosed the construct failure over **all rows**, not selected examples:
+  the independent judge recovered 13 fairness messages and all 13 had received
+  zero target fairness reward. Full-history fairness had 5/32 matches versus
+  0/32 without history. Conversely, the independent judge found 0/32 expertise
+  matches in full-history expertise episodes. It rejected all 36 old keyword
+  expertise labels; 25 contained `professional` and 10 generic `experience`.
+- Regenerated the concealed 40-row label key against the independent judge.
+  **VERIFIED:** the public blind CSV remained byte-identical (SHA-256
+  `0c5600bce298f8e227f46ae80fa0253ddd9c61870d61d53276b6ac98628ca618`)
+  and still has 40/40 blank human labels.
+- Made the human gate machine-readable and fail-closed: complete sheet, kappa
+  at least 0.60, and matching full-history direction are all required. Removed
+  the incorrect universal “1/3 chance” statement because `other` is a valid
+  non-matching label.
+- Generated `PILOT_REPORT_REAL_QWEN38_27B_INDEPENDENT.md` with the exact prompts,
+  target logic, three fixed-rule transcripts, independent labels, probabilities,
+  raw messages, and automatically surfaced failures.
+- Added `docs/EVAL-REVIEW.md` and `docs/MEASUREMENT_REMEDIATION.md`. v1 is frozen;
+  a human-validated, separately versioned scorer v2 is required before a
+  two-seed (312-generation) all-controls checkpoint can be proposed.
+- **OPEN / HUMAN-BLOCKED:** 0/40 blind rows are labelled. No paid run is
+  authorized until that gate and the v2 calibration gate pass.
+- **VERIFIED:** the expanded local suite passed 254 tests in 21.28 seconds with
+  14 third-party deprecation warnings; bytecode compilation, `git diff
+  --check`, structural judge audit, 36-file JSON parsing, both 192-row JSONL
+  parses, deterministic artifact hashes, and credential-pattern scans passed.
+
 ## Status legend for later entries
 
 - **VERIFIED:** executed locally and passed.

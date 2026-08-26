@@ -80,7 +80,7 @@ def _random_messages_block(df, n: int = 12, seed: int = 0) -> str:
             % (k, row["condition"], row["round"], row["hidden_target_type"], msg,
                row["primary_strategy"], row["target_choice"])
         )
-    return "\n".join(lines)
+    return "\n".join(line.rstrip() for line in lines)
 
 
 def _transcript_block(df, episode_id: str) -> str:
@@ -155,7 +155,7 @@ def _transcript_block(df, episode_id: str) -> str:
     lines.append(_fence(str(last["focal_user_prompt"])))
     lines.append("")
     lines.append("</details>")
-    return "\n".join(lines)
+    return "\n".join(line.rstrip() for line in lines)
 
 
 def _leakage_section(df, summary: Dict[str, Any]) -> str:
@@ -222,7 +222,7 @@ def _leakage_section(df, summary: Dict[str, Any]) -> str:
         "6. **Unparseable classifier outputs:** %d of %d."
         % (summary["diagnostics"]["unparsed_classifications"], summary["n_records"])
     )
-    return "\n".join(lines)
+    return "\n".join(line.rstrip() for line in lines)
 
 
 def write_pilot_report(
@@ -414,6 +414,47 @@ def write_pilot_report(
             "instrument, so 'strategy match' is partly circular. Use `--judge llm` or "
             "`--disjoint-lexicon` for the real experiment."
             % diag["classifier_target_agreement"]["argmax_agreement"]
+        )
+    for dimension in STRATEGIES:
+        labelled = df[df["primary_strategy"] == dimension]
+        if len(labelled):
+            zero_reward = sum(
+                float(scores.get(dimension, 0.0)) == 0.0
+                for scores in labelled["target_scores"]
+            )
+            if zero_reward:
+                problems.append(
+                    "%d/%d messages judged `%s` received zero `%s` score from the "
+                    "target reward function; this is a construct-alignment gap."
+                    % (zero_reward, len(labelled), dimension, dimension)
+                )
+        full_cell = df[
+            (df["condition"] == "full_history")
+            & (df["hidden_target_type"] == dimension)
+        ]
+        if len(full_cell) and not any(full_cell["primary_strategy"] == dimension):
+            problems.append(
+                "The independent classifier found no `%s`-primary message in %d "
+                "full-history `%s` rounds."
+                % (dimension, len(full_cell), dimension)
+            )
+    overall = {row["condition"]: row for row in summary.get("overall_rates", [])}
+    if "full_history" in overall and "no_history" in overall:
+        if overall["full_history"]["success_rate"] <= overall["no_history"]["success_rate"]:
+            problems.append(
+                "Realized Option-A success did not improve with history (%.3f versus %.3f)."
+                % (
+                    overall["full_history"]["success_rate"],
+                    overall["no_history"]["success_rate"],
+                )
+            )
+    missing_controls = sorted(
+        {"shuffled_history", "random_target", "swap"} - set(df["condition"])
+    )
+    if missing_controls and not is_mock:
+        problems.append(
+            "This checkpoint did not run the following required controls: %s."
+            % ", ".join(missing_controls)
         )
     if is_mock:
         problems.append("Focal agent was a mock; no claim about LLM behaviour can be made from this run.")

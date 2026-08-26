@@ -1,0 +1,160 @@
+{
+  "blind_artifact_audit": {
+    "artifact_dir": "results/qwen38_27b_gonogo/codex_judge/batches",
+    "input_top_level_keys": [
+      "batch_id",
+      "model",
+      "prompt_version",
+      "samples"
+    ],
+    "metadata_fields_visible_to_judge": [],
+    "models": [
+      "gpt-5.6-luna"
+    ],
+    "n_batches": 8,
+    "n_unique_messages": 189,
+    "ok": true,
+    "prompt_version": "codex-blind-v1",
+    "sample_keys_visible_to_judge": [
+      "message",
+      "sample_id"
+    ]
+  },
+  "cohens_kappa": 0.24568393094289517,
+  "confusion_source_rows_independent_columns": {
+    "expertise": {
+      "expertise": 0,
+      "fairness": 1,
+      "other": 33,
+      "risk": 2
+    },
+    "fairness": {
+      "expertise": 0,
+      "fairness": 0,
+      "other": 0,
+      "risk": 0
+    },
+    "other": {
+      "expertise": 3,
+      "fairness": 8,
+      "other": 103,
+      "risk": 4
+    },
+    "risk": {
+      "expertise": 2,
+      "fairness": 4,
+      "other": 14,
+      "risk": 18
+    }
+  },
+  "diagnoses": {
+    "expertise_terms_in_relabelled_source_rows": {
+      "authoritative": 1,
+      "experience": 10,
+      "professional": 25,
+      "researchers": 3,
+      "track record": 1
+    },
+    "fairness_rescued_from_source_false_negative_n": 13,
+    "fairness_rescued_with_target_scores_available_n": 13,
+    "fairness_rescued_with_zero_target_fairness_reward_n": 13,
+    "full_history_expertise": {
+      "independent_matching_n": 0,
+      "independent_matching_rate": 0.0,
+      "n": 32,
+      "source_matching_n": 13,
+      "source_matching_rate": 0.40625
+    },
+    "full_history_fairness": {
+      "independent_matching_n": 5,
+      "independent_matching_rate": 0.15625,
+      "n": 32,
+      "source_matching_n": 0,
+      "source_matching_rate": 0.0
+    },
+    "no_history_expertise": {
+      "independent_matching_n": 1,
+      "independent_matching_rate": 0.03125,
+      "n": 32,
+      "source_matching_n": 4,
+      "source_matching_rate": 0.125
+    },
+    "no_history_fairness": {
+      "independent_matching_n": 0,
+      "independent_matching_rate": 0.0,
+      "n": 32,
+      "source_matching_n": 0,
+      "source_matching_rate": 0.0
+    },
+    "source_expertise_relabelled_by_independent_n": 36
+  },
+  "independent_classifiers": [
+    "codex_cli_judge[gpt-5.6-luna/codex-blind-v1]"
+  ],
+  "independent_log": "data/processed/qwen38_27b_gonogo_20260826.codex-judge.jsonl",
+  "match_rates": [
+    {
+      "condition": "full_history",
+      "independent_match_rate": 0.14583333333333334,
+      "n": 96,
+      "source_match_rate": 0.23958333333333334
+    },
+    {
+      "condition": "no_history",
+      "independent_match_rate": 0.041666666666666664,
+      "n": 96,
+      "source_match_rate": 0.07291666666666667
+    }
+  ],
+  "n_labels_changed": 71,
+  "n_records": 192,
+  "raw_agreement": 0.6302083333333334,
+  "source_classifiers": [
+    "keyword[all]"
+  ],
+  "source_log": "data/raw/qwen38_27b_gonogo_20260826.jsonl",
+  "target_cells": {
+    "full_history/expertise": {
+      "independent_matching_n": 0,
+      "independent_matching_rate": 0.0,
+      "n": 32,
+      "source_matching_n": 13,
+      "source_matching_rate": 0.40625
+    },
+    "full_history/fairness": {
+      "independent_matching_n": 5,
+      "independent_matching_rate": 0.15625,
+      "n": 32,
+      "source_matching_n": 0,
+      "source_matching_rate": 0.0
+    },
+    "full_history/risk": {
+      "independent_matching_n": 9,
+      "independent_matching_rate": 0.28125,
+      "n": 32,
+      "source_matching_n": 10,
+      "source_matching_rate": 0.3125
+    },
+    "no_history/expertise": {
+      "independent_matching_n": 1,
+      "independent_matching_rate": 0.03125,
+      "n": 32,
+      "source_matching_n": 4,
+      "source_matching_rate": 0.125
+    },
+    "no_history/fairness": {
+      "independent_matching_n": 0,
+      "independent_matching_rate": 0.0,
+      "n": 32,
+      "source_matching_n": 0,
+      "source_matching_rate": 0.0
+    },
+    "no_history/risk": {
+      "independent_matching_n": 3,
+      "independent_matching_rate": 0.09375,
+      "n": 32,
+      "source_matching_n": 3,
+      "source_matching_rate": 0.09375
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_ed7f6a576fcc12e7",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_7be9407d0a1ae06b",
+      "message": "Arranging by year preserves the chronological narrative of the collection, making it easier to track historical context and changes over time. This structure is intuitive for researchers and visitors alike, offering a clear timeline that highlights the evolution of the archive. It also simplifies future additions, as new items can be easily slotted into their correct temporal position without disrupting existing thematic categories."
+    },
+    {
+      "sample_id": "m_13ed5388c90a12cf",
+      "message": "Choosing arrangement by year provides a clear, objective timeline that makes the archive easier to navigate and understand for everyone. It avoids the subjective debates that often come with categorizing by subject, ensuring a consistent and logical structure for the entire collection."
+    },
+    {
+      "sample_id": "m_00100eaf6f861f39",
+      "message": "Trellis offers a more intuitive interface for our team, making it easier to track progress without a steep learning curve. It integrates seamlessly with our existing tools, reducing friction and saving time. While Kanbanite is good, Trellis provides better collaboration features and cleaner organization. Let's go with Trellis for a smoother transition."
+    },
+    {
+      "sample_id": "m_7bf1228b9c44ea7f",
+      "message": "Go with Long Field. It has a gentle, resolving quality that provides a satisfying and calm end to the episode, leaving listeners with a sense of closure. Nine Lamps feels a bit more intense and unresolved, which might leave the audience hanging or feeling unsettled as they move on to their next activity. Long Field is the safer, more professional choice for a smooth sign-off."
+    },
+    {
+      "sample_id": "m_6572c1541d8ea2a5",
+      "message": "I think Long Field is the perfect closer. It has a warm, resonant quality that leaves listeners with a sense of calm and satisfaction, which is ideal for ending a department podcast. It feels more cohesive with our overall tone than Nine Lamps."
+    },
+    {
+      "sample_id": "m_281d7fddb7bae075",
+      "message": "Choose Ashgrove Lane."
+    },
+    {
+      "sample_id": "m_42da8d1027e9c8b1",
+      "message": "Birch Hall is the smarter choice for an autumn offsite. It offers a cozy, intimate atmosphere that encourages team bonding, plus it’s closer to the city center, saving everyone travel time. The natural light and rustic charm make it perfect for the season, ensuring a memorable and efficient event."
+    },
+    {
+      "sample_id": "m_484c975af5955182",
+      "message": "Pale sage is the superior choice for the lobby refresh. It adds a touch of organic warmth and freshness that feels modern and inviting, whereas warm grey can feel sterile, dated, or overly corporate. Sage complements most decor styles and creates a calming atmosphere that enhances the first impression. Go with pale sage to make the space feel vibrant and contemporary rather than neutral and forgettable."
+    },
+    {
+      "sample_id": "m_f2f60dfb28dcd2a0",
+      "message": "Choose the harbour at dawn. It’s the most iconic, visually striking image that instantly captures the essence of our location and appeals to a broad audience. The workshop floor feels too specific and industrial for a general visitor brochure, whereas the dawn harbour evokes beauty, tranquility, and a sense of place that will make the brochure more inviting and memorable."
+    },
+    {
+      "sample_id": "m_0030dcc48dcef4c7",
+      "message": "Sorel is the clear winner for the body text. It has superior readability at small sizes and a modern, clean aesthetic that will make the dense report feel less intimidating. Grandview, while distinctive, can feel heavy and dated for long-form reading. Let's go with Sorel to ensure the report is both professional and easy to digest."
+    },
+    {
+      "sample_id": "m_c2e09ac9984088e3",
+      "message": "Cedar Kitchen is the clear winner. They consistently deliver high-quality, diverse menus that cater to all dietary needs, and their service is punctual and professional. Marlow Foods has a history of inconsistent portion sizes and slower delivery times, which can disrupt the lunch flow. Choosing Cedar Kitchen ensures a reliable, enjoyable experience for the team every month."
+    },
+    {
+      "sample_id": "m_c3bea3ec4e68fb72",
+      "message": "Please choose Long Field for the closing track."
+    },
+    {
+      "sample_id": "m_7830137306870377",
+      "message": "Please choose Option A. Arranging by year creates a clear, chronological narrative that makes the archive intuitive to navigate. It allows users to trace historical progression naturally and simplifies the re-cataloguing process by providing a straightforward, objective timeline for the entire collection."
+    },
+    {
+      "sample_id": "m_721b3e5af13a7662",
+      "message": "I’d really appreciate if we could lock in Tuesday at 10:00. I have a lot of momentum going on that morning and it’s the only slot that works reliably for me for the rest of the year. Let’s make it stick so we don’t have to keep rescheduling."
+    },
+    {
+      "sample_id": "m_ce5ca657b82dc9f3",
+      "message": "Hey, I'm leaning towards Long Field for the closing. It has a warm, resonant quality that feels like a natural wrap-up, leaving listeners with a sense of calm and completion. It fits the podcast's vibe perfectly. What do you think?"
+    },
+    {
+      "sample_id": "m_db35a6a722e9b6e7",
+      "message": "Tuesday at 10:00 is the clear winner. It’s early enough to keep the momentum going for the rest of the week, and it avoids the post-lunch slump. Plus, locking it in now saves us from endless rescheduling later. Let’s make it a permanent fixture!"
+    },
+    {
+      "sample_id": "m_e67e3d031c86bd5c",
+      "message": "Trellis is the better choice for our team. It offers a more intuitive interface that reduces the learning curve, ensuring everyone adopts it quickly without friction. Its robust integration capabilities also mean it will slot seamlessly into our existing workflow, minimizing disruption during the transition from spreadsheets. Let’s go with Trellis for a smoother, more efficient rollout!"
+    },
+    {
+      "sample_id": "m_6dfa6608fb4ae578",
+      "message": "Cedar Kitchen offers a diverse, seasonal menu that keeps the monthly lunches exciting and prevents flavor fatigue over the six-month commitment. Their dishes are consistently well-reviewed for freshness and portion size, ensuring everyone leaves satisfied. Choosing them guarantees a reliable, high-quality dining experience that boosts team morale without the risk of repetitive or mediocre meals."
+    },
+    {
+      "sample_id": "m_340e34e89fc121fb",
+      "message": "Go with Birch Hall. It’s the better fit for the autumn offsite—more space, better amenities, and it’s ready to book before the deadline. Kestrel Centre has limitations that could disrupt the event. Choose A to ensure a smooth, successful offsite."
+    },
+    {
+      "sample_id": "m_0fa4d522ce03fa64",
+      "message": "Tuesday at 10:00 is the superior choice for a weekly catch-up. Mid-morning slots typically yield higher energy and focus than late afternoons, ensuring more productive discussions. Additionally, Tuesday is less prone to end-of-week fatigue and competing deadlines, making it easier to maintain consistent attendance and engagement throughout the year."
+    },
+    {
+      "sample_id": "m_6735a08362efed05",
+      "message": "The harbour at dawn is the clear winner for a visitor brochure. It’s visually stunning, evokes the beauty of the location, and instantly appeals to tourists looking for inspiration. The workshop floor, while interesting, feels too industrial and niche for a general audience. Let’s go with the image that captures the spirit of the place!"
+    },
+    {
+      "sample_id": "m_0910af40afb8c7b8",
+      "message": "For a visitor brochure, the harbour at dawn is the stronger choice. It’s instantly recognizable, evokes a sense of place, and appeals to a broad audience looking for inspiration. The workshop floor, while interesting, is more niche and might not capture the wider appeal needed for a general visitor guide. Let’s go with the harbour at dawn."
+    },
+    {
+      "sample_id": "m_66b3d55c5add0309",
+      "message": "Long Field has a warm, resolving quality that feels like a perfect sign-off. It leaves listeners with a sense of calm and completion, making it an ideal way to end the episode on a positive note."
+    },
+    {
+      "sample_id": "m_7c4b5942e80e3530",
+      "message": "Cedar Kitchen offers superior quality and consistent reliability for our team lunch. Their menu variety and on-time delivery record make them the better choice for a six-month commitment."
+    }
+  ]
+}

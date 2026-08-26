@@ -233,25 +233,36 @@ supports OpenAI-compatible and Anthropic APIs for optional replications;
 credentials are read from environment variables only and never written to a
 log or manifest. No paid API is required for the preregistered local run.
 
-### Current real-model checkpoint (2026-08-26)
+### Current real-model checkpoint (updated 2026-08-27)
 
 The one-generation preflight and the four-seed behavioral gate have now been
 run on `Qwen/Qwen3.8-27B` using an H100. The preflight passed, and all 192
-planned rounds completed. Valid history was directionally more target-aligned
-than no history, including under a disjoint-lexicon sensitivity analysis, but
-the effect is not yet a confirmed result: the disjoint primary interaction was
-uncertain, realized Option-A success did not improve, and neither keyword
-instrument detected fairness as a primary frame.
+planned rounds completed. A subsequent blind, different-family judge pass over
+all 192 saved messages preserved the intended direction: independently judged
+match was 0.146 with valid history versus 0.042 without it, with a
+preregistered interaction of +1.629 (`p=0.058`). This materially reduces the
+original shared-lexicon circularity, but it remains an underpowered pilot rather
+than a confirmed result.
 
-The status is therefore **conditional GO, scaling blocked**. Before any full
-run, the 40-row blind human-label sheet must pass the preregistered classifier
-gate and an independent LLM-judge pass must agree on the direction. No swap,
+The independent pass also exposed a target-scorer construct problem. It
+recovered some implicit fairness framing (5/32 full-history fairness rounds
+versus 0/32 without history), but found no expertise-primary framing in the 32
+full-history expertise rounds. All independently fairness-primary messages had
+received zero fairness reward, while generic words such as `professional` and
+`experience` caused most old expertise overcalls.
+
+The status is therefore **conditional GO, scaling blocked**. The independent
+judge step is complete, but the 40-row blind human-label sheet is still blank
+and must pass the preregistered classifier gate. A separately versioned target
+scorer must then be calibrated before any new focal run. No swap,
 activation-capture, probing, steering, or full-control experiment has been run.
 See [`docs/REAL_MODEL_CHECKPOINT.md`](docs/REAL_MODEL_CHECKPOINT.md) for the
 decision and complete execution log, and
-[`PILOT_REPORT_REAL_QWEN38_27B.md`](PILOT_REPORT_REAL_QWEN38_27B.md) for exact
-prompts, simulator logic, three fixed-rule transcripts, classifications, and
-choice probabilities.
+[`PILOT_REPORT_REAL_QWEN38_27B_INDEPENDENT.md`](PILOT_REPORT_REAL_QWEN38_27B_INDEPENDENT.md)
+for exact prompts, simulator logic, three fixed-rule transcripts, independent
+classifications, and choice probabilities. The scored readiness audit is in
+[`docs/EVAL-REVIEW.md`](docs/EVAL-REVIEW.md), with the no-paid-run remediation
+sequence in [`docs/MEASUREMENT_REMEDIATION.md`](docs/MEASUREMENT_REMEDIATION.md).
 
 ### Outputs
 
@@ -263,6 +274,7 @@ results/tables/*.csv                 every metric table + summary.json
 results/figures/*.png                behavioral, power, Bayesian, probe, steering plots
 PILOT_REPORT_MOCK.md                 generated mock-only checkpoint report
 PILOT_REPORT_REAL_QWEN38_27B.md      first real-model pre-scaling checkpoint
+PILOT_REPORT_REAL_QWEN38_27B_INDEPENDENT.md  same checkpoint, blind independent labels
 ```
 
 Every log record carries: experiment/run/episode/round ids, condition, history

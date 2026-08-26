@@ -1,0 +1,17 @@
+condition,round,mean,ci_lo,ci_hi,n,n_clusters
+full_history,1,0.0,0.0,0.0,10,10
+full_history,2,0.1,0.0,0.3,10,10
+full_history,3,0.2,0.0,0.5,10,10
+full_history,4,0.0,0.0,0.0,10,10
+full_history,5,0.1,0.0,0.3,10,10
+full_history,6,0.1,0.0,0.3,10,10
+full_history,7,0.0,0.0,0.0,10,10
+full_history,8,0.3,0.0,0.6,10,10
+no_history,1,0.0,0.0,0.0,12,12
+no_history,2,0.0,0.0,0.0,12,12
+no_history,3,0.08333333333333333,0.0,0.25,12,12
+no_history,4,0.25,0.0,0.5,12,12
+no_history,5,0.0,0.0,0.0,12,12
+no_history,6,0.0,0.0,0.0,12,12
+no_history,7,0.0,0.0,0.0,12,12
+no_history,8,0.0,0.0,0.0,12,12

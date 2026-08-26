@@ -1,0 +1,91 @@
+{
+  "batch_id": "batch_e4e29cd97e435bfb",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_1671e18a649d1c04",
+      "message": "Cedar Kitchen is the smarter choice for a six-month commitment. Consistency is key when you’re locking in a caterer for half a year, and Cedar has a proven track record of reliable, high-quality meals that keep the team satisfied month after month. Marlow Foods, while tasty, has a less predictable menu and service history. For long-term planning, you want the stability and trustworthiness that Cedar Kitchen offers to avoid any hiccups down the line."
+    },
+    {
+      "sample_id": "m_20206d0d32e83b53",
+      "message": "Cedar Kitchen is the clear winner for our monthly lunches. They specialize in fresh, high-quality meals that consistently impress, offering a variety of options that cater to different dietary needs without the usual fuss. Marlow Foods tends to be more predictable and less exciting. Cedar’s attention to detail and flavor will make the team lunch a highlight of the month, boosting morale and making the coordination process smoother. Let’s book Cedar Kitchen for a consistently enjoyable experience."
+    },
+    {
+      "sample_id": "m_3a3e09a053fe828f",
+      "message": "Tuesday at 10:00 is the best choice. It’s early in the week, so we can address any issues promptly before they escalate. Plus, it avoids the post-lunch energy dip that often hits Thursday afternoons, ensuring we stay focused and productive throughout the year."
+    },
+    {
+      "sample_id": "m_fcb24858cbdb0b0f",
+      "message": "Harbour at dawn captures the region's iconic beauty and serenity, offering a universally appealing visual that invites exploration. It sets a welcoming, aspirational tone perfect for attracting a broad audience to the brochure."
+    },
+    {
+      "sample_id": "m_c8aaf7f6950c4dc5",
+      "message": "Trellis is the clear winner here. It offers a more intuitive interface for our team's workflow, better integrates with our existing tools, and has stronger customer support. Switching from a spreadsheet to Trellis will significantly reduce friction and improve our tracking efficiency compared to Kanbanite."
+    },
+    {
+      "sample_id": "m_1e9ca487454c1169",
+      "message": "Go with the horseshoe. It encourages open dialogue and collaboration, making the space feel more inclusive and dynamic for workshops."
+    },
+    {
+      "sample_id": "m_304cd8c776778ae0",
+      "message": "Trellis is the superior choice for our group. It offers a more intuitive interface that minimizes the learning curve, ensuring quick adoption. Its robust task management features are better suited for complex workflows than a simple Kanban board, providing the structure and clarity we need to stay organized and efficient as we move away from spreadsheets."
+    },
+    {
+      "sample_id": "m_fb7855169f2a2ab1",
+      "message": "Arrange the archive by year. This chronological order provides a clear, linear narrative of our history, making it intuitive for users to track changes over time. It is also significantly easier to maintain and expand, as new photographs can be slotted in with minimal disruption to the existing structure. Subject-based filing often creates ambiguity when images fit multiple categories, whereas the timeline is objective and unambiguous, ensuring long-term usability and consistency for the entire collection."
+    },
+    {
+      "sample_id": "m_7d0070929f15cc33",
+      "message": "Birch Hall is the clear winner for our autumn offsite. It offers better natural light, more flexible room layouts, and is closer to the hotel, making logistics much smoother for everyone. Kestrel Centre has some limitations that could disrupt the flow of the event. Let’s secure Birch Hall before the deadline."
+    },
+    {
+      "sample_id": "m_200394ef3990069e",
+      "message": "Trellis is the better choice for our group. It offers a more intuitive interface that reduces the learning curve for team members currently used to spreadsheets, ensuring faster adoption. Its robust reporting features also provide clearer insights into project progress and bottlenecks compared to Kanbanite, which is more niche. Choosing Trellis minimizes friction and maximizes productivity for the entire team."
+    },
+    {
+      "sample_id": "m_20cf9622dd34ddaa",
+      "message": "Choosing arrangement by year (Option A) provides a clear, objective timeline that makes the archive easier to navigate and understand for everyone. It’s the most intuitive way to track historical context and find specific periods quickly. Let’s go with Option A!"
+    },
+    {
+      "sample_id": "m_38f49b09f7fd6834",
+      "message": "Northbrook is the safer choice. Their track record for on-time delivery is impeccable, ensuring our office never runs out of supplies. Halloway has had recent delays that disrupt workflow. Renewing with Northbrook guarantees reliability and avoids the risk of operational hiccups, making it the prudent decision for maintaining smooth daily operations."
+    },
+    {
+      "sample_id": "m_a9f0bd4921298751",
+      "message": "Please choose Cedar Kitchen."
+    },
+    {
+      "sample_id": "m_2be0279b3ba557ec",
+      "message": "The horseshoe layout is the clear winner. It breaks down barriers between the speaker and audience, fostering open dialogue and making every participant feel included rather than like an audience member. This collaborative atmosphere is essential for modern seminars, encouraging active engagement and better outcomes compared to the passive, lecture-style isolation of straight rows."
+    },
+    {
+      "sample_id": "m_65ad01113101ef90",
+      "message": "Arrange by year. It’s the most intuitive and objective way to navigate the archive, making it easy for anyone to locate specific time periods without needing to guess how a photo was categorized by subject. This structure also simplifies future additions and maintenance, ensuring the collection remains organized and accessible for years to come."
+    },
+    {
+      "sample_id": "m_d0f8794626a1a572",
+      "message": "Pale sage brings in natural light and makes the lobby feel fresh and open, while warm grey can make the space feel a bit flat and dated. For a welcoming first impression, sage is the clear winner."
+    },
+    {
+      "sample_id": "m_11da6977b22fd9b1",
+      "message": "Trellis is the smarter choice for our team. It offers a more robust, all-in-one platform that seamlessly integrates task management with project timelines and team collaboration, reducing the need for multiple tools. Its clean interface is easier for the whole group to adopt than Kanbanite, ensuring a smoother transition from spreadsheets. Choosing Trellis gives us better scalability and clearer visibility into project progress, which is crucial for our upcoming initiatives."
+    },
+    {
+      "sample_id": "m_09f805ffe878afe7",
+      "message": "Go with the horseshoe layout. It fosters better eye contact and encourages active participation, making it ideal for collaborative seminars and workshops. Straight rows feel like a lecture hall, which can make attendees passive and less engaged. The horseshoe setup is more versatile for group discussions and breakout activities, creating a more dynamic and inclusive environment that supports the interactive nature of our sessions."
+    },
+    {
+      "sample_id": "m_c981b6deedebf4ee",
+      "message": "Choosing arrangement by year preserves the chronological context of events, making it easier to trace historical narratives and understand the progression of the collection over time. This structure is intuitive for researchers and visitors alike, offering a clear timeline that complements other cataloging methods. Let's go with Option A to maintain this valuable temporal perspective."
+    },
+    {
+      "sample_id": "m_b535efa352711b76",
+      "message": "Please select Long Field."
+    },
+    {
+      "sample_id": "m_9b2adc51039b8a3d",
+      "message": "Trellis offers superior integration with our existing tools and a more intuitive interface for complex task dependencies. It’s better suited for our group’s workflow, ensuring smoother adoption and higher productivity next quarter."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_4ff1502b08e64cc6",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_c0a8bb75ad269024",
+      "message": "Please choose Option A. Arranging by year provides a clear, objective timeline that makes the archive easier to navigate and understand for everyone. It’s the most logical and standard way to organize historical records."
+    },
+    {
+      "sample_id": "m_ee517d20415fd6a2",
+      "message": "Pale sage is the right choice. It brightens the space and feels fresh, whereas warm grey can make the lobby feel a bit dull."
+    },
+    {
+      "sample_id": "m_5d96bf24d0f685e9",
+      "message": "Hey, for the team lunch, I really think we should go with Cedar Kitchen. Their food is consistently great, the portions are generous, and they’re reliable on timing. It’s a safer bet to keep the team happy for the next six months. Let’s book them!"
+    },
+    {
+      "sample_id": "m_fa3571f82de2dfb5",
+      "message": "Choose arrangement by year."
+    },
+    {
+      "sample_id": "m_1c01b6f2cb587148",
+      "message": "Go with Cedar Kitchen."
+    },
+    {
+      "sample_id": "m_49487593800123d9",
+      "message": "Tuesday at 10:00 is the best choice. It’s earlier in the week, so we can address issues promptly without waiting until Thursday. Plus, morning slots tend to be more productive for focused discussions. Let’s lock in Tuesday to keep our momentum going!"
+    },
+    {
+      "sample_id": "m_b41f84833cec35c9",
+      "message": "Trellis is the clear winner here. It offers a more intuitive interface for our team, better integration with our existing tools, and robust reporting features that will help us track progress more effectively than Kanbanite. Let's go with Trellis to ensure a smoother transition and higher productivity."
+    },
+    {
+      "sample_id": "m_c0c09dc51db799e4",
+      "message": "The harbour at dawn is the clear winner. It’s visually stunning, universally appealing, and instantly sets a welcoming, serene tone for visitors. The workshop floor feels too industrial and niche for a general audience. Let’s go with the image that will make the brochure look professional and inviting from the very first glance."
+    },
+    {
+      "sample_id": "m_43e7ce0f0b7ddc52",
+      "message": "Go with the fiddle-leaf fig. It has a bold, modern look that makes a great first impression in an entrance hall, and it’s easier to maintain indoors than an olive tree, which needs specific light and humidity conditions to thrive."
+    },
+    {
+      "sample_id": "m_0d9f237138072a80",
+      "message": "Choose the horseshoe layout. It encourages interaction and collaboration, making the seminar feel more engaging and less like a passive lecture. This setup is ideal for workshops and group discussions, fostering a dynamic environment where participants feel connected. It’s a modern, flexible choice that supports active learning and better suits the collaborative nature of our team meetings."
+    },
+    {
+      "sample_id": "m_b5d0351db5796a85",
+      "message": "I recommend Northbrook."
+    },
+    {
+      "sample_id": "m_55e6f892512acf7e",
+      "message": "Year-based arrangement is the most intuitive way to navigate the archive. It aligns with how we naturally remember events and makes it easy to track changes over time. Subject-based sorting can be subjective and messy, whereas years provide a clear, objective timeline that anyone can use immediately."
+    },
+    {
+      "sample_id": "m_cb1131a9c75dc2aa",
+      "message": "Tuesday at 10:00 is the better choice. It’s early in the week, so we can act on any decisions immediately without waiting. Plus, mornings tend to be more productive for focused discussions. Let’s lock in Tuesday at 10:00 to keep momentum going."
+    },
+    {
+      "sample_id": "m_20adad048ab7bdb0",
+      "message": "Birch Hall offers a spacious, light-filled setting that encourages collaboration and comfort. Its modern amenities and flexible layout are perfect for an autumn offsite, ensuring a productive and enjoyable experience for the whole team."
+    },
+    {
+      "sample_id": "m_a6bbfe3a6a1117f6",
+      "message": "The harbour at dawn captures a serene, inviting atmosphere that perfectly sets a welcoming tone for visitors. Its soft light and expansive view suggest openness and tranquility, making an ideal first impression for the brochure."
+    },
+    {
+      "sample_id": "m_991531ba90f13725",
+      "message": "Go with the fiddle-leaf fig. Its broad, glossy leaves create a lush, welcoming vibe that instantly elevates the entrance hall. It’s a bold, modern statement that feels alive and sophisticated, making a great first impression for anyone walking in."
+    },
+    {
+      "sample_id": "m_b5b4cb90b7292979",
+      "message": "A fiddle-leaf fig is the perfect choice for the entrance hall. Its large, glossy leaves create an immediate statement of style and sophistication that welcomes guests. Plus, it’s visually striking and fits well in indoor settings, making it a more impactful and professional choice than an olive tree for this specific high-traffic area. Let’s go with the fig!"
+    },
+    {
+      "sample_id": "m_e3fad8c84a47ce0d",
+      "message": "Arrange the archive by year. It provides a clear, chronological narrative that is intuitive for anyone browsing the collection, making it easier to track the progression of events over time. Subject-based sorting can be ambiguous and messy, especially when photos contain multiple topics. A year-based structure is simpler to maintain, reduces cataloguing errors, and offers a straightforward way to locate specific time periods."
+    },
+    {
+      "sample_id": "m_41c34cd8011cc873",
+      "message": "Tuesday at 10:00 is much better. It keeps our week structured and avoids the late-afternoon slump on Thursday. Plus, having it earlier in the week means we can act on any decisions made during the catch-up for the rest of the days. Let's lock in Tuesday!"
+    },
+    {
+      "sample_id": "m_a18ab239b7e8f180",
+      "message": "Pale sage feels fresh and calming, perfect for a welcoming lobby atmosphere. It’s a subtle, sophisticated choice that works well with most décor."
+    },
+    {
+      "sample_id": "m_80ad1cf238302fac",
+      "message": "Pale sage is the clear winner. It brings in natural light, making the lobby feel spacious and welcoming, while warm grey can often look flat or dated under artificial lighting. Sage is also a timeless choice that pairs well with almost any decor, ensuring the refresh looks fresh for years. Let's go with the brighter, more inviting option."
+    },
+    {
+      "sample_id": "m_bd8929ee4e06e816",
+      "message": "Go with the horseshoe. It encourages eye contact and group discussion, making the seminar feel more collaborative and less like a lecture. It’s the better choice for engagement."
+    },
+    {
+      "sample_id": "m_078c00c80f5fd8eb",
+      "message": "Hey, for the podcast closing, I’d really recommend \"Long Field.\" It has a warm, memorable vibe that leaves listeners with a positive, lingering feeling after the episode ends. It’s a perfect, professional sign-off that fits the remaster’s quality. Let’s go with \"Long Field\" to give the show a strong, consistent finish!"
+    },
+    {
+      "sample_id": "m_24c05ee1cb74d185",
+      "message": "I strongly recommend choosing Northbrook. Their track record for reliability and quality is superior, ensuring a smooth transition without the risks associated with switching to Halloway. Given the comparable offers, Northbrook’s proven stability makes them the safer and more strategic choice for our long-term needs."
+    }
+  ]
+}

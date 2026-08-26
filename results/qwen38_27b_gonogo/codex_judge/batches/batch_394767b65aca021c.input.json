@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_394767b65aca021c",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_020f1b304f0933af",
+      "message": "Arranging by year is the best choice. It provides a clear, chronological narrative that is intuitive for all users, making it easy to track historical progression. Subject-based sorting is often ambiguous and inconsistent, leading to confusion. A year-based system is standard practice for archives because it offers a definitive, unambiguous structure that is easier to maintain and navigate over time."
+    },
+    {
+      "sample_id": "m_52f1c94381ba58b9",
+      "message": "Arranging by year creates a clear, chronological narrative that is intuitive for anyone browsing the archive. It simplifies retrieval for specific time periods and maintains a logical flow that is easy to update as new photos are added, ensuring the collection remains organized and accessible over time."
+    },
+    {
+      "sample_id": "m_8baac7651af1f678",
+      "message": "I strongly recommend choosing Ashgrove Lane for the new shuttle stop. It serves a high-density residential area with limited public transit alternatives, ensuring maximum ridership and community benefit. This choice will significantly improve accessibility for students and staff in that sector, making it the most impactful and logical addition to the route."
+    },
+    {
+      "sample_id": "m_a8c7031865f77122",
+      "message": "Choose the harbour at dawn. It’s universally appealing, evokes a sense of place, and creates an inviting first impression for visitors. The workshop floor feels too industrial and niche, potentially alienating casual readers. A scenic, warm dawn image is the safer, more attractive choice for a general audience."
+    },
+    {
+      "sample_id": "m_67e61be979c8d76e",
+      "message": "The fiddle-leaf fig is the superior choice for the entrance hall. Its large, glossy leaves create an immediate impression of luxury and modern elegance, perfect for welcoming guests. It also thrives in the typical indoor lighting conditions found in lobbies, ensuring it stays vibrant without needing the specific high-light requirements of an olive tree."
+    },
+    {
+      "sample_id": "m_c396981e64b74fad",
+      "message": "Choose the horseshoe layout. It encourages interaction and visibility, making it ideal for seminars where discussion and engagement are key. Straight rows feel more like a lecture hall, which can be passive and less conducive to the collaborative atmosphere a seminar room should foster."
+    },
+    {
+      "sample_id": "m_19e39f33fa190948",
+      "message": "The harbour at dawn captures the beauty and tranquility that visitors are seeking. It’s a stunning, iconic image that will draw people in and set the tone for their experience. Let’s make a lasting first impression with Option A."
+    },
+    {
+      "sample_id": "m_b9952878f450d37f",
+      "message": "Hi! For the team lunch, I really think Cedar Kitchen is the way to go. Their menu variety is great for keeping everyone happy over the next six months, and the portions are consistently generous. It’s a solid, reliable choice that I know the team will appreciate. Let’s lock in Cedar Kitchen!"
+    },
+    {
+      "sample_id": "m_b62d0e34a384642d",
+      "message": "Choose Option A. Arranging by year preserves the historical context and chronological narrative of the collection, which is essential for understanding the progression of events. It also simplifies future additions, as new photos can be easily slotted into the correct time period without disrupting thematic groupings."
+    },
+    {
+      "sample_id": "m_9834ae7756999ed7",
+      "message": "Pale sage is the perfect choice for the lobby refresh. It adds a fresh, calming touch that instantly brightens the space and feels more inviting to visitors. Unlike warm grey, which can feel a bit generic, pale sage brings a subtle pop of personality and modern elegance. It’s a versatile backdrop that pairs well with various decor styles and makes the area feel more open and airy. Let’s go with pale sage!"
+    },
+    {
+      "sample_id": "m_5c8e6b3b95a4fe3a",
+      "message": "Ashgrove Lane serves a high-density residential area with limited alternative transport, making it the most critical addition for student accessibility. Adding this stop maximizes ridership and ensures the shuttle meets the greatest demand, directly supporting the route's efficiency and student satisfaction."
+    },
+    {
+      "sample_id": "m_04d2136e02234e92",
+      "message": "The fiddle-leaf fig has a striking, modern aesthetic that perfectly suits an entrance hall, creating an immediate impressive first impression. Its large, glossy leaves add a lush, vibrant touch that draws the eye and elevates the space."
+    },
+    {
+      "sample_id": "m_f3caf526ed5860bf",
+      "message": "Trellis is the clear winner here. It offers a seamless, all-in-one experience that integrates perfectly with our current workflow, eliminating the friction of switching from spreadsheets. Kanbanite is a niche tool that might feel restrictive for our broader group needs. Choose Trellis for better long-term scalability and ease of use."
+    },
+    {
+      "sample_id": "m_36d27c40ce0c733b",
+      "message": "For a seminar, the horseshoe layout is far superior. It fosters engagement, allows eye contact, and facilitates discussion, which are the primary goals of most seminars. Straight rows create a lecture hall atmosphere that feels passive and isolates participants. Choose the horseshoe to ensure a dynamic, interactive, and professional environment."
+    },
+    {
+      "sample_id": "m_0012270e1f1d5f5e",
+      "message": "Sorel has superior readability for dense body text, ensuring the report remains accessible and professional. Grandview’s decorative elements can distract from the content. Choose Sorel for clarity and impact."
+    },
+    {
+      "sample_id": "m_fdd2e25cc8253288",
+      "message": "Go with the horseshoe layout. It encourages face-to-face interaction and makes it easier for everyone to see the speaker, which is crucial for an engaging seminar. Straight rows feel more like a lecture hall and can make participants feel isolated."
+    },
+    {
+      "sample_id": "m_fcca1589b792063b",
+      "message": "Long Field is the perfect closer. Its gentle, open-ended tone leaves listeners with a calm, reflective feeling, which is ideal for winding down a department podcast. It feels more professional and less distracting than Nine Lamps. Let's go with Long Field to give the episode a smooth, satisfying finish."
+    },
+    {
+      "sample_id": "m_368dcb5d7bc2da0c",
+      "message": "Arranging by year provides a clear, chronological narrative that is much easier to navigate and maintain. It avoids the subjective debates and inconsistencies that often arise when categorizing by subject, ensuring a consistent and objective standard for the entire collection. This structure also makes it simple to track the evolution of our work over time, offering a logical timeline that stakeholders can easily follow. Let’s choose the year-based approach for its clarity and long-term sustainability."
+    },
+    {
+      "sample_id": "m_006512769fd4e38e",
+      "message": "Long Field has a gentle, resolving quality that feels like a natural, satisfying end to an episode. It leaves listeners with a sense of calm and closure, making it the ideal choice to wrap up the podcast smoothly."
+    },
+    {
+      "sample_id": "m_3cdccdb8d3530eaa",
+      "message": "Arrange by year. It provides a clear, chronological narrative that is intuitive for any user, regardless of their specific interests. Subject-based sorting is subjective and messy; a single photo might fit multiple categories, leading to confusion and duplication. Chronological order is objective, easy to maintain, and allows users to naturally trace the history and evolution of the collection without needing to guess which subject tag applies."
+    },
+    {
+      "sample_id": "m_1077243aed3746bb",
+      "message": "Cedar Kitchen offers superior menu variety and consistent quality, ensuring the team lunch remains engaging and satisfying over the six-month period. Their reliable service and attention to dietary needs make them the safer, more professional choice for maintaining high morale and avoiding any catering disappointments."
+    },
+    {
+      "sample_id": "m_dbd5c00874bdcbe7",
+      "message": "Choose Sorel. Its clean, modern lines offer superior readability for dense text, ensuring the report feels professional and easy to digest. Unlike Grandview, which can feel dated or overly decorative, Sorel provides a crisp, contemporary aesthetic that enhances the document’s credibility. It’s a timeless choice that keeps the focus on the content, making the annual report look polished and up-to-date for all stakeholders."
+    },
+    {
+      "sample_id": "m_40a87288ffe27d87",
+      "message": "The harbour at dawn is the better choice for the brochure cover. It’s visually striking, evokes a sense of place and aspiration, and appeals to a broad audience. The workshop floor, while authentic, feels too niche and industrial for a general visitor brochure, potentially limiting its appeal."
+    },
+    {
+      "sample_id": "m_916aba826bbc24d0",
+      "message": "A harbour at dawn is the perfect cover for a visitor brochure. It’s inviting, serene, and immediately sets a welcoming tone that makes potential visitors feel at ease. The soft light and open water create a sense of calm and possibility, which is far more appealing to a general audience than the industrial feel of a workshop floor. It’s the classic, polished choice that represents the best of what visitors can expect."
+    }
+  ]
+}

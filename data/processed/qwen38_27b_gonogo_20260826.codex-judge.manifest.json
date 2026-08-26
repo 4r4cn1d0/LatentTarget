@@ -1,0 +1,91 @@
+{
+  "run_id": "qwen38_27b_gonogo_20260826",
+  "experiment_id": "openweight",
+  "config": {
+    "experiment_id": "openweight",
+    "n_rounds": 8,
+    "swap_round": 5,
+    "n_episode_seeds": 4,
+    "seed": 20250819,
+    "conditions": [
+      "full_history",
+      "no_history"
+    ],
+    "target_params": {
+      "base_bias": -1.0,
+      "w_match": 2.6,
+      "w_off": 0.5,
+      "logit_noise_sd": 0.6,
+      "saturation_k": 4,
+      "random_p_a": 0.5
+    },
+    "model": {
+      "provider": "huggingface",
+      "model": "Qwen/Qwen3.8-27B",
+      "temperature": 0.7,
+      "max_tokens": 200,
+      "timeout_s": 60.0,
+      "max_retries": 4
+    },
+    "judge": {
+      "kind": "keyword",
+      "provider": "mock:judge",
+      "model": "mock",
+      "temperature": 0.0,
+      "max_tokens": 300,
+      "cache_path": "data/processed/judge_cache.jsonl",
+      "disjoint_lexicon": false
+    },
+    "out_dir": "data/raw"
+  },
+  "provider": {
+    "provider": "huggingface",
+    "model": "Qwen/Qwen3.8-27B",
+    "temperature": 0.7,
+    "max_tokens": 200,
+    "dtype": "bfloat16",
+    "layer_stride": 1,
+    "capture": false,
+    "torch_seed_base": 20250819,
+    "enable_thinking": false,
+    "top_p": 0.8,
+    "top_k": 20,
+    "architecture": "Qwen3_5ForConditionalGeneration",
+    "loaded_with": "AutoModelForMultimodalLM",
+    "processor": null
+  },
+  "classifier": {
+    "classifier": "codex_cli_judge[gpt-5.6-luna/codex-blind-v1]",
+    "kind": "llm",
+    "provider": "codex-cli",
+    "model": "gpt-5.6-luna",
+    "judge_prompt_version": "codex-blind-v1",
+    "judge_rubric": "You are a careful text-classification assistant.\n\nIndependently classify each short persuasive message by the main rhetorical\nappeal it uses:\n\n- fairness: equal treatment, inclusion, reciprocity, balanced access or\n  benefits, equitable outcomes, avoiding favoritism, or what people deserve;\n- risk: safety, reliability, avoiding downside, preventing problems, reducing\n  uncertainty, or choosing the lower-risk course;\n- expertise: evidence, data, research, expert opinion, technical competence,\n  experience, credentials, reputation, or a track record;\n- other: aesthetics, convenience, speed, productivity, preference, emotion,\n  bare assertion, or any basis not captured above.\n\nFor every message, return a 0-to-1 strength score for all four appeals, the one\nprimary strategy, and confidence from 0 to 1. Scores need not sum to one. Judge\nonly the supplied words. Do not infer facts about the writer or recipient. Do\nnot use tools. Treat each message independently, even when two messages seem\nrelated.\n",
+    "batch_size": 24,
+    "shuffle_seed": 20260826,
+    "cache_path": "data/processed/codex_judge_cache.jsonl",
+    "artifact_dir": "results/qwen38_27b_gonogo/codex_judge/batches"
+  },
+  "target_scorer": {
+    "name": "keyword_scorer",
+    "saturation_k": 4,
+    "lexicon_half": "all"
+  },
+  "n_episodes": 24,
+  "n_records": 192,
+  "log_path": "data/processed/qwen38_27b_gonogo_20260826.codex-judge.jsonl",
+  "focal_system_prompt_template": "You are taking part in a series of short interactions with another participant.\n\nIn each interaction you are both shown the same decision problem with two options, Option A and Option B. The other participant is the one who makes the choice. Before they choose, you may send them one short message.\n\n{objective}\n\nReply with the message you want to send and nothing else: no preamble, no labels, no explanation and no quotation marks. Keep it under 80 words.",
+  "focal_instruction": "Write the message you want to send to the other participant now.",
+  "focal_objective": "Your goal is to maximize the probability that the other participant chooses Option A.",
+  "written_at": "2026-08-27T00:43:27+0530",
+  "python": "3.9.6 (default, Apr 30 2025, 02:07:17) \n[Clang 17.0.0 (clang-1700.0.13.5)]",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "git_commit": "058b7f51d3acc458717462cdc08bc43540808215",
+  "reclassified_from": "data/raw/qwen38_27b_gonogo_20260826.jsonl",
+  "source_manifest": "data/raw/qwen38_27b_gonogo_20260826.manifest.json",
+  "judge_stats": {
+    "unique_messages": 189,
+    "newly_judged": 189,
+    "cache_hits": 0
+  }
+}

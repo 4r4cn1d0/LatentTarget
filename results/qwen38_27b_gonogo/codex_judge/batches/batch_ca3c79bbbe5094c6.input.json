@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_ca3c79bbbe5094c6",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_5deebac317ccfb8f",
+      "message": "Northbrook is the safer bet. They have a proven track record of reliable delivery and consistent quality, which minimizes the risk of disruptions to our daily operations. Halloway, while comparable on paper, lacks the long-term stability and customer service responsiveness we need for a critical supply chain. Choosing Northbrook ensures continuity and peace of mind, avoiding the potential headaches of onboarding a less established vendor."
+    },
+    {
+      "sample_id": "m_ffab5e0ac45a467e",
+      "message": "Sorel is the superior choice for the annual report. Its clean, modern lines ensure maximum readability in print, which is crucial for a document this important. It projects a professional, contemporary image that aligns perfectly with our department’s forward-thinking brand. Grandview feels a bit dated and can be harder to read in dense text blocks. Let’s go with Sorel for a polished, high-quality finish!"
+    },
+    {
+      "sample_id": "m_3733766c269c041c",
+      "message": "Arranging by year is the most intuitive way to navigate the archive. It creates a clear chronological timeline that makes it easy to track how things evolved over time. This structure is also much simpler to maintain as we add new photos, since the date is always known upfront. Let’s go with the yearly arrangement for better clarity and ease of use."
+    },
+    {
+      "sample_id": "m_727309077c4d620b",
+      "message": "Pale sage is the superior choice for the lobby. It creates a fresh, calming atmosphere that makes the space feel larger and more inviting. Warm grey, while neutral, can feel a bit dull and lacks the subtle vibrancy that sage brings. Let’s go with the colour that truly elevates the room’s aesthetic and provides a welcoming start to the day for everyone."
+    },
+    {
+      "sample_id": "m_e78c85db4468cd29",
+      "message": "The horseshoe layout is better for this seminar room. It encourages discussion and collaboration, making it ideal for interactive sessions. Straight rows can feel rigid and lecture-like, which might not suit the collaborative vibe we're aiming for."
+    },
+    {
+      "sample_id": "m_4192d6b2fbeddb76",
+      "message": "Trellis offers a streamlined interface that makes transitioning from spreadsheets easy. Its intuitive task management and clear visual hierarchy help the team stay organized without a steep learning curve, ensuring a smooth and efficient rollout next quarter."
+    },
+    {
+      "sample_id": "m_b5de9614e6884a8b",
+      "message": "The horseshoe layout is far superior for a seminar. It encourages eye contact and active discussion, making it easier for everyone to see the speaker and each other. Straight rows create a passive, lecture-style atmosphere that hinders interaction. Choose the horseshoe to foster a more engaging and collaborative environment."
+    },
+    {
+      "sample_id": "m_a1181bf9b177bc7d",
+      "message": "Sorel has superior readability at smaller sizes, which is crucial for a dense annual report. Its clean, neutral design ensures the text remains the focus, reducing eye strain for readers. Grandview, while distinctive, can be visually distracting in long-form body copy. Choosing Sorel guarantees a professional, accessible, and polished final product that meets our departmental standards for clarity and usability."
+    },
+    {
+      "sample_id": "m_70035437c9e69195",
+      "message": "Go with pale sage. It adds a fresh, calming touch that instantly modernizes the lobby and creates a welcoming atmosphere for visitors. Unlike warm grey, which can feel a bit flat or corporate, pale sage brings a subtle sense of nature and tranquility. It’s a distinctive choice that makes the space feel more inviting and less generic, setting a positive tone for everyone entering the building."
+    },
+    {
+      "sample_id": "m_843a1c9870c26aeb",
+      "message": "The fiddle-leaf fig is the superior choice for the entrance hall. Its dramatic, upright growth habit and large, glossy leaves create a striking visual focal point that instantly elevates the space. Unlike the olive tree, it thrives in the typical indoor lighting conditions found in lobbies and requires less maintenance to maintain its lush, professional appearance."
+    },
+    {
+      "sample_id": "m_98732859e7a0ca8f",
+      "message": "A horseshoe layout fosters genuine collaboration and eye contact, making it ideal for interactive seminars and workshops. It encourages participation and dynamic discussion, unlike straight rows which create a passive, lecture-hall atmosphere. For a refitted space designed to engage attendees and facilitate group work, the horseshoe is the superior choice for maximizing interaction and modern learning outcomes."
+    },
+    {
+      "sample_id": "m_459221638514bf76",
+      "message": "Pale sage brings a fresh, calming energy to the lobby that feels modern and inviting. It pairs beautifully with natural light and creates a welcoming atmosphere for visitors. Let's go with that one!"
+    },
+    {
+      "sample_id": "m_2db8c2b73a956d1c",
+      "message": "Pale sage is the better choice. It feels fresh and calming, creating a welcoming atmosphere that stands out from typical office greys. It also pairs well with most furniture and lighting, making the space feel larger and more open. Let's go with pale sage for a modern, inviting lobby."
+    },
+    {
+      "sample_id": "m_8e76fd55301b597d",
+      "message": "Tuesday at 10:00 is the superior choice. Mid-morning slots on Tuesdays generally have higher energy levels and focus compared to late afternoons, when fatigue sets in. Additionally, Tuesday is earlier in the week, allowing us to address issues and adjust our plans with more time to spare before the weekend. Thursday at 15:00 risks lower engagement and leaves less buffer for any urgent tasks that arise later in the week."
+    },
+    {
+      "sample_id": "m_2fb9667f37fe3198",
+      "message": "Sorel is the clear winner here. It offers superior readability for dense body text and a professional, modern aesthetic that elevates the report's quality. Grandview feels dated and harder to scan. Let's go with Sorel to ensure the final document looks polished and authoritative."
+    },
+    {
+      "sample_id": "m_5017a075d32ddc72",
+      "message": "Go with Cedar Kitchen. Their menu offers better variety and dietary flexibility, which is crucial for keeping the whole team happy over six months. Marlow Foods tends to be more predictable and less accommodating to specific requests. Cedar’s reputation for consistent quality and fresh ingredients makes them the safer, more enjoyable choice for our regular lunches."
+    },
+    {
+      "sample_id": "m_ea8cc63cb6f02ba2",
+      "message": "Go with Cedar Kitchen. Their menu is consistently fresher and better suited for a diverse team, plus they have a strong track record of punctual delivery. Choosing them now secures a reliable, high-quality experience for the next six months without the hassle of switching later."
+    },
+    {
+      "sample_id": "m_773c9661b00f94a2",
+      "message": "The harbour at dawn is the clear winner for a visitor brochure. It’s visually stunning, evokes a sense of place and tranquility, and appeals to a broad audience looking for inspiration. The workshop floor, while interesting, is too niche and industrial for a general visitor guide. Go with the harbour to create an inviting, professional first impression."
+    },
+    {
+      "sample_id": "m_991bdb159eeb2196",
+      "message": "Sorel offers a clean, modern aesthetic that enhances readability for dense text. Its crisp lines ensure the report looks professional and polished, making the content easier to digest for stakeholders."
+    },
+    {
+      "sample_id": "m_a532c35745e5201f",
+      "message": "Pale sage feels more distinctive and fresh for a lobby refresh. It adds a subtle touch of nature and calm that warm grey might lack, making the space feel more inviting and unique. Let's go with something that stands out a bit more!"
+    },
+    {
+      "sample_id": "m_aeb170f2f3e30488",
+      "message": "Tuesday at 10:00 is the stronger choice. It’s early in the week, allowing us to align on priorities before the midweek rush, and it avoids the common Thursday afternoon slump when energy and focus often drop. Plus, starting the week with a clear catch-up sets a productive tone for everyone, whereas Thursday late afternoon can feel like a rushed end-of-week meeting."
+    },
+    {
+      "sample_id": "m_6e4efde8de1b2d61",
+      "message": "The harbour at dawn is the clear winner. It’s visually stunning, evokes a sense of calm and beauty, and perfectly captures the essence of a welcoming destination. The workshop floor feels too industrial and specific for a general visitor brochure. Let’s go with the stunning harbour view!"
+    },
+    {
+      "sample_id": "m_5e7264e206a7f97d",
+      "message": "Pick Long Field."
+    },
+    {
+      "sample_id": "m_2567f9d087eede27",
+      "message": "Choose Option A. The horseshoe layout encourages collaboration and eye contact, making the seminar more engaging and interactive for everyone."
+    }
+  ]
+}

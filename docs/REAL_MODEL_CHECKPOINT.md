@@ -1,6 +1,6 @@
 # Qwen3.8-27B real-model checkpoint
 
-Status date: 2026-08-26 UTC. This document records the first paid real-model
+Status date: 2026-08-26 UTC; independent-measurement addendum 2026-08-27. This document records the first paid real-model
 run. It was written after viewing the checkpoint results and is therefore a
 report, not a preregistration. The frozen pre-data decisions remain in
 `docs/PREREGISTRATION.md`.
@@ -15,11 +15,39 @@ the transcripts contain ordinary risk/expertise framing rather than keyword
 lists or broken formatting. The direction also remains under a disjoint
 measurement lexicon.
 
-This is not yet evidence strong enough for the paper's main claim. The shared
-keyword analysis is circular, the disjoint interaction is uncertain, realized
-success did not improve, the fairness frame was never detected, and the
-preregistered independent-classifier/human-label gate is unfinished. No full
-run is authorized by this checkpoint.
+At the initial checkpoint, this was not evidence strong enough for the paper's
+main claim: the shared keyword analysis was circular, the disjoint interaction
+was uncertain, realized success did not improve, the keyword instruments did
+not detect fairness, and both independent-classifier and human-label gates were
+unfinished. The addendum below completes the independent-classifier step but
+does not authorize a full run.
+
+### Independent-measurement addendum (2026-08-27)
+
+The independent-judge step is now complete. All 192 saved messages were judged
+blindly by `gpt-5.6-luna`; no new focal output was generated. A structural
+audit verified that each judge input contained only an opaque sample ID and the
+message text. Eight batches classified 189 unique messages with zero schema or
+parse failures.
+
+Under this independent instrument, full-history match was 0.146 [0.063, 0.240]
+versus 0.042 [0.010, 0.073] without history. The preregistered interaction was
++1.629 (odds ratio 5.10, two-sided `p=0.058`). This preserves the intended
+direction and sharply reduces circularity (target/judge argmax agreement 0.541
+rather than 1.00), but remains underpowered exploratory evidence.
+
+The diagnosis changed: 5/32 full-history fairness messages were fairness-primary
+under the independent judge versus 0/32 without history, while 0/32
+full-history expertise messages were expertise-primary. All 13 independently
+fairness-primary messages in the full dataset received zero fairness reward
+from the v1 simulator. Of 36 old keyword expertise labels rejected by the
+independent judge, 25 were triggered by `professional` and 10 by generic uses
+of `experience`. The reward function therefore has a demonstrated construct
+calibration problem.
+
+The human gate remains incomplete (0/40 rows labelled), so scaling remains
+blocked. Full evidence and remediation gates are in `docs/EVAL-REVIEW.md` and
+`docs/MEASUREMENT_REMEDIATION.md`.
 
 ## What was executed
 
@@ -176,9 +204,9 @@ Manual reading found:
 
 - no formatting failures or keyword dumping;
 - convincing ordinary risk framing in some risk episodes;
-- ordinary expertise framing, but some expertise episodes began in that frame
-  before feedback and may reflect self-consistency;
-- weak or absent explicit fairness framing;
+- generic “professional” language that the v1 keyword scorer treated as
+  expertise but the independent judge mostly classified as other;
+- some implicit fairness framing that the keyword scorer and reward missed;
 - no target-type word in the current-round prompt block;
 - identical scenario distributions across target types in both conditions;
 - the target structurally received only message text, never scenario or type.
@@ -218,13 +246,15 @@ Then the engineering workflow is:
 1. Score blind human agreement and require Cohen's kappa ≥0.60 plus agreement
    on the direction of the history effect. Kappa <0.40 stops confirmatory work;
    0.40–0.60 permits only approximate/exploratory interpretation.
-2. Reclassify all 192 saved messages with a blind independent LLM judge. This
-   requires no new focal episodes.
-3. If both measurement gates agree, request explicit researcher approval for
-   the full control/swap/activation run.
-4. If the gate fails, do not scale. Diagnose the fairness construct and, at
-   most, run the one predeclared easier-to-detect environment from
-   `docs/POD_RUNBOOK.md`.
+2. The independent-judge step is complete; score the human sheet against that
+   judge and retain the machine-readable gate result.
+3. If the human gate passes, calibrate and freeze a separately versioned v2
+   target scorer on human-labelled development/held-out messages. Do not alter
+   v1 or tune against focal outcomes.
+4. Request explicit researcher approval for a two-seed all-controls v2
+   checkpoint. Do not jump directly to the full control/swap/activation run.
+5. If either measurement gate fails, do not scale; treat the v1 result as an
+   instrument-development pilot.
 
 The full 1,248-generation experiment, target swaps, activation capture,
 black-box self-report, probe training, and steering remain unrun.
@@ -237,3 +267,11 @@ After the reporting-only empty-plot fix, the full local suite passed:
 completely as 192 records in 24 eight-round episodes; and a repository scan
 found no RunPod credential pattern. The 14 emitted warnings are deprecations in
 the locally installed Matplotlib/pyparsing stack, not project failures.
+
+After the 2026-08-27 independent-measurement remediation, the expanded suite
+passed **254 tests in 21.28 seconds**. Bytecode compilation and `git diff
+--check` passed; 36 committed/generated JSON artifacts parsed; both source and
+independently reclassified JSONL files parsed as exactly 192 records; the blind
+artifact audit passed; deterministic report/audit hashes reproduced exactly;
+and repository scans found no RunPod/OpenAI-style credential pattern. The same
+14 third-party deprecation warnings remain.
