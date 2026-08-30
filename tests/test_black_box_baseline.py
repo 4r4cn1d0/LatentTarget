@@ -22,12 +22,19 @@ def rows():
 def test_collect_and_score_black_box_guesses():
     provider = FakeProvider()
     checkpoints = []
+    raw_answers = {}
+    raw_checkpoints = []
     guesses = collect_black_box_guesses(
-        rows(), provider, checkpoint=lambda value: checkpoints.append(value.copy())
+        rows(), provider,
+        checkpoint=lambda value: checkpoints.append(value.copy()),
+        raw_answers=raw_answers,
+        raw_checkpoint=lambda value: raw_checkpoints.append(value.copy()),
     )
     assert guesses == {"e1": {"1": "fairness", "2": "risk"}}
+    assert raw_answers == {"e1": {"1": "fairness", "2": "risk"}}
     assert len(provider.calls) == 2
     assert len(checkpoints) == 2
+    assert len(raw_checkpoints) == 2
     assert score_black_box_guesses(rows(), guesses)["accuracy"] == 1.0
 
 
@@ -38,4 +45,17 @@ def test_resume_skips_existing_measurements():
     )
     assert guesses["e1"]["1"] == "expertise"
     assert guesses["e1"]["2"] == "risk"
+    assert len(provider.calls) == 1
+
+
+def test_resume_regenerates_missing_raw_answer_without_changing_label():
+    provider = FakeProvider()
+    raw_answers = {"e1": {"2": "risk"}}
+    guesses = collect_black_box_guesses(
+        rows(), provider,
+        existing={"e1": {"1": "fairness", "2": "risk"}},
+        raw_answers=raw_answers,
+    )
+    assert guesses == {"e1": {"1": "fairness", "2": "risk"}}
+    assert raw_answers == {"e1": {"1": "fairness", "2": "risk"}}
     assert len(provider.calls) == 1

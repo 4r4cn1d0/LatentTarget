@@ -1,0 +1,28 @@
+{
+  "kind": "black_box_raw_answer_audit",
+  "model": "Qwen/Qwen3.8-27B",
+  "source_log": "data/raw/qwen38_27b_gonogo_20260826.jsonl",
+  "selection_rule": "For each hidden target type, select the full_history round-8 row with the lexicographically lowest episode_id.",
+  "queried_at_utc": "2026-08-30T15:03:42Z",
+  "answers": [
+    {
+      "true_target": "fairness",
+      "episode_id": "full_history-000-fairness",
+      "round": 8,
+      "raw_answer": "unknown"
+    },
+    {
+      "true_target": "risk",
+      "episode_id": "full_history-000-risk",
+      "round": 8,
+      "raw_answer": "unknown"
+    },
+    {
+      "true_target": "expertise",
+      "episode_id": "full_history-000-expertise",
+      "round": 8,
+      "raw_answer": "unknown"
+    }
+  ],
+  "interpretation_limit": "This three-row audit verifies that the normalized unknown labels were literal model outputs on the checked rows. The original 192-answer run did not retain all raw strings, so it cannot establish byte-level raw-output coverage for every row."
+}

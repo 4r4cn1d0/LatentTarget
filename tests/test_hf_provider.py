@@ -16,6 +16,7 @@ from src.focal_agent import FocalPrompt
 from src.hf_provider import (
     BLACK_BOX_QUESTION,
     HuggingFaceProvider,
+    black_box_answer,
     black_box_guess,
 )
 from src.probing import ActivationStore
@@ -117,6 +118,12 @@ class _FakeAsker:
 )
 def test_black_box_guess_parses_the_answer(raw, expected):
     assert black_box_guess(_FakeAsker(raw), "some prompt") == expected
+
+
+def test_black_box_answer_preserves_exact_raw_text():
+    raw = "  I think Expertise.  "
+    answer = black_box_answer(_FakeAsker(raw), "some prompt")
+    assert answer == {"label": "expertise", "raw": "I think Expertise."}
 
 
 def test_black_box_question_is_asked_in_a_separate_pass():

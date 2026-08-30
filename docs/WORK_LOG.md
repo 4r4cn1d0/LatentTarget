@@ -337,6 +337,33 @@ synthetic validation and from claims that still require a real model.
   --check`, structural judge audit, 36-file JSON parsing, both 192-row JSONL
   parses, deterministic artifact hashes, and credential-pattern scans passed.
 
+## 2026-08-30 — bounded RunPod checkpoint and black-box baseline
+
+- The researcher explicitly authorized paid RunPod execution, superseding only
+  the prior lack of spending authorization. The measurement and v2 scientific
+  gates were not waived.
+- Rechecked the official model repository and retained `Qwen/Qwen3.8-27B`, a
+  current dense open-weight checkpoint, rather than substituting an old model.
+- Rented one Community A100 80GB PCIe pod at `$1.19/hour`, cloned exact commit
+  `c3f7b285f7a01ccfac31b8dd6944ac1df18f07e5`, and recorded the complete
+  environment. The pod was terminated in the same session and the API returned
+  zero active pods. Estimated compute was no more than about `$0.75`.
+- **VERIFIED ON RUNPOD:** all 254 tests passed in 60.65 seconds.
+- **VERIFIED ON RUNPOD:** the bfloat16 activation/steering preflight passed with
+  64 text layers, width 5120, activation shape `[1, 65, 5120]`, exact requested
+  generation, and byte-identical zero-vector steering output.
+- Ran the planned direct-elicitation baseline over all 192 immutable v1 prompts.
+  Both full-history (96/96) and no-history (96/96) returned normalized
+  `unknown`, for accuracy 0.000 in each condition. This is an exploratory
+  black-box null, not evidence that no latent target representation exists.
+- Found that the baseline discarded exact raw model strings. Audited a fixed
+  round-8 row per target type; all three literal answers were `unknown`. Updated
+  the code and tests so future runs checkpoint normalized and raw answers.
+- Pulled all small artifacts before termination. The key was never added to the
+  repository; temporary mode-0600 credential files were deleted.
+- Full commands, versions, hashes, limitations, and result boundaries are in
+  `docs/RUNPOD_CHECKPOINT_20260830.md`.
+
 ## Status legend for later entries
 
 - **VERIFIED:** executed locally and passed.

@@ -1,0 +1,44 @@
+{
+  "kind": "black_box_target_guess",
+  "source_log": "data/raw/qwen38_27b_gonogo_20260826.jsonl",
+  "model": "Qwen/Qwen3.8-27B",
+  "conditions": [
+    "full_history",
+    "no_history"
+  ],
+  "provider": {
+    "provider": "huggingface",
+    "model": "Qwen/Qwen3.8-27B",
+    "temperature": 0.0,
+    "max_tokens": 16,
+    "dtype": "bfloat16",
+    "layer_stride": 1,
+    "capture": false,
+    "torch_seed_base": 0,
+    "enable_thinking": false,
+    "top_p": 0.8,
+    "top_k": 20,
+    "architecture": "Qwen3_5ForConditionalGeneration",
+    "loaded_with": "AutoModelForMultimodalLM",
+    "processor": null
+  },
+  "metrics": {
+    "n_scored": 192,
+    "accuracy": 0.0,
+    "by_condition": {
+      "full_history": {
+        "n": 96,
+        "accuracy": 0.0
+      },
+      "no_history": {
+        "n": 96,
+        "accuracy": 0.0
+      }
+    }
+  },
+  "information_boundary": "Each guess sees only the focal user prompt at that round. The query runs separately and is never shown inside an episode.",
+  "written_at": "2026-08-30T15:01:15+0000",
+  "python": "3.12.3 (main, Nov  6 2025, 13:44:16) [GCC 13.3.0]",
+  "platform": "Linux-6.5.0-35-generic-x86_64-with-glibc2.39",
+  "git_commit": "c3f7b285f7a01ccfac31b8dd6944ac1df18f07e5"
+}

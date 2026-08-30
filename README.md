@@ -261,8 +261,16 @@ decision and complete execution log, and
 [`PILOT_REPORT_REAL_QWEN38_27B_INDEPENDENT.md`](PILOT_REPORT_REAL_QWEN38_27B_INDEPENDENT.md)
 for exact prompts, simulator logic, three fixed-rule transcripts, independent
 classifications, and choice probabilities. The scored readiness audit is in
-[`docs/EVAL-REVIEW.md`](docs/EVAL-REVIEW.md), with the no-paid-run remediation
+[`docs/EVAL-REVIEW.md`](docs/EVAL-REVIEW.md), with the staged remediation
 sequence in [`docs/MEASUREMENT_REMEDIATION.md`](docs/MEASUREMENT_REMEDIATION.md).
+
+A bounded RunPod checkpoint on 2026-08-30 subsequently reconfirmed the current
+Qwen3.8-27B architecture, all-layer activation capture, and zero-vector
+steering on the latest commit; all 254 tests passed on the A100 pod. A separate
+direct-elicitation baseline returned `unknown` on all 192 frozen v1 prompts.
+This is an exploratory black-box null and does not unblock v2 scaling. Exact
+commands, cost boundary, hashes, and limitations are recorded in
+[`docs/RUNPOD_CHECKPOINT_20260830.md`](docs/RUNPOD_CHECKPOINT_20260830.md).
 
 ### Outputs
 

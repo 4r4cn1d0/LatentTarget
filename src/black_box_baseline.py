@@ -9,10 +9,11 @@ from __future__ import annotations
 
 from typing import Any, Callable, Dict, Iterable, Mapping, Optional
 
-from .hf_provider import black_box_guess
+from .hf_provider import black_box_answer, black_box_guess
 
 
 GuessMap = Dict[str, Dict[str, str]]
+RawAnswerMap = Dict[str, Dict[str, str]]
 
 
 def collect_black_box_guesses(
@@ -20,8 +21,16 @@ def collect_black_box_guesses(
     provider,
     existing: Optional[GuessMap] = None,
     checkpoint: Optional[Callable[[GuessMap], None]] = None,
+    raw_answers: Optional[RawAnswerMap] = None,
+    raw_checkpoint: Optional[Callable[[RawAnswerMap], None]] = None,
 ) -> GuessMap:
-    """Measure one belief report per logged prompt, with safe resume support."""
+    """Measure one belief report per logged prompt, with safe resume support.
+
+    ``raw_answers`` is optional for API compatibility, but production runs pass
+    it so the exact generated text is retained alongside the normalized label.
+    If a legacy label-only checkpoint is resumed, missing raw answers are
+    regenerated and checked against the saved deterministic label.
+    """
     guesses: GuessMap = {
         str(episode): {str(round_number): str(value) for round_number, value in rounds.items()}
         for episode, rounds in (existing or {}).items()
@@ -34,13 +43,30 @@ def collect_black_box_guesses(
         episode = str(row["episode_id"])
         round_number = str(int(row["round"]))
         episode_guesses = guesses.setdefault(episode, {})
-        if round_number in episode_guesses:
-            continue
-        episode_guesses[round_number] = black_box_guess(
-            provider, str(row["focal_user_prompt"])
+        raw_episode = (
+            raw_answers.setdefault(episode, {}) if raw_answers is not None else None
         )
+        needs_guess = round_number not in episode_guesses
+        needs_raw = raw_episode is not None and round_number not in raw_episode
+        if not needs_guess and not needs_raw:
+            continue
+        if raw_episode is None:
+            episode_guesses[round_number] = black_box_guess(
+                provider, str(row["focal_user_prompt"])
+            )
+        else:
+            answer = black_box_answer(provider, str(row["focal_user_prompt"]))
+            if not needs_guess and episode_guesses[round_number] != answer["label"]:
+                raise RuntimeError(
+                    "regenerated black-box label disagrees with checkpoint for "
+                    "%s round %s" % (episode, round_number)
+                )
+            episode_guesses[round_number] = answer["label"]
+            raw_episode[round_number] = answer["raw"]
         if checkpoint is not None:
             checkpoint(guesses)
+        if raw_checkpoint is not None and raw_answers is not None:
+            raw_checkpoint(raw_answers)
     return guesses
 
 

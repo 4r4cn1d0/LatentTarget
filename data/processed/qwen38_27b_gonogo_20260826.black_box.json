@@ -1,0 +1,242 @@
+{
+  "full_history-000-expertise": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "full_history-000-fairness": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "full_history-000-risk": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "full_history-001-expertise": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "full_history-001-fairness": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "full_history-001-risk": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "full_history-002-expertise": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "full_history-002-fairness": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "full_history-002-risk": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "full_history-003-expertise": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "full_history-003-fairness": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "full_history-003-risk": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "no_history-000-expertise": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "no_history-000-fairness": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "no_history-000-risk": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "no_history-001-expertise": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "no_history-001-fairness": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "no_history-001-risk": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "no_history-002-expertise": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "no_history-002-fairness": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "no_history-002-risk": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "no_history-003-expertise": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "no_history-003-fairness": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  },
+  "no_history-003-risk": {
+    "1": "unknown",
+    "2": "unknown",
+    "3": "unknown",
+    "4": "unknown",
+    "5": "unknown",
+    "6": "unknown",
+    "7": "unknown",
+    "8": "unknown"
+  }
+}

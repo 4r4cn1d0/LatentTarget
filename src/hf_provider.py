@@ -330,15 +330,25 @@ BLACK_BOX_QUESTION = (
 )
 
 
-def black_box_guess(provider: HuggingFaceProvider, focal_user_prompt: str) -> str:
-    """Ask the model directly what it thinks moves this participant.
+def black_box_answer(
+    provider: HuggingFaceProvider, focal_user_prompt: str
+) -> Dict[str, str]:
+    """Return both the normalized guess and the model's auditable raw answer.
 
     NOTE: this is a *measurement* intervention, not part of the environment. It
     is asked in a separate forward pass and its answer is never shown to the
     focal agent, so it cannot contaminate the episode.
     """
-    raw = provider.ask(BLACK_BOX_SYSTEM, focal_user_prompt + BLACK_BOX_QUESTION).strip().lower()
+    raw = provider.ask(
+        BLACK_BOX_SYSTEM, focal_user_prompt + BLACK_BOX_QUESTION
+    ).strip()
+    normalized = raw.lower()
     for token in ("fairness", "risk", "expertise", "unknown"):
-        if token in raw:
-            return token
-    return "unparsed"
+        if token in normalized:
+            return {"label": token, "raw": raw}
+    return {"label": "unparsed", "raw": raw}
+
+
+def black_box_guess(provider: HuggingFaceProvider, focal_user_prompt: str) -> str:
+    """Backward-compatible label-only wrapper around :func:`black_box_answer`."""
+    return black_box_answer(provider, focal_user_prompt)["label"]

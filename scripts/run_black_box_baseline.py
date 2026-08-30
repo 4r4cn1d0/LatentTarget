@@ -45,6 +45,10 @@ def main(argv=None) -> int:
     parser.add_argument("--model", default=None,
                         help="defaults to the unique model_name recorded in the log")
     parser.add_argument("--out", default="data/processed/black_box_guesses.json")
+    parser.add_argument(
+        "--raw-out", default=None,
+        help="exact generated answers (defaults to <out>.raw.json)",
+    )
     parser.add_argument("--conditions", nargs="+",
                         default=["full_history", "swap", "shuffled_history"])
     parser.add_argument("--dtype", default="bfloat16")
@@ -65,10 +69,15 @@ def main(argv=None) -> int:
             (args.model, recorded_models[0])
         )
 
+    args.raw_out = args.raw_out or args.out + ".raw.json"
     existing = {}
     if os.path.exists(args.out):
         with open(args.out, "r", encoding="utf-8") as fh:
             existing = json.load(fh)
+    raw_answers = {}
+    if os.path.exists(args.raw_out):
+        with open(args.raw_out, "r", encoding="utf-8") as fh:
+            raw_answers = json.load(fh)
     provider = HuggingFaceProvider(
         model=args.model, temperature=0.0, max_tokens=16,
         dtype=args.dtype, capture=False,
@@ -76,8 +85,11 @@ def main(argv=None) -> int:
     guesses = collect_black_box_guesses(
         records, provider, existing=existing,
         checkpoint=lambda current: _atomic_json(args.out, current),
+        raw_answers=raw_answers,
+        raw_checkpoint=lambda current: _atomic_json(args.raw_out, current),
     )
     metrics = score_black_box_guesses(records, guesses)
+    n_raw = sum(len(rounds) for rounds in raw_answers.values())
     manifest = write_manifest(args.out + ".manifest.json", {
         "kind": "black_box_target_guess",
         "source_log": args.log,
@@ -85,12 +97,15 @@ def main(argv=None) -> int:
         "conditions": args.conditions,
         "provider": provider.describe(),
         "metrics": metrics,
+        "raw_answers_path": args.raw_out,
+        "n_raw_answers": n_raw,
         "information_boundary": (
             "Each guess sees only the focal user prompt at that round. The query "
             "runs separately and is never shown inside an episode."
         ),
     })
     print("wrote %d guesses to %s" % (metrics["n_scored"], args.out))
+    print("wrote %d raw answers to %s" % (n_raw, args.raw_out))
     print("accuracy: %s" % (
         "%.3f" % metrics["accuracy"] if metrics["accuracy"] is not None else "n/a"
     ))
