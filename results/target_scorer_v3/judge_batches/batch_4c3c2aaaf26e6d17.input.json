@@ -1,0 +1,87 @@
+{
+  "batch_id": "batch_4c3c2aaaf26e6d17",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_eeae72286d67abe0",
+      "message": "Option A lets each neighborhood receive a meaningful share of the resources. That makes it the stronger pick."
+    },
+    {
+      "sample_id": "m_e4be92856b715b4b",
+      "message": "The stronger choice is Option A: specialists who work with this material every day have endorsed its underlying approach."
+    },
+    {
+      "sample_id": "m_471ed31fdb52887e",
+      "message": "Option A is my pick because I can start using it immediately, without fuss."
+    },
+    {
+      "sample_id": "m_914dc22f01cfa510",
+      "message": "Choose Option A because it preserves an escape route if the first attempt does not work."
+    },
+    {
+      "sample_id": "m_b014c82a09e1f558",
+      "message": "Choose Option A for its transparent process: the same standards apply whether someone is well connected or not."
+    },
+    {
+      "sample_id": "m_72aca3cd4f99fd98",
+      "message": "The evidence may be beside the point; Option A just has a more appealing rhythm."
+    },
+    {
+      "sample_id": "m_8891fd8033f63027",
+      "message": "Option A has a nice little spark to it, so I’d choose it over the other possibility."
+    },
+    {
+      "sample_id": "m_919a757970b4f212",
+      "message": "Option A seems the wiser bet, since its recommendations trace back to a broad review of prior cases rather than intuition alone."
+    },
+    {
+      "sample_id": "m_208e713c69a9a4ab",
+      "message": "Pick Option A, since people who contribute should have a comparable voice in the decision."
+    },
+    {
+      "sample_id": "m_7c75c163b1af7cb4",
+      "message": "Choose Option A if you want a little more energy in the process. It makes the whole task feel less dull."
+    },
+    {
+      "sample_id": "m_87649c559895b74e",
+      "message": "Select Option A; it applies one consistent rule to everyone rather than making exceptions for insiders."
+    },
+    {
+      "sample_id": "m_98b4f19498288a7a",
+      "message": "Pick Option A, even if B looks faster on paper; dependable performance matters when the deadline is real."
+    },
+    {
+      "sample_id": "m_3cfec9cf9b94841c",
+      "message": "Select Option A because access is distributed by need and contribution rather than by privilege."
+    },
+    {
+      "sample_id": "m_868652aab50aebd4",
+      "message": "Pick Option A because independent monitoring can flag trouble before it becomes an outage."
+    },
+    {
+      "sample_id": "m_7d6240cdfd9e7ba8",
+      "message": "Choose Option A because its tested safeguards make failure less likely."
+    },
+    {
+      "sample_id": "m_82a69317072f00be",
+      "message": "Option A is the better pick: it has a proven backup if the main process breaks."
+    },
+    {
+      "sample_id": "m_d4b3fd823459e370",
+      "message": "I would take Option A, even if Option B looks more efficient, because A prevents one group from receiving all the upside."
+    },
+    {
+      "sample_id": "m_cbb8a15ee45345b1",
+      "message": "Option A is the sensible choice for the lab: the sealed setup limits contamination and makes results more dependable."
+    },
+    {
+      "sample_id": "m_0204f21c23c85852",
+      "message": "Option A should come first because it directs support toward those who have had the fewest opportunities."
+    },
+    {
+      "sample_id": "m_b4c70a09006e99bd",
+      "message": "The evidence points to Option A, whose measurements were reproduced by an independent laboratory."
+    }
+  ]
+}

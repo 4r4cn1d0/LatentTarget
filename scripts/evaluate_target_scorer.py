@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import _bootstrap  # noqa: F401
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -12,7 +13,7 @@ import sys
 from config import ALL_LABELS, TargetScorerConfig
 from src.logging_utils import read_jsonl
 from src.scorer_calibration import cohen_kappa, confusion_metrics, write_jsonl
-from src.target_simulator import make_persuasion_scorer
+from src.target_simulator import SemanticNLIPersuasionScorer, make_persuasion_scorer
 
 
 def _prediction(scores) -> str:
@@ -20,6 +21,14 @@ def _prediction(scores) -> str:
     if set(values) != set(ALL_LABELS):
         values["other"] = max(0.0, 1.0 - sum(scores[label] for label in ALL_LABELS[:3]))
     return max(ALL_LABELS, key=lambda label: (values[label], -ALL_LABELS.index(label)))
+
+
+def _file_sha256(path: str) -> str:
+    digest = hashlib.sha256()
+    with open(path, "rb") as fh:
+        for chunk in iter(lambda: fh.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def main(argv=None) -> int:
@@ -41,6 +50,11 @@ def main(argv=None) -> int:
         choices=["semantic_nli_v2", "semantic_nli_v3"],
         default="semantic_nli_v3",
     )
+    parser.add_argument(
+        "--reuse-predictions",
+        action="store_true",
+        help="recompute metrics from --out without loading or rerunning the scorer",
+    )
     args = parser.parse_args(argv)
 
     rows = list(read_jsonl(args.input))
@@ -49,17 +63,33 @@ def main(argv=None) -> int:
     cfg = TargetScorerConfig(
         kind=args.scorer_kind, device=args.device, dtype=args.dtype
     )
-    scorer = make_persuasion_scorer(cfg)
-    output = []
-    for index, row in enumerate(rows, start=1):
-        scores = scorer.score(row["message"])
-        enriched = dict(row)
-        enriched["semantic_scores"] = scores.as_dict()
-        enriched["prediction"] = _prediction(scores)
-        output.append(enriched)
-        if index % 10 == 0:
-            print("scored %d/%d" % (index, len(rows)), flush=True)
-    write_jsonl(args.out, output)
+    if args.reuse_predictions:
+        output = list(read_jsonl(args.out))
+        source = {row["sample_id"]: row for row in rows}
+        if len(output) != len(rows) or set(source) != {row["sample_id"] for row in output}:
+            raise ValueError("saved predictions do not contain the exact input sample ids")
+        for row in output:
+            original = source[row["sample_id"]]
+            for field, value in original.items():
+                if row.get(field) != value:
+                    raise ValueError("saved prediction changed input field %s" % field)
+        scorer_description = SemanticNLIPersuasionScorer(
+            cfg, backend=lambda *args: {}
+        ).describe()
+        print("reused %d existing predictions; scorer was not loaded" % len(output))
+    else:
+        scorer = make_persuasion_scorer(cfg)
+        scorer_description = scorer.describe()
+        output = []
+        for index, row in enumerate(rows, start=1):
+            scores = scorer.score(row["message"])
+            enriched = dict(row)
+            enriched["semantic_scores"] = scores.as_dict()
+            enriched["prediction"] = _prediction(scores)
+            output.append(enriched)
+            if index % 10 == 0:
+                print("scored %d/%d" % (index, len(rows)), flush=True)
+        write_jsonl(args.out, output)
 
     by_split = {
         split: confusion_metrics([row for row in output if row["split"] == split])
@@ -67,7 +97,14 @@ def main(argv=None) -> int:
     }
     hard_negatives = [
         row for row in output
-        if row["split"] == "test" and "expertise_hard_negative" in row["design_tags"]
+        if row["split"] == "test"
+        and (
+            "expertise_hard_negative" in row["design_tags"]
+            or (
+                row.get("reference_label") == "other"
+                and row.get("difficulty") == "adversarial"
+            )
+        )
     ]
     expertise_fp_rate = (
         sum(row["prediction"] == "expertise" for row in hard_negatives) / len(hard_negatives)
@@ -88,9 +125,11 @@ def main(argv=None) -> int:
     }
     payload = {
         "status": "machine-only calibration; not human validation",
-        "scorer": scorer.describe(),
+        "scorer": scorer_description,
         "input": args.input,
         "predictions": args.out,
+        "input_sha256": _file_sha256(args.input),
+        "predictions_sha256": _file_sha256(args.out),
         "metrics": by_split,
         "held_out_expertise_hard_negatives_n": len(hard_negatives),
         "held_out_expertise_hard_negative_fp_rate": expertise_fp_rate,

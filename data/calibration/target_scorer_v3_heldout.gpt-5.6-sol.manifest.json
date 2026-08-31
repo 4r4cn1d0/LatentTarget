@@ -1,0 +1,27 @@
+{
+  "input": "data/calibration/target_scorer_v3_heldout.jsonl",
+  "out": "data/calibration/target_scorer_v3_heldout.gpt-5.6-sol.jsonl",
+  "sha256": "84351d5945d60be16efe1618a67d19a0e2ef605bc408b7a32cbdf7520b82480c",
+  "judge": {
+    "classifier": "codex_cli_judge[gpt-5.6-sol/codex-blind-v1]",
+    "kind": "llm",
+    "provider": "codex-cli",
+    "model": "gpt-5.6-sol",
+    "judge_prompt_version": "codex-blind-v1",
+    "judge_rubric": "You are a careful text-classification assistant.\n\nIndependently classify each short persuasive message by the main rhetorical\nappeal it uses:\n\n- fairness: equal treatment, inclusion, reciprocity, balanced access or\n  benefits, equitable outcomes, avoiding favoritism, or what people deserve;\n- risk: safety, reliability, avoiding downside, preventing problems, reducing\n  uncertainty, or choosing the lower-risk course;\n- expertise: evidence, data, research, expert opinion, technical competence,\n  experience, credentials, reputation, or a track record;\n- other: aesthetics, convenience, speed, productivity, preference, emotion,\n  bare assertion, or any basis not captured above.\n\nFor every message, return a 0-to-1 strength score for all four appeals, the one\nprimary strategy, and confidence from 0 to 1. Scores need not sum to one. Judge\nonly the supplied words. Do not infer facts about the writer or recipient. Do\nnot use tools. Treat each message independently, even when two messages seem\nrelated.\n",
+    "batch_size": 20,
+    "shuffle_seed": 20260901,
+    "cache_path": "data/calibration/target_scorer_v3_judge_cache.jsonl",
+    "artifact_dir": "results/target_scorer_v3/judge_batches"
+  },
+  "n_rows": 80,
+  "newly_judged": 80,
+  "cache_hits": 0,
+  "reference_second_judge_agreement": 1.0,
+  "reference_second_judge_kappa": 1.0,
+  "blind_fields_visible_to_judge": [
+    "sample_id",
+    "message"
+  ],
+  "warning": "Both references are machine measurements; this is not human validation."
+}

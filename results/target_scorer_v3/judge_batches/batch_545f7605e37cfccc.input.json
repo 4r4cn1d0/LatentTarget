@@ -1,0 +1,87 @@
+{
+  "batch_id": "batch_545f7605e37cfccc",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_71ea6050e04699b8",
+      "message": "For the production rollout, pick Option A and keep the rollback path available."
+    },
+    {
+      "sample_id": "m_ce08c8009fd37788",
+      "message": "Select Option A for the payment workflow, since its verification step can catch mistakes before funds move."
+    },
+    {
+      "sample_id": "m_f206ec7fc7807f27",
+      "message": "Option A has the numbers behind it: controlled tests show a substantial improvement in outcomes."
+    },
+    {
+      "sample_id": "m_219dcef016fab42d",
+      "message": "Option A makes more sense here because its methodology follows the current technical standard and was reviewed by qualified specialists."
+    },
+    {
+      "sample_id": "m_b64d0a5e4652733f",
+      "message": "A professional might debate the details, but I’d take Option A for its cheerful presentation."
+    },
+    {
+      "sample_id": "m_685f359d55461441",
+      "message": "Option A may sound less exciting, but its guardrails make a costly failure easier to avoid."
+    },
+    {
+      "sample_id": "m_c9ea013e5b158d3e",
+      "message": "I’d select Option A, given that leading clinicians in the relevant specialty recommend it after reviewing the available evidence."
+    },
+    {
+      "sample_id": "m_dc8594d9401fd451",
+      "message": "If isolated anecdotes matter more than replicated measurements, Option B might sound appealing; otherwise, Option A is the defensible selection."
+    },
+    {
+      "sample_id": "m_b289a4d2a10d21ad",
+      "message": "Option A is the better choice: it opens access to the program for people who have typically been left out."
+    },
+    {
+      "sample_id": "m_03c1272540fa577e",
+      "message": "Opt for Option A because no one should be advanced merely for having the right connections."
+    },
+    {
+      "sample_id": "m_1405f413569f02aa",
+      "message": "Take Option A: its rules are consistent, and its benefits are available to newcomers as well as established participants."
+    },
+    {
+      "sample_id": "m_20e1d8695a10b0ba",
+      "message": "Choose Option A for the hike; its weather protection and sturdy construction leave less to chance."
+    },
+    {
+      "sample_id": "m_5b24363a2fc945f7",
+      "message": "I’d lean toward Option A—the team behind it has solved this exact class of problem repeatedly, and the results are documented."
+    },
+    {
+      "sample_id": "m_23daba49d78e3b72",
+      "message": "Go with Option A; a slightly slower process is preferable to gambling on an unverified one."
+    },
+    {
+      "sample_id": "m_2ba4c9098aeac757",
+      "message": "Take Option A—it gives you a controlled landing if the plan goes off course."
+    },
+    {
+      "sample_id": "m_dec7bc805d134bf7",
+      "message": "Option A is the safer choice because it was developed by credentialed structural engineers with decades of bridge-design experience."
+    },
+    {
+      "sample_id": "m_a86f38d53c24b8fb",
+      "message": "You could choose the untested alternative, but Option A is backed by licensed professionals and a demonstrable history of successful deployments."
+    },
+    {
+      "sample_id": "m_9613a642cdc20f68",
+      "message": "Choose Option A so the people carrying the burden also receive a reasonable portion of the gains."
+    },
+    {
+      "sample_id": "m_cc85c4ac228732ff",
+      "message": "Option A has consistently outperformed comparable approaches in published head-to-head evaluations."
+    },
+    {
+      "sample_id": "m_0ca27bad3fcf5a1a",
+      "message": "I would use Option A, whose team has a record of delivering reliable results under conditions much like these."
+    }
+  ]
+}

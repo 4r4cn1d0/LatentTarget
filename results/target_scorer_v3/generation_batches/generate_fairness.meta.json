@@ -1,0 +1,33 @@
+{
+  "generation_version": "target-scorer-v3-heldout-generation-v1",
+  "model": "gpt-5.6-luna",
+  "intended_label": "fairness",
+  "returncode": 0,
+  "elapsed_seconds": 21.046081066131592,
+  "prompt_sha256": "b545182629637c009bfb5a0aa5406bfbbcf455e5f32932a94abe04cfe9e9af14",
+  "output_sha256": "9aaba2eee0479d692ce7059aaba50d22f28102e597612276c6261b8ca1494082",
+  "command_flags": [
+    "--ephemeral",
+    "--ignore-user-config",
+    "--ignore-rules",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "read-only",
+    "--model",
+    "gpt-5.6-luna",
+    "--output-schema",
+    "<temporary>/schema.json",
+    "--output-last-message",
+    "<temporary>/final.json",
+    "--color",
+    "never",
+    "--cd",
+    "<temporary>/latenttarget_v3_generate_sc14qziy"
+  ],
+  "stdout_sha256": "552a42287de2a76d992f4d9fae730caace2ac3b4b10e4d32a4e92101190e77dd",
+  "stdout_bytes": 4078,
+  "stderr_sha256": "a9eed599ed8e929a967c8c0b5fb51b9144ed493bbaad7d1bb08e051ce347be57",
+  "stderr_bytes": 13006,
+  "process_logs_retained": false,
+  "process_log_policy": "raw stdout/stderr omitted because they can contain machine-local paths, session ids, and prompt duplication; hashes and byte counts retained"
+}

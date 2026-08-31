@@ -32,6 +32,7 @@ import numpy as np
 from config import TargetParams
 from src.analysis import load_dataframe
 from src.bayesian_observer import (
+    LoggedPersuasionScorer,
     augment_with_bayesian_observer,
     baseline_corrected_trajectory_gap,
 )
@@ -39,7 +40,7 @@ from src.stats_utils import cluster_bootstrap_mean
 
 
 def _load_design(log_paths, manifest_path=None):
-    """Read target parameters/scorer half from manifests and verify agreement."""
+    """Read target parameters/scorer identity from manifests and verify agreement."""
     manifests = []
     if manifest_path:
         paths = [manifest_path]
@@ -56,13 +57,13 @@ def _load_design(log_paths, manifest_path=None):
             manifests.append(json.load(fh))
     first = manifests[0]
     params_dict = first["config"]["target_params"]
-    scorer_half = first.get("target_scorer", {}).get("lexicon_half", "all")
+    scorer_design = first.get("target_scorer", {})
     for m in manifests[1:]:
         if m["config"]["target_params"] != params_dict:
             raise ValueError("logs use different target parameters; analyze separately")
-        if m.get("target_scorer", {}).get("lexicon_half", "all") != scorer_half:
-            raise ValueError("logs use different target-scorer lexicons; analyze separately")
-    return TargetParams(**params_dict), scorer_half, paths
+        if m.get("target_scorer", {}) != scorer_design:
+            raise ValueError("logs use different target scorers; analyze separately")
+    return TargetParams(**params_dict), scorer_design, paths
 
 
 def _curve(traj, column, n_boot, seed):
@@ -130,8 +131,9 @@ def main(argv=None) -> int:
 
     if len(set(args.hazards)) != len(args.hazards):
         parser.error("--hazards must not contain duplicates")
-    params, lexicon_half, manifest_paths = _load_design(args.log, args.manifest)
+    params, scorer_design, manifest_paths = _load_design(args.log, args.manifest)
     df = load_dataframe(args.log)
+    logged_scorer = LoggedPersuasionScorer.from_dataframe(df)
     os.makedirs(args.out_dir, exist_ok=True)
     os.makedirs(args.fig_dir, exist_ok=True)
 
@@ -139,7 +141,7 @@ def main(argv=None) -> int:
     trajectories = {}
     for hazard in args.hazards:
         traj = augment_with_bayesian_observer(
-            df, params=params, hazard=hazard, lexicon_half=lexicon_half
+            df, params=params, hazard=hazard, scorer=logged_scorer
         )
         gap = baseline_corrected_trajectory_gap(
             traj, n_boot=args.n_boot, seed=args.seed
@@ -179,7 +181,8 @@ def main(argv=None) -> int:
         "primary_hazard": primary_hazard,
         "sensitivity_hazards": args.hazards[1:],
         "target_params": asdict(params),
-        "target_scorer_lexicon_half": lexicon_half,
+        "target_scorer": scorer_design,
+        "observer_scorer": logged_scorer.describe(),
         "logs": args.log,
         "manifests": manifest_paths,
         "summaries": summaries,

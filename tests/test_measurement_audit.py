@@ -40,6 +40,15 @@ def test_alignment_fails_if_message_or_metadata_changes():
         align_classifier_records(source, changed)
 
 
+def test_alignment_fails_if_any_non_classifier_field_changes():
+    source = [_record(1, "full_history", "fairness", "other")]
+    source[0]["visible_history"] = []
+    changed = copy.deepcopy(source)
+    changed[0]["visible_history"] = [{"message": "tampered"}]
+    with pytest.raises(ValueError, match="visible_history changed"):
+        align_classifier_records(source, changed)
+
+
 def test_alignment_fails_on_missing_or_duplicate_records():
     source = [_record(1, "full_history", "fairness", "other")]
     with pytest.raises(ValueError, match="different record keys"):

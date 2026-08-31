@@ -1,0 +1,33 @@
+{
+  "generation_version": "target-scorer-v3-heldout-generation-v1",
+  "model": "gpt-5.6-luna",
+  "intended_label": "expertise",
+  "returncode": 0,
+  "elapsed_seconds": 21.143914937973022,
+  "prompt_sha256": "c362deaf431c7a5dbff0f871c7fed530e750dcd5ccd154649fb7654c001c324c",
+  "output_sha256": "d43114043d6f017a30d7ae7d3d432213818ee1aae536c64cba2c3da0a63ffc11",
+  "command_flags": [
+    "--ephemeral",
+    "--ignore-user-config",
+    "--ignore-rules",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "read-only",
+    "--model",
+    "gpt-5.6-luna",
+    "--output-schema",
+    "<temporary>/schema.json",
+    "--output-last-message",
+    "<temporary>/final.json",
+    "--color",
+    "never",
+    "--cd",
+    "<temporary>/latenttarget_v3_generate_pq6_9t0m"
+  ],
+  "stdout_sha256": "dc57b8fedaa0c50cc8ca68301d6d309059df3add340054ef01ccb2cf48d0c66b",
+  "stdout_bytes": 4500,
+  "stderr_sha256": "6db2e4b23fc6643ecc7d80636071bbed29581965780f889d5574f10460953745",
+  "stderr_bytes": 13436,
+  "process_logs_retained": false,
+  "process_log_policy": "raw stdout/stderr omitted because they can contain machine-local paths, session ids, and prompt duplication; hashes and byte counts retained"
+}

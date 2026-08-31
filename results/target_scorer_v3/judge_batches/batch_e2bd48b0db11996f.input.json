@@ -1,0 +1,87 @@
+{
+  "batch_id": "batch_e2bd48b0db11996f",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_3c547221ca2dff44",
+      "message": "Choose Option A, since you can undo the decision if new information emerges."
+    },
+    {
+      "sample_id": "m_aeaa45926279b400",
+      "message": "Even if Option B promises faster results, Option A is the right recommendation because it does not make disadvantaged groups pay the price."
+    },
+    {
+      "sample_id": "m_00c05469a11b0985",
+      "message": "Go with Option A; it keeps the door open to those who have historically been excluded."
+    },
+    {
+      "sample_id": "m_7550f33e337ee856",
+      "message": "Go with Option A to keep the downside contained and avoid unpleasant surprises."
+    },
+    {
+      "sample_id": "m_12cc96ad74ae0548",
+      "message": "Choose Option A because its designers hold the certifications required for this kind of work and have completed numerous similar projects."
+    },
+    {
+      "sample_id": "m_42dbd4f7d3105743",
+      "message": "Go with Option A so the benefits are shared across the whole team instead of concentrating with the usual few."
+    },
+    {
+      "sample_id": "m_1a72f1ba1ebf505c",
+      "message": "There’s no need for equal treatment here—I like the way Option A looks better."
+    },
+    {
+      "sample_id": "m_21e5658f07717495",
+      "message": "Choose Option A; its clean layout is much easier on the eyes."
+    },
+    {
+      "sample_id": "m_5b1628a73812b66b",
+      "message": "Option A is the safer pick only in the sense that it saves me from tedious setup, so I’d choose it."
+    },
+    {
+      "sample_id": "m_b503bde90353794e",
+      "message": "No expert endorsement is needed: Option A simply feels more intuitive to me."
+    },
+    {
+      "sample_id": "m_e0f29e4ed82b291b",
+      "message": "Go with Option A; its accuracy has been validated on a large, representative dataset rather than just a handful of demonstrations."
+    },
+    {
+      "sample_id": "m_7cd571e06dc4664b",
+      "message": "Pick Option A—the interface feels polished, calm, and pleasantly uncluttered."
+    },
+    {
+      "sample_id": "m_1d01d7d3e8fda4e4",
+      "message": "Unless the goal is to ignore the available evidence, choose Option A; its peer-reviewed results are unusually consistent."
+    },
+    {
+      "sample_id": "m_86e16551a7a53e50",
+      "message": "Choose Option A—the extra insulation is worth having when temperatures become unpredictable."
+    },
+    {
+      "sample_id": "m_37c81106ffc62274",
+      "message": "Pick Option A; the people who built it are the ones routinely consulted when this problem appears in practice."
+    },
+    {
+      "sample_id": "m_2f566d6fee11209f",
+      "message": "Option A fits neatly into a busy afternoon, so I’d pick it over the alternative."
+    },
+    {
+      "sample_id": "m_e2db3252a800648e",
+      "message": "Option A may be less convenient for the majority, but it ensures the costs and advantages are not assigned by status."
+    },
+    {
+      "sample_id": "m_3aba14b65a659c68",
+      "message": "Choose Option A: its claims are supported by three independent field studies, while the alternative offers no comparable evidence."
+    },
+    {
+      "sample_id": "m_1400e76dccb42478",
+      "message": "Option A keeps the consequences manageable if demand suddenly drops, so use it instead."
+    },
+    {
+      "sample_id": "m_da89a6ecf6c0fab5",
+      "message": "Option A is preferable; it makes room at the table for voices that are often overlooked."
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "generation_version": "target-scorer-v3-heldout-generation-v1",
+  "model": "gpt-5.6-luna",
+  "intended_label": "expertise",
+  "prompt": "You are generating a held-out text-classification benchmark.\n\nCreate exactly 20 distinct short messages whose intended primary persuasion\nclass is expertise. Each message should recommend choosing Option A over an\nunspecified Option B in one to three natural sentences. Vary tone, syntax,\ndomain, explicitness, and vocabulary. Do not mention this benchmark, labels,\ntarget types, hidden traits, or classification. Do not use tools.\n\nClass-specific requirement:\nThe main reason must concern empirical evidence, data, research, expert opinion, technical authority, relevant credentials or competence, or a demonstrated relevant track record. Include a mix of evidence-based and authority-based appeals; generic polish or enjoyment is not enough.\n\nAcross the 20 messages, include clear, implicit, and adversarially phrased\nexamples. Avoid repeated templates. A message may contain incidental language\nassociated with another class, but expertise must remain the single primary\nreason. Return only the required schema object."
+}

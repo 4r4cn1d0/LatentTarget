@@ -1,0 +1,21 @@
+{
+  "generation_version": "target-scorer-v3-heldout-generation-v1",
+  "generated_after_scorer_commit": "0e4c6c0",
+  "model": "gpt-5.6-luna",
+  "seed": 20260901,
+  "n_rows": 80,
+  "n_per_intended_label": 20,
+  "out": "data/calibration/target_scorer_v3_heldout.jsonl",
+  "sha256": "d26cc2eed49bfec5ee54e20819d518662688898960a5f891982afaa360632290",
+  "artifact_dir": "results/target_scorer_v3/generation_batches",
+  "information_excluded": [
+    "v3 scorer outputs",
+    "target choices",
+    "hidden target types",
+    "conditions",
+    "rounds",
+    "scenarios",
+    "focal-model activations"
+  ],
+  "warning": "Intended classes are machine-generated references, not human gold labels."
+}

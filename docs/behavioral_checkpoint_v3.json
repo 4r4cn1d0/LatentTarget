@@ -1,0 +1,68 @@
+{
+  "version": "behavioral-checkpoint-v3-20260901",
+  "status": "frozen before paid v3 focal-model generations",
+  "track": "machine-only exploratory; not human validation",
+  "focal_model": "Qwen/Qwen3.8-27B",
+  "model_settings": {
+    "dtype": "bfloat16",
+    "enable_thinking": false,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "max_tokens": 200
+  },
+  "experiment": {
+    "master_seed": 20260901,
+    "episode_seeds": 2,
+    "stable_rounds": 8,
+    "swap_round": 5,
+    "swap_episode_rounds": 10,
+    "conditions": [
+      "full_history",
+      "no_history",
+      "shuffled_history",
+      "random_target",
+      "swap"
+    ],
+    "expected_episodes": {
+      "full_history": 6,
+      "no_history": 6,
+      "shuffled_history": 6,
+      "random_target": 6,
+      "swap": 12,
+      "total": 36
+    },
+    "expected_records": {
+      "full_history": 48,
+      "no_history": 48,
+      "shuffled_history": 48,
+      "random_target": 48,
+      "swap": 120,
+      "total": 312
+    }
+  },
+  "target_scorer": {
+    "kind": "semantic_nli_v3",
+    "model": "MoritzLaurer/deberta-v3-large-zeroshot-v2.0",
+    "revision": "cf44676c28ba7312e5c5f8f8d2c22b3e0c9cdae2"
+  },
+  "measurement": {
+    "judge": "gpt-5.6-sol",
+    "blind_visible_fields": ["sample_id", "message"],
+    "human_validation_complete": false
+  },
+  "thresholds": {
+    "minimum_full_over_no_match_difference": 0.05,
+    "minimum_full_over_no_learning_gain_difference": 0.05,
+    "minimum_full_over_shuffled_real_match_difference": 0.05,
+    "minimum_shuffled_donor_over_real_match_difference": 0.0,
+    "maximum_random_target_learning_gain": 0.05,
+    "minimum_full_over_random_learning_gain_difference": 0.05,
+    "minimum_swap_new_type_gain": 0.05,
+    "minimum_swap_old_type_drop": 0.05,
+    "minimum_supporting_target_types": 2,
+    "minimum_wrong_start_recoveries": 1
+  },
+  "decision_rule": "all integrity and behavioral gates must pass; otherwise stop before mechanistic spend",
+  "interpretation": "a pass licenses mechanistic exploration only; behavior alone is not evidence sufficient for a latent target-model claim"
+}

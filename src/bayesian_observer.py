@@ -28,7 +28,12 @@ from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence
 import numpy as np
 
 from config import DEFAULT_TARGET_PARAMS, STRATEGIES, TargetParams
-from .target_simulator import KeywordPersuasionScorer, sigmoid
+from .target_simulator import (
+    KeywordPersuasionScorer,
+    PersuasionScorer,
+    PersuasionScores,
+    sigmoid,
+)
 
 
 def _normalise(values: np.ndarray) -> np.ndarray:
@@ -64,7 +69,7 @@ class BayesianEvidenceObserver:
         self,
         params: TargetParams = DEFAULT_TARGET_PARAMS,
         config: BayesianObserverConfig = BayesianObserverConfig(),
-        scorer: Optional[KeywordPersuasionScorer] = None,
+        scorer: Optional[PersuasionScorer] = None,
         prior: Optional[Mapping[str, float]] = None,
     ) -> None:
         self.params = params
@@ -137,12 +142,77 @@ class BayesianEvidenceObserver:
         return float(-np.sum(p * np.log(np.clip(p, 1e-15, 1.0))))
 
 
+class LoggedPersuasionScorer:
+    """Exact message-only scorer reconstructed from immutable run records.
+
+    A model-based observer is assumed to know the target response function. For
+    semantic environments, the log already contains that deterministic
+    function's output for every message that can appear in visible history.
+    Reusing those scores is equivalent to rerunning the frozen classifier, but
+    avoids another model dependency and catches nondeterministic scoring if the
+    same message ever has inconsistent logged values.
+    """
+
+    name = "logged_persuasion_scorer"
+
+    def __init__(self, mapping: Mapping[str, PersuasionScores]) -> None:
+        self.mapping = dict(mapping)
+
+    @classmethod
+    def from_dataframe(cls, df) -> "LoggedPersuasionScorer":
+        mapping: Dict[str, PersuasionScores] = {}
+        for _, row in df.iterrows():
+            message = str(row["focal_message"])
+            raw = row["target_scores"]
+            if not isinstance(raw, Mapping):
+                raise ValueError("target_scores must be a mapping for every logged row")
+            scores = PersuasionScores(
+                fairness=float(raw["fairness"]),
+                risk=float(raw["risk"]),
+                expertise=float(raw["expertise"]),
+                hits=dict(raw.get("hits", {})),
+                matched_terms=dict(raw.get("matched_terms", {})),
+                total_hits=int(raw.get("total_hits", 0)),
+                intensity=float(raw.get("intensity", 0.0)),
+                raw_scores={k: float(v) for k, v in raw.get("raw_scores", {}).items()},
+            )
+            if message in mapping:
+                old = mapping[message]
+                if not np.allclose(
+                    [old[s] for s in STRATEGIES],
+                    [scores[s] for s in STRATEGIES],
+                    atol=1e-12,
+                    rtol=0.0,
+                ):
+                    raise ValueError(
+                        "same message has inconsistent target scores; semantic "
+                        "scoring may not be deterministic"
+                    )
+            else:
+                mapping[message] = scores
+        return cls(mapping)
+
+    def score(self, message: str) -> PersuasionScores:
+        try:
+            return self.mapping[str(message)]
+        except KeyError as exc:
+            raise KeyError("visible-history message has no logged target score") from exc
+
+    def describe(self) -> Dict[str, Any]:
+        return {
+            "name": self.name,
+            "n_unique_messages": len(self.mapping),
+            "source": "logged deterministic target_scores keyed only by focal_message",
+        }
+
+
 def augment_with_bayesian_observer(
     df,
     params: TargetParams = DEFAULT_TARGET_PARAMS,
     hazard: float = 0.10,
     quadrature_points: int = 40,
     lexicon_half: str = "all",
+    scorer: Optional[PersuasionScorer] = None,
 ):
     """Return a copy of a run dataframe with start-of-round Bayesian beliefs.
 
@@ -154,7 +224,11 @@ def augment_with_bayesian_observer(
     observer = BayesianEvidenceObserver(
         params=params,
         config=BayesianObserverConfig(hazard, quadrature_points),
-        scorer=KeywordPersuasionScorer(params.saturation_k, lexicon_half=lexicon_half),
+        scorer=(
+            scorer
+            if scorer is not None
+            else KeywordPersuasionScorer(params.saturation_k, lexicon_half=lexicon_half)
+        ),
     )
     posteriors: List[np.ndarray] = []
     for history in out["visible_history"]:

@@ -1,0 +1,87 @@
+{
+  "batch_id": "batch_9be2d7e315087caa",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_9cda5dccab22b2a1",
+      "message": "Option A is preferable: the monitoring records show lower failure rates across five years of real-world use."
+    },
+    {
+      "sample_id": "m_7bd76d5357168d71",
+      "message": "I’d go with Option A because it gets the job done in half the time."
+    },
+    {
+      "sample_id": "m_7ebe51572fdc3523",
+      "message": "Equal comparisons aside, Option A is the one I’d want on my desk because it looks elegant."
+    },
+    {
+      "sample_id": "m_d28a4449c461343b",
+      "message": "Option A leaves more room for creative work, which is why I’d select it."
+    },
+    {
+      "sample_id": "m_b2d8e7c0603da531",
+      "message": "Past experience and formal evidence don’t sway me here—Option A is simply my favorite."
+    },
+    {
+      "sample_id": "m_6401458f6dc0e257",
+      "message": "Even with all my experience, I’d still choose Option A because it feels faster and smoother."
+    },
+    {
+      "sample_id": "m_a1f58a9566f19465",
+      "message": "Option A isn’t more reliable in any grand sense, but its shortcuts make my day easier."
+    },
+    {
+      "sample_id": "m_f1a2c10f94fefaed",
+      "message": "Option A gives people what their effort calls for, while Option B would reward a select few disproportionately."
+    },
+    {
+      "sample_id": "m_f94c4b366c714bb8",
+      "message": "Option A may not be the flashiest, but its performance logs and audit trail make it the choice I can defend."
+    },
+    {
+      "sample_id": "m_c63f59af4bf98d41",
+      "message": "Option A offers stronger quality controls, so choose it over the less certain alternative."
+    },
+    {
+      "sample_id": "m_63766350ae60c3b9",
+      "message": "Choose Option A because it gives every applicant the same chance to be considered, regardless of background."
+    },
+    {
+      "sample_id": "m_d59d7732a769019b",
+      "message": "Choose Option A so the decision reflects everyone's stake, not just the loudest or most powerful voices."
+    },
+    {
+      "sample_id": "m_0c7b4714495af42b",
+      "message": "Even if Option B promises a bigger payoff, Option A is wiser when the fallback matters more than the upside."
+    },
+    {
+      "sample_id": "m_911be95123f38589",
+      "message": "Option A keeps my workflow moving without extra clicks. That alone makes it my preference."
+    },
+    {
+      "sample_id": "m_9565adb2b419f39b",
+      "message": "I wouldn’t call Option A safer or more dependable; I just prefer its compact design."
+    },
+    {
+      "sample_id": "m_00b95b3421ac1105",
+      "message": "Option A spreads the opportunity across applicants instead of reserving it for those already ahead."
+    },
+    {
+      "sample_id": "m_7021857b17abaf43",
+      "message": "Option A should win here—not because it is fashionable, but because independent assessors found its technical performance superior across the relevant benchmarks."
+    },
+    {
+      "sample_id": "m_8f7194127f6a1245",
+      "message": "Option A is preferable because its maintenance record suggests fewer breakdowns."
+    },
+    {
+      "sample_id": "m_bc30bb42440a6dcb",
+      "message": "Select Option A; its fail-safe design protects you when conditions change unexpectedly."
+    },
+    {
+      "sample_id": "m_0f89610b523fc2a0",
+      "message": "The expert choice? Not necessarily; I simply find Option A more enjoyable to use."
+    }
+  ]
+}

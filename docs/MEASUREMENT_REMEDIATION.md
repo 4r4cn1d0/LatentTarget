@@ -96,10 +96,12 @@ direction as the independent judge. More than 20% `unsure`, kappa below 0.40,
 or a reversed direction stops scaling. Kappa 0.40–0.60 allows only exploratory
 language and requires instrument revision.
 
-## Stage C — target-scorer v2 calibration (conditional)
+## Stage C — semantic target-scorer calibration (machine-only track complete)
 
-This stage starts only if human labels confirm that the independent judge is
-substantially valid and that v1's target reward is semantically misaligned.
+The original human-dependent Stage C remains blocked. Under the separately
+authorized machine-only exploratory track, v2 was frozen, independently judged,
+and failed its one-time held-out gate (macro-F1 0.778 but fairness recall 0.400).
+It was retired without being used for focal-model outcomes.
 
 The calibration process—not the final vocabulary—is frozen here:
 
@@ -123,16 +125,26 @@ The calibration process—not the final vocabulary—is frozen here:
 7. Save the scorer as a new version and log its complete rules/configuration in
    every v2 manifest. Do not modify or relabel v1.
 
-These numeric gates are a draft design choice, not part of the 2026-08-25
-preregistration. They require researcher approval before the calibration test
-labels are unsealed.
+V3 was then selected only on the demoted v2 development data and committed
+before a new held-out corpus was generated. On that independent 80-message
+machine test it passed all gates: macro-F1 0.914, minimum class F1 0.864,
+fairness recall 0.950, and 0/11 expertise false positives on adversarial other
+messages. A blind second machine judge agreed with all 80 intended labels. See
+`TARGET_SCORER_V2_PROTOCOL.md` and `TARGET_SCORER_V3_PROTOCOL.md` for the exact
+provenance, failure, correction audit, and limitations.
 
-## Stage D — tiny all-controls v2 checkpoint (not run)
+This completes only the machine-only Stage C substitute. Stage B remains
+unfinished and no result may be called human-validated or confirmatory.
 
-Only after Stages B and C pass, verify at execution time that the selected
-focal checkpoint is still a current, dynamic, official open-weight model. Do
-not substitute an older checkpoint for convenience. Repeat the one-generation
-architecture/activation preflight even if the model name is unchanged.
+## Stage D — tiny all-controls v3 checkpoint (authorized and frozen; not yet run)
+
+The researcher explicitly authorized all remaining non-human work, including
+paid execution, on 2026-09-01. This waives Stage B only as a prerequisite for
+machine-only exploration; it does not make Stage B pass. At execution time,
+verify that the selected focal checkpoint is still a current, dynamic,
+official open-weight model. Do not substitute an older checkpoint for
+convenience. Repeat the one-generation architecture preflight even if the
+model name is unchanged.
 
 The next paid behavioral run should be a **two-seed systems checkpoint**, not a
 full experiment:
@@ -147,9 +159,12 @@ At two episode seeds this is 312 focal generations: 192 stable/control rounds
 plus 120 swap rounds. Preserve all rows and print complete fixed-rule
 transcripts. Stop again for researcher review.
 
-Minimum GO pattern:
+The exact run settings, numeric thresholds, expected record counts, and
+executable fail-closed decision rule are frozen in
+`BEHAVIORAL_CHECKPOINT_V3.md`, `behavioral_checkpoint_v3.json`, and
+`src/checkpoint_gate.py`. Minimum GO pattern:
 
-- independently/human-validated match is directionally higher with valid
+- independently machine-measured match is directionally higher with valid
   history than with no history;
 - shuffled history does not reproduce alignment to the real target and is
   checked against donor-type alignment;
@@ -162,13 +177,14 @@ Minimum GO pattern:
 Failure is retained as a negative result. It is not repaired by selecting
 episodes, changing seeds, or tuning the scorer against outcomes.
 
-## Stage E — main run and mechanistic extension (not authorized)
+## Stage E — main run and mechanistic extension (conditionally authorized)
 
-Use the pilot variance to freeze sample size without looking at whether the
-main effect is favorable. Only after the behavioral controls and swap pass may
-the project collect activations, fit episode-split probes, compare against
-visible-history/Bayesian baselines, and run target/opposite/random/zero steering
-controls.
+The researcher authorized this work on 2026-09-01, but its scientific gate was
+not waived. Use the pilot variance to freeze sample size without looking at
+whether the main effect is favorable. Only after every frozen behavioral gate
+passes may the project collect activations, fit episode-split probes, compare
+against visible-history/Bayesian baselines, and run
+target/opposite/random/zero steering controls.
 
 Behavioral adaptation supports feedback-conditioned policy change. A latent
 target-model claim requires stronger evidence: held-out decodability beyond

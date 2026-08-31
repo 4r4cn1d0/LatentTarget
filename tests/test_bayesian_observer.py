@@ -8,6 +8,7 @@ from config import STRATEGIES, TargetParams
 from src.bayesian_observer import (
     BayesianEvidenceObserver,
     BayesianObserverConfig,
+    LoggedPersuasionScorer,
     augment_with_bayesian_observer,
     baseline_corrected_trajectory_gap,
 )
@@ -122,3 +123,59 @@ def test_invalid_choice_and_hazard_fail_loudly():
         BayesianObserverConfig(change_hazard=1.1)
     with pytest.raises(ValueError, match="choice"):
         BayesianEvidenceObserver().likelihoods("x", "C")
+
+
+def test_logged_scorer_reconstructs_exact_message_only_scores():
+    df = pd.DataFrame(
+        [
+            {
+                "focal_message": "implicit appeal",
+                "target_scores": {
+                    "fairness": 0.8,
+                    "risk": 0.1,
+                    "expertise": 0.05,
+                    "raw_scores": {
+                        "fairness": 0.8, "risk": 0.1,
+                        "expertise": 0.05, "other": 0.05,
+                    },
+                    "intensity": 0.95,
+                },
+            }
+        ]
+    )
+    scorer = LoggedPersuasionScorer.from_dataframe(df)
+    scores = scorer.score("implicit appeal")
+    assert scores.fairness == pytest.approx(0.8)
+    assert scores.raw_scores["other"] == pytest.approx(0.05)
+    with pytest.raises(KeyError, match="no logged"):
+        scorer.score("unseen")
+
+
+def test_logged_scorer_rejects_nondeterministic_duplicate_scores():
+    df = pd.DataFrame(
+        [
+            {"focal_message": "same", "target_scores": {
+                "fairness": 0.8, "risk": 0.1, "expertise": 0.1,
+            }},
+            {"focal_message": "same", "target_scores": {
+                "fairness": 0.7, "risk": 0.2, "expertise": 0.1,
+            }},
+        ]
+    )
+    with pytest.raises(ValueError, match="inconsistent"):
+        LoggedPersuasionScorer.from_dataframe(df)
+
+
+def test_augmentation_can_use_exact_logged_semantic_scores():
+    scorer_df = pd.DataFrame(
+        [{"focal_message": "implicit", "target_scores": {
+            "fairness": 0.9, "risk": 0.05, "expertise": 0.01,
+        }}]
+    )
+    scorer = LoggedPersuasionScorer.from_dataframe(scorer_df)
+    df = pd.DataFrame([
+        _row(1, []),
+        _row(2, [{"message": "implicit", "choice": "A"}]),
+    ])
+    out = augment_with_bayesian_observer(df, hazard=0.0, scorer=scorer)
+    assert out.loc[1, "bayes_p_fairness"] > out.loc[1, "bayes_p_risk"]

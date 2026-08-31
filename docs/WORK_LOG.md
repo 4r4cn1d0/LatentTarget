@@ -364,6 +364,67 @@ synthetic validation and from claims that still require a real model.
 - Full commands, versions, hashes, limitations, and result boundaries are in
   `docs/RUNPOD_CHECKPOINT_20260830.md`.
 
+## 2026-09-01 — semantic scorer v2 failure and v3 held-out pass
+
+- The researcher explicitly authorized every remaining non-human stage,
+  including paid compute, while declining human labelling. Human validation
+  therefore remains **0/40** and all subsequent work is labelled machine-only
+  and exploratory.
+- Implemented and froze semantic scorer v2 using the independently trained,
+  revision-pinned `MoritzLaurer/deberta-v3-large-zeroshot-v2.0` checkpoint.
+  Generated an 80-message calibration corpus and obtained a blind second
+  `gpt-5.6-sol` judgment (agreement 0.825, kappa 0.767).
+- Rented a Community RTX 3090 at `$0.22/hour` after an RTX A4000 at
+  `$0.17/hour` failed to boot. V2's one-time held-out result was macro-F1 0.778
+  but fairness recall 0.400, so the frozen gate failed. V2 was retired and was
+  never used to generate focal-model outcomes.
+- Demoted the v2 corpus to development data. On the 66 rows where its two
+  machine references agreed, selected v3's 12-prototype grouping solely from
+  construct metrics. The selected prompt had dev macro-F1 0.854 and fairness
+  recall 0.750; a numerically higher macro-F1 variant was rejected because its
+  fairness recall missed the frozen 0.70 requirement.
+- Committed v3 (`0e4c6c0`) before creating a new test. `gpt-5.6-luna` then
+  generated 80 unique outcome-free held-out messages, balanced 20 per class;
+  a blind `gpt-5.6-sol` judge saw only opaque ID and message and agreed with all
+  80 intended classes. Both references are machine-generated, not human gold.
+- Scored the new corpus once on the RTX 3090. V3 achieved accuracy 0.9125,
+  macro-F1 0.9140, fairness recall 0.950, minimum class F1 0.864, and 0/11
+  expertise false positives on adversarial other messages. Every frozen gate
+  passed.
+- Retained an initial false gate report caused by the new corpus using an
+  `adversarial` difficulty field instead of the legacy hard-negative tag.
+  Repaired only the metadata selector and recomputed from the byte-identical
+  predictions (SHA-256
+  `80e55daf92605f9e089553e33d292e1cb9a2dfd6d9cf994b5e4ed197c848e885`)
+  without loading or rerunning the scorer.
+- Deleted both calibration pods and confirmed zero active RunPod pods. Approximate
+  calibration compute was under `$0.10`; the provider ledger is authoritative.
+
+## 2026-09-01 — v3 behavioral checkpoint frozen
+
+- Updated the Bayesian evidence observer and probe pipeline to reconstruct the
+  exact deterministic semantic scores from immutable logs. It now fails if a
+  repeated message has inconsistent scores and cannot silently fall back to
+  v1 keyword scoring.
+- Strengthened the independent-measurement audit so every non-classifier field,
+  including prompts, histories, target probabilities, scores, and seeds, must
+  remain byte-for-byte equivalent after reclassification.
+- Froze the two-seed, five-condition v3 checkpoint before any paid v3 focal
+  generation: 36 episodes, 312 messages, all six ordered swaps twice, master
+  seed `20260901`, official `Qwen/Qwen3.8-27B`, non-thinking sampling, and no
+  activation capture.
+- Added an executable fail-closed gate covering exact design counts, prompt and
+  scenario invariance, independent-judge blindness, full/no-history contrast,
+  shuffled donor alignment, random-response null behavior, wrong-start
+  recovery, old-to-new swap revision, and support from at least two target
+  types. All gates must pass before mechanistic spending.
+- A direct pre-commit review found that the initial shuffled-history gate mixed
+  a full-history round-1 row with round-2+ donor-evidence rows. Restricted both
+  sides of that comparison to rounds 2–8 before freezing the commit.
+- **VERIFIED LOCALLY:** 274 tests passed in 19.15 seconds with 14 third-party
+  deprecation warnings; bytecode compilation, JSON parsing, prediction hashes,
+  credential scans, and `git diff --check` passed.
+
 ## Status legend for later entries
 
 - **VERIFIED:** executed locally and passed.

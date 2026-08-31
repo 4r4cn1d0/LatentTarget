@@ -35,6 +35,18 @@ IMMUTABLE_FIELDS = (
     "round_seed",
 )
 
+CLASSIFIER_FIELDS = frozenset(
+    {
+        "strategy_scores",
+        "primary_strategy",
+        "strategy_confidence",
+        "classifier_name",
+        "classifier_ok",
+        "classifier_error",
+        "classifier_raw",
+    }
+)
+
 
 def record_key(record: Record) -> Tuple[str, str, int]:
     return (
@@ -71,6 +83,13 @@ def align_classifier_records(
     for key in sorted(left):
         a, b = left[key], right[key]
         for field in IMMUTABLE_FIELDS:
+            if a.get(field) != b.get(field):
+                raise ValueError("non-classifier field %s changed at %r" % (field, key))
+        # The independent-judge pass is a pure measurement transform. Compare
+        # every non-classifier field, not just the minimum alignment key, so a
+        # changed history, probability, score, prompt, or seed cannot hide in a
+        # seemingly aligned copy.
+        for field in sorted((set(a) | set(b)) - CLASSIFIER_FIELDS):
             if a.get(field) != b.get(field):
                 raise ValueError("non-classifier field %s changed at %r" % (field, key))
         pairs.append((a, b))

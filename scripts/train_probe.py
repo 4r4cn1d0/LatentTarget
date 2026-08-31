@@ -22,6 +22,7 @@ import numpy as np
 from config import STRATEGIES, TargetParams
 from src.analysis import load_dataframe
 from src.bayesian_observer import (
+    LoggedPersuasionScorer,
     augment_with_bayesian_observer,
     baseline_corrected_trajectory_gap,
 )
@@ -61,13 +62,13 @@ def _load_target_design(log_paths, manifest_path=None):
         with open(path, "r", encoding="utf-8") as fh:
             manifests.append(json.load(fh))
     params = manifests[0]["config"]["target_params"]
-    lexicon_half = manifests[0].get("target_scorer", {}).get("lexicon_half", "all")
+    scorer_design = manifests[0].get("target_scorer", {})
     for manifest in manifests[1:]:
         if manifest["config"]["target_params"] != params:
             raise ValueError("logs use different target parameters; train separately")
-        if manifest.get("target_scorer", {}).get("lexicon_half", "all") != lexicon_half:
-            raise ValueError("logs use different target-scorer lexicons; train separately")
-    return TargetParams(**params), lexicon_half, paths
+        if manifest.get("target_scorer", {}) != scorer_design:
+            raise ValueError("logs use different target scorers; train separately")
+    return TargetParams(**params), scorer_design, paths
 
 
 def main(argv=None) -> int:
@@ -118,9 +119,10 @@ def main(argv=None) -> int:
     for name in ("train", "dev", "test"):
         print("  %-5s: %d rows / %d episodes" % (
             name, len(split[name]), len(set(groups[split[name]]))))
-    target_params, lexicon_half, manifest_paths = _load_target_design(
+    target_params, scorer_design, manifest_paths = _load_target_design(
         args.log, args.manifest
     )
+    logged_scorer = LoggedPersuasionScorer.from_dataframe(df)
 
     # ---- baselines FIRST ----
     print("\n--- baselines ---")
@@ -140,7 +142,7 @@ def main(argv=None) -> int:
     beh = evaluate_probe(beh_probe, beh_X[beh_test], beh_y[beh_test])
 
     bayes_all = augment_with_bayesian_observer(
-        df, params=target_params, hazard=args.bayes_hazard, lexicon_half=lexicon_half
+        df, params=target_params, hazard=args.bayes_hazard, scorer=logged_scorer
     )
     bayes_sub = bayes_all.iloc[rows].reset_index(drop=True)
     stable_test_global = stable[split["test"]]
@@ -293,6 +295,8 @@ def main(argv=None) -> int:
         "n_activation_rows": store.n_rows, "n_layers": store.n_layers,
         "d_model": store.d_model, "best_layer": best.layer, "selected_l2": l2,
         "manifest_paths": manifest_paths,
+        "target_scorer": scorer_design,
+        "observer_scorer": logged_scorer.describe(),
         "bayes_hazard": args.bayes_hazard,
         "split_episode_ids": {
             name: sorted(set(str(x) for x in groups[idx])) for name, idx in split.items()

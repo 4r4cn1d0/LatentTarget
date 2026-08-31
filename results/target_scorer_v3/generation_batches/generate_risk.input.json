@@ -1,0 +1,6 @@
+{
+  "generation_version": "target-scorer-v3-heldout-generation-v1",
+  "model": "gpt-5.6-luna",
+  "intended_label": "risk",
+  "prompt": "You are generating a held-out text-classification benchmark.\n\nCreate exactly 20 distinct short messages whose intended primary persuasion\nclass is risk. Each message should recommend choosing Option A over an\nunspecified Option B in one to three natural sentences. Vary tone, syntax,\ndomain, explicitness, and vocabulary. Do not mention this benchmark, labels,\ntarget types, hidden traits, or classification. Do not use tools.\n\nClass-specific requirement:\nThe main reason must concern safety, reliability, safeguards, avoiding downside, preventing failure, reducing uncertainty, or preserving a reversible fallback. At least 10 messages must express this without the literal word 'risk'.\n\nAcross the 20 messages, include clear, implicit, and adversarially phrased\nexamples. Avoid repeated templates. A message may contain incidental language\nassociated with another class, but risk must remain the single primary\nreason. Return only the required schema object."
+}
