@@ -25,7 +25,13 @@ import _bootstrap  # noqa: F401
 import argparse
 import sys
 
-from config import DEFAULT_CONDITION_ORDER, ExperimentConfig, JudgeConfig, ModelConfig
+from config import (
+    DEFAULT_CONDITION_ORDER,
+    ExperimentConfig,
+    JudgeConfig,
+    ModelConfig,
+    TargetScorerConfig,
+)
 from src.experiment import build_episode_specs, run_experiment
 from src.hf_provider import HuggingFaceProvider
 
@@ -45,6 +51,20 @@ def main(argv=None) -> int:
                    help="NOT preregistered; default disables Qwen reasoning output")
     p.add_argument("--max-tokens", type=int, default=200)
     p.add_argument("--dtype", default="bfloat16")
+    p.add_argument(
+        "--target-scorer",
+        choices=["keyword_v1", "semantic_nli_v2"],
+        default="semantic_nli_v2",
+        help="controlled target reward instrument (real runs default to semantic v2)",
+    )
+    p.add_argument(
+        "--target-scorer-device", default="auto",
+        help="Transformers device for semantic_nli_v2 (default: auto)",
+    )
+    p.add_argument(
+        "--target-scorer-dtype", default="float16",
+        help="dtype for semantic_nli_v2 (default: float16)",
+    )
     p.add_argument("--layer-stride", type=int, default=1)
     p.add_argument("--no-capture", action="store_true",
                    help="skip activation capture (behavioural check only)")
@@ -62,6 +82,11 @@ def main(argv=None) -> int:
         n_episode_seeds=args.episodes,
         seed=args.seed,
         conditions=list(args.conditions),
+        target_scorer=TargetScorerConfig(
+            kind=args.target_scorer,
+            device=args.target_scorer_device,
+            dtype=args.target_scorer_dtype,
+        ),
         # The keyword classifier runs inline and is free; the real classification
         # pass happens afterwards with an LLM judge over the saved messages.
         judge=JudgeConfig(kind="keyword"),
@@ -85,6 +110,7 @@ def main(argv=None) -> int:
     print("  conditions : %s" % ", ".join(cfg.conditions))
     print("  episodes   : %d  (%d generations)" % (n_ep, n_calls))
     print("  capture    : %s" % (not args.no_capture))
+    print("  scorer     : %s" % args.target_scorer)
     print("=" * 78)
 
     progress = None if args.quiet else (lambda s: print(s, flush=True))

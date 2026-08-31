@@ -1,0 +1,31 @@
+{
+  "calibration_version": "target-scorer-v2-machine-calibration-v1",
+  "seed": 20260827,
+  "source_log": "data/processed/qwen38_27b_gonogo_20260826.codex-judge.jsonl",
+  "out": "data/calibration/target_scorer_v2_calibration.jsonl",
+  "sha256": "33c8dd75bdbd5b4fec7cbb6663a96e01f90f9249c51f5671af0cb84094ecb65b",
+  "n_rows": 80,
+  "counts_by_label_split": {
+    "expertise/dev": 15,
+    "expertise/test": 5,
+    "fairness/dev": 15,
+    "fairness/test": 5,
+    "other/dev": 15,
+    "other/test": 5,
+    "risk/dev": 15,
+    "risk/test": 5
+  },
+  "counts_by_source": {
+    "controlled_machine_authored": 45,
+    "existing_qwen_v1_blind_gpt_label": 35
+  },
+  "information_excluded": [
+    "target choice",
+    "target probability",
+    "hidden target type",
+    "condition",
+    "round",
+    "scenario"
+  ],
+  "warning": "Reference labels are machine-derived, not human gold labels. Existing messages use the blind GPT judge label; controlled messages use their prewritten intended construct."
+}

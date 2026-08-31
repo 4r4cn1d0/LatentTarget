@@ -3,3 +3,4 @@
 torch>=2.4
 transformers>=5.12,<6
 accelerate>=0.33
+sentencepiece>=0.2

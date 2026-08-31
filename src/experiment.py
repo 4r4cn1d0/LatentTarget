@@ -41,7 +41,7 @@ from .logging_utils import JsonlWriter, write_manifest
 from .scenarios import scenario_sequence
 from .seeding import derive_seed
 from .strategy_classifier import make_classifier, scorer_lexicon_half_for
-from .target_simulator import KeywordPersuasionScorer, make_target
+from .target_simulator import PersuasionScorer, make_persuasion_scorer, make_target
 
 ProgressFn = Callable[[str], None]
 
@@ -181,7 +181,7 @@ def run_episode(
     cfg: ExperimentConfig,
     agent: FocalAgent,
     classifier,
-    scorer: KeywordPersuasionScorer,
+    scorer: PersuasionScorer,
     run_id: str,
     donors: Optional[DonorRegistry] = None,
     objective: str = DEFAULT_OBJECTIVE,
@@ -357,14 +357,7 @@ def run_episode(
             "classifier_ok": classification.ok,
             "classifier_error": classification.error,
             "classifier_raw": classification.raw,
-            "target_scores": {
-                "fairness": response.scores.fairness,
-                "risk": response.scores.risk,
-                "expertise": response.scores.expertise,
-                "hits": response.scores.hits,
-                "total_hits": response.scores.total_hits,
-                "intensity": response.scores.intensity,
-            },
+            "target_scores": response.scores.as_dict(),
             "target_p_a": response.p_a,
             "target_p_a_noiseless": response.p_a_noiseless,
             "target_logit": response.logit,
@@ -425,8 +418,9 @@ def run_experiment(
 
     provider = provider or make_provider(cfg.model)
     classifier = classifier or make_classifier(cfg.judge)
-    scorer = KeywordPersuasionScorer(
-        saturation_k=cfg.target_params.saturation_k,
+    scorer = make_persuasion_scorer(
+        config=cfg.target_scorer,
+        params=cfg.target_params,
         lexicon_half=scorer_lexicon_half_for(cfg.judge),
     )
     agent = FocalAgent(provider=provider)
@@ -472,11 +466,7 @@ def run_experiment(
         "config": cfg.as_dict(),
         "provider": provider.describe(),
         "classifier": classifier.describe(),
-        "target_scorer": {
-            "name": scorer.name,
-            "saturation_k": scorer.saturation_k,
-            "lexicon_half": scorer.lexicon_half,
-        },
+        "target_scorer": scorer.describe(),
         "n_episodes": len(specs),
         "n_records": n_records,
         "log_path": log_path,

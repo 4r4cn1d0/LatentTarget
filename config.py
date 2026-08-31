@@ -97,6 +97,63 @@ DEFAULT_TARGET_PARAMS = TargetParams()
 
 
 # --------------------------------------------------------------------------
+# Target scoring instrument
+# --------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class TargetScorerConfig:
+    """Versioned instrument that maps a focal message to persuasion scores.
+
+    ``keyword_v1`` preserves the original lexicon environment exactly.
+    ``semantic_nli_v2`` uses a frozen, independently trained zero-shot text
+    classifier.  The semantic scorer is loaded lazily, so the local mock/test
+    pipeline keeps the project's minimal dependency footprint.
+
+    The model revision and every verbalized class are part of the scientific
+    configuration and are copied into each run manifest.  Changing any one of
+    them creates a different environment and therefore requires a new run.
+    """
+
+    kind: str = "keyword_v1"
+    model: str = "MoritzLaurer/deberta-v3-large-zeroshot-v2.0"
+    revision: str = "cf44676c28ba7312e5c5f8f8d2c22b3e0c9cdae2"
+    hypothesis_template: str = "The message's main persuasive appeal is {}."
+    fairness_label: str = (
+        "fairness, equal treatment, reciprocity, equitable access or outcomes, "
+        "avoiding favoritism, or what people deserve"
+    )
+    risk_label: str = (
+        "safety, reliability, avoiding downside, preventing problems, reducing "
+        "uncertainty, or minimizing risk"
+    )
+    expertise_label: str = (
+        "evidence, data, research, expert opinion, technical competence, relevant "
+        "credentials, or a demonstrated track record"
+    )
+    other_label: str = (
+        "aesthetics, convenience, speed, productivity, emotion, personal "
+        "preference, or a bare assertion rather than fairness, risk, or expertise"
+    )
+    device: str = "auto"
+    dtype: str = "float16"
+
+    def labels(self) -> Dict[str, str]:
+        return {
+            "fairness": self.fairness_label,
+            "risk": self.risk_label,
+            "expertise": self.expertise_label,
+            "other": self.other_label,
+        }
+
+    def as_dict(self) -> Dict[str, object]:
+        return asdict(self)
+
+
+DEFAULT_TARGET_SCORER = TargetScorerConfig()
+
+
+# --------------------------------------------------------------------------
 # Experimental conditions
 # --------------------------------------------------------------------------
 
@@ -301,6 +358,7 @@ class ExperimentConfig:
     conditions: List[str] = field(default_factory=lambda: list(DEFAULT_CONDITION_ORDER))
 
     target_params: TargetParams = DEFAULT_TARGET_PARAMS
+    target_scorer: TargetScorerConfig = DEFAULT_TARGET_SCORER
     model: ModelConfig = ModelConfig()
     judge: JudgeConfig = JudgeConfig()
 

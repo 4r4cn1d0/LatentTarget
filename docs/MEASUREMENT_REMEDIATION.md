@@ -4,6 +4,13 @@ Status: post-data plan drafted 2026-08-27. No paid focal-model generations are
 authorized by this document. The original preregistration and v1 data remain
 immutable.
 
+Update 2026-09-01: the researcher explicitly requested completion of every
+non-human stage and authorized paid execution while declining human labelling.
+This does not retroactively satisfy Stage B. The project therefore proceeds
+under an explicitly **machine-only, exploratory** track documented in
+`TARGET_SCORER_V2_PROTOCOL.md`; no result from that track may be described as
+human-validated or confirmatory.
+
 Update 2026-08-30: the researcher separately authorized a bounded architecture
 preflight and direct-elicitation baseline, documented in
 `RUNPOD_CHECKPOINT_20260830.md`. That authorization did not waive the Stage B/C

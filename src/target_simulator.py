@@ -5,8 +5,8 @@ The simulator is deliberately simple and fully transparent so that we know
 text.  It never sees the scenario, the round index, the condition, or the
 influencer's reasoning.
 
-Scoring
--------
+Scoring (v1)
+------------
 For a message ``m`` and dimension ``d in {fairness, risk, expertise}``::
 
     hits[d]   = number of DISTINCT lexicon terms of dimension d found in m
@@ -20,6 +20,15 @@ would let a message that piles on all three frames dominate a message that
 commits to the right one, and there would be nothing to learn.  Using share
 alone would make a single stray keyword count as much as a full argument.  The
 product means: *argue hard, and argue in the right register*.
+
+Scoring (v2)
+------------
+``SemanticNLIPersuasionScorer`` replaces literal keyword matching with a
+frozen zero-shot NLI classifier.  It asks the classifier to choose among four
+fully logged verbalized classes (fairness, risk, expertise, and other).  The
+three persuasion scores are the normalized class probabilities; the unspent
+mass is ``other``.  This preserves graded, bounded scoring while recognizing
+implicit appeals and avoiding v1's generic-word false positives.
 
 Decision
 --------
@@ -47,11 +56,17 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass, field, asdict
-from typing import Dict, List, Optional
+from typing import Any, Callable, Dict, List, Mapping, Optional, Protocol, Sequence
 
 import numpy as np
 
-from config import STRATEGIES, TargetParams, DEFAULT_TARGET_PARAMS
+from config import (
+    ALL_LABELS,
+    STRATEGIES,
+    DEFAULT_TARGET_PARAMS,
+    TargetParams,
+    TargetScorerConfig,
+)
 from .lexicons import LexiconMatcher
 
 
@@ -73,6 +88,7 @@ class PersuasionScores:
     matched_terms: Dict[str, List[str]] = field(default_factory=dict)
     total_hits: int = 0
     intensity: float = 0.0
+    raw_scores: Dict[str, float] = field(default_factory=dict)
 
     def __getitem__(self, dim: str) -> float:
         return float(getattr(self, dim))
@@ -126,7 +142,176 @@ class KeywordPersuasionScorer:
             matched_terms=matched,
             total_hits=total,
             intensity=intensity,
+            raw_scores={d: scores[d] for d in STRATEGIES},
         )
+
+    def describe(self) -> Dict[str, Any]:
+        return {
+            "name": self.name,
+            "version": "keyword-v1",
+            "kind": "keyword_v1",
+            "saturation_k": self.saturation_k,
+            "lexicon_half": self.lexicon_half,
+        }
+
+
+class PersuasionScorer(Protocol):
+    """Structural interface shared by versioned target-scoring instruments."""
+
+    name: str
+
+    def score(self, message: str) -> PersuasionScores:
+        ...
+
+    def describe(self) -> Dict[str, Any]:
+        ...
+
+
+SemanticBackend = Callable[[str, Sequence[str], str], Mapping[str, float]]
+
+
+class HuggingFaceZeroShotBackend:
+    """Lazy Transformers backend for the semantic target scorer.
+
+    The dependency is intentionally imported only when semantic scoring is
+    selected.  Mock runs and local tests therefore do not download a model.
+    """
+
+    def __init__(self, config: TargetScorerConfig) -> None:
+        try:
+            import torch
+            from transformers import pipeline
+        except ImportError as exc:  # pragma: no cover - exercised on GPU pod
+            raise RuntimeError(
+                "semantic_nli_v2 requires torch and transformers; install "
+                "requirements-pod.txt"
+            ) from exc
+
+        device: Any = config.device
+        if device == "auto":
+            device = 0 if torch.cuda.is_available() else -1
+        dtype: Any = config.dtype
+        if device == -1 and str(dtype).lower() in {"float16", "fp16", "half"}:
+            dtype = "float32"
+        self._pipeline = pipeline(
+            "zero-shot-classification",
+            model=config.model,
+            revision=config.revision,
+            device=device,
+            dtype=dtype,
+        )
+
+    def __call__(
+        self, message: str, verbalized_labels: Sequence[str], hypothesis_template: str
+    ) -> Mapping[str, float]:
+        output = self._pipeline(
+            message,
+            candidate_labels=list(verbalized_labels),
+            hypothesis_template=hypothesis_template,
+            multi_label=False,
+        )
+        labels = output.get("labels", [])
+        scores = output.get("scores", [])
+        if len(labels) != len(verbalized_labels) or len(scores) != len(labels):
+            raise ValueError("zero-shot backend returned an incomplete class distribution")
+        return {str(label): float(score) for label, score in zip(labels, scores)}
+
+
+class SemanticNLIPersuasionScorer:
+    """Frozen semantic v2 scorer with a four-way normalized class distribution."""
+
+    name = "semantic_nli_scorer"
+
+    def __init__(
+        self,
+        config: TargetScorerConfig,
+        backend: Optional[SemanticBackend] = None,
+    ) -> None:
+        if config.kind != "semantic_nli_v2":
+            raise ValueError("semantic scorer requires kind='semantic_nli_v2'")
+        if "{}" not in config.hypothesis_template:
+            raise ValueError("target scorer hypothesis_template must contain '{}'")
+        labels = config.labels()
+        if set(labels) != set(ALL_LABELS) or len(set(labels.values())) != len(ALL_LABELS):
+            raise ValueError("target scorer needs four distinct verbalized labels")
+        self.config = config
+        self.labels = labels
+        self.backend = backend or HuggingFaceZeroShotBackend(config)
+
+    def score(self, message: str) -> PersuasionScores:
+        text = str(message or "").strip()
+        if not text:
+            zeros = {label: 0.0 for label in ALL_LABELS}
+            return PersuasionScores(
+                fairness=0.0,
+                risk=0.0,
+                expertise=0.0,
+                hits={d: 0 for d in STRATEGIES},
+                matched_terms={d: [] for d in STRATEGIES},
+                total_hits=0,
+                intensity=0.0,
+                raw_scores=zeros,
+            )
+
+        verbalized = [self.labels[label] for label in ALL_LABELS]
+        returned = self.backend(text, verbalized, self.config.hypothesis_template)
+        by_class: Dict[str, float] = {}
+        for label in ALL_LABELS:
+            phrase = self.labels[label]
+            if phrase not in returned:
+                raise ValueError("semantic backend omitted verbalized class %r" % phrase)
+            value = float(returned[phrase])
+            if not math.isfinite(value) or value < 0.0:
+                raise ValueError("semantic backend returned an invalid score for %s" % label)
+            by_class[label] = value
+        total = sum(by_class.values())
+        if total <= 0.0:
+            raise ValueError("semantic backend returned zero total probability")
+        by_class = {label: value / total for label, value in by_class.items()}
+        intensity = sum(by_class[label] for label in STRATEGIES)
+        return PersuasionScores(
+            fairness=by_class["fairness"],
+            risk=by_class["risk"],
+            expertise=by_class["expertise"],
+            hits={d: 0 for d in STRATEGIES},
+            matched_terms={d: [] for d in STRATEGIES},
+            total_hits=0,
+            intensity=intensity,
+            raw_scores=by_class,
+        )
+
+    def describe(self) -> Dict[str, Any]:
+        description = self.config.as_dict()
+        description.update(
+            {
+                "name": self.name,
+                "version": "semantic-nli-v2",
+                "verbalized_labels": dict(self.labels),
+                "normalization": (
+                    "four-way zero-shot class probabilities normalized to sum to 1; "
+                    "fairness/risk/expertise are rewarded and other is unspent mass"
+                ),
+            }
+        )
+        return description
+
+
+def make_persuasion_scorer(
+    config: TargetScorerConfig,
+    params: TargetParams = DEFAULT_TARGET_PARAMS,
+    lexicon_half: str = "all",
+    backend: Optional[SemanticBackend] = None,
+) -> PersuasionScorer:
+    """Build the exact target scorer named by a versioned configuration."""
+    if config.kind == "keyword_v1":
+        if backend is not None:
+            raise ValueError("a semantic backend cannot be supplied to keyword_v1")
+        return KeywordPersuasionScorer(
+            saturation_k=params.saturation_k, lexicon_half=lexicon_half
+        )
+    if config.kind == "semantic_nli_v2":
+        return SemanticNLIPersuasionScorer(config, backend=backend)
+    raise ValueError("unknown target scorer kind %r" % config.kind)
 
 
 @dataclass(frozen=True)
@@ -165,7 +350,7 @@ class TypedTarget:
         self,
         target_type: str,
         params: TargetParams = DEFAULT_TARGET_PARAMS,
-        scorer: Optional[KeywordPersuasionScorer] = None,
+        scorer: Optional[PersuasionScorer] = None,
     ) -> None:
         if target_type not in STRATEGIES:
             raise ValueError("unknown target_type %r" % (target_type,))
@@ -216,7 +401,7 @@ class RandomTarget:
         self,
         nominal_type: Optional[str] = None,
         params: TargetParams = DEFAULT_TARGET_PARAMS,
-        scorer: Optional[KeywordPersuasionScorer] = None,
+        scorer: Optional[PersuasionScorer] = None,
     ) -> None:
         self.target_type = nominal_type
         self.params = params
@@ -243,7 +428,7 @@ def make_target(
     target_mode: str,
     target_type: Optional[str],
     params: TargetParams = DEFAULT_TARGET_PARAMS,
-    scorer: Optional[KeywordPersuasionScorer] = None,
+    scorer: Optional[PersuasionScorer] = None,
 ):
     """Factory used by the experiment runner."""
     if target_mode == "typed":

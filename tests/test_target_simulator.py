@@ -6,12 +6,14 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from config import DEFAULT_TARGET_PARAMS, STRATEGIES, TargetParams
+from config import DEFAULT_TARGET_PARAMS, STRATEGIES, TargetParams, TargetScorerConfig
 from src.focal_agent import MOCK_TEMPLATES
 from src.target_simulator import (
     KeywordPersuasionScorer,
     RandomTarget,
+    SemanticNLIPersuasionScorer,
     TypedTarget,
+    make_persuasion_scorer,
     make_target,
     reference_probabilities,
     sigmoid,
@@ -150,3 +152,84 @@ def test_disjoint_lexicon_halves_give_independent_instruments():
     even = KeywordPersuasionScorer(lexicon_half="even")
     odd = KeywordPersuasionScorer(lexicon_half="odd")
     assert set(even.matcher.terms("risk")) & set(odd.matcher.terms("risk")) == set()
+
+
+def _semantic_backend_for(label, values=None):
+    def backend(message, verbalized, template):
+        cfg = TargetScorerConfig(kind="semantic_nli_v2")
+        by_label = values or {
+            "fairness": 0.80 if label == "fairness" else 0.05,
+            "risk": 0.80 if label == "risk" else 0.05,
+            "expertise": 0.80 if label == "expertise" else 0.05,
+            "other": 0.80 if label == "other" else 0.05,
+        }
+        return {cfg.labels()[name]: value for name, value in by_label.items()}
+    return backend
+
+
+def test_semantic_v2_normalizes_four_way_scores_and_leaves_other_unrewarded():
+    cfg = TargetScorerConfig(kind="semantic_nli_v2")
+    scorer = SemanticNLIPersuasionScorer(
+        cfg,
+        backend=_semantic_backend_for(
+            "fairness",
+            values={"fairness": 8.0, "risk": 1.0, "expertise": 0.5, "other": 0.5},
+        ),
+    )
+    scores = scorer.score("Everyone should receive the same opportunity.")
+    assert scores.fairness == pytest.approx(0.8)
+    assert scores.risk == pytest.approx(0.1)
+    assert scores.expertise == pytest.approx(0.05)
+    assert scores.raw_scores["other"] == pytest.approx(0.05)
+    assert scores.intensity == pytest.approx(0.95)
+    assert scores.fairness + scores.risk + scores.expertise <= 1.0
+
+
+def test_semantic_v2_empty_message_has_zero_reward_without_calling_backend():
+    def forbidden(*args):
+        raise AssertionError("backend should not be called for empty text")
+
+    scorer = SemanticNLIPersuasionScorer(
+        TargetScorerConfig(kind="semantic_nli_v2"), backend=forbidden
+    )
+    scores = scorer.score("  ")
+    assert (scores.fairness, scores.risk, scores.expertise) == (0.0, 0.0, 0.0)
+    assert scores.raw_scores == {
+        "fairness": 0.0, "risk": 0.0, "expertise": 0.0, "other": 0.0
+    }
+
+
+def test_semantic_v2_target_uses_semantic_distribution_not_keyword_hits():
+    cfg = TargetScorerConfig(kind="semantic_nli_v2")
+    scorer = make_persuasion_scorer(
+        cfg, backend=_semantic_backend_for("fairness")
+    )
+    message = "Let every participant have the same chance."  # no v1 'fairness' token
+    fairness_target = TypedTarget("fairness", scorer=scorer)
+    expertise_target = TypedTarget("expertise", scorer=scorer)
+    assert fairness_target.p_a_noiseless(message) > expertise_target.p_a_noiseless(message) + 0.2
+
+
+def test_semantic_v2_fails_closed_on_incomplete_or_invalid_backend_output():
+    cfg = TargetScorerConfig(kind="semantic_nli_v2")
+    scorer = SemanticNLIPersuasionScorer(cfg, backend=lambda *args: {})
+    with pytest.raises(ValueError, match="omitted"):
+        scorer.score("message")
+
+    def negative(message, verbalized, template):
+        return {label: (-1.0 if i == 0 else 1.0) for i, label in enumerate(verbalized)}
+
+    scorer = SemanticNLIPersuasionScorer(cfg, backend=negative)
+    with pytest.raises(ValueError, match="invalid score"):
+        scorer.score("message")
+
+
+def test_target_scorer_manifest_description_pins_model_revision_and_rubric():
+    cfg = TargetScorerConfig(kind="semantic_nli_v2")
+    scorer = SemanticNLIPersuasionScorer(cfg, backend=_semantic_backend_for("other"))
+    description = scorer.describe()
+    assert description["version"] == "semantic-nli-v2"
+    assert description["model"] == cfg.model
+    assert description["revision"] == cfg.revision
+    assert description["hypothesis_template"] == cfg.hypothesis_template
+    assert description["verbalized_labels"] == cfg.labels()
