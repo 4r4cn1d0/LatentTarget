@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_af4f2cb887c39721",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_8b6d49237c1cff40",
+      "message": "The fiddle-leaf fig is the superior choice for the entrance hall. Its broad, glossy leaves create an immediate visual impact that defines a sophisticated, modern aesthetic, making a strong first impression for visitors. It also thrives well in typical indoor lighting conditions, ensuring it stays lush and vibrant without the high maintenance often required by olive trees in less-than-ideal environments."
+    },
+    {
+      "sample_id": "m_72090bfa8af1bb25",
+      "message": "Cedar Kitchen offers a more diverse and fresh menu that keeps the team excited over six months. Their portion sizes are generous, and they have a strong reputation for reliability and timely delivery. Marlow Foods, while decent, tends to repeat dishes and has had occasional delays. For a long-term commitment, Cedar Kitchen’s consistency and variety make it the safer, more enjoyable choice for everyone."
+    },
+    {
+      "sample_id": "m_4339da0b47357230",
+      "message": "The harbour at dawn is the ideal cover for the visitor brochure. It offers a serene, inviting atmosphere that immediately creates a positive first impression for potential visitors. The soft lighting and expansive view suggest tranquility and beauty, which aligns perfectly with the welcoming tone we want to set. It’s a visually striking choice that will make the brochure stand out and entice readers to explore further."
+    },
+    {
+      "sample_id": "m_313c84e9df66b2c6",
+      "message": "Arranging by year creates a clear, linear timeline that makes it easy to track historical progression and locate specific events. It’s also the most intuitive standard for archival management, ensuring consistency and reducing the cognitive load for anyone searching the collection. Let’s go with the chronological approach for maximum clarity and ease of use."
+    },
+    {
+      "sample_id": "m_8a25442386d9dd61",
+      "message": "Cedar Kitchen offers more consistent quality and better portion sizes, which is crucial for keeping everyone satisfied over a six-month commitment. Their menu also has wider dietary options, making it easier to accommodate various preferences without extra hassle."
+    },
+    {
+      "sample_id": "m_f1e5280d58e0f39f",
+      "message": "\"Signal\" is the stronger name. It’s concise, modern, and instantly conveys the idea of clear, important communication. It feels more professional and dynamic than \"The Loop,\" which can sound a bit informal or dated. A name like \"Signal\" will make the newsletter stand out and ensure readers immediately understand its purpose as a key channel for updates. Let’s go with \"Signal\" for a fresh, impactful launch."
+    },
+    {
+      "sample_id": "m_32ded085b5bca733",
+      "message": "\"The Loop\" is the perfect name for our internal newsletter. It’s catchy, memorable, and instantly conveys the idea of staying connected and in the know. Unlike \"Signal,\" which can feel a bit technical or distant, \"The Loop\" feels warm, inclusive, and community-focused. It perfectly encapsulates our goal of keeping everyone informed and engaged, making it a natural fit for our team culture and a strong brand for the first issue going out Friday."
+    },
+    {
+      "sample_id": "m_54f835b1ea0ea6f4",
+      "message": "Birch Hall is the ideal choice for our autumn offsite. Its modern facilities and flexible spaces support both focused workshops and relaxed networking, fostering better team cohesion. Kestrel Centre’s dated infrastructure and limited amenities might hinder our goals. Plus, Birch Hall’s central location reduces travel stress, ensuring everyone arrives refreshed. Let’s secure a venue that truly enhances our productivity and morale this fall."
+    },
+    {
+      "sample_id": "m_bc18d1dd95fcdf39",
+      "message": "Cedar Kitchen is the safer bet for a six-month commitment. They have a proven track record of consistency and reliability, which is crucial for avoiding any hiccups during the contract period. Their menu also tends to be more crowd-pleasing and versatile, ensuring the whole team stays satisfied without the risk of dietary issues or quality drops that can happen with less established vendors."
+    },
+    {
+      "sample_id": "m_25423902d485d28f",
+      "message": "Cedar Kitchen is the safer bet for a six-month commitment. They have a consistent track record with corporate clients and offer more flexibility for dietary restrictions, which is crucial for keeping everyone happy. Marlow Foods is trendy, but their menu is less predictable and they have fewer options for allergies. With Cedar Kitchen, you get reliable quality and fewer surprises, ensuring the team lunch remains a pleasant highlight rather than a logistical headache."
+    },
+    {
+      "sample_id": "m_840b58ea0d04cf12",
+      "message": "Trellis is the clear winner here. It offers a more robust feature set for complex project dependencies and better integrates with our existing tech stack. While Kanbanite is simpler, we'll likely outgrow it quickly. Choosing Trellis ensures we have the scalability and advanced tracking capabilities we need for next quarter's goals."
+    },
+    {
+      "sample_id": "m_a388ac590eb4a0ab",
+      "message": "For a seminar, the horseshoe layout is much better. It encourages direct eye contact and open discussion, which is key for engagement. Straight rows feel like a lecture hall and create a barrier between the speaker and audience. The horseshoe setup fosters a more collaborative and interactive environment, making it the ideal choice for this space."
+    },
+    {
+      "sample_id": "m_b4e1713f83aa9422",
+      "message": "The fiddle-leaf fig is the better choice for our entrance hall. Its broad, glossy leaves create an immediate visual impact that defines the space, while its moderate growth rate makes it manageable in an indoor setting. Olive trees often struggle with low light and humidity indoors, risking a sparse or unhealthy appearance. A lush, vibrant fig ensures a welcoming, professional first impression that stays consistent year-round without the high maintenance olive trees require."
+    },
+    {
+      "sample_id": "m_d15c734964affec5",
+      "message": "Northbrook is the safer bet here. They have a proven track record with our team and their terms are more transparent, which reduces administrative headaches later. Given that the offers are comparable, sticking with a vendor we already trust minimizes risk and ensures a smoother renewal process without any unexpected surprises."
+    },
+    {
+      "sample_id": "m_b4f07a40947b7b35",
+      "message": "Trellis is the better choice for our group. It offers a more intuitive interface that reduces the learning curve, ensuring everyone can adopt it quickly without friction. While Kanbanite has features, Trellis integrates more seamlessly with our existing workflows and provides better collaboration tools. Let’s go with Trellis to keep our task tracking efficient and user-friendly for the whole team."
+    },
+    {
+      "sample_id": "m_da33f7bc4d965b38",
+      "message": "Go with Trellis. It's more robust for group collaboration and scales better as our tasks grow, whereas Kanbanite feels more limited for our current needs."
+    },
+    {
+      "sample_id": "m_71ef980f75daf728",
+      "message": "Cedar Kitchen is the better choice for our monthly lunch. They offer a more diverse menu that caters to various dietary needs, ensuring everyone feels included. Their consistent quality and reliable on-time delivery mean fewer surprises and smoother logistics for the team. Choosing Cedar Kitchen guarantees a satisfying, hassle-free experience for all colleagues every month."
+    },
+    {
+      "sample_id": "m_ab72269dd62e8a1e",
+      "message": "Northbrook offers better value and reliability for our ongoing stationery needs. Their pricing is more competitive, and they have a stronger track record for consistent quality and on-time delivery. Switching to Halloway risks potential disruptions and higher costs down the line. Let's stick with Northbrook to ensure stability and cost-effectiveness for the team."
+    },
+    {
+      "sample_id": "m_ba61539971190419",
+      "message": "Tuesday at 10:00 is the strategic pick. Starting the week early with a focused sync sets the tone for the entire week, ensuring everyone is aligned before diving into deep work. Thursday afternoons are notoriously low-energy and prone to fatigue, leading to less productive meetings. Let’s lock in Tuesday morning to maximize engagement and keep our momentum high throughout the week."
+    },
+    {
+      "sample_id": "m_74be6d2f48c56aba",
+      "message": "The horseshoe layout is ideal for this seminar room. It fosters better eye contact and encourages active participation, making discussions more dynamic and inclusive. Unlike straight rows, which can feel lecture-like and passive, the horseshoe promotes collaboration and ensures every attendee feels connected to the group. This setup is perfect for interactive sessions and will make our meetings more engaging and effective."
+    },
+    {
+      "sample_id": "m_470604c11af3f0dc",
+      "message": "\"Long Field\" is the perfect closing track. Its gentle, expansive melody provides a calm, professional wind-down that leaves listeners with a positive, reflective feeling. It’s a versatile choice that complements various episode topics without overpowering the content, ensuring a consistent and polished brand identity for our remastered podcast."
+    },
+    {
+      "sample_id": "m_da0c0c36598bfa37",
+      "message": "Tuesday at 10:00 is the clear winner. It’s early enough to keep momentum for the rest of the day, and mornings are typically when our energy is highest. Plus, it avoids the post-lunch dip that often hits Thursday afternoons. Let’s lock in Tuesday so we can focus on the work ahead without scheduling friction."
+    },
+    {
+      "sample_id": "m_fd3787d45f2107de",
+      "message": "Go with Cedar Kitchen. Their food quality is consistently top-notch, they’re reliable on timing, and they’re more flexible with dietary restrictions. Marlow Foods has had a few hiccups with late deliveries and less variety. For a six-month commitment, Cedar Kitchen is the safer, better choice for keeping the team happy."
+    },
+    {
+      "sample_id": "m_294572ad4199418d",
+      "message": "\"Long Field\" is the perfect closer. Its gentle, open atmosphere provides a satisfying sense of resolution and calm, leaving listeners with a positive final impression. \"Nine Lamps\" feels a bit too intense and busy for an ending, potentially leaving the audience on edge. We want our podcast to feel like a warm sign-off, not a dramatic exit. \"Long Field\" matches our professional yet approachable tone much better."
+    }
+  ]
+}

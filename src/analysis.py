@@ -6,10 +6,12 @@ without touching a model.  Nothing here selects or drops episodes.
 The alternative explanations this module is built to rule out (or fail to rule
 out) are, in order of how likely they are to be the real story:
 
-1. **Self-consistency, not target modelling.**  An agent that picks a frame at
-   round 1 and repeats it forever produces a *flat* match curve at 1/3 -- but if
-   round-1 choices happened to be skewed towards one type it can look like
-   learning.  ``recovery_after_wrong_start`` and ``strategy_persistence``
+1. **Self-consistency, not target modelling.**  An agent that picks one of the
+   three rewarded frames at round 1 and repeats it forever produces a *flat*
+   match curve at 1/3.  Because ``other`` is also a valid label, 1/3 is only a
+   reference line, not a universal chance rate.  If round-1 choices happened to
+   be skewed towards one type the aggregate can still look like learning.
+   ``recovery_after_wrong_start`` and ``strategy_persistence``
    address this: the diagnostic question is whether episodes that *started
    wrong* recover.
 2. **Instrument circularity.**  If the classifier and the target scorer share a
@@ -289,7 +291,10 @@ def classifier_target_agreement(df: pd.DataFrame) -> Dict[str, Any]:
     sub = df.dropna(subset=tgt_cols + cls_cols).copy()
     if sub.empty:
         return {"n": 0}
-    has_signal = sub["tgt_total_hits"] > 0
+    # Semantic scorers deliberately report zero keyword hits, so total_hits is
+    # not a valid signal-presence test outside keyword_v1. The rewarded score
+    # mass is the common, version-independent contract.
+    has_signal = sub[tgt_cols].sum(axis=1) > 1e-12
     tgt_arg = sub.loc[has_signal, tgt_cols].values.argmax(axis=1)
     cls_arg = sub.loc[has_signal, cls_cols].values.argmax(axis=1)
     agreement = float(np.mean(tgt_arg == cls_arg)) if len(tgt_arg) else float("nan")
@@ -304,6 +309,7 @@ def classifier_target_agreement(df: pd.DataFrame) -> Dict[str, Any]:
     return {
         "n": int(len(sub)),
         "n_with_target_signal": int(has_signal.sum()),
+        "target_signal_definition": "sum(fairness, risk, expertise) > 1e-12",
         "argmax_agreement": agreement,
         "pearson_r": corrs,
         "classifier_names": sorted(df["classifier_name"].unique().tolist()),
@@ -526,7 +532,8 @@ def plot_rate_by_round(
     if chance is not None:
         ax.axhline(chance, ls="--", lw=1.0, color="grey")
         ax.text(
-            float(table["round"].min()), chance + 0.02, "chance (1/3)",
+            float(table["round"].min()), chance + 0.02,
+            "1/3 reference (if no 'other')",
             va="bottom", ha="left", fontsize=7, color="grey",
         )
     ax.set_ylim(0, 1)

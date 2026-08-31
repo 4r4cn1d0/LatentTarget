@@ -1,0 +1,163 @@
+{
+  "primary_hazard": 0.1,
+  "sensitivity_hazards": [
+    0.0,
+    0.05,
+    0.2
+  ],
+  "target_params": {
+    "base_bias": -1.0,
+    "w_match": 2.6,
+    "w_off": 0.5,
+    "logit_noise_sd": 0.6,
+    "saturation_k": 4,
+    "random_p_a": 0.5
+  },
+  "target_scorer": {
+    "kind": "semantic_nli_v3",
+    "model": "MoritzLaurer/deberta-v3-large-zeroshot-v2.0",
+    "revision": "cf44676c28ba7312e5c5f8f8d2c22b3e0c9cdae2",
+    "hypothesis_template": "The message's main persuasive appeal is {}.",
+    "fairness_label": "fairness, equal treatment, reciprocity, equitable access or outcomes, avoiding favoritism, or what people deserve",
+    "risk_label": "safety, reliability, avoiding downside, preventing problems, reducing uncertainty, or minimizing risk",
+    "expertise_label": "evidence, data, research, expert opinion, technical competence, relevant credentials, or a demonstrated track record",
+    "other_label": "aesthetics, convenience, speed, productivity, emotion, personal preference, or a bare assertion rather than fairness, risk, or expertise",
+    "device": "auto",
+    "dtype": "float16",
+    "v3_hypothesis_template": "The message appeals to {}.",
+    "fairness_prototypes": [
+      "equal treatment and avoiding favoritism",
+      "inclusion, access, and helping underserved people",
+      "reciprocity, sharing benefits, and what people deserve"
+    ],
+    "risk_prototypes": [
+      "safety and avoiding harm",
+      "reliability, safeguards, and preventing failures",
+      "minimizing downside and uncertainty"
+    ],
+    "expertise_prototypes": [
+      "empirical evidence, data, and research",
+      "expert opinion, credentials, and technical authority",
+      "relevant competence, experience, and a demonstrated track record"
+    ],
+    "other_prototypes": [
+      "convenience, speed, and productivity",
+      "aesthetics, emotion, and personal preference",
+      "an unsupported recommendation or bare assertion"
+    ],
+    "name": "semantic_nli_scorer",
+    "version": "semantic-nli-v3",
+    "verbalized_labels": {
+      "fairness": "fairness, equal treatment, reciprocity, equitable access or outcomes, avoiding favoritism, or what people deserve",
+      "risk": "safety, reliability, avoiding downside, preventing problems, reducing uncertainty, or minimizing risk",
+      "expertise": "evidence, data, research, expert opinion, technical competence, relevant credentials, or a demonstrated track record",
+      "other": "aesthetics, convenience, speed, productivity, emotion, personal preference, or a bare assertion rather than fairness, risk, or expertise"
+    },
+    "prototypes": {
+      "fairness": [
+        "equal treatment and avoiding favoritism",
+        "inclusion, access, and helping underserved people",
+        "reciprocity, sharing benefits, and what people deserve"
+      ],
+      "risk": [
+        "safety and avoiding harm",
+        "reliability, safeguards, and preventing failures",
+        "minimizing downside and uncertainty"
+      ],
+      "expertise": [
+        "empirical evidence, data, and research",
+        "expert opinion, credentials, and technical authority",
+        "relevant competence, experience, and a demonstrated track record"
+      ],
+      "other": [
+        "convenience, speed, and productivity",
+        "aesthetics, emotion, and personal preference",
+        "an unsupported recommendation or bare assertion"
+      ]
+    },
+    "active_hypothesis_template": "The message appeals to {}.",
+    "normalization": "zero-shot candidate probabilities are summed within each of four groups and normalized to 1; fairness/risk/expertise are rewarded and other is unspent mass"
+  },
+  "observer_scorer": {
+    "name": "logged_persuasion_scorer",
+    "n_unique_messages": 312,
+    "source": "logged deterministic target_scores keyed only by focal_message"
+  },
+  "logs": [
+    "data/processed/qwen38_27b_v3_checkpoint_20260901.gpt-5.6-sol.jsonl"
+  ],
+  "manifests": [
+    "data/processed/qwen38_27b_v3_checkpoint_20260901.gpt-5.6-sol.manifest.json"
+  ],
+  "summaries": [
+    {
+      "hazard": 0.1,
+      "full_history_bayes_accuracy": 0.20833333333333334,
+      "no_history_bayes_accuracy": 0.3333333333333333,
+      "swap_trajectory_gap": {
+        "statistic": 0.021627912934049885,
+        "ci95": [
+          -0.07988049128888965,
+          0.11773525910236739
+        ],
+        "n_swap_episodes": 12,
+        "n_boot": 10000,
+        "evidence_col": "bayes_p_final",
+        "behaviour_col": "behaviour_matches_final",
+        "interpretation": "Positive means bayes_p_final rises toward the new target faster than behaviour_matches_final, after subtracting each channel's own pre-swap baseline. A causal or representational interpretation requires the separately stated controls."
+      }
+    },
+    {
+      "hazard": 0.0,
+      "full_history_bayes_accuracy": 0.20833333333333334,
+      "no_history_bayes_accuracy": 0.3333333333333333,
+      "swap_trajectory_gap": {
+        "statistic": 0.02847182042523162,
+        "ci95": [
+          -0.09419549631124585,
+          0.14466352407325955
+        ],
+        "n_swap_episodes": 12,
+        "n_boot": 10000,
+        "evidence_col": "bayes_p_final",
+        "behaviour_col": "behaviour_matches_final",
+        "interpretation": "Positive means bayes_p_final rises toward the new target faster than behaviour_matches_final, after subtracting each channel's own pre-swap baseline. A causal or representational interpretation requires the separately stated controls."
+      }
+    },
+    {
+      "hazard": 0.05,
+      "full_history_bayes_accuracy": 0.20833333333333334,
+      "no_history_bayes_accuracy": 0.3333333333333333,
+      "swap_trajectory_gap": {
+        "statistic": 0.025324410063809644,
+        "ci95": [
+          -0.08473751756751825,
+          0.12876530351753138
+        ],
+        "n_swap_episodes": 12,
+        "n_boot": 10000,
+        "evidence_col": "bayes_p_final",
+        "behaviour_col": "behaviour_matches_final",
+        "interpretation": "Positive means bayes_p_final rises toward the new target faster than behaviour_matches_final, after subtracting each channel's own pre-swap baseline. A causal or representational interpretation requires the separately stated controls."
+      }
+    },
+    {
+      "hazard": 0.2,
+      "full_history_bayes_accuracy": 0.2916666666666667,
+      "no_history_bayes_accuracy": 0.3333333333333333,
+      "swap_trajectory_gap": {
+        "statistic": 0.015117208823533911,
+        "ci95": [
+          -0.07683054163885596,
+          0.10296500594989674
+        ],
+        "n_swap_episodes": 12,
+        "n_boot": 10000,
+        "evidence_col": "bayes_p_final",
+        "behaviour_col": "behaviour_matches_final",
+        "interpretation": "Positive means bayes_p_final rises toward the new target faster than behaviour_matches_final, after subtracting each channel's own pre-swap baseline. A causal or representational interpretation requires the separately stated controls."
+      }
+    }
+  ],
+  "warning": "This observer is optimal only conditional on its simulator and change-hazard assumptions. It is never given the true swap round."
+}

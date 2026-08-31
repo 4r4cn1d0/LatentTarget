@@ -130,6 +130,16 @@ the right frame, and there would be nothing to learn. The product means *argue
 hard, and argue in the right register*. It is an assumption built into the
 environment, and it is listed as a limitation in §7.
 
+The equations above describe the transparent legacy keyword scorer. The
+current v3 checkpoint instead extracts the four score masses with a
+revision-pinned zero-shot NLI model and twelve frozen semantic prototypes
+(three each for fairness, risk, expertise, and other), then feeds the three
+rewarded masses into the same logged target-response equation. V3 was frozen
+before focal outcomes and passed a separate 80-message machine-only construct
+gate; it is **not human validated**. Exact prompts, prototypes, revision, and
+held-out results are in
+[`docs/TARGET_SCORER_V3_PROTOCOL.md`](docs/TARGET_SCORER_V3_PROTOCOL.md).
+
 ### 2.4 Strategy classification
 
 The measurement instrument. Blind **by signature**: `classify(message)` takes
@@ -221,56 +231,69 @@ pip install -r requirements.txt -r requirements-pod.txt
 python scripts/preflight_open_weight.py --model Qwen/Qwen3.8-27B
 ```
 
-If that passes, the four-seed behavioral GO/NO-GO is:
+If that passes, reproduce the frozen all-controls checkpoint rather than the
+obsolete two-condition v1 gate:
 
 ```bash
 python scripts/run_open_weight.py --model Qwen/Qwen3.8-27B \
-    --conditions full_history no_history --episodes 4 --rounds 8 --no-capture
+    --conditions full_history no_history shuffled_history random_target swap \
+    --episodes 2 --rounds 8 --swap-round 5 --seed 20260901 \
+    --temperature 0.7 --top-p 0.8 --top-k 20 --max-tokens 200 \
+    --target-scorer semantic_nli_v3 --no-capture \
+    --run-id qwen38_27b_v3_checkpoint_20260901 \
+    --experiment-id qwen38_v3_checkpoint
 ```
 
-Stop after this gate and inspect transcripts before scaling. The provider also
+Stop after this gate and evaluate the frozen decision rule in
+[`docs/BEHAVIORAL_CHECKPOINT_V3.md`](docs/BEHAVIORAL_CHECKPOINT_V3.md). The provider also
 supports OpenAI-compatible and Anthropic APIs for optional replications;
 credentials are read from environment variables only and never written to a
 log or manifest. No paid API is required for the preregistered local run.
 
-### Current real-model checkpoint (updated 2026-08-27)
+### Current real-model checkpoint (updated 2026-09-01)
 
-The one-generation preflight and the four-seed behavioral gate have now been
-run on `Qwen/Qwen3.8-27B` using an H100. The preflight passed, and all 192
-planned rounds completed. A subsequent blind, different-family judge pass over
-all 192 saved messages preserved the intended direction: independently judged
-match was 0.146 with valid history versus 0.042 without it, with a
-preregistered interaction of +1.629 (`p=0.058`). This materially reduces the
-original shared-lexicon circularity, but it remains an underpowered pilot rather
-than a confirmed result.
+The complete v3 systems checkpoint has now been run on the official dense
+`Qwen/Qwen3.8-27B` checkpoint using an A100-SXM4 80 GB. The architecture
+preflight, a real generation, all-layer activation capture, and the zero-vector
+steering control passed. All 312 planned generations completed: 36 episodes,
+five conditions, and all six ordered silent-swap pairs twice. No activations
+were retained because this stage was behavioral by design.
 
-The independent pass also exposed a target-scorer construct problem. It
-recovered some implicit fairness framing (5/32 full-history fairness rounds
-versus 0/32 without history), but found no expertise-primary framing in the 32
-full-history expertise rounds. All independently fairness-primary messages had
-received zero fairness reward, while generic words such as `professional` and
-`experience` caused most old expertise overcalls.
+Two independent blind machine judges then classified all 312 saved messages.
+The primary `gpt-5.6-sol` judge found the same overall strategy-match rate with
+valid and absent history (0.104 versus 0.104). New-target matching did not rise
+after the silent swap (0.083 before and after), while old-target matching rose
+from 0.067 to 0.100. Only risk showed a positive late full-history advantage.
+The `gpt-5.6-luna` sensitivity was also negative: full-history match was 0.167
+versus 0.188 without history. The judges agreed on 81.4% of labels (Cohen's
+kappa 0.624), despite differing in how often they used `other`.
 
-The status is therefore **conditional GO, scaling blocked**. The independent
-judge step is complete, but the 40-row blind human-label sheet is still blank
-and must pass the preregistered classifier gate. A separately versioned target
-scorer must then be calibrated before any new focal run. No swap,
-activation-capture, probing, steering, or full-control experiment has been run.
-See [`docs/REAL_MODEL_CHECKPOINT.md`](docs/REAL_MODEL_CHECKPOINT.md) for the
-decision and complete execution log, and
-[`PILOT_REPORT_REAL_QWEN38_27B_INDEPENDENT.md`](PILOT_REPORT_REAL_QWEN38_27B_INDEPENDENT.md)
-for exact prompts, simulator logic, three fixed-rule transcripts, independent
-classifications, and choice probabilities. The scored readiness audit is in
-[`docs/EVAL-REVIEW.md`](docs/EVAL-REVIEW.md), with the staged remediation
-sequence in [`docs/MEASUREMENT_REMEDIATION.md`](docs/MEASUREMENT_REMEDIATION.md).
+The pre-outcome, fail-closed decision is therefore
+**`STOP_BEFORE_MECHANISTIC_EXPERIMENT`**. Valid-history advantage, shuffled-
+history specificity, silent-swap revision, and multiple-target support all
+failed. The exact evidence-only Bayesian observer also failed to recover a
+useful hidden-target signal: primary-hazard final-type accuracy was 0.208 in
+full-history episodes versus a 0.333 uniform baseline, and its swap trajectory
+advantage had a 95% bootstrap interval spanning zero. No probe, activation
+dataset, or steering experiment was run because the phenomenon required to
+interpret one was absent.
 
-A bounded RunPod checkpoint on 2026-08-30 subsequently reconfirmed the current
-Qwen3.8-27B architecture, all-layer activation capture, and zero-vector
-steering on the latest commit; all 254 tests passed on the A100 pod. A separate
-direct-elicitation baseline returned `unknown` on all 192 frozen v1 prompts.
-This is an exploratory black-box null and does not unblock v2 scaling. Exact
-commands, cost boundary, hashes, and limitations are recorded in
-[`docs/RUNPOD_CHECKPOINT_20260830.md`](docs/RUNPOD_CHECKPOINT_20260830.md).
+A post-hoc simulator-capacity positive control separates this from an
+impossible task. Using three saved messages selected only for target-score
+specificity and an oracle expected-information policy, the same frozen
+response function reached 0.738 stable-target identification after eight
+outcomes and 0.567 active-target identification five rounds after a silent
+swap. Thus diagnostic evidence was available in principle; Qwen's actual
+message sequence did not create and exploit it reliably. This oracle control
+is not focal-model behavior and does not change the STOP decision.
+
+This is a **machine-only exploratory negative result**. Human validation is
+still 0/40 and is never claimed. Read
+[`PILOT_REPORT_REAL_QWEN38_27B_V3_CHECKPOINT.md`](PILOT_REPORT_REAL_QWEN38_27B_V3_CHECKPOINT.md)
+for exact prompts, simulator logic, probabilities, classifications, metrics,
+and three complete transcripts; see
+[`docs/RUNPOD_CHECKPOINT_V3_20260901.md`](docs/RUNPOD_CHECKPOINT_V3_20260901.md)
+for commands, versions, hashes, controls, and cost.
 
 ### Outputs
 
@@ -283,6 +306,8 @@ results/figures/*.png                behavioral, power, Bayesian, probe, steerin
 PILOT_REPORT_MOCK.md                 generated mock-only checkpoint report
 PILOT_REPORT_REAL_QWEN38_27B.md      first real-model pre-scaling checkpoint
 PILOT_REPORT_REAL_QWEN38_27B_INDEPENDENT.md  same checkpoint, blind independent labels
+PILOT_REPORT_REAL_QWEN38_27B_V3_CHECKPOINT.md complete machine-only v3 checkpoint
+results/qwen38_27b_v3_checkpoint_20260901/ frozen gate, two judges, Bayesian and diagnostics
 ```
 
 Every log record carries: experiment/run/episode/round ids, condition, history
@@ -334,11 +359,10 @@ say nothing about LLM behaviour.
 
 ## 7. Known limitations
 
-* **The target rewards lexical surface features.** A keyword-driven target can
-  in principle be gamed by keyword stuffing rather than by argument quality.
-  Counting *distinct* terms and saturating at `saturation_k` limits this, and
-  message length is logged and checked, but it remains a real gap between this
-  environment and persuading an actual agent.
+* **The target is still a synthetic construct.** V1 rewarded keyword surface
+  features; v3 replaces that with frozen semantic NLI prototypes, but semantic
+  similarity to twelve descriptions is not the same thing as persuasiveness to
+  a real person. V3 passed a machine-generated construct set, not human labels.
 * **Specialisation is designed to pay.** `share × intensity` builds in the
   incentive to commit to one frame. We are testing whether the model *discovers
   which* frame, given that specialising is rewarded — not whether specialising is
@@ -349,7 +373,19 @@ say nothing about LLM behaviour.
   within about one loss; an evidence-accumulating model should show inertia
   proportional to the pre-swap evidence) but does not close it.
 * **Three types, one axis.** Real susceptibility is not a 3-way categorical.
-* **Keyword classifier circularity**, as above.
+* **The feedback channel depends on exploration.** The exact Bayesian
+  observer's poor target recovery shows that eight noisy outcomes were not
+  diagnostic under the messages Qwen actually chose. A post-hoc oracle
+  information policy reached 0.738 stable-target accuracy with the same
+  simulator, so the channel is learnable in principle but requires messages
+  that separate the hypotheses.
+* **The v3 checkpoint is deliberately tiny.** Two episode seeds are enough for
+  a fail-closed systems gate, not a precise effect estimate. Larger samples can
+  narrow uncertainty but cannot repair the observed absence of valid-history
+  advantage and swap revision.
+* **Measurement remains machine-only.** The two blind judges reduce the old
+  keyword circularity and agree moderately well, but 0/40 human labels have
+  been completed.
 
 ---
 

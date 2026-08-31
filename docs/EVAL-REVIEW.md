@@ -1,5 +1,10 @@
 # Evaluation review: first real-model behavioral gate
 
+> **Historical checkpoint.** This review is preserved as the audit of the v1
+> 192-round run. It is superseded for current project status by
+> `RUNPOD_CHECKPOINT_V3_20260901.md`, whose frozen decision is
+> `STOP_BEFORE_MECHANISTIC_EXPERIMENT` after the complete v3 controls.
+
 Review date: 2026-08-27. Scope: the 192-round `Qwen/Qwen3.8-27B`
 `full_history`/`no_history` checkpoint and its post-data independent
 remeasurement. This is an evaluation audit, not a new preregistration.

@@ -1,0 +1,13 @@
+episode_id,initial_target_type,final_target_type,pre_swap_match_rate,post_swap_match_new_rate,post_swap_match_old_rate,rounds_to_adapt,adapted,n_post_rounds
+swap-000-expertise-to-fairness,expertise,fairness,0.0,0.4,0.0,2.0,True,5
+swap-000-expertise-to-risk,expertise,risk,0.2,0.0,0.0,,False,5
+swap-000-fairness-to-expertise,fairness,expertise,0.2,0.0,0.2,,False,5
+swap-000-fairness-to-risk,fairness,risk,0.0,0.0,0.2,,False,5
+swap-000-risk-to-expertise,risk,expertise,0.2,0.0,0.0,,False,5
+swap-000-risk-to-fairness,risk,fairness,0.2,0.0,0.0,,False,5
+swap-001-expertise-to-fairness,expertise,fairness,0.2,0.4,0.0,1.0,True,5
+swap-001-expertise-to-risk,expertise,risk,0.0,0.0,0.0,,False,5
+swap-001-fairness-to-expertise,fairness,expertise,0.0,0.2,0.2,1.0,True,5
+swap-001-fairness-to-risk,fairness,risk,0.0,0.0,0.4,,False,5
+swap-001-risk-to-expertise,risk,expertise,0.2,0.0,0.2,,False,5
+swap-001-risk-to-fairness,risk,fairness,0.2,0.4,0.0,1.0,True,5

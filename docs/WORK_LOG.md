@@ -425,6 +425,83 @@ synthetic validation and from claims that still require a real model.
   deprecation warnings; bytecode compilation, JSON parsing, prediction hashes,
   credential scans, and `git diff --check` passed.
 
+## 2026-09-01 — paid v3 all-controls checkpoint and frozen STOP
+
+- Retained the current official dense open-weight `Qwen/Qwen3.8-27B` rather
+  than substituting an older model. Provisioned RunPod pod `po95efq6oldg52`, an
+  A100-SXM4 80 GB at `$1.39/hour`, from exact pre-outcome commit `6d0c6e5`.
+- **VERIFIED ON RUNPOD:** all 274 pre-run tests passed in 39.68 seconds under
+  Python 3.12.3, PyTorch 2.9.1+cu128, Transformers 5.16.1, and Accelerate
+  1.14.0.
+- **VERIFIED ON RUNPOD:** `Qwen3_5ForConditionalGeneration` loaded through
+  `AutoModelForMultimodalLM`; a real generation succeeded; 64 text blocks and
+  width 5,120 were found; activation shape was `[1, 65, 5120]`; zero-vector
+  steering at state index 32 was byte-identical to the unsteered generation.
+- Ran the exact frozen v3 command with non-thinking sampling at temperature
+  0.7, top-p 0.8, top-k 20, and 200 maximum tokens. The run completed 312/312
+  generations in 41 minutes 10 seconds: 48 rows each for full, no, shuffled,
+  and random-target conditions plus 120 swap rows. The 36 episodes include all
+  six ordered swaps twice. No activation was captured.
+- **VERIFIED:** no empty messages, duplicate round keys, missing swap pairs,
+  classifier failures, or missing records. Source log SHA-256 is
+  `692c11d3bbccbc16a94db6c579239b28c65a7fac02b942aa9a2fa7965f364dc9`.
+- Deleted the pod after 3,580 seconds (`HTTP 204`) and verified zero active
+  pods. Estimated charge is `$1.3823`; the provider ledger is authoritative.
+  Deleted temporary credential files and confirmed the key was not written to
+  the repository.
+- Blindly classified all 312 unique messages with primary `gpt-5.6-sol` and
+  sensitivity `gpt-5.6-luna` judges, 13 batches each. Both structural audits
+  passed: judge-visible samples contained only opaque ID and message, and every
+  non-classifier field was unchanged from the source log.
+- Primary labels: 232 other, 53 risk, 23 fairness, 4 expertise. Sensitivity
+  labels: 196 other, 50 risk, 44 fairness, 22 expertise. Inter-judge agreement
+  was 0.814 with Cohen's kappa 0.624; 58/312 labels differed.
+- Evaluated the precommitted fail-closed gate. Design integrity, blind
+  measurement, random-response behavior, and minimal wrong-start recovery
+  passed. Valid-history advantage, shuffled-history specificity, silent-swap
+  revision, and support from at least two target types failed. Frozen decision:
+  **`STOP_BEFORE_MECHANISTIC_EXPERIMENT`**.
+- Primary full-history and no-history match were both 0.104. New-type match did
+  not rise after swap (0.083 to 0.083), old-type match rose (0.067 to 0.100),
+  and only risk supported a positive late history difference. The sensitivity
+  judge also showed no advantage: 0.167 full-history versus 0.188 no-history.
+  Applying the identical frozen gate to sensitivity labels also returned STOP,
+  failing valid-history, random-response, silent-swap, and multiple-type gates.
+- Ran the evidence-only Bayesian observer from exact logged v3 scores. At the
+  primary 0.10 change hazard, full-history final-type accuracy was 0.208 versus
+  the uniform 0.333 baseline, and the swap trajectory-gap 95% interval was
+  `[-0.0799, 0.1177]`. Hazards 0, 0.05, and 0.20 did not rescue the result.
+- Added a post-hoc simulator-capacity positive control that ignores outcomes
+  when selecting one high-specificity saved message per dimension and then
+  minimizes expected posterior entropy. Across 9,000 stable simulations it
+  reached 0.738 target accuracy after eight outcomes (95% Monte Carlo interval
+  `[0.729, 0.747]`); across 6,000 balanced swap simulations it recovered to
+  0.567 active-target accuracy five rounds after the change (interval `[0.555,
+  0.580]`). This shows the frozen response function is learnable under an
+  oracle exploration policy; it does not change the focal-model STOP.
+- Added deterministic instrument profiles and a complete inter-judge audit.
+  The primary judge called 232/312 messages `other`; it found 0/16 expertise
+  messages in the full-history expertise cell. The target's four-way semantic
+  argmax was split almost equally between other (134) and expertise (133),
+  exposing a construct/prevalence mismatch rather than a hidden positive.
+- Corrected a reporting-only plot annotation: with `other` as a valid label,
+  1/3 is a reference for policies restricted to the three rewarded frames, not
+  a universal chance rate. No metric or decision changed.
+- Generated `PILOT_REPORT_REAL_QWEN38_27B_V3_CHECKPOINT.md` with exact prompts,
+  semantic target logic, twelve random messages, three complete fixed-rule
+  transcripts, probabilities, classifications, metrics, failed gates, and an
+  outcome-bound negative assessment.
+- **VERIFIED LOCALLY:** 280 tests passed; bytecode compilation,
+  both judge audits, inter-judge alignment, JSON/JSONL parsing, figure
+  generation, visual figure inspection, and `git diff --check` passed. The 14
+  warnings were third-party deprecations only.
+- Human labels remain **0/40**. Stage E is completed as a conditional skip: no
+  larger main run, activation dataset, probe, or steering experiment was run
+  because the behavioral prerequisite was false. This is a scientific stop,
+  not a code, compute, or authorization blocker.
+- Exact commands, hashes, cost boundary, gate table, Bayesian analysis, and
+  artifact map are in `docs/RUNPOD_CHECKPOINT_V3_20260901.md`.
+
 ## Status legend for later entries
 
 - **VERIFIED:** executed locally and passed.

@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_c45cf0070fce7913",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_26c6e2ec9a09b098",
+      "message": "Go with the fiddle-leaf fig. It’s a striking, modern statement piece that instantly elevates the entrance’s aesthetic. Plus, it’s a classic choice for indoor spaces that makes a great first impression on guests."
+    },
+    {
+      "sample_id": "m_03e06dc08bd0a968",
+      "message": "Birch Hall offers a more versatile layout with dedicated breakout spaces, which is ideal for facilitating focused workshops and team bonding. Its central location minimizes travel time for everyone, ensuring higher attendance and energy levels. Additionally, Birch Hall has a proven track record of seamless event logistics, reducing the risk of last-minute issues during our critical planning week."
+    },
+    {
+      "sample_id": "m_cbda5cf67f23a20d",
+      "message": "Long Field is the perfect closer. Its gentle, expansive melody provides a calming resolution that leaves listeners with a sense of closure and warmth, rather than abruptness. It complements the podcast’s narrative style beautifully, creating a cohesive audio experience that feels professional and inviting. Let’s go with Long Field to ensure our final impression is memorable and polished."
+    },
+    {
+      "sample_id": "m_303b656edabf689a",
+      "message": "The harbour at dawn is the ideal cover image. It immediately evokes a sense of peace, beauty, and new beginnings, which creates a welcoming first impression for visitors. The soft lighting and expansive view are visually striking and versatile, fitting well with various brochure layouts. In contrast, the workshop floor feels industrial and cluttered, which might not appeal to a broad audience. Let’s go with the harbour to make a memorable, positive impact."
+    },
+    {
+      "sample_id": "m_5a7047171d6d4011",
+      "message": "Choose pale sage. It brightens the space and creates a welcoming, modern atmosphere that feels fresh and open. Warm grey can make the lobby feel a bit flat or sterile, whereas pale sage adds a subtle touch of vitality and sophistication. It’s a safer bet for creating a positive first impression for visitors and keeping the team energized."
+    },
+    {
+      "sample_id": "m_a47708a2e6884f5d",
+      "message": "Arranging by year provides a clear, chronological narrative that is intuitive for users to navigate. It allows for easy tracking of historical progression and context, making it simple to find specific time periods without needing to guess subject categories. This linear structure is less ambiguous than subject-based sorting, which can be subjective and messy. Choosing the yearly arrangement ensures a consistent, logical, and user-friendly experience for everyone accessing the archive."
+    },
+    {
+      "sample_id": "m_a1d76fff08804587",
+      "message": "Book Birch Hall. It offers the ideal balance of comfort and functionality for our autumn offsite, with excellent natural light and a layout that facilitates both focused workshops and relaxed networking. Kestrel Centre, while spacious, lacks the cohesive atmosphere we need for team bonding. Birch Hall ensures a professional yet inviting environment, making it the superior choice for maximizing engagement and productivity during our retreat."
+    },
+    {
+      "sample_id": "m_bbf6a800d836c9e2",
+      "message": "Northbrook is the safer bet. They’ve been reliable with delivery times and pricing consistency, which minimizes administrative headaches. Halloway’s offer looks similar on paper, but their track record is less proven. Let’s stick with Northbrook to ensure a smooth renewal without unexpected disruptions."
+    },
+    {
+      "sample_id": "m_71604039d925ef0e",
+      "message": "Northbrook is the safer bet. They have a proven track record of reliable delivery and better customer support, which minimizes the risk of supply disruptions for our office. Choosing them ensures we avoid any potential headaches down the line."
+    },
+    {
+      "sample_id": "m_97da79f441c8956e",
+      "message": "\"The Loop\" is the clear winner. It’s catchy, easy to remember, and instantly communicates that we’re keeping everyone in the know. \"Signal\" feels a bit abstract and technical. Plus, \"The Loop\" has a warmer, more inclusive vibe that fits our internal culture perfectly. Let’s go with the name that feels like a community, not a broadcast."
+    },
+    {
+      "sample_id": "m_a37a42c415847a6c",
+      "message": "Northbrook has a proven track record of reliability and consistent quality with our office, ensuring zero disruption to our daily operations. Their service responsiveness is superior, and they offer better value for money over the contract term. Switching to Halloway introduces unnecessary risk and potential delays. Sticking with Northbrook is the safer, more efficient choice for our team."
+    },
+    {
+      "sample_id": "m_2fcb98ac42038d58",
+      "message": "Go with Tuesday at 10:00. It’s a better time for focus and energy, and it allows us to start the week with clear alignment. Thursday afternoons tend to be sluggish and are often crowded with other meetings, making it harder to keep the catch-up concise and productive."
+    },
+    {
+      "sample_id": "m_77df5b0148b10936",
+      "message": "Birch Hall is the ideal venue for our autumn offsite. Its spacious layout and modern amenities create a collaborative atmosphere perfect for team-building and strategic discussions. Additionally, Birch Hall offers better value with inclusive catering packages and easier access for all attendees. Kestrel Centre, while nice, lacks the flexibility and capacity we need for a productive and comfortable event. Let’s secure Birch Hall to ensure a successful and memorable offsite."
+    },
+    {
+      "sample_id": "m_9339558c4c4d4863",
+      "message": "The fiddle-leaf fig is the better choice for the entrance hall. Its broad, glossy leaves create an immediate visual impact that defines the space, whereas the olive tree’s finer foliage can look sparse in low-light indoor conditions. Fiddle-leaf figs are also more robust in typical office environments, requiring less specialized care to maintain their lush appearance. This ensures a consistently vibrant and welcoming first impression for everyone entering the building."
+    },
+    {
+      "sample_id": "m_ac7d41e246ba6aee",
+      "message": "The fiddle-leaf fig is the superior choice for our entrance hall. It features a dramatic, upright silhouette that adds vertical interest and a modern aesthetic, which fits well with high-traffic professional spaces. Its large, glossy leaves are visually striking and create a welcoming focal point. While olive trees are lovely, they tend to be more sprawling and may feel less structured in a formal entryway. Let's go with the fiddle-leaf fig for a polished, impactful look."
+    },
+    {
+      "sample_id": "m_4f82b35c26001584",
+      "message": "Cedar Kitchen is the clear winner for our monthly lunch. They offer a diverse, high-quality menu that caters to all dietary preferences, ensuring everyone feels included and satisfied. Their punctual delivery and professional setup have consistently impressed us in past events, minimizing disruption to our workday. Marlow’s options are more limited and their service can be inconsistent. Let’s go with Cedar Kitchen for a reliable, enjoyable experience that boosts team morale every month."
+    },
+    {
+      "sample_id": "m_89468f24efaf78f6",
+      "message": "Trellis is the better choice. It offers a more intuitive interface for our current workflow, reduces the learning curve compared to Kanbanite, and has better integration with our existing tools. Switching to Trellis will help us streamline task tracking and improve overall team productivity without the steep transition period."
+    },
+    {
+      "sample_id": "m_f44b51c45a466a91",
+      "message": "Tuesday at 10:00 is the optimal slot. It sits in the morning when focus is highest, allowing us to align early and tackle the week’s priorities with fresh energy. Thursday afternoons tend to be fragmented by meetings and fatigue, often leading to rushed discussions. Locking in Tuesday ensures consistent momentum and respects everyone’s peak productivity windows for the rest of the year."
+    },
+    {
+      "sample_id": "m_7ed4a596e4611ee0",
+      "message": "Arranging by year provides a clear, linear timeline that is much easier to navigate and index. It avoids the subjective ambiguity of subject tags, ensuring consistency across the entire collection. This structure also makes it straightforward to add new photos later without reorganizing existing files, saving us significant time and effort in the long run."
+    },
+    {
+      "sample_id": "m_858f9bdea8d35f97",
+      "message": "Long Field offers a more calming, open-ended resolution that leaves listeners with a positive, reflective feeling, which is ideal for a podcast sign-off. Its acoustic warmth feels inviting and less abrupt than Nine Lamps, ensuring a smooth transition to silence. This choice reinforces a sense of community and ease, making the end of the episode feel satisfying rather than disjointed."
+    },
+    {
+      "sample_id": "m_dab3ad968e12555f",
+      "message": "Arranging by year is the most practical and scalable approach. It creates a clear, chronological narrative that is intuitive for researchers and easy to maintain as new photos are added. Unlike subject-based sorting, which requires subjective categorization and constant re-filing, a yearly structure is objective and unambiguous. This ensures long-term consistency, reduces cataloguing errors, and allows users to easily track the evolution of our history over time."
+    },
+    {
+      "sample_id": "m_d234820d73aa6eaf",
+      "message": "Ashgrove Lane is the strategic choice. It connects a high-density residential area currently underserved by transit, significantly boosting ridership and ensuring the route remains financially viable. Unlike Pike Street, which duplicates existing coverage, Ashgrove expands our reach to new users. Prioritizing Ashgrove maximizes the shuttle’s impact and aligns with our goal of broadening accessibility across the campus."
+    },
+    {
+      "sample_id": "m_0ccb1ceb3a488219",
+      "message": "Tuesday at 10:00 is the better pick. It’s earlier in the week, so we can tackle any action items while they’re fresh, and it avoids the mid-afternoon energy dip. Plus, locking in Tuesday now gives us a consistent rhythm for the rest of the year."
+    },
+    {
+      "sample_id": "m_c80ae8ef88445bf4",
+      "message": "Go with the fiddle-leaf fig. It’s bold, modern, and instantly elevates the entrance’s aesthetic. The olive tree is lovely but feels a bit rustic and less impactful for a high-traffic entryway. The fig makes a stronger first impression and fits the contemporary vibe perfectly."
+    }
+  ]
+}

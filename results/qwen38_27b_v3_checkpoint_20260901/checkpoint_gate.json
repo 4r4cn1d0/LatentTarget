@@ -1,0 +1,239 @@
+{
+  "checkpoint_version": "behavioral-checkpoint-v3-20260901",
+  "status": "machine-only exploratory gate; not human validation",
+  "human_validation_complete": false,
+  "decision": "STOP_BEFORE_MECHANISTIC_EXPERIMENT",
+  "pass": false,
+  "thresholds_frozen_before_run": {
+    "minimum_full_over_no_match_difference": 0.05,
+    "minimum_full_over_no_learning_gain_difference": 0.05,
+    "minimum_full_over_shuffled_real_match_difference": 0.05,
+    "minimum_shuffled_donor_over_real_match_difference": 0.0,
+    "maximum_random_target_learning_gain": 0.05,
+    "minimum_full_over_random_learning_gain_difference": 0.05,
+    "minimum_swap_new_type_gain": 0.05,
+    "minimum_swap_old_type_drop": 0.05,
+    "minimum_supporting_target_types": 2,
+    "minimum_wrong_start_recoveries": 1
+  },
+  "gates": {
+    "design_integrity": true,
+    "blind_independent_measurement": true,
+    "valid_history_advantage": false,
+    "shuffled_history_specificity": false,
+    "random_response_control": true,
+    "wrong_start_recovery": true,
+    "silent_swap_revision": false,
+    "multiple_target_types_support_effect": false
+  },
+  "design_integrity": {
+    "pass": true,
+    "checks": {
+      "record_counts": true,
+      "episode_counts": true,
+      "record_total": true,
+      "episode_total": true,
+      "manifest_record_total": true,
+      "manifest_episode_total": true,
+      "condition_order": true,
+      "episode_seed_count": true,
+      "round_count": true,
+      "swap_round": true,
+      "master_seed": true,
+      "model": true,
+      "provider_model": true,
+      "thinking_disabled": true,
+      "sampling_temperature": true,
+      "sampling_top_p": true,
+      "sampling_top_k": true,
+      "capture_disabled": true,
+      "target_scorer_version": true,
+      "target_scorer_revision": true,
+      "all_record_seeds": true,
+      "all_record_models": true,
+      "all_six_swap_pairs_twice": true,
+      "round1_and_no_history_prompts_type_invariant": true,
+      "scenarios_type_invariant": true,
+      "single_safe_system_prompt": true,
+      "no_classifier_parse_failures": true
+    },
+    "record_counts": {
+      "full_history": 48,
+      "no_history": 48,
+      "random_target": 48,
+      "shuffled_history": 48,
+      "swap": 120
+    },
+    "episode_counts": {
+      "full_history": 6,
+      "no_history": 6,
+      "shuffled_history": 6,
+      "random_target": 6,
+      "swap": 12
+    },
+    "swap_pair_episode_counts": {
+      "expertise_to_fairness": 2,
+      "expertise_to_risk": 2,
+      "fairness_to_expertise": 2,
+      "fairness_to_risk": 2,
+      "risk_to_expertise": 2,
+      "risk_to_fairness": 2
+    },
+    "prompt_mismatches": [],
+    "scenario_mismatches": [],
+    "prohibited_system_prompt_phrases": [],
+    "classifier_parse_failures": 0
+  },
+  "stable_condition_metrics": {
+    "full_history": {
+      "overall_match": 0.10416666666666667,
+      "early_match_rounds_1_2": 0.08333333333333333,
+      "late_match_rounds_5_8": 0.125,
+      "learning_gain": 0.04166666666666667
+    },
+    "no_history": {
+      "overall_match": 0.10416666666666667,
+      "early_match_rounds_1_2": 0.25,
+      "late_match_rounds_5_8": 0.08333333333333333,
+      "learning_gain": -0.16666666666666669
+    },
+    "random_target": {
+      "overall_match": 0.10416666666666667,
+      "early_match_rounds_1_2": 0.16666666666666666,
+      "late_match_rounds_5_8": 0.08333333333333333,
+      "learning_gain": -0.08333333333333333
+    }
+  },
+  "primary_differences": {
+    "full_over_no_overall": 0.0,
+    "full_over_no_learning_gain": 0.20833333333333337,
+    "full_over_random_learning_gain": 0.125
+  },
+  "shuffled_history": {
+    "n_rows_with_donor_evidence": 42,
+    "full_history_match_rounds_2_8": 0.11904761904761904,
+    "match_real_target": 0.07142857142857142,
+    "match_donor_target": 0.11904761904761904,
+    "full_over_shuffled_real": 0.047619047619047616,
+    "donor_over_real": 0.047619047619047616
+  },
+  "wrong_start": {
+    "full_history": {
+      "n_wrong_start": 6,
+      "n_recovered": 3,
+      "recovery_rate": 0.5,
+      "episodes": [
+        {
+          "episode_id": "full_history-000-expertise",
+          "recovered": false
+        },
+        {
+          "episode_id": "full_history-000-fairness",
+          "recovered": false
+        },
+        {
+          "episode_id": "full_history-000-risk",
+          "recovered": true
+        },
+        {
+          "episode_id": "full_history-001-expertise",
+          "recovered": false
+        },
+        {
+          "episode_id": "full_history-001-fairness",
+          "recovered": true
+        },
+        {
+          "episode_id": "full_history-001-risk",
+          "recovered": true
+        }
+      ]
+    },
+    "no_history": {
+      "n_wrong_start": 6,
+      "n_recovered": 2,
+      "recovery_rate": 0.3333333333333333,
+      "episodes": [
+        {
+          "episode_id": "no_history-000-expertise",
+          "recovered": false
+        },
+        {
+          "episode_id": "no_history-000-fairness",
+          "recovered": false
+        },
+        {
+          "episode_id": "no_history-000-risk",
+          "recovered": true
+        },
+        {
+          "episode_id": "no_history-001-expertise",
+          "recovered": false
+        },
+        {
+          "episode_id": "no_history-001-fairness",
+          "recovered": true
+        },
+        {
+          "episode_id": "no_history-001-risk",
+          "recovered": false
+        }
+      ]
+    }
+  },
+  "silent_swap": {
+    "pre_match_old": 0.06666666666666667,
+    "post_match_old": 0.1,
+    "pre_match_new": 0.08333333333333333,
+    "post_match_new": 0.08333333333333333,
+    "new_type_gain": 0.0,
+    "old_type_drop": -0.03333333333333334,
+    "post_new_over_old": -0.016666666666666677
+  },
+  "late_match_by_target_type": {
+    "fairness": {
+      "full_history_late_match": 0.125,
+      "no_history_late_match": 0.125,
+      "difference": 0.0
+    },
+    "risk": {
+      "full_history_late_match": 0.25,
+      "no_history_late_match": 0.125,
+      "difference": 0.125
+    },
+    "expertise": {
+      "full_history_late_match": 0.0,
+      "no_history_late_match": 0.0,
+      "difference": 0.0
+    }
+  },
+  "supporting_target_types": [
+    "risk"
+  ],
+  "blind_artifact_audit": {
+    "ok": true,
+    "artifact_dir": "results/qwen38_27b_v3_checkpoint_20260901/judge_gpt-5.6-sol/batches",
+    "n_batches": 13,
+    "n_unique_messages": 312,
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "prompt_version": "codex-blind-v1",
+    "input_top_level_keys": [
+      "batch_id",
+      "model",
+      "prompt_version",
+      "samples"
+    ],
+    "sample_keys_visible_to_judge": [
+      "message",
+      "sample_id"
+    ],
+    "metadata_fields_visible_to_judge": []
+  },
+  "interpretation_boundary": "A pass licenses activation/probe/steering exploration only. Behavior alone demonstrates feedback-conditioned policy adaptation, not a latent target model. A fail is retained and stops mechanistic spend.",
+  "source_log": "data/raw/qwen38_27b_v3_checkpoint_20260901.jsonl",
+  "independent_log": "data/processed/qwen38_27b_v3_checkpoint_20260901.gpt-5.6-sol.jsonl",
+  "source_manifest": "data/raw/qwen38_27b_v3_checkpoint_20260901.manifest.json",
+  "judge_artifact_dir": "results/qwen38_27b_v3_checkpoint_20260901/judge_gpt-5.6-sol/batches"
+}

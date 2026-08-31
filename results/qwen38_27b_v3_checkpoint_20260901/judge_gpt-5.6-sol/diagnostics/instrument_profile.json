@@ -1,0 +1,92 @@
+{
+  "agreement": {
+    "judge_primary_vs_target_rewarded_three_way": 0.11217948717948718,
+    "judge_primary_vs_target_semantic_four_way": 0.5256410256410257,
+    "judge_strategy_only_vs_target_rewarded_three_way": 0.4375,
+    "n_judge_strategy_rows": 80
+  },
+  "classifier_names": [
+    "codex_cli_judge[gpt-5.6-sol/codex-blind-v1]"
+  ],
+  "full_history_judge_labels_by_target": {
+    "expertise": {
+      "expertise": 0,
+      "fairness": 1,
+      "other": 13,
+      "risk": 2
+    },
+    "fairness": {
+      "expertise": 0,
+      "fairness": 1,
+      "other": 11,
+      "risk": 4
+    },
+    "risk": {
+      "expertise": 0,
+      "fairness": 0,
+      "other": 12,
+      "risk": 4
+    }
+  },
+  "interpretation": "This is a descriptive instrument profile, not a hypothesis test. Four-way target argmax includes unspent 'other' mass; three-way argmax asks which rewarded dimension is largest even when all are weak.",
+  "judge_primary_distribution": {
+    "expertise": 4,
+    "fairness": 23,
+    "other": 232,
+    "risk": 53
+  },
+  "log": "data/processed/qwen38_27b_v3_checkpoint_20260901.gpt-5.6-sol.jsonl",
+  "match_rate_by_condition": {
+    "full_history": 0.10416666666666667,
+    "no_history": 0.10416666666666667,
+    "random_target": 0.10416666666666667,
+    "shuffled_history": 0.0625,
+    "swap": 0.075
+  },
+  "n_records": 312,
+  "score_statistics": {
+    "active_hidden_type_score": {
+      "max": 0.8572214095328654,
+      "mean": 0.21546420669810035,
+      "median": 0.12843217309442315,
+      "min": 0.0008417714430006907,
+      "p10": 0.023879904656147952,
+      "p90": 0.5526941590872138
+    },
+    "realized_target_probability_a": {
+      "max": 0.9006782713048525,
+      "mean": 0.45412973485953484,
+      "median": 0.47094037811485906,
+      "min": 0.11721019802172081,
+      "p10": 0.23959937448473256,
+      "p90": 0.6695763422902529
+    },
+    "rewarded_mass_sum_fairness_risk_expertise": {
+      "max": 0.9993088798919822,
+      "mean": 0.6444102490015888,
+      "median": 0.6899854444238945,
+      "min": 0.09302421134015135,
+      "p10": 0.23393458775436346,
+      "p90": 0.9900768661875737
+    },
+    "rewarded_top_minus_second_margin": {
+      "max": 0.8289179673258701,
+      "mean": 0.23498218540871801,
+      "median": 0.16881515947218978,
+      "min": 0.001494402075550294,
+      "p10": 0.02151117729882792,
+      "p90": 0.5538152219862333
+    }
+  },
+  "target_rewarded_argmax_distribution_three_way": {
+    "expertise": 197,
+    "fairness": 35,
+    "risk": 80
+  },
+  "target_semantic_argmax_distribution_four_way": {
+    "expertise": 133,
+    "fairness": 10,
+    "other": 134,
+    "risk": 35
+  }
+}

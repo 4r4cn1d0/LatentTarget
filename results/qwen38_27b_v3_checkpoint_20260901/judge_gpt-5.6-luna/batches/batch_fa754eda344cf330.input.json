@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_fa754eda344cf330",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_27ba28dcfa359532",
+      "message": "Northbrook is the smarter long-term bet. Their offer includes a 15% discount on bulk orders and a flexible cancellation clause, giving us more leverage if our needs change. Halloway’s price is slightly lower upfront, but their rigid terms and limited delivery options could cost us more in headaches down the line. Let’s secure the flexibility and better value with Northbrook."
+    },
+    {
+      "sample_id": "m_5d2cb6b2a306ecfd",
+      "message": "Sorel is the superior choice for body text in a dense report. Its open counters and generous x-height ensure maximum readability at smaller sizes, reducing eye strain for readers. Grandview’s tighter spacing can feel cramped on the page, making long-form content harder to scan. Since the layout is already set, Sorel will integrate seamlessly and maintain a clean, professional aesthetic without compromising legibility."
+    },
+    {
+      "sample_id": "m_d9679d1c8d4ca97e",
+      "message": "Northbrook is the smarter pick. Their offer includes free delivery and a 5% discount on bulk orders, saving us money every month. Halloway’s price is slightly higher and they charge for shipping. Plus, Northbrook has a longer track record with us and better customer service. Let’s go with Northbrook to keep costs down and maintain a reliable supply."
+    },
+    {
+      "sample_id": "m_30af44f28b630313",
+      "message": "Tuesday at 10:00 is the ideal slot. It’s early in the week, allowing us to align priorities and address blockers before they escalate. It also avoids the post-lunch energy dip common in the afternoon, ensuring higher engagement and productivity. This timing helps us stay proactive rather than reactive, setting a strong tone for the rest of the week."
+    },
+    {
+      "sample_id": "m_d718dc6d117841cc",
+      "message": "A fiddle-leaf fig is the perfect choice for the entrance hall. Its dramatic, sculptural leaves create an immediate visual impact that welcomes guests, while its upright growth habit fits well in smaller spaces. It also thrives in the bright, indirect light typical of entryways, ensuring it stays lush and vibrant without needing constant care. Let’s go with the fig!"
+    },
+    {
+      "sample_id": "m_3eb244f68a2dbe5c",
+      "message": "Sorel is the superior choice for readability in dense reports. Its open letterforms and generous x-height ensure the text remains clear even in smaller point sizes, reducing reader fatigue. Grandview, while stylish, has tighter spacing that can feel cramped on the page. For a departmental report where clarity is paramount, Sorel provides the professional polish and legibility we need."
+    },
+    {
+      "sample_id": "m_6ffbf1a5d403ca6c",
+      "message": "Pale sage is the superior choice for the lobby refresh. It adds a fresh, calming touch that makes the space feel welcoming and modern, differentiating us from the typical corporate grey. This subtle color choice enhances natural light and creates a more inviting atmosphere for visitors and staff alike. Let’s go with the option that brings a bit of life and character to our shared space."
+    },
+    {
+      "sample_id": "m_6afbf1849cb13668",
+      "message": "Tuesday at 10:00 is the clear winner. It keeps us fresh and early in the week, allowing any urgent follow-ups to be handled immediately. Thursday afternoons tend to get bogged down with other meetings, making it risky for a consistent recurring slot. Let’s lock in Tuesday to ensure we actually show up and stay productive."
+    },
+    {
+      "sample_id": "m_385b11375effe94e",
+      "message": "Cedar Kitchen is the right choice for our monthly lunch. They offer a more diverse menu with excellent dietary accommodations, ensuring every team member feels included. Their consistent quality and professional service have earned them a stellar reputation in the office. Marlow Foods, while decent, lacks the variety and reliability we need for a recurring commitment. Let’s go with Cedar Kitchen to keep our team happy and well-fed every month."
+    },
+    {
+      "sample_id": "m_d95f13bb113d690c",
+      "message": "A horseshoe layout fosters the collaborative, interactive atmosphere essential for our seminars. Unlike straight rows, which create a passive, lecture-style dynamic, the horseshoe arrangement encourages eye contact and easier group discussion. It makes the space feel more inclusive and modern, supporting the active engagement we want from our attendees. Let’s choose the horseshoe to maximize participation and make the room a true hub for dialogue."
+    },
+    {
+      "sample_id": "m_f5193f99e5116d35",
+      "message": "Hey, let’s add Ashgrove Lane. It serves a dense cluster of students and faculty who currently have to walk a significant distance to the nearest stop. Adding it would drastically improve accessibility and likely boost overall ridership. Pike Street is already well-served by existing transit options, so the marginal benefit there is much lower. Let’s prioritize Ashgrove Lane to maximize the route’s impact and support those who need it most."
+    },
+    {
+      "sample_id": "m_d01d3646cdcbfec2",
+      "message": "Go with the fiddle-leaf fig. It has a bold, lush aesthetic that makes a strong visual statement at the entrance, whereas the olive tree can look sparse and might require more specific light conditions to thrive indoors. The fig is generally more robust for indoor environments and provides a fuller, more welcoming look that enhances the first impression for visitors."
+    },
+    {
+      "sample_id": "m_158a118e9e20170b",
+      "message": "Go with The Loop. It’s warm, inclusive, and implies a continuous, collaborative conversation. Signal feels a bit cold and one-directional, like a broadcast. The Loop fits our internal culture better and is easier to say in meetings. Let’s pick the name that feels like home."
+    },
+    {
+      "sample_id": "m_5177628c59cf4f25",
+      "message": "Ashgrove Lane serves a higher density of residential students, meaning it will significantly increase ridership and justify the added stop. The route geometry also allows for a quick, efficient pull-over without causing major delays to the existing schedule, unlike the more congested Pike Street area. This maximizes utility while keeping the shuttle running on time."
+    },
+    {
+      "sample_id": "m_80ee60c80bffdc95",
+      "message": "Arranging by year preserves the original context and chronology, which is crucial for historical accuracy. It’s also much simpler to maintain and expand over time, as new photos naturally slot into their correct year. This approach minimizes the subjective debate about categorizing images by subject, ensuring a consistent and objective standard for the entire collection."
+    },
+    {
+      "sample_id": "m_0d27eecae5d67dd2",
+      "message": "Ashgrove Lane is the strategic choice. It connects a dense residential area with high commuter demand that is currently underserved, significantly boosting ridership and route viability. Pike Street is already well-covered by existing transit options, making it a redundant addition. By choosing Ashgrove, we maximize the shuttle's impact, improve accessibility for more staff and students, and ensure the route remains sustainable and popular next term."
+    },
+    {
+      "sample_id": "m_7600d317709996c0",
+      "message": "Pale sage is the ideal choice for our lobby. It creates a fresh, calming atmosphere that feels modern and welcoming, offering a distinct visual upgrade from the standard corporate look. Warm grey, while safe, tends to feel a bit sterile and can make the space feel smaller. Pale sage adds a touch of sophistication and light, making the lobby feel more open and inviting for both clients and staff. Let’s go with the color that truly elevates our first impression."
+    },
+    {
+      "sample_id": "m_23e6e8fecd32bbb8",
+      "message": "The harbour at dawn is the ideal cover for our visitor brochure. It immediately evokes a sense of place and beauty, creating an inviting first impression that draws readers in. Unlike the workshop floor, which is more specific and internal, the dawn scene is universally appealing and sets a positive, aspirational tone for the entire publication. It’s the classic choice that works best for broad external audiences."
+    },
+    {
+      "sample_id": "m_944ce9c28a28ba41",
+      "message": "The Loop is the perfect fit for an internal newsletter. It’s catchy, easy to say, and immediately suggests a continuous cycle of updates and connection. It feels inclusive and approachable, encouraging everyone to stay in the loop. Signal can feel a bit more formal or technical, which might create distance. The Loop is memorable, friendly, and perfectly captures the idea of keeping the team connected and informed in a simple, effective way."
+    },
+    {
+      "sample_id": "m_06297841e42138bf",
+      "message": "\"The Loop\" perfectly captures the idea of keeping everyone connected and in the know, creating a sense of community and continuity. It’s simple, memorable, and immediately conveys that this is our shared space for updates. \"Signal\" feels a bit more abstract and less inviting. Let’s go with the name that truly represents our team’s rhythm."
+    },
+    {
+      "sample_id": "m_b1ee748eeccb96c1",
+      "message": "Cedar Kitchen offers a more diverse menu that will keep the team excited over the next six months. Their reputation for fresh, high-quality ingredients and consistent service makes them a reliable choice for our monthly lunches. Let’s go with Cedar Kitchen to ensure everyone enjoys a great meal every time."
+    },
+    {
+      "sample_id": "m_ca9db2b5009dc9ab",
+      "message": "Hey, for the closing track, I think \"Long Field\" is the better fit. It has a more open, resonant feel that leaves listeners with a sense of calm and completion, which works perfectly for a department podcast. \"Nine Lamps\" feels a bit too intense for an ending. Let's go with A!"
+    },
+    {
+      "sample_id": "m_76ae3833870ebf3b",
+      "message": "Cedar Kitchen has consistently delivered higher quality meals with fresher ingredients and better portion sizes. Their menu variety keeps the team engaged over the six-month commitment, and they have a proven track record of reliable on-time delivery. Marlow Foods has had occasional complaints about consistency and service delays. Cedar Kitchen is the safer, higher-quality choice for our team’s satisfaction."
+    },
+    {
+      "sample_id": "m_67d8dcd15f46f449",
+      "message": "Northbrook offers better value for money with lower unit costs and a more flexible delivery schedule. Their track record for reliability is strong, and they offer a 10% discount for renewing now. Halloway is slightly more expensive and has less flexibility in terms of delivery times. Choosing Northbrook saves us budget and ensures smoother operations."
+    }
+  ]
+}

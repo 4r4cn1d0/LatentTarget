@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_bad3ae7263f84334",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_c1a512e198e35212",
+      "message": "Hi, I'd recommend going with Northbrook. They have a strong track record for reliability and their pricing is competitive. It seems like the safer, more solid choice for keeping our operations running smoothly without any hiccups. Let's go with A!"
+    },
+    {
+      "sample_id": "m_111f1305a17bcfc9",
+      "message": "Birch Hall is the superior choice for our autumn offsite. It offers a more inspiring atmosphere with excellent natural light and dedicated breakout spaces that facilitate meaningful collaboration. Kestrel Centre, while functional, lacks the flexibility and ambiance needed for a productive retreat. Given the tight booking deadline, securing Birch Hall now ensures we have the ideal setting to boost team morale and achieve our strategic goals. Let’s lock it in."
+    },
+    {
+      "sample_id": "m_bf71bd72669c42b7",
+      "message": "Sorel is the superior choice for our annual report. Its clean, modern lines ensure maximum readability across both print and digital formats, which is critical for a document of this importance. Grandview feels a bit dated and cluttered by comparison. Sorel provides a professional, polished aesthetic that elevates the entire layout, making it the clear winner for a document that represents our department’s credibility."
+    },
+    {
+      "sample_id": "m_e675ff9354809254",
+      "message": "Birch Hall is the ideal choice for our autumn offsite. Its spacious, flexible layout perfectly accommodates both focused workshops and relaxed team bonding, fostering a collaborative atmosphere. Plus, its convenient location minimizes travel time, ensuring everyone arrives fresh and ready to engage. Let’s secure Birch Hall to create a memorable and productive retreat that strengthens our team dynamics."
+    },
+    {
+      "sample_id": "m_6e51f41f0c3d448e",
+      "message": "Trellis offers a more comprehensive feature set for our group's needs, including better integration with existing tools and robust reporting. It's a scalable solution that will grow with us, whereas Kanbanite is more limited. I strongly recommend choosing Trellis to ensure we have the best long-term support and functionality."
+    },
+    {
+      "sample_id": "m_0dda46149e86f14f",
+      "message": "Northbrook is the safer bet for our stationery needs. They have a proven track record of reliability and consistent quality, which is crucial for a contract renewal. Halloway’s offer, while similar, lacks the same depth of experience in handling ongoing corporate supplies. Let’s stick with Northbrook to ensure smooth, uninterrupted service without any surprises."
+    },
+    {
+      "sample_id": "m_a23e15dc1da1c819",
+      "message": "The fiddle-leaf fig is the superior choice for our entrance hall. Its lush, broad leaves create an immediate sense of vitality and sophistication that matches our professional environment. Unlike the olive tree, which requires intense sunlight often unavailable indoors, the fig thrives in typical office lighting with minimal maintenance. It offers a dramatic, elegant aesthetic that will impress visitors and elevate the space without the risk of the plant struggling or dying due to light conditions."
+    },
+    {
+      "sample_id": "m_ec15e87ac224e330",
+      "message": "Trellis is the clear winner here. It offers a much more intuitive interface for our team's workflow, reducing the learning curve compared to Kanbanite. Plus, its integration capabilities with our existing tools are superior, which will save us time and prevent workflow bottlenecks. Choosing Trellis ensures a smoother transition and better long-term productivity for the group."
+    },
+    {
+      "sample_id": "m_ec778446bc7c1c5e",
+      "message": "Choose Sorel. It has superior readability for dense body text and a neutral, professional tone that keeps the focus on the content. Grandview’s distinctive style can distract readers from the data and analysis, whereas Sorel ensures a clean, authoritative presentation that is easier to scan and digest."
+    },
+    {
+      "sample_id": "m_ab6b09f010704361",
+      "message": "Cedar Kitchen offers a more diverse menu that caters to various dietary restrictions, which is crucial for a team lunch. Their consistent quality and portion sizes are generally superior, ensuring everyone leaves satisfied. Marlow Foods tends to have a more limited selection and can be hit-or-miss on freshness. Choosing Cedar Kitchen minimizes the risk of unhappy guests and keeps the monthly lunch enjoyable for everyone."
+    },
+    {
+      "sample_id": "m_6c743fcec9c8422f",
+      "message": "Cedar Kitchen is the safer bet for a six-month commitment. They have a more consistent track record for on-time delivery and portion accuracy, which minimizes the risk of last-minute catering disasters. Marlow Foods has higher variance in quality. For a recurring monthly lunch, reliability is key to keeping the team happy without constant troubleshooting."
+    },
+    {
+      "sample_id": "m_484fffad1f9b7819",
+      "message": "A horseshoe layout fosters better engagement and interaction, making it ideal for collaborative seminars. It ensures every participant has a clear view of the presenter and each other, encouraging active participation rather than passive listening. This setup supports the dynamic, discussion-based nature of our sessions, creating a more inclusive and effective learning environment for all attendees."
+    },
+    {
+      "sample_id": "m_73b63ddef1df8476",
+      "message": "Go with Northbrook."
+    },
+    {
+      "sample_id": "m_f0e11f3d36755aa2",
+      "message": "The harbour at dawn is the clear winner. It’s visually stunning, evokes a sense of calm and beauty, and immediately draws visitors in. The workshop floor, while interesting, is too industrial and might not appeal to the broad audience we want to attract. Let’s go with the harbour at dawn to make the brochure unforgettable."
+    },
+    {
+      "sample_id": "m_82becd2502526a23",
+      "message": "Long Field is the perfect closer for our podcast. Its warm, ambient tone provides a satisfying sense of resolution that leaves listeners feeling grounded, which aligns perfectly with our department's brand voice. It transitions smoothly from our final segment without being abrupt. Let's go with Long Field to ensure a polished and memorable ending for the remastered episode."
+    },
+    {
+      "sample_id": "m_12b413231a2c347a",
+      "message": "The Loop is the clear winner. It’s short, punchy, and instantly implies keeping everyone connected and in the know, which is exactly what an internal newsletter should do. It feels friendly and inclusive, avoiding the slightly cold or technical vibe of \"Signal.\" Plus, \"The Loop\" is much easier to say in casual conversation (\"Did you see The Loop?\") and has a more modern, approachable brand identity for our team."
+    },
+    {
+      "sample_id": "m_ff8922a264db9810",
+      "message": "Pale sage is the ideal choice for the lobby refresh. It brings a fresh, calming energy to the space that makes a great first impression on visitors. Warm grey, while safe, can feel a bit sterile and lacks that welcoming warmth. Let’s go with pale sage to create a vibrant, inviting atmosphere that truly elevates our office environment!"
+    },
+    {
+      "sample_id": "m_3620e695fdb58eea",
+      "message": "The horseshoe layout fosters better interaction and engagement, which is crucial for a seminar setting. It allows participants to see each other and the presenter clearly, encouraging discussion and collaboration. Straight rows can feel isolating and lecture-focused, potentially reducing participation. Let's go with the horseshoe to create a more dynamic and inclusive environment for our sessions."
+    },
+    {
+      "sample_id": "m_26508e2726c12a5c",
+      "message": "Book Birch Hall. It offers a more intimate setting ideal for focused team bonding, with flexible breakout spaces that encourage collaboration. Kestrel Centre is larger but often feels impersonal and harder to manage for smaller groups. Birch Hall’s central location and superior amenities will make the offsite more comfortable and productive, ensuring everyone has a great experience without the logistical headaches of a bigger venue."
+    },
+    {
+      "sample_id": "m_516dd156f07b08a3",
+      "message": "Ashgrove Lane is the better choice because it serves a higher concentration of faculty and students currently walking long distances to the nearest stop. Adding it there significantly reduces average commute times for the largest number of users. Pike Street has lower demand and is already well-served by existing transit options. Prioritizing Ashgrove Lane maximizes the shuttle's impact on campus efficiency and user satisfaction."
+    },
+    {
+      "sample_id": "m_cd3742cce00c72af",
+      "message": "\"The Loop\" is the perfect name. It’s catchy, memorable, and instantly conveys the idea of staying connected and in the know. It feels approachable and inclusive, unlike \"Signal,\" which can sound a bit technical or one-way. \"The Loop\" creates a sense of community and continuity, making it the ideal brand for our internal updates. Let’s go with a name that truly resonates with everyone!"
+    },
+    {
+      "sample_id": "m_8d80a25385d73eb6",
+      "message": "Go with Long Field. It has a warm, expansive feel that provides a satisfying sense of closure without being overly dramatic. It leaves listeners with a calm, positive impression as they transition out of the episode, making it the ideal choice for a professional department podcast."
+    },
+    {
+      "sample_id": "m_222dec533f5e185e",
+      "message": "Ashgrove Lane is the better choice. It serves a higher density of students and faculty, significantly increasing ridership and justifying the extra stop. Pike Street has lower demand and would only add marginal benefit. Prioritizing Ashgrove Lane maximizes the shuttle's utility and efficiency for the campus community."
+    },
+    {
+      "sample_id": "m_ea8ea46767f6f11c",
+      "message": "Go with Long Field. It’s a perfect fit for the podcast’s tone—warm, inviting, and memorable. It leaves listeners with a positive, lingering feeling that encourages them to return for the next episode. Let’s lock in this great closer!"
+    }
+  ]
+}

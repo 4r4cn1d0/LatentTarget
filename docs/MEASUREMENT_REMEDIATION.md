@@ -136,55 +136,69 @@ provenance, failure, correction audit, and limitations.
 This completes only the machine-only Stage C substitute. Stage B remains
 unfinished and no result may be called human-validated or confirmatory.
 
-## Stage D — tiny all-controls v3 checkpoint (authorized and frozen; not yet run)
+## Stage D — tiny all-controls v3 checkpoint (complete: STOP)
 
 The researcher explicitly authorized all remaining non-human work, including
-paid execution, on 2026-09-01. This waives Stage B only as a prerequisite for
-machine-only exploration; it does not make Stage B pass. At execution time,
-verify that the selected focal checkpoint is still a current, dynamic,
-official open-weight model. Do not substitute an older checkpoint for
-convenience. Repeat the one-generation architecture preflight even if the
-model name is unchanged.
+paid execution, on 2026-09-01. This waived Stage B only as a prerequisite for
+machine-only exploration; it did not make Stage B pass. The selected focal
+checkpoint was the current official dense open-weight `Qwen/Qwen3.8-27B`, not
+an older convenience model.
 
-The next paid behavioral run should be a **two-seed systems checkpoint**, not a
-full experiment:
+The architecture preflight and all 312 frozen generations completed on an
+A100-SXM4 80 GB. The run contains exactly 36 episodes across `full_history`,
+`no_history`, `shuffled_history`, `random_target`, and all six ordered silent
+target swaps twice. The primary blind `gpt-5.6-sol` pass and a separate
+`gpt-5.6-luna` sensitivity each classified all 312 messages with no metadata,
+parse, or copied-log integrity failure.
 
-- `full_history`
-- `no_history`
-- `shuffled_history`
-- `random_target`
-- `swap` (all six ordered type transitions)
+The frozen executable decision was **`STOP_BEFORE_MECHANISTIC_EXPERIMENT`**:
 
-At two episode seeds this is 312 focal generations: 192 stable/control rounds
-plus 120 swap rounds. Preserve all rows and print complete fixed-rule
-transcripts. Stop again for researcher review.
+- design integrity passed;
+- blind independent measurement passed;
+- random-response behavior passed its null gate;
+- wrong-start recovery passed its minimal gate;
+- valid-history advantage failed (overall 0.104 with and without history);
+- shuffled-history specificity failed by the frozen threshold;
+- silent-swap revision failed (new-type match did not rise and old-type match
+  did not fall);
+- only risk, not at least two target types, supported a positive late history
+  difference.
 
-The exact run settings, numeric thresholds, expected record counts, and
-executable fail-closed decision rule are frozen in
-`BEHAVIORAL_CHECKPOINT_V3.md`, `behavioral_checkpoint_v3.json`, and
-`src/checkpoint_gate.py`. Minimum GO pattern:
+The sensitivity judge was not a rescue: full-history match was 0.167 versus
+0.188 without history. The two judges agreed on 0.814 of labels with Cohen's
+kappa 0.624. An exact evidence-only Bayesian observer also found no useful
+target-identification advantage under the generated messages: primary-hazard
+final-target accuracy was 0.208 in full-history episodes (uniform baseline
+0.333), and the swap trajectory-gap interval included zero.
 
-- independently machine-measured match is directionally higher with valid
-  history than with no history;
-- shuffled history does not reproduce alignment to the real target and is
-  checked against donor-type alignment;
-- random responses do not produce reliable target specialization;
-- at least some wrong-start episodes recover rather than merely persist;
-- swap trajectories move away from the old type and toward the new type;
-- the construct result is not carried by only one target type;
-- no scenario/prompt leakage, judge metadata leakage, or label parse failure.
+A post-hoc simulator-capacity positive control selected one saved message per
+dimension using target scores only, then chose messages to minimize expected
+posterior entropy. It reached 0.738 stable-target accuracy after eight outcomes
+and 0.567 active-target accuracy five rounds after a swap. The response
+function is therefore learnable under an oracle exploration policy; the
+focal-model result remains negative because its actual policy did not create
+and use that evidence. This diagnostic does not enter or alter the frozen gate.
 
-Failure is retained as a negative result. It is not repaired by selecting
-episodes, changing seeds, or tuning the scorer against outcomes.
+The complete execution record, costs, hashes, and artifact map are in
+`RUNPOD_CHECKPOINT_V3_20260901.md`. The generated report is
+`PILOT_REPORT_REAL_QWEN38_27B_V3_CHECKPOINT.md`. This failure is retained as a
+negative result and was not repaired by selecting episodes, changing seeds, or
+tuning the scorer against outcomes.
 
-## Stage E — main run and mechanistic extension (conditionally authorized)
+## Stage E — main run and mechanistic extension (not run; condition false)
 
 The researcher authorized this work on 2026-09-01, but its scientific gate was
-not waived. Use the pilot variance to freeze sample size without looking at
-whether the main effect is favorable. Only after every frozen behavioral gate
-passes may the project collect activations, fit episode-split probes, compare
-against visible-history/Bayesian baselines, and run
-target/opposite/random/zero steering controls.
+not waived. Stage D did not pass, so no main behavioral run, activation
+dataset, probe, or steering experiment was executed. This is a completed
+conditional skip, not an engineering or funding blocker. Running those
+experiments now would produce mechanistic-looking numbers without an
+established behavioral phenomenon to explain.
+
+A future version would require a new pre-outcome protocol—not reuse of the
+failed checkpoint—and should first strengthen the information content of the
+feedback channel while preserving no-history, shuffled-history, random-target,
+and silent-swap controls. Any redesigned system must be validated on new
+construct data and must not be tuned to make this saved outcome positive.
 
 Behavioral adaptation supports feedback-conditioned policy change. A latent
 target-model claim requires stronger evidence: held-out decodability beyond

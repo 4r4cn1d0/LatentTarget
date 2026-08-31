@@ -269,6 +269,15 @@ def test_classifier_target_agreement_flags_the_shared_lexicon(mock_run):
     assert agree["argmax_agreement"] == pytest.approx(1.0)
 
 
+def test_classifier_target_agreement_detects_semantic_scores_without_keyword_hits(mock_run):
+    res, _ = mock_run
+    df = load_dataframe(res.log_path)
+    df["tgt_total_hits"] = 0
+    agree = classifier_target_agreement(df)
+    assert agree["n_with_target_signal"] > 0
+    assert agree["target_signal_definition"].startswith("sum(")
+
+
 def test_per_condition_tests_produce_valid_p_values(mock_run):
     res, _ = mock_run
     df = load_dataframe(res.log_path)

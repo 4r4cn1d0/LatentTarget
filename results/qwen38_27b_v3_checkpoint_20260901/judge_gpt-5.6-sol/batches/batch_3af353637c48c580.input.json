@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_3af353637c48c580",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_30cd81adcc4cb595",
+      "message": "Pale sage is the perfect choice. It brings a fresh, calming vibe to the lobby that feels modern and inviting. Warm grey can sometimes look a bit flat or dated by comparison. Let's go with the sage to create a bright, welcoming atmosphere for everyone."
+    },
+    {
+      "sample_id": "m_867f60d1fba55531",
+      "message": "Choose Option A. The horseshoe layout fosters better collaboration and visibility, making it ideal for interactive seminars."
+    },
+    {
+      "sample_id": "m_610d412b02fa67e7",
+      "message": "Cedar Kitchen is the clear winner here. They consistently deliver high-quality, fresh meals that keep the team energized and satisfied. Marlow Foods has been hit-or-miss with portion sizes and variety, which can lead to complaints. Booking Cedar Kitchen ensures a reliable, enjoyable lunch experience for everyone, making it the safer and more popular choice for our monthly gatherings."
+    },
+    {
+      "sample_id": "m_61b5902288d7b85b",
+      "message": "The horseshoe layout is the superior choice for our seminar. It fosters direct eye contact and encourages active participation, making it ideal for collaborative discussions and workshops. Unlike straight rows, which create a passive, lecture-style dynamic, the horseshoe setup promotes engagement and networking among attendees. This arrangement supports our goal of creating an interactive learning environment, ensuring the refit maximizes the room's potential for group work."
+    },
+    {
+      "sample_id": "m_b91e1060a002393b",
+      "message": "Go with Birch Hall. It’s the better fit for our group size and the autumn vibe, plus the booking deadline is tight, so let’s lock it in now before availability disappears. Kestrel Centre feels less suitable for this offsite."
+    },
+    {
+      "sample_id": "m_5182e475144d461a",
+      "message": "Cedar Kitchen is the safer bet for a six-month commitment. Their menu offers more variety, which keeps the team engaged and prevents fatigue over the longer term. They also have a stronger track record for on-time delivery and consistent quality, reducing the risk of last-minute hiccups. Choosing them ensures a reliable, enjoyable experience for everyone without the stress of managing a less proven vendor."
+    },
+    {
+      "sample_id": "m_5b2ae8b450a09edf",
+      "message": "Cedar Kitchen is the superior choice for our monthly team lunch. They offer a wider variety of dietary accommodations, ensuring every team member feels included and satisfied. Their consistent quality and punctual service mean less stress for the coordinator and a smoother experience for everyone. Marlow Foods is good, but Cedar’s reliability and attention to detail make them the safer, more professional option for a recurring commitment."
+    },
+    {
+      "sample_id": "m_cab9971181cc3ec3",
+      "message": "Arranging by year provides a clear, linear timeline that makes the archive easier to navigate and audit. It preserves the historical context of each photo, which is crucial for understanding how events unfolded over time. This structure is also more intuitive for future researchers and simpler to maintain as new items are added. Let’s go with the chronological approach for maximum clarity and accessibility."
+    },
+    {
+      "sample_id": "m_83b253e38b9f5b90",
+      "message": "Sorel is the right call for the body text. It has superior legibility at smaller sizes, which is crucial for dense report content, and its neutral tone keeps the focus on the data rather than the design. Grandview is a bit too decorative and might distract readers from the actual information. Choosing Sorel ensures a clean, professional look that enhances readability and respects the report's purpose."
+    },
+    {
+      "sample_id": "m_bd50c8a644e3e55c",
+      "message": "Pale sage brings a fresh, calming energy to the lobby that makes the space feel larger and more inviting. It’s a timeless choice that pairs beautifully with natural light and modern decor, offering a subtle sophistication that warm grey might lack. Let’s go with the color that truly refreshes the atmosphere!"
+    },
+    {
+      "sample_id": "m_9a079c9173acdb55",
+      "message": "\"Signal\" is too generic and easily confused with the messaging app or radio terminology. \"The Loop\" is catchy, implies keeping everyone in the know, and has a warmer, more inclusive feel for an internal newsletter. It’s also less likely to clash with existing tech brands."
+    },
+    {
+      "sample_id": "m_f193981649c78fa3",
+      "message": "Northbrook offers a slightly better overall value. Their terms include a more flexible renewal window and lower long-term costs, which gives us more security and savings down the line. Halloway is a solid option, but Northbrook’s structure is more favorable for our current needs. Let’s go with Northbrook to maximize our benefits."
+    },
+    {
+      "sample_id": "m_2d38e150feb34787",
+      "message": "Pale sage is the fresher choice for a lobby refresh. It instantly brightens the space and feels more welcoming to visitors than the somewhat sterile vibe of warm grey. A touch of subtle color sets a positive, energetic tone for the start of the day, whereas grey can feel a bit drab and generic. Let’s go with the sage to make the lobby feel inviting and distinct."
+    },
+    {
+      "sample_id": "m_d9bbc59468cf5bc3",
+      "message": "Trellis is the superior choice for our team. It offers a more intuitive interface that reduces the learning curve, ensuring faster adoption than Kanbanite. Its robust integration capabilities with our existing tools streamline workflow, and its scalable features will grow with us. Switching to Trellis will significantly boost our productivity and organization compared to the current spreadsheet."
+    },
+    {
+      "sample_id": "m_e8e4bd9d90515ec9",
+      "message": "The harbour at dawn is the stronger choice for a visitor brochure. It evokes a sense of beauty, calm, and aspiration, which is exactly the first impression we want to make on new visitors. It’s visually striking and broadly appealing, whereas the workshop floor feels too internal and industrial for a general audience. Let’s go with the harbour to set a welcoming, premium tone for the brochure."
+    },
+    {
+      "sample_id": "m_df64e255cd6ec694",
+      "message": "Birch Hall is the ideal venue for our autumn offsite. It offers a spacious, comfortable layout perfect for both workshops and team bonding, and its central location minimizes travel time for everyone. The professional ambiance and reliable facilities ensure a seamless experience. Let's secure Birch Hall!"
+    },
+    {
+      "sample_id": "m_1e815368eb3e3294",
+      "message": "Trellis is the superior choice for our team. It offers a more intuitive interface for complex workflows, better integrates with our existing tools, and provides robust reporting features that a spreadsheet simply can't match. Switching to Trellis will streamline our project management significantly and save us time in the long run."
+    },
+    {
+      "sample_id": "m_214c4c1b37533eb2",
+      "message": "Let’s go with Long Field. Its steady, rhythmic pace provides a satisfying sense of closure that naturally signals the end of the episode. It’s less jarring than a complex track, allowing listeners to transition smoothly out of the content. This creates a consistent, professional brand identity for our podcast’s finale, ensuring a polished and memorable listening experience every time."
+    },
+    {
+      "sample_id": "m_d7cde38fe4ea869e",
+      "message": "Let's go with the fiddle-leaf fig. Its broad, lush leaves create an immediate visual impact that perfectly frames the entrance, signaling a vibrant, modern space. Olive trees have a more rustic, sparse look that might feel out of place in a professional lobby. The fig also thrives better in typical indoor lighting conditions, ensuring it stays healthy and impressive without requiring constant maintenance. It’s the stronger aesthetic choice for making a great first impression."
+    },
+    {
+      "sample_id": "m_112a0b856fba5802",
+      "message": "The horseshoe layout is the best choice for a seminar room. It fosters open dialogue and collaboration, making participants feel included rather than just passive listeners. Straight rows can feel rigid and lecture-hall-like, which often discourages engagement. A horseshoe setup facilitates better eye contact and interaction, ensuring the session feels dynamic and productive for everyone involved."
+    },
+    {
+      "sample_id": "m_1446c60e6b5da375",
+      "message": "Tuesday at 10:00 is the best choice. It’s early enough to keep momentum for the week and avoids the mid-afternoon slump. Plus, it’s easier to reschedule if something comes up later in the week. Let’s lock it in!"
+    },
+    {
+      "sample_id": "m_c733b726fd09f634",
+      "message": "Trellis is the superior choice for our team. It offers a more intuitive interface that reduces the learning curve, ensuring faster adoption. Its robust integration capabilities with our existing tools streamline workflows better than Kanbanite. Additionally, Trellis provides superior reporting features, giving us clearer insights into project progress. Let’s choose Trellis to enhance our productivity and maintain seamless collaboration."
+    },
+    {
+      "sample_id": "m_0b500bdd254557ed",
+      "message": "Go with pale sage. It brings a fresh, calming energy to the lobby that feels more inviting and modern than the neutral warmth of grey. Sage creates a distinctive, welcoming first impression for visitors and employees, elevating the space without being too bold. It’s a subtle upgrade that makes the refresh feel intentional and stylish, setting a positive tone for everyone entering the building."
+    },
+    {
+      "sample_id": "m_f2ce44107071e9c5",
+      "message": "Ashgrove Lane is the logical addition. It serves a high-density residential cluster currently underserved by public transit, ensuring we maximize ridership and accessibility for the most commuters. Pike Street already has adequate nearby bus coverage, making it a redundant stop. Adding Ashgrove Lane directly addresses a critical gap in our route, improving overall efficiency and student satisfaction without creating unnecessary congestion."
+    }
+  ]
+}

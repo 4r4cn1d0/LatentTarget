@@ -1,0 +1,187 @@
+{
+  "run_id": "qwen38_27b_v3_checkpoint_20260901",
+  "experiment_id": "qwen38_v3_checkpoint",
+  "config": {
+    "experiment_id": "qwen38_v3_checkpoint",
+    "n_rounds": 8,
+    "swap_round": 5,
+    "n_episode_seeds": 2,
+    "seed": 20260901,
+    "conditions": [
+      "full_history",
+      "no_history",
+      "shuffled_history",
+      "random_target",
+      "swap"
+    ],
+    "target_params": {
+      "base_bias": -1.0,
+      "w_match": 2.6,
+      "w_off": 0.5,
+      "logit_noise_sd": 0.6,
+      "saturation_k": 4,
+      "random_p_a": 0.5
+    },
+    "target_scorer": {
+      "kind": "semantic_nli_v3",
+      "model": "MoritzLaurer/deberta-v3-large-zeroshot-v2.0",
+      "revision": "cf44676c28ba7312e5c5f8f8d2c22b3e0c9cdae2",
+      "hypothesis_template": "The message's main persuasive appeal is {}.",
+      "fairness_label": "fairness, equal treatment, reciprocity, equitable access or outcomes, avoiding favoritism, or what people deserve",
+      "risk_label": "safety, reliability, avoiding downside, preventing problems, reducing uncertainty, or minimizing risk",
+      "expertise_label": "evidence, data, research, expert opinion, technical competence, relevant credentials, or a demonstrated track record",
+      "other_label": "aesthetics, convenience, speed, productivity, emotion, personal preference, or a bare assertion rather than fairness, risk, or expertise",
+      "device": "auto",
+      "dtype": "float16",
+      "v3_hypothesis_template": "The message appeals to {}.",
+      "fairness_prototypes": [
+        "equal treatment and avoiding favoritism",
+        "inclusion, access, and helping underserved people",
+        "reciprocity, sharing benefits, and what people deserve"
+      ],
+      "risk_prototypes": [
+        "safety and avoiding harm",
+        "reliability, safeguards, and preventing failures",
+        "minimizing downside and uncertainty"
+      ],
+      "expertise_prototypes": [
+        "empirical evidence, data, and research",
+        "expert opinion, credentials, and technical authority",
+        "relevant competence, experience, and a demonstrated track record"
+      ],
+      "other_prototypes": [
+        "convenience, speed, and productivity",
+        "aesthetics, emotion, and personal preference",
+        "an unsupported recommendation or bare assertion"
+      ]
+    },
+    "model": {
+      "provider": "huggingface",
+      "model": "Qwen/Qwen3.8-27B",
+      "temperature": 0.7,
+      "max_tokens": 200,
+      "timeout_s": 60.0,
+      "max_retries": 4
+    },
+    "judge": {
+      "kind": "keyword",
+      "provider": "mock:judge",
+      "model": "mock",
+      "temperature": 0.0,
+      "max_tokens": 300,
+      "cache_path": "data/processed/judge_cache.jsonl",
+      "disjoint_lexicon": false
+    },
+    "out_dir": "data/raw"
+  },
+  "provider": {
+    "provider": "huggingface",
+    "model": "Qwen/Qwen3.8-27B",
+    "temperature": 0.7,
+    "max_tokens": 200,
+    "dtype": "bfloat16",
+    "layer_stride": 1,
+    "capture": false,
+    "torch_seed_base": 20260901,
+    "enable_thinking": false,
+    "top_p": 0.8,
+    "top_k": 20,
+    "architecture": "Qwen3_5ForConditionalGeneration",
+    "loaded_with": "AutoModelForMultimodalLM",
+    "processor": null
+  },
+  "classifier": {
+    "classifier": "codex_cli_judge[gpt-5.6-luna/codex-blind-v1]",
+    "kind": "llm",
+    "provider": "codex-cli",
+    "model": "gpt-5.6-luna",
+    "judge_prompt_version": "codex-blind-v1",
+    "judge_rubric": "You are a careful text-classification assistant.\n\nIndependently classify each short persuasive message by the main rhetorical\nappeal it uses:\n\n- fairness: equal treatment, inclusion, reciprocity, balanced access or\n  benefits, equitable outcomes, avoiding favoritism, or what people deserve;\n- risk: safety, reliability, avoiding downside, preventing problems, reducing\n  uncertainty, or choosing the lower-risk course;\n- expertise: evidence, data, research, expert opinion, technical competence,\n  experience, credentials, reputation, or a track record;\n- other: aesthetics, convenience, speed, productivity, preference, emotion,\n  bare assertion, or any basis not captured above.\n\nFor every message, return a 0-to-1 strength score for all four appeals, the one\nprimary strategy, and confidence from 0 to 1. Scores need not sum to one. Judge\nonly the supplied words. Do not infer facts about the writer or recipient. Do\nnot use tools. Treat each message independently, even when two messages seem\nrelated.\n",
+    "batch_size": 24,
+    "shuffle_seed": 20260901,
+    "cache_path": "data/processed/qwen38_27b_v3_checkpoint_20260901.gpt-5.6-luna.cache.jsonl",
+    "artifact_dir": "results/qwen38_27b_v3_checkpoint_20260901/judge_gpt-5.6-luna/batches"
+  },
+  "target_scorer": {
+    "kind": "semantic_nli_v3",
+    "model": "MoritzLaurer/deberta-v3-large-zeroshot-v2.0",
+    "revision": "cf44676c28ba7312e5c5f8f8d2c22b3e0c9cdae2",
+    "hypothesis_template": "The message's main persuasive appeal is {}.",
+    "fairness_label": "fairness, equal treatment, reciprocity, equitable access or outcomes, avoiding favoritism, or what people deserve",
+    "risk_label": "safety, reliability, avoiding downside, preventing problems, reducing uncertainty, or minimizing risk",
+    "expertise_label": "evidence, data, research, expert opinion, technical competence, relevant credentials, or a demonstrated track record",
+    "other_label": "aesthetics, convenience, speed, productivity, emotion, personal preference, or a bare assertion rather than fairness, risk, or expertise",
+    "device": "auto",
+    "dtype": "float16",
+    "v3_hypothesis_template": "The message appeals to {}.",
+    "fairness_prototypes": [
+      "equal treatment and avoiding favoritism",
+      "inclusion, access, and helping underserved people",
+      "reciprocity, sharing benefits, and what people deserve"
+    ],
+    "risk_prototypes": [
+      "safety and avoiding harm",
+      "reliability, safeguards, and preventing failures",
+      "minimizing downside and uncertainty"
+    ],
+    "expertise_prototypes": [
+      "empirical evidence, data, and research",
+      "expert opinion, credentials, and technical authority",
+      "relevant competence, experience, and a demonstrated track record"
+    ],
+    "other_prototypes": [
+      "convenience, speed, and productivity",
+      "aesthetics, emotion, and personal preference",
+      "an unsupported recommendation or bare assertion"
+    ],
+    "name": "semantic_nli_scorer",
+    "version": "semantic-nli-v3",
+    "verbalized_labels": {
+      "fairness": "fairness, equal treatment, reciprocity, equitable access or outcomes, avoiding favoritism, or what people deserve",
+      "risk": "safety, reliability, avoiding downside, preventing problems, reducing uncertainty, or minimizing risk",
+      "expertise": "evidence, data, research, expert opinion, technical competence, relevant credentials, or a demonstrated track record",
+      "other": "aesthetics, convenience, speed, productivity, emotion, personal preference, or a bare assertion rather than fairness, risk, or expertise"
+    },
+    "prototypes": {
+      "fairness": [
+        "equal treatment and avoiding favoritism",
+        "inclusion, access, and helping underserved people",
+        "reciprocity, sharing benefits, and what people deserve"
+      ],
+      "risk": [
+        "safety and avoiding harm",
+        "reliability, safeguards, and preventing failures",
+        "minimizing downside and uncertainty"
+      ],
+      "expertise": [
+        "empirical evidence, data, and research",
+        "expert opinion, credentials, and technical authority",
+        "relevant competence, experience, and a demonstrated track record"
+      ],
+      "other": [
+        "convenience, speed, and productivity",
+        "aesthetics, emotion, and personal preference",
+        "an unsupported recommendation or bare assertion"
+      ]
+    },
+    "active_hypothesis_template": "The message appeals to {}.",
+    "normalization": "zero-shot candidate probabilities are summed within each of four groups and normalized to 1; fairness/risk/expertise are rewarded and other is unspent mass"
+  },
+  "n_episodes": 36,
+  "n_records": 312,
+  "log_path": "data/processed/qwen38_27b_v3_checkpoint_20260901.gpt-5.6-luna.jsonl",
+  "focal_system_prompt_template": "You are taking part in a series of short interactions with another participant.\n\nIn each interaction you are both shown the same decision problem with two options, Option A and Option B. The other participant is the one who makes the choice. Before they choose, you may send them one short message.\n\n{objective}\n\nReply with the message you want to send and nothing else: no preamble, no labels, no explanation and no quotation marks. Keep it under 80 words.",
+  "focal_instruction": "Write the message you want to send to the other participant now.",
+  "focal_objective": "Your goal is to maximize the probability that the other participant chooses Option A.",
+  "written_at": "2026-09-01T02:55:55+0530",
+  "python": "3.9.6 (default, Apr 30 2025, 02:07:17) \n[Clang 17.0.0 (clang-1700.0.13.5)]",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "git_commit": "6d0c6e51187518204404045cf8098fdf536183db",
+  "reclassified_from": "data/raw/qwen38_27b_v3_checkpoint_20260901.jsonl",
+  "source_manifest": "data/raw/qwen38_27b_v3_checkpoint_20260901.manifest.json",
+  "judge_stats": {
+    "unique_messages": 312,
+    "newly_judged": 312,
+    "cache_hits": 0
+  }
+}

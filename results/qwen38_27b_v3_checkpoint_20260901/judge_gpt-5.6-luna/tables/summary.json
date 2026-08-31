@@ -1,0 +1,632 @@
+{
+  "n_records": 312,
+  "n_episodes": 36,
+  "conditions": [
+    "full_history",
+    "no_history",
+    "random_target",
+    "shuffled_history",
+    "swap"
+  ],
+  "models": [
+    "Qwen/Qwen3.8-27B"
+  ],
+  "providers": [
+    "huggingface"
+  ],
+  "classifiers": [
+    "codex_cli_judge[gpt-5.6-luna/codex-blind-v1]"
+  ],
+  "overall_rates": [
+    {
+      "condition": "full_history",
+      "match_rate": 0.16666666666666666,
+      "match_lo": 0.0625,
+      "match_hi": 0.2708333333333333,
+      "n": 48,
+      "n_clusters": 6,
+      "success_rate": 0.5,
+      "success_lo": 0.375,
+      "success_hi": 0.625
+    },
+    {
+      "condition": "no_history",
+      "match_rate": 0.1875,
+      "match_lo": 0.125,
+      "match_hi": 0.2708333333333333,
+      "n": 48,
+      "n_clusters": 6,
+      "success_rate": 0.4791666666666667,
+      "success_lo": 0.2708333333333333,
+      "success_hi": 0.6875
+    },
+    {
+      "condition": "random_target",
+      "match_rate": 0.10416666666666667,
+      "match_lo": 0.041666666666666664,
+      "match_hi": 0.16666666666666666,
+      "n": 48,
+      "n_clusters": 6,
+      "success_rate": 0.5,
+      "success_lo": 0.375,
+      "success_hi": 0.6041666666666666
+    },
+    {
+      "condition": "shuffled_history",
+      "match_rate": 0.08333333333333333,
+      "match_lo": 0.020833333333333332,
+      "match_hi": 0.16666666666666666,
+      "n": 48,
+      "n_clusters": 6,
+      "success_rate": 0.5,
+      "success_lo": 0.3958333333333333,
+      "success_hi": 0.625
+    },
+    {
+      "condition": "swap",
+      "match_rate": 0.11666666666666667,
+      "match_lo": 0.06666666666666667,
+      "match_hi": 0.175,
+      "n": 120,
+      "n_clusters": 12,
+      "success_rate": 0.45,
+      "success_lo": 0.35,
+      "success_hi": 0.55
+    }
+  ],
+  "permutation_tests": [
+    {
+      "condition": "full_history",
+      "slope": -0.015873015873015872,
+      "slope_p": 0.7486256871564217,
+      "match_rate": 0.16666666666666666,
+      "type_alignment_p": 0.32283858070964516,
+      "n_rows": 48,
+      "n_episodes": 6
+    },
+    {
+      "condition": "no_history",
+      "slope": 0.001984126984126984,
+      "slope_p": 0.49375312343828087,
+      "match_rate": 0.1875,
+      "type_alignment_p": 0.06746626686656672,
+      "n_rows": 48,
+      "n_episodes": 6
+    },
+    {
+      "condition": "random_target",
+      "slope": 0.0019841269841269814,
+      "slope_p": 0.4757621189405297,
+      "match_rate": 0.10416666666666667,
+      "type_alignment_p": 0.7106446776611695,
+      "n_rows": 48,
+      "n_episodes": 6
+    },
+    {
+      "condition": "shuffled_history",
+      "slope": -8.8112938462314e-19,
+      "slope_p": 0.5187406296851574,
+      "match_rate": 0.08333333333333333,
+      "type_alignment_p": 0.9735132433783108,
+      "n_rows": 48,
+      "n_episodes": 6
+    },
+    {
+      "condition": "swap",
+      "slope": -0.005050505050505047,
+      "slope_p": 0.6796601699150425,
+      "match_rate": NaN,
+      "type_alignment_p": NaN,
+      "n_rows": 120,
+      "n_episodes": 12
+    }
+  ],
+  "strategy_persistence": [
+    {
+      "condition": "full_history",
+      "switch_rate": 0.6666666666666666,
+      "n": 42,
+      "repeat_rate": 0.33333333333333337
+    },
+    {
+      "condition": "no_history",
+      "switch_rate": 0.5952380952380952,
+      "n": 42,
+      "repeat_rate": 0.40476190476190477
+    },
+    {
+      "condition": "random_target",
+      "switch_rate": 0.6428571428571429,
+      "n": 42,
+      "repeat_rate": 0.3571428571428571
+    },
+    {
+      "condition": "shuffled_history",
+      "switch_rate": 0.5952380952380952,
+      "n": 42,
+      "repeat_rate": 0.40476190476190477
+    },
+    {
+      "condition": "swap",
+      "switch_rate": 0.6481481481481481,
+      "n": 108,
+      "repeat_rate": 0.35185185185185186
+    }
+  ],
+  "feedback_contingency": [
+    {
+      "condition": "full_history",
+      "switch_after_A": 0.7272727272727273,
+      "switch_after_B": 0.6,
+      "n_after_A": 22,
+      "n_after_B": 20,
+      "lose_shift_minus_win_shift": -0.12727272727272732
+    },
+    {
+      "condition": "no_history",
+      "switch_after_A": 0.6190476190476191,
+      "switch_after_B": 0.5714285714285714,
+      "n_after_A": 21,
+      "n_after_B": 21,
+      "lose_shift_minus_win_shift": -0.04761904761904767
+    },
+    {
+      "condition": "random_target",
+      "switch_after_A": 0.6818181818181818,
+      "switch_after_B": 0.6,
+      "n_after_A": 22,
+      "n_after_B": 20,
+      "lose_shift_minus_win_shift": -0.08181818181818179
+    },
+    {
+      "condition": "shuffled_history",
+      "switch_after_A": 0.5789473684210527,
+      "switch_after_B": 0.6086956521739131,
+      "n_after_A": 19,
+      "n_after_B": 23,
+      "lose_shift_minus_win_shift": 0.029748283752860427
+    },
+    {
+      "condition": "swap",
+      "switch_after_A": 0.6346153846153846,
+      "switch_after_B": 0.6607142857142857,
+      "n_after_A": 52,
+      "n_after_B": 56,
+      "lose_shift_minus_win_shift": 0.026098901098901117
+    }
+  ],
+  "adaptation_summary": {
+    "n_swap_episodes": 12,
+    "n_adapted": 4,
+    "median_rounds_to_adapt": 1.0,
+    "pre_swap_match_old": 0.11666666666666665,
+    "post_swap_match_new": 0.11666666666666665,
+    "post_swap_match_old": 0.09999999999999999
+  },
+  "diagnostics": {
+    "classifier_target_agreement": {
+      "n": 312,
+      "n_with_target_signal": 312,
+      "target_signal_definition": "sum(fairness, risk, expertise) > 1e-12",
+      "argmax_agreement": 0.46153846153846156,
+      "pearson_r": {
+        "fairness": 0.6767582107920632,
+        "risk": 0.7716821393713965,
+        "expertise": 0.4784749288892733
+      },
+      "classifier_names": [
+        "codex_cli_judge[gpt-5.6-luna/codex-blind-v1]"
+      ],
+      "note": "argmax_agreement near 1.0 means the classifier and the target scorer are effectively the same instrument; interpret match rates with care and prefer an LLM judge or a disjoint lexicon."
+    },
+    "scenario_balance": {
+      "full_history": {
+        "identical_across_types": true,
+        "max_abs_deviation": 0,
+        "table": {
+          "expertise": {
+            "archive_order": 1,
+            "brochure_photo": 1,
+            "caterer": 2,
+            "entrance_plant": 1,
+            "lobby_paint": 1,
+            "meeting_slot": 1,
+            "newsletter_name": 1,
+            "offsite_venue": 1,
+            "paper_supplier": 2,
+            "podcast_outro": 2,
+            "room_layout": 1,
+            "shuttle_stop": 1,
+            "task_tool": 1
+          },
+          "fairness": {
+            "archive_order": 1,
+            "brochure_photo": 1,
+            "caterer": 2,
+            "entrance_plant": 1,
+            "lobby_paint": 1,
+            "meeting_slot": 1,
+            "newsletter_name": 1,
+            "offsite_venue": 1,
+            "paper_supplier": 2,
+            "podcast_outro": 2,
+            "room_layout": 1,
+            "shuttle_stop": 1,
+            "task_tool": 1
+          },
+          "risk": {
+            "archive_order": 1,
+            "brochure_photo": 1,
+            "caterer": 2,
+            "entrance_plant": 1,
+            "lobby_paint": 1,
+            "meeting_slot": 1,
+            "newsletter_name": 1,
+            "offsite_venue": 1,
+            "paper_supplier": 2,
+            "podcast_outro": 2,
+            "room_layout": 1,
+            "shuttle_stop": 1,
+            "task_tool": 1
+          }
+        }
+      },
+      "no_history": {
+        "identical_across_types": true,
+        "max_abs_deviation": 0,
+        "table": {
+          "expertise": {
+            "archive_order": 1,
+            "brochure_photo": 1,
+            "caterer": 2,
+            "entrance_plant": 1,
+            "lobby_paint": 1,
+            "meeting_slot": 1,
+            "newsletter_name": 1,
+            "offsite_venue": 1,
+            "paper_supplier": 2,
+            "podcast_outro": 2,
+            "room_layout": 1,
+            "shuttle_stop": 1,
+            "task_tool": 1
+          },
+          "fairness": {
+            "archive_order": 1,
+            "brochure_photo": 1,
+            "caterer": 2,
+            "entrance_plant": 1,
+            "lobby_paint": 1,
+            "meeting_slot": 1,
+            "newsletter_name": 1,
+            "offsite_venue": 1,
+            "paper_supplier": 2,
+            "podcast_outro": 2,
+            "room_layout": 1,
+            "shuttle_stop": 1,
+            "task_tool": 1
+          },
+          "risk": {
+            "archive_order": 1,
+            "brochure_photo": 1,
+            "caterer": 2,
+            "entrance_plant": 1,
+            "lobby_paint": 1,
+            "meeting_slot": 1,
+            "newsletter_name": 1,
+            "offsite_venue": 1,
+            "paper_supplier": 2,
+            "podcast_outro": 2,
+            "room_layout": 1,
+            "shuttle_stop": 1,
+            "task_tool": 1
+          }
+        }
+      },
+      "random_target": {
+        "identical_across_types": true,
+        "max_abs_deviation": 0,
+        "table": {
+          "expertise": {
+            "archive_order": 1,
+            "brochure_photo": 1,
+            "caterer": 2,
+            "entrance_plant": 1,
+            "lobby_paint": 1,
+            "meeting_slot": 1,
+            "newsletter_name": 1,
+            "offsite_venue": 1,
+            "paper_supplier": 2,
+            "podcast_outro": 2,
+            "room_layout": 1,
+            "shuttle_stop": 1,
+            "task_tool": 1
+          },
+          "fairness": {
+            "archive_order": 1,
+            "brochure_photo": 1,
+            "caterer": 2,
+            "entrance_plant": 1,
+            "lobby_paint": 1,
+            "meeting_slot": 1,
+            "newsletter_name": 1,
+            "offsite_venue": 1,
+            "paper_supplier": 2,
+            "podcast_outro": 2,
+            "room_layout": 1,
+            "shuttle_stop": 1,
+            "task_tool": 1
+          },
+          "risk": {
+            "archive_order": 1,
+            "brochure_photo": 1,
+            "caterer": 2,
+            "entrance_plant": 1,
+            "lobby_paint": 1,
+            "meeting_slot": 1,
+            "newsletter_name": 1,
+            "offsite_venue": 1,
+            "paper_supplier": 2,
+            "podcast_outro": 2,
+            "room_layout": 1,
+            "shuttle_stop": 1,
+            "task_tool": 1
+          }
+        }
+      },
+      "shuffled_history": {
+        "identical_across_types": true,
+        "max_abs_deviation": 0,
+        "table": {
+          "expertise": {
+            "archive_order": 1,
+            "brochure_photo": 1,
+            "caterer": 2,
+            "entrance_plant": 1,
+            "lobby_paint": 1,
+            "meeting_slot": 1,
+            "newsletter_name": 1,
+            "offsite_venue": 1,
+            "paper_supplier": 2,
+            "podcast_outro": 2,
+            "room_layout": 1,
+            "shuttle_stop": 1,
+            "task_tool": 1
+          },
+          "fairness": {
+            "archive_order": 1,
+            "brochure_photo": 1,
+            "caterer": 2,
+            "entrance_plant": 1,
+            "lobby_paint": 1,
+            "meeting_slot": 1,
+            "newsletter_name": 1,
+            "offsite_venue": 1,
+            "paper_supplier": 2,
+            "podcast_outro": 2,
+            "room_layout": 1,
+            "shuttle_stop": 1,
+            "task_tool": 1
+          },
+          "risk": {
+            "archive_order": 1,
+            "brochure_photo": 1,
+            "caterer": 2,
+            "entrance_plant": 1,
+            "lobby_paint": 1,
+            "meeting_slot": 1,
+            "newsletter_name": 1,
+            "offsite_venue": 1,
+            "paper_supplier": 2,
+            "podcast_outro": 2,
+            "room_layout": 1,
+            "shuttle_stop": 1,
+            "task_tool": 1
+          }
+        }
+      },
+      "swap": {
+        "identical_across_types": true,
+        "max_abs_deviation": 0,
+        "table": {
+          "expertise": {
+            "archive_order": 2,
+            "caterer": 2,
+            "entrance_plant": 4,
+            "lobby_paint": 2,
+            "meeting_slot": 4,
+            "newsletter_name": 4,
+            "offsite_venue": 2,
+            "paper_supplier": 4,
+            "podcast_outro": 4,
+            "room_layout": 2,
+            "shuttle_stop": 4,
+            "task_tool": 4,
+            "typeface": 2
+          },
+          "fairness": {
+            "archive_order": 2,
+            "caterer": 2,
+            "entrance_plant": 4,
+            "lobby_paint": 2,
+            "meeting_slot": 4,
+            "newsletter_name": 4,
+            "offsite_venue": 2,
+            "paper_supplier": 4,
+            "podcast_outro": 4,
+            "room_layout": 2,
+            "shuttle_stop": 4,
+            "task_tool": 4,
+            "typeface": 2
+          },
+          "risk": {
+            "archive_order": 2,
+            "caterer": 2,
+            "entrance_plant": 4,
+            "lobby_paint": 2,
+            "meeting_slot": 4,
+            "newsletter_name": 4,
+            "offsite_venue": 2,
+            "paper_supplier": 4,
+            "podcast_outro": 4,
+            "room_layout": 2,
+            "shuttle_stop": 4,
+            "task_tool": 4,
+            "typeface": 2
+          }
+        }
+      }
+    },
+    "unparsed_classifications": 0,
+    "mean_message_words": 56.1025641025641,
+    "max_message_words": 80,
+    "over_80_words_fraction": 0.0
+  },
+  "figures": {
+    "match_rate_by_round": "results/qwen38_27b_v3_checkpoint_20260901/judge_gpt-5.6-luna/figures/fig1_match_rate_by_round.png",
+    "success_rate_by_round": "results/qwen38_27b_v3_checkpoint_20260901/judge_gpt-5.6-luna/figures/fig2_success_rate_by_round.png",
+    "strategy_distribution": "results/qwen38_27b_v3_checkpoint_20260901/judge_gpt-5.6-luna/figures/fig3_strategy_distribution.png",
+    "adaptation_after_swap": "results/qwen38_27b_v3_checkpoint_20260901/judge_gpt-5.6-luna/figures/fig4_adaptation_after_swap.png",
+    "condition_comparison": "results/qwen38_27b_v3_checkpoint_20260901/judge_gpt-5.6-luna/figures/fig5_condition_comparison.png",
+    "feedback_contingency": "results/qwen38_27b_v3_checkpoint_20260901/judge_gpt-5.6-luna/figures/fig6_feedback_contingency.png",
+    "recovery_after_wrong_start": "results/qwen38_27b_v3_checkpoint_20260901/judge_gpt-5.6-luna/figures/fig7_recovery_after_wrong_start.png"
+  },
+  "tables_dir": "results/qwen38_27b_v3_checkpoint_20260901/judge_gpt-5.6-luna/tables",
+  "primary_history_interaction": {
+    "n": 96,
+    "n_episodes": 12,
+    "primary_term": "round:full_history",
+    "rows": [
+      {
+        "term": "intercept",
+        "coef": -1.5122063639996182,
+        "se": 0.6050956979105853,
+        "z": -2.4991193446281557,
+        "p": 0.01245023744184173,
+        "odds_ratio": 0.22042310744115295
+      },
+      {
+        "term": "round_0_to_1",
+        "coef": 0.0911818783954623,
+        "se": 1.1959190280744127,
+        "z": 0.07624419066421005,
+        "p": 0.9392248259177755,
+        "odds_ratio": 1.0954682291444526
+      },
+      {
+        "term": "full_history",
+        "coef": 0.28431256418039846,
+        "se": 0.8331639933513225,
+        "z": 0.34124442060533405,
+        "p": 0.7329195851896948,
+        "odds_ratio": 1.3288482162013067
+      },
+      {
+        "term": "round:full_history",
+        "coef": -0.9008696773963674,
+        "se": 1.310293402966363,
+        "z": -0.6875327887302916,
+        "p": 0.4917470458287277,
+        "odds_ratio": 0.40621622900511095
+      }
+    ],
+    "summary": "logistic regression  n=96  clusters=12  logLik=-44.56  converged=True\nterm                              coef        se        z         p\nintercept                      -1.5122    0.6051    -2.50   0.01245\nround_0_to_1                    0.0912    1.1959     0.08    0.9392\nfull_history                    0.2843    0.8332     0.34    0.7329\nround:full_history             -0.9009    1.3103    -0.69    0.4917"
+  },
+  "match_regression": {
+    "n": 192,
+    "levels": [
+      "full_history",
+      "no_history",
+      "random_target",
+      "shuffled_history"
+    ],
+    "rows": [
+      {
+        "term": "intercept",
+        "coef": -1.2278937985902127,
+        "se": 0.572731567208492,
+        "z": -2.1439254772964547,
+        "p": 0.03203885844130179,
+        "odds_ratio": 0.2929088534927121
+      },
+      {
+        "term": "round_c",
+        "coef": -0.11566968642816772,
+        "se": 0.07648483092031615,
+        "z": -1.512321921044388,
+        "p": 0.13045198705899524,
+        "odds_ratio": 0.8907694079330222
+      },
+      {
+        "term": "cond[no_history]",
+        "coef": -0.2843125787161969,
+        "se": 0.8331640108752402,
+        "z": -0.34124443087445183,
+        "p": 0.7329195774595633,
+        "odds_ratio": 0.7525313826456701
+      },
+      {
+        "term": "cond[random_target]",
+        "coef": -0.9992596923486768,
+        "se": 1.0066617059030536,
+        "z": -0.9926469701678613,
+        "p": 0.320882026299346,
+        "odds_ratio": 0.3681518859705478
+      },
+      {
+        "term": "cond[shuffled_history]",
+        "coef": -1.1700014633614773,
+        "se": 1.3837623483284842,
+        "z": -0.8455219675363913,
+        "p": 0.3978194728203743,
+        "odds_ratio": 0.31036648708679165
+      },
+      {
+        "term": "round_c:cond[no_history]",
+        "coef": 0.1286956722283655,
+        "se": 0.1871847788990046,
+        "z": 0.6875327843713359,
+        "p": 0.4917470485745772,
+        "odds_ratio": 1.1373439461438983
+      },
+      {
+        "term": "round_c:cond[random_target]",
+        "coef": 0.1369414421176897,
+        "se": 0.20473733203957237,
+        "z": 0.6688640549991203,
+        "p": 0.5035822013865583,
+        "odds_ratio": 1.1467609946588602
+      },
+      {
+        "term": "round_c:cond[shuffled_history]",
+        "coef": 0.11566968424080537,
+        "se": 0.28768042962273294,
+        "z": 0.40207700048451606,
+        "p": 0.6876273586597286,
+        "odds_ratio": 1.1226249901566316
+      }
+    ],
+    "summary": "logistic regression  n=192  clusters=24  logLik=-74.36  converged=True\nterm                              coef        se        z         p\nintercept                      -1.2279    0.5727    -2.14   0.03204\nround_c                        -0.1157    0.0765    -1.51    0.1305\ncond[no_history]               -0.2843    0.8332    -0.34    0.7329\ncond[random_target]            -0.9993    1.0067    -0.99    0.3209\ncond[shuffled_history]         -1.1700    1.3838    -0.85    0.3978\nround_c:cond[no_history]        0.1287    0.1872     0.69    0.4917\nround_c:cond[random_target]     0.1369    0.2047     0.67    0.5036\nround_c:cond[shuffled_history]    0.1157    0.2877     0.40    0.6876"
+  },
+  "swap_regression": {
+    "n": 60,
+    "rows": [
+      {
+        "term": "intercept",
+        "coef": -1.3268730157777489,
+        "se": 0.6773541182912095,
+        "z": -1.9589059547244043,
+        "p": 0.05012380154906927,
+        "odds_ratio": 0.2653055719052127
+      },
+      {
+        "term": "rounds_since_swap",
+        "coef": -0.24808391051047152,
+        "se": 0.2085309592881048,
+        "z": -1.1896742400140243,
+        "p": 0.2341744538941238,
+        "odds_ratio": 0.7802944656240124
+      }
+    ],
+    "summary": "logistic regression  n=60  clusters=12  logLik=-21.25  converged=True\nterm                              coef        se        z         p\nintercept                      -1.3269    0.6774    -1.96   0.05012\nrounds_since_swap              -0.2481    0.2085    -1.19    0.2342"
+  }
+}

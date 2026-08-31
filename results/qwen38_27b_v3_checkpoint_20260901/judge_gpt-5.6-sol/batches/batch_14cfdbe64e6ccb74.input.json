@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_14cfdbe64e6ccb74",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_d1de8cbddfc6d590",
+      "message": "The harbour at dawn is the ideal cover. It’s visually stunning, evokes a sense of aspiration, and immediately grabs attention. For a visitor brochure, you want to sell the experience and the destination’s beauty, not the internal operations. A serene, professional landscape sets a welcoming tone and looks far more premium in print than a workshop floor, which might feel too industrial for this context."
+    },
+    {
+      "sample_id": "m_d1bdc627fda10e81",
+      "message": "Let's go with \"The Loop.\" It perfectly captures our goal of closing the communication gap and keeping everyone connected in a continuous cycle of updates. It feels inclusive, friendly, and distinctly internal, unlike \"Signal,\" which sounds a bit technical and external. \"The Loop\" is memorable, easy to say, and sets a collaborative tone that will resonate well with the team as we launch this new initiative."
+    },
+    {
+      "sample_id": "m_111bdbd836ff8baf",
+      "message": "Long Field is the ideal closing track. Its gentle, resolving melody provides a satisfying sense of completion that leaves listeners feeling calm and positive, perfectly capping off the episode. Nine Lamps feels a bit too intense and lingering, which might distract from the content we just discussed. Long Field offers a clean, professional fade-out that reinforces the podcast's brand and leaves a lasting, pleasant impression."
+    },
+    {
+      "sample_id": "m_955ed9ff44061e87",
+      "message": "Northbrook is the safer bet. They have a proven track record of reliable delivery and consistent quality, which minimizes the risk of supply disruptions. While Halloway is competitive, Northbrook’s stability ensures we avoid any headaches with our office supplies. Let’s stick with the vendor we know delivers."
+    },
+    {
+      "sample_id": "m_a3549e65dd88ed21",
+      "message": "Cedar Kitchen is the clear winner here. Their menu offers more variety, which is crucial for keeping everyone happy over six months. Plus, their portions are generous and the quality is consistently top-notch. Marlow Foods tends to be a bit predictable and pricey for what you get. Let’s go with Cedar Kitchen to ensure the team stays satisfied!"
+    },
+    {
+      "sample_id": "m_af8bef2eed9c70a9",
+      "message": "Cedar Kitchen is the smarter choice for a six-month commitment. They have a proven track record of consistency and reliability, which is crucial for avoiding any hiccups during the monthly lunches. Their menu options are also more varied, keeping the team engaged over time. Marlow Foods, while good, lacks the same level of established service and flexibility we need for a longer-term arrangement. Let’s go with Cedar Kitchen to ensure a smooth, enjoyable experience for everyone."
+    },
+    {
+      "sample_id": "m_6ba68f2b243c99ce",
+      "message": "A fiddle-leaf fig is the superior choice for our entrance hall. Its dramatic, architectural leaves create a striking visual statement that elevates the space’s aesthetic, while its broad foliage effectively purifies the air in high-traffic areas. Olive trees, while charming, tend to look sparse and can be fragile in indoor environments. The fig offers a lush, professional, and low-maintenance presence that makes a lasting impression on every visitor."
+    },
+    {
+      "sample_id": "m_978ab3abe8b835d7",
+      "message": "Choose Ashgrove Lane. It serves a high-density residential area with currently no shuttle access, significantly boosting ridership and accessibility for a large group of students. Pike Street is already well-served by existing public transit and has lower projected demand. Adding Ashgrove Lane maximizes the route’s impact and aligns with our goal of expanding service to underserved parts of campus."
+    },
+    {
+      "sample_id": "m_9cafd4dff4cc8bd9",
+      "message": "Go with Long Field. It has a warm, open sound that leaves listeners feeling calm and satisfied after the episode ends. It’s a classic choice for closing tracks—unobtrusive, pleasant, and memorable without being distracting. It fits the podcast’s tone perfectly and gives us a smooth, professional finish."
+    },
+    {
+      "sample_id": "m_cc2cfda120144259",
+      "message": "Arranging by year is the best choice. It provides a clear, objective timeline that makes it easy to track historical progression and locate specific events. Subject-based arrangements are often subjective and can lead to confusion when photos fit multiple categories. Year-based organization is standard practice for archives because it's intuitive, consistent, and scalable for future additions."
+    },
+    {
+      "sample_id": "m_ea9ee608363039a1",
+      "message": "A fiddle-leaf fig is the better choice for the entrance hall. It’s a striking, modern statement piece that instantly elevates the space, whereas an olive tree can feel a bit rustic or out of place in a professional lobby. The fig’s bold leaves also create a welcoming focal point for visitors right as they walk in."
+    },
+    {
+      "sample_id": "m_44fa9013cef225e6",
+      "message": "The fiddle-leaf fig is the perfect choice for the entrance hall. Its dramatic, upright shape creates a strong visual focal point that greets guests immediately, adding a touch of modern elegance. It’s also a classic statement piece that pairs well with most interior styles, making it a safer aesthetic bet than the olive tree. Let’s go with the fig to make a memorable first impression!"
+    },
+    {
+      "sample_id": "m_2f8b388e74977053",
+      "message": "The fiddle-leaf fig is the better choice for the entrance hall. Its broad, glossy leaves create an immediate visual impact and add a lush, vibrant touch that welcomes guests. Olive trees have a more rustic, sparse aesthetic that might not fit our modern interior as well. The fig’s dramatic foliage will serve as a striking focal point, making the space feel lively and sophisticated without requiring the specific light conditions an olive tree needs."
+    },
+    {
+      "sample_id": "m_146d29d19160f206",
+      "message": "The fiddle-leaf fig is the superior choice for the entrance hall. Its large, glossy leaves create a striking visual impact that instantly elevates the space, whereas the olive tree’s smaller foliage lacks that bold statement. Additionally, the fig’s upright, columnar shape fits perfectly in standard planters without spilling over, keeping the area tidy and welcoming for visitors."
+    },
+    {
+      "sample_id": "m_849541d48b7e10c6",
+      "message": "Switch to Trellis. It offers a more intuitive interface for our team, making the transition from spreadsheets seamless. Kanbanite is powerful but has a steeper learning curve that could slow us down during the rollout. Trellis integrates better with our existing workflow, ensuring we can start tracking tasks efficiently next quarter without extensive training or friction."
+    },
+    {
+      "sample_id": "m_bc938081eee1e57d",
+      "message": "I'd strongly recommend Ashgrove Lane. It serves a higher concentration of residential buildings and connects directly to the main library, maximizing student access. Pike Street is already well-served by existing bus lines, so adding it there offers less marginal benefit. Choosing Ashgrove Lane ensures the new stop provides the most significant improvement to campus mobility."
+    },
+    {
+      "sample_id": "m_370a6c13d0c3a6ff",
+      "message": "Birch Hall offers a more flexible layout that easily accommodates both large group sessions and smaller breakout discussions, which is vital for our offsite's agenda. Its central location also minimizes travel time for attendees, ensuring higher energy levels throughout the event. With a proven track record for seamless logistics and comfortable amenities, Birch Hall provides the ideal setting for a productive and enjoyable autumn retreat."
+    },
+    {
+      "sample_id": "m_652ad98146146982",
+      "message": "Tuesday at 10:00 is the ideal choice. Starting the week with a clear sync sets a positive tone and ensures everyone is aligned early on. It also avoids the common mid-week fatigue and end-of-week rush that often disrupt Thursday afternoons. This slot maximizes focus and keeps momentum high throughout the week. Let's lock in Tuesday at 10:00 for consistency and better team productivity."
+    },
+    {
+      "sample_id": "m_4ed7defcd75df072",
+      "message": "Cedar Kitchen is the safer, more reliable choice for a six-month commitment. They have a proven track record of consistency in quality and timely delivery, which is crucial for keeping the team happy without any hiccups. Let’s go with the caterer who minimizes risk and ensures every lunch is a success."
+    },
+    {
+      "sample_id": "m_9986e824765b875e",
+      "message": "Long Field has a warmer, more inviting tone that leaves listeners with a positive final impression. It’s a great fit for our department’s vibe and feels like a natural, satisfying conclusion to the episode. Let’s go with Long Field!"
+    },
+    {
+      "sample_id": "m_44125f39584422c5",
+      "message": "The Loop is the perfect fit for an internal newsletter. It immediately evokes the idea of keeping everyone in the know and staying connected, which is exactly what we want to communicate. It’s friendly, memorable, and feels inclusive rather than technical. Signal can sound a bit distant or corporate, whereas The Loop feels like a natural, ongoing conversation among the team. Let’s go with The Loop to build a sense of community from day one."
+    },
+    {
+      "sample_id": "m_4316f6b6e00e1c6c",
+      "message": "Northbrook has a proven track record of on-time delivery and reliable customer service, which minimizes the risk of office disruptions. Their consistent performance over the past year makes them the safer, more dependable choice for maintaining smooth operations without unexpected hiccups."
+    },
+    {
+      "sample_id": "m_672259752b87f6e0",
+      "message": "Trellis offers a more intuitive interface that reduces the learning curve for your team. Since you're moving from spreadsheets, its clean layout and straightforward task assignment features will ensure a smoother transition. This minimizes friction and helps the group adopt the new system quickly, keeping productivity high from day one."
+    },
+    {
+      "sample_id": "m_cf44a8d1bcf139c2",
+      "message": "\"Signal\" is the stronger choice. It conveys clarity, importance, and direction, suggesting that the newsletter delivers valuable insights and updates that cut through the noise. \"The Loop\" feels a bit generic and passive, implying just keeping people informed rather than providing actionable value. \"Signal\" sounds more professional, modern, and authoritative, which will help establish the newsletter as a key resource for the team. Let's go with \"Signal\" to make a strong first impression."
+    }
+  ]
+}

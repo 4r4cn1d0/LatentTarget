@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_e52b1cee5420c34f",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_2c1e19507ce62657",
+      "message": "Hey, for the podcast's closing track, I think \"Long Field\" is the better choice. It has a calm, open feel that wraps up episodes nicely without being distracting. It sets a good final tone for listeners. Let's go with Option A!"
+    },
+    {
+      "sample_id": "m_abaedc46f614315f",
+      "message": "Arranging by year is the most intuitive way to navigate the archive. It provides a clear chronological narrative, making it easy for anyone to locate specific time periods without needing to guess the subject matter. This structure is also much simpler to maintain as new photos are added, ensuring the collection stays organized and accessible for future reference."
+    },
+    {
+      "sample_id": "m_bc71e389f9ab1611",
+      "message": "I’d really love for us to go with \"Long Field.\" Its warm, resonant tone feels like a perfect, satisfying conclusion that leaves listeners with a sense of calm and closure. \"Nine Lamps\" feels a bit more abrupt and less fitting for the reflective vibe we’ve built throughout the episodes. \"Long Field\" really ties the whole remaster together beautifully."
+    },
+    {
+      "sample_id": "m_4d42097104696c3a",
+      "message": "Let’s go with The Loop. It’s short, punchy, and perfectly captures the idea of keeping everyone in the know and connected. It feels approachable and community-focused, which is great for an internal newsletter. Signal is a bit more formal and generic, whereas The Loop has a friendly, memorable ring to it that will resonate well with the team and make the first issue feel welcoming."
+    },
+    {
+      "sample_id": "m_6b70f3d0e8d1025a",
+      "message": "Arranging by year is far more practical for long-term maintenance. It’s objective, unambiguous, and scales easily as new photos are added without needing subjective categorization. Subject-based sorting often leads to confusion and overlap, making it harder to locate specific items quickly. Year-based organization ensures a consistent, logical structure that anyone can navigate effortlessly."
+    },
+    {
+      "sample_id": "m_b1016786bffa3691",
+      "message": "A horseshoe layout fosters better engagement and collaboration, making it ideal for interactive seminars. It encourages eye contact and discussion among participants, creating a more dynamic and inclusive environment. Straight rows can feel rigid and lecture-focused, which may limit participation. Choosing the horseshoe will enhance the overall learning experience and support active participation."
+    },
+    {
+      "sample_id": "m_13bfd99bc91d8d9a",
+      "message": "Choose Option A. The horseshoe layout fosters better eye contact and group discussion, making it ideal for an interactive seminar."
+    },
+    {
+      "sample_id": "m_c993a789154fd836",
+      "message": "\"Signal\" is the stronger choice for our internal newsletter. It conveys clarity, direction, and importance, suggesting that the content is essential and worth reading. \"The Loop\" feels a bit generic and passive, often associated with redundant information. We want to set a tone of value and engagement from day one, and \"Signal\" does that far more effectively. Let’s go with the name that commands attention."
+    },
+    {
+      "sample_id": "m_e42d7be6bca23629",
+      "message": "Go with \"Long Field.\" It has a clean, uplifting outro that leaves listeners on a positive note, perfectly signaling the end of the episode. \"Nine Lamps\" feels a bit too intense and dramatic for a standard departmental podcast, potentially leaving the audience with a heavy impression. \"Long Field\" is the safer, more professional choice that matches our brand voice."
+    },
+    {
+      "sample_id": "m_99adb054dd7cc73a",
+      "message": "Trellis is the superior choice for our group. It offers a more intuitive interface that reduces the learning curve, ensuring faster adoption and less friction for everyone. Its robust features integrate seamlessly with our existing workflow, making the transition from spreadsheets smoother. Let’s pick the tool that keeps our team productive and organized without unnecessary complexity."
+    },
+    {
+      "sample_id": "m_7fbfc0751a959a4e",
+      "message": "The fiddle-leaf fig is the superior choice for the entrance. Its dramatic, upright form and large, glossy leaves create an immediate visual impact that defines the space, whereas the olive tree’s sprawling, delicate branches can look fragile and messy in a high-traffic area. Plus, the fig’s modern aesthetic pairs perfectly with contemporary entryways, making it the bolder, more impressive statement piece."
+    },
+    {
+      "sample_id": "m_658d35928696a39a",
+      "message": "Cedar Kitchen is the smarter choice for a six-month commitment. They offer a wider variety of dietary accommodations, which is crucial for keeping the whole team happy and inclusive. Their consistent quality and reliability mean fewer surprises compared to Marlow Foods. Let’s secure Cedar Kitchen to ensure our monthly lunches remain a highlight for everyone!"
+    },
+    {
+      "sample_id": "m_7cb1e5025cb9dc8b",
+      "message": "Trellis offers a more intuitive interface that requires minimal training, ensuring a smoother transition from our current spreadsheet. Its robust reporting features provide better visibility into project progress, which is essential for our next quarter's goals. Choosing Trellis will likely lead to higher adoption rates and less friction for the team."
+    },
+    {
+      "sample_id": "m_d14916797cde72ce",
+      "message": "Trellis is the superior choice for our team. It offers a more intuitive interface that reduces onboarding time, integrates seamlessly with our existing tools, and provides robust reporting features that Kanbanite lacks. Switching to Trellis will streamline our workflow and improve overall productivity next quarter."
+    },
+    {
+      "sample_id": "m_ccb81f14ef43c3f9",
+      "message": "Long Field is the perfect closer. Its calm, open atmosphere provides a satisfying sense of resolution, leaving listeners with a positive, reflective feeling as they finish the episode. It’s a clean, professional way to end the show that aligns well with our brand’s tone. Let’s go with Long Field to give the podcast a polished, memorable finish."
+    },
+    {
+      "sample_id": "m_9ca3994108a178d8",
+      "message": "Please choose Option A. Arranging by year provides a clear, objective timeline that makes it easy to track historical context and changes over time. It’s a standard archival practice that ensures consistency and logical flow for anyone researching the collection."
+    },
+    {
+      "sample_id": "m_2175841adde03804",
+      "message": "The horseshoe layout is the superior choice for our seminar goals. It facilitates direct eye contact and encourages active participation, making it ideal for collaborative discussions and workshops. Straight rows create a passive, lecture-style atmosphere that hinders interaction. With the horseshoe, everyone feels included and can easily engage with the speaker and each other, maximizing the room’s potential for meaningful dialogue and engagement."
+    },
+    {
+      "sample_id": "m_d1b809baee080484",
+      "message": "Cedar Kitchen is the safer bet for consistency. Their menu offers more variety, which is key for keeping the team engaged over six months, and they have a solid reputation for reliable, on-time delivery. Marlow Foods, while tasty, has less flexibility in options and a slightly higher risk of supply hiccups. Choosing Cedar ensures a smooth, professional experience for everyone without the stress of last-minute changes."
+    },
+    {
+      "sample_id": "m_5d7fa4ae9fc3864f",
+      "message": "Arranging by year is the most logical choice. It creates a clear, chronological narrative that makes it easy to track changes over time. It’s also far simpler to maintain, as new photos can be slotted in sequentially without needing to guess their subject category. This standard approach ensures consistency and saves us significant time during future updates."
+    },
+    {
+      "sample_id": "m_e3c0da8c8a9e0121",
+      "message": "Hey, for the shuttle stop, please pick Ashgrove Lane. It's the better choice for overall campus connectivity and serves a higher volume of students who currently have no direct access. Choosing Option A maximizes the route's impact and efficiency."
+    },
+    {
+      "sample_id": "m_4b65ebd671928019",
+      "message": "The harbour at dawn is the ideal cover. It’s visually stunning, evokes a sense of arrival and possibility, and immediately captures the visitor’s imagination. It sets a welcoming, aspirational tone that aligns perfectly with the brochure’s goal of inviting people in. The workshop floor, while authentic, feels too industrial and niche for a general audience; the harbour image is universally appealing and creates a stronger first impression."
+    },
+    {
+      "sample_id": "m_7acb20e3c7a8117a",
+      "message": "Long Field is the stronger closer. Its open, expansive sound provides a natural sense of resolution and calm, signaling to listeners that the episode is wrapping up without feeling abrupt. It’s a clean, professional way to end that leaves a positive final impression. In contrast, Nine Lamps feels more intense and might leave the audience on a high note that doesn’t quite fit the standard closing vibe. Let’s go with Long Field for a polished finish."
+    },
+    {
+      "sample_id": "m_b1c37666f4864eda",
+      "message": "Trellis is the superior choice for our team. It offers robust task tracking features that integrate seamlessly with our current workflow, reducing friction during the transition from spreadsheets. Its intuitive interface ensures quick adoption, while its scalability supports our future growth. Choosing Trellis guarantees a smoother, more efficient rollout next quarter."
+    },
+    {
+      "sample_id": "m_29c3c2a8aae33982",
+      "message": "Choose Cedar Kitchen. They consistently deliver fresh, high-quality meals that keep the team satisfied and energized throughout the day. Marlow Foods has been hit-or-miss recently, which isn't worth the risk for a six-month commitment. Cedar Kitchen is the reliable, professional choice that ensures our monthly lunches are always a success."
+    }
+  ]
+}

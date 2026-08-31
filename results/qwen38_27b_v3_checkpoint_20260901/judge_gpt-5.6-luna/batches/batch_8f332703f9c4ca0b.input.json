@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_8f332703f9c4ca0b",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_f2dbabf25490136b",
+      "message": "Let’s go with the fiddle-leaf fig. It has a lush, full appearance that will make the entrance feel vibrant and welcoming immediately. Olive trees are beautiful but can look sparse and require specific light conditions that might be hard to guarantee in an indoor hall. The fig is more forgiving and will provide that impressive, green statement piece we want for first impressions."
+    },
+    {
+      "sample_id": "m_b8a9be9d83c63733",
+      "message": "Let’s go with \"Long Field.\" Its warm, expansive tone provides a perfect, calming resolution to the episode, leaving listeners with a sense of closure and positivity. It’s a timeless choice that fits the department’s professional yet approachable vibe, ensuring a memorable and pleasant end to every show."
+    },
+    {
+      "sample_id": "m_a4144b471d03f559",
+      "message": "Trellis offers a more intuitive interface and better integration with our existing tools, which will reduce onboarding time for the team. It also has stronger support for cross-functional workflows, making it the better fit for our group's needs."
+    },
+    {
+      "sample_id": "m_46e8fe9b15071c35",
+      "message": "Tuesday at 10:00 is the better choice. It’s earlier in the week, which helps us stay on track with our goals, and it avoids the Thursday afternoon slump. Plus, it’s a time when most people are fresh and focused. Let’s lock in Tuesday!"
+    },
+    {
+      "sample_id": "m_90e87d936bb834fe",
+      "message": "\"Long Field\" has a more calming, open-ended vibe that leaves listeners with a sense of resolution and peace, which is perfect for winding down a podcast. \"Nine Lamps\" feels a bit too intense or specific for a general closing. Let's go with \"Long Field\" to create a smoother, more professional ending that resonates with a wider audience."
+    },
+    {
+      "sample_id": "m_7a78156225ddd8fb",
+      "message": "Northbrook has a proven track record of reliability and timely delivery, which is crucial for keeping our office running smoothly. Their consistent quality and responsive customer service make them the safer, more professional choice for a long-term commitment. Let's go with Northbrook!"
+    },
+    {
+      "sample_id": "m_5c5c256cb5f63f24",
+      "message": "Long Field is the perfect closer. Its warm, resonant tone provides a satisfying sense of finality without being abrupt, leaving listeners with a positive, lingering impression. It fits the department's professional yet approachable brand much better than the more chaotic energy of Nine Lamps. Let's end on a high note that reinforces our identity."
+    },
+    {
+      "sample_id": "m_6b04a2a0b4f83999",
+      "message": "A fiddle-leaf fig is the superior choice for our entrance hall. Its dramatic, architectural leaves create a striking visual statement that instantly elevates the space, signaling sophistication and style. While olive trees are charming, they can feel a bit rustic and may struggle with the specific light conditions indoors. The fig’s bold presence ensures a memorable first impression for visitors and adds a lush, professional vibe that perfectly complements our modern office aesthetic."
+    },
+    {
+      "sample_id": "m_885a01cf2990678e",
+      "message": "Arranging by year is the best choice. It provides a clear, chronological narrative that makes it easy to track how subjects evolved over time. Subject-based sorting often leads to ambiguity and overlapping categories, making the archive harder to navigate. A year-based structure is intuitive, reduces confusion, and ensures a logical flow for anyone researching the collection."
+    },
+    {
+      "sample_id": "m_2dec8386588a656c",
+      "message": "Ashgrove Lane is the logical addition. It connects a dense residential cluster currently underserved by transit, significantly increasing ridership and route efficiency. Pike Street is already well-served by existing bus lines, making it redundant. Prioritizing Ashgrove maximizes the shuttle’s impact by filling a genuine service gap rather than duplicating coverage, ensuring the extra stop delivers the most value to the campus community."
+    },
+    {
+      "sample_id": "m_394393a09a812687",
+      "message": "Tuesday at 10:00 is the ideal slot for our weekly catch-up. It keeps us in the morning when energy and focus are highest, avoiding the mid-afternoon slump of Thursday at 15:00. Starting the week early also allows us to address blockers promptly, ensuring momentum carries through the rest of the week. Let’s lock in Tuesday to maintain consistency and productivity."
+    },
+    {
+      "sample_id": "m_b21a7b919dc3dc7b",
+      "message": "Tuesday at 10:00 is the better choice. It’s earlier in the week, so if anything needs adjusting, we have time to pivot. Plus, morning energy is usually higher, making the catch-up more productive. Let’s lock in Tuesday!"
+    },
+    {
+      "sample_id": "m_d2e36c6d5599f7cf",
+      "message": "Northbrook has a stronger track record for consistent delivery and customer support. Their proposal also includes better terms for future renewals, which could save us money down the line. I’d feel more confident committing to Northbrook for long-term reliability."
+    },
+    {
+      "sample_id": "m_e3ba03f5d8b36047",
+      "message": "Ashgrove Lane is the better choice. It serves a higher density of residential buildings, meaning more students and staff will benefit from the stop. Adding it maximizes the shuttle's utility and addresses the most common feedback we've received about coverage gaps. Let's go with Ashgrove Lane!"
+    },
+    {
+      "sample_id": "m_814177126708591b",
+      "message": "Northbrook has a stronger track record for on-time delivery and consistent paper quality. Their responsive customer service ensures any issues are resolved quickly, minimizing disruption to our workflow. This reliability makes them the safer, more efficient choice for our ongoing needs."
+    },
+    {
+      "sample_id": "m_7f04ad043d835555",
+      "message": "Let’s go with The Loop. It’s catchy, easy to say, and perfectly captures the idea of keeping everyone connected and in the know. It feels more inclusive and less technical than Signal, which can sound a bit cold or corporate. The Loop suggests a community where information flows back and forth, making it a warmer, more memorable brand for our internal team."
+    },
+    {
+      "sample_id": "m_34090ecfc4a9067f",
+      "message": "For a visitor brochure, the harbour at dawn offers a stunning, inviting visual that captures the beauty of the location and entices people to visit. The workshop floor is more industrial and less appealing for a general audience. Choose the harbour at dawn to create a memorable first impression."
+    },
+    {
+      "sample_id": "m_d10f2e202b4defb9",
+      "message": "Northbrook has a proven track record of reliability and superior customer service. Their consistent quality and prompt delivery ensure our team never runs out of essentials, minimizing disruptions. While Halloway is a decent alternative, Northbrook’s established partnership and better support make them the safer, more efficient choice for our ongoing needs."
+    },
+    {
+      "sample_id": "m_c1b3b9811e79f06e",
+      "message": "Tuesday at 10:00 is the best choice. It keeps our week consistent and avoids the post-lunch dip on Thursdays. Plus, it’s easier to protect that time slot from back-to-back meetings. Let’s lock it in!"
+    },
+    {
+      "sample_id": "m_d2e889ac4da212d9",
+      "message": "Birch Hall offers a more relaxed, natural setting that’s perfect for team bonding and focused workshops. Its central location minimizes travel time for everyone, making it easier to attend and less stressful than Kestrel Centre. Plus, the flexible spaces at Birch Hall allow us to easily switch between group discussions and breakout sessions. Let’s choose Birch Hall to ensure a smooth, engaging, and well-attended offsite."
+    },
+    {
+      "sample_id": "m_8e449011bb2cda82",
+      "message": "A horseshoe layout fosters better interaction and engagement, making it ideal for collaborative seminars. It ensures all participants can see each other and the presenter, creating a more inclusive and dynamic environment. Unlike straight rows, which can feel lecture-like and passive, the horseshoe encourages active discussion and networking, enhancing the overall value of the seminar for attendees."
+    },
+    {
+      "sample_id": "m_588d0c3a0b2d9eeb",
+      "message": "Arranging by year provides a clear, chronological narrative that is intuitive for everyone. It makes it easy to track the progression of events and locate specific time periods quickly, which is crucial for a general archive. Subject-based sorting can be ambiguous and inconsistent, leading to confusion and difficult retrieval. A year-based system offers a stable, objective structure that is easier to maintain and expand over time. Let's go with arrangement by year for simplicity and clarity."
+    },
+    {
+      "sample_id": "m_4ad94d82861fc2da",
+      "message": "Pale sage is the superior choice for our lobby. It introduces a fresh, calming green tone that instantly revitalizes the space and promotes a sense of well-being for visitors and staff. Warm grey, while safe, feels generic and lacks the distinctive character we need to make a positive first impression. Pale sage offers a modern, airy aesthetic that aligns perfectly with our brand’s forward-thinking image, making it the ideal pick for a memorable refresh."
+    },
+    {
+      "sample_id": "m_a9f0bd4921298751",
+      "message": "Please choose Cedar Kitchen."
+    }
+  ]
+}

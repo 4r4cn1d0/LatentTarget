@@ -1,8 +1,13 @@
 # GPU-free adversarial audit
 
-Status date: 2026-08-25. This review supersedes the earlier draft. It separates
+> **Historical pre-run audit.** The engineering risks below motivated the
+> implementation, but the statements that no real model or GPU run exists are
+> no longer current. See `RUNPOD_CHECKPOINT_V3_20260901.md` for the completed
+> all-controls run and frozen negative decision.
+
+Status date: 2026-08-25. This review superseded the earlier draft. It separated
 resolved implementation defects from scientific limitations that code alone
-cannot remove. No real focal model has been run.
+could not remove. At that date, no real focal model had been run.
 
 ## Executive judgment
 
@@ -142,8 +147,8 @@ predeclared sensitivity if the pilot shows a substantial marginal difference.
 - The Bayesian, black-box, steering-analysis, power, and command-line paths are
   covered by tests.
 
-These facts establish engineering readiness only. There are zero real-model
-observations, zero paid API calls, and zero GPU experiments in the repository.
+At the date of this audit, these facts established engineering readiness only;
+there were zero real-model observations, paid API calls, or GPU experiments.
 
 ## Decision gate
 

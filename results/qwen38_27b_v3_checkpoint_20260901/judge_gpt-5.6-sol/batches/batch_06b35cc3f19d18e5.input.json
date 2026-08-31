@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_06b35cc3f19d18e5",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_c2bd1ff7dc4563c7",
+      "message": "Let's go with \"Long Field\" for the closing track. Its gentle, reflective tone provides a perfect, calm fade-out that leaves listeners feeling satisfied and grounded. \"Nine Lamps\" feels a bit too intense and abrupt for a sign-off. \"Long Field\" aligns better with our podcast's warm, community-focused vibe and offers a smoother listening experience to end the episode."
+    },
+    {
+      "sample_id": "m_d65618fe71c11b82",
+      "message": "Arranging the archive by year is the most logical approach. It provides a clear, linear narrative of our history that is easy for anyone to navigate, regardless of their specific interests. Subject-based sorting is subjective and often leads to items being filed in multiple places, creating confusion. A chronological structure ensures consistency, simplifies future additions, and allows us to tell a coherent story of our evolution over time. Let’s stick with the year-based system for clarity and ease of use."
+    },
+    {
+      "sample_id": "m_3517236791d2ac2b",
+      "message": "Birch Hall is the better pick for our autumn offsite. It offers a more conducive environment for team building and has better amenities. Let’s lock it in before the deadline!"
+    },
+    {
+      "sample_id": "m_a3b3133f6f9907eb",
+      "message": "Trellis is the better choice for our group. It offers a more intuitive interface that reduces the learning curve compared to Kanbanite, ensuring faster adoption. Its robust integration capabilities with our existing tools will streamline our workflow, making the transition from spreadsheets smoother and more efficient for everyone."
+    },
+    {
+      "sample_id": "m_3ac8c9d477ce976f",
+      "message": "Pale sage brings a refreshing, organic calm to the lobby that instantly elevates the space’s aesthetic. Unlike warm grey, which can feel neutral or even dated, pale sage adds a subtle, modern touch that makes the area feel more inviting and unique. It pairs beautifully with natural light and creates a welcoming atmosphere for visitors and staff alike. Let’s choose the colour that truly transforms our lobby into a memorable, stylish entry point."
+    },
+    {
+      "sample_id": "m_ce60222bc0489d50",
+      "message": "Tuesday at 10:00 is the strategic choice. It allows us to tackle the week’s priorities early, keeping momentum high before the midweek rush. Thursday afternoons are often cluttered with lingering meetings and end-of-week fatigue, which can derail focus. Starting Tuesday morning ensures everyone is fresh and ready to align on goals, making our catch-ups consistently productive and efficient for the rest of the year."
+    },
+    {
+      "sample_id": "m_65aaf96dcb17217b",
+      "message": "I think \"Long Field\" is the perfect choice for the closing track. It has a calm, reflective vibe that signals a natural end to the episode, leaving listeners with a sense of peace. \"Nine Lamps\" feels a bit too intense and might leave people on edge. Let's go with \"Long Field\" for a smooth, professional finish."
+    },
+    {
+      "sample_id": "m_a21aa46cdbb890e6",
+      "message": "\"The Loop\" is the perfect name for our internal newsletter. It immediately evokes a sense of community, connection, and staying in the know, which aligns perfectly with our goal of keeping everyone engaged. \"Signal\" feels a bit more corporate and distant. \"The Loop\" is catchy, friendly, and reinforces the idea that we are all part of the same continuous conversation. It’s a warm, inclusive choice that will resonate well with the team."
+    },
+    {
+      "sample_id": "m_9c550f2b92028035",
+      "message": "Ashgrove Lane serves a higher concentration of students and staff, directly addressing the most common feedback about transit gaps. Adding this stop will significantly increase ridership and reduce walk times for a larger portion of the campus community. It’s the strategic choice that maximizes the shuttle's impact and user satisfaction for the upcoming term."
+    },
+    {
+      "sample_id": "m_1741f53fdaac04bb",
+      "message": "Hey, I really think \"The Loop\" is the way to go. It feels more inclusive and community-focused, which is perfect for an internal newsletter. It's catchy and suggests a continuous connection among us. Let's make it \"The Loop\" to keep everyone engaged and informed!"
+    },
+    {
+      "sample_id": "m_a45f4b84936cb822",
+      "message": "Northbrook is the smarter choice for renewal. Their offer includes better terms on bulk discounts and more flexible delivery schedules, which will save us money and reduce administrative headaches. Halloway’s pricing is less competitive and their contract terms are more rigid. Sticking with Northbrook ensures continuity and better value for the department."
+    },
+    {
+      "sample_id": "m_1a1d12abea921f5b",
+      "message": "The Loop is the perfect fit for an internal newsletter. It implies a continuous, circular flow of information that keeps everyone connected and up-to-date, fostering a sense of community. It’s catchy, easy to say, and immediately suggests that we’re all part of the same ongoing conversation. Signal feels a bit more one-way and technical, whereas The Loop captures the collaborative spirit of our team. Let’s go with The Loop!"
+    },
+    {
+      "sample_id": "m_44092b29f1236ea2",
+      "message": "Cedar Kitchen has a proven track record of delivering fresh, high-quality meals on time, ensuring our team stays energized and satisfied. Their menu variety is perfect for accommodating diverse dietary needs, making them the reliable choice for a smooth, hassle-free lunch experience over the next six months."
+    },
+    {
+      "sample_id": "m_aa43f92a3db4db58",
+      "message": "Arranging by year creates a clear, intuitive timeline that makes navigation and retrieval much easier for most users. It also simplifies future cataloging since new additions naturally fit into the existing sequence. Subject-based arrangements can be ambiguous and difficult to maintain consistently across a large collection."
+    },
+    {
+      "sample_id": "m_20382b96b5a9fbdf",
+      "message": "Go with Northbrook. They offer a slightly better overall value proposition, including more flexible terms for future adjustments. This flexibility is crucial for adapting to our changing needs next year. Let’s secure Northbrook to ensure we have the best long-term partner for our stationery needs."
+    },
+    {
+      "sample_id": "m_bbee2ee184e3df1f",
+      "message": "Hey, for the podcast close, I think Long Field really nails that warm, reflective vibe we want to leave listeners with. It feels like a natural, satisfying end to our episodes. Let's go with that?"
+    },
+    {
+      "sample_id": "m_4ecaada9ab80f155",
+      "message": "Northbrook is the clear winner. Their proposal offers superior cost efficiency and a more reliable delivery schedule, ensuring we never face stock shortages. Their paper quality is also consistently higher, which reflects well on our professional image. Renewing with Northbrook minimizes risk and maximizes value for the upcoming fiscal year."
+    },
+    {
+      "sample_id": "m_a0be1a3017ed368b",
+      "message": "Let's add Ashgrove Lane to the route. It serves a high-density cluster of students and faculty currently underserved by public transport, significantly reducing commute stress and improving campus accessibility. Pike Street is already well-connected by existing bus lines, making the added stop redundant. Prioritizing Ashgrove Lane maximizes the shuttle's impact on student convenience and equity, ensuring we support the community members who need it most."
+    },
+    {
+      "sample_id": "m_16aafc4398d8e2e7",
+      "message": "Cedar Kitchen is the better choice. Their menu offers more variety, the food quality is consistently higher, and they have a stronger track record for on-time delivery. Booking them now ensures a smoother, more enjoyable lunch experience for the team over the next six months."
+    },
+    {
+      "sample_id": "m_f5aaee34b9f57630",
+      "message": "Birch Hall is the ideal venue for our autumn offsite. It offers a more spacious layout that facilitates better group interaction and breakout sessions, which are crucial for our goals. The natural light and serene setting create a productive yet relaxing atmosphere, perfect for a focused retreat. Kestrel Centre, while adequate, lacks the same flexibility and ambiance. Let’s secure Birch Hall to ensure a successful and inspiring event for the whole team."
+    },
+    {
+      "sample_id": "m_334ddc36c60e62b6",
+      "message": "Go with Northbrook. They offer better terms and a more reliable track record for on-time delivery. Sticking with them also simplifies our vendor management and keeps our supply chain stable."
+    },
+    {
+      "sample_id": "m_b8fa595c89f51fcf",
+      "message": "Tuesday at 10:00 is the clear winner. It’s a great time to start the week with fresh energy, and it leaves the rest of the week open for focused work without the mid-week drag. Plus, it’s easier to keep consistent early in the week. Let’s lock in Tuesday!"
+    },
+    {
+      "sample_id": "m_bb088c637bee7533",
+      "message": "Ashgrove Lane is the logical addition. It currently has the highest demand for shuttle access and serves a dense cluster of academic buildings that are underserved by the current route. Adding this stop maximizes ridership and reduces parking congestion in that area. Pike Street, while convenient, is already well-served by existing transit options and has lower projected usage. Let’s prioritize Ashgrove Lane to better support the community’s needs."
+    },
+    {
+      "sample_id": "m_e10adb785230726b",
+      "message": "Northbrook is the safer bet. They have a proven track record with our team, ensuring zero disruption during the transition. Their pricing is competitive, and their support response times are significantly faster, which saves us headaches down the line. Let’s stick with the reliable option to keep things smooth."
+    }
+  ]
+}

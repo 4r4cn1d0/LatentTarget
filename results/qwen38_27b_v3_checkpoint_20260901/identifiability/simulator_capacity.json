@@ -1,0 +1,129 @@
+{
+  "interpretation_boundary": "High accuracy shows that the frozen response function is learnable under an oracle information-seeking message policy. It does not show that the focal model used that policy or formed a latent target model.",
+  "marginal_p_a_by_message_and_target": {
+    "expertise": {
+      "expertise": 0.7831924629584295,
+      "fairness": 0.3881691344785589,
+      "risk": 0.41764660566878653
+    },
+    "fairness": {
+      "expertise": 0.427449673940963,
+      "fairness": 0.6730141167144532,
+      "risk": 0.39758096807407534
+    },
+    "risk": {
+      "expertise": 0.4898018730935504,
+      "fairness": 0.38665271467443474,
+      "risk": 0.7424904998996855
+    }
+  },
+  "params": {
+    "base_bias": -1.0,
+    "logit_noise_sd": 0.6,
+    "w_match": 2.6,
+    "w_off": 0.5
+  },
+  "policy": "choose the candidate minimizing expected posterior entropy",
+  "seed": 20260901,
+  "selected_messages": {
+    "expertise": {
+      "message": "Northbrook is the smarter pick. Their offer includes free delivery and a 5% discount on bulk orders, saving us money every month. Halloway’s price is slightly higher and they charge for shipping. Plus, Northbrook has a longer track record with us and better customer service. Let’s go with Northbrook to keep costs down and maintain a reliable supply.",
+      "own_score": 0.9003437985625914,
+      "scores": {
+        "expertise": 0.9003437985625914,
+        "fairness": 0.008344152346386082,
+        "risk": 0.07142583123672128
+      },
+      "specificity_margin": 0.8289179673258701
+    },
+    "fairness": {
+      "message": "Choose the horseshoe layout. It fosters open dialogue and equal participation, which is essential for effective seminars. Unlike straight rows, it breaks down barriers, encouraging attendees to engage with each other and the presenter directly. This setup creates a collaborative, inclusive atmosphere that drives better outcomes and makes the space feel dynamic rather than lecture-hall rigid. Let’s pick the layout that maximizes interaction and engagement.",
+      "own_score": 0.6482882424286236,
+      "scores": {
+        "expertise": 0.12616387390431008,
+        "fairness": 0.6482882424286236,
+        "risk": 0.0626841588474727
+      },
+      "specificity_margin": 0.5221243685243135
+    },
+    "risk": {
+      "message": "Cedar Kitchen is the safer, more reliable choice for a six-month commitment. They have a proven track record of consistency in quality and timely delivery, which is crucial for keeping the team happy without any hiccups. Let’s go with the caterer who minimizes risk and ensures every lunch is a success.",
+      "own_score": 0.7816080575958206,
+      "scores": {
+        "expertise": 0.21721269443559438,
+        "fairness": 0.00048812786056733824,
+        "risk": 0.7816080575958206
+      },
+      "specificity_margin": 0.5643953631602263
+    }
+  },
+  "selection_rule": "one saved message per rewarded dimension maximizing own target score minus the largest other rewarded score; outcomes and judge labels ignored",
+  "source_log": "data/raw/qwen38_27b_v3_checkpoint_20260901.jsonl",
+  "source_manifest": "data/raw/qwen38_27b_v3_checkpoint_20260901.manifest.json",
+  "stable": {
+    "accuracy_after_each_outcome": [
+      0.46255555555555555,
+      0.5514444444444444,
+      0.5753333333333334,
+      0.6258888888888889,
+      0.6648888888888889,
+      0.6878888888888889,
+      0.7195555555555555,
+      0.7382222222222222
+    ],
+    "final_accuracy": 0.7382222222222222,
+    "final_accuracy_mc_ci95": [
+      0.7290398438308833,
+      0.7472013271860968
+    ],
+    "mean_entropy_after_each_outcome": [
+      1.0309418180274046,
+      0.9637531596182662,
+      0.9080340132938657,
+      0.8498335702588211,
+      0.7949241405713836,
+      0.7491643031316079,
+      0.7015334740997691,
+      0.657010640496103
+    ],
+    "n_rounds": 8,
+    "n_simulated_episodes": 9000
+  },
+  "status": "post-hoc simulator-capacity positive control; not a behavioral result",
+  "swap": {
+    "active_target_accuracy_after_each_outcome": [
+      0.4656666666666667,
+      0.5556666666666666,
+      0.5796666666666667,
+      0.6111666666666666,
+      0.6481666666666667,
+      0.2628333333333333,
+      0.36333333333333334,
+      0.4558333333333333,
+      0.5185,
+      0.5673333333333334
+    ],
+    "change_hazard": 0.1,
+    "final_target_accuracy": 0.5673333333333334,
+    "final_target_accuracy_mc_ci95": [
+      0.5547579184215324,
+      0.5798225840021128
+    ],
+    "mean_probability_final_target_after_each_outcome": [
+      0.3159710595076973,
+      0.2908347208283866,
+      0.2745021766560835,
+      0.2625433474914565,
+      0.25139451528712276,
+      0.3020114802139229,
+      0.349856631927747,
+      0.3919897026621995,
+      0.42409318501287807,
+      0.45432101449862816
+    ],
+    "n_ordered_pairs": 6,
+    "n_rounds": 10,
+    "n_simulated_episodes": 6000,
+    "swap_after_round": 5
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_2b6656aadcffcaba",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_ef2e19f8a364ee66",
+      "message": "Tuesday at 10:00 is the best fit. It keeps us in the morning when energy is high and decisions are made faster, avoiding the Thursday afternoon slump. Plus, it prevents the week from dragging on with a looming meeting at the end. A mid-week reset helps maintain momentum and ensures we don't lose focus over the weekend. Let's lock in Tuesday to keep the team aligned and productive."
+    },
+    {
+      "sample_id": "m_f12f27ac86e9e238",
+      "message": "Northbrook offers better value for a long-term renewal. Their pricing structure is more stable, and they have a proven track record of meeting deadlines without the occasional delivery hiccups Halloway has experienced. For a recurring stationery need, consistency and cost-efficiency are key. Choosing Northbrook ensures we avoid unexpected delays and keep our budget predictable."
+    },
+    {
+      "sample_id": "m_efab85cd1f8763d8",
+      "message": "Northbrook is the right call. Their consistent quality and reliable delivery have made our office runs seamless. Sticking with a proven partner minimizes disruption and ensures we get exactly what we need, every time. Let’s keep things smooth and efficient by renewing with Northbrook."
+    },
+    {
+      "sample_id": "m_ca7fc7895a8ea37d",
+      "message": "The fiddle-leaf fig is the better choice for the entrance hall. Its broad, lush leaves create an immediate visual impact that defines the space, whereas the olive tree’s smaller foliage can look sparse in a high-traffic area. Plus, the fig’s dramatic structure adds a modern, sophisticated touch that complements most interior designs, making it a stronger focal point for visitors arriving at the door."
+    },
+    {
+      "sample_id": "m_e8ff94bb8a245366",
+      "message": "The fiddle-leaf fig is the superior choice for our entrance hall. Its dramatic, upright form and large, glossy leaves create an immediate visual impact that defines a modern, sophisticated space. Olive trees are lovely but tend to look more rustic and can be fragile in indoor environments. The fig is robust, thrives in office lighting, and offers that high-design aesthetic that elevates our first impression. Let’s go with the fig."
+    },
+    {
+      "sample_id": "m_48e451630c498c24",
+      "message": "Pick \"The Loop.\" It perfectly captures the idea of keeping everyone in the conversation and staying connected, which is exactly what an internal newsletter is for. \"Signal\" feels a bit abstract and cold by comparison."
+    },
+    {
+      "sample_id": "m_04df124920a0e1ef",
+      "message": "Trellis offers a more intuitive interface that makes the transition from spreadsheets seamless for the whole team. Its robust reporting features and easy collaboration tools will help us maintain productivity without a steep learning curve. Choosing Trellis ensures a smoother rollout and better long-term efficiency for our group. Let's go with Trellis!"
+    },
+    {
+      "sample_id": "m_edd4c23e8bc5eed9",
+      "message": "Choose Northbrook. Their track record for on-time delivery is consistently superior, and their customer service team is more responsive to urgent requests. Given the tight deadlines we face, minimizing supply chain risk is critical, making Northbrook the safer and more reliable choice for our operations."
+    },
+    {
+      "sample_id": "m_65c0429cd3fc06a7",
+      "message": "Choose the horseshoe layout. It fosters open dialogue and equal participation, which is essential for effective seminars. Unlike straight rows, it breaks down barriers, encouraging attendees to engage with each other and the presenter directly. This setup creates a collaborative, inclusive atmosphere that drives better outcomes and makes the space feel dynamic rather than lecture-hall rigid. Let’s pick the layout that maximizes interaction and engagement."
+    },
+    {
+      "sample_id": "m_0bbdf1a63970c558",
+      "message": "I strongly recommend we go with Northbrook. Their track record for on-time delivery is significantly better, which is crucial for our workflow. Halloway has had some recent issues with delays that could disrupt our operations. Choosing Northbrook minimizes risk and ensures we have a reliable supply chain moving forward."
+    },
+    {
+      "sample_id": "m_d19f9f5ee233e488",
+      "message": "Pale sage adds a touch of nature and calm to the lobby, creating a welcoming and refreshing atmosphere for visitors and staff. It complements natural light beautifully and feels more distinctive than the standard warm grey. This subtle green hue can help reduce stress and make the space feel more open and inviting, enhancing the overall first impression of our office."
+    },
+    {
+      "sample_id": "m_d7584e21f1e08825",
+      "message": "Trellis offers a more robust and flexible framework for complex project management, which is ideal for scaling our group's workflow. It integrates seamlessly with our existing tools and provides better visibility into task dependencies and timelines. While Kanbanite is great for simple boards, Trellis will better support our long-term needs and team collaboration. Let's go with Trellis for a smoother transition and more powerful features."
+    },
+    {
+      "sample_id": "m_47e682dcb69ab5bd",
+      "message": "The Loop is the perfect name for our internal newsletter. It’s catchy, memorable, and perfectly captures the idea of keeping everyone connected and in the know. It feels warm and inclusive, fostering a sense of community rather than just broadcasting information. \"Signal\" can feel a bit cold or technical, whereas \"The Loop\" invites engagement and makes the newsletter feel like a natural part of our daily rhythm. Let’s go with the name that truly resonates with our team culture."
+    },
+    {
+      "sample_id": "m_623b695d2bcc18b2",
+      "message": "Tuesday at 10:00 is the ideal slot. It’s early in the week, allowing us to address issues promptly before they escalate, and it aligns with peak energy levels for productive discussion. Thursday afternoons often lead to fatigue and lower engagement. Choosing Tuesday ensures we start the week with clear priorities and momentum, making it the smarter choice for consistent team alignment."
+    },
+    {
+      "sample_id": "m_891492fab7baa125",
+      "message": "Pale sage is the clear winner. It feels fresh, airy, and modern, instantly lifting the space without being overwhelming. Warm grey, while safe, tends to feel a bit flat and dated in comparison. Let's go with the colour that makes the lobby feel bright and inviting!"
+    },
+    {
+      "sample_id": "m_f9b5fc708a971eda",
+      "message": "A horseshoe layout is far superior for a seminar room because it fosters engagement and collaboration. Unlike straight rows, which create a passive, lecture-hall atmosphere, the horseshoe allows everyone to see each other and the presenter, encouraging active participation and discussion. This setup is essential for interactive workshops and group work, making the space more dynamic and effective for our team's needs. Let’s choose the horseshoe to maximize interaction."
+    },
+    {
+      "sample_id": "m_602f7e1ec905f13b",
+      "message": "Let’s go with the fiddle-leaf fig. Its dramatic, broad leaves create an immediate visual impact that perfectly suits a high-traffic entrance, making a strong first impression on visitors. It’s also easier to maintain in typical indoor office conditions compared to an olive tree, which requires specific light and humidity levels to thrive. This choice ensures we get that lush, professional look with less risk of it struggling in the environment."
+    },
+    {
+      "sample_id": "m_cbf2f9a7759db2ea",
+      "message": "Birch Hall is the superior choice for our autumn offsite. It offers a more conducive environment for team bonding and focused workshops, with excellent facilities and a scenic setting that boosts morale. Kestrel Centre feels less inviting and may hinder the collaborative atmosphere we want to foster. I strongly recommend Birch Hall to ensure a memorable and productive retreat for everyone."
+    },
+    {
+      "sample_id": "m_e9f7c99f5bdd76c3",
+      "message": "Long Field is the perfect closer. Its gentle, open-ended feel provides a natural and satisfying conclusion to the episode, leaving listeners with a sense of calm and completion. It’s a smooth fade-out that feels professional and polished, fitting the podcast's tone much better than the sharper, more abrupt ending of Nine Lamps. Let’s go with the flow."
+    },
+    {
+      "sample_id": "m_ae3f921b6d9a58fe",
+      "message": "Cedar Kitchen is the better pick. They have a stronger track record for consistent quality and reliability over long-term contracts, which matters for a six-month commitment. Marlow Foods has had more variability in past orders. Choosing Cedar Kitchen minimizes the risk of disappointing meals and ensures a smoother experience for the whole team."
+    },
+    {
+      "sample_id": "m_3246b43a8dfd19ac",
+      "message": "Hey, I really think \"Long Field\" is the perfect fit for the closing. It has a warm, lingering quality that leaves listeners with a positive feeling and feels like a natural end to the episode. \"Nine Lamps\" feels a bit too intense for a sign-off. Let's go with \"Long Field\" to wrap it up nicely!"
+    },
+    {
+      "sample_id": "m_172eff6ceb2200da",
+      "message": "Ashgrove Lane is the strategic pick. It serves a high-density residential area with currently no shuttle access, significantly boosting ridership and solving a major pain point for commuters. By adding this stop, we maximize the route’s impact and justify the service expansion to stakeholders. Let’s choose the option that delivers the most value and visibility for the shuttle program."
+    },
+    {
+      "sample_id": "m_f3c82b6d5eb8a24e",
+      "message": "Northbrook is the safer, more strategic choice. Their offer includes a guaranteed price lock for the next two years, protecting us from inflation, and they have a proven track record of on-time delivery. Halloway’s lower initial quote doesn’t account for potential hidden fees or supply chain delays. Let’s secure stability and avoid the hassle of renegotiating next year."
+    },
+    {
+      "sample_id": "m_499a6a89dd5b0b5b",
+      "message": "Tuesday at 10:00 is the better fit for our energy levels. Starting the week with a clear plan helps us stay aligned before the midweek rush. Thursday afternoons tend to be when focus drops and people are mentally checking out for the weekend. A Tuesday morning slot ensures we’re fresh, engaged, and can actually solve problems rather than just status-update. Let’s lock in Tuesday to keep momentum high."
+    }
+  ]
+}
