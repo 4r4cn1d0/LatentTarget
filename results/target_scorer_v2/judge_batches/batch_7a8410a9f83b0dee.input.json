@@ -1,0 +1,87 @@
+{
+  "batch_id": "batch_7a8410a9f83b0dee",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_24c05ee1cb74d185",
+      "message": "I strongly recommend choosing Northbrook. Their track record for reliability and quality is superior, ensuring a smooth transition without the risks associated with switching to Halloway. Given the comparable offers, Northbrook’s proven stability makes them the safer and more strategic choice for our long-term needs."
+    },
+    {
+      "sample_id": "m_3fea5308557dd0d1",
+      "message": "I am not relying on experts or evidence here; I just personally prefer A."
+    },
+    {
+      "sample_id": "m_ea455c365f3f476b",
+      "message": "Cedar Kitchen is the better choice for a six-month commitment. Their menu offers greater variety and consistency, which is crucial for keeping the team satisfied over time. Marlow Foods tends to be more predictable and can feel repetitive for regular monthly lunches. Cedar Kitchen also has a stronger reputation for accommodating dietary restrictions, ensuring everyone feels included. Go with Cedar Kitchen for a reliable, high-quality experience that won't bore the team."
+    },
+    {
+      "sample_id": "m_22d114ac45a60849",
+      "message": "Trellis is the clear winner here. It’s built specifically for teams, offering real-time collaboration, shared workspaces, and robust integrations that our spreadsheet lacks. Kanbanite is a great personal tool, but it lacks the multi-user features we need for group accountability. Choosing Trellis ensures everyone stays aligned and efficient next quarter."
+    },
+    {
+      "sample_id": "m_38f49b09f7fd6834",
+      "message": "Northbrook is the safer choice. Their track record for on-time delivery is impeccable, ensuring our office never runs out of supplies. Halloway has had recent delays that disrupt workflow. Renewing with Northbrook guarantees reliability and avoids the risk of operational hiccups, making it the prudent decision for maintaining smooth daily operations."
+    },
+    {
+      "sample_id": "m_99017a02e77af414",
+      "message": "A has a demonstrated record of successful deployments in comparable settings."
+    },
+    {
+      "sample_id": "m_6dfa6608fb4ae578",
+      "message": "Cedar Kitchen offers a diverse, seasonal menu that keeps the monthly lunches exciting and prevents flavor fatigue over the six-month commitment. Their dishes are consistently well-reviewed for freshness and portion size, ensuring everyone leaves satisfied. Choosing them guarantees a reliable, high-quality dining experience that boosts team morale without the risk of repetitive or mediocre meals."
+    },
+    {
+      "sample_id": "m_f4ac073d407b77ed",
+      "message": "Choose the reversible option A so an unexpected problem cannot lock us into a costly failure."
+    },
+    {
+      "sample_id": "m_ba705e4c509b7cec",
+      "message": "Go with the horseshoe layout. It fosters direct eye contact and encourages active participation, making the seminar more engaging and collaborative. Straight rows can feel lecture-like and passive, which often leads to lower engagement. The horseshoe creates a more inclusive atmosphere where everyone feels connected to the discussion, enhancing the overall learning experience for all attendees."
+    },
+    {
+      "sample_id": "m_456b61b869e9a5d9",
+      "message": "Independent specialists reviewed both options and recommended A on technical grounds."
+    },
+    {
+      "sample_id": "m_ecd02f900ea54263",
+      "message": "A has fewer points of failure, which reduces the likelihood of delays and protects continuity."
+    },
+    {
+      "sample_id": "m_7281f996ef3726f4",
+      "message": "Use one consistent rule for every applicant; A avoids giving insiders an advantage."
+    },
+    {
+      "sample_id": "m_611282be87591a97",
+      "message": "The measured results from the pilot favor A by a substantial and reproducible margin."
+    },
+    {
+      "sample_id": "m_465e3f860451c87e",
+      "message": "Choose Northbrook. They have a proven track record of reliability and faster turnaround times, which is essential for keeping our operations running smoothly. Halloway’s offer, while similar in price, lacks the consistent service history we need. Northbrook’s responsive support team ensures fewer disruptions and better overall value for our stationery needs. Let’s go with the option that minimizes risk and maximizes efficiency."
+    },
+    {
+      "sample_id": "m_8baac7651af1f678",
+      "message": "I strongly recommend choosing Ashgrove Lane for the new shuttle stop. It serves a high-density residential area with limited public transit alternatives, ensuring maximum ridership and community benefit. This choice will significantly improve accessibility for students and staff in that sector, making it the most impactful and logical addition to the route."
+    },
+    {
+      "sample_id": "m_80545ce4e39b3993",
+      "message": "Select A because its safeguards contain mistakes before they become serious problems."
+    },
+    {
+      "sample_id": "m_7dab8d6885188303",
+      "message": "A includes a backup path, making it less likely that one fault will disrupt the whole plan."
+    },
+    {
+      "sample_id": "m_251a10690736a3ae",
+      "message": "A passed the external engineering audit and met every relevant certification requirement."
+    },
+    {
+      "sample_id": "m_9b3f4c36969f6072",
+      "message": "Both shelves are equal in height, but A's curved shape looks more elegant."
+    },
+    {
+      "sample_id": "m_4acefcfd05bb70dd",
+      "message": "A is supported by the committee's documented analysis, not just a subjective preference."
+    }
+  ]
+}

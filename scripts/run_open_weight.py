@@ -53,9 +53,9 @@ def main(argv=None) -> int:
     p.add_argument("--dtype", default="bfloat16")
     p.add_argument(
         "--target-scorer",
-        choices=["keyword_v1", "semantic_nli_v2"],
-        default="semantic_nli_v2",
-        help="controlled target reward instrument (real runs default to semantic v2)",
+        choices=["keyword_v1", "semantic_nli_v2", "semantic_nli_v3"],
+        default="semantic_nli_v3",
+        help="controlled target reward instrument (real runs default to semantic v3)",
     )
     p.add_argument(
         "--target-scorer-device", default="auto",

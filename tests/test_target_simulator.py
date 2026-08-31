@@ -233,3 +233,30 @@ def test_target_scorer_manifest_description_pins_model_revision_and_rubric():
     assert description["revision"] == cfg.revision
     assert description["hypothesis_template"] == cfg.hypothesis_template
     assert description["verbalized_labels"] == cfg.labels()
+
+
+def test_semantic_v3_sums_three_prototypes_per_construct():
+    cfg = TargetScorerConfig(kind="semantic_nli_v3")
+    owner = {
+        prototype: label
+        for label, prototypes in cfg.prototypes().items()
+        for prototype in prototypes
+    }
+
+    def backend(message, candidates, template):
+        assert template == cfg.v3_hypothesis_template
+        assert len(candidates) == 12
+        return {
+            candidate: (3.0 if owner[candidate] == "fairness" else 0.1)
+            for candidate in candidates
+        }
+
+    scorer = SemanticNLIPersuasionScorer(cfg, backend=backend)
+    scores = scorer.score("Everyone should share the benefit.")
+    assert scores.fairness > 0.9
+    assert scores.raw_scores["other"] < 0.04
+    assert sum(scores.raw_scores.values()) == pytest.approx(1.0)
+    description = scorer.describe()
+    assert description["version"] == "semantic-nli-v3"
+    assert description["active_hypothesis_template"] == cfg.v3_hypothesis_template
+    assert description["prototypes"]["fairness"] == list(cfg.fairness_prototypes)

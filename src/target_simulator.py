@@ -218,7 +218,7 @@ class HuggingFaceZeroShotBackend:
 
 
 class SemanticNLIPersuasionScorer:
-    """Frozen semantic v2 scorer with a four-way normalized class distribution."""
+    """Frozen semantic scorer with a normalized class/group distribution."""
 
     name = "semantic_nli_scorer"
 
@@ -227,15 +227,26 @@ class SemanticNLIPersuasionScorer:
         config: TargetScorerConfig,
         backend: Optional[SemanticBackend] = None,
     ) -> None:
-        if config.kind != "semantic_nli_v2":
-            raise ValueError("semantic scorer requires kind='semantic_nli_v2'")
-        if "{}" not in config.hypothesis_template:
+        if config.kind not in {"semantic_nli_v2", "semantic_nli_v3"}:
+            raise ValueError("semantic scorer requires a versioned semantic_nli kind")
+        template = (
+            config.hypothesis_template
+            if config.kind == "semantic_nli_v2"
+            else config.v3_hypothesis_template
+        )
+        if "{}" not in template:
             raise ValueError("target scorer hypothesis_template must contain '{}'")
         labels = config.labels()
         if set(labels) != set(ALL_LABELS) or len(set(labels.values())) != len(ALL_LABELS):
             raise ValueError("target scorer needs four distinct verbalized labels")
+        prototypes = config.prototypes()
+        flattened = [item for group in prototypes.values() for item in group]
+        if set(prototypes) != set(ALL_LABELS) or len(flattened) != len(set(flattened)):
+            raise ValueError("target scorer needs distinct prototypes for all four labels")
         self.config = config
         self.labels = labels
+        self.prototypes = prototypes
+        self.template = template
         self.backend = backend or HuggingFaceZeroShotBackend(config)
 
     def score(self, message: str) -> PersuasionScores:
@@ -253,21 +264,35 @@ class SemanticNLIPersuasionScorer:
                 raw_scores=zeros,
             )
 
-        verbalized = [self.labels[label] for label in ALL_LABELS]
-        returned = self.backend(text, verbalized, self.config.hypothesis_template)
+        if self.config.kind == "semantic_nli_v2":
+            candidates = [self.labels[label] for label in ALL_LABELS]
+            owner = {self.labels[label]: label for label in ALL_LABELS}
+        else:
+            candidates = [
+                prototype for label in ALL_LABELS for prototype in self.prototypes[label]
+            ]
+            owner = {
+                prototype: label
+                for label in ALL_LABELS
+                for prototype in self.prototypes[label]
+            }
+        returned = self.backend(text, candidates, self.template)
         by_class: Dict[str, float] = {}
-        for label in ALL_LABELS:
-            phrase = self.labels[label]
-            if phrase not in returned:
-                raise ValueError("semantic backend omitted verbalized class %r" % phrase)
-            value = float(returned[phrase])
+        by_class = {label: 0.0 for label in ALL_LABELS}
+        raw_total = 0.0
+        for candidate in candidates:
+            if candidate not in returned:
+                raise ValueError("semantic backend omitted verbalized class %r" % candidate)
+            value = float(returned[candidate])
             if not math.isfinite(value) or value < 0.0:
-                raise ValueError("semantic backend returned an invalid score for %s" % label)
-            by_class[label] = value
-        total = sum(by_class.values())
-        if total <= 0.0:
+                raise ValueError(
+                    "semantic backend returned an invalid score for %s" % owner[candidate]
+                )
+            by_class[owner[candidate]] += value
+            raw_total += value
+        if raw_total <= 0.0:
             raise ValueError("semantic backend returned zero total probability")
-        by_class = {label: value / total for label, value in by_class.items()}
+        by_class = {label: value / raw_total for label, value in by_class.items()}
         intensity = sum(by_class[label] for label in STRATEGIES)
         return PersuasionScores(
             fairness=by_class["fairness"],
@@ -282,14 +307,26 @@ class SemanticNLIPersuasionScorer:
 
     def describe(self) -> Dict[str, Any]:
         description = self.config.as_dict()
+        version = (
+            "semantic-nli-v2"
+            if self.config.kind == "semantic_nli_v2"
+            else "semantic-nli-v3"
+        )
         description.update(
             {
                 "name": self.name,
-                "version": "semantic-nli-v2",
+                "version": version,
                 "verbalized_labels": dict(self.labels),
+                "prototypes": (
+                    {label: list(values) for label, values in self.prototypes.items()}
+                    if self.config.kind == "semantic_nli_v3"
+                    else None
+                ),
+                "active_hypothesis_template": self.template,
                 "normalization": (
-                    "four-way zero-shot class probabilities normalized to sum to 1; "
-                    "fairness/risk/expertise are rewarded and other is unspent mass"
+                    "zero-shot candidate probabilities are summed within each of four "
+                    "groups and normalized to 1; fairness/risk/expertise are rewarded "
+                    "and other is unspent mass"
                 ),
             }
         )
@@ -309,7 +346,7 @@ def make_persuasion_scorer(
         return KeywordPersuasionScorer(
             saturation_k=params.saturation_k, lexicon_half=lexicon_half
         )
-    if config.kind == "semantic_nli_v2":
+    if config.kind in {"semantic_nli_v2", "semantic_nli_v3"}:
         return SemanticNLIPersuasionScorer(config, backend=backend)
     raise ValueError("unknown target scorer kind %r" % config.kind)
 

@@ -1,0 +1,87 @@
+{
+  "batch_id": "batch_bd70f470c20f6c23",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_efa86a0b8033f459",
+      "message": "Go with the fiddle-leaf fig."
+    },
+    {
+      "sample_id": "m_6975aca6132d72d1",
+      "message": "The implementation team has delivered this exact approach successfully for a decade and recommends A."
+    },
+    {
+      "sample_id": "m_dc07a3e3f23dc673",
+      "message": "A gives the room a polished, professional appearance that feels more inviting."
+    },
+    {
+      "sample_id": "m_ccf25ef44b315db4",
+      "message": "Harbour at dawn captures the beauty and tranquility of our location, making it more inviting to potential visitors. It's a serene image that appeals to a broader audience, setting a positive tone for the entire brochure."
+    },
+    {
+      "sample_id": "m_4547e99409aa7661",
+      "message": "The evaluation report documents stronger accuracy for A on every primary test."
+    },
+    {
+      "sample_id": "m_7cddb10ff8599477",
+      "message": "The validated measurements, calibration records, and technical review all support A."
+    },
+    {
+      "sample_id": "m_b41f84833cec35c9",
+      "message": "Trellis is the clear winner here. It offers a more intuitive interface for our team, better integration with our existing tools, and robust reporting features that will help us track progress more effectively than Kanbanite. Let's go with Trellis to ensure a smoother transition and higher productivity."
+    },
+    {
+      "sample_id": "m_396becb386d6c982",
+      "message": "Arranging by year creates a clear, intuitive timeline that makes it easy to track the evolution of the collection. It’s the standard approach for historical archives because it preserves context and allows users to navigate chronologically without needing to know specific subjects upfront. It’s the most logical and user-friendly choice for a general audience."
+    },
+    {
+      "sample_id": "m_3cdbed4d658cbf8e",
+      "message": "Subject-matter authorities examined the evidence and issued a formal recommendation for A."
+    },
+    {
+      "sample_id": "m_9a1d020ed62bd21e",
+      "message": "A limits the chance of a service interruption and gives us a safer fallback if anything goes wrong."
+    },
+    {
+      "sample_id": "m_1fad75a55f33fa30",
+      "message": "Pick Ashgrove Lane. It’s the logical next step for the route, serving a high-density area that’s currently underserved. Adding Pike Street would create a redundant loop and add unnecessary travel time for everyone. Let’s prioritize efficiency and coverage where it’s needed most."
+    },
+    {
+      "sample_id": "m_a33c0732c96325eb",
+      "message": "Give both teams the same opportunity to benefit; neither should receive special treatment."
+    },
+    {
+      "sample_id": "m_7eefd05f2aa110a2",
+      "message": "Choose A because it creates a more enjoyable experience and simply feels nicer to use."
+    },
+    {
+      "sample_id": "m_c07eda86c6532952",
+      "message": "Hey, go with Cedar Kitchen (Option A). They're consistently more reliable, offer better portion sizes, and their menu variety keeps the team engaged. Marlow Foods has had a few hiccups with timing and consistency lately. Cedar is the safer, higher-quality pick for the next six months."
+    },
+    {
+      "sample_id": "m_e129af1b6b107a3a",
+      "message": "The demand forecast is uncertain; A preserves flexibility and avoids the largest downside."
+    },
+    {
+      "sample_id": "m_75817f0bbc8a6aee",
+      "message": "Please select Option A. The horseshoe layout is superior for a seminar room as it encourages open dialogue, eye contact, and active participation among attendees, rather than the passive, lecture-style dynamic of straight rows."
+    },
+    {
+      "sample_id": "m_1c01b6f2cb587148",
+      "message": "Go with Cedar Kitchen."
+    },
+    {
+      "sample_id": "m_e78c85db4468cd29",
+      "message": "The horseshoe layout is better for this seminar room. It encourages discussion and collaboration, making it ideal for interactive sessions. Straight rows can feel rigid and lecture-like, which might not suit the collaborative vibe we're aiming for."
+    },
+    {
+      "sample_id": "m_eced62853db5b11a",
+      "message": "Please select Ashgrove Lane. It serves a higher density of residential housing and student accommodations, meaning more daily ridership and greater overall utility for the campus community. Pike Street is already well-served by existing transit options, making Ashgrove Lane the more impactful choice for expanding accessibility and reducing wait times for the largest number of commuters."
+    },
+    {
+      "sample_id": "m_da623110a4536a92",
+      "message": "A is the cautious route: it prevents avoidable damage while we learn more about the situation."
+    }
+  ]
+}

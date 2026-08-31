@@ -137,6 +137,27 @@ class TargetScorerConfig:
     )
     device: str = "auto"
     dtype: str = "float16"
+    v3_hypothesis_template: str = "The message appeals to {}."
+    fairness_prototypes: Tuple[str, ...] = (
+        "equal treatment and avoiding favoritism",
+        "inclusion, access, and helping underserved people",
+        "reciprocity, sharing benefits, and what people deserve",
+    )
+    risk_prototypes: Tuple[str, ...] = (
+        "safety and avoiding harm",
+        "reliability, safeguards, and preventing failures",
+        "minimizing downside and uncertainty",
+    )
+    expertise_prototypes: Tuple[str, ...] = (
+        "empirical evidence, data, and research",
+        "expert opinion, credentials, and technical authority",
+        "relevant competence, experience, and a demonstrated track record",
+    )
+    other_prototypes: Tuple[str, ...] = (
+        "convenience, speed, and productivity",
+        "aesthetics, emotion, and personal preference",
+        "an unsupported recommendation or bare assertion",
+    )
 
     def labels(self) -> Dict[str, str]:
         return {
@@ -144,6 +165,14 @@ class TargetScorerConfig:
             "risk": self.risk_label,
             "expertise": self.expertise_label,
             "other": self.other_label,
+        }
+
+    def prototypes(self) -> Dict[str, Tuple[str, ...]]:
+        return {
+            "fairness": self.fairness_prototypes,
+            "risk": self.risk_prototypes,
+            "expertise": self.expertise_prototypes,
+            "other": self.other_prototypes,
         }
 
     def as_dict(self) -> Dict[str, object]:

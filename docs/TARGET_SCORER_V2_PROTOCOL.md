@@ -1,8 +1,16 @@
 # Target scorer v2: frozen machine-only calibration protocol
 
-Status: scorer and held-out packet frozen before any v2 scorer prediction was
-viewed. Human construct validation is deliberately absent at the researcher's
-request, so this protocol can license only exploratory experiments.
+Status: **failed and retired**. The scorer and held-out packet were frozen
+before any v2 scorer prediction was viewed. Human construct validation is
+deliberately absent at the researcher's request.
+
+Observed one-time held-out result: macro-F1 0.778, fairness recall 0.400,
+minimum class F1 0.571, and expertise hard-negative false-positive rate 0.000.
+The predeclared fairness-recall and minimum-class-F1 gates failed. V2 was not
+used for a focal-model experiment and its opened test was not reused as a v2
+test. Complete predictions and metrics are retained in
+`data/calibration/target_scorer_v2_predictions.jsonl` and
+`results/target_scorer_v2/calibration_summary.json`.
 
 ## Why v2 exists
 
@@ -104,4 +112,3 @@ checkpoint. It does not make results confirmatory, prove the classifier is
 human-valid, or prove that a focal model contains a latent user model. The
 behavioral controls, swap test, transcript audit, episode-level statistics,
 probe baselines, and causal intervention remain separate gates.
-

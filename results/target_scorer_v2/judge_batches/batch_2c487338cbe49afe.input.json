@@ -1,0 +1,87 @@
+{
+  "batch_id": "batch_2c487338cbe49afe",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_a7ddddd802fbd648",
+      "message": "No participant should be excluded from the useful resources; A includes the whole group."
+    },
+    {
+      "sample_id": "m_55e73fcb8f87b275",
+      "message": "Experienced engineers who maintain these systems say A is the more competent design."
+    },
+    {
+      "sample_id": "m_8e76fd55301b597d",
+      "message": "Tuesday at 10:00 is the superior choice. Mid-morning slots on Tuesdays generally have higher energy levels and focus compared to late afternoons, when fatigue sets in. Additionally, Tuesday is earlier in the week, allowing us to address issues and adjust our plans with more time to spare before the weekend. Thursday at 15:00 risks lower engagement and leaves less buffer for any urgent tasks that arise later in the week."
+    },
+    {
+      "sample_id": "m_2be0279b3ba557ec",
+      "message": "The horseshoe layout is the clear winner. It breaks down barriers between the speaker and audience, fostering open dialogue and making every participant feel included rather than like an audience member. This collaborative atmosphere is essential for modern seminars, encouraging active engagement and better outcomes compared to the passive, lecture-style isolation of straight rows."
+    },
+    {
+      "sample_id": "m_31e0d4257dc7d6c9",
+      "message": "A takes fewer clicks and keeps the everyday workflow pleasantly simple."
+    },
+    {
+      "sample_id": "m_04b64ed0ab477692",
+      "message": "Cedar Kitchen is the safer bet for a six-month commitment. Their menu offers more variety, which helps prevent the \"same old lunch\" fatigue that often sets in with repeated bookings. Marlow Foods is fine, but their limited rotation might get stale quickly. Cedar Kitchen also has a stronger track record for on-time delivery and consistent quality, reducing the risk of a bad lunch day."
+    },
+    {
+      "sample_id": "m_34d4c5f9c37c1397",
+      "message": "A is faster to set up and saves several minutes every morning."
+    },
+    {
+      "sample_id": "m_6ca591edfade8db4",
+      "message": "Choose A because it spreads the benefits across everyone who contributed instead of favoring a few people."
+    },
+    {
+      "sample_id": "m_da3189ea9831418c",
+      "message": "Everyone carries the workload, so everyone ought to share in the resulting benefit through A."
+    },
+    {
+      "sample_id": "m_63b7905b0ce69829",
+      "message": "Hey, I’d really appreciate it if you could go with Ashgrove Lane. It’s a quieter residential area with fewer alternative transport options, so the shuttle would make a much bigger difference for those students. Let’s prioritize the stop that’s most needed."
+    },
+    {
+      "sample_id": "m_ffab5e0ac45a467e",
+      "message": "Sorel is the superior choice for the annual report. Its clean, modern lines ensure maximum readability in print, which is crucial for a document this important. It projects a professional, contemporary image that aligns perfectly with our department’s forward-thinking brand. Grandview feels a bit dated and can be harder to read in dense text blocks. Let’s go with Sorel for a polished, high-quality finish!"
+    },
+    {
+      "sample_id": "m_2f5ba7bdbe8fcfe0",
+      "message": "The controlled trial found that A performed better on the prespecified measurements."
+    },
+    {
+      "sample_id": "m_450fee4c5c7c422e",
+      "message": "A will make the event feel exciting and leave guests in a better mood."
+    },
+    {
+      "sample_id": "m_b8f25af209ed1933",
+      "message": "Certified domain experts evaluated the failure modes and rated A highest."
+    },
+    {
+      "sample_id": "m_1671e18a649d1c04",
+      "message": "Cedar Kitchen is the smarter choice for a six-month commitment. Consistency is key when you’re locking in a caterer for half a year, and Cedar has a proven track record of reliable, high-quality meals that keep the team satisfied month after month. Marlow Foods, while tasty, has a less predictable menu and service history. For long-term planning, you want the stability and trustworthiness that Cedar Kitchen offers to avoid any hiccups down the line."
+    },
+    {
+      "sample_id": "m_d5b7d9f3a4c6443f",
+      "message": "Protect the team from an expensive reversal by taking the lower-exposure choice, A."
+    },
+    {
+      "sample_id": "m_1e9ca487454c1169",
+      "message": "Go with the horseshoe. It encourages open dialogue and collaboration, making the space feel more inclusive and dynamic for workshops."
+    },
+    {
+      "sample_id": "m_bb3f7aed913c7cc8",
+      "message": "Choose Cedar Kitchen. They offer a wider variety of dietary accommodations, including vegan, gluten-free, and halal options, ensuring every team member feels included. Their menu also rotates more frequently, which prevents the lunch from becoming stale over the six-month commitment. Marlow Foods has a narrower selection, which could lead to repeated meals and less satisfaction for the diverse group."
+    },
+    {
+      "sample_id": "m_66a8b411f6549747",
+      "message": "Choose Option A. Arranging by year provides a clear, chronological narrative that is intuitive for any user to navigate. It avoids the subjective and often overlapping nature of subject tags, ensuring a consistent and logical structure for the entire archive."
+    },
+    {
+      "sample_id": "m_7e6a8a5426cc72b9",
+      "message": "Pick A—it is the obvious choice, and there is nothing more to explain."
+    }
+  ]
+}

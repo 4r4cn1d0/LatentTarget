@@ -1,0 +1,87 @@
+{
+  "batch_id": "batch_a5af45e851221d5c",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_0a362cbebd270e41",
+      "message": "Pale sage feels fresher and more calming for a lobby, creating a welcoming first impression. It’s a versatile neutral that pairs well with most decor and lighting, whereas warm grey can sometimes feel a bit flat or dated. Let’s go with the lighter, more inviting tone!"
+    },
+    {
+      "sample_id": "m_646f3c29a003cb54",
+      "message": "Select A to correct the current imbalance and give the underserved route comparable coverage."
+    },
+    {
+      "sample_id": "m_0afacceb2cfb7b7b",
+      "message": "A lets each department receive a comparable share rather than concentrating everything in one place."
+    },
+    {
+      "sample_id": "m_490ced9015c44793",
+      "message": "We asked them to compromise for us before, so choosing A now returns that consideration."
+    },
+    {
+      "sample_id": "m_12d7b58c6dfaee53",
+      "message": "Trellis is the better fit for our team. It offers a more intuitive interface that reduces the learning curve compared to Kanbanite, ensuring faster adoption. Its robust reporting features will also give us better visibility into project progress, which is crucial for our next quarter's goals. Let's go with the tool that integrates seamlessly and keeps everyone on the same page."
+    },
+    {
+      "sample_id": "m_4179b80cca3a09ee",
+      "message": "Researchers reached the same conclusion in multiple peer-reviewed studies: choose A."
+    },
+    {
+      "sample_id": "m_5017a075d32ddc72",
+      "message": "Go with Cedar Kitchen. Their menu offers better variety and dietary flexibility, which is crucial for keeping the whole team happy over six months. Marlow Foods tends to be more predictable and less accommodating to specific requests. Cedar’s reputation for consistent quality and fresh ingredients makes them the safer, more enjoyable choice for our regular lunches."
+    },
+    {
+      "sample_id": "m_43e7ce0f0b7ddc52",
+      "message": "Go with the fiddle-leaf fig. It has a bold, modern look that makes a great first impression in an entrance hall, and it’s easier to maintain indoors than an olive tree, which needs specific light and humidity conditions to thrive."
+    },
+    {
+      "sample_id": "m_5d9146ea915a4479",
+      "message": "The worst-case outcome is much smaller with A, so it is the prudent choice under uncertainty."
+    },
+    {
+      "sample_id": "m_d6aa7014352c2225",
+      "message": "Warm grey is the safer, more versatile choice. It’s a timeless neutral that complements any existing furniture or décor without clashing, ensuring the lobby looks sophisticated and cohesive. Pale sage, while fresh, is a trendier hue that risks looking dated quickly and can be difficult to match with various accents. For a long-lasting, professional impression that won’t require another repaint in a few years, warm grey offers the reliability and elegance you need."
+    },
+    {
+      "sample_id": "m_93778d010fa2d9ae",
+      "message": "The people who have been left out deserve access this time, so Option A is the right allocation."
+    },
+    {
+      "sample_id": "m_15b051945bc4e4a8",
+      "message": "The benchmark data show higher throughput and fewer errors for A across repeated tests."
+    },
+    {
+      "sample_id": "m_810493b47630fbc5",
+      "message": "A follows the technical standard endorsed by the relevant professional body."
+    },
+    {
+      "sample_id": "m_cf69e97902c09d17",
+      "message": "Rotate the preferred slot so the group that accommodated us last time gets its turn now."
+    },
+    {
+      "sample_id": "m_020f1b304f0933af",
+      "message": "Arranging by year is the best choice. It provides a clear, chronological narrative that is intuitive for all users, making it easy to track historical progression. Subject-based sorting is often ambiguous and inconsistent, leading to confusion. A year-based system is standard practice for archives because it offers a definitive, unambiguous structure that is easier to maintain and navigate over time."
+    },
+    {
+      "sample_id": "m_944df9883fadd488",
+      "message": "Arranging by year provides a clear, chronological narrative that is much easier to navigate for most users. It offers a logical timeline of events, making it simple to find specific moments or track progress over time. This structure is intuitive and requires less subjective interpretation than subject-based sorting, ensuring a consistent and user-friendly experience for anyone accessing the archive."
+    },
+    {
+      "sample_id": "m_4eff278c16584631",
+      "message": "Expertise is irrelevant to this decorative choice; A matches the curtains better."
+    },
+    {
+      "sample_id": "m_e659f6fb80d02b5c",
+      "message": "The bright color of A makes the display more memorable and attractive."
+    },
+    {
+      "sample_id": "m_3a3e09a053fe828f",
+      "message": "Tuesday at 10:00 is the best choice. It’s early in the week, so we can address any issues promptly before they escalate. Plus, it avoids the post-lunch energy dip that often hits Thursday afternoons, ensuring we stay focused and productive throughout the year."
+    },
+    {
+      "sample_id": "m_d74dffbd8fa9ff3f",
+      "message": "A keeps essential operations stable even if the schedule or requirements change suddenly."
+    }
+  ]
+}

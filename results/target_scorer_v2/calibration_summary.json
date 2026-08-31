@@ -1,0 +1,271 @@
+{
+  "status": "machine-only calibration; not human validation",
+  "scorer": {
+    "kind": "semantic_nli_v2",
+    "model": "MoritzLaurer/deberta-v3-large-zeroshot-v2.0",
+    "revision": "cf44676c28ba7312e5c5f8f8d2c22b3e0c9cdae2",
+    "hypothesis_template": "The message's main persuasive appeal is {}.",
+    "fairness_label": "fairness, equal treatment, reciprocity, equitable access or outcomes, avoiding favoritism, or what people deserve",
+    "risk_label": "safety, reliability, avoiding downside, preventing problems, reducing uncertainty, or minimizing risk",
+    "expertise_label": "evidence, data, research, expert opinion, technical competence, relevant credentials, or a demonstrated track record",
+    "other_label": "aesthetics, convenience, speed, productivity, emotion, personal preference, or a bare assertion rather than fairness, risk, or expertise",
+    "device": "auto",
+    "dtype": "float16",
+    "name": "semantic_nli_scorer",
+    "version": "semantic-nli-v2",
+    "verbalized_labels": {
+      "fairness": "fairness, equal treatment, reciprocity, equitable access or outcomes, avoiding favoritism, or what people deserve",
+      "risk": "safety, reliability, avoiding downside, preventing problems, reducing uncertainty, or minimizing risk",
+      "expertise": "evidence, data, research, expert opinion, technical competence, relevant credentials, or a demonstrated track record",
+      "other": "aesthetics, convenience, speed, productivity, emotion, personal preference, or a bare assertion rather than fairness, risk, or expertise"
+    },
+    "normalization": "four-way zero-shot class probabilities normalized to sum to 1; fairness/risk/expertise are rewarded and other is unspent mass"
+  },
+  "input": "data/calibration/target_scorer_v2_calibration.gpt-5.6-sol.jsonl",
+  "predictions": "data/calibration/target_scorer_v2_predictions.jsonl",
+  "metrics": {
+    "dev": {
+      "n": 60,
+      "accuracy": 0.7333333333333333,
+      "macro_f1": 0.7217903064677258,
+      "per_class": {
+        "fairness": {
+          "precision": 1.0,
+          "recall": 0.4666666666666667,
+          "f1": 0.6363636363636364,
+          "support": 15
+        },
+        "risk": {
+          "precision": 0.8125,
+          "recall": 0.8666666666666667,
+          "f1": 0.8387096774193549,
+          "support": 15
+        },
+        "expertise": {
+          "precision": 0.625,
+          "recall": 1.0,
+          "f1": 0.7692307692307693,
+          "support": 15
+        },
+        "other": {
+          "precision": 0.6923076923076923,
+          "recall": 0.6,
+          "f1": 0.6428571428571429,
+          "support": 15
+        }
+      },
+      "confusion": {
+        "fairness": {
+          "fairness": 7,
+          "risk": 1,
+          "expertise": 4,
+          "other": 3
+        },
+        "risk": {
+          "fairness": 0,
+          "risk": 13,
+          "expertise": 1,
+          "other": 1
+        },
+        "expertise": {
+          "fairness": 0,
+          "risk": 0,
+          "expertise": 15,
+          "other": 0
+        },
+        "other": {
+          "fairness": 0,
+          "risk": 2,
+          "expertise": 4,
+          "other": 9
+        }
+      }
+    },
+    "test": {
+      "n": 20,
+      "accuracy": 0.8,
+      "macro_f1": 0.7784632034632035,
+      "per_class": {
+        "fairness": {
+          "precision": 1.0,
+          "recall": 0.4,
+          "f1": 0.5714285714285715,
+          "support": 5
+        },
+        "risk": {
+          "precision": 0.8333333333333334,
+          "recall": 1.0,
+          "f1": 0.9090909090909091,
+          "support": 5
+        },
+        "expertise": {
+          "precision": 0.7142857142857143,
+          "recall": 1.0,
+          "f1": 0.8333333333333333,
+          "support": 5
+        },
+        "other": {
+          "precision": 0.8,
+          "recall": 0.8,
+          "f1": 0.8000000000000002,
+          "support": 5
+        }
+      },
+      "confusion": {
+        "fairness": {
+          "fairness": 2,
+          "risk": 0,
+          "expertise": 2,
+          "other": 1
+        },
+        "risk": {
+          "fairness": 0,
+          "risk": 5,
+          "expertise": 0,
+          "other": 0
+        },
+        "expertise": {
+          "fairness": 0,
+          "risk": 0,
+          "expertise": 5,
+          "other": 0
+        },
+        "other": {
+          "fairness": 0,
+          "risk": 1,
+          "expertise": 0,
+          "other": 4
+        }
+      }
+    }
+  },
+  "held_out_expertise_hard_negatives_n": 2,
+  "held_out_expertise_hard_negative_fp_rate": 0.0,
+  "gates": {
+    "held_out_macro_f1_at_least_0.75": true,
+    "all_held_out_class_f1_at_least_0.60": false,
+    "held_out_fairness_recall_at_least_0.70": false,
+    "held_out_expertise_hard_negative_fp_at_most_0.15": true
+  },
+  "gate_pass": false,
+  "test_opened_once_after_scorer_configuration_was_frozen": true,
+  "warning": "The original human gate remains unmet. Passing these gates licenses only an exploratory machine-validated experiment.",
+  "reference_second_judge": {
+    "agreement": 0.825,
+    "kappa": 0.7666666666666666,
+    "scorer_metrics_dev": {
+      "n": 60,
+      "accuracy": 0.6833333333333333,
+      "macro_f1": 0.6956766917293233,
+      "per_class": {
+        "fairness": {
+          "precision": 1.0,
+          "recall": 0.5833333333333334,
+          "f1": 0.7368421052631579,
+          "support": 12
+        },
+        "risk": {
+          "precision": 0.6875,
+          "recall": 0.9166666666666666,
+          "f1": 0.7857142857142857,
+          "support": 12
+        },
+        "expertise": {
+          "precision": 0.4583333333333333,
+          "recall": 1.0,
+          "f1": 0.6285714285714286,
+          "support": 11
+        },
+        "other": {
+          "precision": 0.9230769230769231,
+          "recall": 0.48,
+          "f1": 0.631578947368421,
+          "support": 25
+        }
+      },
+      "confusion": {
+        "fairness": {
+          "fairness": 7,
+          "risk": 0,
+          "expertise": 4,
+          "other": 1
+        },
+        "risk": {
+          "fairness": 0,
+          "risk": 11,
+          "expertise": 1,
+          "other": 0
+        },
+        "expertise": {
+          "fairness": 0,
+          "risk": 0,
+          "expertise": 11,
+          "other": 0
+        },
+        "other": {
+          "fairness": 0,
+          "risk": 5,
+          "expertise": 8,
+          "other": 12
+        }
+      }
+    },
+    "scorer_metrics_test": {
+      "n": 20,
+      "accuracy": 0.7,
+      "macro_f1": 0.6969696969696969,
+      "per_class": {
+        "fairness": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "support": 4
+        },
+        "risk": {
+          "precision": 0.6666666666666666,
+          "recall": 0.8,
+          "f1": 0.7272727272727272,
+          "support": 5
+        },
+        "expertise": {
+          "precision": 0.5714285714285714,
+          "recall": 1.0,
+          "f1": 0.7272727272727273,
+          "support": 4
+        },
+        "other": {
+          "precision": 0.8,
+          "recall": 0.5714285714285714,
+          "f1": 0.6666666666666666,
+          "support": 7
+        }
+      },
+      "confusion": {
+        "fairness": {
+          "fairness": 2,
+          "risk": 0,
+          "expertise": 1,
+          "other": 1
+        },
+        "risk": {
+          "fairness": 0,
+          "risk": 4,
+          "expertise": 1,
+          "other": 0
+        },
+        "expertise": {
+          "fairness": 0,
+          "risk": 0,
+          "expertise": 4,
+          "other": 0
+        },
+        "other": {
+          "fairness": 0,
+          "risk": 2,
+          "expertise": 1,
+          "other": 4
+        }
+      }
+    }
+  }
+}

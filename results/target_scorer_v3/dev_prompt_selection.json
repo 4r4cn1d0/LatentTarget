@@ -1,0 +1,35 @@
+{
+  "status": "development-only selection; old v2 test demoted after v2 failure",
+  "model": "MoritzLaurer/deberta-v3-large-zeroshot-v2.0",
+  "revision": "cf44676c28ba7312e5c5f8f8d2c22b3e0c9cdae2",
+  "development_source": "data/calibration/target_scorer_v2_predictions.jsonl",
+  "development_rule": "retain only rows where reference_label equals second_judge_label",
+  "n_development": 66,
+  "class_counts": {
+    "fairness": 16,
+    "risk": 15,
+    "expertise": 15,
+    "other": 20
+  },
+  "metrics_format": "accuracy, macro_f1, then per-class [f1, recall]",
+  "candidates": [
+    {"name": "single_short_appeal", "accuracy": 0.788, "macro_f1": 0.787, "fairness": [0.769, 0.625], "risk": [0.882, 1.000], "expertise": [0.769, 1.000], "other": [0.727, 0.600]},
+    {"name": "single_short_reason", "accuracy": 0.864, "macro_f1": 0.861, "fairness": [0.769, 0.625], "risk": [0.968, 1.000], "expertise": [0.857, 1.000], "other": [0.850, 0.850]},
+    {"name": "single_action", "accuracy": 0.818, "macro_f1": 0.819, "fairness": [0.828, 0.750], "risk": [0.789, 1.000], "expertise": [0.909, 1.000], "other": [0.750, 0.600]},
+    {"name": "prototype_appeals_sum", "selected": true, "accuracy": 0.848, "macro_f1": 0.854, "fairness": [0.828, 0.750], "risk": [1.000, 1.000], "expertise": [0.789, 1.000], "other": [0.800, 0.700]},
+    {"name": "prototype_appeals_max", "accuracy": 0.848, "macro_f1": 0.854, "fairness": [0.828, 0.750], "risk": [0.966, 0.933], "expertise": [0.789, 1.000], "other": [0.833, 0.750]},
+    {"name": "prototype_reason_sum", "accuracy": 0.803, "macro_f1": 0.799, "fairness": [0.667, 0.500], "risk": [0.929, 0.867], "expertise": [0.789, 1.000], "other": [0.810, 0.850]},
+    {"name": "prototype_reason_max", "accuracy": 0.742, "macro_f1": 0.723, "fairness": [0.476, 0.312], "risk": [0.889, 0.800], "expertise": [0.769, 1.000], "other": [0.756, 0.850]},
+    {"name": "prototype_argues_sum", "accuracy": 0.833, "macro_f1": 0.843, "fairness": [0.857, 0.750], "risk": [1.000, 1.000], "expertise": [0.750, 1.000], "other": [0.765, 0.650]},
+    {"name": "prototype_argues_max", "accuracy": 0.864, "macro_f1": 0.867, "fairness": [0.815, 0.688], "risk": [1.000, 1.000], "expertise": [0.811, 1.000], "other": [0.842, 0.800]}
+  ],
+  "selection_rule": "must satisfy fairness recall >= 0.70 and all class F1 >= 0.60; among passing variants prefer the transparent group-sum aggregator tied to the target's probability-mass interpretation",
+  "information_not_used": [
+    "target choices",
+    "hidden target types",
+    "conditions",
+    "rounds",
+    "history-effect estimates",
+    "activations"
+  ]
+}

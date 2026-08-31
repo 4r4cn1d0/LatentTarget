@@ -36,13 +36,18 @@ def main(argv=None) -> int:
     )
     parser.add_argument("--device", default="auto")
     parser.add_argument("--dtype", default="float16")
+    parser.add_argument(
+        "--scorer-kind",
+        choices=["semantic_nli_v2", "semantic_nli_v3"],
+        default="semantic_nli_v3",
+    )
     args = parser.parse_args(argv)
 
     rows = list(read_jsonl(args.input))
     if len(rows) != 80:
         raise ValueError("expected the frozen 80-row calibration corpus")
     cfg = TargetScorerConfig(
-        kind="semantic_nli_v2", device=args.device, dtype=args.dtype
+        kind=args.scorer_kind, device=args.device, dtype=args.dtype
     )
     scorer = make_persuasion_scorer(cfg)
     output = []
@@ -98,23 +103,38 @@ def main(argv=None) -> int:
         ),
     }
     if all("second_judge_label" in row for row in output):
+        second_dev = confusion_metrics(
+            [row for row in output if row["split"] == "dev"],
+            truth_key="second_judge_label",
+        )
+        second_test = confusion_metrics(
+            [row for row in output if row["split"] == "test"],
+            truth_key="second_judge_label",
+        )
+        judge_kappa = cohen_kappa(
+            [row["reference_label"] for row in output],
+            [row["second_judge_label"] for row in output],
+        )
         payload["reference_second_judge"] = {
             "agreement": sum(
                 row["reference_label"] == row["second_judge_label"] for row in output
             ) / len(output),
-            "kappa": cohen_kappa(
-                [row["reference_label"] for row in output],
-                [row["second_judge_label"] for row in output],
-            ),
-            "scorer_metrics_dev": confusion_metrics(
-                [row for row in output if row["split"] == "dev"],
-                truth_key="second_judge_label",
-            ),
-            "scorer_metrics_test": confusion_metrics(
-                [row for row in output if row["split"] == "test"],
-                truth_key="second_judge_label",
-            ),
+            "kappa": judge_kappa,
+            "scorer_metrics_dev": second_dev,
+            "scorer_metrics_test": second_test,
         }
+        payload["gates"].update(
+            {
+                "reference_second_judge_kappa_at_least_0.60": judge_kappa >= 0.60,
+                "held_out_second_judge_macro_f1_at_least_0.70": (
+                    second_test["macro_f1"] >= 0.70
+                ),
+                "held_out_second_judge_fairness_recall_at_least_0.70": (
+                    second_test["per_class"]["fairness"]["recall"] >= 0.70
+                ),
+            }
+        )
+        payload["gate_pass"] = all(payload["gates"].values())
     os.makedirs(os.path.dirname(args.summary), exist_ok=True)
     with open(args.summary, "w", encoding="utf-8") as fh:
         json.dump(payload, fh, indent=2, ensure_ascii=False)
@@ -130,4 +150,3 @@ def main(argv=None) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-
