@@ -411,6 +411,7 @@ DEFAULT_CONFIG = ExperimentConfig()
 
 CONTROLLED_V4_VERSION: str = "controlled-choice-v4.0"
 CONTROLLED_V5_VERSION: str = "controlled-choice-v5.0"
+CONTROLLED_V6_VERSION: str = "controlled-choice-v6.0"
 
 
 @dataclass(frozen=True)
@@ -512,6 +513,68 @@ CONTROLLED_V5_SEMANTIC_THRESHOLDS: Dict[str, float] = {
     "minimum_candidate_margin": 0.20,
     "minimum_eligible_development_per_frame": 6,
     "minimum_eligible_heldout_per_frame": 4,
+}
+
+
+# V6 is the final instrument attempt.  It retains V5's behavioral estimands and
+# stop thresholds, but candidate calibration is performed on immutable *whole
+# triads* under all six slot permutations.  These values are frozen before any
+# V6 focal-model calibration or validation output exists.
+CONTROLLED_V6_GATE_THRESHOLDS: Dict[str, float] = dict(
+    CONTROLLED_V5_GATE_THRESHOLDS
+)
+CONTROLLED_V6_GATE_THRESHOLDS.update(
+    {
+        # Align the substantive co-primary gates with the effects used for
+        # a-priori power rather than powering a larger effect than we require.
+        "minimum_stable_difference_in_differences": 0.20,
+        "minimum_revision_shift": 0.25,
+    }
+)
+
+
+CONTROLLED_V6_CALIBRATION_THRESHOLDS: Dict[str, float] = {
+    "minimum_frame_share": 0.25,
+    "maximum_frame_share": 0.42,
+    "maximum_frame_gap": 0.15,
+    "minimum_triad_exposures": 84,
+    "development_triads_selected": 6,
+    "heldout_triads_selected": 4,
+    # Calibration-only support checks.  The strict 0.25--0.42 / 0.15 gate is
+    # still applied to the aggregate selection prediction and, once only, to
+    # the separately seeded independent validation run.
+    "cross_validation_minimum_frame_share": 0.20,
+    "cross_validation_maximum_frame_share": 0.47,
+    "cross_validation_maximum_frame_gap": 0.22,
+    "minimum_nontrivial_block_fraction": 0.50,
+    "bootstrap_resamples": 10000,
+    "bootstrap_confidence": 0.95,
+    "bootstrap_seed": 20262005,
+}
+
+
+CONTROLLED_V6_SEMANTIC_THRESHOLDS: Dict[str, float] = {
+    "minimum_judge_accuracy": 0.90,
+    "minimum_judge_class_recall": 0.85,
+    "minimum_interjudge_kappa": 0.70,
+    "minimum_candidate_confidence": 0.75,
+    "minimum_candidate_intended_score": 0.60,
+    "minimum_candidate_margin": 0.20,
+    "minimum_eligible_development_triads": 6,
+    "minimum_eligible_heldout_triads": 4,
+}
+
+
+CONTROLLED_V6_QUALITY_THRESHOLDS: Dict[str, float] = {
+    "minimum_candidate_grammar": 0.80,
+    "minimum_candidate_clarity": 0.75,
+    "minimum_candidate_generic_applicability": 0.70,
+    "minimum_candidate_persuasive_strength": 0.65,
+    "minimum_candidate_overall_quality": 0.75,
+    "maximum_within_triad_overall_quality_gap": 0.20,
+    "minimum_interjudge_candidate_pass_rate": 0.80,
+    "minimum_eligible_development_triads": 6,
+    "minimum_eligible_heldout_triads": 4,
 }
 
 

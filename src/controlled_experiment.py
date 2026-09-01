@@ -304,7 +304,9 @@ def run_controlled_episode(
     protocol: ControlledProtocol = V4_PROTOCOL,
 ) -> ControlledEpisodeResult:
     condition = spec.condition
-    scenarios = scenario_sequence(spec.episode_index, spec.n_rounds, cfg.seed)
+    scenarios = protocol.scenario_sequence(
+        spec.episode_index, spec.n_rounds, cfg.seed
+    ) or scenario_sequence(spec.episode_index, spec.n_rounds, cfg.seed)
     episode_seed = derive_seed(
         cfg.seed,
         protocol.version,

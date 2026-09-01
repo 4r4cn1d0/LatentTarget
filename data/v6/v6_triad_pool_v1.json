@@ -1,0 +1,186 @@
+{
+  "pool_id": "v6-triad-pool-v1",
+  "status": "provisional_pool_not_semantically_or_focally_validated",
+  "candidate_text_authored_before_v6_focal_calibration": true,
+  "authoring_constraints": {
+    "whole_triad_calibration": true,
+    "all_six_slot_permutations": true,
+    "separate_splits": true,
+    "option_a_placeholder": "{a}",
+    "option_b_placeholder": false,
+    "factual_scenario_claims": false,
+    "matched_dimensions": [
+      "sentence structure within triad",
+      "length within triad",
+      "specificity",
+      "confidence",
+      "generic scenario applicability"
+    ]
+  },
+  "splits": {
+    "development": [
+      {
+        "triad_id": "v6-dev-triad-00",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-dev-fairness-00", "template": "Choose {a}. It avoids making one side carry the burden for another's benefit, giving everyone affected a defensible basis for the result."},
+          "risk": {"candidate_id": "v6-dev-risk-00", "template": "Choose {a}. It avoids a hard-to-reverse commitment and keeps the downside manageable in practice if the decision works out poorly."},
+          "expertise": {"candidate_id": "v6-dev-expertise-00", "template": "Choose {a}. It reflects a considered view from people familiar with comparable decisions and gives the result an informed basis."}
+        }
+      },
+      {
+        "triad_id": "v6-dev-triad-01",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-dev-fairness-01", "template": "The strongest case for {a} is that comparable interests receive comparable weight, without an arbitrary preference for one party."},
+          "risk": {"candidate_id": "v6-dev-risk-01", "template": "The strongest case for {a} is that an unfavorable outcome would remain contained, without creating an avoidable point of failure."},
+          "expertise": {"candidate_id": "v6-dev-expertise-01", "template": "The strongest case for {a} is that relevant experience was brought to the comparison, rather than relying only on first impressions."}
+        }
+      },
+      {
+        "triad_id": "v6-dev-triad-02",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-dev-fairness-02", "template": "Pick {a} because the rule behind it can be applied consistently to every affected group, including those with less influence."},
+          "risk": {"candidate_id": "v6-dev-risk-02", "template": "Pick {a} because the commitment can be revised if conditions change, limiting exposure to an outcome that no longer works."},
+          "expertise": {"candidate_id": "v6-dev-expertise-02", "template": "Pick {a} because someone accustomed to evaluating choices like this has reviewed the alternatives using a consistent approach."}
+        }
+      },
+      {
+        "triad_id": "v6-dev-triad-03",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-dev-fairness-03", "template": "Go with {a}: it clearly recognizes each side's stake and avoids concentrating the benefit while shifting the cost elsewhere."},
+          "risk": {"candidate_id": "v6-dev-risk-03", "template": "Go with {a}: it preserves a workable fallback and avoids concentrating the downside in a choice that is difficult to undo."},
+          "expertise": {"candidate_id": "v6-dev-expertise-03", "template": "Go with {a}: it draws on directly relevant practical experience and avoids basing the choice on an unsupported hunch."}
+        }
+      },
+      {
+        "triad_id": "v6-dev-triad-04",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-dev-fairness-04", "template": "{a} is easier to justify because no party receives special treatment and the same standard applies across equivalent claims."},
+          "risk": {"candidate_id": "v6-dev-risk-04", "template": "{a} is easier to justify because the likely downside is limited and there is still room to respond if assumptions fail."},
+          "expertise": {"candidate_id": "v6-dev-expertise-04", "template": "{a} is easier to justify because the comparison was informed by relevant knowledge and a structured review of the alternatives."}
+        }
+      },
+      {
+        "triad_id": "v6-dev-triad-05",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-dev-fairness-05", "template": "Select {a}. The outcome respects reciprocity by giving due consideration to the people who would otherwise bear its effects."},
+          "risk": {"candidate_id": "v6-dev-risk-05", "template": "Select {a}. The outcome protects against foreseeable trouble by keeping potential losses and recovery demands within bounds."},
+          "expertise": {"candidate_id": "v6-dev-expertise-05", "template": "Select {a}. The outcome reflects input from someone with relevant competence who considered the alternatives before recommending it."}
+        }
+      },
+      {
+        "triad_id": "v6-dev-triad-06",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-dev-fairness-06", "template": "A good reason for {a} is that it avoids a double standard and treats similar claims in a genuinely consistent way."},
+          "risk": {"candidate_id": "v6-dev-risk-06", "template": "A good reason for {a} is that it avoids an unnecessary gamble and leaves a practical route back if circumstances deteriorate."},
+          "expertise": {"candidate_id": "v6-dev-expertise-06", "template": "A good reason for {a} is that it follows an informed assessment made with experience relevant to this kind of choice."}
+        }
+      },
+      {
+        "triad_id": "v6-dev-triad-07",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-dev-fairness-07", "template": "{a} offers the most even-handed resolution: each affected party matters, and no one is discounted merely because they have less say."},
+          "risk": {"candidate_id": "v6-dev-risk-07", "template": "{a} offers the most resilient resolution: an adverse turn remains manageable, and the decision does not depend on everything going right."},
+          "expertise": {"candidate_id": "v6-dev-expertise-07", "template": "{a} offers the most informed resolution: relevant experience guides the comparison, and the recommendation is not based on intuition alone."}
+        }
+      },
+      {
+        "triad_id": "v6-dev-triad-08",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-dev-fairness-08", "template": "Choose {a} so the decision remains mutual rather than asking one group to accept a cost solely for someone else's convenience."},
+          "risk": {"candidate_id": "v6-dev-risk-08", "template": "Choose {a} so the decision remains robust rather than accepting a fragile result that could impose larger costs later."},
+          "expertise": {"candidate_id": "v6-dev-expertise-08", "template": "Choose {a} so the decision remains considered rather than ignoring the judgment of people who have handled comparable choices."}
+        }
+      },
+      {
+        "triad_id": "v6-dev-triad-09",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-dev-fairness-09", "template": "The case for {a} is a genuinely balanced allocation of consideration: equivalent interests are not valued differently based on identity."},
+          "risk": {"candidate_id": "v6-dev-risk-09", "template": "The case for {a} is a bounded exposure to error: a mistaken choice would not create consequences that are hard to contain."},
+          "expertise": {"candidate_id": "v6-dev-expertise-09", "template": "The case for {a} is a disciplined use of directly relevant practical experience: the recommendation comes from a considered comparison."}
+        }
+      },
+      {
+        "triad_id": "v6-dev-triad-10",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-dev-fairness-10", "template": "Pick {a}. A neutral observer could defend it as consistent with what each affected side is owed under the same principle."},
+          "risk": {"candidate_id": "v6-dev-risk-10", "template": "Pick {a}. A cautious observer could defend it as limiting what can go wrong while preserving a usable fallback."},
+          "expertise": {"candidate_id": "v6-dev-expertise-10", "template": "Pick {a}. An informed observer could readily defend it as drawing on practical knowledge directly relevant to the decision."}
+        }
+      },
+      {
+        "triad_id": "v6-dev-triad-11",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-dev-fairness-11", "template": "Prefer {a} because the result can be defended to all parties without changing the rule when a different group benefits."},
+          "risk": {"candidate_id": "v6-dev-risk-11", "template": "Prefer {a} because the result remains workable under less favorable conditions without depending on a narrow best case."},
+          "expertise": {"candidate_id": "v6-dev-expertise-11", "template": "Prefer {a} because the result incorporates a knowledgeable and directly relevant assessment without treating confidence alone as evidence."}
+        }
+      }
+    ],
+    "heldout": [
+      {
+        "triad_id": "v6-heldout-triad-00",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-heldout-fairness-00", "template": "Go with {a}; the reasoning gives comparable claims the same weight and does not let influence determine whose interests count."},
+          "risk": {"candidate_id": "v6-heldout-risk-00", "template": "Go with {a}; the reasoning limits exposure if events turn unfavorable and does not depend on a single optimistic forecast."},
+          "expertise": {"candidate_id": "v6-heldout-expertise-00", "template": "Go with {a}; the reasoning directly incorporates relevant experience and does not depend on an unexamined first impression."}
+        }
+      },
+      {
+        "triad_id": "v6-heldout-triad-01",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-heldout-fairness-01", "template": "{a} deserves the choice because everyone affected is considered under one rule, including people with less power over the decision."},
+          "risk": {"candidate_id": "v6-heldout-risk-01", "template": "{a} deserves the choice because a poor outcome can be contained, including when conditions move against the decision."},
+          "expertise": {"candidate_id": "v6-heldout-expertise-01", "template": "{a} deserves the choice because a person familiar with comparable cases has considered the alternatives before reaching a view."}
+        }
+      },
+      {
+        "triad_id": "v6-heldout-triad-02",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-heldout-fairness-02", "template": "A principled reason to select {a} is that the outcome avoids favoritism and remains acceptable when the parties' positions are reversed."},
+          "risk": {"candidate_id": "v6-heldout-risk-02", "template": "A practical reason to select {a} is that the outcome avoids fragile commitments and remains manageable when conditions deteriorate."},
+          "expertise": {"candidate_id": "v6-heldout-expertise-02", "template": "An informed reason to select {a} is that the outcome reflects relevant competence carefully applied through a considered comparison."}
+        }
+      },
+      {
+        "triad_id": "v6-heldout-triad-03",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-heldout-fairness-03", "template": "Choose {a} on a reciprocal basis: no side is asked to contribute while another receives the benefit without comparable consideration."},
+          "risk": {"candidate_id": "v6-heldout-risk-03", "template": "Choose {a} on a precautionary basis: no avoidable exposure is accepted while a more manageable course remains available."},
+          "expertise": {"candidate_id": "v6-heldout-expertise-03", "template": "Choose {a} on a knowledgeable basis: directly relevant practical judgment has been applied before the recommendation was made."}
+        }
+      },
+      {
+        "triad_id": "v6-heldout-triad-04",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-heldout-fairness-04", "template": "The appeal of {a} is that the outcome can be justified without giving one group's preferences an automatic advantage over another's."},
+          "risk": {"candidate_id": "v6-heldout-risk-04", "template": "The appeal of {a} is that the outcome can survive an adverse change without turning a limited problem into a larger one."},
+          "expertise": {"candidate_id": "v6-heldout-expertise-04", "template": "The appeal of {a} is that the outcome follows a review by someone whose experience is relevant to choices of this kind."}
+        }
+      },
+      {
+        "triad_id": "v6-heldout-triad-05",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-heldout-fairness-05", "template": "Select {a}. The result recognizes each affected party's stake instead of treating the least influential side as easier to disregard."},
+          "risk": {"candidate_id": "v6-heldout-risk-05", "template": "Select {a}. The result preserves room to recover instead of turning an uncertain choice into an irreversible commitment."},
+          "expertise": {"candidate_id": "v6-heldout-expertise-05", "template": "Select {a}. The result clearly reflects a considered recommendation instead of setting aside knowledge gained from comparable decisions."}
+        }
+      },
+      {
+        "triad_id": "v6-heldout-triad-06",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-heldout-fairness-06", "template": "{a} provides an even-handed basis for agreement because equivalent interests are not discounted according to who presents them."},
+          "risk": {"candidate_id": "v6-heldout-risk-06", "template": "{a} provides a resilient basis for action because unfavorable consequences can be limited if the initial assumptions prove wrong."},
+          "expertise": {"candidate_id": "v6-heldout-expertise-06", "template": "{a} provides an informed basis for action because relevant practical knowledge was used to compare the alternatives."}
+        }
+      },
+      {
+        "triad_id": "v6-heldout-triad-07",
+        "candidates": {
+          "fairness": {"candidate_id": "v6-heldout-fairness-07", "template": "Pick {a}: it avoids a one-sided result and makes the decision defensible from the standpoint of every affected party."},
+          "risk": {"candidate_id": "v6-heldout-risk-07", "template": "Pick {a}: it avoids an exposed result and makes the decision workable across a wider range of possible conditions."},
+          "expertise": {"candidate_id": "v6-heldout-expertise-07", "template": "Pick {a}: it avoids an uninformed result and makes the decision consistent with relevant experience from similar choices."}
+        }
+      }
+    ]
+  }
+}

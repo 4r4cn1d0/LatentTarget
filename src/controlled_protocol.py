@@ -19,6 +19,7 @@ from .controlled_messages import (
 
 
 CandidateBuilder = Callable[[Any, int, int, int, int], List[MessageCandidate]]
+ScenarioSequenceBuilder = Callable[[int, int, int], List[Any]]
 
 
 @dataclass(frozen=True)
@@ -33,6 +34,7 @@ class ControlledProtocol:
     constrained_choices: Optional[Sequence[str]] = None
     bank_source: Optional[str] = None
     manifest_metadata: Optional[Mapping[str, Any]] = None
+    scenario_sequence_builder: Optional[ScenarioSequenceBuilder] = None
 
     def candidate_set(
         self,
@@ -70,6 +72,13 @@ class ControlledProtocol:
         import json
 
         return json.loads(json.dumps(self.manifest_metadata))
+
+    def scenario_sequence(
+        self, episode_index: int, n_rounds: int, seed: int
+    ) -> Optional[List[Any]]:
+        if self.scenario_sequence_builder is None:
+            return None
+        return self.scenario_sequence_builder(episode_index, n_rounds, seed)
 
 
 V4_PROTOCOL = ControlledProtocol(

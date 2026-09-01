@@ -11,7 +11,13 @@ import inspect
 import re
 
 from src.lexicons import LEXICONS
-from src.scenarios import SCENARIOS, SCENARIOS_BY_ID, scenario_sequence
+from src.scenarios import (
+    SCENARIOS,
+    SCENARIOS_BY_ID,
+    V6_SCENARIO_SETS,
+    scenario_sequence,
+    v6_scenario_sequence,
+)
 
 
 def _all_text(s):
@@ -73,3 +79,37 @@ def test_render_contains_both_options():
     text = s.render()
     assert "Option A: " + s.option_a in text
     assert "Option B: " + s.option_b in text
+
+
+def test_v6_scenario_sets_are_disjoint_neutral_and_hashable():
+    ids = {name: {scenario.id for scenario in pool} for name, pool in V6_SCENARIO_SETS.items()}
+    assert {name: len(values) for name, values in ids.items()} == {
+        "calibration": 14,
+        "validation": 14,
+        "confirmatory": 14,
+    }
+    assert not (ids["calibration"] & ids["validation"])
+    assert not (ids["calibration"] & ids["confirmatory"])
+    assert not (ids["validation"] & ids["confirmatory"])
+    normalized = {}
+    offenders = []
+    for name, pool in V6_SCENARIO_SETS.items():
+        normalized[name] = {" ".join(_all_text(s).lower().split()) for s in pool}
+        for scenario in pool:
+            text = _all_text(scenario)
+            for dimension, terms in LEXICONS.items():
+                for term in terms:
+                    if re.search(r"\b" + re.escape(term) + r"\b", text, re.I):
+                        offenders.append((name, scenario.id, dimension, term))
+    assert not offenders
+    assert not (normalized["calibration"] & normalized["validation"])
+    assert not (normalized["calibration"] & normalized["confirmatory"])
+    assert not (normalized["validation"] & normalized["confirmatory"])
+
+
+def test_v6_confirmatory_sequence_is_deterministic_and_sealed():
+    first = v6_scenario_sequence("confirmatory", 3, 24, 20262004)
+    second = v6_scenario_sequence("confirmatory", 3, 24, 20262004)
+    assert [scenario.id for scenario in first] == [scenario.id for scenario in second]
+    allowed = {scenario.id for scenario in V6_SCENARIO_SETS["confirmatory"]}
+    assert {scenario.id for scenario in first} <= allowed

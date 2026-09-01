@@ -869,3 +869,73 @@ synthetic validation and from claims that still require a real model.
   steering were not run. The next design must be V6 with triad-level
   calibration, a pre-validation feasibility gate, and a fresh independent
   validation seed. Full record: `docs/V5_CALIBRATION_RUN_20260901.md`.
+
+## 2026-09-02 — V6 final pre-outcome design and implementation
+
+- Declared V6 the final instrument attempt: there is no V7 rescue. Semantic,
+  quality, calibration-support, or independent-validation failure terminates
+  with an instrument limitation; confirmatory failure is a final negative
+  behavioral result. No activation, probe, steering, or free-form rescue is
+  authorized in this milestone.
+- Authored an immutable pool of 12 development and 8 held-out whole triads.
+  Each triad has one registered fairness, risk, and expertise message, matched
+  sentence count and at most two words of within-triad length difference.
+  Candidate text existed before any V6 focal-model output. Canonical pool hash:
+  `27647df5d04c194e3595284f1c686155a16c0bf3fea19f82e7c3789ed8393828`.
+- Added three disjoint, lexicon-audited 14-scenario sets. Calibration uses the
+  historical neutral set; validation and confirmation each use separately
+  authored scenarios. Exact IDs and normalized texts have zero pairwise
+  overlap. The frozen JSON records all three canonical hashes.
+- Implemented two independent target-free machine gates. The semantic gate
+  uses two distinct blind Codex judges and requires registered-frame accuracy,
+  class recall, agreement, confidence, score, margin, and enough complete
+  triads. The separate quality gate uses a different prompt/schema/cache and
+  scores grammar, clarity, generic applicability, persuasive strength, and
+  overall quality. Judges receive only opaque sample IDs and message text;
+  intended frame, triad, and split are joined after both calls. This remains
+  machine-only validation, not a substitute for human labels.
+- Implemented complete focal-model pool screening: `20 × 14 × 6 = 1,680`
+  exact constrained choices with every triad exposed 84 times and every frame
+  occupying every slot 28 times. The model receives no target simulator and no
+  history. Selection is whole-triad exhaustive search, separately for 6
+  development and 4 held-out triads.
+- Implemented genuine seven-fold scenario cross-validation. Each fold selects
+  triads using 12 scenarios and evaluates the selected subset only on the
+  untouched pair. Final selection uses all 14 calibration scenarios only after
+  the procedure-level support gate passes.
+- Implemented one independent target-free bank validation on
+  `10 × 14 × 6 = 840` choices from the disjoint validation scenarios. It checks
+  overall/development/held-out balance, all seven two-scenario support folds,
+  a 10,000-resample scenario-cluster bootstrap with frozen seed `20262005`, and
+  an anti-position gate requiring frame-specific preference in at least half
+  of scenario-by-triad blocks. Validation output cannot re-enter selection.
+- Froze the current official dense `Qwen/Qwen3.8-27B` revision
+  `1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0`, deterministic non-thinking
+  constrained decoding, all seeds, thresholds, power grid, target parameters,
+  terminal rules, and the single-run policy in
+  `docs/v6_calibration_protocol.json` before any V6 judge or focal output.
+- During pre-judge review, fixed a real CLI bug that attempted `int(null)` for
+  the deliberately absent legacy episode-block count. Also made the bootstrap
+  seed explicit and corrected the prose protocol from a stale 24-block design
+  to the actual 840-choice complete-permutation validation.
+- The same review found an incoherent quality gate: it computed eligible triads
+  but required all 60 pool candidates to pass, so one unused borderline message
+  would terminate V6. Before seeing judge outputs, the rule was frozen as an
+  0.80 per-judge and joint candidate pass floor plus at least 6 development and
+  4 held-out fully eligible triads. A selected triad still requires all three
+  members to pass both judges and the within-triad quality-gap check.
+- Strengthened the paid-run protocol audit to verify all scenario hashes,
+  disjointness, fold definitions, exact schedule dimensions, generation
+  settings, model revision, judge identities, artifact hashes, machine-only
+  declaration, and absence of any legacy episode-count override.
+- The installed `gsd-autonomous` and `gsd-code-review` skills were selected as
+  requested, but both dispatchers reference absent machine-local workflow
+  files under `/Users/spiderishi/.Codex/get-shit-done/workflows/`. Their
+  discuss → plan → execute → verify and deep-review outcomes were applied
+  directly and the missing dependency is recorded rather than hidden.
+- **VERIFIED SO FAR:** 69 focused V6 tests and the complete **412/412**
+  repository suite pass after review fixes. Compilation and JSON parsing pass;
+  pool and all three scenario hashes exactly match the frozen JSON;
+  `git diff --check` passes; the repository secret scan found no live
+  credential. No V6 judge, focal calibration, target-bearing, activation,
+  probe, or steering result exists yet.

@@ -1,0 +1,186 @@
+{
+  "protocol_version": "v6-calibration-protocol-1.0",
+  "task_version": "controlled-choice-v6.0",
+  "status": "READY_FOR_BLIND_MACHINE_SEMANTIC_AND_QUALITY_GATES",
+  "frozen_at": "2026-09-02",
+  "pre_target_outcomes": true,
+  "final_version_no_v7_rescue": true,
+  "machine_only_validation": true,
+  "human_validation": false,
+  "candidate_pool": {
+    "path": "data/v6/v6_triad_pool_v1.json",
+    "sha256": "27647df5d04c194e3595284f1c686155a16c0bf3fea19f82e7c3789ed8393828",
+    "file_sha256": "37a98727ef78bce0ab7685482fce5f8a8537c83807ba79c93c8810d835bee847",
+    "n_development_triads": 12,
+    "n_heldout_triads": 8,
+    "candidate_text_authored_before_v6_focal_calibration": true
+  },
+  "scenario_sets": {
+    "calibration": {
+      "n_scenarios": 14,
+      "canonical_sha256": "7b19bfaf344780684642ef6f9af8175f90dae17b0a12ee79b1476433cbae77a5"
+    },
+    "validation": {
+      "n_scenarios": 14,
+      "canonical_sha256": "cfdf0cabba9a43e0072fbd407955128eefacd8b82a49d00432df2c7b956fd419"
+    },
+    "confirmatory": {
+      "n_scenarios": 14,
+      "canonical_sha256": "42f93dbb32d48901961ca7649455b0ad380bdd7a4b8055f22c069895012ea6e2"
+    },
+    "required_pairwise_id_and_normalized_text_overlap": 0
+  },
+  "semantic_validation": {
+    "path": "results/v6_design/semantic_validation/summary.json",
+    "judges": ["gpt-5.6-sol", "gpt-5.6-luna"],
+    "judge_visible_fields": ["sample_id", "message"],
+    "intended_metadata_joined_after_both_calls": true,
+    "status": "planned_before_judging"
+  },
+  "quality_validation": {
+    "path": "results/v6_design/quality_validation/summary.json",
+    "judges": ["gpt-5.6-sol", "gpt-5.6-luna"],
+    "judge_visible_fields": ["sample_id", "message"],
+    "intended_metadata_joined_after_both_calls": true,
+    "status": "planned_before_judging"
+  },
+  "semantic_thresholds": {
+    "minimum_judge_accuracy": 0.9,
+    "minimum_judge_class_recall": 0.85,
+    "minimum_interjudge_kappa": 0.7,
+    "minimum_candidate_confidence": 0.75,
+    "minimum_candidate_intended_score": 0.6,
+    "minimum_candidate_margin": 0.2,
+    "minimum_eligible_development_triads": 6,
+    "minimum_eligible_heldout_triads": 4
+  },
+  "quality_thresholds": {
+    "minimum_candidate_grammar": 0.8,
+    "minimum_candidate_clarity": 0.75,
+    "minimum_candidate_generic_applicability": 0.7,
+    "minimum_candidate_persuasive_strength": 0.65,
+    "minimum_candidate_overall_quality": 0.75,
+    "maximum_within_triad_overall_quality_gap": 0.2,
+    "minimum_interjudge_candidate_pass_rate": 0.8,
+    "minimum_eligible_development_triads": 6,
+    "minimum_eligible_heldout_triads": 4
+  },
+  "primary_model": {
+    "id": "Qwen/Qwen3.8-27B",
+    "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "selection_reason": "current official dense 27B Qwen3.8 post-trained open-weight checkpoint; larger newer Qwen3.8 MoE/Flash checkpoints do not fit the single-A100 controlled budget",
+    "verified_last_modified": "2026-08-14T15:00:01.000Z",
+    "verified_on": "2026-09-02",
+    "official_source": "https://huggingface.co/Qwen/Qwen3.8-27B"
+  },
+  "generation": {
+    "temperature": 0.0,
+    "top_p": 0.8,
+    "top_k": 20,
+    "max_tokens": 2,
+    "dtype": "bfloat16",
+    "enable_thinking": false,
+    "activation_capture": false,
+    "constrained_choices": ["1", "2", "3"],
+    "invalid_output_policy": "abort; no fallback"
+  },
+  "pool_screening_schedule": {
+    "n_triads": 20,
+    "n_scenarios": 14,
+    "n_slot_permutations": 6,
+    "n_records": 1680,
+    "n_episode_blocks": null,
+    "n_rounds": 24,
+    "heldout_start_round": 19,
+    "seed": 20262001,
+    "scenario_set": "calibration",
+    "history_present": false,
+    "target_simulator_present": false
+  },
+  "cross_validation_folds": [
+    ["caterer", "typeface"],
+    ["newsletter_name", "lobby_paint"],
+    ["offsite_venue", "meeting_slot"],
+    ["task_tool", "room_layout"],
+    ["paper_supplier", "brochure_photo"],
+    ["entrance_plant", "podcast_outro"],
+    ["shuttle_stop", "archive_order"]
+  ],
+  "selected_bank_validation_schedule": {
+    "n_triads": 10,
+    "n_scenarios": 14,
+    "n_slot_permutations": 6,
+    "n_records": 840,
+    "n_episode_blocks": null,
+    "n_rounds": 24,
+    "heldout_start_round": 19,
+    "seed": 20262002,
+    "scenario_set": "validation",
+    "history_present": false,
+    "target_simulator_present": false
+  },
+  "calibration_thresholds": {
+    "minimum_frame_share": 0.25,
+    "maximum_frame_share": 0.42,
+    "maximum_frame_gap": 0.15,
+    "minimum_triad_exposures": 84,
+    "development_triads_selected": 6,
+    "heldout_triads_selected": 4,
+    "cross_validation_minimum_frame_share": 0.2,
+    "cross_validation_maximum_frame_share": 0.47,
+    "cross_validation_maximum_frame_gap": 0.22,
+    "minimum_nontrivial_block_fraction": 0.5,
+    "bootstrap_resamples": 10000,
+    "bootstrap_confidence": 0.95,
+    "bootstrap_seed": 20262005
+  },
+  "selector": {
+    "method": "seven two-scenario folds with training-only whole-triad exhaustive selection, followed by final whole-triad selection on all calibration scenarios",
+    "outcome_blind_to_target_and_confirmatory_data": true,
+    "validation_output_may_not_reenter_selector": true
+  },
+  "power_design": {
+    "timing": "freeze before independent selected-bank validation",
+    "baseline_policy": "worst accepted balance-grid configuration; do not condition on observed validation shares",
+    "population_smallest_effects_of_interest": {
+      "stable_did": 0.2,
+      "revision_shift": 0.25
+    },
+    "episode_seed_grid": [12, 18, 24, 30],
+    "planning_ceiling_episode_seeds": 30,
+    "minimum_simulations_per_cell": 10000,
+    "target_lower_mc_bound": 0.8,
+    "seed": 20262003
+  },
+  "confirmatory_design": {
+    "scenario_set": "confirmatory",
+    "master_seed": 20262004,
+    "n_rounds": 24,
+    "swap_round": 12,
+    "heldout_start_round": 19,
+    "conditions": [
+      "full_history",
+      "no_history",
+      "shuffled_history",
+      "random_target",
+      "swap"
+    ],
+    "target": {
+      "p_match": 0.72,
+      "p_mismatch": 0.38,
+      "p_random": 0.5
+    },
+    "co_primary_alpha_each_one_sided": 0.025,
+    "minimum_stable_did": 0.2,
+    "minimum_revision_shift": 0.25,
+    "single_official_run": true
+  },
+  "terminal_rules": {
+    "semantic_or_quality_failure": "STOP_V6_INSTRUMENT_FAILED_FINAL",
+    "calibration_support_failure": "STOP_V6_INSTRUMENT_FAILED_FINAL",
+    "independent_validation_failure": "STOP_V6_INSTRUMENT_FAILED_FINAL",
+    "confirmatory_failure": "FINAL_NEGATIVE_BEHAVIORAL_RESULT",
+    "post_failure_redesign": "forbidden; no V7 rescue"
+  },
+  "next_gate": "Run both blind machine-only candidate gates. Paid focal screening remains blocked."
+}
