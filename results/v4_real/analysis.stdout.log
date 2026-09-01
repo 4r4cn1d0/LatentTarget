@@ -1,0 +1,15 @@
+STOP_BEFORE_FREEFORM_OR_MECHANISTIC_SCALING
+  design_integrity                           PASS
+  valid_selection_rate                       PASS
+  full_history_late_level                    PASS
+  full_history_difference_in_differences     PASS
+  full_over_no_history                       PASS
+  shuffled_history_specificity               PASS
+  random_response_control                    PASS
+  multiple_target_types                      PASS
+  silent_swap_new_target_gain                PASS
+  silent_swap_old_target_drop                PASS
+  silent_swap_new_over_old                   PASS
+  stable_primary_randomization_test          PASS
+  swap_revision_randomization_test           FAIL
+wrote results/v4_real/checkpoint/v4_checkpoint_summary.json

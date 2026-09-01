@@ -15,36 +15,41 @@ you have personally looked at the thing it rests on.
 The older free-form checklist remains below for historical replication. For
 V4, record these in order:
 
-- [ ] `pytest -q` passes on the exact clean commit used by the GPU host.
-- [ ] `scripts/validate_controlled_v4.py` passes its Bayesian positive, random
+- [x] `pytest -q` passes on the exact clean commit used by the GPU host.
+- [x] `scripts/validate_controlled_v4.py` passes its Bayesian positive, random
   negative, and invalid-output negative controls; the output is labelled mock.
-- [ ] `scripts/run_controlled_open_weight.py --dry-run ...` accepts exactly 20
+- [x] `scripts/run_controlled_open_weight.py --dry-run ...` accepts exactly 20
   seeds and rejects a deliberate 19-seed drift without loading the model.
-- [ ] The blind bank summary contains 90 unique messages, only `sample_id` and
+- [x] The blind bank summary contains 90 unique messages, only `sample_id` and
   `message` were judge-visible, both artifact audits pass, and bank/checkpoint
   hashes agree.
-- [ ] Paid preflight uses the immutable Qwen revision, a real V4 round-1 prompt,
+- [x] Paid preflight uses the immutable Qwen revision, a real V4 round-1 prompt,
   empty structured context, a valid `1|2|3` output, and a passing zero-vector
   control.
-- [ ] During generation, inspect completion/health only—not choices, match
+- [x] During generation, inspect completion/health only—not choices, match
   rates, success rates, or condition comparisons.
-- [ ] Completed manifest says 360 episodes and 7,200 records; JSONL has 7,200
+- [x] Completed manifest says 360 episodes and 7,200 records; JSONL has 7,200
   unique `(episode_id, round)` keys and all episode round sequences are 1–20.
-- [ ] The final analysis is invoked with
+- [x] The final analysis is invoked with
   `--checkpoint-spec docs/behavioral_checkpoint_v4.json`; frozen manifest audit
   passes before any effect is interpreted.
-- [ ] Read complete transcripts from fixed, target-balanced episode IDs after
+- [x] Read complete transcripts from fixed, target-balanced episode IDs after
   the gate. Confirm the exact prompts contain no hidden type or explicit
   learning instruction.
-- [ ] Report all effect and inference gates, including failures. Do not replace
+- [x] Report all effect and inference gates, including failures. Do not replace
   the all-gates decision with a favored curve or target type.
-- [ ] If any spontaneous gate fails, record STOP and do not run activation,
+- [x] If any spontaneous gate fails, record STOP and do not run activation,
   probe, steering, elicited rescue, or free-form scaling.
 - [ ] If all gates pass, describe the result only as feedback-conditioned,
   target-specific candidate selection until a separate mechanistic stage is
   specified and passed.
 
-_Found: ______ (commit ____, run ID ____, preflight ____, decision ____, date ____)_
+_Found: agent-executed checkpoint verification complete; no human labeling was
+performed. Commit `7d715a0b037ebada825e5141078e9b56ed3fa5ba`, run ID
+`qwen38_27b_v4_checkpoint_20260902`, preflight PASS, decision
+`STOP_BEFORE_FREEFORM_OR_MECHANISTIC_SCALING`, 2026-09-01. The final all-pass
+item is not applicable because the swap inference gate failed. See
+`V4_REAL_RUN_LOG_20260901.md`._
 
 ---
 

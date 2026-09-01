@@ -617,3 +617,57 @@ synthetic validation and from claims that still require a real model.
   replication, activation capture, probe, or steering intervention exists at
   this point. The next permitted paid action is the one-generation frozen V4
   preflight, followed by the complete behavioral checkpoint only if it passes.
+
+## 2026-09-01 — V4 real-model controlled checkpoint
+
+- Deployed one RunPod secure-cloud A100 SXM 80 GB pod and verified 81,920 MiB
+  VRAM. The observed dashboard balance changed from `$52.82` to `$50.08`, about
+  `$2.74` for setup, tests, downloads, preflight, run, and analysis.
+- The first environment import exposed the template's CUDA wheel libraries only
+  outside the virtual environment. Added their existing library directories to
+  `LD_LIBRARY_PATH`; no scientific code changed.
+- The first paid preflight aborted before generation. Faulthandler traced the
+  native `std::bad_alloc` to template `torchvision 0.23` loading against pinned
+  torch 2.9.1. Pinned compatible `torchvision 0.24.1` and `torchaudio 2.9.1`,
+  committed as `7d715a0`, created a fresh detached run worktree, and preserved
+  the failure log.
+- **VERIFIED ON POD:** 324/324 tests passed after the fix; exact no-weight dry
+  run passed; checkout, bank hash, model/revision, provider, target, decoding,
+  sample, and thresholds matched the frozen checkpoint.
+- **PREFLIGHT PASS:** the immutable Qwen3.8-27B checkpoint loaded through
+  `AutoModelForMultimodalLM`; candidate format, empty structured context,
+  activation shape `[1,65,5120]`, 64 text blocks, and zero-vector greedy
+  invariance all passed.
+- Ran all 360 episodes and 7,200 generations without inspecting partial outcome
+  metrics. The process completed from `12:09:55Z` to `13:33:09Z`. The final
+  manifest passed the exact row/episode/status gate.
+- Ran the preregistered analysis exactly once. Stable feedback-conditioned
+  selection passed strongly: full-history early-to-held-out gain 0.187;
+  full/no-history difference-in-differences 0.187 (`p=0.0001`); full exceeded
+  shuffled held-out matching by 0.337; random-target gain was -0.007.
+- Swap use of the new frame rose 0.108 and use of the old frame fell 0.105, but
+  held-out new-minus-old was effectively zero (95% CI `[-0.125,0.123]`,
+  `p=0.4983`). Frozen decision:
+  **`STOP_BEFORE_FREEFORM_OR_MECHANISTIC_SCALING`**.
+- Post-hoc diagnosis, explicitly non-rescuing, found a 92.2% no-history
+  expertise preference. Swaps into expertise adapted in 34/40 episodes, versus
+  9/40 into risk and 0/40 into fairness. This large frame prior explains the
+  aggregate crossover failure and motivates a baseline-balanced V5 design.
+- Audited 110/7,200 invalid outputs (1.53%): all were truncated attempts to
+  explain history instead of returning one number. Added constrained decoding
+  to the next-design recommendations; no primary record was changed.
+- Found a reporting bug: `7.4e-18 > 0` let the descriptive new-over-old gate
+  print PASS despite a substantively zero mean. The inferential gate and STOP
+  were already correct. Preserved the run commit, added a `1e-12` numerical
+  tolerance and regression test for future analyses, and did not rerun V4.
+- Copied and locally checksum-verified the raw log, manifest, preflight,
+  environment inventories, logs, tables, and five PNG/PDF figure pairs. Raw
+  SHA-256 is `d7e3cdf26ba3d8c3c3c5ea48667aa69c79f44786c8a92e124db495158e639a33`;
+  manifest SHA-256 is
+  `b92f6d02b33f7874141dccd0a3086c9802fa918a9ffe88c9512b4a7484f80b66`.
+- Stopped GPU compute after verification. No elicited diagnostic, free-form
+  scaling, activation run, probe, or steering experiment was started.
+- Full operational and scientific record:
+  `docs/V4_REAL_RUN_LOG_20260901.md`. Exact prompts, target logic, gates,
+  metrics, and three non-cherry-picked full transcripts:
+  `PILOT_REPORT_V4_REAL.md`.

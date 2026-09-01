@@ -1,11 +1,13 @@
 # V4 controlled-choice design protocol
 
-Status: **frozen pre-data design**. No real-model V4 outcomes exist. Local mock
-and Monte Carlo runs are implementation checks, not evidence about an LLM. The
-completed power sensitivity selected 20 scenario-sequence seeds: 360 episodes
-and 7,200 rounds. The model, immutable revision, sample, prompts, target,
-message-bank hash, decoding, thresholds, and stopping rule are frozen in
-`behavioral_checkpoint_v4.json`.
+Status: **frozen before real-model data and now executed without alteration**.
+This document remains the pre-data protocol. The completed 360-episode,
+7,200-round checkpoint and its scientific STOP are reported in
+[`V4_REAL_RUN_LOG_20260901.md`](V4_REAL_RUN_LOG_20260901.md); they do not modify
+the design below. Local mock and Monte Carlo runs remain implementation checks,
+not evidence about an LLM. The model, immutable revision, sample, prompts,
+target, message-bank hash, decoding, thresholds, and stopping rule are frozen
+in `behavioral_checkpoint_v4.json`.
 
 ## Question
 

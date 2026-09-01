@@ -1,0 +1,119 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files:   6%|▌         | 1/18 [00:44<12:40, 44.72s/it]Fetching 18 files:  11%|█         | 2/18 [00:45<05:00, 18.80s/it]Fetching 18 files:  17%|█▋        | 3/18 [00:54<03:36, 14.42s/it]Fetching 18 files:  22%|██▏       | 4/18 [01:05<03:03, 13.13s/it]Error while downloading from https://huggingface.co/Qwen/Qwen3.8-27B/resolve/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0/model-00010-of-00018.safetensors: peer closed connection without sending complete message body (received 1005371743 bytes, expected 3979553696)
+Trying to resume download...
+Error while downloading from https://huggingface.co/Qwen/Qwen3.8-27B/resolve/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0/model-00008-of-00018.safetensors: peer closed connection without sending complete message body (received 3688482426 bytes, expected 3979553696)
+Trying to resume download...
+Fetching 18 files:  28%|██▊       | 5/18 [01:27<03:29, 16.09s/it]Fetching 18 files:  39%|███▉      | 7/18 [01:30<01:37,  8.90s/it]Fetching 18 files:  44%|████▍     | 8/18 [01:31<01:06,  6.66s/it]Fetching 18 files:  50%|█████     | 9/18 [01:33<00:48,  5.41s/it]Fetching 18 files:  56%|█████▌    | 10/18 [01:41<00:49,  6.25s/it]Fetching 18 files:  61%|██████    | 11/18 [02:14<01:37, 13.93s/it]Fetching 18 files:  67%|██████▋   | 12/18 [02:19<01:06, 11.16s/it]Fetching 18 files:  72%|███████▏  | 13/18 [02:20<00:40,  8.14s/it]Fetching 18 files:  78%|███████▊  | 14/18 [02:20<00:23,  5.94s/it]Fetching 18 files:  83%|████████▎ | 15/18 [02:28<00:19,  6.34s/it]Fetching 18 files:  89%|████████▉ | 16/18 [02:38<00:14,  7.48s/it]Fetching 18 files:  94%|█████████▍| 17/18 [02:38<00:05,  5.39s/it]Fetching 18 files: 100%|██████████| 18/18 [02:39<00:00,  3.93s/it]Fetching 18 files: 100%|██████████| 18/18 [02:39<00:00,  8.85s/it]
+Loading weights:   0%|          | 0/1184 [00:00<?, ?it/s]Loading weights:   0%|          | 1/1184 [00:04<1:19:36,  4.04s/it]Loading weights:   0%|          | 2/1184 [00:08<1:28:47,  4.51s/it]Loading weights:   1%|          | 9/1184 [00:09<13:18,  1.47it/s]  Loading weights:   1%|          | 11/1184 [00:09<10:10,  1.92it/s]Loading weights:   1%|          | 13/1184 [00:09<08:28,  2.30it/s]Loading weights:   1%|▏         | 15/1184 [00:10<07:28,  2.60it/s]Loading weights:   2%|▏         | 23/1184 [00:10<03:21,  5.76it/s]Loading weights:   2%|▏         | 26/1184 [00:10<02:42,  7.13it/s]Loading weights:   2%|▏         | 28/1184 [00:11<03:09,  6.09it/s]Loading weights:   3%|▎         | 30/1184 [00:11<02:52,  6.70it/s]Loading weights:   3%|▎         | 35/1184 [00:11<01:59,  9.62it/s]Loading weights:   3%|▎         | 41/1184 [00:12<01:50, 10.35it/s]Loading weights:   4%|▎         | 43/1184 [00:12<01:54,  9.96it/s]Loading weights:   4%|▍         | 46/1184 [00:12<01:46, 10.65it/s]Loading weights:   4%|▍         | 48/1184 [00:12<02:11,  8.61it/s]Loading weights:   4%|▍         | 52/1184 [00:13<01:34, 11.93it/s]Loading weights:   5%|▍         | 54/1184 [00:13<01:32, 12.16it/s]Loading weights:   5%|▌         | 61/1184 [00:13<00:58, 19.16it/s]Loading weights:   5%|▌         | 65/1184 [00:13<01:15, 14.75it/s]Loading weights:   6%|▌         | 68/1184 [00:14<01:41, 10.99it/s]Loading weights:   6%|▌         | 73/1184 [00:14<01:17, 14.33it/s]Loading weights:   7%|▋         | 79/1184 [00:14<01:00, 18.25it/s]Loading weights:   7%|▋         | 82/1184 [00:15<01:47, 10.26it/s]Loading weights:   7%|▋         | 88/1184 [00:15<01:16, 14.34it/s]Loading weights:   8%|▊         | 91/1184 [00:15<01:07, 16.13it/s]Loading weights:   8%|▊         | 94/1184 [00:15<01:19, 13.75it/s]Loading weights:   8%|▊         | 97/1184 [00:16<01:48,  9.98it/s]Loading weights:   8%|▊         | 99/1184 [00:16<01:58,  9.12it/s]Loading weights:   9%|▊         | 101/1184 [00:17<02:36,  6.94it/s]Loading weights:   9%|▉         | 105/1184 [00:17<01:49,  9.88it/s]Loading weights:   9%|▉         | 107/1184 [00:17<01:45, 10.25it/s]Loading weights:  10%|▉         | 115/1184 [00:17<00:59, 17.88it/s]Loading weights:  10%|▉         | 118/1184 [00:17<01:04, 16.61it/s]Loading weights:  10%|█         | 121/1184 [00:18<01:50,  9.63it/s]Loading weights:  11%|█         | 129/1184 [00:18<01:07, 15.52it/s]Loading weights:  11%|█         | 132/1184 [00:19<01:07, 15.69it/s]Loading weights:  11%|█▏        | 135/1184 [00:19<01:49,  9.58it/s]Loading weights:  12%|█▏        | 143/1184 [00:19<01:08, 15.26it/s]Loading weights:  12%|█▏        | 146/1184 [00:20<01:08, 15.07it/s]Loading weights:  13%|█▎        | 149/1184 [00:21<02:08,  8.07it/s]Loading weights:  13%|█▎        | 153/1184 [00:21<01:48,  9.49it/s]Loading weights:  13%|█▎        | 155/1184 [00:21<01:52,  9.18it/s]Loading weights:  13%|█▎        | 158/1184 [00:21<01:32, 11.11it/s]Loading weights:  14%|█▎        | 160/1184 [00:21<01:33, 11.01it/s]Loading weights:  14%|█▍        | 168/1184 [00:22<00:54, 18.80it/s]Loading weights:  14%|█▍        | 171/1184 [00:22<00:56, 17.83it/s]Loading weights:  15%|█▍        | 174/1184 [00:23<01:42,  9.83it/s]Loading weights:  15%|█▌        | 178/1184 [00:23<01:24, 11.97it/s]Loading weights:  16%|█▌        | 185/1184 [00:23<00:58, 16.96it/s]Loading weights:  16%|█▌        | 188/1184 [00:24<01:37, 10.17it/s]Loading weights:  17%|█▋        | 196/1184 [00:24<01:02, 15.82it/s]Loading weights:  17%|█▋        | 199/1184 [00:24<01:02, 15.64it/s]Loading weights:  17%|█▋        | 202/1184 [00:25<01:41,  9.71it/s]Loading weights:  17%|█▋        | 205/1184 [00:25<01:35, 10.22it/s]Loading weights:  17%|█▋        | 207/1184 [00:26<02:04,  7.88it/s]Loading weights:  18%|█▊        | 211/1184 [00:26<01:32, 10.52it/s]Loading weights:  18%|█▊        | 213/1184 [00:26<01:30, 10.70it/s]Loading weights:  19%|█▊        | 221/1184 [00:26<01:01, 15.72it/s]Loading weights:  19%|█▉        | 224/1184 [00:26<00:55, 17.33it/s]Loading weights:  19%|█▉        | 227/1184 [00:27<01:40,  9.54it/s]Loading weights:  20%|█▉        | 235/1184 [00:27<01:01, 15.41it/s]Loading weights:  20%|██        | 238/1184 [00:27<01:01, 15.36it/s]Loading weights:  20%|██        | 241/1184 [00:28<01:38,  9.62it/s]Loading weights:  21%|██        | 249/1184 [00:28<01:06, 14.12it/s]Loading weights:  21%|██▏       | 252/1184 [00:28<00:59, 15.70it/s]Loading weights:  22%|██▏       | 255/1184 [00:29<01:36,  9.61it/s]Loading weights:  22%|██▏       | 258/1184 [00:29<01:32,  9.98it/s]Loading weights:  22%|██▏       | 260/1184 [00:30<01:56,  7.90it/s]Loading weights:  22%|██▏       | 264/1184 [00:30<01:25, 10.73it/s]Loading weights:  22%|██▏       | 266/1184 [00:30<01:24, 10.89it/s]Loading weights:  23%|██▎       | 274/1184 [00:30<00:49, 18.48it/s]Loading weights:  23%|██▎       | 277/1184 [00:31<00:50, 17.94it/s]Loading weights:  24%|██▎       | 280/1184 [00:31<01:30,  9.95it/s]Loading weights:  24%|██▍       | 288/1184 [00:31<00:56, 16.00it/s]Loading weights:  25%|██▍       | 291/1184 [00:32<00:54, 16.29it/s]Loading weights:  25%|██▍       | 294/1184 [00:32<01:29,  9.93it/s]Loading weights:  25%|██▌       | 299/1184 [00:32<01:07, 13.11it/s]Loading weights:  26%|██▌       | 303/1184 [00:33<00:55, 16.02it/s]Loading weights:  26%|██▌       | 306/1184 [00:33<01:06, 13.13it/s]Loading weights:  26%|██▌       | 309/1184 [00:33<01:25, 10.19it/s]Loading weights:  26%|██▋       | 311/1184 [00:34<01:28,  9.82it/s]Loading weights:  26%|██▋       | 313/1184 [00:34<01:55,  7.57it/s]Loading weights:  27%|██▋       | 317/1184 [00:34<01:20, 10.74it/s]Loading weights:  27%|██▋       | 319/1184 [00:34<01:18, 11.04it/s]Loading weights:  28%|██▊       | 326/1184 [00:35<00:48, 17.63it/s]Loading weights:  28%|██▊       | 329/1184 [00:35<00:43, 19.45it/s]Loading weights:  28%|██▊       | 332/1184 [00:35<01:16, 11.14it/s]Loading weights:  28%|██▊       | 334/1184 [00:36<01:20, 10.61it/s]Loading weights:  29%|██▊       | 339/1184 [00:36<01:04, 13.01it/s]Loading weights:  29%|██▉       | 344/1184 [00:36<00:49, 17.07it/s]Loading weights:  29%|██▉       | 347/1184 [00:37<01:26,  9.66it/s]Loading weights:  30%|██▉       | 354/1184 [00:37<00:56, 14.72it/s]Loading weights:  30%|███       | 357/1184 [00:37<00:50, 16.25it/s]Loading weights:  30%|███       | 360/1184 [00:38<01:17, 10.60it/s]Loading weights:  31%|███       | 362/1184 [00:38<01:23,  9.90it/s]Loading weights:  31%|███       | 364/1184 [00:38<01:26,  9.50it/s]Loading weights:  31%|███       | 366/1184 [00:39<01:50,  7.39it/s]Loading weights:  31%|███▏      | 370/1184 [00:39<01:16, 10.67it/s]Loading weights:  31%|███▏      | 372/1184 [00:39<01:16, 10.63it/s]Loading weights:  32%|███▏      | 380/1184 [00:39<00:48, 16.63it/s]Loading weights:  32%|███▏      | 383/1184 [00:39<00:44, 18.20it/s]Loading weights:  33%|███▎      | 386/1184 [00:40<01:21,  9.75it/s]Loading weights:  33%|███▎      | 394/1184 [00:40<00:54, 14.61it/s]Loading weights:  34%|███▎      | 397/1184 [00:40<00:48, 16.26it/s]Loading weights:  34%|███▍      | 400/1184 [00:41<01:18,  9.95it/s]Loading weights:  34%|███▍      | 404/1184 [00:41<01:09, 11.17it/s]Loading weights:  35%|███▍      | 411/1184 [00:41<00:46, 16.80it/s]Loading weights:  35%|███▍      | 414/1184 [00:42<01:14, 10.31it/s]Loading weights:  35%|███▌      | 417/1184 [00:42<01:12, 10.52it/s]Loading weights:  35%|███▌      | 419/1184 [00:43<01:34,  8.13it/s]Loading weights:  36%|███▌      | 423/1184 [00:43<01:09, 10.96it/s]Loading weights:  36%|███▌      | 425/1184 [00:43<01:07, 11.20it/s]Loading weights:  37%|███▋      | 433/1184 [00:43<00:40, 18.74it/s]Loading weights:  37%|███▋      | 436/1184 [00:44<00:41, 18.19it/s]Loading weights:  37%|███▋      | 439/1184 [00:44<01:12, 10.31it/s]Loading weights:  38%|███▊      | 446/1184 [00:44<00:51, 14.42it/s]Loading weights:  38%|███▊      | 451/1184 [00:45<01:00, 12.03it/s]Loading weights:  38%|███▊      | 453/1184 [00:45<01:04, 11.38it/s]Loading weights:  39%|███▉      | 460/1184 [00:46<00:46, 15.41it/s]Loading weights:  39%|███▉      | 465/1184 [00:46<00:46, 15.35it/s]Loading weights:  39%|███▉      | 467/1184 [00:46<01:06, 10.86it/s]Loading weights:  40%|███▉      | 470/1184 [00:47<01:05, 10.90it/s]Loading weights:  40%|███▉      | 472/1184 [00:47<01:31,  7.75it/s]Loading weights:  40%|████      | 476/1184 [00:47<01:09, 10.14it/s]Loading weights:  40%|████      | 478/1184 [00:48<01:12,  9.80it/s]Loading weights:  41%|████      | 486/1184 [00:48<00:41, 16.64it/s]Loading weights:  41%|████▏     | 489/1184 [00:48<00:45, 15.21it/s]Loading weights:  41%|████▏     | 491/1184 [00:49<01:13,  9.49it/s]Loading weights:  42%|████▏     | 493/1184 [00:49<01:15,  9.15it/s]Loading weights:  42%|████▏     | 499/1184 [00:49<00:48, 14.07it/s]Loading weights:  42%|████▏     | 503/1184 [00:49<00:42, 16.05it/s]Loading weights:  43%|████▎     | 506/1184 [00:50<01:16,  8.86it/s]Loading weights:  43%|████▎     | 513/1184 [00:50<00:50, 13.34it/s]Loading weights:  44%|████▎     | 516/1184 [00:50<00:47, 13.98it/s]Loading weights:  44%|████▍     | 519/1184 [00:51<01:11,  9.33it/s]Loading weights:  44%|████▍     | 521/1184 [00:51<01:13,  9.08it/s]Loading weights:  44%|████▍     | 523/1184 [00:52<01:14,  8.93it/s]Loading weights:  44%|████▍     | 525/1184 [00:52<01:33,  7.08it/s]Loading weights:  45%|████▍     | 529/1184 [00:52<01:03, 10.39it/s]Loading weights:  45%|████▍     | 531/1184 [00:52<01:01, 10.66it/s]Loading weights:  46%|████▌     | 539/1184 [00:53<00:39, 16.53it/s]Loading weights:  46%|████▌     | 543/1184 [00:53<00:43, 14.79it/s]Loading weights:  46%|████▌     | 545/1184 [00:53<01:01, 10.46it/s]Loading weights:  47%|████▋     | 553/1184 [00:54<00:37, 16.88it/s]Loading weights:  47%|████▋     | 556/1184 [00:54<00:37, 16.65it/s]Loading weights:  47%|████▋     | 559/1184 [00:54<01:02,  9.96it/s]Loading weights:  48%|████▊     | 563/1184 [00:55<00:51, 12.03it/s]Loading weights:  48%|████▊     | 568/1184 [00:55<00:37, 16.25it/s]Loading weights:  48%|████▊     | 571/1184 [00:55<00:45, 13.39it/s]Loading weights:  48%|████▊     | 574/1184 [00:56<00:59, 10.32it/s]Loading weights:  49%|████▊     | 576/1184 [00:56<01:02,  9.66it/s]Loading weights:  49%|████▉     | 578/1184 [00:56<01:22,  7.36it/s]Loading weights:  49%|████▉     | 582/1184 [00:56<00:57, 10.47it/s]Loading weights:  49%|████▉     | 584/1184 [00:57<00:57, 10.51it/s]Loading weights:  50%|████▉     | 590/1184 [00:57<00:37, 15.76it/s]Loading weights:  50%|█████     | 595/1184 [00:57<00:31, 18.48it/s]Loading weights:  51%|█████     | 598/1184 [00:58<00:58,  9.93it/s]Loading weights:  51%|█████     | 605/1184 [00:58<00:36, 15.86it/s]Loading weights:  51%|█████▏    | 609/1184 [00:58<00:36, 15.72it/s]Loading weights:  52%|█████▏    | 612/1184 [00:59<00:59,  9.69it/s]Loading weights:  52%|█████▏    | 618/1184 [00:59<00:45, 12.51it/s]Loading weights:  53%|█████▎    | 623/1184 [00:59<00:34, 16.37it/s]Loading weights:  53%|█████▎    | 626/1184 [01:00<00:58,  9.60it/s]Loading weights:  53%|█████▎    | 629/1184 [01:00<00:55, 10.04it/s]Loading weights:  53%|█████▎    | 631/1184 [01:01<01:09,  7.92it/s]Loading weights:  54%|█████▎    | 635/1184 [01:01<00:51, 10.66it/s]Loading weights:  54%|█████▍    | 637/1184 [01:01<00:51, 10.72it/s]Loading weights:  54%|█████▍    | 645/1184 [01:01<00:29, 18.09it/s]Loading weights:  55%|█████▍    | 648/1184 [01:01<00:30, 17.46it/s]Loading weights:  55%|█████▍    | 651/1184 [01:02<00:53, 10.01it/s]Loading weights:  55%|█████▌    | 657/1184 [01:02<00:37, 14.22it/s]Loading weights:  56%|█████▌    | 660/1184 [01:02<00:32, 16.11it/s]Loading weights:  56%|█████▌    | 663/1184 [01:03<00:38, 13.38it/s]Loading weights:  56%|█████▋    | 666/1184 [01:03<00:50, 10.27it/s]Loading weights:  57%|█████▋    | 670/1184 [01:03<00:40, 12.73it/s]Loading weights:  57%|█████▋    | 674/1184 [01:04<00:31, 16.17it/s]Loading weights:  57%|█████▋    | 677/1184 [01:04<00:38, 13.17it/s]Loading weights:  57%|█████▋    | 679/1184 [01:04<00:55,  9.17it/s]Loading weights:  58%|█████▊    | 682/1184 [01:05<00:51,  9.83it/s]Loading weights:  58%|█████▊    | 684/1184 [01:05<01:07,  7.43it/s]Loading weights:  58%|█████▊    | 687/1184 [01:05<00:52,  9.51it/s]Loading weights:  58%|█████▊    | 690/1184 [01:05<00:44, 11.03it/s]Loading weights:  59%|█████▊    | 695/1184 [01:06<00:38, 12.71it/s]Loading weights:  59%|█████▉    | 701/1184 [01:06<00:25, 18.90it/s]Loading weights:  59%|█████▉    | 704/1184 [01:07<00:47, 10.10it/s]Loading weights:  60%|█████▉    | 710/1184 [01:07<00:33, 14.11it/s]Loading weights:  60%|██████    | 715/1184 [01:07<00:28, 16.71it/s]Loading weights:  61%|██████    | 718/1184 [01:08<00:45, 10.15it/s]Loading weights:  61%|██████▏   | 726/1184 [01:08<00:31, 14.67it/s]Loading weights:  62%|██████▏   | 730/1184 [01:08<00:33, 13.63it/s]Loading weights:  62%|██████▏   | 732/1184 [01:09<00:44, 10.15it/s]Loading weights:  62%|██████▏   | 735/1184 [01:09<00:42, 10.49it/s]Loading weights:  62%|██████▏   | 737/1184 [01:09<00:54,  8.13it/s]Loading weights:  62%|██████▎   | 740/1184 [01:10<00:43, 10.13it/s]Loading weights:  63%|██████▎   | 743/1184 [01:10<00:38, 11.39it/s]Loading weights:  63%|██████▎   | 751/1184 [01:10<00:23, 18.72it/s]Loading weights:  64%|██████▎   | 754/1184 [01:10<00:23, 18.02it/s]Loading weights:  64%|██████▍   | 757/1184 [01:11<00:43,  9.89it/s]Loading weights:  65%|██████▍   | 765/1184 [01:11<00:26, 15.72it/s]Loading weights:  65%|██████▍   | 768/1184 [01:11<00:26, 15.81it/s]Loading weights:  65%|██████▌   | 771/1184 [01:12<00:43,  9.39it/s]Loading weights:  66%|██████▌   | 779/1184 [01:12<00:27, 14.92it/s]Loading weights:  66%|██████▌   | 782/1184 [01:12<00:27, 14.55it/s]Loading weights:  66%|██████▋   | 785/1184 [01:13<00:45,  8.77it/s]Loading weights:  67%|██████▋   | 788/1184 [01:14<00:43,  9.21it/s]Loading weights:  67%|██████▋   | 790/1184 [01:14<00:54,  7.19it/s]Loading weights:  67%|██████▋   | 794/1184 [01:14<00:40,  9.72it/s]Loading weights:  67%|██████▋   | 796/1184 [01:14<00:40,  9.67it/s]Loading weights:  68%|██████▊   | 804/1184 [01:15<00:23, 16.33it/s]Loading weights:  68%|██████▊   | 807/1184 [01:15<00:23, 15.73it/s]Loading weights:  68%|██████▊   | 810/1184 [01:16<00:41,  8.91it/s]Loading weights:  69%|██████▉   | 816/1184 [01:16<00:31, 11.67it/s]Loading weights:  69%|██████▉   | 821/1184 [01:16<00:23, 15.51it/s]Loading weights:  70%|██████▉   | 824/1184 [01:17<00:38,  9.38it/s]Loading weights:  70%|███████   | 831/1184 [01:17<00:24, 14.21it/s]Loading weights:  70%|███████   | 834/1184 [01:17<00:23, 14.67it/s]Loading weights:  71%|███████   | 837/1184 [01:18<00:30, 11.33it/s]Loading weights:  71%|███████   | 839/1184 [01:18<00:32, 10.62it/s]Loading weights:  71%|███████   | 841/1184 [01:18<00:34,  9.99it/s]Loading weights:  71%|███████   | 843/1184 [01:19<00:45,  7.57it/s]Loading weights:  72%|███████▏  | 847/1184 [01:19<00:31, 10.56it/s]Loading weights:  72%|███████▏  | 849/1184 [01:19<00:33, 10.04it/s]Loading weights:  72%|███████▏  | 857/1184 [01:19<00:16, 19.25it/s]Loading weights:  74%|███████▎  | 871/1184 [01:19<00:08, 37.57it/s]Loading weights:  75%|███████▍  | 883/1184 [01:19<00:05, 52.50it/s]Loading weights:  76%|███████▌  | 900/1184 [01:19<00:03, 72.44it/s]Loading weights:  77%|███████▋  | 917/1184 [01:20<00:03, 88.87it/s]Loading weights:  79%|███████▉  | 937/1184 [01:20<00:02, 112.83it/s]Loading weights:  80%|████████  | 951/1184 [01:20<00:02, 110.42it/s]Loading weights:  81%|████████▏ | 964/1184 [01:20<00:02, 108.38it/s]Loading weights:  83%|████████▎ | 977/1184 [01:20<00:01, 108.44it/s]Loading weights:  84%|████████▍ | 993/1184 [01:20<00:01, 120.91it/s]Loading weights:  85%|████████▍ | 1006/1184 [01:20<00:01, 118.90it/s]Loading weights:  86%|████████▌ | 1019/1184 [01:20<00:01, 111.07it/s]Loading weights:  87%|████████▋ | 1035/1184 [01:20<00:01, 109.95it/s]Loading weights:  89%|████████▊ | 1049/1184 [01:21<00:01, 112.39it/s]Loading weights:  90%|████████▉ | 1063/1184 [01:21<00:01, 114.58it/s]Loading weights:  91%|█████████ | 1075/1184 [01:21<00:00, 115.05it/s]Loading weights:  92%|█████████▏| 1087/1184 [01:21<00:00, 111.47it/s]Loading weights:  93%|█████████▎| 1107/1184 [01:21<00:00, 129.54it/s]Loading weights:  95%|█████████▍| 1121/1184 [01:21<00:00, 121.70it/s]Loading weights:  96%|█████████▌| 1135/1184 [01:21<00:00, 118.76it/s]Loading weights:  97%|█████████▋| 1147/1184 [01:21<00:00, 110.48it/s]Loading weights:  98%|█████████▊| 1166/1184 [01:22<00:00, 121.96it/s]Loading weights: 100%|█████████▉| 1179/1184 [01:22<00:00, 81.82it/s] Loading weights: 100%|██████████| 1184/1184 [01:22<00:00, 14.37it/s]
+[transformers] The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+{
+  "ok": true,
+  "issues": [],
+  "activation_shape": [
+    1,
+    65,
+    5120
+  ],
+  "n_text_blocks": 64,
+  "d_model": 5120,
+  "captured_hidden_state_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64
+  ],
+  "model": "Qwen/Qwen3.8-27B",
+  "generated_text": "2",
+  "generated_text_nonempty": true,
+  "provider": {
+    "provider": "huggingface",
+    "model": "Qwen/Qwen3.8-27B",
+    "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "temperature": 0.0,
+    "max_tokens": 8,
+    "dtype": "bfloat16",
+    "layer_stride": 1,
+    "capture": true,
+    "torch_seed_base": 20260902,
+    "enable_thinking": false,
+    "top_p": 0.8,
+    "top_k": 20,
+    "architecture": "Qwen3_5ForConditionalGeneration",
+    "loaded_with": "AutoModelForMultimodalLM",
+    "processor": "Qwen3VLProcessor",
+    "per_generation_seed_supported": true
+  },
+  "controlled_v4": {
+    "selection_valid": true,
+    "selected_slot": 2,
+    "fallback_used": false,
+    "message_bank_sha256": "f352c0a17b8ff3c9fca7543399499e966f9a88a99c5620e051da0c9003d2c0f4",
+    "message_bank_matches_checkpoint": true,
+    "prompt_context_keys": []
+  },
+  "zero_steering_hidden_state_index": 32,
+  "zero_steering_text": "2",
+  "zero_steering_matches_unsteered": true
+}
+PRECHECK PASSED: architecture contracts are compatible

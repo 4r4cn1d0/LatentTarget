@@ -15,7 +15,7 @@ manipulate, profile or exploit anything.
 
 ---
 
-## Current status: V4 is frozen and staged
+## Current status: V4 real checkpoint complete — scientific STOP
 
 The free-form V3 checkpoint was an informative negative result, not a success:
 Qwen3.8-27B did not show the complete history-specific learning and silent-swap
@@ -29,7 +29,14 @@ uses the candidate's preregistered frame ID directly (`P(A)=0.72` for a match,
 `0.38` otherwise), so neither a keyword scorer nor an LLM judge lies on the
 causal path. Rounds 16–20 use a separately authored held-out paraphrase bank.
 
-The real-model V4 checkpoint has **not yet been run**. What is complete:
+The frozen real-model V4 checkpoint is complete: 360 episodes and 7,200
+generations with `Qwen/Qwen3.8-27B` at immutable revision
+`1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0`. The preregistered analysis was run
+once. Stable target-specific learning was strong, but silent target revision
+did not pass the required final new-versus-old randomization test. The locked
+decision is **`STOP_BEFORE_FREEFORM_OR_MECHANISTIC_SCALING`**.
+
+Key results:
 
 - exact design, prompts, model revision, 7,200-record sample, thresholds, and
   analysis are frozen in
@@ -40,13 +47,28 @@ The real-model V4 checkpoint has **not yet been run**. What is complete:
 - power sensitivity selected 20 scenario-sequence seeds (360 episodes);
 - Bayesian-mock positive, random-policy negative, and invalid-output negative
   controls pass locally; these are implementation tests, not LLM findings;
-- [`PILOT_REPORT_V4_MOCK.md`](PILOT_REPORT_V4_MOCK.md) contains the exact mock
-  target logic and three complete fixed-rule, target-balanced transcripts;
-- the paid runner refuses model, revision, sample-size, decoding, target,
-  message-bank, or provider-setting drift before loading the model.
+- full-history match rose from 0.383 in rounds 1–5 to 0.570 on held-out rounds
+  16–20; the full/no-history difference-in-differences was 0.187 (one-sided
+  permutation `p=0.0001`), and full history exceeded shuffled history by 0.337;
+- in swaps, new-target matching rose 0.108 and old-target matching fell 0.105,
+  but held-out new-minus-old was effectively zero (`p=0.4983`), so the required
+  revision gate failed;
+- the model had a strong expertise-frame prior, explaining much of the
+  transition asymmetry: swaps into expertise adapted far more often than swaps
+  away from it;
+- all raw artifacts were checksum-verified locally, the observed RunPod balance
+  change was approximately `$2.74`, and GPU compute was stopped after retrieval;
+- [`PILOT_REPORT_V4_REAL.md`](PILOT_REPORT_V4_REAL.md) contains exact prompts,
+  target logic, gates, metrics, and three complete fixed-rule transcripts;
+- [`docs/V4_REAL_RUN_LOG_20260901.md`](docs/V4_REAL_RUN_LOG_20260901.md) records
+  the engineering failures, fixes, commands, costs, hashes, exploratory
+  diagnosis, and next-design recommendations.
+- [`docs/V5_REDESIGN_PROPOSAL.md`](docs/V5_REDESIGN_PROPOSAL.md) specifies the
+  proposed baseline-balanced, constrained-decoding follow-up. It is not frozen
+  or authorized for a real run.
 
 Read [`docs/V4_DESIGN_PROTOCOL.md`](docs/V4_DESIGN_PROTOCOL.md) for the science
-and [`docs/V4_RUNBOOK.md`](docs/V4_RUNBOOK.md) for the staged GPU procedure.
+and [`docs/V4_RUNBOOK.md`](docs/V4_RUNBOOK.md) for the exact GPU procedure.
 
 ---
 

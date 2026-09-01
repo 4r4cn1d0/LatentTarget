@@ -1,6 +1,9 @@
 # V4 controlled checkpoint runbook
 
-Status: **ready for one paid preflight, then the frozen behavioral run**.
+Status: **executed successfully through the locked analysis and STOP rule**.
+This remains the exact historical procedure. Results, costs, hashes, and
+failures are recorded in
+[`V4_REAL_RUN_LOG_20260901.md`](V4_REAL_RUN_LOG_20260901.md).
 
 This runbook is intentionally mechanical. The scientific source of truth is
 `docs/behavioral_checkpoint_v4.json`; the GPU runner reads that file and exits

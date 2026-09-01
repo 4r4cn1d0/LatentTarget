@@ -2,8 +2,11 @@
 
 Date: 2026-09-01
 
-Verdict: **ready for the frozen paid preflight; no real-model V4 claim exists
-yet**.
+Prelaunch verdict: **ready for the frozen paid preflight**. The checkpoint was
+subsequently executed and returned
+`STOP_BEFORE_FREEFORM_OR_MECHANISTIC_SCALING`; see
+[`V4_REAL_RUN_LOG_20260901.md`](V4_REAL_RUN_LOG_20260901.md). This file retains
+the adversarial review performed before outcomes existed.
 
 The packaged GSD review workflow was unavailable because its referenced local
 workflow files were missing. This review therefore used the same fail-closed
