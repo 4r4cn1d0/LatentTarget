@@ -1,0 +1,1077 @@
+{
+  "status": "pre-data design sensitivity; no focal-model outcomes used",
+  "target_power_lower_mc_bound": 0.8,
+  "results": [
+    {
+      "n_episode_seeds": 4,
+      "stable_episodes_per_condition": 12,
+      "swap_episodes": 24,
+      "full_late_match": 0.45,
+      "stable_nominal_advantage": 0.1166666666666667,
+      "swap_late_new_match": 0.45,
+      "stable_test": {
+        "power": 0.18,
+        "mc_ci_lo": 0.16378068485613095,
+        "mc_ci_hi": 0.19744627040819734,
+        "mean_estimated_difference_in_differences": 0.11146666666666667
+      },
+      "swap_test": {
+        "power": 0.587,
+        "mc_ci_lo": 0.5652740698847217,
+        "mc_ci_hi": 0.608392351652789,
+        "mean_estimated_late_new_over_old": 0.1781875,
+        "mean_estimated_new_target_gain": 0.22460833333333335,
+        "mean_estimated_old_target_drop": 0.274125
+      },
+      "joint_co_primary": {
+        "power": 0.1085,
+        "mc_ci_lo": 0.09561230386730667,
+        "mc_ci_hi": 0.12288879921389496
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 8,
+      "stable_episodes_per_condition": 24,
+      "swap_episodes": 48,
+      "full_late_match": 0.45,
+      "stable_nominal_advantage": 0.1166666666666667,
+      "swap_late_new_match": 0.45,
+      "stable_test": {
+        "power": 0.2855,
+        "mc_ci_lo": 0.2661313975765315,
+        "mc_ci_hi": 0.30569104587408846,
+        "mean_estimated_difference_in_differences": 0.11531666666666668
+      },
+      "swap_test": {
+        "power": 0.8635,
+        "mc_ci_lo": 0.8477548066170306,
+        "mc_ci_hi": 0.8778514488873965,
+        "mean_estimated_late_new_over_old": 0.178725,
+        "mean_estimated_new_target_gain": 0.22585208333333331,
+        "mean_estimated_old_target_drop": 0.27347916666666666
+      },
+      "joint_co_primary": {
+        "power": 0.249,
+        "mc_ci_lo": 0.23054101108392183,
+        "mc_ci_hi": 0.2684213819515357
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 12,
+      "stable_episodes_per_condition": 36,
+      "swap_episodes": 72,
+      "full_late_match": 0.45,
+      "stable_nominal_advantage": 0.1166666666666667,
+      "swap_late_new_match": 0.45,
+      "stable_test": {
+        "power": 0.369,
+        "mc_ci_lo": 0.34812194891671083,
+        "mc_ci_hi": 0.39038033589462356,
+        "mean_estimated_difference_in_differences": 0.11302777777777777
+      },
+      "swap_test": {
+        "power": 0.9595,
+        "mc_ci_lo": 0.9499429837911436,
+        "mc_ci_hi": 0.9672951851339852,
+        "mean_estimated_late_new_over_old": 0.17822916666666666,
+        "mean_estimated_new_target_gain": 0.22582222222222226,
+        "mean_estimated_old_target_drop": 0.2744597222222222
+      },
+      "joint_co_primary": {
+        "power": 0.356,
+        "mc_ci_lo": 0.33530937083616535,
+        "mc_ci_hi": 0.3772427590327823
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 16,
+      "stable_episodes_per_condition": 48,
+      "swap_episodes": 96,
+      "full_late_match": 0.45,
+      "stable_nominal_advantage": 0.1166666666666667,
+      "swap_late_new_match": 0.45,
+      "stable_test": {
+        "power": 0.4655,
+        "mc_ci_lo": 0.44372576680864073,
+        "mc_ci_hi": 0.48740651430579474,
+        "mean_estimated_difference_in_differences": 0.11248749999999999
+      },
+      "swap_test": {
+        "power": 0.9875,
+        "mc_ci_lo": 0.9816118319263164,
+        "mc_ci_hi": 0.9915189784131836,
+        "mean_estimated_late_new_over_old": 0.17817395833333333,
+        "mean_estimated_new_target_gain": 0.225234375,
+        "mean_estimated_old_target_drop": 0.27339895833333333
+      },
+      "joint_co_primary": {
+        "power": 0.459,
+        "mc_ci_lo": 0.43725973604706403,
+        "mc_ci_hi": 0.480897467596178
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 20,
+      "stable_episodes_per_condition": 60,
+      "swap_episodes": 120,
+      "full_late_match": 0.45,
+      "stable_nominal_advantage": 0.1166666666666667,
+      "swap_late_new_match": 0.45,
+      "stable_test": {
+        "power": 0.54,
+        "mc_ci_lo": 0.5181008980945958,
+        "mc_ci_hi": 0.5617457324973631,
+        "mean_estimated_difference_in_differences": 0.11089166666666667
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.177985,
+        "mean_estimated_new_target_gain": 0.2261641666666667,
+        "mean_estimated_old_target_drop": 0.2734391666666667
+      },
+      "joint_co_primary": {
+        "power": 0.54,
+        "mc_ci_lo": 0.5181008980945958,
+        "mc_ci_hi": 0.5617457324973631
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 24,
+      "stable_episodes_per_condition": 72,
+      "swap_episodes": 144,
+      "full_late_match": 0.45,
+      "stable_nominal_advantage": 0.1166666666666667,
+      "swap_late_new_match": 0.45,
+      "stable_test": {
+        "power": 0.6385,
+        "mc_ci_lo": 0.6171970061624477,
+        "mc_ci_hi": 0.6592719522622101,
+        "mean_estimated_difference_in_differences": 0.1128388888888889
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.17870902777777778,
+        "mean_estimated_new_target_gain": 0.2257576388888889,
+        "mean_estimated_old_target_drop": 0.2739840277777778
+      },
+      "joint_co_primary": {
+        "power": 0.6385,
+        "mc_ci_lo": 0.6171970061624477,
+        "mc_ci_hi": 0.6592719522622101
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 30,
+      "stable_episodes_per_condition": 90,
+      "swap_episodes": 180,
+      "full_late_match": 0.45,
+      "stable_nominal_advantage": 0.1166666666666667,
+      "swap_late_new_match": 0.45,
+      "stable_test": {
+        "power": 0.723,
+        "mc_ci_lo": 0.7029733544794209,
+        "mc_ci_hi": 0.7421716110707502,
+        "mean_estimated_difference_in_differences": 0.11210444444444444
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.17955666666666667,
+        "mean_estimated_new_target_gain": 0.22644111111111112,
+        "mean_estimated_old_target_drop": 0.2745055555555556
+      },
+      "joint_co_primary": {
+        "power": 0.723,
+        "mc_ci_lo": 0.7029733544794209,
+        "mc_ci_hi": 0.7421716110707502
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 4,
+      "stable_episodes_per_condition": 12,
+      "swap_episodes": 24,
+      "full_late_match": 0.5,
+      "stable_nominal_advantage": 0.16666666666666669,
+      "swap_late_new_match": 0.5,
+      "stable_test": {
+        "power": 0.2825,
+        "mc_ci_lo": 0.26319993419832943,
+        "mc_ci_hi": 0.30263401195789363,
+        "mean_estimated_difference_in_differences": 0.15565
+      },
+      "swap_test": {
+        "power": 0.857,
+        "mc_ci_lo": 0.8409724114625821,
+        "mc_ci_hi": 0.8716587665706517,
+        "mean_estimated_late_new_over_old": 0.2503666666666667,
+        "mean_estimated_new_target_gain": 0.2753541666666667,
+        "mean_estimated_old_target_drop": 0.29914999999999997
+      },
+      "joint_co_primary": {
+        "power": 0.2385,
+        "mc_ci_lo": 0.2203349416775277,
+        "mc_ci_hi": 0.2576677108275406
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 8,
+      "stable_episodes_per_condition": 24,
+      "swap_episodes": 48,
+      "full_late_match": 0.5,
+      "stable_nominal_advantage": 0.16666666666666669,
+      "swap_late_new_match": 0.5,
+      "stable_test": {
+        "power": 0.4655,
+        "mc_ci_lo": 0.44372576680864073,
+        "mc_ci_hi": 0.48740651430579474,
+        "mean_estimated_difference_in_differences": 0.15892916666666668
+      },
+      "swap_test": {
+        "power": 0.9905,
+        "mc_ci_lo": 0.9852094988443749,
+        "mc_ci_hi": 0.993909808789522,
+        "mean_estimated_late_new_over_old": 0.24897708333333332,
+        "mean_estimated_new_target_gain": 0.2738125,
+        "mean_estimated_old_target_drop": 0.2984104166666667
+      },
+      "joint_co_primary": {
+        "power": 0.463,
+        "mc_ci_lo": 0.4412383911796475,
+        "mc_ci_hi": 0.4849034755227905
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 12,
+      "stable_episodes_per_condition": 36,
+      "swap_episodes": 72,
+      "full_late_match": 0.5,
+      "stable_nominal_advantage": 0.16666666666666669,
+      "swap_late_new_match": 0.5,
+      "stable_test": {
+        "power": 0.6195,
+        "mc_ci_lo": 0.5980116719515136,
+        "mc_ci_hi": 0.6405301369419638,
+        "mean_estimated_difference_in_differences": 0.15905000000000002
+      },
+      "swap_test": {
+        "power": 0.9985,
+        "mc_ci_lo": 0.9955988881009407,
+        "mc_ci_hi": 0.9994897456513482,
+        "mean_estimated_late_new_over_old": 0.24820555555555557,
+        "mean_estimated_new_target_gain": 0.2737013888888889,
+        "mean_estimated_old_target_drop": 0.29782361111111116
+      },
+      "joint_co_primary": {
+        "power": 0.619,
+        "mc_ci_lo": 0.5975072646252354,
+        "mc_ci_hi": 0.6400364613858426
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 16,
+      "stable_episodes_per_condition": 48,
+      "swap_episodes": 96,
+      "full_late_match": 0.5,
+      "stable_nominal_advantage": 0.16666666666666669,
+      "swap_late_new_match": 0.5,
+      "stable_test": {
+        "power": 0.751,
+        "mc_ci_lo": 0.7315786180484644,
+        "mc_ci_hi": 0.7694589889160782,
+        "mean_estimated_difference_in_differences": 0.16052083333333333
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.250984375,
+        "mean_estimated_new_target_gain": 0.2741583333333333,
+        "mean_estimated_old_target_drop": 0.29855937500000007
+      },
+      "joint_co_primary": {
+        "power": 0.751,
+        "mc_ci_lo": 0.7315786180484644,
+        "mc_ci_hi": 0.7694589889160782
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 20,
+      "stable_episodes_per_condition": 60,
+      "swap_episodes": 120,
+      "full_late_match": 0.5,
+      "stable_nominal_advantage": 0.16666666666666669,
+      "swap_late_new_match": 0.5,
+      "stable_test": {
+        "power": 0.836,
+        "mc_ci_lo": 0.8191305773737494,
+        "mc_ci_hi": 0.851581119598706,
+        "mean_estimated_difference_in_differences": 0.15932166666666667
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.25055,
+        "mean_estimated_new_target_gain": 0.2734616666666667,
+        "mean_estimated_old_target_drop": 0.29834583333333337
+      },
+      "joint_co_primary": {
+        "power": 0.836,
+        "mc_ci_lo": 0.8191305773737494,
+        "mc_ci_hi": 0.851581119598706
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 24,
+      "stable_episodes_per_condition": 72,
+      "swap_episodes": 144,
+      "full_late_match": 0.5,
+      "stable_nominal_advantage": 0.16666666666666669,
+      "swap_late_new_match": 0.5,
+      "stable_test": {
+        "power": 0.907,
+        "mc_ci_lo": 0.8934792620660618,
+        "mc_ci_hi": 0.9189602042071209,
+        "mean_estimated_difference_in_differences": 0.16130555555555554
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.25012222222222225,
+        "mean_estimated_new_target_gain": 0.2733541666666666,
+        "mean_estimated_old_target_drop": 0.2970680555555556
+      },
+      "joint_co_primary": {
+        "power": 0.907,
+        "mc_ci_lo": 0.8934792620660618,
+        "mc_ci_hi": 0.9189602042071209
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 30,
+      "stable_episodes_per_condition": 90,
+      "swap_episodes": 180,
+      "full_late_match": 0.5,
+      "stable_nominal_advantage": 0.16666666666666669,
+      "swap_late_new_match": 0.5,
+      "stable_test": {
+        "power": 0.95,
+        "mc_ci_lo": 0.9395556822705139,
+        "mc_ci_hi": 0.9587189118890244,
+        "mean_estimated_difference_in_differences": 0.15928222222222224
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.24977777777777777,
+        "mean_estimated_new_target_gain": 0.2738288888888889,
+        "mean_estimated_old_target_drop": 0.29764722222222223
+      },
+      "joint_co_primary": {
+        "power": 0.95,
+        "mc_ci_lo": 0.9395556822705139,
+        "mc_ci_hi": 0.9587189118890244
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 4,
+      "stable_episodes_per_condition": 12,
+      "swap_episodes": 24,
+      "full_late_match": 0.55,
+      "stable_nominal_advantage": 0.21666666666666673,
+      "swap_late_new_match": 0.55,
+      "stable_test": {
+        "power": 0.41,
+        "mc_ci_lo": 0.38863697656038465,
+        "mc_ci_hi": 0.4317081046077076,
+        "mean_estimated_difference_in_differences": 0.20506666666666667
+      },
+      "swap_test": {
+        "power": 0.97,
+        "mc_ci_lo": 0.9615756572620492,
+        "mc_ci_hi": 0.9766222521934685,
+        "mean_estimated_late_new_over_old": 0.3195916666666667,
+        "mean_estimated_new_target_gain": 0.319575,
+        "mean_estimated_old_target_drop": 0.31805833333333333
+      },
+      "joint_co_primary": {
+        "power": 0.401,
+        "mc_ci_lo": 0.3797299308839851,
+        "mc_ci_hi": 0.4226496584009165
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 8,
+      "stable_episodes_per_condition": 24,
+      "swap_episodes": 48,
+      "full_late_match": 0.55,
+      "stable_nominal_advantage": 0.21666666666666673,
+      "swap_late_new_match": 0.55,
+      "stable_test": {
+        "power": 0.679,
+        "mc_ci_lo": 0.6582125018528509,
+        "mc_ci_hi": 0.6991011700461656,
+        "mean_estimated_difference_in_differences": 0.20808749999999998
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.3203729166666667,
+        "mean_estimated_new_target_gain": 0.3216875,
+        "mean_estimated_old_target_drop": 0.3218020833333333
+      },
+      "joint_co_primary": {
+        "power": 0.679,
+        "mc_ci_lo": 0.6582125018528509,
+        "mc_ci_hi": 0.6991011700461656
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 12,
+      "stable_episodes_per_condition": 36,
+      "swap_episodes": 72,
+      "full_late_match": 0.55,
+      "stable_nominal_advantage": 0.21666666666666673,
+      "swap_late_new_match": 0.55,
+      "stable_test": {
+        "power": 0.837,
+        "mc_ci_lo": 0.8201683922663289,
+        "mc_ci_hi": 0.8525394704709254,
+        "mean_estimated_difference_in_differences": 0.2076888888888889
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.32135555555555556,
+        "mean_estimated_new_target_gain": 0.32065,
+        "mean_estimated_old_target_drop": 0.3206569444444444
+      },
+      "joint_co_primary": {
+        "power": 0.837,
+        "mc_ci_lo": 0.8201683922663289,
+        "mc_ci_hi": 0.8525394704709254
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 16,
+      "stable_episodes_per_condition": 48,
+      "swap_episodes": 96,
+      "full_late_match": 0.55,
+      "stable_nominal_advantage": 0.21666666666666673,
+      "swap_late_new_match": 0.55,
+      "stable_test": {
+        "power": 0.927,
+        "mc_ci_lo": 0.9147619605802373,
+        "mc_ci_hi": 0.9376008209889248,
+        "mean_estimated_difference_in_differences": 0.20530624999999997
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.320859375,
+        "mean_estimated_new_target_gain": 0.321078125,
+        "mean_estimated_old_target_drop": 0.3218541666666666
+      },
+      "joint_co_primary": {
+        "power": 0.927,
+        "mc_ci_lo": 0.9147619605802373,
+        "mc_ci_hi": 0.9376008209889248
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 20,
+      "stable_episodes_per_condition": 60,
+      "swap_episodes": 120,
+      "full_late_match": 0.55,
+      "stable_nominal_advantage": 0.21666666666666673,
+      "swap_late_new_match": 0.55,
+      "stable_test": {
+        "power": 0.97,
+        "mc_ci_lo": 0.9615756572620492,
+        "mc_ci_hi": 0.9766222521934685,
+        "mean_estimated_difference_in_differences": 0.20837833333333333
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.319755,
+        "mean_estimated_new_target_gain": 0.3206616666666666,
+        "mean_estimated_old_target_drop": 0.3204341666666667
+      },
+      "joint_co_primary": {
+        "power": 0.97,
+        "mc_ci_lo": 0.9615756572620492,
+        "mc_ci_hi": 0.9766222521934685
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 24,
+      "stable_episodes_per_condition": 72,
+      "swap_episodes": 144,
+      "full_late_match": 0.55,
+      "stable_nominal_advantage": 0.21666666666666673,
+      "swap_late_new_match": 0.55,
+      "stable_test": {
+        "power": 0.9845,
+        "mc_ci_lo": 0.9780832165164995,
+        "mc_ci_hi": 0.9890590965286036,
+        "mean_estimated_difference_in_differences": 0.20888472222222226
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.3206013888888889,
+        "mean_estimated_new_target_gain": 0.3212673611111111,
+        "mean_estimated_old_target_drop": 0.32090277777777776
+      },
+      "joint_co_primary": {
+        "power": 0.9845,
+        "mc_ci_lo": 0.9780832165164995,
+        "mc_ci_hi": 0.9890590965286036
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 30,
+      "stable_episodes_per_condition": 90,
+      "swap_episodes": 180,
+      "full_late_match": 0.55,
+      "stable_nominal_advantage": 0.21666666666666673,
+      "swap_late_new_match": 0.55,
+      "stable_test": {
+        "power": 0.9975,
+        "mc_ci_lo": 0.9941607609565954,
+        "mc_ci_hi": 0.9989317070308943,
+        "mean_estimated_difference_in_differences": 0.20790444444444445
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.3215244444444445,
+        "mean_estimated_new_target_gain": 0.32115333333333335,
+        "mean_estimated_old_target_drop": 0.32152166666666665
+      },
+      "joint_co_primary": {
+        "power": 0.9975,
+        "mc_ci_lo": 0.9941607609565954,
+        "mc_ci_hi": 0.9989317070308943
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 4,
+      "stable_episodes_per_condition": 12,
+      "swap_episodes": 24,
+      "full_late_match": 0.6,
+      "stable_nominal_advantage": 0.26666666666666666,
+      "swap_late_new_match": 0.6,
+      "stable_test": {
+        "power": 0.559,
+        "mc_ci_lo": 0.5371470945791137,
+        "mc_ci_hi": 0.5806266855440259,
+        "mean_estimated_difference_in_differences": 0.25451666666666667
+      },
+      "swap_test": {
+        "power": 0.998,
+        "mc_ci_lo": 0.9948685655953601,
+        "mc_ci_hi": 0.9992219852745291,
+        "mean_estimated_late_new_over_old": 0.3929875,
+        "mean_estimated_new_target_gain": 0.37047916666666664,
+        "mean_estimated_old_target_drop": 0.344725
+      },
+      "joint_co_primary": {
+        "power": 0.557,
+        "mc_ci_lo": 0.5351407213950817,
+        "mc_ci_hi": 0.5786407271984598
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 8,
+      "stable_episodes_per_condition": 24,
+      "swap_episodes": 48,
+      "full_late_match": 0.6,
+      "stable_nominal_advantage": 0.26666666666666666,
+      "swap_late_new_match": 0.6,
+      "stable_test": {
+        "power": 0.8515,
+        "mc_ci_lo": 0.8352418685486327,
+        "mc_ci_hi": 0.8664103977782067,
+        "mean_estimated_difference_in_differences": 0.25492916666666665
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.3940208333333334,
+        "mean_estimated_new_target_gain": 0.3694166666666666,
+        "mean_estimated_old_target_drop": 0.34386041666666667
+      },
+      "joint_co_primary": {
+        "power": 0.8515,
+        "mc_ci_lo": 0.8352418685486327,
+        "mc_ci_hi": 0.8664103977782067
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 12,
+      "stable_episodes_per_condition": 36,
+      "swap_episodes": 72,
+      "full_late_match": 0.6,
+      "stable_nominal_advantage": 0.26666666666666666,
+      "swap_late_new_match": 0.6,
+      "stable_test": {
+        "power": 0.9515,
+        "mc_ci_lo": 0.9411887933111758,
+        "mc_ci_hi": 0.960080049495561,
+        "mean_estimated_difference_in_differences": 0.2540222222222222
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.3940180555555556,
+        "mean_estimated_new_target_gain": 0.3695680555555556,
+        "mean_estimated_old_target_drop": 0.3449097222222222
+      },
+      "joint_co_primary": {
+        "power": 0.9515,
+        "mc_ci_lo": 0.9411887933111758,
+        "mc_ci_hi": 0.960080049495561
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 16,
+      "stable_episodes_per_condition": 48,
+      "swap_episodes": 96,
+      "full_late_match": 0.6,
+      "stable_nominal_advantage": 0.26666666666666666,
+      "swap_late_new_match": 0.6,
+      "stable_test": {
+        "power": 0.993,
+        "mc_ci_lo": 0.9882840292676033,
+        "mc_ci_hi": 0.995825692778291,
+        "mean_estimated_difference_in_differences": 0.2570708333333333
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.39358437500000004,
+        "mean_estimated_new_target_gain": 0.3692020833333334,
+        "mean_estimated_old_target_drop": 0.34536875000000006
+      },
+      "joint_co_primary": {
+        "power": 0.993,
+        "mc_ci_lo": 0.9882840292676033,
+        "mc_ci_hi": 0.995825692778291
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 20,
+      "stable_episodes_per_condition": 60,
+      "swap_episodes": 120,
+      "full_late_match": 0.6,
+      "stable_nominal_advantage": 0.26666666666666666,
+      "swap_late_new_match": 0.6,
+      "stable_test": {
+        "power": 0.995,
+        "mc_ci_lo": 0.990820204876819,
+        "mc_ci_hi": 0.9972818486986733,
+        "mean_estimated_difference_in_differences": 0.25297000000000003
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.39273,
+        "mean_estimated_new_target_gain": 0.368285,
+        "mean_estimated_old_target_drop": 0.3448208333333333
+      },
+      "joint_co_primary": {
+        "power": 0.995,
+        "mc_ci_lo": 0.990820204876819,
+        "mc_ci_hi": 0.9972818486986733
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 24,
+      "stable_episodes_per_condition": 72,
+      "swap_episodes": 144,
+      "full_late_match": 0.6,
+      "stable_nominal_advantage": 0.26666666666666666,
+      "swap_late_new_match": 0.6,
+      "stable_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_difference_in_differences": 0.2544763888888889
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.3940388888888889,
+        "mean_estimated_new_target_gain": 0.3703729166666667,
+        "mean_estimated_old_target_drop": 0.3462083333333334
+      },
+      "joint_co_primary": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    },
+    {
+      "n_episode_seeds": 30,
+      "stable_episodes_per_condition": 90,
+      "swap_episodes": 180,
+      "full_late_match": 0.6,
+      "stable_nominal_advantage": 0.26666666666666666,
+      "swap_late_new_match": 0.6,
+      "stable_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_difference_in_differences": 0.25545111111111113
+      },
+      "swap_test": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0,
+        "mean_estimated_late_new_over_old": 0.3931527777777778,
+        "mean_estimated_new_target_gain": 0.3695305555555556,
+        "mean_estimated_old_target_drop": 0.34585944444444444
+      },
+      "joint_co_primary": {
+        "power": 1.0,
+        "mc_ci_lo": 0.9980828823994873,
+        "mc_ci_hi": 1.0
+      },
+      "n_sim": 2000,
+      "assumptions": {
+        "baseline_match": 0.3333333333333333,
+        "pre_swap_old_match": 0.55,
+        "late_old_fraction_of_errors": 0.5,
+        "episode_logit_sd": 0.45,
+        "analysis_window_rounds": 5,
+        "alpha_each": 0.025,
+        "independent_unit": "episode",
+        "planning_test_approximation": "one-sided normal approximation to sign-flip test"
+      }
+    }
+  ],
+  "minimum_episode_seeds_by_assumed_late_match": {
+    "0.45": null,
+    "0.5": 20,
+    "0.55": 12,
+    "0.6": 8
+  },
+  "selection_rule": "Choose the smallest listed seed count whose lower 95% Monte Carlo bound for joint co-primary power is at least target_power. If no plausible effect satisfies this within budget, do not call the run confirmatory."
+}

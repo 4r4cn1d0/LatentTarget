@@ -15,14 +15,49 @@ manipulate, profile or exploit anything.
 
 ---
 
+## Current status: V4 is frozen and staged
+
+The free-form V3 checkpoint was an informative negative result, not a success:
+Qwen3.8-27B did not show the complete history-specific learning and silent-swap
+revision pattern, and the reward/measurement stack remained difficult to
+interpret. We did **not** proceed to probing or steering.
+
+V4 fixes the central identification problem. On every round the focal model
+sees three complete but unlabelled candidate messages—one registered fairness,
+one risk, and one expertise frame—and selects only `1`, `2`, or `3`. The target
+uses the candidate's preregistered frame ID directly (`P(A)=0.72` for a match,
+`0.38` otherwise), so neither a keyword scorer nor an LLM judge lies on the
+causal path. Rounds 16–20 use a separately authored held-out paraphrase bank.
+
+The real-model V4 checkpoint has **not yet been run**. What is complete:
+
+- exact design, prompts, model revision, 7,200-record sample, thresholds, and
+  analysis are frozen in
+  [`docs/behavioral_checkpoint_v4.json`](docs/behavioral_checkpoint_v4.json);
+- two blind machine judges independently recovered all 90 message-bank frames
+  (1.00 accuracy each; kappa 1.00). This is a manipulation check, not human
+  validation;
+- power sensitivity selected 20 scenario-sequence seeds (360 episodes);
+- Bayesian-mock positive, random-policy negative, and invalid-output negative
+  controls pass locally; these are implementation tests, not LLM findings;
+- [`PILOT_REPORT_V4_MOCK.md`](PILOT_REPORT_V4_MOCK.md) contains the exact mock
+  target logic and three complete fixed-rule, target-balanced transcripts;
+- the paid runner refuses model, revision, sample-size, decoding, target,
+  message-bank, or provider-setting drift before loading the model.
+
+Read [`docs/V4_DESIGN_PROTOCOL.md`](docs/V4_DESIGN_PROTOCOL.md) for the science
+and [`docs/V4_RUNBOOK.md`](docs/V4_RUNBOOK.md) for the staged GPU procedure.
+
+---
+
 ## 1. Research question and hypotheses
 
 > Once an LLM has formed a working model of another agent, does it revise that
 > model when new evidence contradicts it — and how fast?
 
 **H1 (target-specific learning).** Under `full_history`, the probability that
-the focal agent's message uses the persuasion frame the current target is
-susceptible to increases with interaction round.
+the focal agent selects the candidate frame matching the current target
+increases with interaction round.
 
 **H2 (the increase requires feedback).** No such increase under `no_history`
 (the agent sees only the current round).
@@ -44,7 +79,11 @@ is written to the log. There is no code path that selects episodes.
 
 ---
 
-## 2. What the environment is
+## 2. Legacy free-form environment (V1–V3)
+
+This section documents the original system so its negative results remain
+reproducible. V4 is the current primary design and uses
+`src/controlled_*.py`; it does not use the language-scoring target below.
 
 ### 2.1 Roles
 
@@ -213,44 +252,57 @@ real-model data are collected.
 ## 5. How to run
 
 ```bash
-pip install -r requirements.txt
-pytest -q                                    # unit tests, no network
-python scripts/validate_pipeline.py          # positive + negative controls, mocks only
-python scripts/run_pilot.py --report PILOT_REPORT_MOCK.md
-python scripts/power_analysis.py             # pre-data sensitivity, no model calls
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m pytest -q
+.venv/bin/python scripts/validate_controlled_v4.py
+.venv/bin/python scripts/power_controlled_v4.py
+.venv/bin/python scripts/run_controlled_open_weight.py \
+  --run-id qwen38_27b_v4_checkpoint_20260902 --dry-run
 ```
 
-The preregistered real focal model is the current official dense open-weight
-`Qwen/Qwen3.8-27B`. It is intentionally not replaced with an older, cheaper
-model. On an 80 GB GPU, follow the exact staged commands in
-[`docs/POD_RUNBOOK.md`](docs/POD_RUNBOOK.md). The first paid-compute command is
-only a one-generation architecture check:
+The dry run loads no weights and generates no focal outcome. It verifies the
+frozen 360-episode/7,200-record plan and the blind message-bank gate. The focal
+checkpoint is revision-pinned `Qwen/Qwen3.8-27B`; it is intentionally not
+replaced by an older convenience model.
+
+On an 80 GB GPU, install the pinned pod dependencies and run exactly one
+format/architecture preflight:
 
 ```bash
-pip install -r requirements.txt -r requirements-pod.txt
-python scripts/preflight_open_weight.py --model Qwen/Qwen3.8-27B
+.venv/bin/python -m pip install -r requirements.txt -r requirements-pod.txt
+.venv/bin/python scripts/preflight_open_weight.py \
+  --model Qwen/Qwen3.8-27B \
+  --revision 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 \
+  --controlled-v4-spec docs/behavioral_checkpoint_v4.json \
+  --out results/v4_real/preflight.json
 ```
 
-If that passes, reproduce the frozen all-controls checkpoint rather than the
-obsolete two-condition v1 gate:
+If and only if that passes, start the checkpoint. All omitted scientific
+arguments are read from the frozen JSON; `--resume` may restart only at a
+validated episode boundary with identical provider settings.
 
 ```bash
-python scripts/run_open_weight.py --model Qwen/Qwen3.8-27B \
-    --conditions full_history no_history shuffled_history random_target swap \
-    --episodes 2 --rounds 8 --swap-round 5 --seed 20260901 \
-    --temperature 0.7 --top-p 0.8 --top-k 20 --max-tokens 200 \
-    --target-scorer semantic_nli_v3 --no-capture \
-    --run-id qwen38_27b_v3_checkpoint_20260901 \
-    --experiment-id qwen38_v3_checkpoint
+.venv/bin/python scripts/run_controlled_open_weight.py \
+  --run-id qwen38_27b_v4_checkpoint_20260902 --quiet
 ```
 
-Stop after this gate and evaluate the frozen decision rule in
-[`docs/BEHAVIORAL_CHECKPOINT_V3.md`](docs/BEHAVIORAL_CHECKPOINT_V3.md). The provider also
-supports OpenAI-compatible and Anthropic APIs for optional replications;
-credentials are read from environment variables only and never written to a
-log or manifest. No paid API is required for the preregistered local run.
+Do not inspect partial metrics. After all 7,200 rows complete, run the frozen
+analysis once:
 
-### Current real-model checkpoint (updated 2026-09-01)
+```bash
+.venv/bin/python scripts/analyze_controlled_v4.py \
+  --log data/raw/qwen38_27b_v4_checkpoint_20260902.jsonl \
+  --checkpoint-spec docs/behavioral_checkpoint_v4.json \
+  --out-dir results/v4_real/checkpoint
+```
+
+Every behavioral gate must pass before any free-form replication, activation
+capture, probe, or steering run. See
+[`docs/V4_RUNBOOK.md`](docs/V4_RUNBOOK.md) for interruption handling, cost
+controls, hashes, and artifact retrieval.
+
+### Historical V3 real-model checkpoint (completed 2026-09-01)
 
 The complete v3 systems checkpoint has now been run on the official dense
 `Qwen/Qwen3.8-27B` checkpoint using an A100-SXM4 80 GB. The architecture
@@ -298,28 +350,37 @@ for commands, versions, hashes, controls, and cost.
 ### Outputs
 
 ```
-data/raw/<run_id>.jsonl              one record per (episode, round) — everything
-data/raw/<run_id>.manifest.json      config, prompts, provider, git commit, platform
-data/processed/judge_cache.jsonl     cached LLM-judge outputs, keyed by message hash
-results/tables/*.csv                 every metric table + summary.json
-results/figures/*.png                behavioral, power, Bayesian, probe, steering plots
-PILOT_REPORT_MOCK.md                 generated mock-only checkpoint report
-PILOT_REPORT_REAL_QWEN38_27B.md      first real-model pre-scaling checkpoint
-PILOT_REPORT_REAL_QWEN38_27B_INDEPENDENT.md  same checkpoint, blind independent labels
-PILOT_REPORT_REAL_QWEN38_27B_V3_CHECKPOINT.md complete machine-only v3 checkpoint
-results/qwen38_27b_v3_checkpoint_20260901/ frozen gate, two judges, Bayesian and diagnostics
+data/raw/<v4_run>.jsonl              raw prompt/output/outcome record per round
+data/raw/<v4_run>.manifest.json      complete config, provider, prompts and banks
+results/v4_design/                   pre-data power, manipulation and mock checks
+results/v4_real/checkpoint/          frozen summary, tables and PDF/PNG figures
 ```
 
-Every log record carries: experiment/run/episode/round ids, condition, history
-mode, active + initial + final hidden type, swap flags and rounds-since-swap,
-the scenario, the **exact system and user prompts**, the raw and cleaned focal
-message, the visible history, classifier scores and full raw output, target
-persuasion scores, `P(A)`, logit and noise draw, the choice, all three seeds, and
-the model/provider.
+Every V4 record carries the exact system/user prompts, raw model output,
+model-visible history only, all three unlabelled candidates, experiment-side
+registered frames, selected candidate, active/initial/final target types,
+target probability and uniform draw, choice, condition, swap metadata, seeds,
+model, revision, and provider. Hidden frame labels are never present in the
+real provider context.
 
 ---
 
 ## 6. Confounds, and what is done about each
+
+For V4, the main safeguards are structural:
+
+| confound | V4 mitigation |
+|---|---|
+| Reward/measurement circularity | Target and outcome use preregistered candidate IDs; no language scorer is used |
+| Frame ambiguity | Every development and held-out message passed two blind machine-judge manipulation checks; exact artifacts are retained |
+| Scenario/type leakage | Scenario and candidate schedule are identical across types and conditions for each seed/round |
+| Explicit learning instruction | Exact prompts state only a cumulative Option-A objective and candidate-number format |
+| Position bias | Frame-to-slot assignment rotates and is counterbalanced; no-history is the position/content baseline |
+| Self-consistency | No-history, shuffled-history, random-response, and silent-swap gates must all agree |
+| Researcher tuning | Model revision, banks, probabilities, seeds, sample size, tests, and thresholds are frozen before outcomes |
+| Hidden metadata leak | Real providers receive an empty structured context; logged `visible_history` contains only rendered fields |
+
+The table and diagnostics below apply to the retained V1–V3 free-form system.
 
 | confound | mitigation | how you check |
 |---|---|---|
@@ -359,6 +420,18 @@ say nothing about LLM behaviour.
 
 ## 7. Known limitations
 
+V4's cleaner causal design is deliberately less naturalistic. It tests whether
+the model can infer and revise a target-specific response policy when the
+available communication frames are controlled; it does not yet show that the
+model spontaneously invents those frames in free-form conversation. The
+participant is synthetic, the three tendencies are categorical, and the
+candidate messages make stylized rhetorical claims. The message-bank check is
+machine-only. Finally, behavioral adaptation is compatible with a compact
+model-free policy as well as an explicit internal target representation. A
+mechanistic claim remains gated on later decoding and causal intervention.
+
+The remaining limitations below describe the historical V1–V3 system.
+
 * **The target is still a synthetic construct.** V1 rewarded keyword surface
   features; v3 replaces that with frozen semantic NLI prototypes, but semantic
   similarity to twelve descriptions is not the same thing as persuasiveness to
@@ -390,6 +463,10 @@ say nothing about LLM behaviour.
 ---
 
 ## 8. The probing arm
+
+This arm is **not authorized yet**. It may run only if every frozen spontaneous
+V4 behavioral gate passes. The implementation below is retained from the
+earlier program and would require a V4-specific analysis plan before use.
 
 The behavioural experiment establishes *whether* the model's strategy tracks the
 target. The probing arm asks whether there is a decodable belief behind it, and
@@ -437,6 +514,12 @@ identifiable).
 
 ```
 config.py                  every experimental parameter
+src/controlled_messages.py registered development/held-out V4 candidates
+src/controlled_target.py   exact registered-frame V4 target
+src/controlled_focal_agent.py V4 prompts, strict parser and mock policies
+src/controlled_experiment.py V4 conditions, resume and complete logging
+src/controlled_analysis.py episode-level V4 gates and integrity audit
+src/controlled_power.py    pre-data V4 power sensitivity
 src/scenarios.py           neutral binary-choice problems
 src/lexicons.py            the shared persuasion word lists (and their split)
 src/target_simulator.py    the controlled target — ground truth
@@ -459,6 +542,10 @@ scripts/run_steering.py    paired causal interventions
 scripts/analyze_steering.py steering contrasts and dose-response plot
 scripts/analyze_results.py analysis, optional re-classification
 scripts/validate_pipeline.py  positive/negative controls with mocks
+scripts/run_controlled_open_weight.py frozen fail-closed V4 GPU runner
+scripts/analyze_controlled_v4.py V4 tables, figures and decision
+scripts/validate_controlled_v4.py V4 mock positive/negative controls
+scripts/validate_v4_message_bank.py blind V4 manipulation check
 scripts/print_transcripts.py  raw transcripts for manual inspection
 docs/WORK_LOG.md           chronological GPU-free work record
 docs/REVIEW.md             resolved/open adversarial audit

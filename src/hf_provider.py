@@ -63,8 +63,10 @@ class HuggingFaceProvider(BaseProvider):
         enable_thinking: bool = False,
         top_p: float = 0.8,
         top_k: int = 20,
+        revision: Optional[str] = None,
     ) -> None:
         self.model_id = model
+        self.revision = revision
         self.temperature = temperature
         self.max_tokens = max_tokens
         self.device = device
@@ -81,6 +83,7 @@ class HuggingFaceProvider(BaseProvider):
         self.architecture: Optional[str] = None
         self.loaded_with: Optional[str] = None
         self._call_index = 0
+        self._next_seed: Optional[int] = None
         self._last_acts: Optional[np.ndarray] = None
         #: (meta, activations) pairs, filled by the runner via ``tag_last``.
         self.captured: List[Tuple[Dict[str, Any], np.ndarray]] = []
@@ -111,13 +114,17 @@ class HuggingFaceProvider(BaseProvider):
         # AutoModelForMultimodalLM. Retain a tokenizer fallback so ordinary
         # text-only causal checkpoints still work through this provider.
         try:
-            self._processor = AutoProcessor.from_pretrained(self.model_id)
+            self._processor = AutoProcessor.from_pretrained(
+                self.model_id, revision=self.revision
+            )
             self._tok = getattr(self._processor, "tokenizer", self._processor)
         except Exception:  # noqa: BLE001 - fallback is intentional and logged
             self._processor = None
-            self._tok = AutoTokenizer.from_pretrained(self.model_id)
+            self._tok = AutoTokenizer.from_pretrained(
+                self.model_id, revision=self.revision
+            )
 
-        cfg = AutoConfig.from_pretrained(self.model_id)
+        cfg = AutoConfig.from_pretrained(self.model_id, revision=self.revision)
         arch = (getattr(cfg, "architectures", None) or [""])[0]
         self.architecture = arch
 
@@ -142,7 +149,10 @@ class HuggingFaceProvider(BaseProvider):
         for cls in candidates:
             try:
                 self._model = cls.from_pretrained(
-                    self.model_id, dtype=dtype, device_map=self.device
+                    self.model_id,
+                    revision=self.revision,
+                    dtype=dtype,
+                    device_map=self.device,
                 )
                 self.loaded_with = cls.__name__
                 break
@@ -193,7 +203,13 @@ class HuggingFaceProvider(BaseProvider):
         self._ensure_loaded()
         inputs = self._format_inputs(prompt.system, prompt.user)
 
-        torch.manual_seed(self.seed + self._call_index)
+        generation_seed = (
+            int(self._next_seed)
+            if self._next_seed is not None
+            else self.seed + self._call_index
+        )
+        self._next_seed = None
+        torch.manual_seed(generation_seed)
         self._call_index += 1
 
         with torch.no_grad():
@@ -231,6 +247,15 @@ class HuggingFaceProvider(BaseProvider):
 
         gen_ids = out.sequences[0, inputs["input_ids"].shape[1]:]
         return self._decode(gen_ids)
+
+    def set_next_seed(self, seed: int) -> None:
+        """Set the exact seed for the next generation.
+
+        Long V4 runs resume at episode boundaries. An explicit per-round seed
+        keeps sampled generations reproducible even when a resumed process has
+        a different local call index. The seed carries no experimental label.
+        """
+        self._next_seed = int(seed)
 
     def tag_last(self, meta: Dict[str, Any]) -> None:
         """Attach bookkeeping metadata to the most recent capture.
@@ -305,6 +330,7 @@ class HuggingFaceProvider(BaseProvider):
     def describe(self) -> Dict[str, Any]:
         return {
             "provider": self.name, "model": self.model_id,
+            "revision": self.revision,
             "temperature": self.temperature, "max_tokens": self.max_tokens,
             "dtype": self.dtype, "layer_stride": self.layer_stride,
             "capture": self.capture, "torch_seed_base": self.seed,
@@ -312,6 +338,7 @@ class HuggingFaceProvider(BaseProvider):
             "top_p": self.top_p, "top_k": self.top_k,
             "architecture": self.architecture, "loaded_with": self.loaded_with,
             "processor": type(self._processor).__name__ if self._processor is not None else None,
+            "per_generation_seed_supported": True,
         }
 
 

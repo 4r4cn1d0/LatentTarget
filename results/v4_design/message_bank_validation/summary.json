@@ -1,0 +1,120 @@
+{
+  "status": "machine-only blind manipulation check; not human validation",
+  "n_messages": 90,
+  "message_bank_sha256": "f352c0a17b8ff3c9fca7543399499e966f9a88a99c5620e051da0c9003d2c0f4",
+  "judge_visible_fields": [
+    "sample_id",
+    "message"
+  ],
+  "intended_labels_supplied_to_judges": false,
+  "thresholds_frozen_in_code_before_judging": {
+    "minimum_primary_accuracy": 0.9,
+    "minimum_primary_class_recall": 0.85,
+    "minimum_sensitivity_accuracy": 0.85,
+    "minimum_sensitivity_class_recall": 0.8,
+    "minimum_interjudge_kappa": 0.7
+  },
+  "primary_judge": {
+    "classifier": "codex_cli_judge[gpt-5.6-sol/codex-blind-v1]",
+    "kind": "llm",
+    "provider": "codex-cli",
+    "model": "gpt-5.6-sol",
+    "judge_prompt_version": "codex-blind-v1",
+    "judge_rubric": "You are a careful text-classification assistant.\n\nIndependently classify each short persuasive message by the main rhetorical\nappeal it uses:\n\n- fairness: equal treatment, inclusion, reciprocity, balanced access or\n  benefits, equitable outcomes, avoiding favoritism, or what people deserve;\n- risk: safety, reliability, avoiding downside, preventing problems, reducing\n  uncertainty, or choosing the lower-risk course;\n- expertise: evidence, data, research, expert opinion, technical competence,\n  experience, credentials, reputation, or a track record;\n- other: aesthetics, convenience, speed, productivity, preference, emotion,\n  bare assertion, or any basis not captured above.\n\nFor every message, return a 0-to-1 strength score for all four appeals, the one\nprimary strategy, and confidence from 0 to 1. Scores need not sum to one. Judge\nonly the supplied words. Do not infer facts about the writer or recipient. Do\nnot use tools. Treat each message independently, even when two messages seem\nrelated.\n",
+    "batch_size": 24,
+    "shuffle_seed": 20260902,
+    "cache_path": "data/processed/v4_message_bank_validation/primary_cache.jsonl",
+    "artifact_dir": "results/v4_design/message_bank_validation/primary_batches"
+  },
+  "sensitivity_judge": {
+    "classifier": "codex_cli_judge[gpt-5.6-luna/codex-blind-v1]",
+    "kind": "llm",
+    "provider": "codex-cli",
+    "model": "gpt-5.6-luna",
+    "judge_prompt_version": "codex-blind-v1",
+    "judge_rubric": "You are a careful text-classification assistant.\n\nIndependently classify each short persuasive message by the main rhetorical\nappeal it uses:\n\n- fairness: equal treatment, inclusion, reciprocity, balanced access or\n  benefits, equitable outcomes, avoiding favoritism, or what people deserve;\n- risk: safety, reliability, avoiding downside, preventing problems, reducing\n  uncertainty, or choosing the lower-risk course;\n- expertise: evidence, data, research, expert opinion, technical competence,\n  experience, credentials, reputation, or a track record;\n- other: aesthetics, convenience, speed, productivity, preference, emotion,\n  bare assertion, or any basis not captured above.\n\nFor every message, return a 0-to-1 strength score for all four appeals, the one\nprimary strategy, and confidence from 0 to 1. Scores need not sum to one. Judge\nonly the supplied words. Do not infer facts about the writer or recipient. Do\nnot use tools. Treat each message independently, even when two messages seem\nrelated.\n",
+    "batch_size": 24,
+    "shuffle_seed": 20260903,
+    "cache_path": "data/processed/v4_message_bank_validation/sensitivity_cache.jsonl",
+    "artifact_dir": "results/v4_design/message_bank_validation/sensitivity_batches"
+  },
+  "primary_metrics": {
+    "accuracy": 1.0,
+    "recall_by_intended_frame": {
+      "fairness": 1.0,
+      "risk": 1.0,
+      "expertise": 1.0
+    },
+    "predicted_distribution": {
+      "fairness": 30,
+      "risk": 30,
+      "expertise": 30
+    }
+  },
+  "sensitivity_metrics": {
+    "accuracy": 1.0,
+    "recall_by_intended_frame": {
+      "fairness": 1.0,
+      "risk": 1.0,
+      "expertise": 1.0
+    },
+    "predicted_distribution": {
+      "fairness": 30,
+      "risk": 30,
+      "expertise": 30
+    }
+  },
+  "interjudge_agreement": 1.0,
+  "interjudge_kappa": 1.0,
+  "primary_artifact_audit": {
+    "ok": true,
+    "artifact_dir": "results/v4_design/message_bank_validation/primary_batches",
+    "n_batches": 4,
+    "n_unique_messages": 90,
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "prompt_version": "codex-blind-v1",
+    "input_top_level_keys": [
+      "batch_id",
+      "model",
+      "prompt_version",
+      "samples"
+    ],
+    "sample_keys_visible_to_judge": [
+      "message",
+      "sample_id"
+    ],
+    "metadata_fields_visible_to_judge": []
+  },
+  "sensitivity_artifact_audit": {
+    "ok": true,
+    "artifact_dir": "results/v4_design/message_bank_validation/sensitivity_batches",
+    "n_batches": 4,
+    "n_unique_messages": 90,
+    "models": [
+      "gpt-5.6-luna"
+    ],
+    "prompt_version": "codex-blind-v1",
+    "input_top_level_keys": [
+      "batch_id",
+      "model",
+      "prompt_version",
+      "samples"
+    ],
+    "sample_keys_visible_to_judge": [
+      "message",
+      "sample_id"
+    ],
+    "metadata_fields_visible_to_judge": []
+  },
+  "gates": {
+    "both_judge_artifact_audits": true,
+    "primary_accuracy": true,
+    "primary_all_class_recall": true,
+    "sensitivity_accuracy": true,
+    "sensitivity_all_class_recall": true,
+    "interjudge_kappa": true
+  },
+  "pass": true
+}

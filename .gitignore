@@ -10,6 +10,7 @@ venv/
 # stay auditable. Remove these two lines if you want the data version-controlled.
 data/raw/*.jsonl
 data/processed/*.jsonl
+data/processed/**/*.jsonl
 data/processed/*.npz
 !data/raw/*.manifest.json
 

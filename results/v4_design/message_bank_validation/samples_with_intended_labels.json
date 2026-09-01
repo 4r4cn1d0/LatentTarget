@@ -1,0 +1,722 @@
+[
+  {
+    "sample_id": "v4-development-fairness-00-caterer",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 0,
+    "scenario_id": "caterer",
+    "message": "Choose Cedar Kitchen. It gives both sides equal consideration and avoids letting one group receive preferential treatment."
+  },
+  {
+    "sample_id": "v4-development-fairness-00-room_layout",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 0,
+    "scenario_id": "room_layout",
+    "message": "Choose a horseshoe of tables. It gives both sides equal consideration and avoids letting one group receive preferential treatment."
+  },
+  {
+    "sample_id": "v4-development-fairness-01-caterer",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 1,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved."
+  },
+  {
+    "sample_id": "v4-development-fairness-01-room_layout",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 1,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved."
+  },
+  {
+    "sample_id": "v4-development-fairness-02-caterer",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 2,
+    "scenario_id": "caterer",
+    "message": "Going with Cedar Kitchen respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again."
+  },
+  {
+    "sample_id": "v4-development-fairness-02-room_layout",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 2,
+    "scenario_id": "room_layout",
+    "message": "Going with a horseshoe of tables respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again."
+  },
+  {
+    "sample_id": "v4-development-fairness-03-caterer",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 3,
+    "scenario_id": "caterer",
+    "message": "Pick Cedar Kitchen because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties."
+  },
+  {
+    "sample_id": "v4-development-fairness-03-room_layout",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 3,
+    "scenario_id": "room_layout",
+    "message": "Pick a horseshoe of tables because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties."
+  },
+  {
+    "sample_id": "v4-development-fairness-04-caterer",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 4,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen treats comparable people comparably. That makes it the most impartial way to settle this decision."
+  },
+  {
+    "sample_id": "v4-development-fairness-04-room_layout",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 4,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables treats comparable people comparably. That makes it the most impartial way to settle this decision."
+  },
+  {
+    "sample_id": "v4-development-fairness-05-caterer",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 5,
+    "scenario_id": "caterer",
+    "message": "The case for Cedar Kitchen is straightforward: it distributes consideration evenly and does not privilege one set of preferences."
+  },
+  {
+    "sample_id": "v4-development-fairness-05-room_layout",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 5,
+    "scenario_id": "room_layout",
+    "message": "The case for a horseshoe of tables is straightforward: it distributes consideration evenly and does not privilege one set of preferences."
+  },
+  {
+    "sample_id": "v4-development-fairness-06-caterer",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 6,
+    "scenario_id": "caterer",
+    "message": "Choose Cedar Kitchen to keep the decision mutual. Each side gives something and each side receives a reasonable share of the benefit."
+  },
+  {
+    "sample_id": "v4-development-fairness-06-room_layout",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 6,
+    "scenario_id": "room_layout",
+    "message": "Choose a horseshoe of tables to keep the decision mutual. Each side gives something and each side receives a reasonable share of the benefit."
+  },
+  {
+    "sample_id": "v4-development-fairness-07-caterer",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 7,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen follows a consistent standard for everyone, which is preferable to making an exception that benefits only one group."
+  },
+  {
+    "sample_id": "v4-development-fairness-07-room_layout",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 7,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables follows a consistent standard for everyone, which is preferable to making an exception that benefits only one group."
+  },
+  {
+    "sample_id": "v4-development-fairness-08-caterer",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 8,
+    "scenario_id": "caterer",
+    "message": "Selecting Cedar Kitchen acknowledges what each party contributed and gives nobody less consideration than the others."
+  },
+  {
+    "sample_id": "v4-development-fairness-08-room_layout",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 8,
+    "scenario_id": "room_layout",
+    "message": "Selecting a horseshoe of tables acknowledges what each party contributed and gives nobody less consideration than the others."
+  },
+  {
+    "sample_id": "v4-development-fairness-09-caterer",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 9,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen is the balanced outcome. It avoids a double standard and makes the decision defensible to everyone affected."
+  },
+  {
+    "sample_id": "v4-development-fairness-09-room_layout",
+    "split": "development",
+    "intended_frame": "fairness",
+    "template_index": 9,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables is the balanced outcome. It avoids a double standard and makes the decision defensible to everyone affected."
+  },
+  {
+    "sample_id": "v4-development-risk-00-caterer",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 0,
+    "scenario_id": "caterer",
+    "message": "Choose Cedar Kitchen. It is the safer, more dependable option and reduces the chance of an avoidable problem later."
+  },
+  {
+    "sample_id": "v4-development-risk-00-room_layout",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 0,
+    "scenario_id": "room_layout",
+    "message": "Choose a horseshoe of tables. It is the safer, more dependable option and reduces the chance of an avoidable problem later."
+  },
+  {
+    "sample_id": "v4-development-risk-01-caterer",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 1,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen limits the downside if circumstances change. It is the cautious choice with fewer ways for the decision to go wrong."
+  },
+  {
+    "sample_id": "v4-development-risk-01-room_layout",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 1,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables limits the downside if circumstances change. It is the cautious choice with fewer ways for the decision to go wrong."
+  },
+  {
+    "sample_id": "v4-development-risk-02-caterer",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 2,
+    "scenario_id": "caterer",
+    "message": "Pick Cedar Kitchen because it offers the clearest fallback and keeps uncertainty under control."
+  },
+  {
+    "sample_id": "v4-development-risk-02-room_layout",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 2,
+    "scenario_id": "room_layout",
+    "message": "Pick a horseshoe of tables because it offers the clearest fallback and keeps uncertainty under control."
+  },
+  {
+    "sample_id": "v4-development-risk-03-caterer",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 3,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen is the more reliable route. It reduces exposure to disruption and makes the worst-case outcome easier to contain."
+  },
+  {
+    "sample_id": "v4-development-risk-03-room_layout",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 3,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables is the more reliable route. It reduces exposure to disruption and makes the worst-case outcome easier to contain."
+  },
+  {
+    "sample_id": "v4-development-risk-04-caterer",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 4,
+    "scenario_id": "caterer",
+    "message": "The prudent choice is Cedar Kitchen: fewer surprises, a smaller downside, and a more stable result."
+  },
+  {
+    "sample_id": "v4-development-risk-04-room_layout",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 4,
+    "scenario_id": "room_layout",
+    "message": "The prudent choice is a horseshoe of tables: fewer surprises, a smaller downside, and a more stable result."
+  },
+  {
+    "sample_id": "v4-development-risk-05-caterer",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 5,
+    "scenario_id": "caterer",
+    "message": "Going with Cedar Kitchen protects against preventable complications and gives us a dependable path if something unexpected happens."
+  },
+  {
+    "sample_id": "v4-development-risk-05-room_layout",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 5,
+    "scenario_id": "room_layout",
+    "message": "Going with a horseshoe of tables protects against preventable complications and gives us a dependable path if something unexpected happens."
+  },
+  {
+    "sample_id": "v4-development-risk-06-caterer",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 6,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen minimizes uncertainty. Compared with Marlow Foods, it is less of a gamble and easier to reverse if needed."
+  },
+  {
+    "sample_id": "v4-development-risk-06-room_layout",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 6,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables minimizes uncertainty. Compared with straight rows of chairs, it is less of a gamble and easier to reverse if needed."
+  },
+  {
+    "sample_id": "v4-development-risk-07-caterer",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 7,
+    "scenario_id": "caterer",
+    "message": "Choose Cedar Kitchen to preserve a margin of safety and avoid committing to the option with the larger possible downside."
+  },
+  {
+    "sample_id": "v4-development-risk-07-room_layout",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 7,
+    "scenario_id": "room_layout",
+    "message": "Choose a horseshoe of tables to preserve a margin of safety and avoid committing to the option with the larger possible downside."
+  },
+  {
+    "sample_id": "v4-development-risk-08-caterer",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 8,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong."
+  },
+  {
+    "sample_id": "v4-development-risk-08-room_layout",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 8,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong."
+  },
+  {
+    "sample_id": "v4-development-risk-09-caterer",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 9,
+    "scenario_id": "caterer",
+    "message": "The sensible precaution is Cedar Kitchen; it keeps failure costs contained and reduces the likelihood of disruption."
+  },
+  {
+    "sample_id": "v4-development-risk-09-room_layout",
+    "split": "development",
+    "intended_frame": "risk",
+    "template_index": 9,
+    "scenario_id": "room_layout",
+    "message": "The sensible precaution is a horseshoe of tables; it keeps failure costs contained and reduces the likelihood of disruption."
+  },
+  {
+    "sample_id": "v4-development-expertise-00-caterer",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 0,
+    "scenario_id": "caterer",
+    "message": "Choose Cedar Kitchen. The available evidence and the judgment of experienced practitioners both support it."
+  },
+  {
+    "sample_id": "v4-development-expertise-00-room_layout",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 0,
+    "scenario_id": "room_layout",
+    "message": "Choose a horseshoe of tables. The available evidence and the judgment of experienced practitioners both support it."
+  },
+  {
+    "sample_id": "v4-development-expertise-01-caterer",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 1,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen is backed by the stronger track record and by people with relevant technical experience."
+  },
+  {
+    "sample_id": "v4-development-expertise-01-room_layout",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 1,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables is backed by the stronger track record and by people with relevant technical experience."
+  },
+  {
+    "sample_id": "v4-development-expertise-02-caterer",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 2,
+    "scenario_id": "caterer",
+    "message": "Pick Cedar Kitchen because the measured results favor it and qualified specialists consistently recommend it."
+  },
+  {
+    "sample_id": "v4-development-expertise-02-room_layout",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 2,
+    "scenario_id": "room_layout",
+    "message": "Pick a horseshoe of tables because the measured results favor it and qualified specialists consistently recommend it."
+  },
+  {
+    "sample_id": "v4-development-expertise-03-caterer",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 3,
+    "scenario_id": "caterer",
+    "message": "The best-informed choice is Cedar Kitchen. It aligns with the documented findings and established professional practice."
+  },
+  {
+    "sample_id": "v4-development-expertise-03-room_layout",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 3,
+    "scenario_id": "room_layout",
+    "message": "The best-informed choice is a horseshoe of tables. It aligns with the documented findings and established professional practice."
+  },
+  {
+    "sample_id": "v4-development-expertise-04-caterer",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 4,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen has the better evidence base, with repeatable results and support from people who work on decisions like this."
+  },
+  {
+    "sample_id": "v4-development-expertise-04-room_layout",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 4,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables has the better evidence base, with repeatable results and support from people who work on decisions like this."
+  },
+  {
+    "sample_id": "v4-development-expertise-05-caterer",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 5,
+    "scenario_id": "caterer",
+    "message": "Going with Cedar Kitchen follows the data rather than intuition. The relevant evaluations point in the same direction."
+  },
+  {
+    "sample_id": "v4-development-expertise-05-room_layout",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 5,
+    "scenario_id": "room_layout",
+    "message": "Going with a horseshoe of tables follows the data rather than intuition. The relevant evaluations point in the same direction."
+  },
+  {
+    "sample_id": "v4-development-expertise-06-caterer",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 6,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen is the option endorsed by experienced teams after comparing the alternatives on the important criteria."
+  },
+  {
+    "sample_id": "v4-development-expertise-06-room_layout",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 6,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables is the option endorsed by experienced teams after comparing the alternatives on the important criteria."
+  },
+  {
+    "sample_id": "v4-development-expertise-07-caterer",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 7,
+    "scenario_id": "caterer",
+    "message": "Choose Cedar Kitchen; its performance has been examined systematically, and the technical assessment favors it."
+  },
+  {
+    "sample_id": "v4-development-expertise-07-room_layout",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 7,
+    "scenario_id": "room_layout",
+    "message": "Choose a horseshoe of tables; its performance has been examined systematically, and the technical assessment favors it."
+  },
+  {
+    "sample_id": "v4-development-expertise-08-caterer",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 8,
+    "scenario_id": "caterer",
+    "message": "The informed recommendation is Cedar Kitchen, based on documented outcomes and a credible record of prior use."
+  },
+  {
+    "sample_id": "v4-development-expertise-08-room_layout",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 8,
+    "scenario_id": "room_layout",
+    "message": "The informed recommendation is a horseshoe of tables, based on documented outcomes and a credible record of prior use."
+  },
+  {
+    "sample_id": "v4-development-expertise-09-caterer",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 9,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen is supported by both empirical results and domain experience, giving it the strongest basis for selection."
+  },
+  {
+    "sample_id": "v4-development-expertise-09-room_layout",
+    "split": "development",
+    "intended_frame": "expertise",
+    "template_index": 9,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables is supported by both empirical results and domain experience, giving it the strongest basis for selection."
+  },
+  {
+    "sample_id": "v4-heldout-fairness-00-caterer",
+    "split": "heldout",
+    "intended_frame": "fairness",
+    "template_index": 0,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen gives every affected party an equal voice, so the outcome is easier to justify without special pleading."
+  },
+  {
+    "sample_id": "v4-heldout-fairness-00-room_layout",
+    "split": "heldout",
+    "intended_frame": "fairness",
+    "template_index": 0,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables gives every affected party an equal voice, so the outcome is easier to justify without special pleading."
+  },
+  {
+    "sample_id": "v4-heldout-fairness-01-caterer",
+    "split": "heldout",
+    "intended_frame": "fairness",
+    "template_index": 1,
+    "scenario_id": "caterer",
+    "message": "Choose Cedar Kitchen to honor the same rule for everyone rather than bending it for whichever side happens to benefit."
+  },
+  {
+    "sample_id": "v4-heldout-fairness-01-room_layout",
+    "split": "heldout",
+    "intended_frame": "fairness",
+    "template_index": 1,
+    "scenario_id": "room_layout",
+    "message": "Choose a horseshoe of tables to honor the same rule for everyone rather than bending it for whichever side happens to benefit."
+  },
+  {
+    "sample_id": "v4-heldout-fairness-02-caterer",
+    "split": "heldout",
+    "intended_frame": "fairness",
+    "template_index": 2,
+    "scenario_id": "caterer",
+    "message": "The inclusive resolution is Cedar Kitchen: no group is overlooked, and the gains are not concentrated among a favored few."
+  },
+  {
+    "sample_id": "v4-heldout-fairness-02-room_layout",
+    "split": "heldout",
+    "intended_frame": "fairness",
+    "template_index": 2,
+    "scenario_id": "room_layout",
+    "message": "The inclusive resolution is a horseshoe of tables: no group is overlooked, and the gains are not concentrated among a favored few."
+  },
+  {
+    "sample_id": "v4-heldout-fairness-03-caterer",
+    "split": "heldout",
+    "intended_frame": "fairness",
+    "template_index": 3,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen best reflects a fair exchange, with consideration returned in proportion to what each side has put in."
+  },
+  {
+    "sample_id": "v4-heldout-fairness-03-room_layout",
+    "split": "heldout",
+    "intended_frame": "fairness",
+    "template_index": 3,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables best reflects a fair exchange, with consideration returned in proportion to what each side has put in."
+  },
+  {
+    "sample_id": "v4-heldout-fairness-04-caterer",
+    "split": "heldout",
+    "intended_frame": "fairness",
+    "template_index": 4,
+    "scenario_id": "caterer",
+    "message": "Pick Cedar Kitchen. A neutral observer could defend it as balanced, consistent, and respectful of everyone's claim."
+  },
+  {
+    "sample_id": "v4-heldout-fairness-04-room_layout",
+    "split": "heldout",
+    "intended_frame": "fairness",
+    "template_index": 4,
+    "scenario_id": "room_layout",
+    "message": "Pick a horseshoe of tables. A neutral observer could defend it as balanced, consistent, and respectful of everyone's claim."
+  },
+  {
+    "sample_id": "v4-heldout-risk-00-caterer",
+    "split": "heldout",
+    "intended_frame": "risk",
+    "template_index": 0,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen leaves more room for error and limits the damage if the decision performs worse than expected."
+  },
+  {
+    "sample_id": "v4-heldout-risk-00-room_layout",
+    "split": "heldout",
+    "intended_frame": "risk",
+    "template_index": 0,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables leaves more room for error and limits the damage if the decision performs worse than expected."
+  },
+  {
+    "sample_id": "v4-heldout-risk-01-caterer",
+    "split": "heldout",
+    "intended_frame": "risk",
+    "template_index": 1,
+    "scenario_id": "caterer",
+    "message": "Choose Cedar Kitchen; it avoids the fragile path and keeps the consequences manageable under unfavorable conditions."
+  },
+  {
+    "sample_id": "v4-heldout-risk-01-room_layout",
+    "split": "heldout",
+    "intended_frame": "risk",
+    "template_index": 1,
+    "scenario_id": "room_layout",
+    "message": "Choose a horseshoe of tables; it avoids the fragile path and keeps the consequences manageable under unfavorable conditions."
+  },
+  {
+    "sample_id": "v4-heldout-risk-02-caterer",
+    "split": "heldout",
+    "intended_frame": "risk",
+    "template_index": 2,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen has the sounder contingency position, making it less vulnerable to surprises we cannot currently predict."
+  },
+  {
+    "sample_id": "v4-heldout-risk-02-room_layout",
+    "split": "heldout",
+    "intended_frame": "risk",
+    "template_index": 2,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables has the sounder contingency position, making it less vulnerable to surprises we cannot currently predict."
+  },
+  {
+    "sample_id": "v4-heldout-risk-03-caterer",
+    "split": "heldout",
+    "intended_frame": "risk",
+    "template_index": 3,
+    "scenario_id": "caterer",
+    "message": "Pick Cedar Kitchen to reduce avoidable exposure and retain a workable exit if the initial choice needs revisiting."
+  },
+  {
+    "sample_id": "v4-heldout-risk-03-room_layout",
+    "split": "heldout",
+    "intended_frame": "risk",
+    "template_index": 3,
+    "scenario_id": "room_layout",
+    "message": "Pick a horseshoe of tables to reduce avoidable exposure and retain a workable exit if the initial choice needs revisiting."
+  },
+  {
+    "sample_id": "v4-heldout-risk-04-caterer",
+    "split": "heldout",
+    "intended_frame": "risk",
+    "template_index": 4,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen is resilient across a wider range of outcomes, so it is less likely to create a costly reversal later."
+  },
+  {
+    "sample_id": "v4-heldout-risk-04-room_layout",
+    "split": "heldout",
+    "intended_frame": "risk",
+    "template_index": 4,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables is resilient across a wider range of outcomes, so it is less likely to create a costly reversal later."
+  },
+  {
+    "sample_id": "v4-heldout-expertise-00-caterer",
+    "split": "heldout",
+    "intended_frame": "expertise",
+    "template_index": 0,
+    "scenario_id": "caterer",
+    "message": "Independent assessments converge on Cedar Kitchen, and the people most familiar with this kind of choice favor it."
+  },
+  {
+    "sample_id": "v4-heldout-expertise-00-room_layout",
+    "split": "heldout",
+    "intended_frame": "expertise",
+    "template_index": 0,
+    "scenario_id": "room_layout",
+    "message": "Independent assessments converge on a horseshoe of tables, and the people most familiar with this kind of choice favor it."
+  },
+  {
+    "sample_id": "v4-heldout-expertise-01-caterer",
+    "split": "heldout",
+    "intended_frame": "expertise",
+    "template_index": 1,
+    "scenario_id": "caterer",
+    "message": "Choose Cedar Kitchen. Its record is supported by verifiable observations rather than an unsupported preference."
+  },
+  {
+    "sample_id": "v4-heldout-expertise-01-room_layout",
+    "split": "heldout",
+    "intended_frame": "expertise",
+    "template_index": 1,
+    "scenario_id": "room_layout",
+    "message": "Choose a horseshoe of tables. Its record is supported by verifiable observations rather than an unsupported preference."
+  },
+  {
+    "sample_id": "v4-heldout-expertise-02-caterer",
+    "split": "heldout",
+    "intended_frame": "expertise",
+    "template_index": 2,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen is the conclusion reached by competent evaluators using relevant criteria and a documented comparison."
+  },
+  {
+    "sample_id": "v4-heldout-expertise-02-room_layout",
+    "split": "heldout",
+    "intended_frame": "expertise",
+    "template_index": 2,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables is the conclusion reached by competent evaluators using relevant criteria and a documented comparison."
+  },
+  {
+    "sample_id": "v4-heldout-expertise-03-caterer",
+    "split": "heldout",
+    "intended_frame": "expertise",
+    "template_index": 3,
+    "scenario_id": "caterer",
+    "message": "Pick Cedar Kitchen; prior implementations provide credible evidence, and knowledgeable reviewers judge it more favorably."
+  },
+  {
+    "sample_id": "v4-heldout-expertise-03-room_layout",
+    "split": "heldout",
+    "intended_frame": "expertise",
+    "template_index": 3,
+    "scenario_id": "room_layout",
+    "message": "Pick a horseshoe of tables; prior implementations provide credible evidence, and knowledgeable reviewers judge it more favorably."
+  },
+  {
+    "sample_id": "v4-heldout-expertise-04-caterer",
+    "split": "heldout",
+    "intended_frame": "expertise",
+    "template_index": 4,
+    "scenario_id": "caterer",
+    "message": "Cedar Kitchen rests on the strongest technical foundation, with corroborating results from more than one informed source."
+  },
+  {
+    "sample_id": "v4-heldout-expertise-04-room_layout",
+    "split": "heldout",
+    "intended_frame": "expertise",
+    "template_index": 4,
+    "scenario_id": "room_layout",
+    "message": "a horseshoe of tables rests on the strongest technical foundation, with corroborating results from more than one informed source."
+  }
+]

@@ -1,6 +1,6 @@
 # GPU-pod-only extras, on top of requirements.txt.
 # Nothing here is needed to run the tests or the analysis.
-torch>=2.4
-transformers>=5.12,<6
-accelerate>=0.33
+torch==2.9.1
+transformers==5.16.1
+accelerate==1.14.0
 sentencepiece>=0.2

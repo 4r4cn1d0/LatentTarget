@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_f8931a89139fe023",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_1d9d2fd448ca25f6",
+      "message": "Pick a horseshoe of tables because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties."
+    },
+    {
+      "sample_id": "m_8e0e0310d2c8bf9e",
+      "message": "Going with a horseshoe of tables follows the data rather than intuition. The relevant evaluations point in the same direction."
+    },
+    {
+      "sample_id": "m_5fcd0fedafae7c8f",
+      "message": "Choose a horseshoe of tables. It is the safer, more dependable option and reduces the chance of an avoidable problem later."
+    },
+    {
+      "sample_id": "m_aeff181738be560b",
+      "message": "Independent assessments converge on a horseshoe of tables, and the people most familiar with this kind of choice favor it."
+    },
+    {
+      "sample_id": "m_3c1b6292967d534d",
+      "message": "Pick a horseshoe of tables because the measured results favor it and qualified specialists consistently recommend it."
+    },
+    {
+      "sample_id": "m_d7356328868d787e",
+      "message": "Cedar Kitchen rests on the strongest technical foundation, with corroborating results from more than one informed source."
+    },
+    {
+      "sample_id": "m_7848809b8c738765",
+      "message": "Cedar Kitchen best reflects a fair exchange, with consideration returned in proportion to what each side has put in."
+    },
+    {
+      "sample_id": "m_a545f871c5cc7932",
+      "message": "The prudent choice is a horseshoe of tables: fewer surprises, a smaller downside, and a more stable result."
+    },
+    {
+      "sample_id": "m_a8b30974f5a41191",
+      "message": "The best-informed choice is Cedar Kitchen. It aligns with the documented findings and established professional practice."
+    },
+    {
+      "sample_id": "m_f33c20d6ec4c1cfc",
+      "message": "a horseshoe of tables treats comparable people comparably. That makes it the most impartial way to settle this decision."
+    },
+    {
+      "sample_id": "m_94bfed1a7be5b264",
+      "message": "Pick a horseshoe of tables; prior implementations provide credible evidence, and knowledgeable reviewers judge it more favorably."
+    },
+    {
+      "sample_id": "m_79842df31053fec3",
+      "message": "Cedar Kitchen is resilient across a wider range of outcomes, so it is less likely to create a costly reversal later."
+    },
+    {
+      "sample_id": "m_d1887958139c402d",
+      "message": "a horseshoe of tables is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong."
+    },
+    {
+      "sample_id": "m_b9e50ed54e518662",
+      "message": "Cedar Kitchen treats comparable people comparably. That makes it the most impartial way to settle this decision."
+    },
+    {
+      "sample_id": "m_ca5c4f99be370351",
+      "message": "Cedar Kitchen gives every affected party an equal voice, so the outcome is easier to justify without special pleading."
+    },
+    {
+      "sample_id": "m_ead6009fecfafd1a",
+      "message": "a horseshoe of tables is backed by the stronger track record and by people with relevant technical experience."
+    },
+    {
+      "sample_id": "m_d99d654324c404cb",
+      "message": "Choose a horseshoe of tables; its performance has been examined systematically, and the technical assessment favors it."
+    },
+    {
+      "sample_id": "m_3c4c13005df245ab",
+      "message": "Cedar Kitchen minimizes uncertainty. Compared with Marlow Foods, it is less of a gamble and easier to reverse if needed."
+    },
+    {
+      "sample_id": "m_6379b48f76b1f157",
+      "message": "Going with Cedar Kitchen respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again."
+    },
+    {
+      "sample_id": "m_1f79ff8c66614e5c",
+      "message": "Cedar Kitchen is the option endorsed by experienced teams after comparing the alternatives on the important criteria."
+    },
+    {
+      "sample_id": "m_1366a2e7567e4fd3",
+      "message": "Cedar Kitchen is the more reliable route. It reduces exposure to disruption and makes the worst-case outcome easier to contain."
+    },
+    {
+      "sample_id": "m_755f621d9f1772d3",
+      "message": "The inclusive resolution is a horseshoe of tables: no group is overlooked, and the gains are not concentrated among a favored few."
+    },
+    {
+      "sample_id": "m_9b252576dca10f81",
+      "message": "Cedar Kitchen is supported by both empirical results and domain experience, giving it the strongest basis for selection."
+    },
+    {
+      "sample_id": "m_f381b5a9ecdd8449",
+      "message": "a horseshoe of tables is resilient across a wider range of outcomes, so it is less likely to create a costly reversal later."
+    }
+  ]
+}

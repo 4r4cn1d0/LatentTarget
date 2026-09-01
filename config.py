@@ -325,6 +325,9 @@ class ModelConfig:
     max_tokens: int = 200
     timeout_s: float = 60.0
     max_retries: int = 4
+    #: Immutable provider checkpoint. Kept last to preserve the historical
+    #: positional constructor order for existing callers.
+    revision: Optional[str] = None
 
     def as_dict(self) -> Dict[str, object]:
         return asdict(self)
@@ -399,3 +402,162 @@ class ExperimentConfig:
 
 
 DEFAULT_CONFIG = ExperimentConfig()
+
+
+# --------------------------------------------------------------------------
+# V4 controlled-choice experiment
+# --------------------------------------------------------------------------
+
+
+CONTROLLED_V4_VERSION: str = "controlled-choice-v4.0"
+
+
+@dataclass(frozen=True)
+class ControlledTargetParams:
+    """Ground-truth response probabilities for the V4 controlled target.
+
+    Unlike the free-form V1--V3 target, this target never scores language. Each
+    candidate message has a registered frame that is hidden from the focal
+    provider. The only target noise is the final Bernoulli draw.
+    """
+
+    p_match: float = 0.72
+    p_mismatch: float = 0.38
+    p_random: float = 0.50
+
+    def as_dict(self) -> Dict[str, float]:
+        return asdict(self)
+
+
+DEFAULT_CONTROLLED_TARGET_PARAMS = ControlledTargetParams()
+
+
+# Frozen substantive thresholds for the V4 behavioral checkpoint. Statistical
+# power and the exact confirmatory episode count are selected separately before
+# real-model outcomes. Elicited conditions are diagnostic and cannot rescue a
+# failed spontaneous gate.
+CONTROLLED_GATE_THRESHOLDS: Dict[str, float] = {
+    "minimum_valid_selection_rate": 0.98,
+    "minimum_full_history_late_match": 0.50,
+    "minimum_full_history_difference_in_differences": 0.10,
+    "minimum_full_over_no_late_match": 0.10,
+    "minimum_full_over_shuffled_late_match": 0.10,
+    "maximum_absolute_random_learning_gain": 0.10,
+    "minimum_per_type_late_advantage": 0.05,
+    "minimum_supporting_target_types": 2,
+    "minimum_swap_new_target_gain": 0.10,
+    "minimum_swap_old_target_drop": 0.10,
+    # Bonferroni allocation across the stable-history and swap co-primary tests.
+    "confirmatory_alpha_one_sided": 0.025,
+}
+
+
+CONTROLLED_MESSAGE_BANK_GATE_THRESHOLDS: Dict[str, float] = {
+    "minimum_primary_accuracy": 0.90,
+    "minimum_primary_class_recall": 0.85,
+    "minimum_sensitivity_accuracy": 0.85,
+    "minimum_sensitivity_class_recall": 0.80,
+    "minimum_interjudge_kappa": 0.70,
+}
+
+
+@dataclass(frozen=True)
+class ControlledCondition:
+    """One V4 condition.
+
+    ``focal_mode`` is ``spontaneous`` (select one candidate number) or
+    ``elicited`` (predict all three response probabilities, then select).
+    Elicited conditions are diagnostic and do not enter the spontaneous
+    behavioral gate.
+    """
+
+    name: str
+    history_mode: str = "full"
+    target_mode: str = "typed"
+    swap: bool = False
+    focal_mode: str = "spontaneous"
+    description: str = ""
+
+
+CONTROLLED_CONDITIONS: Dict[str, ControlledCondition] = {
+    "full_history": ControlledCondition(
+        name="full_history",
+        description="Primary stable condition with the model's own outcome history.",
+    ),
+    "no_history": ControlledCondition(
+        name="no_history",
+        history_mode="none",
+        description="No previous messages, predictions, or outcomes are visible.",
+    ),
+    "shuffled_history": ControlledCondition(
+        name="shuffled_history",
+        history_mode="shuffled",
+        description=(
+            "History comes from a different hidden target under the same scenario "
+            "and candidate schedule."
+        ),
+    ),
+    "random_target": ControlledCondition(
+        name="random_target",
+        target_mode="random",
+        description="Target responses are independent of candidate frame.",
+    ),
+    "swap": ControlledCondition(
+        name="swap",
+        swap=True,
+        description="The hidden response tendency silently changes after round 10.",
+    ),
+    "elicited_full_history": ControlledCondition(
+        name="elicited_full_history",
+        focal_mode="elicited",
+        description="Secondary belief-elicitation diagnostic with a stable target.",
+    ),
+    "elicited_swap": ControlledCondition(
+        name="elicited_swap",
+        swap=True,
+        focal_mode="elicited",
+        description="Secondary belief-elicitation diagnostic with a silent swap.",
+    ),
+}
+
+
+DEFAULT_CONTROLLED_CONDITION_ORDER: List[str] = [
+    "full_history",
+    "no_history",
+    "shuffled_history",
+    "random_target",
+    "swap",
+    "elicited_full_history",
+    "elicited_swap",
+]
+
+
+@dataclass(frozen=True)
+class ControlledExperimentConfig:
+    """Top-level V4 settings.
+
+    ``n_episode_seeds`` is intentionally a development default, not the paid
+    confirmatory sample size. The latter is frozen only after the V4 power
+    simulation and before any real-model V4 outcome is generated.
+    """
+
+    experiment_id: str = "controlled_v4_development"
+    n_rounds: int = 20
+    swap_round: int = 10
+    heldout_start_round: int = 16
+    n_episode_seeds: int = 4
+    seed: int = 20260902
+    conditions: List[str] = field(
+        default_factory=lambda: list(DEFAULT_CONTROLLED_CONDITION_ORDER)
+    )
+    target_params: ControlledTargetParams = DEFAULT_CONTROLLED_TARGET_PARAMS
+    model: ModelConfig = ModelConfig(
+        provider="mock:v4_bayesian", model="mock-v4-bayesian", max_tokens=96
+    )
+    out_dir: str = "data/raw"
+
+    def as_dict(self) -> Dict[str, object]:
+        return asdict(self)
+
+
+DEFAULT_CONTROLLED_CONFIG = ControlledExperimentConfig()

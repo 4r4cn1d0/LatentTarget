@@ -15,7 +15,7 @@ import platform
 import subprocess
 import sys
 import time
-from typing import Any, Dict, Iterable, Iterator, List, Optional
+from typing import Any, Callable, Dict, Iterable, Iterator, List, Optional
 
 #: Fields every record must carry.  Checked by ``validate_record`` and by
 #: ``tests/test_experiment.py``.
@@ -71,9 +71,15 @@ def validate_record(record: Dict[str, Any]) -> None:
 class JsonlWriter:
     """Append-only JSONL writer that flushes after every record."""
 
-    def __init__(self, path: str, validate: bool = True) -> None:
+    def __init__(
+        self,
+        path: str,
+        validate: bool = True,
+        validator: Optional[Callable[[Dict[str, Any]], None]] = None,
+    ) -> None:
         self.path = path
         self.validate = validate
+        self.validator = validator or validate_record
         parent = os.path.dirname(path)
         if parent:
             os.makedirs(parent, exist_ok=True)
@@ -82,7 +88,7 @@ class JsonlWriter:
 
     def write(self, record: Dict[str, Any]) -> None:
         if self.validate:
-            validate_record(record)
+            self.validator(record)
         self._fh.write(json.dumps(record, ensure_ascii=False, default=_json_default) + "\n")
         self._fh.flush()
         self.n_written += 1

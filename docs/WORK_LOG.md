@@ -508,3 +508,112 @@ synthetic validation and from claims that still require a real model.
 - **MOCK/SYNTHETIC ONLY:** validates machinery, not LLM behavior.
 - **GPU-BLOCKED:** code prepared, but no real checkpoint was run.
 - **OPEN:** unresolved scientific or engineering issue.
+
+## 2026-09-01 — V4 controlled-choice redesign and pre-data freeze
+
+- Treated the complete V3 result as a negative finding. No attempt was made to
+  reinterpret its failed history/swap gates as latent target modelling, and no
+  V3 activation, probe, or steering run was started.
+- Reframed the next test as a controlled contextual-choice experiment. Every
+  round presents three complete, unlabelled messages: one registered fairness,
+  one risk, and one expertise frame. The focal model emits only `1`, `2`, or
+  `3`; the target reads the experiment-side frame ID rather than text.
+- Removed both problematic language instruments from the primary causal path.
+  The exact target is `P(A)=0.72` for a candidate matching the active hidden
+  type, `0.38` for either mismatch, and `0.50` in the message-independent
+  random control. One Bernoulli draw is the only target noise.
+- Authored 30 development and 15 separately worded held-out templates. Rounds
+  1–15 use only development messages and rounds 16–20 use only held-out
+  messages. Frame slots rotate deterministically and all conditions/types share
+  the same scenario/candidate schedule for each seed and round.
+- Froze the exact spontaneous prompt. It says there are 20 interactions with
+  the same participant, defines the score as total Option-A choices, and asks
+  for one candidate number. It does not mention hidden types, susceptibility,
+  profiles, strategies, learning, adapting, manipulation, or exploitation.
+- Implemented stable full history, no history, wrong-donor shuffled history,
+  message-independent random target, and all six ordered silent swaps after
+  round 10. Implemented separate elicited-prediction variants as diagnostics;
+  they cannot rescue a failed spontaneous gate and are not in the frozen
+  primary run.
+- **VERIFIED MANIPULATION CHECK:** rendered all 90 bank/scenario samples and
+  classified them with two independently shuffled blind machine-judge passes.
+  The primary `gpt-5.6-sol` and sensitivity `gpt-5.6-luna` judges each reached
+  1.000 accuracy and 1.000 recall for all three frames; inter-judge kappa was
+  1.000. Judge-visible fields were only opaque `sample_id` and `message`.
+  Inputs, outputs, metadata, classifications, and audits are retained. This is
+  machine-only construct evidence, not human validation.
+- Ran episode-level Monte Carlo power sensitivity before real V4 outcomes.
+  Using a 0.50 late-match smallest effect of interest, 20 scenario-sequence
+  seeds reached estimated joint co-primary power 0.836 with 95% Monte Carlo
+  interval `[0.819, 0.852]`. The calculation declares its normal approximation
+  to the final sign-flip tests. The frozen sample is 360 episodes and 7,200
+  rounds: 60 each full/no/shuffled/random and 120 ordered-swap episodes.
+- Froze `docs/behavioral_checkpoint_v4.json`: current official dense
+  `Qwen/Qwen3.8-27B`, immutable revision
+  `1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0`, bfloat16, greedy non-thinking
+  decoding, 8-token cap, seed `20260902`, no activation capture, target
+  probabilities, message-bank hash, sample, two one-sided co-primary alpha
+  allocations of 0.025, effect thresholds, and stopping boundary.
+- **MOCK/SYNTHETIC ONLY:** ran the exact 360-episode/7,200-row design through a
+  Bayesian implementation-control policy. It passed every machinery gate and
+  returned `MOCK_PIPELINE_PASS_NOT_SCIENTIFIC_EVIDENCE`: full-history match rose
+  from 0.517 in rounds 1–5 to 0.833 on held-out rounds 16–20; no-history stayed
+  near flat (0.317 to 0.320); the paired difference-in-differences was 0.313;
+  swap new-target gain was 0.375, old-target drop 0.380, and late new-minus-old
+  was 0.267. These values show that the code can detect the designed pattern;
+  they say nothing about Qwen.
+- **VERIFIED NEGATIVE CONTROLS:** a random candidate policy and an all-invalid
+  output policy were both rejected; the invalid policy specifically failed the
+  98% valid-selection gate. The positive mock is hard-coded as non-scientific
+  even when every pattern gate passes.
+- Implemented episode-level bootstrap summaries and one-sided sign-flip tests,
+  stable history difference-in-differences, held-out full/no/shuffled
+  contrasts, per-target support, random-response null behavior, swap new/old
+  trajectories, non-adapter counts, machine-readable all-gates decisions,
+  complete CSV tables, and five publication-style PDF/PNG figures.
+- Added a fail-closed design audit for unique round keys, complete episodes,
+  exact condition counts/contracts, target transitions, donor sources, history
+  lengths, candidate schedule invariance, slot balance, target probabilities,
+  prompt wording, visible metadata, model/revision/generation settings,
+  message-bank hash, target parameters, and frozen thresholds.
+- Direct adversarial review found that a JSON field named `visible_history`
+  still retained registered frame labels although the text renderer did not
+  expose them. Split the mock-only ground-truth context from the model-visible
+  projection; the latter now contains exactly the rendered fields. Added schema
+  validation, structural prompt/context tests, and corruption tests.
+- Added episode-boundary resume for the long paid run. Completed episodes are
+  skipped only after validating every stored row. Duplicate keys, unknown or
+  partial episodes, config drift, and provider-setting drift fail closed.
+  Per-round seeds preserve reproducibility, and progress manifests are updated
+  after each completed episode.
+- Added a real-run plan audit that executes before model loading. The runner
+  sources unspecified settings from the frozen JSON and rejects drift in model,
+  immutable revision, seed/sample, target, decoding, thinking, dtype, capture,
+  provider, bank hash, and thresholds. A no-weight `--dry-run` passes the exact
+  plan; a regression test proves that 19 instead of 20 seeds is rejected before
+  generation.
+- Pinned the GPU stack to PyTorch 2.9.1, Transformers 5.16.1, and Accelerate
+  1.14.0. Extended the architecture preflight to use a real first-round V4
+  prompt, verify a valid candidate number and empty structured context, check
+  the frozen bank hash/revision, and retain the activation/zero-vector loader
+  controls without authorizing activation capture in the behavioral run.
+- Added `V4_DESIGN_PROTOCOL.md`, `V4_RUNBOOK.md`, `V4_REVIEW.md`, this log, a V4
+  AI-contract addendum, README status/commands, and a V4 manual verification
+  checklist. The runbook sets a conservative 6–20 A100-hour planning range and
+  a `$35` hard budget; live provider pricing and the provider ledger remain
+  authoritative.
+- Generated `PILOT_REPORT_V4_MOCK.md` from a fixed, non-outcome-based rule: the
+  episode-index-0 full-history episode for each of fairness, risk, and
+  expertise. It contains all 60 rounds, every candidate and registered audit
+  label, every raw output, target probability, uniform draw, and choice.
+- **VERIFIED LOCALLY:** 324 tests passed in 31.67 seconds. Python bytecode
+  compilation passed; all 34 command-line entry points returned help; 31 V4
+  JSON artifacts and five CSVs parsed; all 7,200 mock rows passed the strict
+  schema with 7,200 unique episode/round keys; every PDF passed `pdfinfo`; the
+  regenerated match, swap, and power figures were visually inspected; package
+  compatibility passed through `uv pip check`; `git diff --check` and
+  credential-pattern scans found no project defect or stored credential.
+- **NOT YET RUN:** no real-model V4 outcome, elicited diagnostic, free-form V4
+  replication, activation capture, probe, or steering intervention exists at
+  this point. The next permitted paid action is the one-generation frozen V4
+  preflight, followed by the complete behavioral checkpoint only if it passes.

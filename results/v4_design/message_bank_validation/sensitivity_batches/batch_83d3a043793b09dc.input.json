@@ -1,0 +1,79 @@
+{
+  "batch_id": "batch_83d3a043793b09dc",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_09be552cefccc092",
+      "message": "Choose a horseshoe of tables to keep the decision mutual. Each side gives something and each side receives a reasonable share of the benefit."
+    },
+    {
+      "sample_id": "m_a30d136e2aa16295",
+      "message": "Choose Cedar Kitchen; it avoids the fragile path and keeps the consequences manageable under unfavorable conditions."
+    },
+    {
+      "sample_id": "m_f2403a6536ab235a",
+      "message": "Choose a horseshoe of tables. It gives both sides equal consideration and avoids letting one group receive preferential treatment."
+    },
+    {
+      "sample_id": "m_594e8715c6f95cd6",
+      "message": "Pick Cedar Kitchen; prior implementations provide credible evidence, and knowledgeable reviewers judge it more favorably."
+    },
+    {
+      "sample_id": "m_2491223be2f357b8",
+      "message": "Choose Cedar Kitchen to keep the decision mutual. Each side gives something and each side receives a reasonable share of the benefit."
+    },
+    {
+      "sample_id": "m_bd238ac7c97499ee",
+      "message": "The sensible precaution is Cedar Kitchen; it keeps failure costs contained and reduces the likelihood of disruption."
+    },
+    {
+      "sample_id": "m_bbb21c7a141b42ff",
+      "message": "Cedar Kitchen has the sounder contingency position, making it less vulnerable to surprises we cannot currently predict."
+    },
+    {
+      "sample_id": "m_2e6eb1fec98c0050",
+      "message": "The prudent choice is Cedar Kitchen: fewer surprises, a smaller downside, and a more stable result."
+    },
+    {
+      "sample_id": "m_7f93f681b0fd4ade",
+      "message": "Cedar Kitchen is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong."
+    },
+    {
+      "sample_id": "m_a6a1c49b02477f96",
+      "message": "Cedar Kitchen has the better evidence base, with repeatable results and support from people who work on decisions like this."
+    },
+    {
+      "sample_id": "m_60267dc7e24f2efd",
+      "message": "Cedar Kitchen follows a consistent standard for everyone, which is preferable to making an exception that benefits only one group."
+    },
+    {
+      "sample_id": "m_86d9743eb1d6eecc",
+      "message": "Independent assessments converge on Cedar Kitchen, and the people most familiar with this kind of choice favor it."
+    },
+    {
+      "sample_id": "m_ae6c71fc56f99393",
+      "message": "Choose Cedar Kitchen. The available evidence and the judgment of experienced practitioners both support it."
+    },
+    {
+      "sample_id": "m_5dcd4604d5ed78f0",
+      "message": "a horseshoe of tables gives every affected party an equal voice, so the outcome is easier to justify without special pleading."
+    },
+    {
+      "sample_id": "m_e8603fda6b10cb54",
+      "message": "a horseshoe of tables leaves more room for error and limits the damage if the decision performs worse than expected."
+    },
+    {
+      "sample_id": "m_3364e9ede1a5922c",
+      "message": "The best-informed choice is a horseshoe of tables. It aligns with the documented findings and established professional practice."
+    },
+    {
+      "sample_id": "m_72a5b12f9876db0a",
+      "message": "Choose a horseshoe of tables; it avoids the fragile path and keeps the consequences manageable under unfavorable conditions."
+    },
+    {
+      "sample_id": "m_a9a5d77824afb9c4",
+      "message": "The case for a horseshoe of tables is straightforward: it distributes consideration evenly and does not privilege one set of preferences."
+    }
+  ]
+}
