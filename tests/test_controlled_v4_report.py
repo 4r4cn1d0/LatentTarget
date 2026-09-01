@@ -31,3 +31,19 @@ def test_v4_report_uses_three_fixed_complete_target_balanced_transcripts(tmp_pat
     assert "Hidden target (not model-visible): **fairness**" in report
     assert "Hidden target (not model-visible): **risk**" in report
     assert "Hidden target (not model-visible): **expertise**" in report
+    assert "### Exact round-1 user prompt" in report
+    assert "### Exact history-bearing user prompt" in report
+    assert "--- Previous interactions ---" in report
+
+    real_manifest = json.loads(json.dumps(manifest))
+    real_manifest["provider"]["provider"] = "huggingface"
+    real_manifest["provider"]["model"] = "Qwen/example"
+    real_summary = json.loads(json.dumps(summary))
+    real_summary["decision"] = "STOP_BEFORE_FREEFORM_OR_MECHANISTIC_SCALING"
+    real_summary["effect_gates"]["silent_swap_new_over_old"] = True
+    real_summary["swap_metrics"]["late_new_over_old"]["mean"] = 0.0
+    real_report = render_report(result.records, real_manifest, real_summary)
+    assert real_report.startswith("# LatentTarget V4 real-model behavioral checkpoint")
+    assert "REAL-MODEL CONTROLLED-CHOICE CHECKPOINT" in real_report
+    assert "MOCK/SYNTHETIC ONLY" not in real_report
+    assert "Treat it substantively as zero" in real_report

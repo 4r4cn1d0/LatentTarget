@@ -5,6 +5,7 @@ from pathlib import Path
 
 from config import CONTROLLED_GATE_THRESHOLDS, ControlledExperimentConfig, ModelConfig
 from src.controlled_analysis import (
+    _positive_beyond_roundoff,
     audit_controlled_design,
     audit_frozen_checkpoint_manifest,
     audit_frozen_checkpoint_plan,
@@ -21,6 +22,11 @@ def _checkpoint_config(tmp_path, provider, n_seeds):
         model=ModelConfig(provider=provider, model="mock", max_tokens=16),
         out_dir=str(tmp_path),
     )
+
+
+def test_positive_effect_gate_rejects_floating_point_residue():
+    assert _positive_beyond_roundoff(7.401486830834377e-18) is False
+    assert _positive_beyond_roundoff(1e-6) is True
 
 
 def test_bayesian_positive_control_passes_but_is_never_scientific_evidence(tmp_path):

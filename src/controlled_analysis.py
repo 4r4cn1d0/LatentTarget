@@ -15,6 +15,13 @@ from config import (
     STRATEGIES,
 )
 
+NUMERICAL_ZERO_TOLERANCE = 1e-12
+
+
+def _positive_beyond_roundoff(value: float) -> bool:
+    """Reject floating-point residue when a gate requires a positive effect."""
+    return float(value) > NUMERICAL_ZERO_TOLERANCE
+
 
 def _mean(values: Iterable[float]) -> float:
     values = list(values)
@@ -600,7 +607,9 @@ def evaluate_controlled_checkpoint(
         >= thresholds["minimum_swap_new_target_gain"],
         "silent_swap_old_target_drop": swap_metrics["old_target_drop"]["mean"]
         >= thresholds["minimum_swap_old_target_drop"],
-        "silent_swap_new_over_old": swap_metrics["late_new_over_old"]["mean"] > 0.0,
+        "silent_swap_new_over_old": _positive_beyond_roundoff(
+            swap_metrics["late_new_over_old"]["mean"]
+        ),
     }
     inference_gates = {
         "stable_primary_randomization_test": primary[

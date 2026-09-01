@@ -43,16 +43,46 @@ def render_report(records, manifest, summary) -> str:
     for row in records:
         by_episode[str(row["episode_id"])].append(row)
     transcript_ids = _fixed_transcript_ids(records)
+    prompt_example_episode = sorted(
+        by_episode[transcript_ids[0]], key=lambda row: int(row["round"])
+    )
+    if len(prompt_example_episode) < 2:
+        raise ValueError("report needs at least two rounds for exact prompt examples")
+    first_user_prompt = prompt_example_episode[0]["focal_user_prompt"]
+    history_user_prompt = prompt_example_episode[1]["focal_user_prompt"]
     provider = manifest["provider"]
     target = manifest["config"]["target_params"]
-    lines = [
-        "# LatentTarget V4 mock checkpoint report",
-        "",
-        (
+    is_mock = str(provider.get("provider", "")).startswith("mock:")
+    if is_mock:
+        title = "# LatentTarget V4 mock checkpoint report"
+        banner = (
             "> **MOCK/SYNTHETIC ONLY.** This report validates the experimental "
             "machinery; it contains no evidence about an LLM and no real-model "
             "V4 outcome."
-        ),
+        )
+        gate_heading = "## Local control result"
+        gate_note = (
+            "The all-pass mock result is expected for the scripted Bayesian policy "
+            "and cannot authorize a scientific claim."
+        )
+    else:
+        title = "# LatentTarget V4 real-model behavioral checkpoint"
+        banner = (
+            "> **REAL-MODEL CONTROLLED-CHOICE CHECKPOINT.** The locked decision is "
+            "`%s`. These results concern feedback-conditioned candidate selection; "
+            "they do not by themselves establish an explicit latent representation."
+            % summary["decision"]
+        )
+        gate_heading = "## Preregistered checkpoint result"
+        gate_note = (
+            "The decision above is mechanical: every frozen effect and inference "
+            "gate must pass. A failed gate cannot be rescued by a favorable "
+            "post-hoc analysis."
+        )
+    lines = [
+        title,
+        "",
+        banner,
         "",
         "## Run identity",
         "",
@@ -71,6 +101,28 @@ def render_report(records, manifest, summary) -> str:
         "",
         "```text",
         manifest["focal_prompt_templates"]["spontaneous_system_rendered"],
+        "```",
+        "",
+        "### Exact round-1 user prompt",
+        "",
+        (
+            "This is the verbatim user prompt from round 1 of the first "
+            "fixed-rule transcript."
+        ),
+        "",
+        "```text",
+        first_user_prompt,
+        "```",
+        "",
+        "### Exact history-bearing user prompt",
+        "",
+        (
+            "This is the verbatim round-2 user prompt from the same episode and "
+            "shows exactly how prior messages and outcomes were rendered."
+        ),
+        "",
+        "```text",
+        history_user_prompt,
         "```",
         "",
         (
@@ -99,7 +151,7 @@ def render_report(records, manifest, summary) -> str:
             "metadata and were not supplied to the focal provider."
         ),
         "",
-        "## Local control result",
+        gate_heading,
         "",
     ]
     for name, passed in summary["effect_gates"].items():
@@ -108,9 +160,33 @@ def render_report(records, manifest, summary) -> str:
         lines.append("- `%s`: **%s**" % (name, "PASS" if passed else "FAIL"))
     lines.extend([
         "",
-        (
-            "The all-pass mock result is expected for the scripted Bayesian policy "
-            "and cannot authorize a scientific claim."
+        gate_note,
+        "",
+        "## Key preregistered metrics",
+        "",
+        "- valid candidate-number rate: `%s`" % _fmt(summary["valid_selection_rate"]),
+        "- full-history early match: `%s`" % _fmt(
+            summary["stable_condition_metrics"]["full_history"]["early_match"]["mean"]
+        ),
+        "- full-history held-out late match: `%s`" % _fmt(
+            summary["stable_condition_metrics"]["full_history"]["late_heldout_match"]["mean"]
+        ),
+        "- full/no-history difference-in-differences: `%s` (`p_one_sided=%s`)" % (
+            _fmt(summary["primary_contrasts"]["full_vs_no_difference_in_differences"]["mean"]),
+            _fmt(summary["primary_contrasts"]["full_vs_no_difference_in_differences"]["p_value_one_sided"]),
+        ),
+        "- full minus shuffled held-out match: `%s`" % _fmt(
+            summary["primary_contrasts"]["full_over_shuffled_late_heldout"]["mean"]
+        ),
+        "- swap new-target gain: `%s`" % _fmt(
+            summary["swap_metrics"]["new_target_gain"]["mean"]
+        ),
+        "- swap old-target drop: `%s`" % _fmt(
+            summary["swap_metrics"]["old_target_drop"]["mean"]
+        ),
+        "- swap late new-minus-old: `%s` (`p_one_sided=%s`)" % (
+            _fmt(summary["swap_metrics"]["late_new_over_old"]["mean"]),
+            _fmt(summary["swap_metrics"]["late_new_over_old"]["p_value_one_sided"]),
         ),
         "",
         "## Three complete fixed-rule transcripts",
@@ -167,17 +243,41 @@ def render_report(records, manifest, summary) -> str:
                 "",
             ])
 
+    if (
+        not is_mock
+        and summary["effect_gates"].get("silent_swap_new_over_old")
+        and abs(float(summary["swap_metrics"]["late_new_over_old"]["mean"])) <= 1e-12
+    ):
+        lines.extend([
+            "## Numerical audit note",
+            "",
+            (
+                "The run-commit effect gate used a strict floating-point `> 0` "
+                "comparison. The stored mean is effectively zero, so round-off "
+                "marked that effect-size gate PASS. Treat it substantively as zero; "
+                "the preregistered inference gate failed and the overall STOP "
+                "decision is unchanged."
+            ),
+            "",
+        ])
+
+    final_provider_note = (
+        "This report's scripted policy receives mock-only structured action-frame "
+        "metadata so it can validate recovery. Real providers receive an empty "
+        "structured context and only the rendered prompts."
+        if is_mock
+        else (
+            "The real provider received an empty structured context and only the "
+            "rendered prompts. Registered frame labels in this report are "
+            "experiment-side audit metadata reconstructed after each choice."
+        )
+    )
     lines.extend([
         "## Interpretation boundary",
         "",
         summary["interpretation_boundary"],
         "",
-        (
-            "This report's scripted policy receives mock-only structured action-frame "
-            "metadata so it can validate recovery. Real providers receive an empty "
-            "structured context and only the rendered prompts. A real V4 report must "
-            "be generated separately after the frozen checkpoint completes."
-        ),
+        final_provider_note,
         "",
     ])
     return "\n".join(lines)
