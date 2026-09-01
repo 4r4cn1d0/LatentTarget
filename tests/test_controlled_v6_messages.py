@@ -146,24 +146,26 @@ def test_v6_audit_rejects_structural_corruption(corrupt, failed_check):
     assert audit["checks"][failed_check] is False
 
 
-def test_v6_confirmatory_load_requires_exact_validated_status_and_bank_shape(
+def test_v6_confirmatory_load_never_trusts_fabricated_validated_status(
     tmp_path,
 ):
-    with pytest.raises(ValueError, match=V6_SELECTED_BANK_STATUS):
+    with pytest.raises(ValueError, match="full final checkpoint"):
         V6TriadBank.load(str(POOL), require_validated=True)
 
     selected_path = _write_payload(tmp_path / "selected.json", _selected_payload())
-    bank = V6TriadBank.load(str(selected_path), require_validated=True)
+    bank = V6TriadBank.load(str(selected_path))
     assert bank.payload["status"] == V6_SELECTED_BANK_STATUS
     assert audit_v6_bank_payload(bank.payload)["counts"] == {
         "development": 6,
         "heldout": 4,
     }
+    with pytest.raises(ValueError, match="full final checkpoint"):
+        V6TriadBank.load(str(selected_path), require_validated=True)
 
     wrong_status = _selected_payload()
     wrong_status["status"] = "selected_bank_validated_with_suffix"
     wrong_path = _write_payload(tmp_path / "wrong-status.json", wrong_status)
-    with pytest.raises(ValueError, match=V6_SELECTED_BANK_STATUS):
+    with pytest.raises(ValueError, match="full final checkpoint"):
         V6TriadBank.load(str(wrong_path), require_validated=True)
 
 
@@ -244,7 +246,7 @@ def test_v6_frozen_validation_coordinates_balance_selected_triads_and_slots(
     tmp_path,
 ):
     selected_path = _write_payload(tmp_path / "selected.json", _selected_payload())
-    protocol = make_v6_protocol(str(selected_path), require_validated=True)
+    protocol = make_v6_protocol(str(selected_path))
     triad_counts = {
         "development": Counter(),
         "heldout": Counter(),

@@ -257,9 +257,16 @@ def audit_v6_bank_payload(payload: Mapping[str, Any]) -> Dict[str, Any]:
 class V6TriadBank:
     payload: Dict[str, Any]
     source_path: str
+    validation_evidence: Dict[str, Any] | None = None
 
     @classmethod
-    def load(cls, path: str, require_validated: bool = False) -> "V6TriadBank":
+    def load(
+        cls,
+        path: str,
+        require_validated: bool = False,
+        final_checkpoint_path: str | None = None,
+        checkpoint_root: str | None = None,
+    ) -> "V6TriadBank":
         with open(path, "r", encoding="utf-8") as handle:
             payload = json.load(handle)
         audit = audit_v6_bank_payload(payload)
@@ -268,11 +275,48 @@ class V6TriadBank:
                 name for name, passed in audit["checks"].items() if not passed
             )
             raise ValueError("invalid V6 triad bank: %s" % ", ".join(failed))
-        if require_validated and payload.get("status") != V6_SELECTED_BANK_STATUS:
-            raise ValueError(
-                "V6 confirmatory use requires status %r" % V6_SELECTED_BANK_STATUS
-            )
-        return cls(payload=payload, source_path=_portable_source_path(path))
+        evidence: Dict[str, Any] | None = None
+        if require_validated:
+            if final_checkpoint_path is None:
+                raise ValueError(
+                    "V6 confirmatory use requires a full final checkpoint; "
+                    "validated status alone is not evidence"
+                )
+            with open(final_checkpoint_path, "r", encoding="utf-8") as handle:
+                checkpoint = json.load(handle)
+            # Imported lazily to avoid a module cycle: the artifact gate loads
+            # structurally valid banks while replaying the transition.
+            from .v6_calibration import bank_content_sha256, canonical_sha256, file_sha256
+            from .v6_protocol_gate import audit_v6_final_checkpoint
+
+            root = checkpoint_root or os.getcwd()
+            checkpoint_audit = audit_v6_final_checkpoint(checkpoint, root)
+            if not checkpoint_audit["pass"]:
+                failed = sorted(
+                    name
+                    for name, passed in checkpoint_audit["checks"].items()
+                    if not passed
+                )
+                raise ValueError(
+                    "V6 final checkpoint audit failed: %s" % ", ".join(failed)
+                )
+            if checkpoint_audit.get("validated_bank_sha256") != _canonical_hash(
+                payload
+            ) or checkpoint_audit.get(
+                "validated_bank_content_sha256"
+            ) != bank_content_sha256(payload):
+                raise ValueError("V6 final checkpoint proves a different validated bank")
+            evidence = {
+                "path": _portable_source_path(final_checkpoint_path),
+                "file_sha256": file_sha256(final_checkpoint_path),
+                "canonical_sha256": canonical_sha256(checkpoint),
+                "artifact_audit": checkpoint_audit,
+            }
+        return cls(
+            payload=payload,
+            source_path=_portable_source_path(path),
+            validation_evidence=evidence,
+        )
 
     def manifest(self) -> Dict[str, Any]:
         """Return a detached copy suitable for an immutable run manifest."""
@@ -347,20 +391,82 @@ def make_v6_protocol(
     bank_path: str,
     require_validated: bool = False,
     manifest_metadata: Mapping[str, Any] | None = None,
+    final_checkpoint_path: str | None = None,
+    checkpoint_root: str | None = None,
+    confirmatory_run_id: str | None = None,
+    confirmatory_episode_seeds: int | None = None,
 ) -> ControlledProtocol:
-    bank = V6TriadBank.load(bank_path, require_validated=require_validated)
+    bank = V6TriadBank.load(
+        bank_path,
+        require_validated=require_validated,
+        final_checkpoint_path=final_checkpoint_path,
+        checkpoint_root=checkpoint_root,
+    )
+    metadata = json.loads(json.dumps(manifest_metadata or {}))
+    scenario_set = "confirmatory"
+    frozen_seed: int | None = None
+    frozen_rounds: int | None = None
+    frozen_heldout_start: int | None = None
+    if require_validated:
+        assert bank.validation_evidence is not None
+        checkpoint_audit = bank.validation_evidence["artifact_audit"]
+        schedule = checkpoint_audit["confirmatory_schedule"]
+        expected_run_id = schedule.get("official_run_id")
+        if confirmatory_run_id != expected_run_id:
+            raise ValueError(
+                "V6 confirmatory run_id must equal the single frozen official run ID"
+            )
+        if confirmatory_episode_seeds != schedule.get("selected_episode_seeds"):
+            raise ValueError(
+                "V6 confirmatory episode count must equal the pre-validation "
+                "power selection"
+            )
+        scenario_set = str(schedule["scenario_set"])
+        frozen_seed = int(schedule["master_seed"])
+        frozen_rounds = int(schedule["n_rounds"])
+        frozen_heldout_start = int(schedule["heldout_start_round"])
+        metadata["v6_final_checkpoint"] = bank.validation_evidence
+
+    def _candidate_set(
+        scenario: Any,
+        episode_index: int,
+        round_index: int,
+        heldout_start_round: int,
+        seed: int,
+    ) -> List[MessageCandidate]:
+        if frozen_seed is not None and (
+            seed != frozen_seed or heldout_start_round != frozen_heldout_start
+        ):
+            raise ValueError(
+                "V6 confirmatory candidate coordinates differ from the final checkpoint"
+            )
+        return bank.candidate_set(
+            scenario,
+            episode_index,
+            round_index,
+            heldout_start_round,
+            seed,
+        )
+
+    def _scenario_sequence(
+        episode_index: int, n_rounds: int, seed: int
+    ) -> List[Any]:
+        if frozen_seed is not None and (
+            seed != frozen_seed or n_rounds != frozen_rounds
+        ):
+            raise ValueError(
+                "V6 confirmatory scenario coordinates differ from the final checkpoint"
+            )
+        return v6_scenario_sequence(scenario_set, episode_index, n_rounds, seed)
+
     return ControlledProtocol(
         version=CONTROLLED_V6_VERSION,
-        candidate_builder=bank.candidate_set,
+        candidate_builder=_candidate_set,
         bank_manifest_builder=bank.manifest,
         bank_hash_builder=bank.sha256,
         strict_selection=True,
         constrained_choices=("1", "2", "3"),
         bank_source=bank.source_path,
-        manifest_metadata=manifest_metadata,
-        scenario_sequence_builder=lambda episode_index, n_rounds, seed: (
-            v6_scenario_sequence(
-                "confirmatory", episode_index, n_rounds, seed
-            )
-        ),
+        manifest_metadata=metadata or None,
+        scenario_sequence_builder=_scenario_sequence,
     )

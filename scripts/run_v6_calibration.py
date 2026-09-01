@@ -21,7 +21,11 @@ from src.v6_calibration import (
     file_sha256,
     run_v6_target_free_calibration,
 )
-from src.v6_protocol_gate import audit_v6_calibration_plan
+from src.v6_protocol_gate import (
+    audit_v6_calibration_plan,
+    audit_v6_prevalidation_checkpoint,
+    v6_artifact_reference,
+)
 
 
 def main(argv=None) -> int:
@@ -43,6 +47,11 @@ def main(argv=None) -> int:
     parser.add_argument("--dtype", default=None)
     parser.add_argument("--device", default="auto")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--pre-validation-checkpoint",
+        default=None,
+        help="required immutable artifact graph for selected-bank validation",
+    )
     args = parser.parse_args(argv)
 
     with open(args.protocol_spec, "r", encoding="utf-8") as handle:
@@ -53,6 +62,11 @@ def main(argv=None) -> int:
         else "selected_bank_validation_schedule"
     )
     schedule_spec = spec[schedule_key]
+    official_run_id = schedule_spec.get("official_run_id")
+    if not isinstance(official_run_id, str) or args.run_id != official_run_id:
+        raise ValueError(
+            "V6 run-id must equal the single official run-id frozen in the protocol"
+        )
     generation = spec["generation"]
     primary_model = spec["primary_model"]
     model = args.model or primary_model["id"]
@@ -65,6 +79,35 @@ def main(argv=None) -> int:
     episode_blocks = args.episode_blocks
     dtype = args.dtype or generation["dtype"]
     bank = V6TriadBank.load(args.bank)
+    prevalidation_checkpoint = None
+    prevalidation_reference = None
+    if args.mode == V6_VALIDATION_MODE:
+        if args.pre_validation_checkpoint is None:
+            raise ValueError(
+                "selected-bank validation requires a frozen pre-validation checkpoint"
+            )
+        with open(args.pre_validation_checkpoint, "r", encoding="utf-8") as handle:
+            prevalidation_checkpoint = json.load(handle)
+        prevalidation_audit = audit_v6_prevalidation_checkpoint(
+            prevalidation_checkpoint, _bootstrap.ROOT
+        )
+        if not prevalidation_audit["pass"]:
+            failed = sorted(
+                name
+                for name, passed in prevalidation_audit["checks"].items()
+                if not passed
+            )
+            raise ValueError(
+                "V6 pre-validation checkpoint audit failed: %s"
+                % ", ".join(failed)
+            )
+        if prevalidation_audit.get("pending_bank_sha256") != bank.sha256():
+            raise ValueError("validation bank differs from the frozen pending bank")
+        prevalidation_reference = v6_artifact_reference(
+            args.pre_validation_checkpoint, _bootstrap.ROOT
+        )
+    elif args.pre_validation_checkpoint is not None:
+        raise ValueError("pool screening must not consume a validation checkpoint")
     if args.mode == V6_POOL_MODE and not bank.payload.get(
         "candidate_text_authored_before_v6_focal_calibration"
     ):
@@ -95,6 +138,8 @@ def main(argv=None) -> int:
         seed=seed,
         n_episode_blocks=episode_blocks,
         repository_root=_bootstrap.ROOT,
+        prevalidation_checkpoint=prevalidation_checkpoint,
+        run_id=args.run_id,
     )
     if not plan_audit["pass"]:
         failed = sorted(
@@ -134,6 +179,11 @@ def main(argv=None) -> int:
             "protocol_path": os.path.abspath(args.protocol_spec),
             "protocol_file_sha256": file_sha256(args.protocol_spec),
             "plan_audit": plan_audit,
+            **(
+                {"prevalidation_checkpoint": prevalidation_reference}
+                if prevalidation_reference is not None
+                else {}
+            ),
         },
     )
     print("wrote %d records to %s" % (len(result["records"]), result["log_path"]))

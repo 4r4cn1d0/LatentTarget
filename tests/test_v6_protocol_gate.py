@@ -11,6 +11,9 @@ from src.v6_protocol_gate import audit_v6_calibration_plan
 ROOT = Path(__file__).parents[1]
 POOL = ROOT / "data" / "v6" / "v6_triad_pool_v1.json"
 PROTOCOL = ROOT / "docs" / "v6_calibration_protocol.json"
+POOL_RUN_ID = "v6_pool_screening_qwen38_27b_20260902"
+VALIDATION_RUN_ID = "v6_bank_validation_qwen38_27b_20260902"
+CONFIRMATORY_RUN_ID = "qwen38_27b_v6_confirmatory_20260902"
 
 
 def _write_json(path: Path, payload):
@@ -32,6 +35,11 @@ def _passing_fixture(tmp_path):
     _write_json(semantic_path, semantic)
     _write_json(quality_path, quality)
     spec["status"] = "SEMANTIC_AND_QUALITY_GATES_PASSED_READY_FOR_PAID_POOL_SCREENING"
+    spec["pool_screening_schedule"]["official_run_id"] = POOL_RUN_ID
+    spec["selected_bank_validation_schedule"][
+        "official_run_id"
+    ] = VALIDATION_RUN_ID
+    spec["confirmatory_design"]["official_run_id"] = CONFIRMATORY_RUN_ID
     for name, path, payload in (
         ("semantic_validation", semantic_path, semantic),
         ("quality_validation", quality_path, quality),
@@ -70,9 +78,23 @@ def test_v6_pool_plan_audit_passes_only_exact_frozen_contract(tmp_path):
         20262001,
         None,
         str(ROOT),
+        run_id=POOL_RUN_ID,
     )
     assert result["pass"] is True
     assert all(result["checks"].values())
+
+    wrong_run = audit_v6_calibration_plan(
+        spec,
+        bank,
+        provider,
+        V6_POOL_MODE,
+        20262001,
+        None,
+        str(ROOT),
+        run_id="reselected-run-id",
+    )
+    assert wrong_run["pass"] is False
+    assert wrong_run["checks"]["official_run_id"] is False
 
 
 def test_v6_pool_plan_audit_fails_scenario_or_legacy_block_override(tmp_path):
@@ -86,6 +108,7 @@ def test_v6_pool_plan_audit_fails_scenario_or_legacy_block_override(tmp_path):
         20262001,
         24,
         str(ROOT),
+        run_id=POOL_RUN_ID,
     )
     assert result["pass"] is False
     assert result["checks"]["scenario_hashes"] is False
