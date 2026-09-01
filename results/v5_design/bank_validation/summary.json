@@ -1,0 +1,282 @@
+{
+  "pass": false,
+  "status": "selected-bank no-history validation",
+  "bank_sha256": "f3ee1ed4e2d1b717e78117d4a7ac90b2fc2d7b0fa932cb489c5d49327243bc75",
+  "bank_content_sha256": "bcd25bd3f11618e92ba5a48c70546de7532758fdf0e77076a02e7135503a9088",
+  "thresholds": {
+    "minimum_frame_share": 0.25,
+    "maximum_frame_share": 0.42,
+    "maximum_frame_gap": 0.15,
+    "minimum_candidate_exposures": 12,
+    "development_templates_selected_per_frame": 6,
+    "heldout_templates_selected_per_frame": 4
+  },
+  "sections": {
+    "overall": {
+      "n": 576,
+      "counts": {
+        "risk": 197,
+        "expertise": 300,
+        "fairness": 79
+      },
+      "shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "gap": 0.3836805555555556,
+      "pass": false
+    },
+    "development": {
+      "n": 432,
+      "counts": {
+        "risk": 135,
+        "expertise": 251,
+        "fairness": 46
+      },
+      "shares": {
+        "fairness": 0.10648148148148148,
+        "risk": 0.3125,
+        "expertise": 0.5810185185185185
+      },
+      "gap": 0.474537037037037,
+      "pass": false
+    },
+    "heldout": {
+      "n": 144,
+      "counts": {
+        "risk": 62,
+        "expertise": 49,
+        "fairness": 33
+      },
+      "shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "gap": 0.20138888888888892,
+      "pass": false
+    }
+  },
+  "calibration_run_audit": {
+    "pass": true,
+    "checks": {
+      "nonempty": true,
+      "completed": true,
+      "task_version": true,
+      "calibration_version": true,
+      "mode": true,
+      "target_absent": true,
+      "history_absent": true,
+      "bank_hash": true,
+      "record_count": true,
+      "strict_outputs": true,
+      "provider_constrained": true,
+      "schedule_audit": true,
+      "frozen_protocol_audit": true,
+      "run_id_consistent": true
+    },
+    "schedule_audit": {
+      "pass": true,
+      "checks": {
+        "nonempty": true,
+        "unique_coordinates": true,
+        "complete_candidate_sets": true,
+        "exact_pool_membership": true,
+        "equal_candidate_exposure_within_split": true,
+        "candidate_slot_balance": true,
+        "pool_hash": true
+      },
+      "n_rows": 576,
+      "candidate_exposures": {
+        "v5-dev-fairness-05": 72,
+        "v5-dev-expertise-02": 72,
+        "v5-dev-risk-06": 72,
+        "v5-dev-risk-03": 72,
+        "v5-dev-fairness-06": 72,
+        "v5-dev-risk-01": 72,
+        "v5-dev-fairness-02": 72,
+        "v5-dev-expertise-01": 72,
+        "v5-dev-fairness-03": 72,
+        "v5-dev-risk-02": 72,
+        "v5-dev-expertise-03": 72,
+        "v5-dev-risk-05": 72,
+        "v5-dev-fairness-00": 72,
+        "v5-dev-fairness-01": 72,
+        "v5-dev-expertise-06": 72,
+        "v5-dev-expertise-07": 72,
+        "v5-dev-expertise-04": 72,
+        "v5-dev-risk-04": 72,
+        "v5-heldout-expertise-03": 36,
+        "v5-heldout-fairness-00": 36,
+        "v5-heldout-risk-04": 36,
+        "v5-heldout-fairness-04": 36,
+        "v5-heldout-expertise-02": 36,
+        "v5-heldout-risk-05": 36,
+        "v5-heldout-expertise-01": 36,
+        "v5-heldout-fairness-05": 36,
+        "v5-heldout-risk-00": 36,
+        "v5-heldout-fairness-01": 36,
+        "v5-heldout-risk-02": 36,
+        "v5-heldout-expertise-04": 36
+      },
+      "minimum_candidate_exposure": 36,
+      "candidate_slot_counts": {
+        "v5-dev-fairness-05": {
+          "1": 24,
+          "3": 24,
+          "2": 24
+        },
+        "v5-dev-expertise-02": {
+          "2": 24,
+          "1": 24,
+          "3": 24
+        },
+        "v5-dev-risk-06": {
+          "3": 24,
+          "2": 24,
+          "1": 24
+        },
+        "v5-dev-risk-03": {
+          "2": 24,
+          "1": 24,
+          "3": 24
+        },
+        "v5-dev-fairness-06": {
+          "3": 24,
+          "1": 24,
+          "2": 24
+        },
+        "v5-dev-risk-01": {
+          "1": 24,
+          "2": 24,
+          "3": 24
+        },
+        "v5-dev-fairness-02": {
+          "2": 24,
+          "3": 24,
+          "1": 24
+        },
+        "v5-dev-expertise-01": {
+          "3": 24,
+          "2": 24,
+          "1": 24
+        },
+        "v5-dev-fairness-03": {
+          "1": 24,
+          "3": 24,
+          "2": 24
+        },
+        "v5-dev-risk-02": {
+          "3": 24,
+          "2": 24,
+          "1": 24
+        },
+        "v5-dev-expertise-03": {
+          "1": 24,
+          "2": 24,
+          "3": 24
+        },
+        "v5-dev-risk-05": {
+          "2": 24,
+          "1": 24,
+          "3": 24
+        },
+        "v5-dev-fairness-00": {
+          "3": 24,
+          "1": 24,
+          "2": 24
+        },
+        "v5-dev-fairness-01": {
+          "2": 24,
+          "3": 24,
+          "1": 24
+        },
+        "v5-dev-expertise-06": {
+          "2": 24,
+          "3": 24,
+          "1": 24
+        },
+        "v5-dev-expertise-07": {
+          "1": 24,
+          "3": 24,
+          "2": 24
+        },
+        "v5-dev-expertise-04": {
+          "3": 24,
+          "2": 24,
+          "1": 24
+        },
+        "v5-dev-risk-04": {
+          "1": 24,
+          "3": 24,
+          "2": 24
+        },
+        "v5-heldout-expertise-03": {
+          "1": 12,
+          "3": 12,
+          "2": 12
+        },
+        "v5-heldout-fairness-00": {
+          "2": 12,
+          "3": 12,
+          "1": 12
+        },
+        "v5-heldout-risk-04": {
+          "3": 12,
+          "2": 12,
+          "1": 12
+        },
+        "v5-heldout-fairness-04": {
+          "1": 12,
+          "2": 12,
+          "3": 12
+        },
+        "v5-heldout-expertise-02": {
+          "3": 12,
+          "2": 12,
+          "1": 12
+        },
+        "v5-heldout-risk-05": {
+          "1": 12,
+          "2": 12,
+          "3": 12
+        },
+        "v5-heldout-expertise-01": {
+          "2": 12,
+          "1": 12,
+          "3": 12
+        },
+        "v5-heldout-fairness-05": {
+          "2": 12,
+          "3": 12,
+          "1": 12
+        },
+        "v5-heldout-risk-00": {
+          "3": 12,
+          "2": 12,
+          "1": 12
+        },
+        "v5-heldout-fairness-01": {
+          "1": 12,
+          "2": 12,
+          "3": 12
+        },
+        "v5-heldout-risk-02": {
+          "3": 12,
+          "1": 12,
+          "2": 12
+        },
+        "v5-heldout-expertise-04": {
+          "2": 12,
+          "1": 12,
+          "3": 12
+        }
+      }
+    },
+    "n_records": 576,
+    "expected_mode": "selected_bank_validation"
+  },
+  "validation_manifest_file_sha256": "c585579731a9dd5745edb955a83838a9e5b778098241651e19750272828be54e",
+  "validation_log_file_sha256": "4141622bfd6d35b54513e36a4eabdf6b7ab1f5b0d2e019997d71704da5e39120"
+}

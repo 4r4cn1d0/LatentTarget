@@ -800,3 +800,72 @@ synthetic validation and from claims that still require a real model.
   GPU + `$0.004` container + `$0.014` volume); stopped storage is `$0.028/hour`.
   Account balance shown was `$49.98`. The final paid Deploy action remains
   pending action-time confirmation.
+
+## 2026-09-01 — V5 paid target-free calibration and scientific stop
+
+- After explicit action-time confirmation, deployed RunPod pod
+  `vqkuoeugozgfhj` (`latenttarget-v5-calibration`) with one A100 SXM 80 GB, a
+  30 GB container disk, and a tied 100 GB `/workspace` volume. Cloned and
+  detached at reviewed commit
+  `c426c461e537f3586d20403b5aab4c51dca127da`.
+- Verified Python 3.12.3, PyTorch 2.9.1+cu128, CUDA 12.8, Transformers 5.16.1,
+  driver 580.159.04, and the physical `NVIDIA A100-SXM4-80GB`. Pod bytecode
+  compilation passed and the complete suite passed **351/351 in 168.30s**.
+- The first dependency extraction under the persistent network mount was
+  I/O-bound. Stopped only that incomplete package process and installed the
+  disposable environment under `/opt/latenttarget-venv`; model cache and
+  scientific outputs remained on `/workspace`. No experiment had begun and no
+  code or protocol setting changed.
+- Ran the frozen pool dry run: exact model/revision, pool hash, 576-prompt
+  schedule, target absence, history absence, and protocol audit all passed.
+- Downloaded the immutable 27B checkpoint to the persistent Hugging Face cache
+  and completed **576/576** pool-calibration choices with strict constrained
+  decoding and no fallback. Raw SHA-256:
+  `6ae514070de33be0bb2faa5cb6b5e499736b3c7077d86a754b430e581403e3cb`;
+  manifest SHA-256:
+  `f2f05407a6d5da3db9998bd74210edbb73943d1c8e6fd173ddd14cd70be1410a`.
+- Pool choices were strongly imbalanced despite exact candidate/slot balance:
+  fairness 45/576 (7.8%), risk 196/576 (34.0%), and expertise 335/576
+  (58.2%). No target or feedback existed in this measurement.
+- Ran the frozen audit and deterministic exhaustive selector. The artifact
+  audit passed and a pending bank was written. The selector's best marginal
+  candidate-rate gaps were 0.4259 development and 0.2292 held-out, already
+  outside the 0.15 validation target. Those heuristic rates are not normalized
+  joint-choice predictions, and the frozen code did not use them as an early
+  stopping gate.
+- Ran the independently seeded selected-bank dry run and then exactly one paid
+  validation at seed `20261002`: **576/576** strict choices, no target/history,
+  no invalid outputs, and every manifest/schedule/hash audit passed. Raw
+  SHA-256:
+  `4141622bfd6d35b54513e36a4eabdf6b7ab1f5b0d2e019997d71704da5e39120`;
+  manifest SHA-256:
+  `c585579731a9dd5745edb955a83838a9e5b778098241651e19750272828be54e`.
+- **FROZEN GATE FAILED:** overall fairness/risk/expertise shares were
+  0.137/0.342/0.521 (gap 0.384); development shares were
+  0.106/0.312/0.581 (gap 0.475); held-out shares were
+  0.229/0.431/0.340 (gap 0.201). The required interval was `[0.25, 0.42]`
+  with gap at most 0.15 in every section. Finalization returned its registered
+  exit code 2, and `data/v5/v5_selected_bank_validated.json` was correctly
+  absent.
+- Preserved all raw and derived artifacts. Added a post-run audit/plot command
+  that rechecks both raw hashes and manifests and emits
+  `STOP_CALIBRATION_INSTRUMENT_FAILED`. Its figure also reports a residual
+  numeric-position preference (pool slots 0.170/0.417/0.413; validation slots
+  0.222/0.363/0.415). Global candidate-by-slot counterbalancing prevents this
+  alone from explaining the frame imbalance, but future triads should be
+  evaluated under all six within-scenario permutations.
+- Attempted the requested GSD documentation workflow. Its `SKILL.md` exists,
+  but the referenced `~/.Codex/get-shit-done/workflows/docs-update.md` file is
+  absent, so the workflow could not be executed faithfully. Performed the
+  evidence-first code/artifact verification and documentation directly and
+  recorded that fallback rather than claiming GSD ran.
+- Copied the seven paid artifacts locally and verified all SHA-256 values.
+  Stopped GPU compute immediately afterward. The observed balance changed from
+  `$49.98` to `$48.22`, approximately **$1.76**. The dashboard now reports
+  `$0.00/hour` compute. The tied 100 GB volume remains recoverable and has not
+  been permanently deleted without confirmation.
+- **NO CONFIRMATORY RESULT EXISTS:** final V5 power, behavioral checkpoint,
+  target interactions, free-form replication, activation capture, probes, and
+  steering were not run. The next design must be V6 with triad-level
+  calibration, a pre-validation feasibility gate, and a fresh independent
+  validation seed. Full record: `docs/V5_CALIBRATION_RUN_20260901.md`.

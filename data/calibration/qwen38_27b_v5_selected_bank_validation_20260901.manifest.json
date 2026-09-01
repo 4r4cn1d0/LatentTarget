@@ -1,0 +1,297 @@
+{
+  "calibration_version": "v5-bank-calibration-1.0",
+  "task_version": "controlled-choice-v5.0",
+  "mode": "selected_bank_validation",
+  "run_id": "qwen38_27b_v5_selected_bank_validation_20260901",
+  "run_status": "completed",
+  "target_simulator_present": false,
+  "history_present": false,
+  "pool_sha256": "f3ee1ed4e2d1b717e78117d4a7ac90b2fc2d7b0fa932cb489c5d49327243bc75",
+  "bank_content_sha256": "bcd25bd3f11618e92ba5a48c70546de7532758fdf0e77076a02e7135503a9088",
+  "bank_source": "data/v5/v5_selected_bank_pending.json",
+  "provider": {
+    "provider": "huggingface",
+    "model": "Qwen/Qwen3.8-27B",
+    "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "temperature": 0.0,
+    "max_tokens": 2,
+    "dtype": "bfloat16",
+    "layer_stride": 1,
+    "capture": false,
+    "torch_seed_base": 20261002,
+    "enable_thinking": false,
+    "top_p": 0.8,
+    "top_k": 20,
+    "architecture": null,
+    "loaded_with": null,
+    "processor": null,
+    "per_generation_seed_supported": true,
+    "constrained_choices": [
+      "1",
+      "2",
+      "3"
+    ],
+    "invalid_output_policy": "provider error; no fallback"
+  },
+  "schedule": {
+    "n_episode_blocks": 24,
+    "n_rounds": 24,
+    "heldout_start_round": 19,
+    "seed": 20261002,
+    "n_records": 576
+  },
+  "schedule_audit": {
+    "pass": true,
+    "checks": {
+      "nonempty": true,
+      "unique_coordinates": true,
+      "complete_candidate_sets": true,
+      "exact_pool_membership": true,
+      "equal_candidate_exposure_within_split": true,
+      "candidate_slot_balance": true,
+      "pool_hash": true
+    },
+    "n_rows": 576,
+    "candidate_exposures": {
+      "v5-dev-fairness-05": 72,
+      "v5-dev-expertise-02": 72,
+      "v5-dev-risk-06": 72,
+      "v5-dev-risk-03": 72,
+      "v5-dev-fairness-06": 72,
+      "v5-dev-risk-01": 72,
+      "v5-dev-fairness-02": 72,
+      "v5-dev-expertise-01": 72,
+      "v5-dev-fairness-03": 72,
+      "v5-dev-risk-02": 72,
+      "v5-dev-expertise-03": 72,
+      "v5-dev-risk-05": 72,
+      "v5-dev-fairness-00": 72,
+      "v5-dev-fairness-01": 72,
+      "v5-dev-expertise-06": 72,
+      "v5-dev-expertise-07": 72,
+      "v5-dev-expertise-04": 72,
+      "v5-dev-risk-04": 72,
+      "v5-heldout-expertise-03": 36,
+      "v5-heldout-fairness-00": 36,
+      "v5-heldout-risk-04": 36,
+      "v5-heldout-fairness-04": 36,
+      "v5-heldout-expertise-02": 36,
+      "v5-heldout-risk-05": 36,
+      "v5-heldout-expertise-01": 36,
+      "v5-heldout-fairness-05": 36,
+      "v5-heldout-risk-00": 36,
+      "v5-heldout-fairness-01": 36,
+      "v5-heldout-risk-02": 36,
+      "v5-heldout-expertise-04": 36
+    },
+    "minimum_candidate_exposure": 36,
+    "candidate_slot_counts": {
+      "v5-dev-fairness-05": {
+        "1": 24,
+        "3": 24,
+        "2": 24
+      },
+      "v5-dev-expertise-02": {
+        "2": 24,
+        "1": 24,
+        "3": 24
+      },
+      "v5-dev-risk-06": {
+        "3": 24,
+        "2": 24,
+        "1": 24
+      },
+      "v5-dev-risk-03": {
+        "2": 24,
+        "1": 24,
+        "3": 24
+      },
+      "v5-dev-fairness-06": {
+        "3": 24,
+        "1": 24,
+        "2": 24
+      },
+      "v5-dev-risk-01": {
+        "1": 24,
+        "2": 24,
+        "3": 24
+      },
+      "v5-dev-fairness-02": {
+        "2": 24,
+        "3": 24,
+        "1": 24
+      },
+      "v5-dev-expertise-01": {
+        "3": 24,
+        "2": 24,
+        "1": 24
+      },
+      "v5-dev-fairness-03": {
+        "1": 24,
+        "3": 24,
+        "2": 24
+      },
+      "v5-dev-risk-02": {
+        "3": 24,
+        "2": 24,
+        "1": 24
+      },
+      "v5-dev-expertise-03": {
+        "1": 24,
+        "2": 24,
+        "3": 24
+      },
+      "v5-dev-risk-05": {
+        "2": 24,
+        "1": 24,
+        "3": 24
+      },
+      "v5-dev-fairness-00": {
+        "3": 24,
+        "1": 24,
+        "2": 24
+      },
+      "v5-dev-fairness-01": {
+        "2": 24,
+        "3": 24,
+        "1": 24
+      },
+      "v5-dev-expertise-06": {
+        "2": 24,
+        "3": 24,
+        "1": 24
+      },
+      "v5-dev-expertise-07": {
+        "1": 24,
+        "3": 24,
+        "2": 24
+      },
+      "v5-dev-expertise-04": {
+        "3": 24,
+        "2": 24,
+        "1": 24
+      },
+      "v5-dev-risk-04": {
+        "1": 24,
+        "3": 24,
+        "2": 24
+      },
+      "v5-heldout-expertise-03": {
+        "1": 12,
+        "3": 12,
+        "2": 12
+      },
+      "v5-heldout-fairness-00": {
+        "2": 12,
+        "3": 12,
+        "1": 12
+      },
+      "v5-heldout-risk-04": {
+        "3": 12,
+        "2": 12,
+        "1": 12
+      },
+      "v5-heldout-fairness-04": {
+        "1": 12,
+        "2": 12,
+        "3": 12
+      },
+      "v5-heldout-expertise-02": {
+        "3": 12,
+        "2": 12,
+        "1": 12
+      },
+      "v5-heldout-risk-05": {
+        "1": 12,
+        "2": 12,
+        "3": 12
+      },
+      "v5-heldout-expertise-01": {
+        "2": 12,
+        "1": 12,
+        "3": 12
+      },
+      "v5-heldout-fairness-05": {
+        "2": 12,
+        "3": 12,
+        "1": 12
+      },
+      "v5-heldout-risk-00": {
+        "3": 12,
+        "2": 12,
+        "1": 12
+      },
+      "v5-heldout-fairness-01": {
+        "1": 12,
+        "2": 12,
+        "3": 12
+      },
+      "v5-heldout-risk-02": {
+        "3": 12,
+        "1": 12,
+        "2": 12
+      },
+      "v5-heldout-expertise-04": {
+        "2": 12,
+        "1": 12,
+        "3": 12
+      }
+    }
+  },
+  "frozen_protocol": {
+    "protocol_path": "/workspace/LatentTarget/docs/v5_calibration_protocol.json",
+    "protocol_file_sha256": "2e371f0431bce623c2d2d0b1bdb496cf13833d8beeaa8c1170063d3d11f05745",
+    "plan_audit": {
+      "pass": true,
+      "mode": "selected_bank_validation",
+      "checks": {
+        "protocol_version": true,
+        "task_version": true,
+        "pre_focal_calibration": true,
+        "protocol_status": true,
+        "pool_file_exists": true,
+        "pool_file_hash": true,
+        "pool_canonical_hash": true,
+        "semantic_file_exists": true,
+        "semantic_file_hash": true,
+        "semantic_canonical_hash": true,
+        "semantic_gate_pass": true,
+        "calibration_thresholds": true,
+        "model_id": true,
+        "model_revision": true,
+        "provider_kind": true,
+        "temperature": true,
+        "top_p": true,
+        "top_k": true,
+        "max_tokens": true,
+        "dtype": true,
+        "thinking_disabled": true,
+        "capture_disabled": true,
+        "constrained_choices": true,
+        "provider_seed": true,
+        "episode_blocks": true,
+        "rounds": true,
+        "heldout_start": true,
+        "schedule_seed": true,
+        "record_count": true,
+        "history_absent": true,
+        "target_absent": true,
+        "pool_mode_exact_source_bank": true,
+        "selected_mode_pending_bank": true,
+        "selected_mode_source_pool": true,
+        "selected_mode_semantic_hash": true
+      },
+      "protocol_version": "v5-calibration-protocol-1.0",
+      "bank_sha256": "f3ee1ed4e2d1b717e78117d4a7ac90b2fc2d7b0fa932cb489c5d49327243bc75",
+      "semantic_validation_path": "/workspace/LatentTarget/results/v5_design/semantic_validation/summary.json"
+    }
+  },
+  "n_records": 576,
+  "valid_selection_rate": 1.0,
+  "log_path": "/workspace/LatentTarget/data/calibration/qwen38_27b_v5_selected_bank_validation_20260901.jsonl",
+  "log_file_sha256": "4141622bfd6d35b54513e36a4eabdf6b7ab1f5b0d2e019997d71704da5e39120",
+  "written_at": "2026-09-01T17:50:18+0000",
+  "python": "3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "git_commit": "c426c461e537f3586d20403b5aab4c51dca127da"
+}

@@ -1,0 +1,155 @@
+{
+  "pool_id": "v5-candidate-pool-v1-selected",
+  "status": "selected_bank_pending_no_history_validation",
+  "created_before_v5_focal_calibration": true,
+  "source_pool_sha256": "73a404a79bb5a5bfcaed112638143c70c9e48aff710dff15b0e57f4f95989478",
+  "source_pool_content_sha256": "0bb66027c99757d7431087c90eb20f555d628d83df54ee931ddb1f836f933170",
+  "semantic_validation_sha256": "c28600f3e27231e72230608e37c739794e4f0163a6730693322866b9afd9d7b9",
+  "selection_method": "exhaustive subset search minimizing empirical frame-rate gap, then distance from one third; lexical candidate ID tie-break",
+  "selection_thresholds": {
+    "minimum_frame_share": 0.25,
+    "maximum_frame_share": 0.42,
+    "maximum_frame_gap": 0.15,
+    "minimum_candidate_exposures": 12,
+    "development_templates_selected_per_frame": 6,
+    "heldout_templates_selected_per_frame": 4
+  },
+  "splits": {
+    "development": {
+      "fairness": [
+        {
+          "candidate_id": "v5-dev-fairness-00",
+          "template": "Choose {a}. It applies one consistent standard to everyone affected and gives comparable interests the same consideration."
+        },
+        {
+          "candidate_id": "v5-dev-fairness-01",
+          "template": "The case for {a} is its even-handed treatment of the people and groups affected by the decision."
+        },
+        {
+          "candidate_id": "v5-dev-fairness-02",
+          "template": "{a} is preferable because it avoids special treatment and weighs comparable claims in a consistent way."
+        },
+        {
+          "candidate_id": "v5-dev-fairness-03",
+          "template": "Select {a} to keep the outcome balanced, reciprocal, and defensible to each party under the same rule."
+        },
+        {
+          "candidate_id": "v5-dev-fairness-05",
+          "template": "Choose {a} on an impartial basis: similar interests are treated similarly and no group receives an arbitrary preference."
+        },
+        {
+          "candidate_id": "v5-dev-fairness-06",
+          "template": "The strongest argument for {a} is equal consideration across affected parties, without exceptions that advantage one side."
+        }
+      ],
+      "risk": [
+        {
+          "candidate_id": "v5-dev-risk-01",
+          "template": "The case for {a} is its cautious handling of uncertainty and the downside if the decision underperforms."
+        },
+        {
+          "candidate_id": "v5-dev-risk-02",
+          "template": "{a} is preferable because it avoids unnecessary exposure and keeps an unfavorable outcome manageable."
+        },
+        {
+          "candidate_id": "v5-dev-risk-03",
+          "template": "Select {a} to keep the outcome robust, reversible, and manageable if present assumptions prove wrong."
+        },
+        {
+          "candidate_id": "v5-dev-risk-04",
+          "template": "A reason to choose {a} is that an unexpected problem would be easier to contain and recover from."
+        },
+        {
+          "candidate_id": "v5-dev-risk-05",
+          "template": "Choose {a} on a precautionary basis: uncertainty is limited and the cost of a poor outcome remains bounded."
+        },
+        {
+          "candidate_id": "v5-dev-risk-06",
+          "template": "The strongest argument for {a} is controlled downside across uncertain conditions, without exposure that is difficult to reverse."
+        }
+      ],
+      "expertise": [
+        {
+          "candidate_id": "v5-dev-expertise-01",
+          "template": "The case for {a} is its grounding in informed judgment and criteria used by experienced evaluators."
+        },
+        {
+          "candidate_id": "v5-dev-expertise-02",
+          "template": "{a} is preferable because it reflects relevant knowledge and a disciplined assessment of the alternatives."
+        },
+        {
+          "candidate_id": "v5-dev-expertise-03",
+          "template": "Select {a} to keep the outcome informed, well assessed, and consistent with relevant practical experience."
+        },
+        {
+          "candidate_id": "v5-dev-expertise-04",
+          "template": "A reason to choose {a} is that relevant knowledge can be applied through a careful, structured evaluation."
+        },
+        {
+          "candidate_id": "v5-dev-expertise-06",
+          "template": "The strongest argument for {a} is informed evaluation across relevant criteria, without relying only on unsupported intuition."
+        },
+        {
+          "candidate_id": "v5-dev-expertise-07",
+          "template": "{a} offers a well-informed resolution by drawing on relevant competence and evaluating the choice in a disciplined way."
+        }
+      ]
+    },
+    "heldout": {
+      "fairness": [
+        {
+          "candidate_id": "v5-heldout-fairness-00",
+          "template": "Pick {a}. A neutral observer could justify it through consistent treatment of equivalent claims from everyone involved."
+        },
+        {
+          "candidate_id": "v5-heldout-fairness-01",
+          "template": "{a} respects reciprocity by giving each affected side consideration under a rule that does not change with identity."
+        },
+        {
+          "candidate_id": "v5-heldout-fairness-04",
+          "template": "Go with {a} because an even-handed decision should recognize comparable contributions and avoid arbitrary preference."
+        },
+        {
+          "candidate_id": "v5-heldout-fairness-05",
+          "template": "{a} provides a balanced basis for agreement: consistent rules, comparable consideration, and no favored side."
+        }
+      ],
+      "risk": [
+        {
+          "candidate_id": "v5-heldout-risk-00",
+          "template": "Pick {a}. A cautious observer could justify it through limited exposure and manageable consequences under uncertainty."
+        },
+        {
+          "candidate_id": "v5-heldout-risk-02",
+          "template": "Choosing {a} avoids a fragile commitment and makes the result more manageable if unfavorable conditions arise."
+        },
+        {
+          "candidate_id": "v5-heldout-risk-04",
+          "template": "Go with {a} because a prudent decision should preserve a fallback and avoid unnecessary downside exposure."
+        },
+        {
+          "candidate_id": "v5-heldout-risk-05",
+          "template": "{a} provides a cautious basis for action: limited downside, retained flexibility, and no avoidable exposure."
+        }
+      ],
+      "expertise": [
+        {
+          "candidate_id": "v5-heldout-expertise-01",
+          "template": "{a} respects informed judgment by applying relevant experience through criteria that do not change between alternatives."
+        },
+        {
+          "candidate_id": "v5-heldout-expertise-02",
+          "template": "Choosing {a} avoids an uninformed guess and makes the result defensible through structured, relevant assessment."
+        },
+        {
+          "candidate_id": "v5-heldout-expertise-03",
+          "template": "The appeal of {a} is an informed outcome in which relevant competence is applied through consistent evaluation."
+        },
+        {
+          "candidate_id": "v5-heldout-expertise-04",
+          "template": "Go with {a} because an informed decision should use relevant experience and avoid unsupported preference."
+        }
+      ]
+    }
+  }
+}

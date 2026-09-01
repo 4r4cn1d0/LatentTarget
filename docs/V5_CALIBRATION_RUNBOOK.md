@@ -1,7 +1,16 @@
 # V5 calibration and freeze runbook
 
-Status: **semantic gate passed; paid target-free focal calibration is the next
-permitted stage; confirmatory outcomes remain blocked**.
+Status: **executed once on 2026-09-01; independent selected-bank validation
+failed; confirmatory outcomes remain blocked**.
+
+The historical commands below are retained to make the run reproducible, not
+to authorize a rescue rerun. Pool calibration and selected-bank validation
+both completed with 576/576 strict outputs and passed all integrity audits, but
+the frozen balance gate failed overall, on development wording, and on
+held-out wording. No final bank or behavioral checkpoint exists. Do not relax
+thresholds, reselect on validation outcomes, or reuse the validation seed.
+See `docs/V5_CALIBRATION_RUN_20260901.md` for exact results, costs, hashes, and
+the V6 recommendation.
 
 This runbook is deliberately fail-closed. Pool calibration and selected-bank
 validation are engineering measurements of the focal model's baseline

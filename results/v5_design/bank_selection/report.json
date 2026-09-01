@@ -1,0 +1,672 @@
+{
+  "status": "selected bank requires a separate no-history validation run",
+  "source_pool_sha256": "73a404a79bb5a5bfcaed112638143c70c9e48aff710dff15b0e57f4f95989478",
+  "selected_bank_sha256": "f3ee1ed4e2d1b717e78117d4a7ac90b2fc2d7b0fa932cb489c5d49327243bc75",
+  "selected_bank_content_sha256": "bcd25bd3f11618e92ba5a48c70546de7532758fdf0e77076a02e7135503a9088",
+  "semantic_validation_sha256": "c28600f3e27231e72230608e37c739794e4f0163a6730693322866b9afd9d7b9",
+  "candidate_rates": {
+    "v5-dev-fairness-00": {
+      "candidate_id": "v5-dev-fairness-00",
+      "split": "development",
+      "frame": "fairness",
+      "exposures": 54,
+      "selections": 11,
+      "selection_rate": 0.2037037037037037
+    },
+    "v5-dev-fairness-01": {
+      "candidate_id": "v5-dev-fairness-01",
+      "split": "development",
+      "frame": "fairness",
+      "exposures": 54,
+      "selections": 1,
+      "selection_rate": 0.018518518518518517
+    },
+    "v5-dev-fairness-02": {
+      "candidate_id": "v5-dev-fairness-02",
+      "split": "development",
+      "frame": "fairness",
+      "exposures": 54,
+      "selections": 3,
+      "selection_rate": 0.05555555555555555
+    },
+    "v5-dev-fairness-03": {
+      "candidate_id": "v5-dev-fairness-03",
+      "split": "development",
+      "frame": "fairness",
+      "exposures": 54,
+      "selections": 2,
+      "selection_rate": 0.037037037037037035
+    },
+    "v5-dev-fairness-04": {
+      "candidate_id": "v5-dev-fairness-04",
+      "split": "development",
+      "frame": "fairness",
+      "exposures": 54,
+      "selections": 0,
+      "selection_rate": 0.0
+    },
+    "v5-dev-fairness-05": {
+      "candidate_id": "v5-dev-fairness-05",
+      "split": "development",
+      "frame": "fairness",
+      "exposures": 54,
+      "selections": 1,
+      "selection_rate": 0.018518518518518517
+    },
+    "v5-dev-fairness-06": {
+      "candidate_id": "v5-dev-fairness-06",
+      "split": "development",
+      "frame": "fairness",
+      "exposures": 54,
+      "selections": 5,
+      "selection_rate": 0.09259259259259259
+    },
+    "v5-dev-fairness-07": {
+      "candidate_id": "v5-dev-fairness-07",
+      "split": "development",
+      "frame": "fairness",
+      "exposures": 54,
+      "selections": 0,
+      "selection_rate": 0.0
+    },
+    "v5-dev-risk-00": {
+      "candidate_id": "v5-dev-risk-00",
+      "split": "development",
+      "frame": "risk",
+      "exposures": 54,
+      "selections": 36,
+      "selection_rate": 0.6666666666666666
+    },
+    "v5-dev-risk-01": {
+      "candidate_id": "v5-dev-risk-01",
+      "split": "development",
+      "frame": "risk",
+      "exposures": 54,
+      "selections": 7,
+      "selection_rate": 0.12962962962962962
+    },
+    "v5-dev-risk-02": {
+      "candidate_id": "v5-dev-risk-02",
+      "split": "development",
+      "frame": "risk",
+      "exposures": 54,
+      "selections": 1,
+      "selection_rate": 0.018518518518518517
+    },
+    "v5-dev-risk-03": {
+      "candidate_id": "v5-dev-risk-03",
+      "split": "development",
+      "frame": "risk",
+      "exposures": 54,
+      "selections": 28,
+      "selection_rate": 0.5185185185185185
+    },
+    "v5-dev-risk-04": {
+      "candidate_id": "v5-dev-risk-04",
+      "split": "development",
+      "frame": "risk",
+      "exposures": 54,
+      "selections": 24,
+      "selection_rate": 0.4444444444444444
+    },
+    "v5-dev-risk-05": {
+      "candidate_id": "v5-dev-risk-05",
+      "split": "development",
+      "frame": "risk",
+      "exposures": 54,
+      "selections": 15,
+      "selection_rate": 0.2777777777777778
+    },
+    "v5-dev-risk-06": {
+      "candidate_id": "v5-dev-risk-06",
+      "split": "development",
+      "frame": "risk",
+      "exposures": 54,
+      "selections": 33,
+      "selection_rate": 0.6111111111111112
+    },
+    "v5-dev-risk-07": {
+      "candidate_id": "v5-dev-risk-07",
+      "split": "development",
+      "frame": "risk",
+      "exposures": 54,
+      "selections": 13,
+      "selection_rate": 0.24074074074074073
+    },
+    "v5-dev-expertise-00": {
+      "candidate_id": "v5-dev-expertise-00",
+      "split": "development",
+      "frame": "expertise",
+      "exposures": 54,
+      "selections": 46,
+      "selection_rate": 0.8518518518518519
+    },
+    "v5-dev-expertise-01": {
+      "candidate_id": "v5-dev-expertise-01",
+      "split": "development",
+      "frame": "expertise",
+      "exposures": 54,
+      "selections": 31,
+      "selection_rate": 0.5740740740740741
+    },
+    "v5-dev-expertise-02": {
+      "candidate_id": "v5-dev-expertise-02",
+      "split": "development",
+      "frame": "expertise",
+      "exposures": 54,
+      "selections": 24,
+      "selection_rate": 0.4444444444444444
+    },
+    "v5-dev-expertise-03": {
+      "candidate_id": "v5-dev-expertise-03",
+      "split": "development",
+      "frame": "expertise",
+      "exposures": 54,
+      "selections": 34,
+      "selection_rate": 0.6296296296296297
+    },
+    "v5-dev-expertise-04": {
+      "candidate_id": "v5-dev-expertise-04",
+      "split": "development",
+      "frame": "expertise",
+      "exposures": 54,
+      "selections": 9,
+      "selection_rate": 0.16666666666666666
+    },
+    "v5-dev-expertise-05": {
+      "candidate_id": "v5-dev-expertise-05",
+      "split": "development",
+      "frame": "expertise",
+      "exposures": 54,
+      "selections": 45,
+      "selection_rate": 0.8333333333333334
+    },
+    "v5-dev-expertise-06": {
+      "candidate_id": "v5-dev-expertise-06",
+      "split": "development",
+      "frame": "expertise",
+      "exposures": 54,
+      "selections": 39,
+      "selection_rate": 0.7222222222222222
+    },
+    "v5-dev-expertise-07": {
+      "candidate_id": "v5-dev-expertise-07",
+      "split": "development",
+      "frame": "expertise",
+      "exposures": 54,
+      "selections": 24,
+      "selection_rate": 0.4444444444444444
+    },
+    "v5-heldout-fairness-00": {
+      "candidate_id": "v5-heldout-fairness-00",
+      "split": "heldout",
+      "frame": "fairness",
+      "exposures": 24,
+      "selections": 5,
+      "selection_rate": 0.20833333333333334
+    },
+    "v5-heldout-fairness-01": {
+      "candidate_id": "v5-heldout-fairness-01",
+      "split": "heldout",
+      "frame": "fairness",
+      "exposures": 24,
+      "selections": 1,
+      "selection_rate": 0.041666666666666664
+    },
+    "v5-heldout-fairness-02": {
+      "candidate_id": "v5-heldout-fairness-02",
+      "split": "heldout",
+      "frame": "fairness",
+      "exposures": 24,
+      "selections": 1,
+      "selection_rate": 0.041666666666666664
+    },
+    "v5-heldout-fairness-03": {
+      "candidate_id": "v5-heldout-fairness-03",
+      "split": "heldout",
+      "frame": "fairness",
+      "exposures": 24,
+      "selections": 0,
+      "selection_rate": 0.0
+    },
+    "v5-heldout-fairness-04": {
+      "candidate_id": "v5-heldout-fairness-04",
+      "split": "heldout",
+      "frame": "fairness",
+      "exposures": 24,
+      "selections": 7,
+      "selection_rate": 0.2916666666666667
+    },
+    "v5-heldout-fairness-05": {
+      "candidate_id": "v5-heldout-fairness-05",
+      "split": "heldout",
+      "frame": "fairness",
+      "exposures": 24,
+      "selections": 8,
+      "selection_rate": 0.3333333333333333
+    },
+    "v5-heldout-risk-00": {
+      "candidate_id": "v5-heldout-risk-00",
+      "split": "heldout",
+      "frame": "risk",
+      "exposures": 24,
+      "selections": 11,
+      "selection_rate": 0.4583333333333333
+    },
+    "v5-heldout-risk-01": {
+      "candidate_id": "v5-heldout-risk-01",
+      "split": "heldout",
+      "frame": "risk",
+      "exposures": 24,
+      "selections": 3,
+      "selection_rate": 0.125
+    },
+    "v5-heldout-risk-02": {
+      "candidate_id": "v5-heldout-risk-02",
+      "split": "heldout",
+      "frame": "risk",
+      "exposures": 24,
+      "selections": 2,
+      "selection_rate": 0.08333333333333333
+    },
+    "v5-heldout-risk-03": {
+      "candidate_id": "v5-heldout-risk-03",
+      "split": "heldout",
+      "frame": "risk",
+      "exposures": 24,
+      "selections": 2,
+      "selection_rate": 0.08333333333333333
+    },
+    "v5-heldout-risk-04": {
+      "candidate_id": "v5-heldout-risk-04",
+      "split": "heldout",
+      "frame": "risk",
+      "exposures": 24,
+      "selections": 9,
+      "selection_rate": 0.375
+    },
+    "v5-heldout-risk-05": {
+      "candidate_id": "v5-heldout-risk-05",
+      "split": "heldout",
+      "frame": "risk",
+      "exposures": 24,
+      "selections": 12,
+      "selection_rate": 0.5
+    },
+    "v5-heldout-expertise-00": {
+      "candidate_id": "v5-heldout-expertise-00",
+      "split": "heldout",
+      "frame": "expertise",
+      "exposures": 24,
+      "selections": 21,
+      "selection_rate": 0.875
+    },
+    "v5-heldout-expertise-01": {
+      "candidate_id": "v5-heldout-expertise-01",
+      "split": "heldout",
+      "frame": "expertise",
+      "exposures": 24,
+      "selections": 8,
+      "selection_rate": 0.3333333333333333
+    },
+    "v5-heldout-expertise-02": {
+      "candidate_id": "v5-heldout-expertise-02",
+      "split": "heldout",
+      "frame": "expertise",
+      "exposures": 24,
+      "selections": 14,
+      "selection_rate": 0.5833333333333334
+    },
+    "v5-heldout-expertise-03": {
+      "candidate_id": "v5-heldout-expertise-03",
+      "split": "heldout",
+      "frame": "expertise",
+      "exposures": 24,
+      "selections": 5,
+      "selection_rate": 0.20833333333333334
+    },
+    "v5-heldout-expertise-04": {
+      "candidate_id": "v5-heldout-expertise-04",
+      "split": "heldout",
+      "frame": "expertise",
+      "exposures": 24,
+      "selections": 16,
+      "selection_rate": 0.6666666666666666
+    },
+    "v5-heldout-expertise-05": {
+      "candidate_id": "v5-heldout-expertise-05",
+      "split": "heldout",
+      "frame": "expertise",
+      "exposures": 24,
+      "selections": 19,
+      "selection_rate": 0.7916666666666666
+    }
+  },
+  "selection_metrics": {
+    "development": {
+      "predicted_frame_means": {
+        "fairness": 0.07098765432098765,
+        "risk": 0.3333333333333333,
+        "expertise": 0.4969135802469136
+      },
+      "objective": {
+        "predicted_frame_gap": 0.425925925925926,
+        "maximum_distance_from_one_third": 0.2623456790123457,
+        "sum_distance_from_one_third": 0.425925925925926
+      }
+    },
+    "heldout": {
+      "predicted_frame_means": {
+        "fairness": 0.21875,
+        "risk": 0.35416666666666663,
+        "expertise": 0.44791666666666663
+      },
+      "objective": {
+        "predicted_frame_gap": 0.22916666666666663,
+        "maximum_distance_from_one_third": 0.11458333333333331,
+        "sum_distance_from_one_third": 0.24999999999999994
+      }
+    }
+  },
+  "thresholds": {
+    "minimum_frame_share": 0.25,
+    "maximum_frame_share": 0.42,
+    "maximum_frame_gap": 0.15,
+    "minimum_candidate_exposures": 12,
+    "development_templates_selected_per_frame": 6,
+    "heldout_templates_selected_per_frame": 4
+  },
+  "calibration_run_audit": {
+    "pass": true,
+    "checks": {
+      "nonempty": true,
+      "completed": true,
+      "task_version": true,
+      "calibration_version": true,
+      "mode": true,
+      "target_absent": true,
+      "history_absent": true,
+      "bank_hash": true,
+      "record_count": true,
+      "strict_outputs": true,
+      "provider_constrained": true,
+      "schedule_audit": true,
+      "frozen_protocol_audit": true,
+      "run_id_consistent": true
+    },
+    "schedule_audit": {
+      "pass": true,
+      "checks": {
+        "nonempty": true,
+        "unique_coordinates": true,
+        "complete_candidate_sets": true,
+        "exact_pool_membership": true,
+        "equal_candidate_exposure_within_split": true,
+        "candidate_slot_balance": true,
+        "pool_hash": true
+      },
+      "n_rows": 576,
+      "candidate_exposures": {
+        "v5-dev-expertise-07": 54,
+        "v5-dev-fairness-07": 54,
+        "v5-dev-risk-02": 54,
+        "v5-dev-fairness-01": 54,
+        "v5-dev-risk-05": 54,
+        "v5-dev-expertise-05": 54,
+        "v5-dev-risk-04": 54,
+        "v5-dev-expertise-06": 54,
+        "v5-dev-expertise-00": 54,
+        "v5-dev-risk-06": 54,
+        "v5-dev-fairness-02": 54,
+        "v5-dev-risk-03": 54,
+        "v5-dev-expertise-04": 54,
+        "v5-dev-fairness-05": 54,
+        "v5-dev-fairness-03": 54,
+        "v5-dev-risk-07": 54,
+        "v5-dev-risk-00": 54,
+        "v5-dev-expertise-02": 54,
+        "v5-dev-risk-01": 54,
+        "v5-dev-expertise-01": 54,
+        "v5-dev-fairness-06": 54,
+        "v5-heldout-risk-02": 24,
+        "v5-heldout-expertise-01": 24,
+        "v5-heldout-fairness-03": 24,
+        "v5-heldout-fairness-04": 24,
+        "v5-heldout-risk-03": 24,
+        "v5-heldout-fairness-02": 24,
+        "v5-heldout-risk-05": 24,
+        "v5-heldout-risk-00": 24,
+        "v5-heldout-expertise-03": 24,
+        "v5-heldout-expertise-05": 24,
+        "v5-heldout-fairness-00": 24,
+        "v5-heldout-risk-04": 24,
+        "v5-heldout-fairness-05": 24,
+        "v5-heldout-risk-01": 24,
+        "v5-heldout-expertise-04": 24,
+        "v5-dev-fairness-00": 54,
+        "v5-dev-expertise-03": 54,
+        "v5-dev-fairness-04": 54,
+        "v5-heldout-fairness-01": 24,
+        "v5-heldout-expertise-02": 24,
+        "v5-heldout-expertise-00": 24
+      },
+      "minimum_candidate_exposure": 24,
+      "candidate_slot_counts": {
+        "v5-dev-expertise-07": {
+          "1": 18,
+          "3": 18,
+          "2": 18
+        },
+        "v5-dev-fairness-07": {
+          "2": 18,
+          "3": 18,
+          "1": 18
+        },
+        "v5-dev-risk-02": {
+          "3": 18,
+          "2": 18,
+          "1": 18
+        },
+        "v5-dev-fairness-01": {
+          "1": 18,
+          "2": 18,
+          "3": 18
+        },
+        "v5-dev-risk-05": {
+          "2": 18,
+          "1": 18,
+          "3": 18
+        },
+        "v5-dev-expertise-05": {
+          "3": 18,
+          "1": 18,
+          "2": 18
+        },
+        "v5-dev-risk-04": {
+          "1": 18,
+          "2": 18,
+          "3": 18
+        },
+        "v5-dev-expertise-06": {
+          "2": 18,
+          "1": 18,
+          "3": 18
+        },
+        "v5-dev-expertise-00": {
+          "1": 18,
+          "3": 18,
+          "2": 18
+        },
+        "v5-dev-risk-06": {
+          "3": 18,
+          "1": 18,
+          "2": 18
+        },
+        "v5-dev-fairness-02": {
+          "1": 18,
+          "2": 18,
+          "3": 18
+        },
+        "v5-dev-risk-03": {
+          "2": 18,
+          "3": 18,
+          "1": 18
+        },
+        "v5-dev-expertise-04": {
+          "2": 18,
+          "1": 18,
+          "3": 18
+        },
+        "v5-dev-fairness-05": {
+          "3": 18,
+          "1": 18,
+          "2": 18
+        },
+        "v5-dev-fairness-03": {
+          "2": 18,
+          "3": 18,
+          "1": 18
+        },
+        "v5-dev-risk-07": {
+          "3": 18,
+          "2": 18,
+          "1": 18
+        },
+        "v5-dev-risk-00": {
+          "2": 18,
+          "1": 18,
+          "3": 18
+        },
+        "v5-dev-expertise-02": {
+          "3": 18,
+          "2": 18,
+          "1": 18
+        },
+        "v5-dev-risk-01": {
+          "1": 18,
+          "2": 18,
+          "3": 18
+        },
+        "v5-dev-expertise-01": {
+          "1": 18,
+          "2": 18,
+          "3": 18
+        },
+        "v5-dev-fairness-06": {
+          "2": 18,
+          "3": 18,
+          "1": 18
+        },
+        "v5-heldout-risk-02": {
+          "1": 8,
+          "2": 8,
+          "3": 8
+        },
+        "v5-heldout-expertise-01": {
+          "2": 8,
+          "1": 8,
+          "3": 8
+        },
+        "v5-heldout-fairness-03": {
+          "3": 8,
+          "2": 8,
+          "1": 8
+        },
+        "v5-heldout-fairness-04": {
+          "2": 8,
+          "3": 8,
+          "1": 8
+        },
+        "v5-heldout-risk-03": {
+          "3": 8,
+          "2": 8,
+          "1": 8
+        },
+        "v5-heldout-fairness-02": {
+          "1": 8,
+          "3": 8,
+          "2": 8
+        },
+        "v5-heldout-risk-05": {
+          "2": 8,
+          "1": 8,
+          "3": 8
+        },
+        "v5-heldout-risk-00": {
+          "1": 8,
+          "2": 8,
+          "3": 8
+        },
+        "v5-heldout-expertise-03": {
+          "2": 8,
+          "1": 8,
+          "3": 8
+        },
+        "v5-heldout-expertise-05": {
+          "1": 8,
+          "3": 8,
+          "2": 8
+        },
+        "v5-heldout-fairness-00": {
+          "2": 8,
+          "1": 8,
+          "3": 8
+        },
+        "v5-heldout-risk-04": {
+          "3": 8,
+          "1": 8,
+          "2": 8
+        },
+        "v5-heldout-fairness-05": {
+          "1": 8,
+          "3": 8,
+          "2": 8
+        },
+        "v5-heldout-risk-01": {
+          "2": 8,
+          "3": 8,
+          "1": 8
+        },
+        "v5-heldout-expertise-04": {
+          "3": 8,
+          "2": 8,
+          "1": 8
+        },
+        "v5-dev-fairness-00": {
+          "1": 18,
+          "2": 18,
+          "3": 18
+        },
+        "v5-dev-expertise-03": {
+          "3": 18,
+          "1": 18,
+          "2": 18
+        },
+        "v5-dev-fairness-04": {
+          "1": 18,
+          "3": 18,
+          "2": 18
+        },
+        "v5-heldout-fairness-01": {
+          "3": 8,
+          "2": 8,
+          "1": 8
+        },
+        "v5-heldout-expertise-02": {
+          "3": 8,
+          "1": 8,
+          "2": 8
+        },
+        "v5-heldout-expertise-00": {
+          "1": 8,
+          "2": 8,
+          "3": 8
+        }
+      }
+    },
+    "n_records": 576,
+    "expected_mode": "pool_calibration"
+  },
+  "calibration_manifest_file_sha256": "f2f05407a6d5da3db9998bd74210edbb73943d1c8e6fd173ddd14cd70be1410a",
+  "calibration_log_file_sha256": "6ae514070de33be0bb2faa5cb6b5e499736b3c7077d86a754b430e581403e3cb"
+}

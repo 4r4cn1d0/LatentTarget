@@ -15,11 +15,25 @@ manipulate, profile or exploit anything.
 
 ---
 
-## Current status: V4 stopped; V5 is ready for paid bank calibration
+## Current status: V5 calibration stopped before confirmatory outcomes
 
-V5 is now implemented locally, but **no V5 focal-model outcome exists yet**.
-The redesign removes V4's expertise-prior and formatting failure modes before
-another confirmatory run:
+The paid V5 target-free calibration is complete, but **no V5 target-learning
+outcome exists**. The instrument failed its independently seeded balance gate,
+so the confirmatory run was correctly blocked. Across 576 selected-bank
+validation choices, Qwen selected fairness 13.7%, risk 34.2%, and expertise
+52.1%; the frozen requirement was 25–42% for every frame with a maximum
+15-point gap. Overall, development, and held-out sections all failed.
+
+All 1,152 pool/validation outputs were strict `1|2|3` choices, both artifact
+audits passed, and neither run contained a target, history, feedback, or
+activation capture. This is an instrumentation negative result—not evidence
+for or against dynamic target modelling. No validated bank, final power file,
+V5 behavioral checkpoint, confirmatory run, activation dataset, probe, or
+steering result was created. The complete commands, hashes, costs, figure, and
+next-design recommendations are in
+[`docs/V5_CALIBRATION_RUN_20260901.md`](docs/V5_CALIBRATION_RUN_20260901.md).
+
+V5 was designed to remove V4's expertise-prior and formatting failure modes:
 
 - 24 rounds, a silent swap after round 12, and separately authored held-out
   wording in rounds 19–24;
@@ -43,11 +57,13 @@ power analysis is complete. The population effect pair is frozen before focal
 calibration at stable DID `0.20` and revision shift `0.25`; only the final sample
 size will be recalculated from the real selected-bank validation shares.
 
-The frozen target-free calibration protocol is
+The frozen target-free calibration protocol remains
 [`docs/v5_calibration_protocol.json`](docs/v5_calibration_protocol.json).
-**Confirmatory V5, activations, probes, steering, and free-form replication all
-remain blocked** until focal calibration, independent selected-bank validation,
-final power, and `behavioral_checkpoint_v5.json` pass the fail-closed freezer.
+It must not be relaxed or rewritten after this result. **Confirmatory V5,
+activations, probes, steering, and free-form replication remain blocked.** A
+future attempt must be versioned as V6, select whole candidate triads rather
+than marginal templates, add a pre-validation feasibility gate, and use a new
+independent validation seed.
 
 ### Why V4 remains a scientific STOP
 
@@ -310,9 +326,12 @@ real-model data are collected.
 
 ## 5. How to run
 
-### Current V5 calibration stage
+### Completed V5 calibration stop
 
-Local verification and the exact no-weight paid-calibration preflight are:
+The exact paid V5 calibration and independent validation were run once and
+failed the frozen bank-balance gate. Do not remove `--dry-run` from the command
+below or repeat the paid sequence as a rescue attempt. Reproduce the local
+artifact audit and diagnostic figure with:
 
 ```bash
 .venv/bin/python -m pytest -q
@@ -323,15 +342,15 @@ Local verification and the exact no-weight paid-calibration preflight are:
   --mode pool_calibration \
   --run-id qwen38_27b_v5_pool_calibration_20260901 \
   --dry-run
+.venv/bin/python scripts/analyze_v5_calibration_gate.py
 ```
 
-The dry run passes without loading model weights. On an 80 GB GPU, remove only
-`--dry-run`; all model, revision, decoding, schedule, seed, pool, semantic, and
-threshold settings are sourced from the frozen calibration protocol. The run
-contains 576 target-free, no-history choices and cannot be interpreted as
-target learning. See
+The diagnostic verifies both raw-log hashes and manifests, writes a compact
+JSON/CSV audit, and regenerates the PDF/PNG failure figure. See
 [`docs/V5_CALIBRATION_RUNBOOK.md`](docs/V5_CALIBRATION_RUNBOOK.md) for the
-selection, independent validation, final power, and freeze sequence.
+frozen historical procedure and
+[`docs/V5_CALIBRATION_RUN_20260901.md`](docs/V5_CALIBRATION_RUN_20260901.md)
+for what actually happened.
 
 ### Reproducing the completed V4 checkpoint
 

@@ -1,0 +1,203 @@
+{
+  "status": "STOP_CALIBRATION_INSTRUMENT_FAILED",
+  "confirmatory_outcomes_used": false,
+  "target_simulator_used": false,
+  "history_used": false,
+  "focal_model": {
+    "provider": "huggingface",
+    "model": "Qwen/Qwen3.8-27B",
+    "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "temperature": 0.0,
+    "max_tokens": 2,
+    "dtype": "bfloat16",
+    "layer_stride": 1,
+    "capture": false,
+    "torch_seed_base": 20261002,
+    "enable_thinking": false,
+    "top_p": 0.8,
+    "top_k": 20,
+    "architecture": null,
+    "loaded_with": null,
+    "processor": null,
+    "per_generation_seed_supported": true,
+    "constrained_choices": [
+      "1",
+      "2",
+      "3"
+    ],
+    "invalid_output_policy": "provider error; no fallback"
+  },
+  "artifact_audits": {
+    "pool": {
+      "pass": true,
+      "checks": {
+        "completed": true,
+        "mode": true,
+        "target_absent": true,
+        "history_absent": true,
+        "record_count": true,
+        "strict_outputs": true,
+        "log_hash": true,
+        "schedule_audit": true,
+        "frozen_protocol": true
+      }
+    },
+    "validation": {
+      "pass": true,
+      "checks": {
+        "completed": true,
+        "mode": true,
+        "target_absent": true,
+        "history_absent": true,
+        "record_count": true,
+        "strict_outputs": true,
+        "log_hash": true,
+        "schedule_audit": true,
+        "frozen_protocol": true
+      }
+    }
+  },
+  "thresholds": {
+    "minimum_frame_share": 0.25,
+    "maximum_frame_share": 0.42,
+    "maximum_frame_gap": 0.15,
+    "minimum_candidate_exposures": 12,
+    "development_templates_selected_per_frame": 6,
+    "heldout_templates_selected_per_frame": 4
+  },
+  "summaries": {
+    "pool_overall": {
+      "n": 576,
+      "frame_counts": {
+        "fairness": 45,
+        "risk": 196,
+        "expertise": 335
+      },
+      "frame_shares": {
+        "fairness": 0.078125,
+        "risk": 0.3402777777777778,
+        "expertise": 0.5815972222222222
+      },
+      "slot_counts": {
+        "1": 98,
+        "2": 240,
+        "3": 238
+      },
+      "slot_shares": {
+        "1": 0.1701388888888889,
+        "2": 0.4166666666666667,
+        "3": 0.4131944444444444
+      }
+    },
+    "validation_overall": {
+      "n": 576,
+      "frame_counts": {
+        "fairness": 79,
+        "risk": 197,
+        "expertise": 300
+      },
+      "frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "slot_counts": {
+        "1": 128,
+        "2": 209,
+        "3": 239
+      },
+      "slot_shares": {
+        "1": 0.2222222222222222,
+        "2": 0.3628472222222222,
+        "3": 0.4149305555555556
+      }
+    },
+    "validation_development": {
+      "n": 432,
+      "frame_counts": {
+        "fairness": 46,
+        "risk": 135,
+        "expertise": 251
+      },
+      "frame_shares": {
+        "fairness": 0.10648148148148148,
+        "risk": 0.3125,
+        "expertise": 0.5810185185185185
+      },
+      "slot_counts": {
+        "1": 106,
+        "2": 164,
+        "3": 162
+      },
+      "slot_shares": {
+        "1": 0.24537037037037038,
+        "2": 0.37962962962962965,
+        "3": 0.375
+      }
+    },
+    "validation_heldout": {
+      "n": 144,
+      "frame_counts": {
+        "fairness": 33,
+        "risk": 62,
+        "expertise": 49
+      },
+      "frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "slot_counts": {
+        "1": 22,
+        "2": 45,
+        "3": 77
+      },
+      "slot_shares": {
+        "1": 0.1527777777777778,
+        "2": 0.3125,
+        "3": 0.5347222222222222
+      }
+    }
+  },
+  "selector_marginal_rate_diagnostics": {
+    "development_best_gap": 0.425925925925926,
+    "heldout_best_gap": 0.22916666666666663,
+    "development_gap_within_frozen_limit": false,
+    "heldout_gap_within_frozen_limit": false,
+    "caveat": "These are marginal per-candidate selection-rate gaps from the selector objective, not normalized predictions of joint selected-bank shares."
+  },
+  "timing": {
+    "pool_first_record": "2026-09-01T17:21:52+0000",
+    "pool_last_record": "2026-09-01T17:28:07+0000",
+    "pool_inference_seconds": 375.0,
+    "validation_first_record": "2026-09-01T17:44:20+0000",
+    "validation_last_record": "2026-09-01T17:50:17+0000",
+    "validation_inference_seconds": 357.0
+  },
+  "files": {
+    "pool_log": {
+      "path": "data/calibration/qwen38_27b_v5_pool_calibration_20260901.jsonl",
+      "sha256": "6ae514070de33be0bb2faa5cb6b5e499736b3c7077d86a754b430e581403e3cb"
+    },
+    "pool_manifest": {
+      "path": "data/calibration/qwen38_27b_v5_pool_calibration_20260901.manifest.json",
+      "sha256": "f2f05407a6d5da3db9998bd74210edbb73943d1c8e6fd173ddd14cd70be1410a"
+    },
+    "validation_log": {
+      "path": "data/calibration/qwen38_27b_v5_selected_bank_validation_20260901.jsonl",
+      "sha256": "4141622bfd6d35b54513e36a4eabdf6b7ab1f5b0d2e019997d71704da5e39120"
+    },
+    "validation_manifest": {
+      "path": "data/calibration/qwen38_27b_v5_selected_bank_validation_20260901.manifest.json",
+      "sha256": "c585579731a9dd5745edb955a83838a9e5b778098241651e19750272828be54e"
+    },
+    "selection_report": {
+      "path": "results/v5_design/bank_selection/report.json",
+      "sha256": "707b70de1167ca11046aac6dc1a486ba1b293481c54654d57c3e7b637e4254c9"
+    },
+    "validation_summary": {
+      "path": "results/v5_design/bank_validation/summary.json",
+      "sha256": "aaf81872b71004ba77afec7f51b77cfa51933b50332f30bc5f5c92c7af923ad1"
+    }
+  }
+}
