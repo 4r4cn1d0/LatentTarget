@@ -1,6 +1,11 @@
 # GPU-pod-only extras, on top of requirements.txt.
 # Nothing here is needed to run the tests or the analysis.
 torch==2.9.1
+# Qwen's multimodal processor imports these even for text-only prompts. Keep
+# their release family aligned with torch to avoid loading template-provided
+# binary extensions compiled for a different PyTorch ABI.
+torchvision==0.24.1
+torchaudio==2.9.1
 transformers==5.16.1
 accelerate==1.14.0
 sentencepiece>=0.2
