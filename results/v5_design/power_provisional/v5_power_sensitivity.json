@@ -1,0 +1,939 @@
+{
+  "status": "provisional power with placeholder balanced frame shares",
+  "focal_model_outcomes_used": false,
+  "confirmatory_outcomes_used": false,
+  "selected_bank_validation_source": null,
+  "n_sim_requirement_met": true,
+  "target_power_lower_mc_bound": 0.8,
+  "results": [
+    {
+      "n_episode_seeds": 8,
+      "stable_episodes_per_condition": 24,
+      "swap_episodes": 48,
+      "total_confirmatory_episodes": 144,
+      "total_confirmatory_generations": 3456,
+      "stable_did_seoi": 0.1,
+      "revision_shift_seoi": 0.15,
+      "stable_co_primary": {
+        "power": 0.1512,
+        "mc_ci_lo": 0.14153797618008465,
+        "mc_ci_hi": 0.16139759236389165,
+        "mean_estimated_effect": 0.09969444444444443
+      },
+      "revision_co_primary": {
+        "power": 0.3428,
+        "mc_ci_lo": 0.3297686882623698,
+        "mc_ci_hi": 0.35607268609288567,
+        "mean_estimated_effect": 0.15143055555555557
+      },
+      "joint_co_primary": {
+        "power": 0.0556,
+        "mc_ci_lo": 0.04958280930059318,
+        "mc_ci_hi": 0.06229954924568855
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.0046,
+        "mc_ci_lo": 0.003067229476888848,
+        "mc_ci_hi": 0.006893437543426104
+      },
+      "mean_supporting_transitions": 3.7836,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 12,
+      "stable_episodes_per_condition": 36,
+      "swap_episodes": 72,
+      "total_confirmatory_episodes": 216,
+      "total_confirmatory_generations": 5184,
+      "stable_did_seoi": 0.1,
+      "revision_shift_seoi": 0.15,
+      "stable_co_primary": {
+        "power": 0.2656,
+        "mc_ci_lo": 0.2535413594068555,
+        "mc_ci_hi": 0.2780185524816424,
+        "mean_estimated_effect": 0.10109722222222221
+      },
+      "revision_co_primary": {
+        "power": 0.4828,
+        "mc_ci_lo": 0.46896742641462985,
+        "mc_ci_hi": 0.496658983502103,
+        "mean_estimated_effect": 0.15096064814814816
+      },
+      "joint_co_primary": {
+        "power": 0.1254,
+        "mc_ci_lo": 0.11650699319997775,
+        "mc_ci_hi": 0.13486819021909777
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.0042,
+        "mc_ci_lo": 0.0027487533004756644,
+        "mc_ci_hi": 0.006412527903949351
+      },
+      "mean_supporting_transitions": 3.7758,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 16,
+      "stable_episodes_per_condition": 48,
+      "swap_episodes": 96,
+      "total_confirmatory_episodes": 288,
+      "total_confirmatory_generations": 6912,
+      "stable_did_seoi": 0.1,
+      "revision_shift_seoi": 0.15,
+      "stable_co_primary": {
+        "power": 0.3392,
+        "mc_ci_lo": 0.326204882000263,
+        "mc_ci_hi": 0.3524420200119831,
+        "mean_estimated_effect": 0.09959861111111111
+      },
+      "revision_co_primary": {
+        "power": 0.511,
+        "mc_ci_lo": 0.49714093366953094,
+        "mc_ci_hi": 0.5248421762674422,
+        "mean_estimated_effect": 0.15099965277777777
+      },
+      "joint_co_primary": {
+        "power": 0.1726,
+        "mc_ci_lo": 0.1623774760654212,
+        "mc_ci_hi": 0.18332523362866665
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.0024,
+        "mc_ci_lo": 0.001373451819731108,
+        "mc_ci_hi": 0.004190593213189199
+      },
+      "mean_supporting_transitions": 4.0148,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 20,
+      "stable_episodes_per_condition": 60,
+      "swap_episodes": 120,
+      "total_confirmatory_episodes": 360,
+      "total_confirmatory_generations": 8640,
+      "stable_did_seoi": 0.1,
+      "revision_shift_seoi": 0.15,
+      "stable_co_primary": {
+        "power": 0.4186,
+        "mc_ci_lo": 0.404993203177861,
+        "mc_ci_hi": 0.4323317832885373,
+        "mean_estimated_effect": 0.09944722222222221
+      },
+      "revision_co_primary": {
+        "power": 0.5018,
+        "mc_ci_lo": 0.4879447359995205,
+        "mc_ci_hi": 0.5156525001719842,
+        "mean_estimated_effect": 0.14965555555555557
+      },
+      "joint_co_primary": {
+        "power": 0.2092,
+        "mc_ci_lo": 0.19815118624266262,
+        "mc_ci_hi": 0.22069532560535435
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.0028,
+        "mc_ci_lo": 0.0016686615436143238,
+        "mc_ci_hi": 0.0046947693051959186
+      },
+      "mean_supporting_transitions": 4.1326,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 24,
+      "stable_episodes_per_condition": 72,
+      "swap_episodes": 144,
+      "total_confirmatory_episodes": 432,
+      "total_confirmatory_generations": 10368,
+      "stable_did_seoi": 0.1,
+      "revision_shift_seoi": 0.15,
+      "stable_co_primary": {
+        "power": 0.4646,
+        "mc_ci_lo": 0.4508079452398063,
+        "mc_ci_hi": 0.4784464100539346,
+        "mean_estimated_effect": 0.09967268518518518
+      },
+      "revision_co_primary": {
+        "power": 0.496,
+        "mc_ci_lo": 0.48214954212303723,
+        "mc_ci_hi": 0.5098565997180635,
+        "mean_estimated_effect": 0.14926342592592592
+      },
+      "joint_co_primary": {
+        "power": 0.2266,
+        "mc_ci_lo": 0.21520857694307774,
+        "mc_ci_hi": 0.2384112178961514
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.0006,
+        "mc_ci_lo": 0.00020407096088550332,
+        "mc_ci_hi": 0.001762737900530094
+      },
+      "mean_supporting_transitions": 4.1224,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 30,
+      "stable_episodes_per_condition": 90,
+      "swap_episodes": 180,
+      "total_confirmatory_episodes": 540,
+      "total_confirmatory_generations": 12960,
+      "stable_did_seoi": 0.1,
+      "revision_shift_seoi": 0.15,
+      "stable_co_primary": {
+        "power": 0.5164,
+        "mc_ci_lo": 0.5025408860439133,
+        "mc_ci_hi": 0.530233932407574,
+        "mean_estimated_effect": 0.10109592592592592
+      },
+      "revision_co_primary": {
+        "power": 0.497,
+        "mc_ci_lo": 0.4831485805813585,
+        "mc_ci_hi": 0.5108560257994671,
+        "mean_estimated_effect": 0.14955222222222223
+      },
+      "joint_co_primary": {
+        "power": 0.2556,
+        "mc_ci_lo": 0.2437000290413436,
+        "mc_ci_hi": 0.2678752374499059
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.0004,
+        "mc_ci_lo": 0.0001096989857531115,
+        "mc_ci_hi": 0.001457416967717518
+      },
+      "mean_supporting_transitions": 4.3208,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 8,
+      "stable_episodes_per_condition": 24,
+      "swap_episodes": 48,
+      "total_confirmatory_episodes": 144,
+      "total_confirmatory_generations": 3456,
+      "stable_did_seoi": 0.15,
+      "revision_shift_seoi": 0.2,
+      "stable_co_primary": {
+        "power": 0.3042,
+        "mc_ci_lo": 0.2916019032537468,
+        "mc_ci_hi": 0.31709873986813,
+        "mean_estimated_effect": 0.14960833333333332
+      },
+      "revision_co_primary": {
+        "power": 0.5826,
+        "mc_ci_lo": 0.5688728189044528,
+        "mc_ci_hi": 0.5962003520768188,
+        "mean_estimated_effect": 0.1990875
+      },
+      "joint_co_primary": {
+        "power": 0.1732,
+        "mc_ci_lo": 0.16296265056139636,
+        "mc_ci_hi": 0.18393913785652638
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.0526,
+        "mc_ci_lo": 0.0467486087437704,
+        "mc_ci_hi": 0.05913835618333681
+      },
+      "mean_supporting_transitions": 4.3744,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 12,
+      "stable_episodes_per_condition": 36,
+      "swap_episodes": 72,
+      "total_confirmatory_episodes": 216,
+      "total_confirmatory_generations": 5184,
+      "stable_did_seoi": 0.15,
+      "revision_shift_seoi": 0.2,
+      "stable_co_primary": {
+        "power": 0.5218,
+        "mc_ci_lo": 0.5079424557596202,
+        "mc_ci_hi": 0.5356240712063813,
+        "mean_estimated_effect": 0.150275
+      },
+      "revision_co_primary": {
+        "power": 0.7918,
+        "mc_ci_lo": 0.7803237490679781,
+        "mc_ci_hi": 0.8028282036237299,
+        "mean_estimated_effect": 0.20126064814814812
+      },
+      "joint_co_primary": {
+        "power": 0.4158,
+        "mc_ci_lo": 0.40220837022344486,
+        "mc_ci_hi": 0.42952091553172383
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.1302,
+        "mc_ci_lo": 0.12115521565320433,
+        "mc_ci_hi": 0.13981259755655037
+      },
+      "mean_supporting_transitions": 4.5124,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 16,
+      "stable_episodes_per_condition": 48,
+      "swap_episodes": 96,
+      "total_confirmatory_episodes": 288,
+      "total_confirmatory_generations": 6912,
+      "stable_did_seoi": 0.15,
+      "revision_shift_seoi": 0.2,
+      "stable_co_primary": {
+        "power": 0.6742,
+        "mc_ci_lo": 0.6610796083372266,
+        "mc_ci_hi": 0.6870529144828403,
+        "mean_estimated_effect": 0.15000555555555556
+      },
+      "revision_co_primary": {
+        "power": 0.8266,
+        "mc_ci_lo": 0.8158562376197044,
+        "mc_ci_hi": 0.8368422810544279,
+        "mean_estimated_effect": 0.19957916666666667
+      },
+      "joint_co_primary": {
+        "power": 0.5596,
+        "mc_ci_lo": 0.5457989705570695,
+        "mc_ci_hi": 0.5733095160105309
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.1604,
+        "mc_ci_lo": 0.15048921164177573,
+        "mc_ci_hi": 0.1708322306676691
+      },
+      "mean_supporting_transitions": 4.7674,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 20,
+      "stable_episodes_per_condition": 60,
+      "swap_episodes": 120,
+      "total_confirmatory_episodes": 360,
+      "total_confirmatory_generations": 8640,
+      "stable_did_seoi": 0.15,
+      "revision_shift_seoi": 0.2,
+      "stable_co_primary": {
+        "power": 0.775,
+        "mc_ci_lo": 0.7632166005877248,
+        "mc_ci_hi": 0.7863611478366059,
+        "mean_estimated_effect": 0.1502277777777778
+      },
+      "revision_co_primary": {
+        "power": 0.8674,
+        "mc_ci_lo": 0.857716778485784,
+        "mc_ci_hi": 0.8765190934091216,
+        "mean_estimated_effect": 0.20050166666666666
+      },
+      "joint_co_primary": {
+        "power": 0.6734,
+        "mc_ci_lo": 0.6602720118192865,
+        "mc_ci_hi": 0.6862617393690006
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.189,
+        "mc_ci_lo": 0.17838823800071696,
+        "mc_ci_hi": 0.20008929014485827
+      },
+      "mean_supporting_transitions": 4.9776,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 24,
+      "stable_episodes_per_condition": 72,
+      "swap_episodes": 144,
+      "total_confirmatory_episodes": 432,
+      "total_confirmatory_generations": 10368,
+      "stable_did_seoi": 0.15,
+      "revision_shift_seoi": 0.2,
+      "stable_co_primary": {
+        "power": 0.8358,
+        "mc_ci_lo": 0.8252743586775896,
+        "mc_ci_hi": 0.8458100337620112,
+        "mean_estimated_effect": 0.15034722222222224
+      },
+      "revision_co_primary": {
+        "power": 0.8874,
+        "mc_ci_lo": 0.8783389630743204,
+        "mc_ci_hi": 0.8958661996150821,
+        "mean_estimated_effect": 0.20012546296296296
+      },
+      "joint_co_primary": {
+        "power": 0.7426,
+        "mc_ci_lo": 0.7302983596545825,
+        "mc_ci_hi": 0.7545291376826635
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.1888,
+        "mc_ci_lo": 0.17819279144176503,
+        "mc_ci_hi": 0.1998850437958652
+      },
+      "mean_supporting_transitions": 5.0314,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 30,
+      "stable_episodes_per_condition": 90,
+      "swap_episodes": 180,
+      "total_confirmatory_episodes": 540,
+      "total_confirmatory_generations": 12960,
+      "stable_did_seoi": 0.15,
+      "revision_shift_seoi": 0.2,
+      "stable_co_primary": {
+        "power": 0.8844,
+        "mc_ci_lo": 0.8752405039684527,
+        "mc_ci_hi": 0.8929692651017752,
+        "mean_estimated_effect": 0.14976407407407405
+      },
+      "revision_co_primary": {
+        "power": 0.9166,
+        "mc_ci_lo": 0.9086126349651056,
+        "mc_ci_hi": 0.9239476922842622,
+        "mean_estimated_effect": 0.2004988888888889
+      },
+      "joint_co_primary": {
+        "power": 0.8088,
+        "mc_ci_lo": 0.7976643030733083,
+        "mc_ci_hi": 0.819461546793722
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.1904,
+        "mc_ci_lo": 0.17975649268997654,
+        "mc_ci_hi": 0.2015188858112135
+      },
+      "mean_supporting_transitions": 5.2534,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 8,
+      "stable_episodes_per_condition": 24,
+      "swap_episodes": 48,
+      "total_confirmatory_episodes": 144,
+      "total_confirmatory_generations": 3456,
+      "stable_did_seoi": 0.2,
+      "revision_shift_seoi": 0.25,
+      "stable_co_primary": {
+        "power": 0.5034,
+        "mc_ci_lo": 0.4895437379878128,
+        "mc_ci_hi": 0.5172510414472516,
+        "mean_estimated_effect": 0.19976805555555557
+      },
+      "revision_co_primary": {
+        "power": 0.7888,
+        "mc_ci_lo": 0.7772668329252874,
+        "mc_ci_hi": 0.799889726147246,
+        "mean_estimated_effect": 0.24834444444444442
+      },
+      "joint_co_primary": {
+        "power": 0.4,
+        "mc_ci_lo": 0.38650249118689867,
+        "mc_ci_hi": 0.41365105484061765
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.2348,
+        "mc_ci_lo": 0.22325716728966283,
+        "mc_ci_hi": 0.24675003677531
+      },
+      "mean_supporting_transitions": 4.873,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 12,
+      "stable_episodes_per_condition": 36,
+      "swap_episodes": 72,
+      "total_confirmatory_episodes": 216,
+      "total_confirmatory_generations": 5184,
+      "stable_did_seoi": 0.2,
+      "revision_shift_seoi": 0.25,
+      "stable_co_primary": {
+        "power": 0.7794,
+        "mc_ci_lo": 0.7676943611628184,
+        "mc_ci_hi": 0.7906766312363014,
+        "mean_estimated_effect": 0.20099351851851852
+      },
+      "revision_co_primary": {
+        "power": 0.948,
+        "mc_ci_lo": 0.94149453746568,
+        "mc_ci_hi": 0.9538175763310477,
+        "mean_estimated_effect": 0.25109305555555556
+      },
+      "joint_co_primary": {
+        "power": 0.7368,
+        "mc_ci_lo": 0.7244150993937687,
+        "mc_ci_hi": 0.7488213036130732
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.5338,
+        "mc_ci_lo": 0.5199517454815623,
+        "mc_ci_hi": 0.5475963559611374
+      },
+      "mean_supporting_transitions": 5.0826,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 16,
+      "stable_episodes_per_condition": 48,
+      "swap_episodes": 96,
+      "total_confirmatory_episodes": 288,
+      "total_confirmatory_generations": 6912,
+      "stable_did_seoi": 0.2,
+      "revision_shift_seoi": 0.25,
+      "stable_co_primary": {
+        "power": 0.9004,
+        "mc_ci_lo": 0.8917893237807535,
+        "mc_ci_hi": 0.9083958779250718,
+        "mean_estimated_effect": 0.19957916666666664
+      },
+      "revision_co_primary": {
+        "power": 0.975,
+        "mc_ci_lo": 0.9702940832438008,
+        "mc_ci_hi": 0.9789765731254975,
+        "mean_estimated_effect": 0.2500402777777778
+      },
+      "joint_co_primary": {
+        "power": 0.8778,
+        "mc_ci_lo": 0.8684305044560042,
+        "mc_ci_hi": 0.88658939865204
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.716,
+        "mc_ci_lo": 0.703338538389941,
+        "mc_ci_hi": 0.728329802190624
+      },
+      "mean_supporting_transitions": 5.3522,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 20,
+      "stable_episodes_per_condition": 60,
+      "swap_episodes": 120,
+      "total_confirmatory_episodes": 360,
+      "total_confirmatory_generations": 8640,
+      "stable_did_seoi": 0.2,
+      "revision_shift_seoi": 0.25,
+      "stable_co_primary": {
+        "power": 0.9606,
+        "mc_ci_lo": 0.9548443636454323,
+        "mc_ci_hi": 0.9656484033518283,
+        "mean_estimated_effect": 0.19998944444444441
+      },
+      "revision_co_primary": {
+        "power": 0.9854,
+        "mc_ci_lo": 0.981683082542079,
+        "mc_ci_hi": 0.9883716050403577,
+        "mean_estimated_effect": 0.2504422222222222
+      },
+      "joint_co_primary": {
+        "power": 0.9466,
+        "mc_ci_lo": 0.9400181318445556,
+        "mc_ci_hi": 0.9524961315965573
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.812,
+        "mc_ci_lo": 0.8009319878158242,
+        "mc_ci_hi": 0.8225889485783257
+      },
+      "mean_supporting_transitions": 5.5252,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 24,
+      "stable_episodes_per_condition": 72,
+      "swap_episodes": 144,
+      "total_confirmatory_episodes": 432,
+      "total_confirmatory_generations": 10368,
+      "stable_did_seoi": 0.2,
+      "revision_shift_seoi": 0.25,
+      "stable_co_primary": {
+        "power": 0.9832,
+        "mc_ci_lo": 0.9792486977821013,
+        "mc_ci_hi": 0.9864093678129406,
+        "mean_estimated_effect": 0.2017810185185185
+      },
+      "revision_co_primary": {
+        "power": 0.992,
+        "mc_ci_lo": 0.9891252022422699,
+        "mc_ci_hi": 0.9941193513023507,
+        "mean_estimated_effect": 0.2503268518518519
+      },
+      "joint_co_primary": {
+        "power": 0.9752,
+        "mc_ci_lo": 0.9705107532654795,
+        "mc_ci_hi": 0.9791595960117638
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.865,
+        "mc_ci_lo": 0.8552471753250919,
+        "mc_ci_hi": 0.8741923816744743
+      },
+      "mean_supporting_transitions": 5.6002,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    },
+    {
+      "n_episode_seeds": 30,
+      "stable_episodes_per_condition": 90,
+      "swap_episodes": 180,
+      "total_confirmatory_episodes": 540,
+      "total_confirmatory_generations": 12960,
+      "stable_did_seoi": 0.2,
+      "revision_shift_seoi": 0.25,
+      "stable_co_primary": {
+        "power": 0.9944,
+        "mc_ci_lo": 0.9919182251593253,
+        "mc_ci_hi": 0.9961226432806349,
+        "mean_estimated_effect": 0.19934148148148148
+      },
+      "revision_co_primary": {
+        "power": 0.9954,
+        "mc_ci_lo": 0.9931065624565739,
+        "mc_ci_hi": 0.9969327705231111,
+        "mean_estimated_effect": 0.24965685185185185
+      },
+      "joint_co_primary": {
+        "power": 0.9898,
+        "mc_ci_lo": 0.9866146287579864,
+        "mc_ci_hi": 0.9922333027992396
+      },
+      "complete_behavioral_pattern": {
+        "power": 0.914,
+        "mc_ci_lo": 0.9059073489744736,
+        "mc_ci_hi": 0.9214569704716098
+      },
+      "mean_supporting_transitions": 5.7324,
+      "n_sim": 5000,
+      "assumptions": {
+        "baseline_frame_shares": {
+          "fairness": 0.333333,
+          "risk": 0.333333,
+          "expertise": 0.333334
+        },
+        "pre_swap_old_match": 0.5,
+        "development_effect_fraction": 0.8,
+        "shuffled_effect_fraction": 0.0,
+        "seed_probability_sd": 0.035,
+        "transition_effect_sd": 0.035,
+        "analysis_window_rounds": 6,
+        "alpha_each": 0.025,
+        "independent_unit": "scenario-sequence seed block",
+        "randomization_block": "scenario-sequence seed",
+        "transition_weighting": "all six ordered transitions weighted equally within seed",
+        "test": "exact one-sided sign flip by integer-grid dynamic programming"
+      }
+    }
+  ],
+  "minimum_episode_seeds_by_effect_pair": {
+    "0.100:0.150": null,
+    "0.150:0.200": null,
+    "0.200:0.250": 16
+  },
+  "minimum_episode_seeds_by_effect_pair_complete_pattern": {
+    "0.100:0.150": null,
+    "0.150:0.200": null,
+    "0.200:0.250": 20
+  },
+  "selection_rule": "For a declared smallest-effect pair, choose the smallest listed seed count whose lower 95% Monte Carlo bound for joint co-primary power and complete-pattern power are both at least target_power; never choose the effect pair or sample size after confirmatory outcomes."
+}

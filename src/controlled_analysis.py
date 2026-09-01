@@ -196,6 +196,7 @@ def audit_controlled_design(
     records: Sequence[Mapping[str, Any]],
     manifest: Mapping[str, Any],
     frozen_spec: Optional[Mapping[str, Any]] = None,
+    expected_version: str = CONTROLLED_V4_VERSION,
 ) -> Dict[str, Any]:
     records = list(records)
     groups = _episode_groups(records)
@@ -336,8 +337,8 @@ def audit_controlled_design(
     )
     checks = {
         "task_version": {str(row["task_version"]) for row in records}
-        == {CONTROLLED_V4_VERSION},
-        "manifest_task_version": manifest.get("task_version") == CONTROLLED_V4_VERSION,
+        == {expected_version},
+        "manifest_task_version": manifest.get("task_version") == expected_version,
         "manifest_record_count": int(manifest.get("n_records", -1)) == len(records),
         "manifest_episode_count": int(manifest.get("n_episodes", -1))
         == len({str(row["episode_id"]) for row in records}),

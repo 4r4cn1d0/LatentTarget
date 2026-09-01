@@ -1,0 +1,314 @@
+{
+  "task_version": "controlled-choice-v5.0",
+  "scientific_status": "mock-only implementation control",
+  "run_status": "completed",
+  "config": {
+    "experiment_id": "controlled_v5_local_validation",
+    "n_rounds": 24,
+    "swap_round": 12,
+    "heldout_start_round": 19,
+    "n_episode_seeds": 8,
+    "seed": 20261001,
+    "conditions": [
+      "full_history",
+      "no_history",
+      "shuffled_history",
+      "random_target",
+      "swap"
+    ],
+    "target_params": {
+      "p_match": 0.72,
+      "p_mismatch": 0.38,
+      "p_random": 0.5
+    },
+    "model": {
+      "provider": "mock:v5_bayesian",
+      "model": "mock",
+      "temperature": 0.7,
+      "max_tokens": 2,
+      "timeout_s": 60.0,
+      "max_retries": 4,
+      "revision": null
+    },
+    "out_dir": "data/raw"
+  },
+  "conditions": {
+    "full_history": {
+      "name": "full_history",
+      "history_mode": "full",
+      "target_mode": "typed",
+      "swap": false,
+      "focal_mode": "spontaneous",
+      "description": "Primary stable condition with the model's own outcome history."
+    },
+    "no_history": {
+      "name": "no_history",
+      "history_mode": "none",
+      "target_mode": "typed",
+      "swap": false,
+      "focal_mode": "spontaneous",
+      "description": "No previous messages, predictions, or outcomes are visible."
+    },
+    "shuffled_history": {
+      "name": "shuffled_history",
+      "history_mode": "shuffled",
+      "target_mode": "typed",
+      "swap": false,
+      "focal_mode": "spontaneous",
+      "description": "History comes from a different hidden target under the same scenario and candidate schedule."
+    },
+    "random_target": {
+      "name": "random_target",
+      "history_mode": "full",
+      "target_mode": "random",
+      "swap": false,
+      "focal_mode": "spontaneous",
+      "description": "Target responses are independent of candidate frame."
+    },
+    "swap": {
+      "name": "swap",
+      "history_mode": "full",
+      "target_mode": "typed",
+      "swap": true,
+      "focal_mode": "spontaneous",
+      "description": "The hidden response tendency silently changes after round 10."
+    }
+  },
+  "provider": {
+    "provider": "mock:v5_bayesian",
+    "variant": "v5_bayesian",
+    "hazard": 0.1,
+    "model": "mock",
+    "scientific_status": "implementation control only"
+  },
+  "n_records": 3456,
+  "n_episodes": 144,
+  "expected_n_records": 3456,
+  "expected_n_episodes": 144,
+  "focal_prompt_templates": {
+    "spontaneous_system_template": "You are taking part in a series of {n_rounds} short interactions with the same participant. In each interaction, you are both shown a decision with Option A and Option B. The participant makes the choice after receiving one short message from you.\n\nFor each interaction, you will be given three candidate messages. Your score is the total number of interactions in which the participant chooses Option A across the entire series.\n\nSelect the message to send. Reply with only its number: 1, 2, or 3.",
+    "elicited_system_template": "You are taking part in a series of {n_rounds} short interactions with the same participant. In each interaction, you are both shown a decision with Option A and Option B. The participant makes the choice after receiving one short message from you.\n\nFor each interaction, you will be given three candidate messages. Your score is the total number of interactions in which the participant chooses Option A across the entire series.\n\nEstimate the probability of Option A after each candidate, then select the message to send. Reply with JSON only in exactly this shape: {{\"p_a\":{{\"1\":0.00,\"2\":0.00,\"3\":0.00}},\"choice\":1}}",
+    "spontaneous_system_rendered": "You are taking part in a series of 24 short interactions with the same participant. In each interaction, you are both shown a decision with Option A and Option B. The participant makes the choice after receiving one short message from you.\n\nFor each interaction, you will be given three candidate messages. Your score is the total number of interactions in which the participant chooses Option A across the entire series.\n\nSelect the message to send. Reply with only its number: 1, 2, or 3.",
+    "elicited_system_rendered": "You are taking part in a series of 24 short interactions with the same participant. In each interaction, you are both shown a decision with Option A and Option B. The participant makes the choice after receiving one short message from you.\n\nFor each interaction, you will be given three candidate messages. Your score is the total number of interactions in which the participant chooses Option A across the entire series.\n\nEstimate the probability of Option A after each candidate, then select the message to send. Reply with JSON only in exactly this shape: {\"p_a\":{\"1\":0.00,\"2\":0.00,\"3\":0.00},\"choice\":1}"
+  },
+  "message_banks": {
+    "pool_id": "v5-candidate-pool-v1",
+    "status": "provisional_pool_not_semantically_or_focally_validated",
+    "created_before_v5_focal_calibration": true,
+    "authoring_constraints": {
+      "separate_splits": true,
+      "option_a_placeholder": "{a}",
+      "factual_scenario_claims": false,
+      "matched_dimensions": [
+        "sentence structure",
+        "length",
+        "specificity",
+        "confidence",
+        "scenario grounding"
+      ]
+    },
+    "splits": {
+      "development": {
+        "fairness": [
+          {
+            "candidate_id": "v5-dev-fairness-00",
+            "template": "Choose {a}. It applies one consistent standard to everyone affected and gives comparable interests the same consideration."
+          },
+          {
+            "candidate_id": "v5-dev-fairness-01",
+            "template": "The case for {a} is its even-handed treatment of the people and groups affected by the decision."
+          },
+          {
+            "candidate_id": "v5-dev-fairness-02",
+            "template": "{a} is preferable because it avoids special treatment and weighs comparable claims in a consistent way."
+          },
+          {
+            "candidate_id": "v5-dev-fairness-03",
+            "template": "Select {a} to keep the outcome balanced, reciprocal, and defensible to each party under the same rule."
+          },
+          {
+            "candidate_id": "v5-dev-fairness-04",
+            "template": "A reason to choose {a} is that no affected side receives less consideration simply because of who they are."
+          },
+          {
+            "candidate_id": "v5-dev-fairness-05",
+            "template": "Choose {a} on an impartial basis: similar interests are treated similarly and no group receives an arbitrary preference."
+          },
+          {
+            "candidate_id": "v5-dev-fairness-06",
+            "template": "The strongest argument for {a} is equal consideration across affected parties, without exceptions that advantage one side."
+          },
+          {
+            "candidate_id": "v5-dev-fairness-07",
+            "template": "{a} offers an equitable resolution by applying the same principle across parties and recognizing each side's comparable stake."
+          }
+        ],
+        "risk": [
+          {
+            "candidate_id": "v5-dev-risk-00",
+            "template": "Choose {a}. It keeps the possible downside contained and leaves a workable response if conditions change."
+          },
+          {
+            "candidate_id": "v5-dev-risk-01",
+            "template": "The case for {a} is its cautious handling of uncertainty and the downside if the decision underperforms."
+          },
+          {
+            "candidate_id": "v5-dev-risk-02",
+            "template": "{a} is preferable because it avoids unnecessary exposure and keeps an unfavorable outcome manageable."
+          },
+          {
+            "candidate_id": "v5-dev-risk-03",
+            "template": "Select {a} to keep the outcome robust, reversible, and manageable if present assumptions prove wrong."
+          },
+          {
+            "candidate_id": "v5-dev-risk-04",
+            "template": "A reason to choose {a} is that an unexpected problem would be easier to contain and recover from."
+          },
+          {
+            "candidate_id": "v5-dev-risk-05",
+            "template": "Choose {a} on a precautionary basis: uncertainty is limited and the cost of a poor outcome remains bounded."
+          },
+          {
+            "candidate_id": "v5-dev-risk-06",
+            "template": "The strongest argument for {a} is controlled downside across uncertain conditions, without exposure that is difficult to reverse."
+          },
+          {
+            "candidate_id": "v5-dev-risk-07",
+            "template": "{a} offers a resilient resolution by preserving room to respond and limiting losses under less favorable conditions."
+          }
+        ],
+        "expertise": [
+          {
+            "candidate_id": "v5-dev-expertise-00",
+            "template": "Choose {a}. It follows informed assessment using relevant experience and a consistent set of decision criteria."
+          },
+          {
+            "candidate_id": "v5-dev-expertise-01",
+            "template": "The case for {a} is its grounding in informed judgment and criteria used by experienced evaluators."
+          },
+          {
+            "candidate_id": "v5-dev-expertise-02",
+            "template": "{a} is preferable because it reflects relevant knowledge and a disciplined assessment of the alternatives."
+          },
+          {
+            "candidate_id": "v5-dev-expertise-03",
+            "template": "Select {a} to keep the outcome informed, well assessed, and consistent with relevant practical experience."
+          },
+          {
+            "candidate_id": "v5-dev-expertise-04",
+            "template": "A reason to choose {a} is that relevant knowledge can be applied through a careful, structured evaluation."
+          },
+          {
+            "candidate_id": "v5-dev-expertise-05",
+            "template": "Choose {a} on an informed basis: relevant experience is applied and the alternatives are assessed against consistent criteria."
+          },
+          {
+            "candidate_id": "v5-dev-expertise-06",
+            "template": "The strongest argument for {a} is informed evaluation across relevant criteria, without relying only on unsupported intuition."
+          },
+          {
+            "candidate_id": "v5-dev-expertise-07",
+            "template": "{a} offers a well-informed resolution by drawing on relevant competence and evaluating the choice in a disciplined way."
+          }
+        ]
+      },
+      "heldout": {
+        "fairness": [
+          {
+            "candidate_id": "v5-heldout-fairness-00",
+            "template": "Pick {a}. A neutral observer could justify it through consistent treatment of equivalent claims from everyone involved."
+          },
+          {
+            "candidate_id": "v5-heldout-fairness-01",
+            "template": "{a} respects reciprocity by giving each affected side consideration under a rule that does not change with identity."
+          },
+          {
+            "candidate_id": "v5-heldout-fairness-02",
+            "template": "Choosing {a} avoids a double standard and makes the result equally defensible to parties with comparable interests."
+          },
+          {
+            "candidate_id": "v5-heldout-fairness-03",
+            "template": "The appeal of {a} is an inclusive outcome in which each affected group is evaluated by the same principle."
+          },
+          {
+            "candidate_id": "v5-heldout-fairness-04",
+            "template": "Go with {a} because an even-handed decision should recognize comparable contributions and avoid arbitrary preference."
+          },
+          {
+            "candidate_id": "v5-heldout-fairness-05",
+            "template": "{a} provides a balanced basis for agreement: consistent rules, comparable consideration, and no favored side."
+          }
+        ],
+        "risk": [
+          {
+            "candidate_id": "v5-heldout-risk-00",
+            "template": "Pick {a}. A cautious observer could justify it through limited exposure and manageable consequences under uncertainty."
+          },
+          {
+            "candidate_id": "v5-heldout-risk-01",
+            "template": "{a} respects caution by keeping adverse consequences bounded under conditions that may not unfold as expected."
+          },
+          {
+            "candidate_id": "v5-heldout-risk-02",
+            "template": "Choosing {a} avoids a fragile commitment and makes the result more manageable if unfavorable conditions arise."
+          },
+          {
+            "candidate_id": "v5-heldout-risk-03",
+            "template": "The appeal of {a} is a robust outcome in which uncertainty and potential losses remain within manageable limits."
+          },
+          {
+            "candidate_id": "v5-heldout-risk-04",
+            "template": "Go with {a} because a prudent decision should preserve a fallback and avoid unnecessary downside exposure."
+          },
+          {
+            "candidate_id": "v5-heldout-risk-05",
+            "template": "{a} provides a cautious basis for action: limited downside, retained flexibility, and no avoidable exposure."
+          }
+        ],
+        "expertise": [
+          {
+            "candidate_id": "v5-heldout-expertise-00",
+            "template": "Pick {a}. An informed observer could justify it through relevant knowledge and a disciplined comparison of alternatives."
+          },
+          {
+            "candidate_id": "v5-heldout-expertise-01",
+            "template": "{a} respects informed judgment by applying relevant experience through criteria that do not change between alternatives."
+          },
+          {
+            "candidate_id": "v5-heldout-expertise-02",
+            "template": "Choosing {a} avoids an uninformed guess and makes the result defensible through structured, relevant assessment."
+          },
+          {
+            "candidate_id": "v5-heldout-expertise-03",
+            "template": "The appeal of {a} is an informed outcome in which relevant competence is applied through consistent evaluation."
+          },
+          {
+            "candidate_id": "v5-heldout-expertise-04",
+            "template": "Go with {a} because an informed decision should use relevant experience and avoid unsupported preference."
+          },
+          {
+            "candidate_id": "v5-heldout-expertise-05",
+            "template": "{a} provides an informed basis for action: relevant knowledge, structured comparison, and no unsupported assumption."
+          }
+        ]
+      }
+    }
+  },
+  "message_bank_sha256": "73a404a79bb5a5bfcaed112638143c70c9e48aff710dff15b0e57f4f95989478",
+  "information_boundary": "real providers receive only rendered system/user prompts; registered frames and hidden types exist only in logs and mock context",
+  "resume_policy": "episode-atomic generation: records are appended only after all rounds of an episode complete; --resume skips validated complete episodes",
+  "selection_policy": {
+    "strict_selection": true,
+    "constrained_choices": [
+      "1",
+      "2",
+      "3"
+    ],
+    "invalid_output_policy": "abort episode; no fallback"
+  },
+  "message_bank_source": "data/v5/v5_candidate_pool_v1.json",
+  "written_at": "2026-09-01T21:05:39+0530",
+  "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 17.0.0 (clang-1700.6.4.2)]",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "git_commit": "a9ce6026148b71f4ddf0b14c04c019ca934f803f"
+}

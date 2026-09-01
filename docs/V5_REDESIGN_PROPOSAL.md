@@ -1,6 +1,8 @@
 # V5 behavioral redesign proposal
 
-Status: **post-V4 proposal only; not frozen, not preregistered, and not run**.
+Status: **historical post-V4 proposal. The local implementation and blind
+semantic gate are complete; see `V5_IMPLEMENTATION_PLAN.md` and
+`v5_calibration_protocol.json`. No V5 behavioral outcome has been run.**
 
 This proposal uses the V4 failure to improve identification. It cannot rescue or
 replace the V4 decision. Any V5 real-model outcome requires a new frozen JSON,
@@ -121,16 +123,23 @@ six transition estimates and intervals regardless of sign.
 
 ### F. Power and sample size
 
-Do not power V5 directly from V4's observed p-value. After the candidate bank is
-calibrated, define a smallest effect of interest for `revision_shift`, simulate
-the exact blocked randomization analysis, and select the smallest seed count
-with at least 80% joint power for both co-primary outcomes at the declared alpha
-allocation. Include Monte Carlo uncertainty.
+Do not power V5 directly from V4's observed p-value. Before focal calibration,
+define the smallest effects of interest; after selected-bank validation supplies
+the nuisance frame shares, simulate the exact blocked randomization analysis and
+select the smallest seed count with at least 80% joint power for both co-primary
+outcomes at the declared alpha allocation. Include Monte Carlo uncertainty.
 
 The V4 run shows that thousands of short generations are inexpensive on one
 A100, so statistical design—not GPU budget—should determine the sample. A
 provisional planning ceiling is 30 scenario seeds, but this number has no
 authority until the new power file is frozen.
+
+Implementation note (frozen before focal calibration): the population
+smallest-effect pair is stable DID `0.20` and revision shift `0.25`. This is the
+smallest tested pair compatible with the existing `0.50` late-level gate under
+a balanced one-third baseline and the complete-pattern power requirement. The
+selected-bank validation may update nuisance frame shares and therefore sample
+size, but it may not change this effect pair.
 
 ## Decision rule
 

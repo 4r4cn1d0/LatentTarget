@@ -15,7 +15,41 @@ manipulate, profile or exploit anything.
 
 ---
 
-## Current status: V4 real checkpoint complete — scientific STOP
+## Current status: V4 stopped; V5 is ready for paid bank calibration
+
+V5 is now implemented locally, but **no V5 focal-model outcome exists yet**.
+The redesign removes V4's expertise-prior and formatting failure modes before
+another confirmatory run:
+
+- 24 rounds, a silent swap after round 12, and separately authored held-out
+  wording in rounds 19–24;
+- exact constrained decoding to `1`, `2`, or `3`, with invalid output aborting
+  and no fallback;
+- a target-free, no-history pool-calibration stage followed by deterministic
+  bank selection and a separately seeded selected-bank validation;
+- baseline-adjusted revision as the swap co-primary, with the raw final
+  new-versus-old crossover reported only as a secondary diagnostic;
+- exact scenario-blocked sign-flip inference, all six ordered transition
+  estimates, and explicit no-history, shuffled-history, random-response,
+  target-type, wording-split, and corruption gates.
+
+Two distinct blind machine judges have now classified all 42 V5 candidate
+messages with 1.000 accuracy and Cohen's kappa 1.000. Exact judge inputs,
+outputs, and structural audits are retained under `results/v5_design/`. This is
+a machine-only manipulation check, not human validation. The 144-episode V5
+Bayesian mock passes every implementation gate; random, invalid-output, and
+asymmetric-prior controls fail as intended. A 5,000-study provisional exact
+power analysis is complete. The population effect pair is frozen before focal
+calibration at stable DID `0.20` and revision shift `0.25`; only the final sample
+size will be recalculated from the real selected-bank validation shares.
+
+The frozen target-free calibration protocol is
+[`docs/v5_calibration_protocol.json`](docs/v5_calibration_protocol.json).
+**Confirmatory V5, activations, probes, steering, and free-form replication all
+remain blocked** until focal calibration, independent selected-bank validation,
+final power, and `behavioral_checkpoint_v5.json` pass the fail-closed freezer.
+
+### Why V4 remains a scientific STOP
 
 The free-form V3 checkpoint was an informative negative result, not a success:
 Qwen3.8-27B did not show the complete history-specific learning and silent-swap
@@ -64,9 +98,11 @@ Key results:
 - [`docs/V4_REAL_RUN_LOG_20260901.md`](docs/V4_REAL_RUN_LOG_20260901.md) records
   the engineering failures, fixes, commands, costs, hashes, exploratory
   diagnosis, and next-design recommendations.
-- [`docs/V5_REDESIGN_PROPOSAL.md`](docs/V5_REDESIGN_PROPOSAL.md) specifies the
-  proposed baseline-balanced, constrained-decoding follow-up. It is not frozen
-  or authorized for a real run.
+- [`docs/V5_REDESIGN_PROPOSAL.md`](docs/V5_REDESIGN_PROPOSAL.md) records the
+  redesign rationale, and
+  [`docs/V5_IMPLEMENTATION_PLAN.md`](docs/V5_IMPLEMENTATION_PLAN.md) turns it
+  into executable requirements; the pre-deployment findings and fixes are in
+  [`docs/V5_CODE_REVIEW.md`](docs/V5_CODE_REVIEW.md).
 
 Read [`docs/V4_DESIGN_PROTOCOL.md`](docs/V4_DESIGN_PROTOCOL.md) for the science
 and [`docs/V4_RUNBOOK.md`](docs/V4_RUNBOOK.md) for the exact GPU procedure.
@@ -273,6 +309,31 @@ real-model data are collected.
 ---
 
 ## 5. How to run
+
+### Current V5 calibration stage
+
+Local verification and the exact no-weight paid-calibration preflight are:
+
+```bash
+.venv/bin/python -m pytest -q
+.venv/bin/python scripts/run_controlled_v5.py \
+  --run-id controlled_v5_mock_positive_20260901
+.venv/bin/python scripts/run_v5_calibration.py \
+  --bank data/v5/v5_candidate_pool_v1.json \
+  --mode pool_calibration \
+  --run-id qwen38_27b_v5_pool_calibration_20260901 \
+  --dry-run
+```
+
+The dry run passes without loading model weights. On an 80 GB GPU, remove only
+`--dry-run`; all model, revision, decoding, schedule, seed, pool, semantic, and
+threshold settings are sourced from the frozen calibration protocol. The run
+contains 576 target-free, no-history choices and cannot be interpreted as
+target learning. See
+[`docs/V5_CALIBRATION_RUNBOOK.md`](docs/V5_CALIBRATION_RUNBOOK.md) for the
+selection, independent validation, final power, and freeze sequence.
+
+### Reproducing the completed V4 checkpoint
 
 ```bash
 python3 -m venv .venv

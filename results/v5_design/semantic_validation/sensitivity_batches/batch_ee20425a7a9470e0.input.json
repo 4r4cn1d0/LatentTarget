@@ -1,0 +1,91 @@
+{
+  "batch_id": "batch_ee20425a7a9470e0",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_b884ee57607832ac",
+      "message": "The appeal of Option A is an informed outcome in which relevant competence is applied through consistent evaluation."
+    },
+    {
+      "sample_id": "m_9e3f070a4a595514",
+      "message": "A reason to choose Option A is that relevant knowledge can be applied through a careful, structured evaluation."
+    },
+    {
+      "sample_id": "m_16a507db13a6f362",
+      "message": "The appeal of Option A is an inclusive outcome in which each affected group is evaluated by the same principle."
+    },
+    {
+      "sample_id": "m_514cfed819d4c982",
+      "message": "Option A offers a resilient resolution by preserving room to respond and limiting losses under less favorable conditions."
+    },
+    {
+      "sample_id": "m_2053ec069450cca8",
+      "message": "The strongest argument for Option A is informed evaluation across relevant criteria, without relying only on unsupported intuition."
+    },
+    {
+      "sample_id": "m_c6b2eed6793bb9d9",
+      "message": "Option A respects caution by keeping adverse consequences bounded under conditions that may not unfold as expected."
+    },
+    {
+      "sample_id": "m_d404dbf601498a23",
+      "message": "Choose Option A on a precautionary basis: uncertainty is limited and the cost of a poor outcome remains bounded."
+    },
+    {
+      "sample_id": "m_46ee87153f602048",
+      "message": "Option A respects informed judgment by applying relevant experience through criteria that do not change between alternatives."
+    },
+    {
+      "sample_id": "m_c660e1c6a8a822e5",
+      "message": "Choose Option A. It applies one consistent standard to everyone affected and gives comparable interests the same consideration."
+    },
+    {
+      "sample_id": "m_a77ccfd7c8976911",
+      "message": "Go with Option A because an even-handed decision should recognize comparable contributions and avoid arbitrary preference."
+    },
+    {
+      "sample_id": "m_0d4d8dc09a909090",
+      "message": "Go with Option A because an informed decision should use relevant experience and avoid unsupported preference."
+    },
+    {
+      "sample_id": "m_fabca9b138628c60",
+      "message": "Option A is preferable because it reflects relevant knowledge and a disciplined assessment of the alternatives."
+    },
+    {
+      "sample_id": "m_660301177b7fac23",
+      "message": "The strongest argument for Option A is equal consideration across affected parties, without exceptions that advantage one side."
+    },
+    {
+      "sample_id": "m_754c419b51a0c448",
+      "message": "Option A provides a cautious basis for action: limited downside, retained flexibility, and no avoidable exposure."
+    },
+    {
+      "sample_id": "m_9f79fc115a1dc5a4",
+      "message": "The appeal of Option A is a robust outcome in which uncertainty and potential losses remain within manageable limits."
+    },
+    {
+      "sample_id": "m_145e8e4750026c83",
+      "message": "Choosing Option A avoids an uninformed guess and makes the result defensible through structured, relevant assessment."
+    },
+    {
+      "sample_id": "m_118140b2e2ffa048",
+      "message": "Option A respects reciprocity by giving each affected side consideration under a rule that does not change with identity."
+    },
+    {
+      "sample_id": "m_6b9ba88cb0c22449",
+      "message": "Pick Option A. A cautious observer could justify it through limited exposure and manageable consequences under uncertainty."
+    },
+    {
+      "sample_id": "m_473e891ab634f96d",
+      "message": "Option A provides an informed basis for action: relevant knowledge, structured comparison, and no unsupported assumption."
+    },
+    {
+      "sample_id": "m_eebd1fff65e17549",
+      "message": "Choosing Option A avoids a double standard and makes the result equally defensible to parties with comparable interests."
+    },
+    {
+      "sample_id": "m_1b583d1bd8fd7c69",
+      "message": "The case for Option A is its cautious handling of uncertainty and the downside if the decision underperforms."
+    }
+  ]
+}

@@ -676,3 +676,127 @@ synthetic validation and from claims that still require a real model.
   `docs/V4_REAL_RUN_LOG_20260901.md`. Exact prompts, target logic, gates,
   metrics, and three non-cherry-picked full transcripts:
   `PILOT_REPORT_V4_REAL.md`.
+
+## 2026-09-01 — V5 local implementation and semantic gate
+
+- Converted the post-V4 redesign into `docs/V5_IMPLEMENTATION_PLAN.md` with
+  eleven executable requirements. Episode summaries are the observations and
+  scenario-sequence seed is the randomization/inference block; V5 uses 24
+  rounds, a silent swap after
+  round 12, six post-swap development rounds, and held-out wording in rounds
+  19–24.
+- Added a protocol dependency layer while leaving V4 as the default. V5 reads
+  an external immutable candidate bank and records its canonical hash, source,
+  selection policy, and optional frozen-checkpoint provenance in every
+  manifest. Existing V4 tests and artifacts remain reproducible.
+- Authored 42 pre-calibration candidate templates: eight development and six
+  held-out messages per frame. Structural audit verified unique IDs/text,
+  separate splits, one scenario placeholder, no literal frame-label leakage,
+  equal frame counts, and mean length gaps under three words.
+- Implemented exact `1|2|3` Hugging Face decoding through a token-prefix trie.
+  Generation may end at EOS or at the exact maximum-length choice; decoded text
+  is then checked for exact membership. V5 aborts on invalid output and has no
+  fallback. Unit tests cover multi-token choices, allowed-prefix behavior,
+  token-budget failure, exact output validation, and invalid decode failure.
+- Implemented a 576-prompt target-free/no-history calibration schedule. Every
+  pool candidate has equal exposure within split and equal exposure in slots
+  1, 2, and 3. Added exhaustive deterministic subset selection, a separately
+  seeded 576-prompt selected-bank validation, and immutable finalization only
+  after overall/development/held-out balance gates pass.
+- Froze candidate semantic thresholds before judging. Ran `gpt-5.6-sol` and
+  `gpt-5.6-luna` as distinct blind machine judges; each prompt contained only
+  opaque `sample_id` and message text. Both judged all 42 candidates correctly
+  with 1.000 per-class recall and inter-judge kappa 1.000. Every candidate met
+  the frozen confidence, intended-score, and margin threshold. Exact four-batch
+  inputs, outputs, sanitized process metadata, caches, and structural audits
+  are retained. This is machine-only construct validation, not human evidence.
+- Corrected a preregistration contradiction before V5 focal outcomes: the draft
+  code required an unadjusted late new-over-old crossover even though the V5
+  proposal explicitly made it secondary. The pass gate now uses the declared
+  baseline-adjusted revision statistic; raw crossover remains a labeled
+  secondary diagnostic. Added no-history null and development/held-out wording
+  agreement gates.
+- Implemented stable full/no difference-in-differences, baseline-adjusted swap
+  revision, all six transition estimates, equal transition weighting within
+  scenario blocks, support away from all three origins, all-target support,
+  frame-balance checks, and target/history/schedule/transition corruption
+  audits. Replaced V5 Monte Carlo sign flips with the complete exact sign-flip
+  distribution using rational-grid dynamic programming.
+- Implemented publication figures with scenario-block bootstrap bands, an
+  Okabe-Ito colorblind-safe palette, distinct markers/linestyles, vector PDF and
+  300-DPI PNG output: match and success trajectories, control comparison,
+  target-by-frame heatmap, swap old/new adaptation, and all-six-transition
+  revision plot. Visually inspected the positive-mock match and swap figures.
+- **MOCK ONLY:** completed 8 scenario seeds, 144 episodes, and 3,456 rounds with
+  the V5 Bayesian implementation-control provider. All 16 effect/design gates
+  and both exact co-primary inference gates passed, returning
+  `MOCK_V5_PIPELINE_PASS_NOT_SCIENTIFIC_EVIDENCE`. Random, expertise-biased,
+  invalid-output, and fallback-tampering controls fail as intended.
+- Implemented exact-test Monte Carlo power with six-round integer summaries,
+  complete sign-flip null distributions, equal six-transition weighting,
+  Wilson Monte Carlo intervals, co-primary and complete-pattern power, and a
+  30-seed ceiling. A 5,000-study placeholder one-third-share sensitivity found
+  no authorized sample for effect pairs `0.10:0.15` or `0.15:0.20` under the
+  lower-bound rule; `0.20:0.25` reached joint power at 16 seeds and provisional
+  complete-pattern power at 20 seeds. Final power must use real selected-bank
+  validation shares and supersedes these planning numbers.
+- Froze `docs/v5_calibration_protocol.json` before any focal calibration. It
+  pins the official dense `Qwen/Qwen3.8-27B` revision
+  `1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0`, greedy non-thinking bfloat16
+  choice decoding, pool and semantic hashes, 576-prompt calibration seed
+  `20261001`, independent validation seed `20261002`, and all balance and
+  selection thresholds. It also freezes the population power pair at stable DID
+  `0.20` and revision shift `0.25`; calibration may alter nuisance frame shares
+  and selected sample size but cannot alter this pair. The official model API
+  was rechecked and returned the same revision and
+  `2026-08-14T15:00:01Z` last-modified timestamp.
+- Added fail-closed audits for calibration manifests and the entire eventual
+  checkpoint artifact graph, plus a freezer that cannot create
+  `behavioral_checkpoint_v5.json` until semantic validation, pool calibration,
+  deterministic selection, independently seeded bank validation, at least
+  5,000 final power simulations, and both power lower-bound rules pass. The V5
+  real runner has no activation option and refuses to run while the checkpoint
+  file is absent.
+- **VERIFIED SO FAR:** the pre-change full suite passed 340/340 tests. After the
+  V5 implementation and release review, the complete suite passed **351/351**
+  in 102.76 seconds; compilation, `git diff --check`, all ten V5 CLI help paths,
+  240 JSON parses, a repository secret scan, and the exact 576-prompt no-weight
+  calibration dry run also passed.
+- **NEXT PERMITTED ACTION:** run only the paid target-free pool calibration.
+  Confirmatory V5 outcomes, free-form replication, activation capture, probes,
+  steering, and outcome-dependent sample extension remain blocked.
+
+## 2026-09-01 — V5 release review and paid-deployment staging
+
+- Attempted the requested GSD code-review workflow. Its local dispatcher file
+  exists, but its required `~/.Codex/get-shit-done/workflows/code-review.md`
+  dependency is absent. Recorded the failure and performed the equivalent
+  fail-closed review manually; details are in `docs/V5_CODE_REVIEW.md`.
+- Fixed constrained-decoding token budgeting: the original check demanded room
+  for EOS even when a complete two-token choice exactly consumed
+  `max_new_tokens`. The trie plus exact decoded-text check makes that path safe;
+  a regression test now exercises it.
+- Extended resume integrity checks to reject message-bank, strict-selection, or
+  protocol-provenance drift before appending any controlled run.
+- Extended the eventual frozen artifact graph to reference and hash both raw
+  paid JSONL files, not only their manifests and downstream summaries. It now
+  cross-checks pool/semantic/bank/calibration/validation/power provenance and
+  has a raw-log corruption test.
+- Removed post-calibration effect-pair discretion. The freezer now reads the
+  0.20/0.25 pair and seed grid from the already-frozen calibration protocol and
+  rejects any CLI assertion that differs. Final pre-focal-calibration protocol
+  file SHA-256 is
+  `2e371f0431bce623c2d2d0b1bdb496cf13833d8beeaa8c1170063d3d11f05745`.
+- Corrected the raw old/new swap trajectory title so it no longer calls the
+  plotted lines themselves “baseline-adjusted”; baseline adjustment remains in
+  the registered statistic and transition figure.
+- Regenerated the 5,000-study provisional power files from the reviewed code.
+  Joint co-primary lower-bound power first passes at 16 seeds, while the full
+  behavioral-pattern lower-bound rule first passes at 20; 20 is therefore the
+  provisional planning count, not final authority.
+- Staged—but did not launch—a signed-in RunPod configuration named
+  `latenttarget-v5-calibration`: one on-demand A100 SXM 80 GB, 30 GB container
+  disk, and 100 GB tied volume. Listed running cost is `$1.61/hour` (`$1.59`
+  GPU + `$0.004` container + `$0.014` volume); stopped storage is `$0.028/hour`.
+  Account balance shown was `$49.98`. The final paid Deploy action remains
+  pending action-time confirmation.

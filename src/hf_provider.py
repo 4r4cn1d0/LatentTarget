@@ -27,11 +27,67 @@ reach the model. ``tests/test_hf_provider.py`` asserts this.
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
 from .focal_agent import BaseProvider, FocalPrompt, ProviderError
+
+
+def _choice_token_sequences(tokenizer, choices: Sequence[str]) -> Tuple[Tuple[int, ...], ...]:
+    """Return all tokenizer sequences that decode to one exact stripped choice."""
+    sequences: List[Tuple[int, ...]] = []
+    for choice in choices:
+        label = str(choice)
+        for rendered in (label, " " + label):
+            token_ids = tuple(
+                int(token_id)
+                for token_id in tokenizer.encode(rendered, add_special_tokens=False)
+            )
+            if not token_ids:
+                continue
+            decoded = tokenizer.decode(token_ids, skip_special_tokens=True).strip()
+            if decoded == label and token_ids not in sequences:
+                sequences.append(token_ids)
+    if not sequences:
+        raise ProviderError("tokenizer cannot represent any constrained choice")
+    represented = {
+        tokenizer.decode(sequence, skip_special_tokens=True).strip()
+        for sequence in sequences
+    }
+    missing = [str(choice) for choice in choices if str(choice) not in represented]
+    if missing:
+        raise ProviderError(
+            "tokenizer cannot represent constrained choices: %s" % ", ".join(missing)
+        )
+    return tuple(sequences)
+
+
+def _choice_prefix_allowed_tokens(
+    prompt_length: int,
+    sequences: Sequence[Sequence[int]],
+    eos_token_id: int,
+):
+    """Build a trie-like Transformers prefix constraint for exact choices."""
+    normalized = tuple(tuple(int(token) for token in sequence) for sequence in sequences)
+
+    def allowed_tokens(_batch_id, input_ids):
+        raw = input_ids.tolist() if hasattr(input_ids, "tolist") else list(input_ids)
+        generated = tuple(int(token) for token in raw[prompt_length:])
+        if generated in normalized:
+            return [int(eos_token_id)]
+        matches = [
+            sequence for sequence in normalized
+            if len(sequence) > len(generated)
+            and sequence[: len(generated)] == generated
+        ]
+        if not matches:
+            raise ProviderError(
+                "generation left the constrained-choice token trie: %r" % (generated,)
+            )
+        return sorted({sequence[len(generated)] for sequence in matches})
+
+    return allowed_tokens
 
 
 class HuggingFaceProvider(BaseProvider):
@@ -64,6 +120,7 @@ class HuggingFaceProvider(BaseProvider):
         top_p: float = 0.8,
         top_k: int = 20,
         revision: Optional[str] = None,
+        constrained_choices: Optional[Sequence[str]] = None,
     ) -> None:
         self.model_id = model
         self.revision = revision
@@ -77,6 +134,15 @@ class HuggingFaceProvider(BaseProvider):
         self.enable_thinking = enable_thinking
         self.top_p = top_p
         self.top_k = top_k
+        self.constrained_choices = (
+            tuple(str(choice) for choice in constrained_choices)
+            if constrained_choices is not None else None
+        )
+        if self.constrained_choices is not None:
+            if not self.constrained_choices or len(set(self.constrained_choices)) != len(
+                self.constrained_choices
+            ):
+                raise ValueError("constrained_choices must be non-empty and unique")
         self._model = None
         self._tok = None
         self._processor = None
@@ -197,6 +263,39 @@ class HuggingFaceProvider(BaseProvider):
         decoder = self._processor if self._processor is not None else self._tok
         return decoder.decode(token_ids, skip_special_tokens=True)
 
+    def _choice_generation_kwargs(self, inputs) -> Dict[str, Any]:
+        if self.constrained_choices is None:
+            return {}
+        sequences = _choice_token_sequences(self._tok, self.constrained_choices)
+        # Generation may stop because ``max_new_tokens`` is reached immediately
+        # after a complete choice path.  An additional EOS token is helpful but
+        # not required: the prefix trie prevents an invalid path and the decoded
+        # text is validated exactly below.  Requiring room for EOS would reject
+        # valid two-token renderings such as ``" 1"`` when max_tokens is 2.
+        required_tokens = max(len(sequence) for sequence in sequences)
+        if self.max_tokens < required_tokens:
+            raise ProviderError(
+                "max_tokens=%d cannot emit every constrained choice token path; "
+                "need at least %d"
+                % (self.max_tokens, required_tokens)
+            )
+        prompt_length = int(inputs["input_ids"].shape[1])
+        return {
+            "prefix_allowed_tokens_fn": _choice_prefix_allowed_tokens(
+                prompt_length, sequences, int(self._tok.eos_token_id)
+            )
+        }
+
+    def _validate_constrained_text(self, text: str) -> str:
+        if self.constrained_choices is None:
+            return text
+        normalized = text.strip()
+        if normalized not in self.constrained_choices:
+            raise ProviderError(
+                "constrained generation returned invalid choice text %r" % text
+            )
+        return normalized
+
     def generate(self, prompt: FocalPrompt) -> str:
         import torch
 
@@ -223,6 +322,7 @@ class HuggingFaceProvider(BaseProvider):
                 return_dict_in_generate=True,
                 output_hidden_states=self.capture,
                 pad_token_id=self._tok.eos_token_id,
+                **self._choice_generation_kwargs(inputs),
             )
 
         if self.capture:
@@ -246,7 +346,7 @@ class HuggingFaceProvider(BaseProvider):
             self._last_acts = acts
 
         gen_ids = out.sequences[0, inputs["input_ids"].shape[1]:]
-        return self._decode(gen_ids)
+        return self._validate_constrained_text(self._decode(gen_ids))
 
     def set_next_seed(self, seed: int) -> None:
         """Set the exact seed for the next generation.
@@ -324,11 +424,14 @@ class HuggingFaceProvider(BaseProvider):
                     top_p=self.top_p,
                     top_k=self.top_k,
                     pad_token_id=self._tok.eos_token_id,
+                    **self._choice_generation_kwargs(inputs),
                 )
-        return self._decode(out[0, inputs["input_ids"].shape[1]:])
+        return self._validate_constrained_text(
+            self._decode(out[0, inputs["input_ids"].shape[1]:])
+        )
 
     def describe(self) -> Dict[str, Any]:
-        return {
+        description = {
             "provider": self.name, "model": self.model_id,
             "revision": self.revision,
             "temperature": self.temperature, "max_tokens": self.max_tokens,
@@ -340,6 +443,10 @@ class HuggingFaceProvider(BaseProvider):
             "processor": type(self._processor).__name__ if self._processor is not None else None,
             "per_generation_seed_supported": True,
         }
+        if self.constrained_choices is not None:
+            description["constrained_choices"] = list(self.constrained_choices)
+            description["invalid_output_policy"] = "provider error; no fallback"
+        return description
 
 
 #: The black-box baseline Neel's doc asks for by name ("ask an LLM"). If this

@@ -1,0 +1,91 @@
+{
+  "batch_id": "batch_cadec825e4852914",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_a535ca03eb17d8f8",
+      "message": "The case for Option A is its even-handed treatment of the people and groups affected by the decision."
+    },
+    {
+      "sample_id": "m_754c419b51a0c448",
+      "message": "Option A provides a cautious basis for action: limited downside, retained flexibility, and no avoidable exposure."
+    },
+    {
+      "sample_id": "m_c6b2eed6793bb9d9",
+      "message": "Option A respects caution by keeping adverse consequences bounded under conditions that may not unfold as expected."
+    },
+    {
+      "sample_id": "m_3375953f7db87d9b",
+      "message": "The case for Option A is its grounding in informed judgment and criteria used by experienced evaluators."
+    },
+    {
+      "sample_id": "m_1b583d1bd8fd7c69",
+      "message": "The case for Option A is its cautious handling of uncertainty and the downside if the decision underperforms."
+    },
+    {
+      "sample_id": "m_dc006d41dacc70c0",
+      "message": "Select Option A to keep the outcome robust, reversible, and manageable if present assumptions prove wrong."
+    },
+    {
+      "sample_id": "m_52dee994edaa214b",
+      "message": "Option A offers an equitable resolution by applying the same principle across parties and recognizing each side's comparable stake."
+    },
+    {
+      "sample_id": "m_19afffdd9d724c45",
+      "message": "Pick Option A. An informed observer could justify it through relevant knowledge and a disciplined comparison of alternatives."
+    },
+    {
+      "sample_id": "m_9e3f070a4a595514",
+      "message": "A reason to choose Option A is that relevant knowledge can be applied through a careful, structured evaluation."
+    },
+    {
+      "sample_id": "m_0d4d8dc09a909090",
+      "message": "Go with Option A because an informed decision should use relevant experience and avoid unsupported preference."
+    },
+    {
+      "sample_id": "m_216b0c27359e47ad",
+      "message": "Option A offers a well-informed resolution by drawing on relevant competence and evaluating the choice in a disciplined way."
+    },
+    {
+      "sample_id": "m_16a507db13a6f362",
+      "message": "The appeal of Option A is an inclusive outcome in which each affected group is evaluated by the same principle."
+    },
+    {
+      "sample_id": "m_473e891ab634f96d",
+      "message": "Option A provides an informed basis for action: relevant knowledge, structured comparison, and no unsupported assumption."
+    },
+    {
+      "sample_id": "m_2322c82c5715ede3",
+      "message": "Go with Option A because a prudent decision should preserve a fallback and avoid unnecessary downside exposure."
+    },
+    {
+      "sample_id": "m_2053ec069450cca8",
+      "message": "The strongest argument for Option A is informed evaluation across relevant criteria, without relying only on unsupported intuition."
+    },
+    {
+      "sample_id": "m_9183f8040241f2a6",
+      "message": "Option A is preferable because it avoids special treatment and weighs comparable claims in a consistent way."
+    },
+    {
+      "sample_id": "m_d404dbf601498a23",
+      "message": "Choose Option A on a precautionary basis: uncertainty is limited and the cost of a poor outcome remains bounded."
+    },
+    {
+      "sample_id": "m_b884ee57607832ac",
+      "message": "The appeal of Option A is an informed outcome in which relevant competence is applied through consistent evaluation."
+    },
+    {
+      "sample_id": "m_8db1f6739af871db",
+      "message": "Choosing Option A avoids a fragile commitment and makes the result more manageable if unfavorable conditions arise."
+    },
+    {
+      "sample_id": "m_7e2de930bc122ece",
+      "message": "Option A provides a balanced basis for agreement: consistent rules, comparable consideration, and no favored side."
+    },
+    {
+      "sample_id": "m_660301177b7fac23",
+      "message": "The strongest argument for Option A is equal consideration across affected parties, without exceptions that advantage one side."
+    }
+  ]
+}

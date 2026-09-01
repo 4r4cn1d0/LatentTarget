@@ -242,6 +242,8 @@ CONTROLLED_MOCK_VARIANTS = (
     "v4_oracle",
     "v4_bayesian",
     "v4_invalid",
+    "v5_bayesian",
+    "v5_biased_bayesian",
 )
 
 
@@ -261,11 +263,18 @@ class ControlledMockProvider(BaseProvider):
         self.hazard = float(hazard)
         self.name = "mock:%s" % variant
 
-    def _posterior(self, context: Mapping[str, Any]) -> np.ndarray:
+    def _posterior(
+        self, context: Mapping[str, Any], prior: Optional[np.ndarray] = None
+    ) -> np.ndarray:
         target_params = context["target_params"]
         p_match = float(target_params["p_match"])
         p_mismatch = float(target_params["p_mismatch"])
-        posterior = np.full(len(STRATEGIES), 1.0 / len(STRATEGIES), dtype=float)
+        posterior = (
+            np.asarray(prior, dtype=float).copy()
+            if prior is not None
+            else np.full(len(STRATEGIES), 1.0 / len(STRATEGIES), dtype=float)
+        )
+        posterior /= posterior.sum()
         history = context.get("visible_history") or []
         for entry in history:
             posterior = (1.0 - self.hazard) * posterior + self.hazard / len(STRATEGIES)
@@ -314,11 +323,20 @@ class ControlledMockProvider(BaseProvider):
             generator = np.random.default_rng(int(context["round_seed"]))
             frame = STRATEGIES[int(generator.integers(0, len(STRATEGIES)))]
             posterior = np.full(len(STRATEGIES), 1.0 / len(STRATEGIES))
-        elif variant == "v4_bayesian":
-            posterior = self._posterior(context)
+        elif variant in {"v4_bayesian", "v5_bayesian", "v5_biased_bayesian"}:
+            prior = (
+                np.array([0.05, 0.05, 0.90], dtype=float)
+                if variant == "v5_biased_bayesian" else None
+            )
+            posterior = self._posterior(context, prior=prior)
             best = np.flatnonzero(np.isclose(posterior, posterior.max()))
+            tie_namespace = (
+                "controlled_v4_bayesian_tie"
+                if variant == "v4_bayesian"
+                else "controlled_v5_bayesian_tie"
+            )
             tie = derive_seed(
-                "controlled_v4_bayesian_tie",
+                tie_namespace,
                 context["episode_seed"],
                 context["round_index"],
             ) % len(best)
@@ -355,7 +373,7 @@ class ControlledMockProvider(BaseProvider):
 
 def make_controlled_provider(model_cfg: ModelConfig) -> BaseProvider:
     spec = model_cfg.provider
-    if spec.startswith("mock:v4_"):
+    if spec.startswith("mock:v4_") or spec.startswith("mock:v5_"):
         return ControlledMockProvider(spec.split(":", 1)[1])
     return make_provider(model_cfg)
 
@@ -375,6 +393,7 @@ class ControlledFocalAgent:
         focal_mode: str,
         round_seed: int,
         context: Optional[Dict[str, Any]] = None,
+        require_valid_selection: bool = False,
     ):
         prompt = build_controlled_prompt(
             scenario=scenario,
@@ -388,5 +407,10 @@ class ControlledFocalAgent:
         )
         raw = self.provider.generate(prompt)
         parsed = parse_controlled_choice(raw, focal_mode, round_seed)
+        if require_valid_selection and not parsed.selection_valid:
+            raise ProviderError(
+                "strict controlled protocol rejected invalid focal output: %r (%s)"
+                % (raw, parsed.parse_error)
+            )
         selected = candidate_for_slot(candidates, parsed.selected_slot)
         return prompt, raw, parsed, selected

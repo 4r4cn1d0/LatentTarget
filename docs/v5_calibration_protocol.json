@@ -1,0 +1,80 @@
+{
+  "protocol_version": "v5-calibration-protocol-1.0",
+  "task_version": "controlled-choice-v5.0",
+  "status": "SEMANTIC_GATE_PASSED_READY_FOR_PAID_POOL_CALIBRATION",
+  "frozen_at": "2026-09-01",
+  "pre_focal_calibration": true,
+  "candidate_pool": {
+    "path": "data/v5/v5_candidate_pool_v1.json",
+    "sha256": "73a404a79bb5a5bfcaed112638143c70c9e48aff710dff15b0e57f4f95989478",
+    "file_sha256": "5ea3d34b9e2556728b6ca1e664dd92ae22b27274930c1bc7b157bb04bf88d001"
+  },
+  "semantic_validation": {
+    "path": "results/v5_design/semantic_validation/summary.json",
+    "file_sha256": "88d0f06f65baa732c7e7a81a672bea31473092a4305dc04d7000fbf438d86f20",
+    "canonical_sha256": "c28600f3e27231e72230608e37c739794e4f0163a6730693322866b9afd9d7b9",
+    "pass": true,
+    "judges": ["gpt-5.6-sol", "gpt-5.6-luna"],
+    "human_validation": false
+  },
+  "primary_model": {
+    "id": "Qwen/Qwen3.8-27B",
+    "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "selection_reason": "current official dense 27B Qwen3.8 post-trained open-weight checkpoint; focal calibration must use the same model as the eventual checkpoint",
+    "verified_last_modified": "2026-08-14T15:00:01.000Z",
+    "official_source": "https://huggingface.co/Qwen/Qwen3.8-27B"
+  },
+  "generation": {
+    "temperature": 0.0,
+    "top_p": 0.8,
+    "top_k": 20,
+    "max_tokens": 2,
+    "dtype": "bfloat16",
+    "enable_thinking": false,
+    "activation_capture": false,
+    "constrained_choices": ["1", "2", "3"],
+    "invalid_output_policy": "abort; no fallback"
+  },
+  "pool_calibration_schedule": {
+    "n_episode_blocks": 24,
+    "n_rounds": 24,
+    "heldout_start_round": 19,
+    "seed": 20261001,
+    "n_records": 576,
+    "history_present": false,
+    "target_simulator_present": false
+  },
+  "selected_bank_validation_schedule": {
+    "n_episode_blocks": 24,
+    "n_rounds": 24,
+    "heldout_start_round": 19,
+    "seed": 20261002,
+    "n_records": 576,
+    "history_present": false,
+    "target_simulator_present": false
+  },
+  "calibration_thresholds": {
+    "minimum_frame_share": 0.25,
+    "maximum_frame_share": 0.42,
+    "maximum_frame_gap": 0.15,
+    "minimum_candidate_exposures": 12,
+    "development_templates_selected_per_frame": 6,
+    "heldout_templates_selected_per_frame": 4
+  },
+  "selector": {
+    "method": "exhaustive subset search minimizing empirical frame-rate gap, then maximum and total distance from one third, with lexical candidate-ID tie-break",
+    "outcome_blind_to_confirmatory_data": true
+  },
+  "power_design": {
+    "population_smallest_effects_of_interest": {
+      "stable_did": 0.2,
+      "revision_shift": 0.25
+    },
+    "episode_seed_grid": [8, 12, 16, 20, 24, 30],
+    "planning_ceiling_episode_seeds": 30,
+    "minimum_simulations": 5000,
+    "target_lower_mc_bound": 0.8,
+    "rationale": "The smaller 0.15 stable effect implies an expected late match rate below the frozen 0.50 level gate at a balanced one-third baseline. The 0.20 and 0.25 pair is the smallest pre-focal-calibration sensitivity pair compatible with the complete frozen behavioral pattern."
+  },
+  "next_gate": "Run target-free focal pool calibration, select the bank, and pass a separately seeded selected-bank validation. Confirmatory V5 remains blocked."
+}

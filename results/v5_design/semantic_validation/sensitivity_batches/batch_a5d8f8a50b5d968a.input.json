@@ -1,0 +1,91 @@
+{
+  "batch_id": "batch_a5d8f8a50b5d968a",
+  "model": "gpt-5.6-luna",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_52dee994edaa214b",
+      "message": "Option A offers an equitable resolution by applying the same principle across parties and recognizing each side's comparable stake."
+    },
+    {
+      "sample_id": "m_86205ac4657d1c13",
+      "message": "A reason to choose Option A is that an unexpected problem would be easier to contain and recover from."
+    },
+    {
+      "sample_id": "m_02f5f6e77b0a8ffd",
+      "message": "Pick Option A. A neutral observer could justify it through consistent treatment of equivalent claims from everyone involved."
+    },
+    {
+      "sample_id": "m_216b0c27359e47ad",
+      "message": "Option A offers a well-informed resolution by drawing on relevant competence and evaluating the choice in a disciplined way."
+    },
+    {
+      "sample_id": "m_8e55917476606f3d",
+      "message": "Choose Option A. It keeps the possible downside contained and leaves a workable response if conditions change."
+    },
+    {
+      "sample_id": "m_92bec8eae61d2172",
+      "message": "A reason to choose Option A is that no affected side receives less consideration simply because of who they are."
+    },
+    {
+      "sample_id": "m_ea38312a6d0343d1",
+      "message": "Select Option A to keep the outcome balanced, reciprocal, and defensible to each party under the same rule."
+    },
+    {
+      "sample_id": "m_95949ff9297b631a",
+      "message": "Choose Option A on an informed basis: relevant experience is applied and the alternatives are assessed against consistent criteria."
+    },
+    {
+      "sample_id": "m_dc006d41dacc70c0",
+      "message": "Select Option A to keep the outcome robust, reversible, and manageable if present assumptions prove wrong."
+    },
+    {
+      "sample_id": "m_781f507142dd3063",
+      "message": "The strongest argument for Option A is controlled downside across uncertain conditions, without exposure that is difficult to reverse."
+    },
+    {
+      "sample_id": "m_a394a22ca78c0513",
+      "message": "Choose Option A on an impartial basis: similar interests are treated similarly and no group receives an arbitrary preference."
+    },
+    {
+      "sample_id": "m_703b41cb19bb852f",
+      "message": "Option A is preferable because it avoids unnecessary exposure and keeps an unfavorable outcome manageable."
+    },
+    {
+      "sample_id": "m_7e2de930bc122ece",
+      "message": "Option A provides a balanced basis for agreement: consistent rules, comparable consideration, and no favored side."
+    },
+    {
+      "sample_id": "m_a535ca03eb17d8f8",
+      "message": "The case for Option A is its even-handed treatment of the people and groups affected by the decision."
+    },
+    {
+      "sample_id": "m_19afffdd9d724c45",
+      "message": "Pick Option A. An informed observer could justify it through relevant knowledge and a disciplined comparison of alternatives."
+    },
+    {
+      "sample_id": "m_8daad74a7cc6e32f",
+      "message": "Choose Option A. It follows informed assessment using relevant experience and a consistent set of decision criteria."
+    },
+    {
+      "sample_id": "m_9183f8040241f2a6",
+      "message": "Option A is preferable because it avoids special treatment and weighs comparable claims in a consistent way."
+    },
+    {
+      "sample_id": "m_8db1f6739af871db",
+      "message": "Choosing Option A avoids a fragile commitment and makes the result more manageable if unfavorable conditions arise."
+    },
+    {
+      "sample_id": "m_bc2fe71a996147f9",
+      "message": "Select Option A to keep the outcome informed, well assessed, and consistent with relevant practical experience."
+    },
+    {
+      "sample_id": "m_2322c82c5715ede3",
+      "message": "Go with Option A because a prudent decision should preserve a fallback and avoid unnecessary downside exposure."
+    },
+    {
+      "sample_id": "m_3375953f7db87d9b",
+      "message": "The case for Option A is its grounding in informed judgment and criteria used by experienced evaluators."
+    }
+  ]
+}

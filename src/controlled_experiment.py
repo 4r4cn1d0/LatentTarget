@@ -1,4 +1,4 @@
-"""Versioned V4 controlled-choice experiment runner.
+"""Versioned controlled-choice experiment runner.
 
 V3 remains untouched and reproducible through :mod:`src.experiment`. This
 module removes language scoring from the target and primary outcome while
@@ -31,7 +31,7 @@ from .controlled_focal_agent import (
     ELICITED_SYSTEM_TEMPLATE,
     make_controlled_provider,
 )
-from .controlled_messages import candidate_set, message_bank_manifest, message_bank_sha256
+from .controlled_protocol import ControlledProtocol, V4_PROTOCOL
 from .controlled_target import ControlledTarget
 from .focal_agent import BaseProvider
 from .logging_utils import JsonlWriter, read_jsonl, write_manifest
@@ -301,12 +301,13 @@ def run_controlled_episode(
     run_id: str,
     donors: Optional[ControlledDonorRegistry] = None,
     progress: Optional[ProgressFn] = None,
+    protocol: ControlledProtocol = V4_PROTOCOL,
 ) -> ControlledEpisodeResult:
     condition = spec.condition
     scenarios = scenario_sequence(spec.episode_index, spec.n_rounds, cfg.seed)
     episode_seed = derive_seed(
         cfg.seed,
-        CONTROLLED_V4_VERSION,
+        protocol.version,
         condition.name,
         spec.episode_index,
         spec.initial_target_type,
@@ -327,7 +328,7 @@ def run_controlled_episode(
     for round_index in range(1, spec.n_rounds + 1):
         scenario = scenarios[round_index - 1]
         active_type = spec.active_type(round_index)
-        candidates = candidate_set(
+        candidates = protocol.candidate_set(
             scenario=scenario,
             episode_index=spec.episode_index,
             round_index=round_index,
@@ -339,7 +340,7 @@ def run_controlled_episode(
         # to the focal provider. Condition is deliberately absent.
         target_draw_seed = derive_seed(
             cfg.seed,
-            CONTROLLED_V4_VERSION,
+            protocol.version,
             "target_draw",
             spec.episode_index,
             spec.initial_target_type,
@@ -358,6 +359,7 @@ def run_controlled_episode(
             history_source_episode_id = spec.episode_id
 
         mock_context = {
+            "task_version": protocol.version,
             "round_index": round_index,
             "n_rounds": spec.n_rounds,
             "episode_seed": episode_seed,
@@ -381,6 +383,7 @@ def run_controlled_episode(
             focal_mode=condition.focal_mode,
             round_seed=round_seed,
             context=(mock_context if isinstance(agent.provider, ControlledMockProvider) else {}),
+            require_valid_selection=protocol.strict_selection,
         )
 
         target = ControlledTarget(
@@ -408,7 +411,7 @@ def run_controlled_episode(
         own_history.append(history_entry)
 
         record: Dict[str, Any] = {
-            "task_version": CONTROLLED_V4_VERSION,
+            "task_version": protocol.version,
             "experiment_id": cfg.experiment_id,
             "run_id": run_id,
             "condition": condition.name,
@@ -473,7 +476,7 @@ def run_controlled_episode(
         if callable(tag_last):
             tag_last(
                 {
-                    "task_version": CONTROLLED_V4_VERSION,
+                    "task_version": protocol.version,
                     "condition": condition.name,
                     "episode_id": spec.episode_id,
                     "round": round_index,
@@ -515,9 +518,10 @@ def _manifest_payload(
     run_status: str,
     n_records: int,
     n_episodes_completed: int,
+    protocol: ControlledProtocol = V4_PROTOCOL,
 ) -> Dict[str, Any]:
-    return {
-        "task_version": CONTROLLED_V4_VERSION,
+    payload = {
+        "task_version": protocol.version,
         "scientific_status": (
             "mock-only implementation control"
             if str(provider.name).startswith("mock:")
@@ -552,8 +556,8 @@ def _manifest_payload(
                 n_rounds=cfg.n_rounds
             ),
         },
-        "message_banks": message_bank_manifest(),
-        "message_bank_sha256": message_bank_sha256(),
+        "message_banks": protocol.message_bank_manifest(),
+        "message_bank_sha256": protocol.message_bank_sha256(),
         "information_boundary": (
             "real providers receive only rendered system/user prompts; registered "
             "frames and hidden types exist only in logs and mock context"
@@ -563,6 +567,13 @@ def _manifest_payload(
             "of an episode complete; --resume skips validated complete episodes"
         ),
     }
+    if protocol.version != CONTROLLED_V4_VERSION or protocol.strict_selection:
+        payload["selection_policy"] = protocol.selection_policy_manifest()
+        payload["message_bank_source"] = protocol.bank_source
+        provenance = protocol.protocol_provenance_manifest()
+        if provenance is not None:
+            payload["protocol_provenance"] = provenance
+    return payload
 
 
 def _history_from_records(
@@ -598,12 +609,13 @@ def _load_resume_state(
     specs: Sequence[ControlledEpisodeSpec],
     log_path: str,
     manifest_path: str,
+    protocol: ControlledProtocol = V4_PROTOCOL,
 ) -> Tuple[List[Dict[str, Any]], Dict[str, List[Dict[str, Any]]]]:
     if not os.path.exists(manifest_path):
         raise FileNotFoundError("cannot resume without manifest %s" % manifest_path)
     with open(manifest_path, "r", encoding="utf-8") as handle:
         existing_manifest = json.load(handle)
-    if existing_manifest.get("task_version") != CONTROLLED_V4_VERSION:
+    if existing_manifest.get("task_version") != protocol.version:
         raise ValueError("resume manifest has a different task version")
     if existing_manifest.get("config") != cfg.as_dict():
         raise ValueError("resume config differs from the existing manifest")
@@ -618,6 +630,18 @@ def _load_resume_state(
     }
     if existing_provider != current_provider:
         raise ValueError("resume provider settings differ from the existing manifest")
+    if existing_manifest.get("message_bank_sha256") != protocol.message_bank_sha256():
+        raise ValueError("resume message bank differs from the existing manifest")
+    if protocol.version != CONTROLLED_V4_VERSION or protocol.strict_selection:
+        if existing_manifest.get("selection_policy") != (
+            protocol.selection_policy_manifest()
+        ):
+            raise ValueError("resume selection policy differs from the existing manifest")
+    protocol_provenance = protocol.protocol_provenance_manifest()
+    if protocol_provenance is not None and existing_manifest.get(
+        "protocol_provenance"
+    ) != protocol_provenance:
+        raise ValueError("resume protocol provenance differs from the existing manifest")
 
     records = list(read_jsonl(log_path)) if os.path.exists(log_path) else []
     by_episode: Dict[str, List[Dict[str, Any]]] = {}
@@ -651,6 +675,7 @@ def run_controlled_experiment(
     provider: Optional[BaseProvider] = None,
     progress: Optional[ProgressFn] = None,
     resume: bool = False,
+    protocol: ControlledProtocol = V4_PROTOCOL,
 ) -> ControlledExperimentResult:
     validate_controlled_config(cfg)
     specs = build_controlled_episode_specs(cfg)
@@ -661,20 +686,22 @@ def run_controlled_experiment(
     manifest_path = os.path.join(cfg.out_dir, run_id + ".manifest.json")
     exists = os.path.exists(log_path) or os.path.exists(manifest_path)
     if exists and not resume:
-        raise FileExistsError("refusing to append or overwrite existing V4 run %r" % run_id)
+        raise FileExistsError(
+            "refusing to append or overwrite existing controlled run %r" % run_id
+        )
 
     provider = provider or make_controlled_provider(cfg.model)
     agent = ControlledFocalAgent(provider)
     donors = ControlledDonorRegistry()
     if exists:
         all_records, completed = _load_resume_state(
-            cfg, provider, specs, log_path, manifest_path
+            cfg, provider, specs, log_path, manifest_path, protocol
         )
     else:
         all_records, completed = [], {}
         write_manifest(
             manifest_path,
-            _manifest_payload(cfg, provider, specs, "running", 0, 0),
+            _manifest_payload(cfg, provider, specs, "running", 0, 0, protocol),
         )
 
     for spec in specs:
@@ -701,6 +728,7 @@ def run_controlled_experiment(
                 run_id=run_id,
                 donors=donors,
                 progress=progress,
+                protocol=protocol,
             )
             for record in result.records:
                 writer.write(record)
@@ -722,19 +750,20 @@ def run_controlled_experiment(
                     "running",
                     len(all_records),
                     len(completed),
+                    protocol,
                 ),
             )
 
     expected_records = sum(spec.n_rounds for spec in specs)
     if len(all_records) != expected_records:
         raise RuntimeError(
-            "V4 record count mismatch: expected %d, got %d"
-            % (expected_records, len(all_records))
+            "%s record count mismatch: expected %d, got %d"
+            % (protocol.version, expected_records, len(all_records))
         )
     write_manifest(
         manifest_path,
         _manifest_payload(
-            cfg, provider, specs, "completed", len(all_records), len(specs)
+            cfg, provider, specs, "completed", len(all_records), len(specs), protocol
         ),
     )
     return ControlledExperimentResult(

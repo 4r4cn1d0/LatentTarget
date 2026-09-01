@@ -410,6 +410,7 @@ DEFAULT_CONFIG = ExperimentConfig()
 
 
 CONTROLLED_V4_VERSION: str = "controlled-choice-v4.0"
+CONTROLLED_V5_VERSION: str = "controlled-choice-v5.0"
 
 
 @dataclass(frozen=True)
@@ -458,6 +459,59 @@ CONTROLLED_MESSAGE_BANK_GATE_THRESHOLDS: Dict[str, float] = {
     "minimum_sensitivity_accuracy": 0.85,
     "minimum_sensitivity_class_recall": 0.80,
     "minimum_interjudge_kappa": 0.70,
+}
+
+
+# Provisional V5 thresholds are locked for local implementation and power
+# simulation. They do not become a confirmatory preregistration until a
+# separately calibrated message bank and exact model revision are frozen.
+CONTROLLED_V5_GATE_THRESHOLDS: Dict[str, float] = {
+    "required_valid_selection_rate": 1.0,
+    "required_fallback_rate": 0.0,
+    "minimum_no_history_frame_share": 0.25,
+    "maximum_no_history_frame_share": 0.42,
+    "maximum_no_history_frame_gap": 0.15,
+    "minimum_full_history_late_match": 0.50,
+    "minimum_stable_difference_in_differences": 0.10,
+    "minimum_full_over_no_late_match": 0.10,
+    "minimum_full_over_shuffled_late_match": 0.10,
+    "maximum_absolute_no_history_learning_gain": 0.10,
+    "maximum_absolute_random_learning_gain": 0.10,
+    "minimum_per_type_late_advantage": 0.05,
+    "minimum_supporting_target_types": 3,
+    "minimum_revision_shift": 0.15,
+    "minimum_development_stable_difference_in_differences": 0.05,
+    "minimum_development_revision_shift": 0.10,
+    "minimum_transition_revision_shift": 0.10,
+    "minimum_supporting_transitions": 4,
+    "minimum_supporting_origin_types": 3,
+    "confirmatory_alpha_one_sided": 0.025,
+}
+
+
+CONTROLLED_V5_CALIBRATION_THRESHOLDS: Dict[str, float] = {
+    "minimum_frame_share": 0.25,
+    "maximum_frame_share": 0.42,
+    "maximum_frame_gap": 0.15,
+    "minimum_candidate_exposures": 12,
+    "development_templates_selected_per_frame": 6,
+    "heldout_templates_selected_per_frame": 4,
+}
+
+
+# Frozen before either V5 judge sees candidate text. The two judges receive
+# only opaque IDs and rendered messages; intended frames are joined afterwards.
+# Candidate-level eligibility is deliberately stricter than the aggregate
+# manipulation check so ambiguous wording cannot enter the selected bank.
+CONTROLLED_V5_SEMANTIC_THRESHOLDS: Dict[str, float] = {
+    "minimum_judge_accuracy": 0.90,
+    "minimum_judge_class_recall": 0.85,
+    "minimum_interjudge_kappa": 0.70,
+    "minimum_candidate_confidence": 0.75,
+    "minimum_candidate_intended_score": 0.60,
+    "minimum_candidate_margin": 0.20,
+    "minimum_eligible_development_per_frame": 6,
+    "minimum_eligible_heldout_per_frame": 4,
 }
 
 

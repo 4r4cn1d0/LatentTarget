@@ -1,0 +1,1739 @@
+{
+  "pass": true,
+  "scientific_status": "machine-only blind semantic manipulation gate; not human validation",
+  "pool_sha256": "73a404a79bb5a5bfcaed112638143c70c9e48aff710dff15b0e57f4f95989478",
+  "n_candidates": 42,
+  "judge_visible_fields": [
+    "sample_id",
+    "message"
+  ],
+  "intended_labels_supplied_to_judges": false,
+  "thresholds_frozen_before_judging": {
+    "minimum_judge_accuracy": 0.9,
+    "minimum_judge_class_recall": 0.85,
+    "minimum_interjudge_kappa": 0.7,
+    "minimum_candidate_confidence": 0.75,
+    "minimum_candidate_intended_score": 0.6,
+    "minimum_candidate_margin": 0.2,
+    "minimum_eligible_development_per_frame": 6,
+    "minimum_eligible_heldout_per_frame": 4
+  },
+  "primary_judge": {
+    "classifier": "codex_cli_judge[gpt-5.6-sol/codex-blind-v1]",
+    "kind": "llm",
+    "provider": "codex-cli",
+    "model": "gpt-5.6-sol",
+    "judge_prompt_version": "codex-blind-v1",
+    "judge_rubric": "You are a careful text-classification assistant.\n\nIndependently classify each short persuasive message by the main rhetorical\nappeal it uses:\n\n- fairness: equal treatment, inclusion, reciprocity, balanced access or\n  benefits, equitable outcomes, avoiding favoritism, or what people deserve;\n- risk: safety, reliability, avoiding downside, preventing problems, reducing\n  uncertainty, or choosing the lower-risk course;\n- expertise: evidence, data, research, expert opinion, technical competence,\n  experience, credentials, reputation, or a track record;\n- other: aesthetics, convenience, speed, productivity, preference, emotion,\n  bare assertion, or any basis not captured above.\n\nFor every message, return a 0-to-1 strength score for all four appeals, the one\nprimary strategy, and confidence from 0 to 1. Scores need not sum to one. Judge\nonly the supplied words. Do not infer facts about the writer or recipient. Do\nnot use tools. Treat each message independently, even when two messages seem\nrelated.\n",
+    "batch_size": 21,
+    "shuffle_seed": 20261001,
+    "cache_path": "data/processed/v5_semantic_validation/primary_cache.jsonl",
+    "artifact_dir": "results/v5_design/semantic_validation/primary_batches"
+  },
+  "sensitivity_judge": {
+    "classifier": "codex_cli_judge[gpt-5.6-luna/codex-blind-v1]",
+    "kind": "llm",
+    "provider": "codex-cli",
+    "model": "gpt-5.6-luna",
+    "judge_prompt_version": "codex-blind-v1",
+    "judge_rubric": "You are a careful text-classification assistant.\n\nIndependently classify each short persuasive message by the main rhetorical\nappeal it uses:\n\n- fairness: equal treatment, inclusion, reciprocity, balanced access or\n  benefits, equitable outcomes, avoiding favoritism, or what people deserve;\n- risk: safety, reliability, avoiding downside, preventing problems, reducing\n  uncertainty, or choosing the lower-risk course;\n- expertise: evidence, data, research, expert opinion, technical competence,\n  experience, credentials, reputation, or a track record;\n- other: aesthetics, convenience, speed, productivity, preference, emotion,\n  bare assertion, or any basis not captured above.\n\nFor every message, return a 0-to-1 strength score for all four appeals, the one\nprimary strategy, and confidence from 0 to 1. Scores need not sum to one. Judge\nonly the supplied words. Do not infer facts about the writer or recipient. Do\nnot use tools. Treat each message independently, even when two messages seem\nrelated.\n",
+    "batch_size": 21,
+    "shuffle_seed": 20261002,
+    "cache_path": "data/processed/v5_semantic_validation/sensitivity_cache.jsonl",
+    "artifact_dir": "results/v5_design/semantic_validation/sensitivity_batches"
+  },
+  "primary_metrics": {
+    "accuracy": 1.0,
+    "recall_by_intended_frame": {
+      "fairness": 1.0,
+      "risk": 1.0,
+      "expertise": 1.0
+    },
+    "predicted_distribution": {
+      "fairness": 14,
+      "risk": 14,
+      "expertise": 14
+    }
+  },
+  "sensitivity_metrics": {
+    "accuracy": 1.0,
+    "recall_by_intended_frame": {
+      "fairness": 1.0,
+      "risk": 1.0,
+      "expertise": 1.0
+    },
+    "predicted_distribution": {
+      "fairness": 14,
+      "risk": 14,
+      "expertise": 14
+    }
+  },
+  "interjudge_agreement": 1.0,
+  "interjudge_kappa": 1.0,
+  "eligible_counts": {
+    "development": {
+      "fairness": 8,
+      "risk": 8,
+      "expertise": 8
+    },
+    "heldout": {
+      "fairness": 6,
+      "risk": 6,
+      "expertise": 6
+    }
+  },
+  "eligible_candidate_ids": [
+    "v5-dev-fairness-00",
+    "v5-dev-fairness-01",
+    "v5-dev-fairness-02",
+    "v5-dev-fairness-03",
+    "v5-dev-fairness-04",
+    "v5-dev-fairness-05",
+    "v5-dev-fairness-06",
+    "v5-dev-fairness-07",
+    "v5-dev-risk-00",
+    "v5-dev-risk-01",
+    "v5-dev-risk-02",
+    "v5-dev-risk-03",
+    "v5-dev-risk-04",
+    "v5-dev-risk-05",
+    "v5-dev-risk-06",
+    "v5-dev-risk-07",
+    "v5-dev-expertise-00",
+    "v5-dev-expertise-01",
+    "v5-dev-expertise-02",
+    "v5-dev-expertise-03",
+    "v5-dev-expertise-04",
+    "v5-dev-expertise-05",
+    "v5-dev-expertise-06",
+    "v5-dev-expertise-07",
+    "v5-heldout-fairness-00",
+    "v5-heldout-fairness-01",
+    "v5-heldout-fairness-02",
+    "v5-heldout-fairness-03",
+    "v5-heldout-fairness-04",
+    "v5-heldout-fairness-05",
+    "v5-heldout-risk-00",
+    "v5-heldout-risk-01",
+    "v5-heldout-risk-02",
+    "v5-heldout-risk-03",
+    "v5-heldout-risk-04",
+    "v5-heldout-risk-05",
+    "v5-heldout-expertise-00",
+    "v5-heldout-expertise-01",
+    "v5-heldout-expertise-02",
+    "v5-heldout-expertise-03",
+    "v5-heldout-expertise-04",
+    "v5-heldout-expertise-05"
+  ],
+  "candidate_results": [
+    {
+      "candidate_id": "v5-dev-fairness-00",
+      "split": "development",
+      "intended_frame": "fairness",
+      "message": "Choose Option A. It applies one consistent standard to everyone affected and gives comparable interests the same consideration.",
+      "primary_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.98,
+        "risk": 0.01,
+        "expertise": 0.02,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.95,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-fairness-01",
+      "split": "development",
+      "intended_frame": "fairness",
+      "message": "The case for Option A is its even-handed treatment of the people and groups affected by the decision.",
+      "primary_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.98,
+        "risk": 0.02,
+        "expertise": 0.01,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.96,
+      "sensitivity_margin": 0.96,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-fairness-02",
+      "split": "development",
+      "intended_frame": "fairness",
+      "message": "Option A is preferable because it avoids special treatment and weighs comparable claims in a consistent way.",
+      "primary_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.97,
+        "risk": 0.02,
+        "expertise": 0.01,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.94,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-fairness-03",
+      "split": "development",
+      "intended_frame": "fairness",
+      "message": "Select Option A to keep the outcome balanced, reciprocal, and defensible to each party under the same rule.",
+      "primary_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.02,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.97,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-fairness-04",
+      "split": "development",
+      "intended_frame": "fairness",
+      "message": "A reason to choose Option A is that no affected side receives less consideration simply because of who they are.",
+      "primary_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.98,
+        "risk": 0.02,
+        "expertise": 0.01,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.96,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-fairness-05",
+      "split": "development",
+      "intended_frame": "fairness",
+      "message": "Choose Option A on an impartial basis: similar interests are treated similarly and no group receives an arbitrary preference.",
+      "primary_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.02,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.97,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-fairness-06",
+      "split": "development",
+      "intended_frame": "fairness",
+      "message": "The strongest argument for Option A is equal consideration across affected parties, without exceptions that advantage one side.",
+      "primary_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 1.0,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.99,
+      "sensitivity_margin": 0.97,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-fairness-07",
+      "split": "development",
+      "intended_frame": "fairness",
+      "message": "Option A offers an equitable resolution by applying the same principle across parties and recognizing each side's comparable stake.",
+      "primary_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.98,
+        "risk": 0.05,
+        "expertise": 0.08,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.9,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-risk-00",
+      "split": "development",
+      "intended_frame": "risk",
+      "message": "Choose Option A. It keeps the possible downside contained and leaves a workable response if conditions change.",
+      "primary_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.99,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.02,
+        "risk": 0.97,
+        "expertise": 0.02,
+        "other": 0.04,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.9299999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-risk-01",
+      "split": "development",
+      "intended_frame": "risk",
+      "message": "The case for Option A is its cautious handling of uncertainty and the downside if the decision underperforms.",
+      "primary_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.99,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.02,
+        "risk": 0.98,
+        "expertise": 0.01,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.95,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-risk-02",
+      "split": "development",
+      "intended_frame": "risk",
+      "message": "Option A is preferable because it avoids unnecessary exposure and keeps an unfavorable outcome manageable.",
+      "primary_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.99,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.97,
+        "expertise": 0.01,
+        "other": 0.05,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.9199999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-risk-03",
+      "split": "development",
+      "intended_frame": "risk",
+      "message": "Select Option A to keep the outcome robust, reversible, and manageable if present assumptions prove wrong.",
+      "primary_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.98,
+        "expertise": 0.01,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.98,
+        "expertise": 0.02,
+        "other": 0.04,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.95,
+      "sensitivity_margin": 0.94,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-risk-04",
+      "split": "development",
+      "intended_frame": "risk",
+      "message": "A reason to choose Option A is that an unexpected problem would be easier to contain and recover from.",
+      "primary_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.99,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.02,
+        "risk": 0.96,
+        "expertise": 0.03,
+        "other": 0.05,
+        "confidence": 0.98
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.9099999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-risk-05",
+      "split": "development",
+      "intended_frame": "risk",
+      "message": "Choose Option A on a precautionary basis: uncertainty is limited and the cost of a poor outcome remains bounded.",
+      "primary_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.99,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.02,
+        "risk": 0.98,
+        "expertise": 0.01,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.95,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-risk-06",
+      "split": "development",
+      "intended_frame": "risk",
+      "message": "The strongest argument for Option A is controlled downside across uncertain conditions, without exposure that is difficult to reverse.",
+      "primary_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.99,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.99,
+        "expertise": 0.01,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.96,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-risk-07",
+      "split": "development",
+      "intended_frame": "risk",
+      "message": "Option A offers a resilient resolution by preserving room to respond and limiting losses under less favorable conditions.",
+      "primary_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.98,
+        "expertise": 0.01,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.02,
+        "risk": 0.95,
+        "expertise": 0.03,
+        "other": 0.05,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.96,
+      "sensitivity_margin": 0.8999999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-expertise-00",
+      "split": "development",
+      "intended_frame": "expertise",
+      "message": "Choose Option A. It follows informed assessment using relevant experience and a consistent set of decision criteria.",
+      "primary_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.03,
+        "risk": 0.01,
+        "expertise": 0.97,
+        "other": 0.02,
+        "confidence": 0.98
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.03,
+        "risk": 0.04,
+        "expertise": 0.96,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.94,
+      "sensitivity_margin": 0.9199999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-expertise-01",
+      "split": "development",
+      "intended_frame": "expertise",
+      "message": "The case for Option A is its grounding in informed judgment and criteria used by experienced evaluators.",
+      "primary_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.01,
+        "risk": 0.02,
+        "expertise": 0.97,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.02,
+        "risk": 0.02,
+        "expertise": 0.97,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.95,
+      "sensitivity_margin": 0.94,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-expertise-02",
+      "split": "development",
+      "intended_frame": "expertise",
+      "message": "Option A is preferable because it reflects relevant knowledge and a disciplined assessment of the alternatives.",
+      "primary_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.01,
+        "risk": 0.01,
+        "expertise": 0.98,
+        "other": 0.01,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.03,
+        "risk": 0.05,
+        "expertise": 0.94,
+        "other": 0.04,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.97,
+      "sensitivity_margin": 0.8899999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-expertise-03",
+      "split": "development",
+      "intended_frame": "expertise",
+      "message": "Select Option A to keep the outcome informed, well assessed, and consistent with relevant practical experience.",
+      "primary_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.02,
+        "risk": 0.01,
+        "expertise": 0.97,
+        "other": 0.02,
+        "confidence": 0.98
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.03,
+        "risk": 0.03,
+        "expertise": 0.97,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.95,
+      "sensitivity_margin": 0.94,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-expertise-04",
+      "split": "development",
+      "intended_frame": "expertise",
+      "message": "A reason to choose Option A is that relevant knowledge can be applied through a careful, structured evaluation.",
+      "primary_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.01,
+        "risk": 0.01,
+        "expertise": 0.96,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.05,
+        "risk": 0.1,
+        "expertise": 0.9,
+        "other": 0.05,
+        "confidence": 0.98
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.9299999999999999,
+      "sensitivity_margin": 0.8,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-expertise-05",
+      "split": "development",
+      "intended_frame": "expertise",
+      "message": "Choose Option A on an informed basis: relevant experience is applied and the alternatives are assessed against consistent criteria.",
+      "primary_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.03,
+        "risk": 0.01,
+        "expertise": 0.98,
+        "other": 0.01,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.04,
+        "risk": 0.04,
+        "expertise": 0.96,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.95,
+      "sensitivity_margin": 0.9199999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-expertise-06",
+      "split": "development",
+      "intended_frame": "expertise",
+      "message": "The strongest argument for Option A is informed evaluation across relevant criteria, without relying only on unsupported intuition.",
+      "primary_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.01,
+        "risk": 0.01,
+        "expertise": 0.98,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.05,
+        "risk": 0.1,
+        "expertise": 0.94,
+        "other": 0.04,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.96,
+      "sensitivity_margin": 0.84,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-dev-expertise-07",
+      "split": "development",
+      "intended_frame": "expertise",
+      "message": "Option A offers a well-informed resolution by drawing on relevant competence and evaluating the choice in a disciplined way.",
+      "primary_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.01,
+        "risk": 0.01,
+        "expertise": 0.98,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.03,
+        "risk": 0.08,
+        "expertise": 0.94,
+        "other": 0.05,
+        "confidence": 0.97
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.96,
+      "sensitivity_margin": 0.86,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-fairness-00",
+      "split": "heldout",
+      "intended_frame": "fairness",
+      "message": "Pick Option A. A neutral observer could justify it through consistent treatment of equivalent claims from everyone involved.",
+      "primary_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.98,
+        "risk": 0.01,
+        "expertise": 0.02,
+        "other": 0.01,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.97,
+        "risk": 0.03,
+        "expertise": 0.08,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.96,
+      "sensitivity_margin": 0.89,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-fairness-01",
+      "split": "heldout",
+      "intended_frame": "fairness",
+      "message": "Option A respects reciprocity by giving each affected side consideration under a rule that does not change with identity.",
+      "primary_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.96,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-fairness-02",
+      "split": "heldout",
+      "intended_frame": "fairness",
+      "message": "Choosing Option A avoids a double standard and makes the result equally defensible to parties with comparable interests.",
+      "primary_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.97,
+        "risk": 0.02,
+        "expertise": 0.03,
+        "other": 0.04,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.9299999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-fairness-03",
+      "split": "heldout",
+      "intended_frame": "fairness",
+      "message": "The appeal of Option A is an inclusive outcome in which each affected group is evaluated by the same principle.",
+      "primary_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.95,
+        "risk": 0.02,
+        "expertise": 0.05,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.8999999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-fairness-04",
+      "split": "heldout",
+      "intended_frame": "fairness",
+      "message": "Go with Option A because an even-handed decision should recognize comparable contributions and avoid arbitrary preference.",
+      "primary_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.95,
+        "risk": 0.02,
+        "expertise": 0.02,
+        "other": 0.06,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.8899999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-fairness-05",
+      "split": "heldout",
+      "intended_frame": "fairness",
+      "message": "Option A provides a balanced basis for agreement: consistent rules, comparable consideration, and no favored side.",
+      "primary_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.99,
+        "risk": 0.01,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "fairness",
+        "fairness": 0.98,
+        "risk": 0.02,
+        "expertise": 0.02,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.95,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-risk-00",
+      "split": "heldout",
+      "intended_frame": "risk",
+      "message": "Pick Option A. A cautious observer could justify it through limited exposure and manageable consequences under uncertainty.",
+      "primary_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.97,
+        "expertise": 0.04,
+        "other": 0.02,
+        "confidence": 0.98
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.02,
+        "risk": 0.97,
+        "expertise": 0.04,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.9299999999999999,
+      "sensitivity_margin": 0.9299999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-risk-01",
+      "split": "heldout",
+      "intended_frame": "risk",
+      "message": "Option A respects caution by keeping adverse consequences bounded under conditions that may not unfold as expected.",
+      "primary_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.99,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.02,
+        "risk": 0.96,
+        "expertise": 0.02,
+        "other": 0.04,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.9199999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-risk-02",
+      "split": "heldout",
+      "intended_frame": "risk",
+      "message": "Choosing Option A avoids a fragile commitment and makes the result more manageable if unfavorable conditions arise.",
+      "primary_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.98,
+        "expertise": 0.01,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.97,
+        "expertise": 0.01,
+        "other": 0.04,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.96,
+      "sensitivity_margin": 0.9299999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-risk-03",
+      "split": "heldout",
+      "intended_frame": "risk",
+      "message": "The appeal of Option A is a robust outcome in which uncertainty and potential losses remain within manageable limits.",
+      "primary_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.98,
+        "expertise": 0.02,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.02,
+        "risk": 0.97,
+        "expertise": 0.02,
+        "other": 0.04,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.96,
+      "sensitivity_margin": 0.9299999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-risk-04",
+      "split": "heldout",
+      "intended_frame": "risk",
+      "message": "Go with Option A because a prudent decision should preserve a fallback and avoid unnecessary downside exposure.",
+      "primary_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.99,
+        "expertise": 0.01,
+        "other": 0.01,
+        "confidence": 1.0
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.98,
+        "expertise": 0.01,
+        "other": 0.04,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.98,
+      "sensitivity_margin": 0.94,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-risk-05",
+      "split": "heldout",
+      "intended_frame": "risk",
+      "message": "Option A provides a cautious basis for action: limited downside, retained flexibility, and no avoidable exposure.",
+      "primary_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.01,
+        "risk": 0.99,
+        "expertise": 0.01,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "risk",
+        "fairness": 0.02,
+        "risk": 0.98,
+        "expertise": 0.01,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.97,
+      "sensitivity_margin": 0.95,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-expertise-00",
+      "split": "heldout",
+      "intended_frame": "expertise",
+      "message": "Pick Option A. An informed observer could justify it through relevant knowledge and a disciplined comparison of alternatives.",
+      "primary_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.01,
+        "risk": 0.01,
+        "expertise": 0.97,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.03,
+        "risk": 0.04,
+        "expertise": 0.96,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.94,
+      "sensitivity_margin": 0.9199999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-expertise-01",
+      "split": "heldout",
+      "intended_frame": "expertise",
+      "message": "Option A respects informed judgment by applying relevant experience through criteria that do not change between alternatives.",
+      "primary_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.05,
+        "risk": 0.01,
+        "expertise": 0.97,
+        "other": 0.01,
+        "confidence": 0.98
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.3,
+        "risk": 0.03,
+        "expertise": 0.9,
+        "other": 0.03,
+        "confidence": 0.96
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.9199999999999999,
+      "sensitivity_margin": 0.6000000000000001,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-expertise-02",
+      "split": "heldout",
+      "intended_frame": "expertise",
+      "message": "Choosing Option A avoids an uninformed guess and makes the result defensible through structured, relevant assessment.",
+      "primary_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.01,
+        "risk": 0.06,
+        "expertise": 0.96,
+        "other": 0.02,
+        "confidence": 0.98
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.03,
+        "risk": 0.12,
+        "expertise": 0.92,
+        "other": 0.05,
+        "confidence": 0.98
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.8999999999999999,
+      "sensitivity_margin": 0.8,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-expertise-03",
+      "split": "heldout",
+      "intended_frame": "expertise",
+      "message": "The appeal of Option A is an informed outcome in which relevant competence is applied through consistent evaluation.",
+      "primary_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.02,
+        "risk": 0.01,
+        "expertise": 0.98,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.1,
+        "risk": 0.05,
+        "expertise": 0.9,
+        "other": 0.05,
+        "confidence": 0.98
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.96,
+      "sensitivity_margin": 0.8,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-expertise-04",
+      "split": "heldout",
+      "intended_frame": "expertise",
+      "message": "Go with Option A because an informed decision should use relevant experience and avoid unsupported preference.",
+      "primary_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.01,
+        "risk": 0.01,
+        "expertise": 0.97,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.03,
+        "risk": 0.05,
+        "expertise": 0.95,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.94,
+      "sensitivity_margin": 0.8999999999999999,
+      "eligible": true
+    },
+    {
+      "candidate_id": "v5-heldout-expertise-05",
+      "split": "heldout",
+      "intended_frame": "expertise",
+      "message": "Option A provides an informed basis for action: relevant knowledge, structured comparison, and no unsupported assumption.",
+      "primary_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.01,
+        "risk": 0.02,
+        "expertise": 0.98,
+        "other": 0.02,
+        "confidence": 0.99
+      },
+      "sensitivity_judge": {
+        "primary_strategy": "expertise",
+        "fairness": 0.03,
+        "risk": 0.08,
+        "expertise": 0.96,
+        "other": 0.03,
+        "confidence": 0.99
+      },
+      "primary_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "sensitivity_checks": {
+        "primary_label": true,
+        "confidence": true,
+        "intended_score": true,
+        "score_margin": true
+      },
+      "primary_margin": 0.96,
+      "sensitivity_margin": 0.88,
+      "eligible": true
+    }
+  ],
+  "primary_artifact_audit": {
+    "ok": true,
+    "artifact_dir": "results/v5_design/semantic_validation/primary_batches",
+    "n_batches": 2,
+    "n_unique_messages": 42,
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "prompt_version": "codex-blind-v1",
+    "input_top_level_keys": [
+      "batch_id",
+      "model",
+      "prompt_version",
+      "samples"
+    ],
+    "sample_keys_visible_to_judge": [
+      "message",
+      "sample_id"
+    ],
+    "metadata_fields_visible_to_judge": []
+  },
+  "sensitivity_artifact_audit": {
+    "ok": true,
+    "artifact_dir": "results/v5_design/semantic_validation/sensitivity_batches",
+    "n_batches": 2,
+    "n_unique_messages": 42,
+    "models": [
+      "gpt-5.6-luna"
+    ],
+    "prompt_version": "codex-blind-v1",
+    "input_top_level_keys": [
+      "batch_id",
+      "model",
+      "prompt_version",
+      "samples"
+    ],
+    "sample_keys_visible_to_judge": [
+      "message",
+      "sample_id"
+    ],
+    "metadata_fields_visible_to_judge": []
+  },
+  "gates": {
+    "pool_structurally_valid": true,
+    "judge_models_distinct": true,
+    "both_artifact_audits_pass": true,
+    "primary_accuracy": true,
+    "primary_all_class_recall": true,
+    "sensitivity_accuracy": true,
+    "sensitivity_all_class_recall": true,
+    "interjudge_kappa": true,
+    "enough_development_candidates_per_frame": true,
+    "enough_heldout_candidates_per_frame": true
+  }
+}

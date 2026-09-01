@@ -1,0 +1,2900 @@
+{
+  "task_version": "controlled-choice-v5.0",
+  "status": "mock-only validation",
+  "decision": "MOCK_V5_PIPELINE_PASS_NOT_SCIENTIFIC_EVIDENCE",
+  "pattern_pass": true,
+  "scientific_pass": false,
+  "thresholds": {
+    "required_valid_selection_rate": 1.0,
+    "required_fallback_rate": 0.0,
+    "minimum_no_history_frame_share": 0.25,
+    "maximum_no_history_frame_share": 0.42,
+    "maximum_no_history_frame_gap": 0.15,
+    "minimum_full_history_late_match": 0.5,
+    "minimum_stable_difference_in_differences": 0.1,
+    "minimum_full_over_no_late_match": 0.1,
+    "minimum_full_over_shuffled_late_match": 0.1,
+    "maximum_absolute_no_history_learning_gain": 0.1,
+    "maximum_absolute_random_learning_gain": 0.1,
+    "minimum_per_type_late_advantage": 0.05,
+    "minimum_supporting_target_types": 3,
+    "minimum_revision_shift": 0.15,
+    "minimum_development_stable_difference_in_differences": 0.05,
+    "minimum_development_revision_shift": 0.1,
+    "minimum_transition_revision_shift": 0.1,
+    "minimum_supporting_transitions": 4,
+    "minimum_supporting_origin_types": 3,
+    "confirmatory_alpha_one_sided": 0.025
+  },
+  "design_integrity": {
+    "pass": true,
+    "checks": {
+      "task_version": true,
+      "manifest_task_version": true,
+      "manifest_record_count": true,
+      "manifest_episode_count": true,
+      "unique_episode_round_keys": true,
+      "complete_episode_round_sequences": true,
+      "configured_condition_set": true,
+      "condition_episode_counts": true,
+      "condition_metadata_contracts": true,
+      "target_transition_contracts": true,
+      "visible_history_lengths": true,
+      "history_source_contracts": true,
+      "scenario_and_candidate_schedule_invariant": true,
+      "registered_frames_not_exposed_as_metadata": true,
+      "visible_history_contains_only_rendered_fields": true,
+      "candidate_slot_balance": true,
+      "focal_prompts_have_no_prohibited_instruction": true,
+      "all_candidate_sets_complete": true,
+      "all_target_probabilities_registered": true,
+      "v5_round_count": true,
+      "v5_swap_round": true,
+      "v5_heldout_start": true,
+      "strict_selection_declared": true,
+      "choice_constraint_declared": true,
+      "no_fallback_used": true,
+      "all_selections_valid": true,
+      "bank_validated_for_real_run": true,
+      "stable_target_type_balance": true,
+      "all_six_swap_transitions_balanced": true,
+      "candidate_split_round_contract": true
+    },
+    "candidate_schedule_mismatches": [],
+    "prohibited_focal_prompt_hits": [],
+    "slot_counts": {
+      "expertise": {
+        "1": 1152,
+        "3": 1152,
+        "2": 1152
+      },
+      "risk": {
+        "2": 1152,
+        "1": 1152,
+        "3": 1152
+      },
+      "fairness": {
+        "3": 1152,
+        "2": 1152,
+        "1": 1152
+      }
+    },
+    "frozen_checkpoint": null,
+    "frozen_v5_checkpoint": null
+  },
+  "effect_gates": {
+    "design_integrity": true,
+    "all_selections_valid": true,
+    "no_fallback": true,
+    "no_history_bank_balance": true,
+    "full_history_late_level": true,
+    "stable_difference_in_differences": true,
+    "full_over_no_history": true,
+    "shuffled_history_specificity": true,
+    "no_history_learning_control": true,
+    "random_response_control": true,
+    "all_target_types_supported": true,
+    "baseline_adjusted_revision": true,
+    "development_stable_wording_agrees": true,
+    "development_swap_wording_agrees": true,
+    "directional_transition_support": true,
+    "all_origin_types_support_revision": true
+  },
+  "inference_gates": {
+    "stable_blocked_randomization_test": true,
+    "revision_blocked_randomization_test": true
+  },
+  "valid_selection_rate": 1.0,
+  "fallback_rate": 0.0,
+  "no_history_frame_balance": {
+    "overall": {
+      "n": 576,
+      "counts": {
+        "fairness": 195,
+        "risk": 176,
+        "expertise": 205
+      },
+      "shares": {
+        "fairness": 0.3385416666666667,
+        "risk": 0.3055555555555556,
+        "expertise": 0.3559027777777778
+      },
+      "gap": 0.05034722222222221
+    },
+    "development": {
+      "n": 432,
+      "counts": {
+        "fairness": 146,
+        "risk": 133,
+        "expertise": 153
+      },
+      "shares": {
+        "fairness": 0.33796296296296297,
+        "risk": 0.30787037037037035,
+        "expertise": 0.3541666666666667
+      },
+      "gap": 0.046296296296296335
+    },
+    "heldout": {
+      "n": 144,
+      "counts": {
+        "fairness": 49,
+        "expertise": 52,
+        "risk": 43
+      },
+      "shares": {
+        "fairness": 0.3402777777777778,
+        "risk": 0.2986111111111111,
+        "expertise": 0.3611111111111111
+      },
+      "gap": 0.0625
+    }
+  },
+  "stable_condition_metrics": {
+    "full_history": {
+      "n_episodes": 24,
+      "n_blocks": 8,
+      "early_match": {
+        "mean": 0.4722222222222222,
+        "ci_lo": 0.35399305555555555,
+        "ci_hi": 0.5833333333333333,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "late_heldout_match": {
+        "mean": 0.8958333333333334,
+        "ci_lo": 0.826388888888889,
+        "ci_hi": 0.9583333333333333,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "late_development_match": {
+        "mean": 0.8263888888888888,
+        "ci_lo": 0.7083333333333333,
+        "ci_hi": 0.9305555555555556,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "learning_gain": {
+        "mean": 0.42361111111111116,
+        "ci_lo": 0.3055555555555556,
+        "ci_hi": 0.5277777777777778,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "development_learning_gain": {
+        "mean": 0.3541666666666667,
+        "ci_lo": 0.18055555555555558,
+        "ci_hi": 0.4723958333333332,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "success": {
+        "mean": 0.6423611111111112,
+        "ci_lo": 0.6128472222222222,
+        "ci_hi": 0.6788194444444444,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "valid_selection": 1.0,
+      "fallback_rate": 0.0
+    },
+    "no_history": {
+      "n_episodes": 24,
+      "n_blocks": 8,
+      "early_match": {
+        "mean": 0.36111111111111105,
+        "ci_lo": 0.29861111111111105,
+        "ci_hi": 0.42361111111111105,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "late_heldout_match": {
+        "mean": 0.32638888888888884,
+        "ci_lo": 0.24305555555555555,
+        "ci_hi": 0.41666666666666663,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "late_development_match": {
+        "mean": 0.2777777777777778,
+        "ci_lo": 0.20833333333333331,
+        "ci_hi": 0.3472222222222222,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "learning_gain": {
+        "mean": -0.034722222222222224,
+        "ci_lo": -0.08350694444444444,
+        "ci_hi": 0.02100694444444429,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "development_learning_gain": {
+        "mean": -0.08333333333333331,
+        "ci_lo": -0.18072916666666666,
+        "ci_hi": 0.02777777777777778,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "success": {
+        "mean": 0.47395833333333326,
+        "ci_lo": 0.4444444444444444,
+        "ci_hi": 0.5034722222222221,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "valid_selection": 1.0,
+      "fallback_rate": 0.0
+    },
+    "shuffled_history": {
+      "n_episodes": 24,
+      "n_blocks": 8,
+      "early_match": {
+        "mean": 0.27777777777777773,
+        "ci_lo": 0.18055555555555555,
+        "ci_hi": 0.3958333333333333,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "late_heldout_match": {
+        "mean": 0.04861111111111111,
+        "ci_lo": 0.020833333333333332,
+        "ci_hi": 0.0763888888888889,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "late_development_match": {
+        "mean": 0.05555555555555555,
+        "ci_lo": 0.013888888888888888,
+        "ci_hi": 0.1111111111111111,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "learning_gain": {
+        "mean": -0.22916666666666669,
+        "ci_lo": -0.32656250000000003,
+        "ci_hi": -0.13177083333333348,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "development_learning_gain": {
+        "mean": -0.2222222222222222,
+        "ci_lo": -0.3055555555555555,
+        "ci_hi": -0.14583333333333331,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "success": {
+        "mean": 0.41840277777777773,
+        "ci_lo": 0.37669270833333335,
+        "ci_hi": 0.46184895833333334,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "valid_selection": 1.0,
+      "fallback_rate": 0.0
+    },
+    "random_target": {
+      "n_episodes": 24,
+      "n_blocks": 8,
+      "early_match": {
+        "mean": 0.3194444444444444,
+        "ci_lo": 0.2569444444444444,
+        "ci_hi": 0.3821180555555554,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "late_heldout_match": {
+        "mean": 0.4097222222222222,
+        "ci_lo": 0.2222222222222222,
+        "ci_hi": 0.6112847222222221,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "late_development_match": {
+        "mean": 0.4305555555555555,
+        "ci_lo": 0.27777777777777773,
+        "ci_hi": 0.611111111111111,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "learning_gain": {
+        "mean": 0.09027777777777779,
+        "ci_lo": -0.06944444444444443,
+        "ci_hi": 0.24305555555555558,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "development_learning_gain": {
+        "mean": 0.11111111111111112,
+        "ci_lo": -0.021006944444444425,
+        "ci_hi": 0.22916666666666669,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "success": {
+        "mean": 0.5086805555555556,
+        "ci_lo": 0.4756944444444444,
+        "ci_hi": 0.5382378472222221,
+        "n": 8,
+        "n_blocks": 8,
+        "n_episode_values": 24
+      },
+      "valid_selection": 1.0,
+      "fallback_rate": 0.0
+    }
+  },
+  "primary_contrasts": {
+    "stable_full_vs_no_difference_in_differences": {
+      "mean": 0.45833333333333337,
+      "ci_lo": 0.3125,
+      "ci_hi": 0.6111111111111112,
+      "n": 8,
+      "p_value_one_sided": 0.00390625,
+      "n_sign_assignments": 256,
+      "test_method": "complete exact sign-flip distribution",
+      "n_perm_requested_ignored": 5000,
+      "n_blocks": 8,
+      "n_episode_values": 24,
+      "randomization_unit": "scenario-sequence seed block"
+    },
+    "full_over_no_late_heldout": {
+      "mean": 0.5694444444444444,
+      "ci_lo": 0.4444444444444445,
+      "ci_hi": 0.6805555555555556,
+      "n": 8,
+      "p_value_one_sided": 0.00390625,
+      "n_sign_assignments": 256,
+      "test_method": "complete exact sign-flip distribution",
+      "n_perm_requested_ignored": 5000,
+      "n_blocks": 8,
+      "n_episode_values": 24,
+      "randomization_unit": "scenario-sequence seed block"
+    },
+    "full_over_shuffled_late_heldout": {
+      "mean": 0.8472222222222223,
+      "ci_lo": 0.7569444444444445,
+      "ci_hi": 0.9305555555555556,
+      "n": 8,
+      "p_value_one_sided": 0.00390625,
+      "n_sign_assignments": 256,
+      "test_method": "complete exact sign-flip distribution",
+      "n_perm_requested_ignored": 5000,
+      "n_blocks": 8,
+      "n_episode_values": 24,
+      "randomization_unit": "scenario-sequence seed block"
+    },
+    "development_stable_difference_in_differences": {
+      "mean": 0.4375,
+      "ci_lo": 0.2081597222222222,
+      "ci_hi": 0.6390624999999999,
+      "n": 8,
+      "n_blocks": 8,
+      "n_episode_values": 24
+    }
+  },
+  "late_advantage_by_target_type": {
+    "fairness": {
+      "mean": 0.625,
+      "ci_lo": 0.5,
+      "ci_hi": 0.7708333333333334,
+      "n": 8
+    },
+    "risk": {
+      "mean": 0.6458333333333334,
+      "ci_lo": 0.45833333333333337,
+      "ci_hi": 0.7916666666666667,
+      "n": 8
+    },
+    "expertise": {
+      "mean": 0.43750000000000006,
+      "ci_lo": 0.10416666666666669,
+      "ci_hi": 0.7291666666666667,
+      "n": 8
+    }
+  },
+  "supporting_target_types": [
+    "fairness",
+    "risk",
+    "expertise"
+  ],
+  "swap_metrics": {
+    "n_episodes": 48,
+    "n_blocks": 8,
+    "pre_new_match": 0.17013888888888887,
+    "pre_old_match": 0.7395833333333334,
+    "late_new_match": 0.6527777777777778,
+    "late_old_match": 0.20486111111111108,
+    "development_new_match": 0.35763888888888884,
+    "development_old_match": 0.5243055555555556,
+    "revision_shift": {
+      "mean": 1.0173611111111112,
+      "ci_lo": 0.8020833333333335,
+      "ci_hi": 1.2256944444444446,
+      "n": 8,
+      "p_value_one_sided": 0.00390625,
+      "n_sign_assignments": 256,
+      "test_method": "complete exact sign-flip distribution",
+      "n_perm_requested_ignored": 5000,
+      "n_blocks": 8,
+      "n_episode_values": 48,
+      "randomization_unit": "scenario-sequence seed block"
+    },
+    "late_new_over_old": {
+      "mean": 0.4479166666666667,
+      "ci_lo": 0.25,
+      "ci_hi": 0.6527777777777778,
+      "n": 8,
+      "p_value_one_sided": 0.00390625,
+      "n_sign_assignments": 256,
+      "test_method": "complete exact sign-flip distribution",
+      "n_perm_requested_ignored": 5000,
+      "n_blocks": 8,
+      "n_episode_values": 48,
+      "randomization_unit": "scenario-sequence seed block"
+    },
+    "new_target_gain": {
+      "mean": 0.4826388888888889,
+      "ci_lo": 0.35416666666666663,
+      "ci_hi": 0.6041666666666666,
+      "n": 8,
+      "n_blocks": 8,
+      "n_episode_values": 48
+    },
+    "old_target_drop": {
+      "mean": 0.5347222222222223,
+      "ci_lo": 0.4513888888888889,
+      "ci_hi": 0.6111111111111112,
+      "n": 8,
+      "n_blocks": 8,
+      "n_episode_values": 48
+    },
+    "development_revision_shift": {
+      "mean": 0.4027777777777778,
+      "ci_lo": 0.26032986111111106,
+      "ci_hi": 0.5277777777777778,
+      "n": 8,
+      "n_blocks": 8,
+      "n_episode_values": 48
+    },
+    "transition_metrics": {
+      "expertise_to_fairness": {
+        "old_type": "expertise",
+        "new_type": "fairness",
+        "revision_shift": {
+          "mean": 0.5,
+          "ci_lo": -0.041666666666666685,
+          "ci_hi": 1.0833333333333335,
+          "n": 8,
+          "p_value_one_sided": 0.09375,
+          "n_sign_assignments": 256,
+          "test_method": "complete exact sign-flip distribution",
+          "n_perm_requested_ignored": 5000,
+          "n_blocks": 8,
+          "n_episode_values": 8,
+          "randomization_unit": "scenario-sequence seed block"
+        },
+        "late_new_over_old": {
+          "mean": 0.25,
+          "ci_lo": -0.25,
+          "ci_hi": 0.7291666666666667,
+          "n": 8,
+          "n_blocks": 8,
+          "n_episode_values": 8
+        }
+      },
+      "expertise_to_risk": {
+        "old_type": "expertise",
+        "new_type": "risk",
+        "revision_shift": {
+          "mean": 1.3541666666666665,
+          "ci_lo": 0.8953125,
+          "ci_hi": 1.7713541666666663,
+          "n": 8,
+          "p_value_one_sided": 0.0078125,
+          "n_sign_assignments": 256,
+          "test_method": "complete exact sign-flip distribution",
+          "n_perm_requested_ignored": 5000,
+          "n_blocks": 8,
+          "n_episode_values": 8,
+          "randomization_unit": "scenario-sequence seed block"
+        },
+        "late_new_over_old": {
+          "mean": 0.5625,
+          "ci_lo": 0.020833333333333343,
+          "ci_hi": 1.0,
+          "n": 8,
+          "n_blocks": 8,
+          "n_episode_values": 8
+        }
+      },
+      "fairness_to_expertise": {
+        "old_type": "fairness",
+        "new_type": "expertise",
+        "revision_shift": {
+          "mean": 1.1458333333333335,
+          "ci_lo": 0.5203125000000001,
+          "ci_hi": 1.6458333333333335,
+          "n": 8,
+          "p_value_one_sided": 0.01171875,
+          "n_sign_assignments": 256,
+          "test_method": "complete exact sign-flip distribution",
+          "n_perm_requested_ignored": 5000,
+          "n_blocks": 8,
+          "n_episode_values": 8,
+          "randomization_unit": "scenario-sequence seed block"
+        },
+        "late_new_over_old": {
+          "mean": 0.5,
+          "ci_lo": 0.10364583333333337,
+          "ci_hi": 0.8958333333333334,
+          "n": 8,
+          "n_blocks": 8,
+          "n_episode_values": 8
+        }
+      },
+      "fairness_to_risk": {
+        "old_type": "fairness",
+        "new_type": "risk",
+        "revision_shift": {
+          "mean": 0.8750000000000001,
+          "ci_lo": 0.2291666666666667,
+          "ci_hi": 1.4583333333333335,
+          "n": 8,
+          "p_value_one_sided": 0.02734375,
+          "n_sign_assignments": 256,
+          "test_method": "complete exact sign-flip distribution",
+          "n_perm_requested_ignored": 5000,
+          "n_blocks": 8,
+          "n_episode_values": 8,
+          "randomization_unit": "scenario-sequence seed block"
+        },
+        "late_new_over_old": {
+          "mean": 0.2916666666666667,
+          "ci_lo": -0.10416666666666666,
+          "ci_hi": 0.7083333333333334,
+          "n": 8,
+          "n_blocks": 8,
+          "n_episode_values": 8
+        }
+      },
+      "risk_to_expertise": {
+        "old_type": "risk",
+        "new_type": "expertise",
+        "revision_shift": {
+          "mean": 1.4791666666666667,
+          "ci_lo": 1.0208333333333333,
+          "ci_hi": 1.8958333333333335,
+          "n": 8,
+          "p_value_one_sided": 0.00390625,
+          "n_sign_assignments": 256,
+          "test_method": "complete exact sign-flip distribution",
+          "n_perm_requested_ignored": 5000,
+          "n_blocks": 8,
+          "n_episode_values": 8,
+          "randomization_unit": "scenario-sequence seed block"
+        },
+        "late_new_over_old": {
+          "mean": 0.9166666666666667,
+          "ci_lo": 0.7916666666666667,
+          "ci_hi": 1.0,
+          "n": 8,
+          "n_blocks": 8,
+          "n_episode_values": 8
+        }
+      },
+      "risk_to_fairness": {
+        "old_type": "risk",
+        "new_type": "fairness",
+        "revision_shift": {
+          "mean": 0.75,
+          "ci_lo": 0.10416666666666666,
+          "ci_hi": 1.4166666666666667,
+          "n": 8,
+          "p_value_one_sided": 0.0390625,
+          "n_sign_assignments": 256,
+          "test_method": "complete exact sign-flip distribution",
+          "n_perm_requested_ignored": 5000,
+          "n_blocks": 8,
+          "n_episode_values": 8,
+          "randomization_unit": "scenario-sequence seed block"
+        },
+        "late_new_over_old": {
+          "mean": 0.16666666666666669,
+          "ci_lo": -0.3125,
+          "ci_hi": 0.5838541666666662,
+          "n": 8,
+          "n_blocks": 8,
+          "n_episode_values": 8
+        }
+      }
+    },
+    "supporting_transitions": [
+      "expertise_to_fairness",
+      "expertise_to_risk",
+      "fairness_to_expertise",
+      "fairness_to_risk",
+      "risk_to_expertise",
+      "risk_to_fairness"
+    ],
+    "supporting_origin_types": [
+      "expertise",
+      "fairness",
+      "risk"
+    ],
+    "n_adapted": 34,
+    "median_rounds_to_adapt": 6.0
+  },
+  "swap_episode_summaries": [
+    {
+      "episode_id": "swap-000-fairness-to-risk",
+      "episode_index": 0,
+      "old_type": "fairness",
+      "new_type": "risk",
+      "transition": "fairness_to_risk",
+      "pre_new_match": 0.16666666666666666,
+      "pre_old_match": 0.6666666666666666,
+      "late_new_match": 0.0,
+      "late_old_match": 0.3333333333333333,
+      "development_new_match": 0.8333333333333334,
+      "development_old_match": 0.16666666666666666,
+      "new_target_gain": -0.16666666666666666,
+      "old_target_drop": 0.3333333333333333,
+      "late_new_over_old": -0.3333333333333333,
+      "pre_new_over_old": -0.5,
+      "revision_shift": 0.16666666666666669,
+      "development_revision_shift": 1.1666666666666667,
+      "rounds_to_adapt": 4
+    },
+    {
+      "episode_id": "swap-000-fairness-to-expertise",
+      "episode_index": 0,
+      "old_type": "fairness",
+      "new_type": "expertise",
+      "transition": "fairness_to_expertise",
+      "pre_new_match": 0.16666666666666666,
+      "pre_old_match": 0.6666666666666666,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.16666666666666666,
+      "development_old_match": 0.6666666666666666,
+      "new_target_gain": 0.8333333333333334,
+      "old_target_drop": 0.6666666666666666,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -0.5,
+      "revision_shift": 1.5,
+      "development_revision_shift": 0.0,
+      "rounds_to_adapt": 8
+    },
+    {
+      "episode_id": "swap-000-risk-to-fairness",
+      "episode_index": 0,
+      "old_type": "risk",
+      "new_type": "fairness",
+      "transition": "risk_to_fairness",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.16666666666666666,
+      "late_old_match": 0.6666666666666666,
+      "development_new_match": 0.0,
+      "development_old_match": 0.8333333333333334,
+      "new_target_gain": 0.16666666666666666,
+      "old_target_drop": 0.33333333333333337,
+      "late_new_over_old": -0.5,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 0.5,
+      "development_revision_shift": 0.16666666666666663,
+      "rounds_to_adapt": null
+    },
+    {
+      "episode_id": "swap-000-risk-to-expertise",
+      "episode_index": 0,
+      "old_type": "risk",
+      "new_type": "expertise",
+      "transition": "risk_to_expertise",
+      "pre_new_match": 0.16666666666666666,
+      "pre_old_match": 0.6666666666666666,
+      "late_new_match": 0.8333333333333334,
+      "late_old_match": 0.16666666666666666,
+      "development_new_match": 0.6666666666666666,
+      "development_old_match": 0.16666666666666666,
+      "new_target_gain": 0.6666666666666667,
+      "old_target_drop": 0.5,
+      "late_new_over_old": 0.6666666666666667,
+      "pre_new_over_old": -0.5,
+      "revision_shift": 1.1666666666666667,
+      "development_revision_shift": 1.0,
+      "rounds_to_adapt": 5
+    },
+    {
+      "episode_id": "swap-000-expertise-to-fairness",
+      "episode_index": 0,
+      "old_type": "expertise",
+      "new_type": "fairness",
+      "transition": "expertise_to_fairness",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.3333333333333333,
+      "development_old_match": 0.5,
+      "new_target_gain": 1.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 2.0,
+      "development_revision_shift": 0.8333333333333333,
+      "rounds_to_adapt": 7
+    },
+    {
+      "episode_id": "swap-000-expertise-to-risk",
+      "episode_index": 0,
+      "old_type": "expertise",
+      "new_type": "risk",
+      "transition": "expertise_to_risk",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.0,
+      "development_old_match": 1.0,
+      "new_target_gain": 1.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 2.0,
+      "development_revision_shift": 0.0,
+      "rounds_to_adapt": 9
+    },
+    {
+      "episode_id": "swap-001-fairness-to-risk",
+      "episode_index": 1,
+      "old_type": "fairness",
+      "new_type": "risk",
+      "transition": "fairness_to_risk",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.3333333333333333,
+      "development_old_match": 0.0,
+      "new_target_gain": 0.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 0.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 1.0,
+      "development_revision_shift": 1.3333333333333333,
+      "rounds_to_adapt": null
+    },
+    {
+      "episode_id": "swap-001-fairness-to-expertise",
+      "episode_index": 1,
+      "old_type": "fairness",
+      "new_type": "expertise",
+      "transition": "fairness_to_expertise",
+      "pre_new_match": 0.16666666666666666,
+      "pre_old_match": 0.0,
+      "late_new_match": 0.0,
+      "late_old_match": 0.3333333333333333,
+      "development_new_match": 0.5,
+      "development_old_match": 0.16666666666666666,
+      "new_target_gain": -0.16666666666666666,
+      "old_target_drop": -0.3333333333333333,
+      "late_new_over_old": -0.3333333333333333,
+      "pre_new_over_old": 0.16666666666666666,
+      "revision_shift": -0.5,
+      "development_revision_shift": 0.1666666666666667,
+      "rounds_to_adapt": 6
+    },
+    {
+      "episode_id": "swap-001-risk-to-fairness",
+      "episode_index": 1,
+      "old_type": "risk",
+      "new_type": "fairness",
+      "transition": "risk_to_fairness",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.0,
+      "late_old_match": 1.0,
+      "development_new_match": 0.0,
+      "development_old_match": 1.0,
+      "new_target_gain": 0.0,
+      "old_target_drop": 0.0,
+      "late_new_over_old": -1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 0.0,
+      "development_revision_shift": 0.0,
+      "rounds_to_adapt": null
+    },
+    {
+      "episode_id": "swap-001-risk-to-expertise",
+      "episode_index": 1,
+      "old_type": "risk",
+      "new_type": "expertise",
+      "transition": "risk_to_expertise",
+      "pre_new_match": 0.8333333333333334,
+      "pre_old_match": 0.16666666666666666,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 1.0,
+      "development_old_match": 0.0,
+      "new_target_gain": 0.16666666666666663,
+      "old_target_drop": 0.16666666666666666,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": 0.6666666666666667,
+      "revision_shift": 0.33333333333333326,
+      "development_revision_shift": 0.33333333333333326,
+      "rounds_to_adapt": 4
+    },
+    {
+      "episode_id": "swap-001-expertise-to-fairness",
+      "episode_index": 1,
+      "old_type": "expertise",
+      "new_type": "fairness",
+      "transition": "expertise_to_fairness",
+      "pre_new_match": 0.6666666666666666,
+      "pre_old_match": 0.3333333333333333,
+      "late_new_match": 0.6666666666666666,
+      "late_old_match": 0.16666666666666666,
+      "development_new_match": 1.0,
+      "development_old_match": 0.0,
+      "new_target_gain": 0.0,
+      "old_target_drop": 0.16666666666666666,
+      "late_new_over_old": 0.5,
+      "pre_new_over_old": 0.3333333333333333,
+      "revision_shift": 0.16666666666666669,
+      "development_revision_shift": 0.6666666666666667,
+      "rounds_to_adapt": 4
+    },
+    {
+      "episode_id": "swap-001-expertise-to-risk",
+      "episode_index": 1,
+      "old_type": "expertise",
+      "new_type": "risk",
+      "transition": "expertise_to_risk",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.8333333333333334,
+      "late_old_match": 0.16666666666666666,
+      "development_new_match": 0.5,
+      "development_old_match": 0.16666666666666666,
+      "new_target_gain": 0.8333333333333334,
+      "old_target_drop": 0.8333333333333334,
+      "late_new_over_old": 0.6666666666666667,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 1.6666666666666667,
+      "development_revision_shift": 1.3333333333333335,
+      "rounds_to_adapt": 6
+    },
+    {
+      "episode_id": "swap-002-fairness-to-risk",
+      "episode_index": 2,
+      "old_type": "fairness",
+      "new_type": "risk",
+      "transition": "fairness_to_risk",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.5,
+      "late_old_match": 0.3333333333333333,
+      "development_new_match": 0.0,
+      "development_old_match": 1.0,
+      "new_target_gain": 0.5,
+      "old_target_drop": 0.6666666666666667,
+      "late_new_over_old": 0.16666666666666669,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 1.1666666666666667,
+      "development_revision_shift": 0.0,
+      "rounds_to_adapt": 10
+    },
+    {
+      "episode_id": "swap-002-fairness-to-expertise",
+      "episode_index": 2,
+      "old_type": "fairness",
+      "new_type": "expertise",
+      "transition": "fairness_to_expertise",
+      "pre_new_match": 0.16666666666666666,
+      "pre_old_match": 0.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 1.0,
+      "development_old_match": 0.0,
+      "new_target_gain": 0.8333333333333334,
+      "old_target_drop": 0.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": 0.16666666666666666,
+      "revision_shift": 0.8333333333333334,
+      "development_revision_shift": 0.8333333333333334,
+      "rounds_to_adapt": 4
+    },
+    {
+      "episode_id": "swap-002-risk-to-fairness",
+      "episode_index": 2,
+      "old_type": "risk",
+      "new_type": "fairness",
+      "transition": "risk_to_fairness",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.6666666666666666,
+      "development_old_match": 0.16666666666666666,
+      "new_target_gain": 1.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 2.0,
+      "development_revision_shift": 1.5,
+      "rounds_to_adapt": 6
+    },
+    {
+      "episode_id": "swap-002-risk-to-expertise",
+      "episode_index": 2,
+      "old_type": "risk",
+      "new_type": "expertise",
+      "transition": "risk_to_expertise",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.16666666666666666,
+      "development_old_match": 0.6666666666666666,
+      "new_target_gain": 1.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 2.0,
+      "development_revision_shift": 0.5,
+      "rounds_to_adapt": 8
+    },
+    {
+      "episode_id": "swap-002-expertise-to-fairness",
+      "episode_index": 2,
+      "old_type": "expertise",
+      "new_type": "fairness",
+      "transition": "expertise_to_fairness",
+      "pre_new_match": 0.8333333333333334,
+      "pre_old_match": 0.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 1.0,
+      "development_old_match": 0.0,
+      "new_target_gain": 0.16666666666666663,
+      "old_target_drop": 0.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": 0.8333333333333334,
+      "revision_shift": 0.16666666666666663,
+      "development_revision_shift": 0.16666666666666663,
+      "rounds_to_adapt": 4
+    },
+    {
+      "episode_id": "swap-002-expertise-to-risk",
+      "episode_index": 2,
+      "old_type": "expertise",
+      "new_type": "risk",
+      "transition": "expertise_to_risk",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.16666666666666666,
+      "development_old_match": 0.6666666666666666,
+      "new_target_gain": 1.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 2.0,
+      "development_revision_shift": 0.5,
+      "rounds_to_adapt": 8
+    },
+    {
+      "episode_id": "swap-003-fairness-to-risk",
+      "episode_index": 3,
+      "old_type": "fairness",
+      "new_type": "risk",
+      "transition": "fairness_to_risk",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.5,
+      "development_old_match": 0.3333333333333333,
+      "new_target_gain": 1.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 2.0,
+      "development_revision_shift": 1.1666666666666667,
+      "rounds_to_adapt": 6
+    },
+    {
+      "episode_id": "swap-003-fairness-to-expertise",
+      "episode_index": 3,
+      "old_type": "fairness",
+      "new_type": "expertise",
+      "transition": "fairness_to_expertise",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.8333333333333334,
+      "late_old_match": 0.16666666666666666,
+      "development_new_match": 0.3333333333333333,
+      "development_old_match": 0.5,
+      "new_target_gain": 0.8333333333333334,
+      "old_target_drop": 0.8333333333333334,
+      "late_new_over_old": 0.6666666666666667,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 1.6666666666666667,
+      "development_revision_shift": 0.8333333333333333,
+      "rounds_to_adapt": 8
+    },
+    {
+      "episode_id": "swap-003-risk-to-fairness",
+      "episode_index": 3,
+      "old_type": "risk",
+      "new_type": "fairness",
+      "transition": "risk_to_fairness",
+      "pre_new_match": 0.16666666666666666,
+      "pre_old_match": 0.5,
+      "late_new_match": 0.3333333333333333,
+      "late_old_match": 0.16666666666666666,
+      "development_new_match": 0.0,
+      "development_old_match": 1.0,
+      "new_target_gain": 0.16666666666666666,
+      "old_target_drop": 0.33333333333333337,
+      "late_new_over_old": 0.16666666666666666,
+      "pre_new_over_old": -0.33333333333333337,
+      "revision_shift": 0.5,
+      "development_revision_shift": -0.6666666666666666,
+      "rounds_to_adapt": null
+    },
+    {
+      "episode_id": "swap-003-risk-to-expertise",
+      "episode_index": 3,
+      "old_type": "risk",
+      "new_type": "expertise",
+      "transition": "risk_to_expertise",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.3333333333333333,
+      "development_old_match": 0.6666666666666666,
+      "new_target_gain": 1.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 2.0,
+      "development_revision_shift": 0.6666666666666667,
+      "rounds_to_adapt": 7
+    },
+    {
+      "episode_id": "swap-003-expertise-to-fairness",
+      "episode_index": 3,
+      "old_type": "expertise",
+      "new_type": "fairness",
+      "transition": "expertise_to_fairness",
+      "pre_new_match": 0.16666666666666666,
+      "pre_old_match": 0.8333333333333334,
+      "late_new_match": 0.16666666666666666,
+      "late_old_match": 0.16666666666666666,
+      "development_new_match": 0.0,
+      "development_old_match": 1.0,
+      "new_target_gain": 0.0,
+      "old_target_drop": 0.6666666666666667,
+      "late_new_over_old": 0.0,
+      "pre_new_over_old": -0.6666666666666667,
+      "revision_shift": 0.6666666666666667,
+      "development_revision_shift": -0.33333333333333326,
+      "rounds_to_adapt": null
+    },
+    {
+      "episode_id": "swap-003-expertise-to-risk",
+      "episode_index": 3,
+      "old_type": "expertise",
+      "new_type": "risk",
+      "transition": "expertise_to_risk",
+      "pre_new_match": 0.16666666666666666,
+      "pre_old_match": 0.5,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.8333333333333334,
+      "development_old_match": 0.16666666666666666,
+      "new_target_gain": 0.8333333333333334,
+      "old_target_drop": 0.5,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -0.33333333333333337,
+      "revision_shift": 1.3333333333333335,
+      "development_revision_shift": 1.0,
+      "rounds_to_adapt": 4
+    },
+    {
+      "episode_id": "swap-004-fairness-to-risk",
+      "episode_index": 4,
+      "old_type": "fairness",
+      "new_type": "risk",
+      "transition": "fairness_to_risk",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.5,
+      "development_old_match": 0.5,
+      "new_target_gain": 1.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 2.0,
+      "development_revision_shift": 1.0,
+      "rounds_to_adapt": 6
+    },
+    {
+      "episode_id": "swap-004-fairness-to-expertise",
+      "episode_index": 4,
+      "old_type": "fairness",
+      "new_type": "expertise",
+      "transition": "fairness_to_expertise",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.3333333333333333,
+      "development_old_match": 0.5,
+      "new_target_gain": 1.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 2.0,
+      "development_revision_shift": 0.8333333333333333,
+      "rounds_to_adapt": 7
+    },
+    {
+      "episode_id": "swap-004-risk-to-fairness",
+      "episode_index": 4,
+      "old_type": "risk",
+      "new_type": "fairness",
+      "transition": "risk_to_fairness",
+      "pre_new_match": 0.8333333333333334,
+      "pre_old_match": 0.0,
+      "late_new_match": 0.5,
+      "late_old_match": 0.5,
+      "development_new_match": 0.0,
+      "development_old_match": 1.0,
+      "new_target_gain": -0.33333333333333337,
+      "old_target_drop": -0.5,
+      "late_new_over_old": 0.0,
+      "pre_new_over_old": 0.8333333333333334,
+      "revision_shift": -0.8333333333333334,
+      "development_revision_shift": -1.8333333333333335,
+      "rounds_to_adapt": 12
+    },
+    {
+      "episode_id": "swap-004-risk-to-expertise",
+      "episode_index": 4,
+      "old_type": "risk",
+      "new_type": "expertise",
+      "transition": "risk_to_expertise",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.3333333333333333,
+      "development_old_match": 0.6666666666666666,
+      "new_target_gain": 1.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 2.0,
+      "development_revision_shift": 0.6666666666666667,
+      "rounds_to_adapt": 7
+    },
+    {
+      "episode_id": "swap-004-expertise-to-fairness",
+      "episode_index": 4,
+      "old_type": "expertise",
+      "new_type": "fairness",
+      "transition": "expertise_to_fairness",
+      "pre_new_match": 0.6666666666666666,
+      "pre_old_match": 0.3333333333333333,
+      "late_new_match": 0.8333333333333334,
+      "late_old_match": 0.0,
+      "development_new_match": 0.0,
+      "development_old_match": 0.16666666666666666,
+      "new_target_gain": 0.16666666666666674,
+      "old_target_drop": 0.3333333333333333,
+      "late_new_over_old": 0.8333333333333334,
+      "pre_new_over_old": 0.3333333333333333,
+      "revision_shift": 0.5,
+      "development_revision_shift": -0.5,
+      "rounds_to_adapt": 10
+    },
+    {
+      "episode_id": "swap-004-expertise-to-risk",
+      "episode_index": 4,
+      "old_type": "expertise",
+      "new_type": "risk",
+      "transition": "expertise_to_risk",
+      "pre_new_match": 0.16666666666666666,
+      "pre_old_match": 0.16666666666666666,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.6666666666666666,
+      "development_old_match": 0.16666666666666666,
+      "new_target_gain": 0.8333333333333334,
+      "old_target_drop": 0.16666666666666666,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": 0.0,
+      "revision_shift": 1.0,
+      "development_revision_shift": 0.5,
+      "rounds_to_adapt": 5
+    },
+    {
+      "episode_id": "swap-005-fairness-to-risk",
+      "episode_index": 5,
+      "old_type": "fairness",
+      "new_type": "risk",
+      "transition": "fairness_to_risk",
+      "pre_new_match": 0.6666666666666666,
+      "pre_old_match": 0.16666666666666666,
+      "late_new_match": 0.0,
+      "late_old_match": 0.5,
+      "development_new_match": 1.0,
+      "development_old_match": 0.0,
+      "new_target_gain": -0.6666666666666666,
+      "old_target_drop": -0.33333333333333337,
+      "late_new_over_old": -0.5,
+      "pre_new_over_old": 0.5,
+      "revision_shift": -1.0,
+      "development_revision_shift": 0.5,
+      "rounds_to_adapt": 4
+    },
+    {
+      "episode_id": "swap-005-fairness-to-expertise",
+      "episode_index": 5,
+      "old_type": "fairness",
+      "new_type": "expertise",
+      "transition": "fairness_to_expertise",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.5,
+      "development_old_match": 0.5,
+      "new_target_gain": 1.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 2.0,
+      "development_revision_shift": 1.0,
+      "rounds_to_adapt": 6
+    },
+    {
+      "episode_id": "swap-005-risk-to-fairness",
+      "episode_index": 5,
+      "old_type": "risk",
+      "new_type": "fairness",
+      "transition": "risk_to_fairness",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.5,
+      "development_old_match": 0.16666666666666666,
+      "new_target_gain": 1.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 2.0,
+      "development_revision_shift": 1.3333333333333335,
+      "rounds_to_adapt": 6
+    },
+    {
+      "episode_id": "swap-005-risk-to-expertise",
+      "episode_index": 5,
+      "old_type": "risk",
+      "new_type": "expertise",
+      "transition": "risk_to_expertise",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.16666666666666666,
+      "development_old_match": 0.8333333333333334,
+      "new_target_gain": 1.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 2.0,
+      "development_revision_shift": 0.33333333333333326,
+      "rounds_to_adapt": 8
+    },
+    {
+      "episode_id": "swap-005-expertise-to-fairness",
+      "episode_index": 5,
+      "old_type": "expertise",
+      "new_type": "fairness",
+      "transition": "expertise_to_fairness",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.0,
+      "late_old_match": 1.0,
+      "development_new_match": 0.0,
+      "development_old_match": 1.0,
+      "new_target_gain": 0.0,
+      "old_target_drop": 0.0,
+      "late_new_over_old": -1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 0.0,
+      "development_revision_shift": 0.0,
+      "rounds_to_adapt": null
+    },
+    {
+      "episode_id": "swap-005-expertise-to-risk",
+      "episode_index": 5,
+      "old_type": "expertise",
+      "new_type": "risk",
+      "transition": "expertise_to_risk",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.0,
+      "late_old_match": 1.0,
+      "development_new_match": 0.0,
+      "development_old_match": 1.0,
+      "new_target_gain": 0.0,
+      "old_target_drop": 0.0,
+      "late_new_over_old": -1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 0.0,
+      "development_revision_shift": 0.0,
+      "rounds_to_adapt": null
+    },
+    {
+      "episode_id": "swap-006-fairness-to-risk",
+      "episode_index": 6,
+      "old_type": "fairness",
+      "new_type": "risk",
+      "transition": "fairness_to_risk",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.3333333333333333,
+      "late_old_match": 0.3333333333333333,
+      "development_new_match": 0.16666666666666666,
+      "development_old_match": 0.8333333333333334,
+      "new_target_gain": 0.3333333333333333,
+      "old_target_drop": 0.6666666666666667,
+      "late_new_over_old": 0.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 1.0,
+      "development_revision_shift": 0.33333333333333326,
+      "rounds_to_adapt": null
+    },
+    {
+      "episode_id": "swap-006-fairness-to-expertise",
+      "episode_index": 6,
+      "old_type": "fairness",
+      "new_type": "expertise",
+      "transition": "fairness_to_expertise",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.3333333333333333,
+      "late_old_match": 0.16666666666666666,
+      "development_new_match": 0.0,
+      "development_old_match": 0.3333333333333333,
+      "new_target_gain": 0.3333333333333333,
+      "old_target_drop": 0.8333333333333334,
+      "late_new_over_old": 0.16666666666666666,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 1.1666666666666667,
+      "development_revision_shift": 0.6666666666666667,
+      "rounds_to_adapt": null
+    },
+    {
+      "episode_id": "swap-006-risk-to-fairness",
+      "episode_index": 6,
+      "old_type": "risk",
+      "new_type": "fairness",
+      "transition": "risk_to_fairness",
+      "pre_new_match": 0.3333333333333333,
+      "pre_old_match": 0.5,
+      "late_new_match": 0.8333333333333334,
+      "late_old_match": 0.0,
+      "development_new_match": 0.3333333333333333,
+      "development_old_match": 0.6666666666666666,
+      "new_target_gain": 0.5,
+      "old_target_drop": 0.5,
+      "late_new_over_old": 0.8333333333333334,
+      "pre_new_over_old": -0.16666666666666669,
+      "revision_shift": 1.0,
+      "development_revision_shift": -0.16666666666666663,
+      "rounds_to_adapt": 8
+    },
+    {
+      "episode_id": "swap-006-risk-to-expertise",
+      "episode_index": 6,
+      "old_type": "risk",
+      "new_type": "expertise",
+      "transition": "risk_to_expertise",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.8333333333333334,
+      "late_old_match": 0.16666666666666666,
+      "development_new_match": 0.16666666666666666,
+      "development_old_match": 0.6666666666666666,
+      "new_target_gain": 0.8333333333333334,
+      "old_target_drop": 0.8333333333333334,
+      "late_new_over_old": 0.6666666666666667,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 1.6666666666666667,
+      "development_revision_shift": 0.5,
+      "rounds_to_adapt": 10
+    },
+    {
+      "episode_id": "swap-006-expertise-to-fairness",
+      "episode_index": 6,
+      "old_type": "expertise",
+      "new_type": "fairness",
+      "transition": "expertise_to_fairness",
+      "pre_new_match": 0.5,
+      "pre_old_match": 0.3333333333333333,
+      "late_new_match": 0.16666666666666666,
+      "late_old_match": 0.8333333333333334,
+      "development_new_match": 0.0,
+      "development_old_match": 0.8333333333333334,
+      "new_target_gain": -0.33333333333333337,
+      "old_target_drop": -0.5,
+      "late_new_over_old": -0.6666666666666667,
+      "pre_new_over_old": 0.16666666666666669,
+      "revision_shift": -0.8333333333333335,
+      "development_revision_shift": -1.0,
+      "rounds_to_adapt": null
+    },
+    {
+      "episode_id": "swap-006-expertise-to-risk",
+      "episode_index": 6,
+      "old_type": "expertise",
+      "new_type": "risk",
+      "transition": "expertise_to_risk",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 0.0,
+      "development_old_match": 0.8333333333333334,
+      "new_target_gain": 1.0,
+      "old_target_drop": 1.0,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 2.0,
+      "development_revision_shift": 0.16666666666666663,
+      "rounds_to_adapt": 9
+    },
+    {
+      "episode_id": "swap-007-fairness-to-risk",
+      "episode_index": 7,
+      "old_type": "fairness",
+      "new_type": "risk",
+      "transition": "fairness_to_risk",
+      "pre_new_match": 0.6666666666666666,
+      "pre_old_match": 0.3333333333333333,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 1.0,
+      "development_old_match": 0.0,
+      "new_target_gain": 0.33333333333333337,
+      "old_target_drop": 0.3333333333333333,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": 0.3333333333333333,
+      "revision_shift": 0.6666666666666667,
+      "development_revision_shift": 0.6666666666666667,
+      "rounds_to_adapt": 4
+    },
+    {
+      "episode_id": "swap-007-fairness-to-expertise",
+      "episode_index": 7,
+      "old_type": "fairness",
+      "new_type": "expertise",
+      "transition": "fairness_to_expertise",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.16666666666666666,
+      "late_old_match": 0.6666666666666666,
+      "development_new_match": 0.0,
+      "development_old_match": 1.0,
+      "new_target_gain": 0.16666666666666666,
+      "old_target_drop": 0.33333333333333337,
+      "late_new_over_old": -0.5,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 0.5,
+      "development_revision_shift": 0.0,
+      "rounds_to_adapt": null
+    },
+    {
+      "episode_id": "swap-007-risk-to-fairness",
+      "episode_index": 7,
+      "old_type": "risk",
+      "new_type": "fairness",
+      "transition": "risk_to_fairness",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.16666666666666666,
+      "late_old_match": 0.3333333333333333,
+      "development_new_match": 0.16666666666666666,
+      "development_old_match": 0.6666666666666666,
+      "new_target_gain": 0.16666666666666666,
+      "old_target_drop": 0.6666666666666667,
+      "late_new_over_old": -0.16666666666666666,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 0.8333333333333334,
+      "development_revision_shift": 0.5,
+      "rounds_to_adapt": null
+    },
+    {
+      "episode_id": "swap-007-risk-to-expertise",
+      "episode_index": 7,
+      "old_type": "risk",
+      "new_type": "expertise",
+      "transition": "risk_to_expertise",
+      "pre_new_match": 0.6666666666666666,
+      "pre_old_match": 0.3333333333333333,
+      "late_new_match": 1.0,
+      "late_old_match": 0.0,
+      "development_new_match": 1.0,
+      "development_old_match": 0.0,
+      "new_target_gain": 0.33333333333333337,
+      "old_target_drop": 0.3333333333333333,
+      "late_new_over_old": 1.0,
+      "pre_new_over_old": 0.3333333333333333,
+      "revision_shift": 0.6666666666666667,
+      "development_revision_shift": 0.6666666666666667,
+      "rounds_to_adapt": 4
+    },
+    {
+      "episode_id": "swap-007-expertise-to-fairness",
+      "episode_index": 7,
+      "old_type": "expertise",
+      "new_type": "fairness",
+      "transition": "expertise_to_fairness",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.5,
+      "late_old_match": 0.16666666666666666,
+      "development_new_match": 0.0,
+      "development_old_match": 1.0,
+      "new_target_gain": 0.5,
+      "old_target_drop": 0.8333333333333334,
+      "late_new_over_old": 0.33333333333333337,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 1.3333333333333335,
+      "development_revision_shift": 0.0,
+      "rounds_to_adapt": null
+    },
+    {
+      "episode_id": "swap-007-expertise-to-risk",
+      "episode_index": 7,
+      "old_type": "expertise",
+      "new_type": "risk",
+      "transition": "expertise_to_risk",
+      "pre_new_match": 0.0,
+      "pre_old_match": 1.0,
+      "late_new_match": 0.3333333333333333,
+      "late_old_match": 0.5,
+      "development_new_match": 0.0,
+      "development_old_match": 1.0,
+      "new_target_gain": 0.3333333333333333,
+      "old_target_drop": 0.5,
+      "late_new_over_old": -0.16666666666666669,
+      "pre_new_over_old": -1.0,
+      "revision_shift": 0.8333333333333333,
+      "development_revision_shift": 0.0,
+      "rounds_to_adapt": null
+    }
+  ],
+  "secondary_diagnostics": {
+    "late_new_exceeds_old": true,
+    "late_new_over_old": {
+      "mean": 0.4479166666666667,
+      "ci_lo": 0.25,
+      "ci_hi": 0.6527777777777778,
+      "n": 8,
+      "p_value_one_sided": 0.00390625,
+      "n_sign_assignments": 256,
+      "test_method": "complete exact sign-flip distribution",
+      "n_perm_requested_ignored": 5000,
+      "n_blocks": 8,
+      "n_episode_values": 48,
+      "randomization_unit": "scenario-sequence seed block"
+    },
+    "note": "The unadjusted late crossover is reported but is not a V5 pass gate; baseline-adjusted revision is the co-primary outcome."
+  },
+  "trajectories": {
+    "full_history": {
+      "match": [
+        {
+          "round": 1,
+          "mean": 0.25,
+          "n": 24
+        },
+        {
+          "round": 2,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 3,
+          "mean": 0.375,
+          "n": 24
+        },
+        {
+          "round": 4,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 5,
+          "mean": 0.625,
+          "n": 24
+        },
+        {
+          "round": 6,
+          "mean": 0.75,
+          "n": 24
+        },
+        {
+          "round": 7,
+          "mean": 0.75,
+          "n": 24
+        },
+        {
+          "round": 8,
+          "mean": 0.75,
+          "n": 24
+        },
+        {
+          "round": 9,
+          "mean": 0.6666666666666666,
+          "n": 24
+        },
+        {
+          "round": 10,
+          "mean": 0.7083333333333334,
+          "n": 24
+        },
+        {
+          "round": 11,
+          "mean": 0.8333333333333334,
+          "n": 24
+        },
+        {
+          "round": 12,
+          "mean": 0.8333333333333334,
+          "n": 24
+        },
+        {
+          "round": 13,
+          "mean": 0.7916666666666666,
+          "n": 24
+        },
+        {
+          "round": 14,
+          "mean": 0.75,
+          "n": 24
+        },
+        {
+          "round": 15,
+          "mean": 0.7916666666666666,
+          "n": 24
+        },
+        {
+          "round": 16,
+          "mean": 0.8333333333333334,
+          "n": 24
+        },
+        {
+          "round": 17,
+          "mean": 0.875,
+          "n": 24
+        },
+        {
+          "round": 18,
+          "mean": 0.9166666666666666,
+          "n": 24
+        },
+        {
+          "round": 19,
+          "mean": 0.875,
+          "n": 24
+        },
+        {
+          "round": 20,
+          "mean": 0.9166666666666666,
+          "n": 24
+        },
+        {
+          "round": 21,
+          "mean": 0.9583333333333334,
+          "n": 24
+        },
+        {
+          "round": 22,
+          "mean": 0.8333333333333334,
+          "n": 24
+        },
+        {
+          "round": 23,
+          "mean": 0.9166666666666666,
+          "n": 24
+        },
+        {
+          "round": 24,
+          "mean": 0.875,
+          "n": 24
+        }
+      ],
+      "success": [
+        {
+          "round": 1,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 2,
+          "mean": 0.5833333333333334,
+          "n": 24
+        },
+        {
+          "round": 3,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 4,
+          "mean": 0.5833333333333334,
+          "n": 24
+        },
+        {
+          "round": 5,
+          "mean": 0.625,
+          "n": 24
+        },
+        {
+          "round": 6,
+          "mean": 0.75,
+          "n": 24
+        },
+        {
+          "round": 7,
+          "mean": 0.5833333333333334,
+          "n": 24
+        },
+        {
+          "round": 8,
+          "mean": 0.625,
+          "n": 24
+        },
+        {
+          "round": 9,
+          "mean": 0.5416666666666666,
+          "n": 24
+        },
+        {
+          "round": 10,
+          "mean": 0.5833333333333334,
+          "n": 24
+        },
+        {
+          "round": 11,
+          "mean": 0.6666666666666666,
+          "n": 24
+        },
+        {
+          "round": 12,
+          "mean": 0.625,
+          "n": 24
+        },
+        {
+          "round": 13,
+          "mean": 0.6666666666666666,
+          "n": 24
+        },
+        {
+          "round": 14,
+          "mean": 0.5416666666666666,
+          "n": 24
+        },
+        {
+          "round": 15,
+          "mean": 0.7916666666666666,
+          "n": 24
+        },
+        {
+          "round": 16,
+          "mean": 0.8333333333333334,
+          "n": 24
+        },
+        {
+          "round": 17,
+          "mean": 0.5416666666666666,
+          "n": 24
+        },
+        {
+          "round": 18,
+          "mean": 0.7083333333333334,
+          "n": 24
+        },
+        {
+          "round": 19,
+          "mean": 0.5416666666666666,
+          "n": 24
+        },
+        {
+          "round": 20,
+          "mean": 0.7916666666666666,
+          "n": 24
+        },
+        {
+          "round": 21,
+          "mean": 0.7083333333333334,
+          "n": 24
+        },
+        {
+          "round": 22,
+          "mean": 0.6666666666666666,
+          "n": 24
+        },
+        {
+          "round": 23,
+          "mean": 0.75,
+          "n": 24
+        },
+        {
+          "round": 24,
+          "mean": 0.8333333333333334,
+          "n": 24
+        }
+      ]
+    },
+    "no_history": {
+      "match": [
+        {
+          "round": 1,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 2,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 3,
+          "mean": 0.25,
+          "n": 24
+        },
+        {
+          "round": 4,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 5,
+          "mean": 0.3333333333333333,
+          "n": 24
+        },
+        {
+          "round": 6,
+          "mean": 0.25,
+          "n": 24
+        },
+        {
+          "round": 7,
+          "mean": 0.08333333333333333,
+          "n": 24
+        },
+        {
+          "round": 8,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 9,
+          "mean": 0.16666666666666666,
+          "n": 24
+        },
+        {
+          "round": 10,
+          "mean": 0.3333333333333333,
+          "n": 24
+        },
+        {
+          "round": 11,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 12,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 13,
+          "mean": 0.3333333333333333,
+          "n": 24
+        },
+        {
+          "round": 14,
+          "mean": 0.20833333333333334,
+          "n": 24
+        },
+        {
+          "round": 15,
+          "mean": 0.16666666666666666,
+          "n": 24
+        },
+        {
+          "round": 16,
+          "mean": 0.20833333333333334,
+          "n": 24
+        },
+        {
+          "round": 17,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 18,
+          "mean": 0.3333333333333333,
+          "n": 24
+        },
+        {
+          "round": 19,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 20,
+          "mean": 0.20833333333333334,
+          "n": 24
+        },
+        {
+          "round": 21,
+          "mean": 0.16666666666666666,
+          "n": 24
+        },
+        {
+          "round": 22,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 23,
+          "mean": 0.375,
+          "n": 24
+        },
+        {
+          "round": 24,
+          "mean": 0.375,
+          "n": 24
+        }
+      ],
+      "success": [
+        {
+          "round": 1,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 2,
+          "mean": 0.5833333333333334,
+          "n": 24
+        },
+        {
+          "round": 3,
+          "mean": 0.375,
+          "n": 24
+        },
+        {
+          "round": 4,
+          "mean": 0.5416666666666666,
+          "n": 24
+        },
+        {
+          "round": 5,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 6,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 7,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 8,
+          "mean": 0.5,
+          "n": 24
+        },
+        {
+          "round": 9,
+          "mean": 0.375,
+          "n": 24
+        },
+        {
+          "round": 10,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 11,
+          "mean": 0.5833333333333334,
+          "n": 24
+        },
+        {
+          "round": 12,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 13,
+          "mean": 0.625,
+          "n": 24
+        },
+        {
+          "round": 14,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 15,
+          "mean": 0.5416666666666666,
+          "n": 24
+        },
+        {
+          "round": 16,
+          "mean": 0.5833333333333334,
+          "n": 24
+        },
+        {
+          "round": 17,
+          "mean": 0.375,
+          "n": 24
+        },
+        {
+          "round": 18,
+          "mean": 0.375,
+          "n": 24
+        },
+        {
+          "round": 19,
+          "mean": 0.3333333333333333,
+          "n": 24
+        },
+        {
+          "round": 20,
+          "mean": 0.625,
+          "n": 24
+        },
+        {
+          "round": 21,
+          "mean": 0.2916666666666667,
+          "n": 24
+        },
+        {
+          "round": 22,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 23,
+          "mean": 0.5416666666666666,
+          "n": 24
+        },
+        {
+          "round": 24,
+          "mean": 0.625,
+          "n": 24
+        }
+      ]
+    },
+    "shuffled_history": {
+      "match": [
+        {
+          "round": 1,
+          "mean": 0.2916666666666667,
+          "n": 24
+        },
+        {
+          "round": 2,
+          "mean": 0.2916666666666667,
+          "n": 24
+        },
+        {
+          "round": 3,
+          "mean": 0.2916666666666667,
+          "n": 24
+        },
+        {
+          "round": 4,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 5,
+          "mean": 0.20833333333333334,
+          "n": 24
+        },
+        {
+          "round": 6,
+          "mean": 0.16666666666666666,
+          "n": 24
+        },
+        {
+          "round": 7,
+          "mean": 0.16666666666666666,
+          "n": 24
+        },
+        {
+          "round": 8,
+          "mean": 0.08333333333333333,
+          "n": 24
+        },
+        {
+          "round": 9,
+          "mean": 0.16666666666666666,
+          "n": 24
+        },
+        {
+          "round": 10,
+          "mean": 0.125,
+          "n": 24
+        },
+        {
+          "round": 11,
+          "mean": 0.0,
+          "n": 24
+        },
+        {
+          "round": 12,
+          "mean": 0.08333333333333333,
+          "n": 24
+        },
+        {
+          "round": 13,
+          "mean": 0.041666666666666664,
+          "n": 24
+        },
+        {
+          "round": 14,
+          "mean": 0.08333333333333333,
+          "n": 24
+        },
+        {
+          "round": 15,
+          "mean": 0.08333333333333333,
+          "n": 24
+        },
+        {
+          "round": 16,
+          "mean": 0.041666666666666664,
+          "n": 24
+        },
+        {
+          "round": 17,
+          "mean": 0.041666666666666664,
+          "n": 24
+        },
+        {
+          "round": 18,
+          "mean": 0.041666666666666664,
+          "n": 24
+        },
+        {
+          "round": 19,
+          "mean": 0.041666666666666664,
+          "n": 24
+        },
+        {
+          "round": 20,
+          "mean": 0.041666666666666664,
+          "n": 24
+        },
+        {
+          "round": 21,
+          "mean": 0.041666666666666664,
+          "n": 24
+        },
+        {
+          "round": 22,
+          "mean": 0.041666666666666664,
+          "n": 24
+        },
+        {
+          "round": 23,
+          "mean": 0.041666666666666664,
+          "n": 24
+        },
+        {
+          "round": 24,
+          "mean": 0.08333333333333333,
+          "n": 24
+        }
+      ],
+      "success": [
+        {
+          "round": 1,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 2,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 3,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 4,
+          "mean": 0.5,
+          "n": 24
+        },
+        {
+          "round": 5,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 6,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 7,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 8,
+          "mean": 0.375,
+          "n": 24
+        },
+        {
+          "round": 9,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 10,
+          "mean": 0.375,
+          "n": 24
+        },
+        {
+          "round": 11,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 12,
+          "mean": 0.375,
+          "n": 24
+        },
+        {
+          "round": 13,
+          "mean": 0.5,
+          "n": 24
+        },
+        {
+          "round": 14,
+          "mean": 0.375,
+          "n": 24
+        },
+        {
+          "round": 15,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 16,
+          "mean": 0.5,
+          "n": 24
+        },
+        {
+          "round": 17,
+          "mean": 0.2916666666666667,
+          "n": 24
+        },
+        {
+          "round": 18,
+          "mean": 0.3333333333333333,
+          "n": 24
+        },
+        {
+          "round": 19,
+          "mean": 0.20833333333333334,
+          "n": 24
+        },
+        {
+          "round": 20,
+          "mean": 0.5833333333333334,
+          "n": 24
+        },
+        {
+          "round": 21,
+          "mean": 0.2916666666666667,
+          "n": 24
+        },
+        {
+          "round": 22,
+          "mean": 0.2916666666666667,
+          "n": 24
+        },
+        {
+          "round": 23,
+          "mean": 0.5,
+          "n": 24
+        },
+        {
+          "round": 24,
+          "mean": 0.625,
+          "n": 24
+        }
+      ]
+    },
+    "random_target": {
+      "match": [
+        {
+          "round": 1,
+          "mean": 0.16666666666666666,
+          "n": 24
+        },
+        {
+          "round": 2,
+          "mean": 0.25,
+          "n": 24
+        },
+        {
+          "round": 3,
+          "mean": 0.3333333333333333,
+          "n": 24
+        },
+        {
+          "round": 4,
+          "mean": 0.5416666666666666,
+          "n": 24
+        },
+        {
+          "round": 5,
+          "mean": 0.2916666666666667,
+          "n": 24
+        },
+        {
+          "round": 6,
+          "mean": 0.3333333333333333,
+          "n": 24
+        },
+        {
+          "round": 7,
+          "mean": 0.25,
+          "n": 24
+        },
+        {
+          "round": 8,
+          "mean": 0.375,
+          "n": 24
+        },
+        {
+          "round": 9,
+          "mean": 0.5,
+          "n": 24
+        },
+        {
+          "round": 10,
+          "mean": 0.25,
+          "n": 24
+        },
+        {
+          "round": 11,
+          "mean": 0.2916666666666667,
+          "n": 24
+        },
+        {
+          "round": 12,
+          "mean": 0.3333333333333333,
+          "n": 24
+        },
+        {
+          "round": 13,
+          "mean": 0.5,
+          "n": 24
+        },
+        {
+          "round": 14,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 15,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 16,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 17,
+          "mean": 0.3333333333333333,
+          "n": 24
+        },
+        {
+          "round": 18,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 19,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 20,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 21,
+          "mean": 0.5416666666666666,
+          "n": 24
+        },
+        {
+          "round": 22,
+          "mean": 0.375,
+          "n": 24
+        },
+        {
+          "round": 23,
+          "mean": 0.375,
+          "n": 24
+        },
+        {
+          "round": 24,
+          "mean": 0.3333333333333333,
+          "n": 24
+        }
+      ],
+      "success": [
+        {
+          "round": 1,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 2,
+          "mean": 0.5416666666666666,
+          "n": 24
+        },
+        {
+          "round": 3,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 4,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 5,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 6,
+          "mean": 0.5416666666666666,
+          "n": 24
+        },
+        {
+          "round": 7,
+          "mean": 0.5833333333333334,
+          "n": 24
+        },
+        {
+          "round": 8,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 9,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 10,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 11,
+          "mean": 0.5833333333333334,
+          "n": 24
+        },
+        {
+          "round": 12,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 13,
+          "mean": 0.5833333333333334,
+          "n": 24
+        },
+        {
+          "round": 14,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 15,
+          "mean": 0.5,
+          "n": 24
+        },
+        {
+          "round": 16,
+          "mean": 0.5833333333333334,
+          "n": 24
+        },
+        {
+          "round": 17,
+          "mean": 0.4166666666666667,
+          "n": 24
+        },
+        {
+          "round": 18,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 19,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 20,
+          "mean": 0.625,
+          "n": 24
+        },
+        {
+          "round": 21,
+          "mean": 0.4583333333333333,
+          "n": 24
+        },
+        {
+          "round": 22,
+          "mean": 0.5416666666666666,
+          "n": 24
+        },
+        {
+          "round": 23,
+          "mean": 0.7083333333333334,
+          "n": 24
+        },
+        {
+          "round": 24,
+          "mean": 0.6666666666666666,
+          "n": 24
+        }
+      ]
+    },
+    "swap": {
+      "match": [
+        {
+          "round": 1,
+          "mean": 0.4583333333333333,
+          "n": 48
+        },
+        {
+          "round": 2,
+          "mean": 0.5625,
+          "n": 48
+        },
+        {
+          "round": 3,
+          "mean": 0.5416666666666666,
+          "n": 48
+        },
+        {
+          "round": 4,
+          "mean": 0.5208333333333334,
+          "n": 48
+        },
+        {
+          "round": 5,
+          "mean": 0.5625,
+          "n": 48
+        },
+        {
+          "round": 6,
+          "mean": 0.7083333333333334,
+          "n": 48
+        },
+        {
+          "round": 7,
+          "mean": 0.7916666666666666,
+          "n": 48
+        },
+        {
+          "round": 8,
+          "mean": 0.6875,
+          "n": 48
+        },
+        {
+          "round": 9,
+          "mean": 0.6875,
+          "n": 48
+        },
+        {
+          "round": 10,
+          "mean": 0.7291666666666666,
+          "n": 48
+        },
+        {
+          "round": 11,
+          "mean": 0.7916666666666666,
+          "n": 48
+        },
+        {
+          "round": 12,
+          "mean": 0.75,
+          "n": 48
+        },
+        {
+          "round": 13,
+          "mean": 0.16666666666666666,
+          "n": 48
+        },
+        {
+          "round": 14,
+          "mean": 0.1875,
+          "n": 48
+        },
+        {
+          "round": 15,
+          "mean": 0.25,
+          "n": 48
+        },
+        {
+          "round": 16,
+          "mean": 0.3958333333333333,
+          "n": 48
+        },
+        {
+          "round": 17,
+          "mean": 0.5208333333333334,
+          "n": 48
+        },
+        {
+          "round": 18,
+          "mean": 0.625,
+          "n": 48
+        },
+        {
+          "round": 19,
+          "mean": 0.5416666666666666,
+          "n": 48
+        },
+        {
+          "round": 20,
+          "mean": 0.6666666666666666,
+          "n": 48
+        },
+        {
+          "round": 21,
+          "mean": 0.6666666666666666,
+          "n": 48
+        },
+        {
+          "round": 22,
+          "mean": 0.7291666666666666,
+          "n": 48
+        },
+        {
+          "round": 23,
+          "mean": 0.6666666666666666,
+          "n": 48
+        },
+        {
+          "round": 24,
+          "mean": 0.6458333333333334,
+          "n": 48
+        }
+      ],
+      "success": [
+        {
+          "round": 1,
+          "mean": 0.6458333333333334,
+          "n": 48
+        },
+        {
+          "round": 2,
+          "mean": 0.6458333333333334,
+          "n": 48
+        },
+        {
+          "round": 3,
+          "mean": 0.625,
+          "n": 48
+        },
+        {
+          "round": 4,
+          "mean": 0.5,
+          "n": 48
+        },
+        {
+          "round": 5,
+          "mean": 0.3958333333333333,
+          "n": 48
+        },
+        {
+          "round": 6,
+          "mean": 0.5833333333333334,
+          "n": 48
+        },
+        {
+          "round": 7,
+          "mean": 0.7083333333333334,
+          "n": 48
+        },
+        {
+          "round": 8,
+          "mean": 0.7291666666666666,
+          "n": 48
+        },
+        {
+          "round": 9,
+          "mean": 0.5833333333333334,
+          "n": 48
+        },
+        {
+          "round": 10,
+          "mean": 0.625,
+          "n": 48
+        },
+        {
+          "round": 11,
+          "mean": 0.6666666666666666,
+          "n": 48
+        },
+        {
+          "round": 12,
+          "mean": 0.5833333333333334,
+          "n": 48
+        },
+        {
+          "round": 13,
+          "mean": 0.4375,
+          "n": 48
+        },
+        {
+          "round": 14,
+          "mean": 0.625,
+          "n": 48
+        },
+        {
+          "round": 15,
+          "mean": 0.375,
+          "n": 48
+        },
+        {
+          "round": 16,
+          "mean": 0.5208333333333334,
+          "n": 48
+        },
+        {
+          "round": 17,
+          "mean": 0.5625,
+          "n": 48
+        },
+        {
+          "round": 18,
+          "mean": 0.5208333333333334,
+          "n": 48
+        },
+        {
+          "round": 19,
+          "mean": 0.6875,
+          "n": 48
+        },
+        {
+          "round": 20,
+          "mean": 0.625,
+          "n": 48
+        },
+        {
+          "round": 21,
+          "mean": 0.5416666666666666,
+          "n": 48
+        },
+        {
+          "round": 22,
+          "mean": 0.625,
+          "n": 48
+        },
+        {
+          "round": 23,
+          "mean": 0.625,
+          "n": 48
+        },
+        {
+          "round": 24,
+          "mean": 0.6458333333333334,
+          "n": 48
+        }
+      ]
+    }
+  },
+  "analysis_contract": {
+    "early_window": [
+      1,
+      6
+    ],
+    "pre_swap_window": [
+      7,
+      12
+    ],
+    "heldout_late_window": [
+      19,
+      24
+    ],
+    "co_primary_alpha_each_one_sided": 0.025,
+    "randomization_unit": "scenario-sequence seed block"
+  },
+  "interpretation_boundary": "A real-model pass establishes balanced-bank, feedback-conditioned target-specific behavioral revision and requires replication. It does not establish an explicit internal target representation."
+}

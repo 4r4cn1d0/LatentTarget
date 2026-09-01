@@ -219,6 +219,25 @@ def test_v4_resume_rejects_provider_setting_drift(tmp_path):
         )
 
 
+def test_v4_resume_rejects_message_bank_manifest_drift(tmp_path):
+    cfg = _config(tmp_path, ["full_history"])
+    with pytest.raises(RuntimeError, match="interruption"):
+        run_controlled_experiment(
+            cfg, run_id="bank-drift", provider=FailAfterProvider(9)
+        )
+    manifest_path = tmp_path / "bank-drift.manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["message_bank_sha256"] = "tampered"
+    manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    with pytest.raises(ValueError, match="message bank"):
+        run_controlled_experiment(
+            cfg,
+            run_id="bank-drift",
+            provider=FailAfterProvider(1000),
+            resume=True,
+        )
+
+
 def test_controlled_record_validation_detects_selected_candidate_tampering(tmp_path):
     cfg = _config(tmp_path, ["full_history"])
     record = run_controlled_experiment(cfg, run_id="tamper").records[0]

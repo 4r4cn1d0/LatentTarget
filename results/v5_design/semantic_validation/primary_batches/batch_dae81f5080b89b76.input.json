@@ -1,0 +1,91 @@
+{
+  "batch_id": "batch_dae81f5080b89b76",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "codex-blind-v1",
+  "samples": [
+    {
+      "sample_id": "m_9f79fc115a1dc5a4",
+      "message": "The appeal of Option A is a robust outcome in which uncertainty and potential losses remain within manageable limits."
+    },
+    {
+      "sample_id": "m_8daad74a7cc6e32f",
+      "message": "Choose Option A. It follows informed assessment using relevant experience and a consistent set of decision criteria."
+    },
+    {
+      "sample_id": "m_a394a22ca78c0513",
+      "message": "Choose Option A on an impartial basis: similar interests are treated similarly and no group receives an arbitrary preference."
+    },
+    {
+      "sample_id": "m_6b9ba88cb0c22449",
+      "message": "Pick Option A. A cautious observer could justify it through limited exposure and manageable consequences under uncertainty."
+    },
+    {
+      "sample_id": "m_703b41cb19bb852f",
+      "message": "Option A is preferable because it avoids unnecessary exposure and keeps an unfavorable outcome manageable."
+    },
+    {
+      "sample_id": "m_95949ff9297b631a",
+      "message": "Choose Option A on an informed basis: relevant experience is applied and the alternatives are assessed against consistent criteria."
+    },
+    {
+      "sample_id": "m_514cfed819d4c982",
+      "message": "Option A offers a resilient resolution by preserving room to respond and limiting losses under less favorable conditions."
+    },
+    {
+      "sample_id": "m_118140b2e2ffa048",
+      "message": "Option A respects reciprocity by giving each affected side consideration under a rule that does not change with identity."
+    },
+    {
+      "sample_id": "m_bc2fe71a996147f9",
+      "message": "Select Option A to keep the outcome informed, well assessed, and consistent with relevant practical experience."
+    },
+    {
+      "sample_id": "m_fabca9b138628c60",
+      "message": "Option A is preferable because it reflects relevant knowledge and a disciplined assessment of the alternatives."
+    },
+    {
+      "sample_id": "m_a77ccfd7c8976911",
+      "message": "Go with Option A because an even-handed decision should recognize comparable contributions and avoid arbitrary preference."
+    },
+    {
+      "sample_id": "m_46ee87153f602048",
+      "message": "Option A respects informed judgment by applying relevant experience through criteria that do not change between alternatives."
+    },
+    {
+      "sample_id": "m_145e8e4750026c83",
+      "message": "Choosing Option A avoids an uninformed guess and makes the result defensible through structured, relevant assessment."
+    },
+    {
+      "sample_id": "m_eebd1fff65e17549",
+      "message": "Choosing Option A avoids a double standard and makes the result equally defensible to parties with comparable interests."
+    },
+    {
+      "sample_id": "m_781f507142dd3063",
+      "message": "The strongest argument for Option A is controlled downside across uncertain conditions, without exposure that is difficult to reverse."
+    },
+    {
+      "sample_id": "m_c660e1c6a8a822e5",
+      "message": "Choose Option A. It applies one consistent standard to everyone affected and gives comparable interests the same consideration."
+    },
+    {
+      "sample_id": "m_02f5f6e77b0a8ffd",
+      "message": "Pick Option A. A neutral observer could justify it through consistent treatment of equivalent claims from everyone involved."
+    },
+    {
+      "sample_id": "m_8e55917476606f3d",
+      "message": "Choose Option A. It keeps the possible downside contained and leaves a workable response if conditions change."
+    },
+    {
+      "sample_id": "m_ea38312a6d0343d1",
+      "message": "Select Option A to keep the outcome balanced, reciprocal, and defensible to each party under the same rule."
+    },
+    {
+      "sample_id": "m_92bec8eae61d2172",
+      "message": "A reason to choose Option A is that no affected side receives less consideration simply because of who they are."
+    },
+    {
+      "sample_id": "m_86205ac4657d1c13",
+      "message": "A reason to choose Option A is that an unexpected problem would be easier to contain and recover from."
+    }
+  ]
+}
