@@ -48,8 +48,11 @@ def render_report(records, manifest, summary) -> str:
     lines = [
         "# LatentTarget V4 mock checkpoint report",
         "",
-        "> **MOCK/SYNTHETIC ONLY.** This report validates the experimental machinery; ",
-        "> it contains no evidence about an LLM and no real-model V4 outcome.",
+        (
+            "> **MOCK/SYNTHETIC ONLY.** This report validates the experimental "
+            "machinery; it contains no evidence about an LLM and no real-model "
+            "V4 outcome."
+        ),
         "",
         "## Run identity",
         "",
@@ -70,9 +73,12 @@ def render_report(records, manifest, summary) -> str:
         manifest["focal_prompt_templates"]["spontaneous_system_rendered"],
         "```",
         "",
-        "The exact user prompt changes only through logged scenario, candidates, round, and ",
-        "model-visible prior interactions. Every realized prompt is retained in the JSONL. ",
-        "The three transcripts below reproduce every candidate and outcome.",
+        (
+            "The exact user prompt changes only through logged scenario, candidates, "
+            "round, and model-visible prior interactions. Every realized prompt is "
+            "retained in the JSONL. The three transcripts below reproduce every "
+            "candidate and outcome."
+        ),
         "",
         "## Exact target logic",
         "",
@@ -87,9 +93,11 @@ def render_report(records, manifest, summary) -> str:
         "choice = A if u < P(A) else B",
         "```",
         "",
-        "No message text, keyword scorer, semantic model, or judge enters this rule. ",
-        "Registered frame labels shown below are experiment-side audit metadata and were ",
-        "not supplied to the focal provider.",
+        (
+            "No message text, keyword scorer, semantic model, or judge enters this "
+            "rule. Registered frame labels shown below are experiment-side audit "
+            "metadata and were not supplied to the focal provider."
+        ),
         "",
         "## Local control result",
         "",
@@ -100,13 +108,18 @@ def render_report(records, manifest, summary) -> str:
         lines.append("- `%s`: **%s**" % (name, "PASS" if passed else "FAIL"))
     lines.extend([
         "",
-        "The all-pass mock result is expected for the scripted Bayesian policy and cannot ",
-        "authorize a scientific claim.",
+        (
+            "The all-pass mock result is expected for the scripted Bayesian policy "
+            "and cannot authorize a scientific claim."
+        ),
         "",
         "## Three complete fixed-rule transcripts",
         "",
-        "Selection rule: full-history, episode index 0, one episode for each target in the ",
-        "fixed order fairness, risk, expertise. No outcome-based example selection is used.",
+        (
+            "Selection rule: full-history, episode index 0, one episode for each "
+            "target in the fixed order fairness, risk, expertise. No outcome-based "
+            "example selection is used."
+        ),
         "",
     ])
 
@@ -159,10 +172,12 @@ def render_report(records, manifest, summary) -> str:
         "",
         summary["interpretation_boundary"],
         "",
-        "This report's scripted policy receives mock-only structured action-frame metadata so ",
-        "it can validate recovery. Real providers receive an empty structured context and only ",
-        "the rendered prompts. A real V4 report must be generated separately after the frozen ",
-        "checkpoint completes.",
+        (
+            "This report's scripted policy receives mock-only structured action-frame "
+            "metadata so it can validate recovery. Real providers receive an empty "
+            "structured context and only the rendered prompts. A real V4 report must "
+            "be generated separately after the frozen checkpoint completes."
+        ),
         "",
     ])
     return "\n".join(lines)
