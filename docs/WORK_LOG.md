@@ -665,8 +665,13 @@ synthetic validation and from claims that still require a real model.
   SHA-256 is `d7e3cdf26ba3d8c3c3c5ea48667aa69c79f44786c8a92e124db495158e639a33`;
   manifest SHA-256 is
   `b92f6d02b33f7874141dccd0a3086c9802fa918a9ffe88c9512b4a7484f80b66`.
-- Stopped GPU compute after verification. No elicited diagnostic, free-form
-  scaling, activation run, probe, or steering experiment was started.
+- Stopped GPU compute after verification. After explicit user confirmation,
+  permanently terminated pod `jn23b1x28qbksx` and its tied 100 GB volume. The
+  final observed balance was `$49.98`, approximately `$2.84` below the initial
+  balance including brief stopped-volume retention. No recurring pod charge
+  remains.
+- No elicited diagnostic, free-form scaling, activation run, probe, or steering
+  experiment was started.
 - Full operational and scientific record:
   `docs/V4_REAL_RUN_LOG_20260901.md`. Exact prompts, target logic, gates,
   metrics, and three non-cherry-picked full transcripts:

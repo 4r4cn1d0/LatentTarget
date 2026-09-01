@@ -1,6 +1,7 @@
 # V4 real-model checkpoint run log — 2026-09-01
 
-Status: **completed, analyzed once, artifacts verified locally, GPU stopped**.
+Status: **completed, analyzed once, artifacts verified locally, pod and tied
+volume terminated**.
 
 Locked scientific decision:
 `STOP_BEFORE_FREEFORM_OR_MECHANISTIC_SCALING`.
@@ -26,13 +27,15 @@ confirmatory gate as a success.
 - Full-run wall time: 1 hour, 23 minutes, 14 seconds
 - Dashboard balance before deployment: `$52.82`
 - Dashboard balance after retrieval and analysis: `$50.08`
-- Observed end-to-end balance change: approximately `$2.74`
-- Current pod state after retrieval: stopped; GPU compute is not billing
-- Stopped 100 GB volume rate shown by dashboard: `$0.028/hour`
+- Dashboard balance at final termination: `$49.98`
+- Final observed balance change: approximately `$2.84`
+- Final pod state: terminated; the tied 100 GB volume was deleted
+- Stopped 100 GB volume rate before termination: `$0.028/hour`
 
 The balance difference includes pod setup, dependency installation, tests,
-model download, two preflight attempts, the full run, and analysis. It is an
-observed dashboard delta, not a separately itemized invoice.
+model download, two preflight attempts, the full run, analysis, and brief
+stopped-volume retention before deletion. It is an observed dashboard delta,
+not a separately itemized invoice.
 
 ## Frozen design executed
 
@@ -97,6 +100,10 @@ loaded scientific values from that file and rejected drift before model load.
     local repository. Local hashes and artifact counts passed.
 14. Stopped the GPU. The dashboard showed compute as not running and only the
     stopped volume rate of `$0.028/hour`.
+15. After the user confirmed irreversible deletion, terminated pod
+    `jn23b1x28qbksx` and its tied 100 GB volume. The pod disappeared from the
+    dashboard and the account returned to the no-pods deployment page. Balance
+    at termination was `$49.98`; no pod or volume charge remains.
 
 ## Verified preflight
 

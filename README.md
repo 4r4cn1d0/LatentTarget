@@ -56,8 +56,9 @@ Key results:
 - the model had a strong expertise-frame prior, explaining much of the
   transition asymmetry: swaps into expertise adapted far more often than swaps
   away from it;
-- all raw artifacts were checksum-verified locally, the observed RunPod balance
-  change was approximately `$2.74`, and GPU compute was stopped after retrieval;
+- all raw artifacts were checksum-verified locally; the final observed RunPod
+  balance change was approximately `$2.84`, including brief stopped-volume
+  retention, and the pod and its tied volume were terminated after retrieval;
 - [`PILOT_REPORT_V4_REAL.md`](PILOT_REPORT_V4_REAL.md) contains exact prompts,
   target logic, gates, metrics, and three complete fixed-rule transcripts;
 - [`docs/V4_REAL_RUN_LOG_20260901.md`](docs/V4_REAL_RUN_LOG_20260901.md) records
