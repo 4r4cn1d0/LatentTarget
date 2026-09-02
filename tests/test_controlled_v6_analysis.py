@@ -1145,7 +1145,12 @@ def test_v6_analysis_publication_exact_retry_is_idempotent(tmp_path):
         tmp_path, "stage-one"
     )
     first = _publish_staged_analysis(
-        str(stage), str(out_dir), expected, hashes, summary_hash
+        str(stage),
+        str(out_dir),
+        expected,
+        hashes,
+        summary_hash,
+        repository_root=str(tmp_path),
     )
     before = {
         relative: hashlib.sha256((out_dir / relative).read_bytes()).hexdigest()
@@ -1155,7 +1160,12 @@ def test_v6_analysis_publication_exact_retry_is_idempotent(tmp_path):
         tmp_path, "stage-two"
     )
     second = _publish_staged_analysis(
-        str(retry), str(out_dir), expected, retry_hashes, retry_summary_hash
+        str(retry),
+        str(out_dir),
+        expected,
+        retry_hashes,
+        retry_summary_hash,
+        repository_root=str(tmp_path),
     )
     after = {
         relative: hashlib.sha256((out_dir / relative).read_bytes()).hexdigest()
@@ -1175,7 +1185,12 @@ def test_v6_analysis_completed_summary_never_recovers_deleted_sibling(tmp_path):
         tmp_path, "completed-stage"
     )
     _publish_staged_analysis(
-        str(stage), str(out_dir), expected, hashes, summary_hash
+        str(stage),
+        str(out_dir),
+        expected,
+        hashes,
+        summary_hash,
+        repository_root=str(tmp_path),
     )
     missing = out_dir / "tables" / "new.csv"
     missing.unlink()
@@ -1190,6 +1205,7 @@ def test_v6_analysis_completed_summary_never_recovers_deleted_sibling(tmp_path):
             expected,
             retry_hashes,
             retry_summary_hash,
+            repository_root=str(tmp_path),
         )
     assert not missing.exists()
     assert (out_dir / V6_SUMMARY_NAME).is_file()
@@ -1201,7 +1217,12 @@ def test_v6_analysis_publication_rejects_writable_existing_artifact(tmp_path):
         tmp_path, "mode-stage"
     )
     _publish_staged_analysis(
-        str(stage), str(out_dir), expected, hashes, summary_hash
+        str(stage),
+        str(out_dir),
+        expected,
+        hashes,
+        summary_hash,
+        repository_root=str(tmp_path),
     )
     writable = out_dir / "tables" / "new.csv"
     writable.chmod(0o644)
@@ -1216,6 +1237,7 @@ def test_v6_analysis_publication_rejects_writable_existing_artifact(tmp_path):
             expected,
             retry_hashes,
             retry_summary_hash,
+            repository_root=str(tmp_path),
         )
 
 
@@ -1237,7 +1259,12 @@ def test_v6_analysis_publication_recovers_matching_missing_siblings(
         patcher.setattr(analyze_v6_module, "_link_create_once", crash_on_table)
         with pytest.raises(OSError, match="simulated publication crash"):
             _publish_staged_analysis(
-                str(stage), str(out_dir), expected, hashes, summary_hash
+                str(stage),
+                str(out_dir),
+                expected,
+                hashes,
+                summary_hash,
+                repository_root=str(tmp_path),
             )
     assert (out_dir / "figures" / "new.png").is_file()
     assert not (out_dir / "tables" / "new.csv").exists()
@@ -1252,6 +1279,7 @@ def test_v6_analysis_publication_recovers_matching_missing_siblings(
         expected,
         recovered_hashes,
         recovered_summary_hash,
+        repository_root=str(tmp_path),
     )
     assert Path(summary_path).read_text(encoding="utf-8") == "new summary"
     assert {
@@ -1267,7 +1295,12 @@ def test_v6_analysis_publication_rejects_conflicting_retry(tmp_path):
         tmp_path, "original-stage"
     )
     _publish_staged_analysis(
-        str(stage), str(out_dir), expected, hashes, summary_hash
+        str(stage),
+        str(out_dir),
+        expected,
+        hashes,
+        summary_hash,
+        repository_root=str(tmp_path),
     )
     conflicting, _, conflict_hashes, conflict_summary_hash = (
         _make_publication_stage(
@@ -1284,6 +1317,7 @@ def test_v6_analysis_publication_rejects_conflicting_retry(tmp_path):
             expected,
             conflict_hashes,
             conflict_summary_hash,
+            repository_root=str(tmp_path),
         )
     assert (out_dir / "tables" / "new.csv").read_text(encoding="utf-8") == "new"
 
@@ -1297,6 +1331,11 @@ def test_v6_analysis_publication_rejects_extra_file(tmp_path):
     )
     with pytest.raises(RuntimeError, match="unregistered artifacts"):
         _publish_staged_analysis(
-            str(stage), str(out_dir), expected, hashes, summary_hash
+            str(stage),
+            str(out_dir),
+            expected,
+            hashes,
+            summary_hash,
+            repository_root=str(tmp_path),
         )
     assert (out_dir / "unrelated.txt").read_text(encoding="utf-8") == "do not sweep me"

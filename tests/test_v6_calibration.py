@@ -926,3 +926,65 @@ def test_launch_receipt_accepts_exact_resume_and_rejects_foreign_receipt(
     linked.symlink_to(external)
     with pytest.raises(ValueError, match="symlink"):
         module._write_atomic_launch_receipt(str(linked), payload)
+
+
+def test_calibration_cli_rejects_copied_protocol_before_artifact_reads(
+    tmp_path, monkeypatch
+):
+    monkeypatch.syspath_prepend(str(ROOT / "scripts"))
+    spec = importlib.util.spec_from_file_location(
+        "run_v6_calibration_protocol_path_test",
+        ROOT / "scripts" / "run_v6_calibration.py",
+    )
+    assert spec is not None and spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    monkeypatch.setattr(module._bootstrap, "ROOT", str(tmp_path))
+    copied = tmp_path / "copied-protocol.json"
+    copied.write_text("{}\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="canonical repository protocol"):
+        module.main(
+            [
+                "--bank",
+                str(tmp_path / "missing-bank.json"),
+                "--protocol-spec",
+                str(copied),
+                "--mode",
+                V6_POOL_MODE,
+                "--run-id",
+                "unauthorized",
+                "--dry-run",
+            ]
+        )
+
+
+def test_repository_terminal_protocol_blocks_calibration_before_model(
+    monkeypatch,
+):
+    monkeypatch.syspath_prepend(str(ROOT / "scripts"))
+    spec = importlib.util.spec_from_file_location(
+        "run_v6_calibration_terminal_test",
+        ROOT / "scripts" / "run_v6_calibration.py",
+    )
+    assert spec is not None and spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    monkeypatch.setattr(module._bootstrap, "ROOT", str(ROOT))
+
+    def must_not_run(*_args, **_kwargs):
+        raise AssertionError("terminal V6 protocol reached model/runtime loading")
+
+    monkeypatch.setattr(module, "collect_focal_runtime_evidence", must_not_run)
+    monkeypatch.setattr(module, "HuggingFaceProvider", must_not_run)
+    with pytest.raises(ValueError, match="planned V6 calibration differs"):
+        module.main(
+            [
+                "--bank",
+                str(POOL),
+                "--mode",
+                V6_POOL_MODE,
+                "--run-id",
+                "v6_pool_screening_qwen38_27b_20260902",
+                "--dry-run",
+            ]
+        )

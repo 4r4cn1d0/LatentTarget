@@ -775,6 +775,20 @@ def _load_cli_module(monkeypatch):
     return module
 
 
+def test_repository_terminal_protocol_blocks_quality_transport(
+    monkeypatch,
+):
+    cli = _load_cli_module(monkeypatch)
+
+    def must_not_run(*_args, **_kwargs):
+        raise AssertionError("terminal V6 protocol reached a judge transport")
+
+    monkeypatch.setattr(cli, "attest_codex_executable", must_not_run)
+    monkeypatch.setattr(cli, "_run_judge", must_not_run)
+    with pytest.raises(RuntimeError, match="does not authorize"):
+        cli.main([])
+
+
 def test_cli_defaults_and_full_flow_use_fake_message_only_judges(
     tmp_path, monkeypatch, capsys
 ):

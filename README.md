@@ -15,13 +15,12 @@ manipulate, profile or exploit anything.
 
 ---
 
-## Current status: corrected V6 power gate frozen; execution blocked
+## Current status: V6 stopped prospectively as underpowered
 
-V6 has not produced a judge, focal-model, target-bearing, activation, probe,
-steering, or paid GPU outcome. A final independent review correctly rejected
-an earlier terminal claim: its arithmetic was exact only for IID multinomial
-choices, while the registered power model contains heterogeneous, correlated
-round paths. That certificate has been withdrawn.
+V6 ended at its preregistered prospective power gate with
+**`STOP_V6_UNDERPOWERED_FINAL`**. It produced no judge, focal-model,
+target-bearing, activation, probe, steering, or paid GPU outcome. This is a
+design/feasibility result—not evidence for or against latent target modelling.
 
 The last adversarial review replaced invalid observational sign-flips with
 prospective matched-bundle randomization, added a stable-old counterfactual to
@@ -32,13 +31,22 @@ power simulation. The complete execution and artifact graph is fail-closed:
 judge/runtime identity, immutable banks, launch receipts, exact record replay,
 safe descriptor reads, crash recovery, and source closures are all tested.
 
-The corrected, outcome-free power implementation now evaluates the exact
-registered heterogeneous no-history path constructor. It may short-circuit the
-larger power grid only through replicate-wise dominance: complete-pattern
-success implies balance-gate success under the same frozen simulation draws.
-The correction must be committed and tagged before that CPU-only screen runs.
-Until then V6 is **unresolved**, all model execution is fail-closed, and no
-experimental result is claimed. See
+An independent review rejected an earlier IID-multinomial terminal claim
+because the registered power model contains heterogeneous, correlated paths.
+That certificate was withdrawn. The corrected code and protocol were then
+committed, tagged `v6-power-correction-preregistered`, and pushed before any
+new simulation output. The official corrected screen ran 120,000 model-free
+studies using the exact registered no-history path constructor: 10,000 studies
+for each of three learner profiles and each allowed sample size
+`N ∈ {12,18,24,30}`.
+
+For every N, the blocking cell's balance-gate Wilson lower bound was only
+0.4088–0.4222, versus the frozen requirement of 0.80. Complete-pattern success
+is a replicate-wise subset of balance-gate success, so no allowed N can pass
+the every-cell complete-power rule. The deterministic artifact was replayed
+independently and is bound into the terminal protocol. The full 169-cell
+simulation, judges, calibration, validation, confirmatory run, and paid GPU
+work are therefore prohibited. See
 [`docs/V6_FINAL_PROTOCOL.md`](docs/V6_FINAL_PROTOCOL.md),
 [`docs/V6_PREJUDGE_CODE_REVIEW.md`](docs/V6_PREJUDGE_CODE_REVIEW.md), and
 [`docs/V6_RUNBOOK.md`](docs/V6_RUNBOOK.md).

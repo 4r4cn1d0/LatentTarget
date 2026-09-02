@@ -1,9 +1,10 @@
-# V6 final execution runbook (power correction frozen)
+# V6 final execution runbook (archived at power stop)
 
-Status: **`V6_POWER_CORRECTION_FROZEN`**. Do not execute any judge or model
+Status: **`STOP_V6_UNDERPOWERED_FINAL`**. Do not execute any judge or model
 stage. The earlier IID terminal proof was invalid for the heterogeneous path
-DGP and has been withdrawn. Only the corrected CPU-only power screen in stage
-5 is authorized after this revision is committed and tagged.
+DGP and was withdrawn. The corrected CPU-only power screen in stage 5 was
+prospectively anchored, executed, independently replayed, and failed its frozen
+power rule. Nothing else in this runbook remains authorized.
 
 V6 is the final instrument attempt. There is no V7, outcome-triggered redesign,
 threshold relaxation, extra validation, sample extension, activation capture,
@@ -23,9 +24,9 @@ probe, steering, or free-form rescue in this milestone.
 
 Do not substitute a model alias, revision, seed, batch size, path, run ID,
 scenario set, or threshold. The CLIs enforce these values and canonical paths,
-but unresolved power blocks model execution altogether.
+and terminal power now blocks model execution altogether.
 
-## 0. Completed local release audit
+## 0. Local release audit
 
 Run from the repository root:
 
@@ -39,28 +40,22 @@ python3 -m pytest -q
 codex --version
 ```
 
-Most recent observed results before the correction:
+The prospective power correction was committed as
+`c2da851f5445866a9ed4a8731808ac028e9c07d8` and pushed under annotated tag
+`v6-power-correction-preregistered` before its result existed. Final test and
+review evidence is recorded in `docs/WORK_LOG.md` and
+`docs/V6_PREJUDGE_CODE_REVIEW.md`.
 
-- complete **736/736** test pass;
-- Python compilation, protocol JSON parsing, and `git diff --check` pass;
-- `codex-cli 0.149.0`;
-- exact Codex executable SHA-256
-  `134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477`;
-- no V6 judge, focal, target-bearing, activation, probe, steering, launch
-  receipt, or paid GPU output.
-
-Those counts predate the correction and must be rerun. No power artifact from
-the corrected path model exists yet.
-
-## Corrected gate before stage 1
+## Corrected gate result
 
 The prior IID values did not represent the frozen simulator because choices
-share heterogeneous bundle/round/slot effects. The corrected screen runs those
-actual paths with the registered fixed seeds. Sections 1–4 and 6 onward remain
-blocked. Stage 5 alone decides whether V6 stops or must complete the full power
-grid.
+share heterogeneous bundle/round/slot effects. The corrected screen ran those
+actual paths with the registered fixed seeds. The blocking Wilson lower bounds
+for N=12, 18, 24, and 30 were respectively 0.4088, 0.4151, 0.4192, and 0.4222,
+all below the required 0.80. Sections 1–4 and 6–12 are retained below only to
+document the counterfactual pipeline; **do not execute them**.
 
-## 1. Blind target-free measurement gates
+## 1. Blind target-free measurement gates (historical; prohibited)
 
 These commands make 12 total schema-constrained Codex judge calls: three
 batches for each of two models in each of two independent rubrics. The judges
@@ -87,7 +82,7 @@ If interrupted, rerun the same command. A successful paid batch is recovered
 from its audited journal/triplet and its whole-batch cache is published
 atomically. A divergent partial artifact fails closed.
 
-## 2. Model-free pool dry run on the GPU host
+## 2. Model-free pool dry run on the GPU host (historical; prohibited)
 
 The GPU host must check out the exact pushed pre-judge commit. Reuse the
 persistent Hugging Face cache only after confirming the model revision.
@@ -106,7 +101,7 @@ python3 scripts/run_v6_calibration.py \
 The dry run must report 1,680 prompts, no target, no history, and a passing
 schedule/protocol audit. It creates no receipt and loads no model.
 
-## 3. Official target-free pool screening
+## 3. Official target-free pool screening (historical; prohibited)
 
 ```bash
 python3 scripts/run_v6_calibration.py \
@@ -129,7 +124,7 @@ prefix before loading the model, then starts at the first missing coordinate.
 Pull the complete canonical directories back to the local repository before
 selection. Do not summarize from an unpulled pod copy.
 
-## 4. Whole-triad selection support gate
+## 4. Whole-triad selection support gate (historical; prohibited)
 
 ```bash
 python3 scripts/select_v6_bank.py \
@@ -146,7 +141,7 @@ Exit code 2 is a terminal calibration-support failure. On pass, the exact
 pending bank contains six development and four held-out triads. Exact reruns
 are idempotent; conflicting pre-existing output fails closed.
 
-## 5. Prospective power (the only currently authorized stage)
+## 5. Prospective power (completed terminal stage)
 
 This step is CPU-only and cannot read selected-bank validation outcomes.
 
@@ -160,10 +155,16 @@ three learner profiles and all four N values at
 path constructor and study offsets as the complete grid. If the registered
 replicate-wise dominance rule blocks every N, it writes
 `results/v6_design/power_prevalidation/v6_path_balance_dominance.json` and
-exits 2. Otherwise it continues through the complete 169-cell program. Neither
-outcome has been observed at this preregistration revision.
+exits 2. Otherwise it continues through the complete 169-cell program.
 
-## 6. Freeze the pre-validation artifact graph
+Observed result: exit code 2 and
+`STOP_V6_UNDERPOWERED_BEFORE_VALIDATION`. The output file has SHA-256
+`23ca7e9155980dd8bf3e50b69e00353a5af8baf3cb535c2b3f28e6432b6d1d0b`;
+its canonical certificate SHA-256 is
+`79fd9eccf334789ed1249e39ee076d2f74f87f1c505273f07f75350f71187865`.
+The complete 169-cell branch was correctly skipped.
+
+## 6. Freeze the pre-validation artifact graph (historical; prohibited)
 
 ```bash
 python3 scripts/freeze_v6_validation_checkpoint.py \
@@ -182,7 +183,7 @@ Commit and push the complete artifact graph before independent validation.
 After this checkpoint, changing any Python file under `src/` or `scripts/`,
 either requirements file, or `config.py` invalidates the run.
 
-## 7. One independent selected-bank validation
+## 7. One independent selected-bank validation (historical; prohibited)
 
 First run the dry audit on the exact checkpoint commit:
 
@@ -208,7 +209,7 @@ python3 scripts/run_v6_calibration.py \
 This makes 840 target-free, no-history choices. Pull its canonical receipt,
 JSONL, manifest, and sample artifacts back before finalization.
 
-## 8. Apply the terminal validation gate and freeze confirmation
+## 8. Apply the terminal validation gate and freeze confirmation (historical; prohibited)
 
 ```bash
 python3 scripts/finalize_v6_bank.py \
@@ -225,7 +226,7 @@ Exit code 2 is the final instrument-limitation result. There is no reselection
 or second validation. On pass, commit and push the validation artifacts,
 validated bank, and final checkpoint before any target-bearing call.
 
-## 9. Confirmatory dry run and disjoint one-generation preflight
+## 9. Confirmatory dry run and preflight (historical; prohibited)
 
 ```bash
 python3 scripts/run_controlled_open_weight_v6.py \
@@ -241,7 +242,7 @@ from every official cell and produces no target outcome. It must write exactly
 `results/v6_design/confirmatory_paid_preflight.json` and pass all non-overlap,
 model, revision, and constrained-choice checks.
 
-## 10. Single official confirmatory run
+## 10. Single official confirmatory run (historical; prohibited)
 
 ```bash
 python3 scripts/run_controlled_open_weight_v6.py \
@@ -257,7 +258,7 @@ model; an already sealed run is verified idempotently.
 Canonical outputs are under `data/raw/v6_confirmatory/`, with the one launch
 receipt at `results/v6_design/launch_receipts/v6_confirmatory.json`.
 
-## 11. Frozen analysis
+## 11. Frozen analysis (historical; prohibited)
 
 After pulling and hashing the complete sealed log/manifest:
 

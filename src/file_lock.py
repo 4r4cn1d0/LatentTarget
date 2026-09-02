@@ -14,6 +14,8 @@ import stat
 import time
 from typing import Any, Mapping, Optional
 
+from .logging_utils import _contained_open_target, _make_contained_directories
+
 try:  # POSIX (the local Mac and RunPod Linux hosts)
     import fcntl as _fcntl
 except ImportError:  # pragma: no cover - Windows path
@@ -112,10 +114,12 @@ class ExclusiveFileLock:
         *,
         label: str = "official run",
         metadata: Optional[Mapping[str, Any]] = None,
+        root: Optional[str] = None,
     ) -> None:
         self.path = os.path.abspath(path)
         self.label = str(label)
         self.metadata = dict(metadata or {})
+        self.root = os.path.abspath(root) if root is not None else None
         self._descriptor: Optional[int] = None
         self._backend: Optional[str] = None
 
@@ -128,15 +132,36 @@ class ExclusiveFileLock:
                 % self.label
             )
         parent = os.path.dirname(self.path) or os.curdir
-        os.makedirs(parent, exist_ok=True)
-        require_directory_nonsymlink(parent, label=self.label + " lock parent")
-        require_regular_nonsymlink(
-            self.path, label=self.label + " lock file", allow_missing=True
-        )
+        parent_descriptor: Optional[int] = None
+        leaf: Optional[str] = None
+        if self.root is None:
+            os.makedirs(parent, exist_ok=True)
+            require_directory_nonsymlink(parent, label=self.label + " lock parent")
+            require_regular_nonsymlink(
+                self.path, label=self.label + " lock file", allow_missing=True
+            )
+        else:
+            _make_contained_directories(parent, self.root, self.label + " lock")
+            parent_descriptor, leaf = _contained_open_target(
+                self.path, self.root, self.label + " lock"
+            )
         flags = os.O_RDWR | os.O_CREAT
         if hasattr(os, "O_NOFOLLOW"):
             flags |= os.O_NOFOLLOW
-        descriptor = os.open(self.path, flags, 0o600)
+        if hasattr(os, "O_NONBLOCK"):
+            flags |= os.O_NONBLOCK
+        if hasattr(os, "O_CLOEXEC"):
+            flags |= os.O_CLOEXEC
+        try:
+            descriptor = (
+                os.open(self.path, flags, 0o600)
+                if parent_descriptor is None
+                else os.open(leaf, flags, 0o600, dir_fd=parent_descriptor)
+            )
+        except BaseException:
+            if parent_descriptor is not None:
+                os.close(parent_descriptor)
+            raise
         try:
             metadata = os.fstat(descriptor)
             if not stat.S_ISREG(metadata.st_mode):
@@ -177,12 +202,21 @@ class ExclusiveFileLock:
             while offset < len(encoded):
                 offset += os.write(descriptor, encoded[offset:])
             os.fsync(descriptor)
-            fsync_directory_best_effort(parent)
+            if parent_descriptor is None:
+                fsync_directory_best_effort(parent)
+            else:
+                try:
+                    os.fsync(parent_descriptor)
+                except OSError:
+                    pass
             self._descriptor = descriptor
             return self
         except BaseException:
             os.close(descriptor)
             raise
+        finally:
+            if parent_descriptor is not None:
+                os.close(parent_descriptor)
 
     def release(self) -> None:
         descriptor = self._descriptor

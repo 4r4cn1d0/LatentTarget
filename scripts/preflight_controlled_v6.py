@@ -598,6 +598,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         lock_path,
         label="V6 paid preflight",
         metadata={"official_run_id": plan.run_id},
+        root=plan.repository_root,
     ):
         # The complete checkpoint graph and frozen runtime contract are audited
         # before constructing the provider. The first generate call performs the

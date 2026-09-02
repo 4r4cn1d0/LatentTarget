@@ -458,7 +458,7 @@ def test_v6_checkpoint_chain_replays_selection_validation_and_run_identity(
         "freeze_v6_validation_checkpoint.py",
         "freeze_v6_validation_checkpoint_test",
     )
-    freeze_cli._bootstrap.ROOT = str(tmp_path)
+    monkeypatch.setattr(freeze_cli._bootstrap, "ROOT", str(tmp_path))
     prevalidation_path = tmp_path / "artifacts" / "prevalidation.json"
     assert (
         freeze_cli.main(
@@ -716,14 +716,18 @@ def test_v6_checkpoint_chain_replays_selection_validation_and_run_identity(
     run_cli = _load_script(
         monkeypatch, "run_v6_calibration.py", "run_v6_calibration_checkpoint_test"
     )
-    run_cli._bootstrap.ROOT = str(tmp_path)
+    monkeypatch.setattr(run_cli._bootstrap, "ROOT", str(tmp_path))
+    canonical_protocol_path = (
+        tmp_path / "docs" / "v6_calibration_protocol.json"
+    )
+    _write_json(canonical_protocol_path, protocol)
     with pytest.raises(ValueError, match="single official run-id"):
         run_cli.main(
             [
                 "--bank",
                 str(pending_path),
                 "--protocol-spec",
-                str(protocol_path),
+                str(canonical_protocol_path),
                 "--mode",
                 V6_VALIDATION_MODE,
                 "--run-id",
@@ -739,7 +743,7 @@ def test_v6_checkpoint_chain_replays_selection_validation_and_run_identity(
                 "--bank",
                 str(pending_path),
                 "--protocol-spec",
-                str(protocol_path),
+                str(canonical_protocol_path),
                 "--mode",
                 V6_VALIDATION_MODE,
                 "--run-id",

@@ -23,6 +23,7 @@ from config import (
 )
 from .controlled_messages import MessageCandidate
 from .controlled_protocol import ControlledProtocol
+from .logging_utils import read_regular_bytes, strict_json_loads
 from .scenarios import v6_scenario_sequence
 from .seeding import rng
 
@@ -257,6 +258,7 @@ def audit_v6_bank_payload(payload: Mapping[str, Any]) -> Dict[str, Any]:
 class V6TriadBank:
     payload: Dict[str, Any]
     source_path: str
+    source_file_sha256: str | None = None
     validation_evidence: Dict[str, Any] | None = None
 
     @classmethod
@@ -267,8 +269,17 @@ class V6TriadBank:
         final_checkpoint_path: str | None = None,
         checkpoint_root: str | None = None,
     ) -> "V6TriadBank":
-        with open(path, "r", encoding="utf-8") as handle:
-            payload = json.load(handle)
+        raw = read_regular_bytes(
+            path,
+            root=checkpoint_root,
+            label="V6 triad bank",
+        )
+        try:
+            payload = strict_json_loads(raw.decode("utf-8"))
+        except UnicodeDecodeError as exc:
+            raise ValueError("V6 triad bank must be UTF-8 JSON") from exc
+        if not isinstance(payload, Mapping):
+            raise ValueError("invalid V6 triad bank: payload_mapping")
         audit = audit_v6_bank_payload(payload)
         if not audit["pass"]:
             failed = sorted(
@@ -282,11 +293,20 @@ class V6TriadBank:
                     "V6 confirmatory use requires a full final checkpoint; "
                     "validated status alone is not evidence"
                 )
-            with open(final_checkpoint_path, "r", encoding="utf-8") as handle:
-                checkpoint = json.load(handle)
+            checkpoint_raw = read_regular_bytes(
+                final_checkpoint_path,
+                root=checkpoint_root,
+                label="V6 final checkpoint",
+            )
+            try:
+                checkpoint = strict_json_loads(checkpoint_raw.decode("utf-8"))
+            except UnicodeDecodeError as exc:
+                raise ValueError("V6 final checkpoint must be UTF-8 JSON") from exc
+            if not isinstance(checkpoint, Mapping):
+                raise ValueError("V6 final checkpoint must be a JSON object")
             # Imported lazily to avoid a module cycle: the artifact gate loads
             # structurally valid banks while replaying the transition.
-            from .v6_calibration import bank_content_sha256, canonical_sha256, file_sha256
+            from .v6_calibration import bank_content_sha256, canonical_sha256
             from .v6_protocol_gate import audit_v6_final_checkpoint
 
             root = checkpoint_root or os.getcwd()
@@ -308,13 +328,14 @@ class V6TriadBank:
                 raise ValueError("V6 final checkpoint proves a different validated bank")
             evidence = {
                 "path": _portable_source_path(final_checkpoint_path),
-                "file_sha256": file_sha256(final_checkpoint_path),
+                "file_sha256": hashlib.sha256(checkpoint_raw).hexdigest(),
                 "canonical_sha256": canonical_sha256(checkpoint),
                 "artifact_audit": checkpoint_audit,
             }
         return cls(
             payload=payload,
             source_path=_portable_source_path(path),
+            source_file_sha256=hashlib.sha256(raw).hexdigest(),
             validation_evidence=evidence,
         )
 

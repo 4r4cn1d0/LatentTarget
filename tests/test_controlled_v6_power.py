@@ -487,20 +487,31 @@ def test_path_balance_dominance_screen_replays_and_rejects_mutation():
         audit_v6_path_balance_dominance_screen(forged)
 
 
-def test_repository_protocol_freezes_corrected_power_before_result():
+def test_repository_protocol_binds_terminal_corrected_power_result():
     protocol = json.loads(
         (ROOT / "docs" / "v6_calibration_protocol.json").read_text(
             encoding="utf-8"
         )
     )
     reference = protocol["power_design"]["result"]
-    assert protocol["status"] == "V6_POWER_CORRECTION_FROZEN"
-    assert reference["status"] == "NOT_RUN"
-    assert not (ROOT / reference["path"]).exists()
+    artifact_path = ROOT / reference["path"]
+    artifact_bytes = artifact_path.read_bytes()
+    artifact = json.loads(artifact_bytes)
+    assert protocol["status"] == "STOP_V6_UNDERPOWERED_FINAL"
+    assert reference["status"] == "STOP_V6_UNDERPOWERED_BEFORE_VALIDATION"
+    assert reference["terminal"] is True
+    assert reference["official"] is True
+    assert reference["pass"] is False
+    assert reference["selected_episode_seeds"] is None
+    assert hashlib.sha256(artifact_bytes).hexdigest() == reference["file_sha256"]
+    assert artifact["certificate_sha256"] == reference["certificate_sha256"]
+    assert audit_v6_path_balance_dominance_screen(
+        artifact, replay=False
+    )["audit_pass"] is True
     assert protocol["power_design"]["contract_sha256"] == (
         V6_POWER_CONTRACT_SHA256
     )
-    assert protocol["next_gate"].startswith("Commit and tag")
+    assert protocol["next_gate"] is None
 
 
 def test_contract_and_live_gate_drift_fail_closed(monkeypatch):

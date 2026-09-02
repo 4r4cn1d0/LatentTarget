@@ -284,6 +284,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         lock_path,
         label="V6 quality validation complete run",
         metadata={"contract_sha256": enforced_contract["contract_sha256"]},
+        root=ROOT,
     ):
         return _run_complete_validation(
             args,

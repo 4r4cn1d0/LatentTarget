@@ -1180,3 +1180,60 @@ synthetic validation and from claims that still require a real model.
   Missing, copied-inline, pending, unknown, and terminal statuses fail closed.
 - The corrected power code, protocol, and tests must be committed and tagged
   before its fixed-seed CPU-only screen runs. Paid/model work remains blocked.
+
+## 2026-09-02 — Corrected heterogeneous-path power STOP and final closure
+
+- Froze the corrected design before its result at commit
+  `c2da851f5445866a9ed4a8731808ac028e9c07d8`, created annotated tag
+  `v6-power-correction-preregistered`, and pushed both `main` and the tag to
+  GitHub. At that revision the canonical protocol recorded `NOT_RUN` and the
+  corrected result artifact did not exist.
+- Ran the sole authorized command:
+  `.venv/bin/python scripts/power_controlled_v6.py --n-sim 10000`. It used CPU
+  only, exited `2` as registered, and took 341.70 seconds wall time. It ran
+  120,000 complete model-free no-history path studies: 10,000 for each of
+  three learner profiles at each of `N=12,18,24,30` in the registered
+  `minimum_share_boundary_01` cell.
+- The blocking cells were:
+  `N=12`, learner 3, 4,184/10,000 balance passes, Wilson lower 0.4087645;
+  `N=18`, learner 1, 4,248/10,000, lower 0.4151422;
+  `N=24`, learner 2, 4,289/10,000, lower 0.4192287; and
+  `N=30`, learner 3, 4,319/10,000, lower 0.4222193. All are below the frozen
+  0.80 requirement.
+- This is a valid short-circuit rather than an approximation. The complete
+  behavioral rule includes the same realized no-history balance predicate, so
+  complete successes are a replicate-wise subset of balance successes.
+  Wilson lower bounds are monotone in success counts. One registered failing
+  cell blocks each N under the frozen every-cell selection rule.
+- Published exactly one V6 result:
+  `results/v6_design/power_prevalidation/v6_path_balance_dominance.json`.
+  File SHA-256 is
+  `23ca7e9155980dd8bf3e50b69e00353a5af8baf3cb535c2b3f28e6432b6d1d0b`;
+  certificate SHA-256 is
+  `79fd9eccf334789ed1249e39ee076d2f74f87f1c505273f07f75350f71187865`;
+  frozen contract SHA-256 is
+  `e29dbbe8da2ecf6f7d891f5aee997052aff3d06dfc10e31db0d55ab757be2fd9`.
+- Replayed all 120,000 studies independently through the artifact auditor. The
+  regenerated canonical payload matched exactly. A separate scientific
+  reviewer also recomputed every Wilson interval and blocker and returned
+  PASS with zero Critical and zero Warning findings (95 focused tests passed).
+- Closed the remaining code-review findings after the power result without
+  changing the registered DGP, randomization, estimands, power rule, or power
+  runner: canonical terminal status now blocks judge and calibration CLIs;
+  critical JSON/bank reads and receipt/manifest writes are root-anchored;
+  locks retain verified parent descriptors; physical-slot RNG and exact
+  no-history byte reuse are covered by adversarial tests; and the dormant
+  tool-enabled judge transport is explicitly disclosed and never invoked.
+- Final integrated local verification: `745 passed in 682.99s`; focused
+  post-hardening bank/protocol tests: `22 passed`; Python compilation, strict
+  protocol JSON parsing, and `git diff --check`: PASS.
+- **Cost/execution:** V6 made zero judge calls, zero focal-model calls, zero
+  target-bearing calls, zero API calls, zero GPU deployments, and zero paid
+  GPU minutes. V6 incremental API/GPU cost is `$0`. The previously observed
+  stopped V5 pod/volume account state remains documented above and is not a V6
+  expense.
+- Final interpretation: `STOP_V6_UNDERPOWERED_FINAL` is a prospective
+  design-feasibility limitation. It is not evidence for or against dynamic
+  target modelling. Per the frozen rule, no full-grid rescue, judge run,
+  calibration, validation, confirmatory experiment, activation collection,
+  probe, steering, or V7 redesign was run or remains authorized.

@@ -1,13 +1,14 @@
 # V6 final protocol: triad-calibrated behavioral checkpoint
 
-Status: **`V6_POWER_CORRECTION_FROZEN`**. No V6 judge, focal calibration,
+Status: **`STOP_V6_UNDERPOWERED_FINAL`**. No V6 judge, focal calibration,
 target-bearing outcome, activation, probe, steering, or paid GPU result exists.
 
 V6 is the final redesign; there is no V7 rescue. An independent review rejected
 the earlier IID-multinomial terminal proof because the registered power DGP has
-heterogeneous, correlated round paths. That certificate is withdrawn. The
-corrected path-based power screen is frozen here before it runs, and every
-judge/model path remains unauthorized until power is resolved.
+heterogeneous, correlated round paths. That certificate was withdrawn. The
+corrected path-based power implementation was committed, tagged, and pushed
+before its official fixed-seed run. That run failed the frozen power rule, so
+every downstream judge/model path is permanently unauthorized for V6.
 
 ## Question and claim boundary
 
@@ -197,26 +198,49 @@ screened balance lower bound is below 0.80 cannot satisfy the every-cell
 complete-power selection rule. Only that logical dominance permits the
 remaining expensive trajectories to be skipped.
 
-This correction is committed and tagged before its fixed-seed CPU-only screen
-runs. Until the resulting artifact is independently replayed, V6 is unresolved
-rather than terminal.
+The correction was prospectively anchored at commit
+`c2da851f5445866a9ed4a8731808ac028e9c07d8`, annotated tag
+`v6-power-correction-preregistered`, and pushed before the corrected result
+existed. The official CPU-only run then executed 10,000 studies in each of the
+12 registered screen cells (120,000 studies total):
+
+| N bundles | Blocking profile | Balance successes | Wilson lower bound |
+|---:|---|---:|---:|
+| 12 | learner 3 | 4,184 / 10,000 | 0.4088 |
+| 18 | learner 1 | 4,248 / 10,000 | 0.4151 |
+| 24 | learner 2 | 4,289 / 10,000 | 0.4192 |
+| 30 | learner 3 | 4,319 / 10,000 | 0.4222 |
+
+Every lower bound is far below 0.80. Because a complete success necessarily
+passes this same balance gate on the same replicate, complete successes cannot
+outnumber balance successes and their Wilson lower bound cannot be higher.
+Thus every registered N is blocked without simulating the remaining paths.
+
+The result is stored at
+`results/v6_design/power_prevalidation/v6_path_balance_dominance.json`, with
+file SHA-256
+`23ca7e9155980dd8bf3e50b69e00353a5af8baf3cb535c2b3f28e6432b6d1d0b`
+and certificate SHA-256
+`79fd9eccf334789ed1249e39ee076d2f74f87f1c505273f07f75350f71187865`.
+An independent deterministic replay reproduced it exactly.
 
 ### Implemented but intentionally unexecuted pipeline
 
-The repository contains a conditional downstream pipeline:
+The repository retains a conditional downstream pipeline for auditability:
 frozen candidate-pool identity; independently attested blind semantic and
 quality judge contracts; target-free pool screening and selection; independent
 bank validation; canonical one-launch receipts; exact-prefix paid-run resume;
 model-free confirmatory finalization; immutable source/runtime closures;
 raw-choice and target-draw replay; and summary-last idempotent analysis
-publication. Final review identified remaining hardening work in the dormant
-artifact and judge transports. Those paths are blocked and are not claimed
-production-safe or experimentally validated.
+publication. The dormant Codex judge transport is tool-enabled and therefore
+is not claimed safe for untrusted candidate text. It was never invoked. The
+canonical terminal protocol blocks it before runtime attestation or dispatch.
+None of the downstream paths is claimed experimentally validated.
 
 ## Terminal decisions
 
-- **Observed V6 decision:** unresolved pending corrected path-based power; no
-  judge, calibration, validation, or confirmatory execution.
+- **Observed V6 decision:** `STOP_V6_UNDERPOWERED_FINAL`; no judge,
+  calibration, validation, or confirmatory execution.
 - **Calibration support fails:** terminal instrument limitation; no validation.
 - **Independent validation fails:** terminal instrument limitation; no
   confirmatory outcomes.
@@ -225,7 +249,8 @@ production-safe or experimentally validated.
   modeling, still requiring a separately preregistered replication before any
   mechanistic claim.
 
-No outcome-triggered V7, sample extension, threshold relaxation, free-form
+No outcome-triggered V7, sample extension, threshold relaxation, full-grid
+rescue, free-form
 rescue, activation capture, probe, or steering experiment is permitted in this
 milestone.
 

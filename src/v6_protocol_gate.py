@@ -36,7 +36,6 @@ from .hf_provider import V6_FOCAL_RUNTIME_EVIDENCE_VERSION
 from .logging_utils import (
     read_jsonl,
     read_regular_bytes,
-    strict_json_load,
     strict_json_loads,
 )
 from .v6_calibration import (
@@ -414,6 +413,20 @@ V6_CONFIRMATORY_SOURCE_PATHS = V6_ALL_EXECUTABLE_SOURCE_PATHS
 
 def _resolve(root: str, path: str) -> str:
     return path if os.path.isabs(path) else os.path.join(root, path)
+
+
+def _read_rooted_json_object(
+    path: str, repository_root: str, *, label: str
+) -> tuple[Dict[str, Any], bytes]:
+    """Parse one JSON object from the exact root-anchored bytes read."""
+    raw = read_regular_bytes(path, root=repository_root, label=label)
+    try:
+        loaded = strict_json_loads(raw.decode("utf-8"))
+    except UnicodeDecodeError as exc:
+        raise ValueError("%s must be UTF-8 JSON" % label) from exc
+    if not isinstance(loaded, dict):
+        raise ValueError("%s must be a JSON object" % label)
+    return loaded, raw
 
 
 def _inside_root(path: str, root: str) -> bool:
@@ -983,14 +996,16 @@ def _load_reference(
     reference: Mapping[str, Any], repository_root: str
 ) -> tuple[Dict[str, Any], bool, bool, bool]:
     path = _resolve(repository_root, str(reference.get("path", "")))
-    if not os.path.isfile(path):
+    try:
+        payload, raw = _read_rooted_json_object(
+            path, repository_root, label="V6 referenced JSON"
+        )
+    except FileNotFoundError:
         return {}, False, False, False
-    with open(path, "r", encoding="utf-8") as handle:
-        payload = strict_json_load(handle)
     return (
         payload,
         True,
-        file_sha256(path) == reference.get("file_sha256"),
+        hashlib.sha256(raw).hexdigest() == reference.get("file_sha256"),
         canonical_sha256(payload) == reference.get("canonical_sha256"),
     )
 
@@ -1029,13 +1044,14 @@ def audit_v6_calibration_plan(
     quality, quality_exists, quality_file_ok, quality_canonical_ok = _load_reference(
         quality_ref, repository_root
     )
-    pool_exists = os.path.isfile(pool_path)
     source_pool: Optional[V6TriadBank] = None
-    if pool_exists:
-        try:
-            source_pool = V6TriadBank.load(pool_path)
-        except (OSError, TypeError, ValueError):
-            pass
+    try:
+        source_pool = V6TriadBank.load(
+            pool_path, checkpoint_root=repository_root
+        )
+    except (OSError, TypeError, ValueError):
+        pass
+    pool_exists = source_pool is not None
     semantic_raw_replay: Dict[str, Any] = {}
     quality_raw_replay: Dict[str, Any] = {}
     if source_pool is not None and semantic and quality:
@@ -1134,7 +1150,7 @@ def audit_v6_calibration_plan(
         == "SEMANTIC_AND_QUALITY_GATES_PASSED_READY_FOR_PAID_POOL_SCREENING",
         "pool_file_exists": pool_exists,
         "pool_file_hash": pool_exists
-        and file_sha256(pool_path) == pool_ref.get("file_sha256"),
+        and source_pool.source_file_sha256 == pool_ref.get("file_sha256"),
         "pool_canonical_hash": source_pool is not None
         and source_pool.sha256() == source_pool_hash,
         "semantic_file_exists": semantic_exists,
@@ -1342,18 +1358,37 @@ def build_v6_prevalidation_checkpoint(
     repository_root: str,
 ) -> Dict[str, Any]:
     """Build and self-audit the checkpoint required before validation."""
-    pool = V6TriadBank.load(source_pool_path)
-    pending = V6TriadBank.load(pending_bank_path)
-    with open(calibration_protocol_path, "r", encoding="utf-8") as handle:
-        protocol = strict_json_load(handle)
-    with open(prevalidation_power_path, "r", encoding="utf-8") as handle:
-        power = strict_json_load(handle)
-    with open(semantic_validation_path, "r", encoding="utf-8") as handle:
-        semantic_summary = strict_json_load(handle)
-    with open(quality_validation_path, "r", encoding="utf-8") as handle:
-        quality_summary = strict_json_load(handle)
-    with open(pool_calibration_manifest_path, "r", encoding="utf-8") as handle:
-        pool_manifest = strict_json_load(handle)
+    pool = V6TriadBank.load(
+        source_pool_path, checkpoint_root=repository_root
+    )
+    pending = V6TriadBank.load(
+        pending_bank_path, checkpoint_root=repository_root
+    )
+    protocol, _ = _read_rooted_json_object(
+        calibration_protocol_path,
+        repository_root,
+        label="V6 calibration protocol",
+    )
+    power, _ = _read_rooted_json_object(
+        prevalidation_power_path,
+        repository_root,
+        label="V6 prevalidation power",
+    )
+    semantic_summary, _ = _read_rooted_json_object(
+        semantic_validation_path,
+        repository_root,
+        label="V6 semantic validation",
+    )
+    quality_summary, _ = _read_rooted_json_object(
+        quality_validation_path,
+        repository_root,
+        label="V6 quality validation",
+    )
+    pool_manifest, _ = _read_rooted_json_object(
+        pool_calibration_manifest_path,
+        repository_root,
+        label="V6 pool manifest",
+    )
     pool_receipt_reference = pool_manifest.get("frozen_protocol", {}).get(
         "single_launch_receipt", {}
     )
@@ -1362,10 +1397,11 @@ def build_v6_prevalidation_checkpoint(
     )
     if not pool_receipt_inside or not os.path.isfile(pool_receipt_path):
         raise ValueError("V6 pool manifest has no repository-local launch receipt")
-    with open(pool_receipt_path, "r", encoding="utf-8") as handle:
-        pool_receipt = strict_json_load(handle)
-    if not isinstance(pool_receipt, Mapping):
-        raise ValueError("V6 pool launch receipt must be a JSON object")
+    pool_receipt, _ = _read_rooted_json_object(
+        pool_receipt_path,
+        repository_root,
+        label="V6 pool launch receipt",
+    )
     pool_runtime_evidence = _runtime_mapping(
         pool_manifest.get("provider", {}).get("focal_runtime_evidence")
     )
@@ -1532,12 +1568,16 @@ def audit_v6_prevalidation_checkpoint(
     pending: Optional[V6TriadBank] = None
     try:
         if pool_payload:
-            pool = V6TriadBank.load(pool_path)
+            pool = V6TriadBank.load(
+                pool_path, checkpoint_root=repository_root
+            )
     except (OSError, ValueError, TypeError):
         pass
     try:
         if pending_payload:
-            pending = V6TriadBank.load(pending_path)
+            pending = V6TriadBank.load(
+                pending_path, checkpoint_root=repository_root
+            )
     except (OSError, ValueError, TypeError):
         pass
 
@@ -1875,17 +1915,25 @@ def build_v6_final_checkpoint(
     repository_root: str,
 ) -> Dict[str, Any]:
     """Build the confirmatory checkpoint after independent validation passes."""
-    with open(prevalidation_checkpoint_path, "r", encoding="utf-8") as handle:
-        prevalidation = strict_json_load(handle)
+    prevalidation, _ = _read_rooted_json_object(
+        prevalidation_checkpoint_path,
+        repository_root,
+        label="V6 prevalidation checkpoint",
+    )
     prevalidation_audit = audit_v6_prevalidation_checkpoint(
         prevalidation, repository_root
     )
     if not prevalidation_audit["pass"]:
         raise ValueError("V6 pre-validation checkpoint no longer passes its audit")
-    final_bank = V6TriadBank.load(validated_bank_path)
+    final_bank = V6TriadBank.load(
+        validated_bank_path, checkpoint_root=repository_root
+    )
     protocol = prevalidation_audit.get("calibration_protocol", {})
-    with open(validation_manifest_path, "r", encoding="utf-8") as handle:
-        validation_manifest = strict_json_load(handle)
+    validation_manifest, _ = _read_rooted_json_object(
+        validation_manifest_path,
+        repository_root,
+        label="V6 validation manifest",
+    )
     validation_receipt_reference = validation_manifest.get(
         "frozen_protocol", {}
     ).get("single_launch_receipt", {})
@@ -1900,10 +1948,11 @@ def build_v6_final_checkpoint(
         raise ValueError(
             "V6 validation manifest has no repository-local launch receipt"
         )
-    with open(validation_receipt_path, "r", encoding="utf-8") as handle:
-        validation_receipt = strict_json_load(handle)
-    if not isinstance(validation_receipt, Mapping):
-        raise ValueError("V6 validation launch receipt must be a JSON object")
+    validation_receipt, _ = _read_rooted_json_object(
+        validation_receipt_path,
+        repository_root,
+        label="V6 validation launch receipt",
+    )
     frozen_runtime = _runtime_mapping(prevalidation.get("focal_runtime"))
     frozen_runtime_evidence = _runtime_mapping(frozen_runtime.get("evidence"))
     validation_runtime_evidence = _runtime_mapping(
@@ -2044,7 +2093,9 @@ def audit_v6_final_checkpoint(
         _prefix_checks(checks, "reloaded_protocol", protocol_checks)
         try:
             if pending_inside:
-                pending = V6TriadBank.load(pending_path)
+                pending = V6TriadBank.load(
+                    pending_path, checkpoint_root=repository_root
+                )
         except (OSError, ValueError, TypeError):
             pass
     else:
@@ -2223,7 +2274,9 @@ def audit_v6_final_checkpoint(
     final_bank: Optional[V6TriadBank] = None
     try:
         if final_payload:
-            final_bank = V6TriadBank.load(final_path)
+            final_bank = V6TriadBank.load(
+                final_path, checkpoint_root=repository_root
+            )
     except (OSError, ValueError, TypeError):
         pass
     final_ref = checkpoint.get("validated_bank", {})

@@ -12,7 +12,6 @@ import os
 import secrets
 import stat
 import sys
-import tempfile
 from dataclasses import dataclass
 from typing import Any, Dict, Mapping, Sequence
 
@@ -46,13 +45,18 @@ from src.controlled_v6_messages import (
 from src.hf_provider import HuggingFaceProvider, collect_focal_runtime_evidence
 from src.file_lock import (
     ExclusiveFileLock,
-    fsync_directory_best_effort,
     require_contained_path,
     require_directory_nonsymlink,
     require_regular_nonsymlink,
 )
 from src.focal_agent import BaseProvider
-from src.logging_utils import read_jsonl, strict_json_load
+from src.logging_utils import (
+    atomic_write_json,
+    publish_bytes_idempotent,
+    read_regular_bytes,
+    read_jsonl,
+    strict_json_loads,
+)
 from src.v6_calibration import file_sha256
 from src.v6_protocol_gate import (
     V6_CANONICAL_RUN_PATHS,
@@ -275,18 +279,12 @@ def _reference_path(
     )
 
 
-def _load_json_object(path: str, label: str) -> Dict[str, Any]:
-    require_regular_nonsymlink(path, label=label)
-    flags = os.O_RDONLY
-    if hasattr(os, "O_NOFOLLOW"):
-        flags |= os.O_NOFOLLOW
-    descriptor = os.open(path, flags)
-    metadata = os.fstat(descriptor)
-    if not stat.S_ISREG(metadata.st_mode):
-        os.close(descriptor)
-        raise ValueError("%s must be a regular file" % label)
-    with os.fdopen(descriptor, "r", encoding="utf-8") as handle:
-        payload = strict_json_load(handle)
+def _load_json_object(path: str, label: str, *, root: str) -> Dict[str, Any]:
+    raw = read_regular_bytes(path, root=root, label=label)
+    try:
+        payload = strict_json_loads(raw.decode("utf-8"))
+    except UnicodeDecodeError as exc:
+        raise ValueError("%s must be UTF-8 JSON" % label) from exc
     if not isinstance(payload, dict):
         raise ValueError("%s must be a JSON object" % label)
     return payload
@@ -379,7 +377,9 @@ def prepare_v6_confirmatory_plan(
         raise FileNotFoundError(
             "V6 confirmatory final checkpoint is not frozen: %s" % checkpoint_path
         )
-    checkpoint = _load_json_object(checkpoint_path, "V6 final checkpoint")
+    checkpoint = _load_json_object(
+        checkpoint_path, "V6 final checkpoint", root=root
+    )
 
     # This must remain the first operation that interprets any checkpoint
     # references. It replays the complete pending-to-validated transition.
@@ -449,7 +449,7 @@ def prepare_v6_confirmatory_plan(
         "prevalidation checkpoint",
     )
     prevalidation = _load_json_object(
-        prevalidation_path, "V6 prevalidation checkpoint"
+        prevalidation_path, "V6 prevalidation checkpoint", root=root
     )
     protocol_spec_path = _reference_path(
         _require_mapping(
@@ -459,7 +459,9 @@ def prepare_v6_confirmatory_plan(
         root,
         "calibration protocol",
     )
-    protocol_spec = _load_json_object(protocol_spec_path, "V6 calibration protocol")
+    protocol_spec = _load_json_object(
+        protocol_spec_path, "V6 calibration protocol", root=root
+    )
     bank_path = _reference_path(
         _require_mapping(checkpoint.get("validated_bank"), "validated bank reference"),
         root,
@@ -509,7 +511,7 @@ def prepare_v6_confirmatory_plan(
     # from the frozen bank rather than trusting internally consistent metadata.
     recomputed_schedule = build_v6_confirmatory_schedule_metadata(
         protocol_spec,
-        V6TriadBank.load(bank_path),
+        V6TriadBank.load(bank_path, checkpoint_root=root),
         selected_episode_seeds=selected_episode_seeds,
     )
     if recomputed_schedule != schedule:
@@ -722,66 +724,22 @@ def make_confirmatory_provider(
     return provider
 
 
-def _atomic_create_json(path: str, payload: Mapping[str, Any]) -> None:
-    """Publish one immutable marker via a fully synced temporary hard link."""
-    parent = os.path.dirname(path) or "."
-    os.makedirs(parent, exist_ok=True)
-    require_directory_nonsymlink(parent, label="V6 receipt parent")
-    require_regular_nonsymlink(
-        path, label="V6 official launch receipt", allow_missing=True
-    )
-    if os.path.lexists(path):
-        raise FileExistsError(path)
+def _atomic_create_json(
+    path: str, payload: Mapping[str, Any], *, root: str
+) -> None:
+    """Publish one immutable marker through retained root/parent descriptors."""
     encoded = (
         json.dumps(payload, indent=2, ensure_ascii=False, allow_nan=False)
         + "\n"
     ).encode("utf-8")
-    descriptor, temporary = tempfile.mkstemp(
-        prefix=".v6-receipt-", suffix=".publish", dir=parent
-    )
-    try:
-        with os.fdopen(descriptor, "wb") as handle:
-            handle.write(encoded)
-            handle.flush()
-            os.fsync(handle.fileno())
-        os.chmod(temporary, 0o444)
-        os.link(temporary, path)
-        fsync_directory_best_effort(parent)
-    finally:
-        try:
-            os.unlink(temporary)
-        except FileNotFoundError:
-            pass
+    if not publish_bytes_idempotent(path, encoded, mode=0o444, root=root):
+        raise FileExistsError(path)
 
 
-def _atomic_replace_json(path: str, payload: Mapping[str, Any]) -> None:
-    parent = os.path.dirname(path) or "."
-    os.makedirs(parent, exist_ok=True)
-    require_directory_nonsymlink(parent, label="V6 manifest parent")
-    require_regular_nonsymlink(path, label="V6 manifest", allow_missing=True)
-    descriptor, temporary = tempfile.mkstemp(prefix=".v6-manifest-", dir=parent)
-    try:
-        with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
-            json.dump(payload, handle, indent=2, ensure_ascii=False, allow_nan=False)
-            handle.write("\n")
-            handle.flush()
-            os.fsync(handle.fileno())
-        os.replace(temporary, path)
-        try:
-            directory_descriptor = os.open(parent, os.O_RDONLY)
-        except OSError:
-            directory_descriptor = None
-        if directory_descriptor is not None:
-            try:
-                try:
-                    os.fsync(directory_descriptor)
-                except OSError:
-                    pass
-            finally:
-                os.close(directory_descriptor)
-    finally:
-        if os.path.exists(temporary):
-            os.unlink(temporary)
+def _atomic_replace_json(
+    path: str, payload: Mapping[str, Any], *, root: str
+) -> None:
+    atomic_write_json(path, payload, root=root)
 
 
 def _launch_receipt_payload(
@@ -840,7 +798,7 @@ def audit_official_launch_receipt(
             % plan.launch_receipt_relative
         )
     payload = _load_json_object(
-        receipt_path, "V6 official launch receipt"
+        receipt_path, "V6 official launch receipt", root=plan.repository_root
     )
     audit = audit_v6_launch_receipt_payload(
         payload,
@@ -1089,7 +1047,9 @@ def assert_resume_checkpoint_binding(plan: V6ConfirmatoryPlan) -> str:
     )
     if not os.path.isfile(manifest_path):
         raise FileNotFoundError("cannot resume without manifest %s" % manifest_path)
-    existing = _load_json_object(manifest_path, "V6 resume manifest")
+    existing = _load_json_object(
+        manifest_path, "V6 resume manifest", root=plan.repository_root
+    )
     checks = _running_manifest_checks(plan, existing)
     if not all(checks.values()):
         failed = sorted(name for name, passed in checks.items() if not passed)
@@ -1161,7 +1121,9 @@ def claim_official_launch(
     receipt = _launch_receipt_payload(
         plan, runtime_evidence=runtime_evidence
     )
-    _atomic_create_json(paths["receipt"], receipt)
+    _atomic_create_json(
+        paths["receipt"], receipt, root=plan.repository_root
+    )
     audit_official_launch_receipt(plan)
     return receipt
 
@@ -1182,7 +1144,9 @@ def finalize_official_manifest(
         raise ValueError("V6 runner returned a non-canonical output path")
     require_regular_nonsymlink(log_path, label="completed V6 canonical log")
     require_regular_nonsymlink(manifest_path, label="completed V6 manifest")
-    manifest = _load_json_object(manifest_path, "completed V6 manifest")
+    manifest = _load_json_object(
+        manifest_path, "completed V6 manifest", root=plan.repository_root
+    )
     seal_state = _manifest_seal_state(manifest)
     records, reconstructed = _replay_completed_manifest(plan, manifest, log_path)
     receipt_payload, receipt_audit = audit_official_launch_receipt(plan)
@@ -1216,7 +1180,9 @@ def finalize_official_manifest(
 
     manifest["official_launch_receipt"] = expected_receipt_seal
     manifest["completed_log"] = expected_log_seal
-    _atomic_replace_json(manifest_path, manifest)
+    _atomic_replace_json(
+        manifest_path, manifest, root=plan.repository_root
+    )
     return manifest
 
 
@@ -1275,6 +1241,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         paths["lock"],
         label="official V6 confirmatory run",
         metadata={"run_id": plan.run_id},
+        root=plan.repository_root,
     ):
         receipt = claim_official_launch(
             plan,
@@ -1282,7 +1249,11 @@ def main(argv: Sequence[str] | None = None) -> int:
             runtime_evidence=runtime_evidence,
         )
         if args.resume and os.path.isfile(paths["manifest"]):
-            existing = _load_json_object(paths["manifest"], "V6 resume manifest")
+            existing = _load_json_object(
+                paths["manifest"],
+                "V6 resume manifest",
+                root=plan.repository_root,
+            )
             if existing.get("run_status") == "completed":
                 was_sealed = _manifest_seal_state(existing) == "sealed"
                 sealed = finalize_official_manifest(

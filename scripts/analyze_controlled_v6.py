@@ -346,6 +346,8 @@ def _publish_staged_analysis(
     expected_hashes,
     expected_summary_sha256: str,
     backup_dir: str | None = None,
+    *,
+    repository_root: str,
 ) -> str:
     """Create or recover one exact artifact tree; never replace prior output."""
     del backup_dir  # retained only for compatibility with older internal callers
@@ -380,6 +382,7 @@ def _publish_staged_analysis(
         lock_path,
         label="V6 analysis publication",
         metadata={"out_dir": absolute_out_dir},
+        root=repository_root,
     ):
         if not os.path.lexists(absolute_out_dir):
             os.mkdir(absolute_out_dir)
@@ -1070,6 +1073,7 @@ def main(argv=None) -> int:
             expected_artifacts,
             artifact_hashes,
             staged_summary_sha256,
+            repository_root=_bootstrap.ROOT,
         )
     except (OSError, TypeError, ValueError, RuntimeError) as exc:
         print("V6 analysis publication failed: %s" % exc, file=sys.stderr)

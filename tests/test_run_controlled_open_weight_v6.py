@@ -935,10 +935,10 @@ def test_v6_manifest_seal_replacement_crash_preserves_unsealed_manifest(
     before = manifest_path.read_bytes()
     real_replace = runner.os.replace
 
-    def crash_before_manifest_replace(source, destination):
-        if Path(destination) == manifest_path:
+    def crash_before_manifest_replace(source, destination, **kwargs):
+        if Path(destination) in {manifest_path, Path(manifest_path.name)}:
             raise OSError("simulated atomic seal crash")
-        return real_replace(source, destination)
+        return real_replace(source, destination, **kwargs)
 
     with monkeypatch.context() as patcher:
         patcher.setattr(runner.os, "replace", crash_before_manifest_replace)
@@ -1019,10 +1019,10 @@ def test_v6_receipt_publication_crash_never_leaves_torn_canonical_file(
     receipt_path = Path(plan.launch_receipt_path)
     real_link = runner.os.link
 
-    def crash_before_receipt_link(source, destination):
-        if Path(destination) == receipt_path:
+    def crash_before_receipt_link(source, destination, **kwargs):
+        if Path(destination) in {receipt_path, Path(receipt_path.name)}:
             raise OSError("simulated receipt publication crash")
-        return real_link(source, destination)
+        return real_link(source, destination, **kwargs)
 
     with monkeypatch.context() as patcher:
         patcher.setattr(runner.os, "link", crash_before_receipt_link)

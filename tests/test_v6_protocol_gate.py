@@ -72,6 +72,22 @@ def _passing_fixture(tmp_path, monkeypatch):
     quality_path = tmp_path / "quality.json"
     _write_json(semantic_path, semantic)
     _write_json(quality_path, quality)
+    # These plan-audit tests deliberately synthesize judge artifacts outside
+    # the repository. Keep that test seam explicit while production reads
+    # remain repository-root anchored.
+    real_read_rooted_json = v6_protocol_gate_module._read_rooted_json_object
+
+    def read_fixture_json(path, repository_root, *, label):
+        if Path(path) in {semantic_path, quality_path}:
+            raw = Path(path).read_bytes()
+            return json.loads(raw), raw
+        return real_read_rooted_json(path, repository_root, label=label)
+
+    monkeypatch.setattr(
+        v6_protocol_gate_module,
+        "_read_rooted_json_object",
+        read_fixture_json,
+    )
     canonical_measurement_paths = deepcopy(
         v6_protocol_gate_module.V6_CANONICAL_MEASUREMENT_PATHS
     )

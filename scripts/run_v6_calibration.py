@@ -7,16 +7,12 @@ import _bootstrap  # noqa: F401
 import argparse
 import json
 import os
-import stat
 import sys
-import tempfile
 
 from src.controlled_v6_messages import V6TriadBank
 from src.hf_provider import HuggingFaceProvider, collect_focal_runtime_evidence
 from src.file_lock import (
     ExclusiveFileLock,
-    require_directory_nonsymlink,
-    require_regular_nonsymlink,
 )
 from src.v6_calibration import (
     V6_POOL_MODE,
@@ -36,7 +32,11 @@ from src.v6_protocol_gate import (
     require_v6_focal_runtime,
     v6_artifact_reference,
 )
-from src.logging_utils import strict_json_load
+from src.logging_utils import (
+    publish_json_idempotent,
+    read_regular_bytes,
+    strict_json_loads,
+)
 
 
 def _frozen_repo_path(relative_path: object, label: str) -> str:
@@ -80,77 +80,20 @@ def _json_exact(left, right) -> bool:
         return False
 
 
-def _fsync_parent(path: str) -> None:
-    descriptor = None
-    try:
-        descriptor = os.open(os.path.dirname(os.path.abspath(path)), os.O_RDONLY)
-        os.fsync(descriptor)
-    except OSError:
-        pass
-    finally:
-        if descriptor is not None:
-            os.close(descriptor)
-
-
-def _write_atomic_launch_receipt(path: str, payload: dict) -> bool:
+def _write_atomic_launch_receipt(
+    path: str, payload: dict, *, root: str | None = None
+) -> bool:
     """Claim once, or accept the exact existing claim for a safe resume.
 
     Returns ``True`` only when this invocation created the receipt. A second
     invocation never rewrites it and rejects any foreign receipt content.
     """
-    parent = os.path.dirname(path)
-    if parent:
-        os.makedirs(parent, exist_ok=True)
-        require_directory_nonsymlink(
-            parent, label="V6 calibration launch-receipt directory"
-        )
-
-    def validate_existing() -> bool:
-        require_regular_nonsymlink(
-            path, label="V6 calibration launch receipt"
-        )
-        flags = os.O_RDONLY
-        if hasattr(os, "O_NOFOLLOW"):
-            flags |= os.O_NOFOLLOW
-        try:
-            descriptor = os.open(path, flags)
-            if not stat.S_ISREG(os.fstat(descriptor).st_mode):
-                os.close(descriptor)
-                raise ValueError(
-                    "V6 calibration launch receipt is not a regular file"
-                )
-            with os.fdopen(descriptor, "r", encoding="utf-8") as handle:
-                existing = strict_json_load(handle)
-        except (OSError, UnicodeError, json.JSONDecodeError) as exc:
-            raise ValueError("V6 calibration launch receipt is unreadable") from exc
-        if not _json_exact(existing, payload):
-            raise ValueError(
-                "existing V6 calibration launch receipt belongs to a foreign run/config"
-            )
-        return False
-
-    if os.path.lexists(path):
-        return validate_existing()
-    descriptor, temporary = tempfile.mkstemp(
-        prefix=".%s.tmp." % os.path.basename(path), dir=parent or os.curdir
-    )
     try:
-        with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
-            json.dump(payload, handle, indent=2, ensure_ascii=False, allow_nan=False)
-            handle.write("\n")
-            handle.flush()
-            os.fsync(handle.fileno())
-        try:
-            # Hard-link publication is atomic and fails rather than replacing
-            # a receipt claimed by a concurrent launcher.
-            os.link(temporary, path)
-        except FileExistsError:
-            return validate_existing()
-        _fsync_parent(path)
-        return True
-    finally:
-        if os.path.lexists(temporary):
-            os.unlink(temporary)
+        return publish_json_idempotent(path, payload, root=root)
+    except FileExistsError as exc:
+        raise ValueError(
+            "existing V6 calibration launch receipt belongs to a foreign run/config"
+        ) from exc
 
 
 def _expected_hf_provider_description(
@@ -217,8 +160,29 @@ def main(argv=None) -> int:
     )
     args = parser.parse_args(argv)
 
-    with open(args.protocol_spec, "r", encoding="utf-8") as handle:
-        spec = strict_json_load(handle)
+    canonical_protocol_path = os.path.abspath(
+        os.path.join(_bootstrap.ROOT, "docs", "v6_calibration_protocol.json")
+    )
+    supplied_protocol_path = os.path.abspath(
+        args.protocol_spec
+        if os.path.isabs(args.protocol_spec)
+        else os.path.join(_bootstrap.ROOT, args.protocol_spec)
+    )
+    if os.path.realpath(supplied_protocol_path) != os.path.realpath(
+        canonical_protocol_path
+    ):
+        raise ValueError(
+            "official V6 calibration requires the canonical repository protocol"
+        )
+    protocol_raw = read_regular_bytes(
+        canonical_protocol_path,
+        root=_bootstrap.ROOT,
+        label="V6 calibration protocol",
+    )
+    spec = strict_json_loads(protocol_raw.decode("utf-8"))
+    if not isinstance(spec, dict):
+        raise ValueError("V6 calibration protocol must be a JSON object")
+    args.protocol_spec = canonical_protocol_path
     schedule_key = (
         "pool_screening_schedule"
         if args.mode == V6_POOL_MODE
@@ -258,7 +222,13 @@ def main(argv=None) -> int:
     # frozen schedule.
     episode_blocks = args.episode_blocks
     dtype = args.dtype or generation["dtype"]
-    bank = V6TriadBank.load(args.bank)
+    bank_path = os.path.abspath(
+        args.bank
+        if os.path.isabs(args.bank)
+        else os.path.join(_bootstrap.ROOT, args.bank)
+    )
+    bank = V6TriadBank.load(bank_path, checkpoint_root=_bootstrap.ROOT)
+    args.bank = bank_path
     prevalidation_checkpoint = None
     prevalidation_reference = None
     prevalidation_runtime_evidence = None
@@ -267,8 +237,22 @@ def main(argv=None) -> int:
             raise ValueError(
                 "selected-bank validation requires a frozen pre-validation checkpoint"
             )
-        with open(args.pre_validation_checkpoint, "r", encoding="utf-8") as handle:
-            prevalidation_checkpoint = strict_json_load(handle)
+        checkpoint_path = os.path.abspath(
+            args.pre_validation_checkpoint
+            if os.path.isabs(args.pre_validation_checkpoint)
+            else os.path.join(_bootstrap.ROOT, args.pre_validation_checkpoint)
+        )
+        checkpoint_raw = read_regular_bytes(
+            checkpoint_path,
+            root=_bootstrap.ROOT,
+            label="V6 prevalidation checkpoint",
+        )
+        prevalidation_checkpoint = strict_json_loads(
+            checkpoint_raw.decode("utf-8")
+        )
+        if not isinstance(prevalidation_checkpoint, dict):
+            raise ValueError("V6 prevalidation checkpoint must be a JSON object")
+        args.pre_validation_checkpoint = checkpoint_path
         prevalidation_audit = audit_v6_prevalidation_checkpoint(
             prevalidation_checkpoint, _bootstrap.ROOT
         )
@@ -401,7 +385,7 @@ def main(argv=None) -> int:
             "V6 calibration outputs exist without the canonical launch receipt"
         )
     receipt_created = _write_atomic_launch_receipt(
-        launch_receipt_path, launch_receipt
+        launch_receipt_path, launch_receipt, root=_bootstrap.ROOT
     )
     provenance = {
         "protocol_path": os.path.abspath(args.protocol_spec),
@@ -424,6 +408,7 @@ def main(argv=None) -> int:
         lock_path,
         label="V6 calibration CLI run",
         metadata={"run_id": args.run_id, "mode": args.mode},
+        root=_bootstrap.ROOT,
     ):
         # This is deliberately before provider construction: an interrupted
         # run's exact prefix, sample hashes, receipt, and frozen configuration

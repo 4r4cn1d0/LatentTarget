@@ -1,7 +1,7 @@
 {
   "protocol_version": "v6-calibration-protocol-1.0",
   "task_version": "controlled-choice-v6.0",
-  "status": "V6_POWER_CORRECTION_FROZEN",
+  "status": "STOP_V6_UNDERPOWERED_FINAL",
   "frozen_at": "2026-09-02",
   "pre_target_outcomes": true,
   "final_version_no_v7_rescue": true,
@@ -47,7 +47,7 @@
       "official_contract_sha256": "b05625a950ee5c1c261d774ce4bcbf336f0087074e7acc6013c53940acd459eb"
     },
     "intended_metadata_joined_after_both_calls": true,
-    "status": "NOT_RUN_POWER_PENDING"
+    "status": "NOT_RUN_TERMINAL_POWER_FAILURE"
   },
   "quality_validation": {
     "path": "results/v6_design/quality_validation/summary.json",
@@ -66,14 +66,16 @@
       "official_contract_sha256": "e6cdc0edac6e9255e8437219fb0d8fa796af0c7007d3fb9afd090ef6a762e1fd"
     },
     "intended_metadata_joined_after_both_calls": true,
-    "status": "NOT_RUN_POWER_PENDING"
+    "status": "NOT_RUN_TERMINAL_POWER_FAILURE"
   },
   "judge_runtime": {
     "codex_executable": "codex",
     "codex_cli_version": "codex-cli 0.149.0",
     "codex_executable_sha256": "134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
     "backend_revision_pinning": "unavailable_in_codex_cli",
-    "reproducibility_limit": "model aliases are frozen, but exact hosted backend weight revisions are not exposed by the CLI"
+    "reproducibility_limit": "model aliases are frozen, but exact hosted backend weight revisions are not exposed by the CLI",
+    "execution_status": "DISABLED_UNRUN_TERMINAL_POWER_FAILURE",
+    "security_note": "The dormant Codex CLI transport is tool-enabled and was not treated as an authorized target-free judge after the terminal power failure. No judge dispatch occurred."
   },
   "semantic_thresholds": {
     "minimum_judge_accuracy": 0.9,
@@ -222,9 +224,15 @@
     "contract_sha256": "e29dbbe8da2ecf6f7d891f5aee997052aff3d06dfc10e31db0d55ab757be2fd9",
     "result": {
       "path": "results/v6_design/power_prevalidation/v6_path_balance_dominance.json",
-      "status": "NOT_RUN",
+      "file_sha256": "23ca7e9155980dd8bf3e50b69e00353a5af8baf3cb535c2b3f28e6432b6d1d0b",
+      "certificate_sha256": "79fd9eccf334789ed1249e39ee076d2f74f87f1c505273f07f75350f71187865",
+      "status": "STOP_V6_UNDERPOWERED_BEFORE_VALIDATION",
       "pass": false,
-      "selected_episode_seeds": null
+      "terminal": true,
+      "official": true,
+      "n_sim_per_cell": 10000,
+      "selected_episode_seeds": null,
+      "scientific_interpretation": "The registered no-history balance gate has at most 0.4223 Wilson lower-bound pass probability in the blocking screened cells across N=12,18,24,30, below the required 0.80. Because complete success is a replicate-wise subset of balance success, no registered N can pass the every-cell complete-power rule."
     },
     "contract": {
       "schema_version": "controlled-v6-power-v5-prospective-randomized-bundles",
@@ -741,5 +749,6 @@
     "runtime_generation_or_incomplete_failure": "EXECUTION_INDETERMINATE",
     "post_failure_redesign": "forbidden; no V7 rescue"
   },
-  "next_gate": "Commit and tag this corrected heterogeneous-path power contract before running its model-free 10,000-study-per-cell dominance screen. Judge, calibration, validation, confirmatory, probe, steering, and paid GPU execution remain unauthorized."
+  "next_gate": null,
+  "terminal_note": "V6 ended at the preregistered prospective power gate. Judge, focal calibration, target simulation, confirmatory, probe, steering, and paid GPU execution are permanently unauthorized for this final version; no V7 rescue is permitted."
 }

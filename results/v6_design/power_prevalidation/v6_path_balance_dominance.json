@@ -1,0 +1,357 @@
+{
+  "schema_version": "controlled-v6-path-balance-dominance-v1",
+  "contract_sha256": "e29dbbe8da2ecf6f7d891f5aee997052aff3d06dfc10e31db0d55ab757be2fd9",
+  "official": true,
+  "status": "STOP_V6_UNDERPOWERED_BEFORE_VALIDATION",
+  "terminal": true,
+  "n_sim_per_cell": 10000,
+  "simulation_seed": 20262003,
+  "screen_configuration": {
+    "configuration_id": "minimum_share_boundary_01",
+    "family": "minimum_share_boundary",
+    "frame_shares": {
+      "fairness": 0.25,
+      "risk": 0.35,
+      "expertise": 0.4
+    }
+  },
+  "screen_results": [
+    {
+      "n_episode_seeds": 12,
+      "n_sim": 10000,
+      "simulation_seed": 20262003,
+      "simulation_study_offset": 120001,
+      "planning_scenario_id": "learner_1",
+      "baseline_frame_shares": {
+        "fairness": 0.25,
+        "risk": 0.35,
+        "expertise": 0.4
+      },
+      "no_history_balance_gate": {
+        "successes": 4280,
+        "trials": 10000,
+        "power": 0.428,
+        "mc_ci_lo": 0.4183316103661698,
+        "mc_ci_hi": 0.43772368743062845
+      },
+      "aggregate_frame_counts": {
+        "fairness": 722884,
+        "risk": 1007954,
+        "expertise": 1149162
+      },
+      "frame_share_configuration_id": "minimum_share_boundary_01"
+    },
+    {
+      "n_episode_seeds": 18,
+      "n_sim": 10000,
+      "simulation_seed": 20262003,
+      "simulation_study_offset": 180001,
+      "planning_scenario_id": "learner_1",
+      "baseline_frame_shares": {
+        "fairness": 0.25,
+        "risk": 0.35,
+        "expertise": 0.4
+      },
+      "no_history_balance_gate": {
+        "successes": 4248,
+        "trials": 10000,
+        "power": 0.4248,
+        "mc_ci_lo": 0.4151421679025201,
+        "mc_ci_hi": 0.4345155875741359
+      },
+      "aggregate_frame_counts": {
+        "fairness": 1083780,
+        "risk": 1512788,
+        "expertise": 1723432
+      },
+      "frame_share_configuration_id": "minimum_share_boundary_01"
+    },
+    {
+      "n_episode_seeds": 24,
+      "n_sim": 10000,
+      "simulation_seed": 20262003,
+      "simulation_study_offset": 240001,
+      "planning_scenario_id": "learner_1",
+      "baseline_frame_shares": {
+        "fairness": 0.25,
+        "risk": 0.35,
+        "expertise": 0.4
+      },
+      "no_history_balance_gate": {
+        "successes": 4416,
+        "trials": 10000,
+        "power": 0.4416,
+        "mc_ci_lo": 0.4318913459783148,
+        "mc_ci_hi": 0.45135350667908825
+      },
+      "aggregate_frame_counts": {
+        "fairness": 1445704,
+        "risk": 2016549,
+        "expertise": 2297747
+      },
+      "frame_share_configuration_id": "minimum_share_boundary_01"
+    },
+    {
+      "n_episode_seeds": 30,
+      "n_sim": 10000,
+      "simulation_seed": 20262003,
+      "simulation_study_offset": 300001,
+      "planning_scenario_id": "learner_1",
+      "baseline_frame_shares": {
+        "fairness": 0.25,
+        "risk": 0.35,
+        "expertise": 0.4
+      },
+      "no_history_balance_gate": {
+        "successes": 4398,
+        "trials": 10000,
+        "power": 0.4398,
+        "mc_ci_lo": 0.43009624871875296,
+        "mc_ci_hi": 0.44954998638357013
+      },
+      "aggregate_frame_counts": {
+        "fairness": 1806424,
+        "risk": 2519147,
+        "expertise": 2874429
+      },
+      "frame_share_configuration_id": "minimum_share_boundary_01"
+    },
+    {
+      "n_episode_seeds": 12,
+      "n_sim": 10000,
+      "simulation_seed": 20262003,
+      "simulation_study_offset": 1120001,
+      "planning_scenario_id": "learner_2",
+      "baseline_frame_shares": {
+        "fairness": 0.25,
+        "risk": 0.35,
+        "expertise": 0.4
+      },
+      "no_history_balance_gate": {
+        "successes": 4281,
+        "trials": 10000,
+        "power": 0.4281,
+        "mc_ci_lo": 0.41843128711991184,
+        "mc_ci_hi": 0.4378239338743909
+      },
+      "aggregate_frame_counts": {
+        "fairness": 723517,
+        "risk": 1008554,
+        "expertise": 1147929
+      },
+      "frame_share_configuration_id": "minimum_share_boundary_01"
+    },
+    {
+      "n_episode_seeds": 18,
+      "n_sim": 10000,
+      "simulation_seed": 20262003,
+      "simulation_study_offset": 1180001,
+      "planning_scenario_id": "learner_2",
+      "baseline_frame_shares": {
+        "fairness": 0.25,
+        "risk": 0.35,
+        "expertise": 0.4
+      },
+      "no_history_balance_gate": {
+        "successes": 4440,
+        "trials": 10000,
+        "power": 0.444,
+        "mc_ci_lo": 0.43428501052665025,
+        "mc_ci_hi": 0.45375799887085955
+      },
+      "aggregate_frame_counts": {
+        "fairness": 1086344,
+        "risk": 1510919,
+        "expertise": 1722737
+      },
+      "frame_share_configuration_id": "minimum_share_boundary_01"
+    },
+    {
+      "n_episode_seeds": 24,
+      "n_sim": 10000,
+      "simulation_seed": 20262003,
+      "simulation_study_offset": 1240001,
+      "planning_scenario_id": "learner_2",
+      "baseline_frame_shares": {
+        "fairness": 0.25,
+        "risk": 0.35,
+        "expertise": 0.4
+      },
+      "no_history_balance_gate": {
+        "successes": 4289,
+        "trials": 10000,
+        "power": 0.4289,
+        "mc_ci_lo": 0.41922871569961834,
+        "mc_ci_hi": 0.43862589087472
+      },
+      "aggregate_frame_counts": {
+        "fairness": 1444475,
+        "risk": 2015619,
+        "expertise": 2299906
+      },
+      "frame_share_configuration_id": "minimum_share_boundary_01"
+    },
+    {
+      "n_episode_seeds": 30,
+      "n_sim": 10000,
+      "simulation_seed": 20262003,
+      "simulation_study_offset": 1300001,
+      "planning_scenario_id": "learner_2",
+      "baseline_frame_shares": {
+        "fairness": 0.25,
+        "risk": 0.35,
+        "expertise": 0.4
+      },
+      "no_history_balance_gate": {
+        "successes": 4474,
+        "trials": 10000,
+        "power": 0.4474,
+        "mc_ci_lo": 0.43767642888865277,
+        "mc_ci_hi": 0.45716396922400826
+      },
+      "aggregate_frame_counts": {
+        "fairness": 1807987,
+        "risk": 2519107,
+        "expertise": 2872906
+      },
+      "frame_share_configuration_id": "minimum_share_boundary_01"
+    },
+    {
+      "n_episode_seeds": 12,
+      "n_sim": 10000,
+      "simulation_seed": 20262003,
+      "simulation_study_offset": 2120001,
+      "planning_scenario_id": "learner_3",
+      "baseline_frame_shares": {
+        "fairness": 0.25,
+        "risk": 0.35,
+        "expertise": 0.4
+      },
+      "no_history_balance_gate": {
+        "successes": 4184,
+        "trials": 10000,
+        "power": 0.4184,
+        "mc_ci_lo": 0.40876452978105243,
+        "mc_ci_hi": 0.4280981410553189
+      },
+      "aggregate_frame_counts": {
+        "fairness": 722387,
+        "risk": 1007549,
+        "expertise": 1150064
+      },
+      "frame_share_configuration_id": "minimum_share_boundary_01"
+    },
+    {
+      "n_episode_seeds": 18,
+      "n_sim": 10000,
+      "simulation_seed": 20262003,
+      "simulation_study_offset": 2180001,
+      "planning_scenario_id": "learner_3",
+      "baseline_frame_shares": {
+        "fairness": 0.25,
+        "risk": 0.35,
+        "expertise": 0.4
+      },
+      "no_history_balance_gate": {
+        "successes": 4301,
+        "trials": 10000,
+        "power": 0.4301,
+        "mc_ci_lo": 0.4204249070388167,
+        "mc_ci_hi": 0.4398287779055749
+      },
+      "aggregate_frame_counts": {
+        "fairness": 1084314,
+        "risk": 1512686,
+        "expertise": 1723000
+      },
+      "frame_share_configuration_id": "minimum_share_boundary_01"
+    },
+    {
+      "n_episode_seeds": 24,
+      "n_sim": 10000,
+      "simulation_seed": 20262003,
+      "simulation_study_offset": 2240001,
+      "planning_scenario_id": "learner_3",
+      "baseline_frame_shares": {
+        "fairness": 0.25,
+        "risk": 0.35,
+        "expertise": 0.4
+      },
+      "no_history_balance_gate": {
+        "successes": 4367,
+        "trials": 10000,
+        "power": 0.4367,
+        "mc_ci_lo": 0.42700499656552,
+        "mc_ci_hi": 0.44644361941416516
+      },
+      "aggregate_frame_counts": {
+        "fairness": 1447460,
+        "risk": 2013593,
+        "expertise": 2298947
+      },
+      "frame_share_configuration_id": "minimum_share_boundary_01"
+    },
+    {
+      "n_episode_seeds": 30,
+      "n_sim": 10000,
+      "simulation_seed": 20262003,
+      "simulation_study_offset": 2300001,
+      "planning_scenario_id": "learner_3",
+      "baseline_frame_shares": {
+        "fairness": 0.25,
+        "risk": 0.35,
+        "expertise": 0.4
+      },
+      "no_history_balance_gate": {
+        "successes": 4319,
+        "trials": 10000,
+        "power": 0.4319,
+        "mc_ci_lo": 0.42221930298562443,
+        "mc_ci_hi": 0.4416329995138473
+      },
+      "aggregate_frame_counts": {
+        "fairness": 1804977,
+        "risk": 2519696,
+        "expertise": 2875327
+      },
+      "frame_share_configuration_id": "minimum_share_boundary_01"
+    }
+  ],
+  "decision_by_n": [
+    {
+      "n_episode_seeds": 12,
+      "blocked": true,
+      "blocking_scenario_id": "learner_3",
+      "balance_successes": 4184,
+      "balance_wilson_lower": 0.40876452978105243,
+      "target_complete_wilson_lower": 0.8
+    },
+    {
+      "n_episode_seeds": 18,
+      "blocked": true,
+      "blocking_scenario_id": "learner_1",
+      "balance_successes": 4248,
+      "balance_wilson_lower": 0.4151421679025201,
+      "target_complete_wilson_lower": 0.8
+    },
+    {
+      "n_episode_seeds": 24,
+      "blocked": true,
+      "blocking_scenario_id": "learner_2",
+      "balance_successes": 4289,
+      "balance_wilson_lower": 0.41922871569961834,
+      "target_complete_wilson_lower": 0.8
+    },
+    {
+      "n_episode_seeds": 30,
+      "blocked": true,
+      "blocking_scenario_id": "learner_3",
+      "balance_successes": 4319,
+      "balance_wilson_lower": 0.42221930298562443,
+      "target_complete_wilson_lower": 0.8
+    }
+  ],
+  "logic": "For each N, complete success is a replicate-wise subset of realized no-history balance success. Wilson lower bounds are monotone in the success count. If any registered screened cell has balance Wilson lower bound below 0.80, that N cannot satisfy the every-cell complete-power selection rule and the remaining trajectories need not be simulated.",
+  "scope_note": "This artifact certifies deterministic replay of a prospective model-free simulation. It does not attest external account, GPU, credential, judge, or model execution history.",
+  "certificate_sha256": "79fd9eccf334789ed1249e39ee076d2f74f87f1c505273f07f75350f71187865"
+}
