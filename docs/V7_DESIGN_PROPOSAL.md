@@ -118,3 +118,41 @@ feasible either and that is the result.
   asymmetry hypothesis cannot be separated from a frame-attractiveness
   artefact across models, and the secondary claim weakens to "in these two
   models."
+
+## Pre-result diagnostic (2026-09-02 17:30 IST, screen still running): realized effect size depends on the prior
+
+V6's probability tilts are additive on the probability scale and were
+calibrated so the complete feedback model centers the estimands on the
+registered alternatives (stable DID 0.20, revision shift 0.25). Twenty V7
+studies per cell (learner_2, N = 18, study offsets 5000+, disjoint from the
+screen) show what the same tilts realize under each nuisance cell:
+
+| cell | stable | revision | new gain | old drop |
+|---|--:|--:|--:|--:|
+| balanced (V6 assumption) | 0.220 | 0.235 | 0.123 | 0.113 |
+| `qwen38_v5bank_overall` 13.7/34.2/52.1 | 0.195 | 0.243 | 0.122 | 0.122 |
+| `qwen38_v5bank_heldout` 22.9/43.1/34.0 | 0.215 | 0.236 | 0.120 | 0.116 |
+| `severe_default_80` 5/15/80 | 0.153 | 0.177 | 0.094 | 0.083 |
+| `qwen38_v4bank_no_history` 1.2/6.5/92.2 | **0.109** | **0.111** | 0.058 | 0.052 |
+
+Under the **measured** priors the registered alternative is realized, so the
+screen's power there is power for ≈ 0.20 / 0.25. Under the severe cells the
+tilt is compressed against the simplex boundary and the screen measures power
+for a smaller effect — about half the registered one in the V4-raw cell. This
+is inherited from V6's DGP, not introduced by V7, and ceiling compression is a
+real property of a model with a 92% default: the same learning strength *is*
+less visible there.
+
+**Consequences, fixed now rather than after the screen:**
+
+1. The decision rule above is **not changed**. `severe_default_80` remains a
+   selection cell; `qwen38_v4bank_no_history` remains reported-only. If
+   `severe_default_80` blocks every N, that is the result and the honest
+   statement is "V7 is powered for the measured prior but not for a
+   hypothetical 80% default at these effect sizes."
+2. Any V7 protocol must register the alternative as the **DGP tilt**, and must
+   report the **realized population effect per cell** beside every power
+   number. `simulate_controlled_v7_power` already returns `mean_estimates` for
+   this reason; the screen table must print them.
+3. The official run, if any, uses study offsets disjoint from both this
+   diagnostic (5000+) and the exploratory screen.
