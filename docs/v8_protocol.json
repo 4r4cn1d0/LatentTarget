@@ -1,0 +1,160 @@
+{
+  "protocol_version": "v8-protocol-1.0",
+  "task_version": "controlled-choice-v5.0",
+  "milestone": "V8",
+  "declared_by": "operator (PI)",
+  "declared_at": "2026-09-02",
+  "overrides_v6_terminal_clause": true,
+  "declaration": "docs/V8_MILESTONE_DECLARATION.md",
+  "status": "V8_DECLARED_READY_FOR_PRIOR_MEASUREMENT",
+  "pre_focal_calibration": true,
+  "candidate_pool": {
+    "path": "data/v5/v5_candidate_pool_v1.json",
+    "sha256": "73a404a79bb5a5bfcaed112638143c70c9e48aff710dff15b0e57f4f95989478",
+    "file_sha256": "5ea3d34b9e2556728b6ca1e664dd92ae22b27274930c1bc7b157bb04bf88d001"
+  },
+  "semantic_validation": {
+    "path": "results/v5_design/semantic_validation/summary.json",
+    "file_sha256": "88d0f06f65baa732c7e7a81a672bea31473092a4305dc04d7000fbf438d86f20",
+    "canonical_sha256": "c28600f3e27231e72230608e37c739794e4f0163a6730693322866b9afd9d7b9",
+    "pass": true,
+    "judges": [
+      "gpt-5.6-sol",
+      "gpt-5.6-luna"
+    ],
+    "human_validation": false
+  },
+  "selected_bank": {
+    "path": "data/v5/v5_selected_bank_pending.json",
+    "file_sha256": "54d77d976fcf66e82363d318d2043db0bdd62cc02208f68d5d3af2a4471ac417",
+    "required_status": "selected_bank_pending_no_history_validation"
+  },
+  "models": {
+    "qwen38_27b": {
+      "id": "Qwen/Qwen3.8-27B",
+      "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+      "selection_reason": "current official dense 27B Qwen3.8 post-trained open-weight checkpoint; focal calibration must use the same model as the eventual checkpoint",
+      "verified_last_modified": "2026-08-14T15:00:01.000Z",
+      "official_source": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "prior_measured": true,
+      "measured_no_history_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "measurement_source": "docs/V5_CALIBRATION_RUN_20260901.md (selected-bank validation, 576 choices)",
+      "registered_default_frame": "expertise"
+    },
+    "gemma4_31b": {
+      "id": "google/gemma-4-31B-it",
+      "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+      "official_source": "https://huggingface.co/google/gemma-4-31B-it",
+      "selection_reason": "current dense ~31B open-weight checkpoint from a different family, for replication and as a candidate with a possibly milder default",
+      "verified_2026_09_02": {
+        "transformers": "5.16.1",
+        "system_role_kept": true,
+        "digits_single_token": true,
+        "enable_thinking_ignored": true
+      },
+      "prior_measured": false,
+      "measured_no_history_shares": null,
+      "registered_default_frame": null
+    }
+  },
+  "generation": {
+    "temperature": 0.0,
+    "top_p": 0.8,
+    "top_k": 20,
+    "max_tokens": 2,
+    "dtype": "bfloat16",
+    "enable_thinking": false,
+    "activation_capture": false,
+    "constrained_choices": [
+      "1",
+      "2",
+      "3"
+    ],
+    "invalid_output_policy": "abort; no fallback"
+  },
+  "prior_measurement_schedule": {
+    "n_episode_blocks": 24,
+    "n_rounds": 24,
+    "heldout_start_round": 19,
+    "seed": 20261003,
+    "n_records": 576,
+    "history_present": false,
+    "target_simulator_present": false,
+    "mode": "selected_bank_validation",
+    "is_gate": false,
+    "purpose": "measure no-history frame shares; registers default_frame and a nuisance cell"
+  },
+  "rule": {
+    "required_analyzer_effect_gates": [
+      "design_integrity",
+      "all_selections_valid",
+      "zero_fallback",
+      "no_history_learning_control",
+      "random_target_learning_control",
+      "full_over_no_late",
+      "stable",
+      "revision",
+      "adjusted_old_drop"
+    ],
+    "required_added": {
+      "stratified_new_gain": {
+        "stratum": "non_default_destination",
+        "minimum": 0.05,
+        "exact_test_integer_scale": 24
+      }
+    },
+    "required_exact_tests": [
+      "stable",
+      "revision",
+      "stratified_new_gain"
+    ],
+    "alpha_each": 0.016666666666666666,
+    "dropped_with_reasons": "src.controlled_v8_power.V8_DROPPED_GATES",
+    "secondary_reported_only": "toward_default minus away_from_default acquisition, compared against this DGP's no-gating prediction at the measured shares",
+    "thresholds_inherited": {
+      "stable_did": 0.1,
+      "revision_shift": 0.15,
+      "adjusted_old_drop": 0.05,
+      "full_over_no_late": 0.1
+    }
+  },
+  "power": {
+    "episode_seed_grid": [
+      12,
+      18,
+      24,
+      30
+    ],
+    "screen_simulations_per_cell": 500,
+    "official_minimum_simulations": 10000,
+    "target_lower_mc_bound": 0.8,
+    "selection_cells": "measured cells only",
+    "sensitivity_cells": [
+      "severe_default_80",
+      "qwen38_v4bank_no_history"
+    ],
+    "dgp_alternatives": {
+      "stable_did": 0.2,
+      "revision_shift": 0.25
+    },
+    "study_offsets": {
+      "screen": 100000,
+      "null": 200000,
+      "official": 300000
+    }
+  },
+  "null_size": {
+    "profiles": [
+      "symmetric",
+      "asymmetric_slots",
+      "adversarial_serial"
+    ],
+    "minimum_per_profile": 1000,
+    "maximum_wilson_upper_per_required_test": 0.05
+  },
+  "next_gate": "Measure Gemma-4-31B prior (not a gate). Then exploratory V8 screen at measured cells under the pre-committed rule; fail => stop and write up V4."
+}
