@@ -412,6 +412,38 @@ DEFAULT_CONFIG = ExperimentConfig()
 CONTROLLED_V4_VERSION: str = "controlled-choice-v4.0"
 CONTROLLED_V5_VERSION: str = "controlled-choice-v5.0"
 CONTROLLED_V6_VERSION: str = "controlled-choice-v6.0"
+CONTROLLED_V6_RANDOMIZATION_SEED: int = 20262006
+CONTROLLED_V6_RANDOMIZATION_RNG: str = "PCG64DXSM"
+
+
+# Frozen before the single V6 confirmatory run.  These values are part of the
+# final checkpoint rather than CLI conveniences: changing any of them defines
+# a different analysis.  Figure intervals deliberately use fewer resamples
+# than the tabular confirmatory statistics, but retain the same frozen seed and
+# resample whole episode/scenario-seed blocks within each plotted round.
+CONTROLLED_V6_ANALYSIS_CONFIG: Dict[str, object] = {
+    "canonical_out_dir": "results/v6_confirmatory",
+    "n_boot": 5000,
+    "n_perm": 10000,
+    "seed": 20262004,
+    "figure_bootstrap": {
+        "n_boot": 2000,
+        "confidence_quantiles": [0.025, 0.975],
+        "resampling_unit": "episode_index block within round",
+        "rng": "numpy.default_rng",
+        "seed": 20262004,
+        "seed_offsets": {
+            "stable_condition_index": [0, 1, 2, 3],
+            "swap_new_target": 20,
+            "swap_old_target": 21,
+        },
+    },
+}
+
+
+CONTROLLED_V6_PAID_PREFLIGHT_RECEIPT_PATH: str = (
+    "results/v6_design/launch_receipts/v6_confirmatory_preflight.json"
+)
 
 
 @dataclass(frozen=True)
@@ -517,18 +549,25 @@ CONTROLLED_V5_SEMANTIC_THRESHOLDS: Dict[str, float] = {
 
 
 # V6 is the final instrument attempt.  It retains V5's behavioral estimands and
-# stop thresholds, but candidate calibration is performed on immutable *whole
-# triads* under all six slot permutations.  These values are frozen before any
-# V6 focal-model calibration or validation output exists.
+# observed-result gates, while powering population alternatives of 0.20 stable
+# DID and 0.25 revision.  The point-estimate gates remain 0.10/0.15: requiring a
+# noisy estimate to exceed a threshold equal to the true planning effect would
+# cap decision power near one half. Candidate calibration is performed on
+# immutable *whole triads* under all six slot permutations. These values are
+# frozen before any V6 focal-model calibration or validation output exists.
 CONTROLLED_V6_GATE_THRESHOLDS: Dict[str, float] = dict(
     CONTROLLED_V5_GATE_THRESHOLDS
 )
 CONTROLLED_V6_GATE_THRESHOLDS.update(
     {
-        # Align the substantive co-primary gates with the effects used for
-        # a-priori power rather than powering a larger effect than we require.
-        "minimum_stable_difference_in_differences": 0.20,
-        "minimum_revision_shift": 0.25,
+        # Component gates are deliberately separate from the aggregate
+        # swap-revision contrast.  This prevents a fall in the old frame (or a
+        # drift to the irrelevant third frame) from being called adaptation
+        # when use of the new target-matched frame did not increase.
+        "minimum_full_history_learning_gain": 0.05,
+        "minimum_adjusted_new_target_gain": 0.05,
+        "minimum_adjusted_old_target_drop": 0.05,
+        "minimum_swap_late_new_over_old": 0.0,
     }
 )
 
@@ -592,6 +631,7 @@ class ControlledCondition:
     history_mode: str = "full"
     target_mode: str = "typed"
     swap: bool = False
+    stable_counterfactual: bool = False
     focal_mode: str = "spontaneous"
     description: str = ""
 
@@ -623,6 +663,14 @@ CONTROLLED_CONDITIONS: Dict[str, ControlledCondition] = {
         name="swap",
         swap=True,
         description="The hidden response tendency silently changes after round 10.",
+    ),
+    "swap_control": ControlledCondition(
+        name="swap_control",
+        stable_counterfactual=True,
+        description=(
+            "Randomized matched control for a nominal old-to-new transition; "
+            "the target remains the old type for all rounds."
+        ),
     ),
     "elicited_full_history": ControlledCondition(
         name="elicited_full_history",
@@ -664,6 +712,10 @@ class ControlledExperimentConfig:
     heldout_start_round: int = 16
     n_episode_seeds: int = 4
     seed: int = 20260902
+    # ``None`` preserves the V4/V5 exhaustive schedule.  V6 sets the frozen
+    # seed and prospectively randomizes the two matched bundle families before
+    # any focal-model outcome is generated.
+    randomization_seed: Optional[int] = None
     conditions: List[str] = field(
         default_factory=lambda: list(DEFAULT_CONTROLLED_CONDITION_ORDER)
     )

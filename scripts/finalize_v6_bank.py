@@ -10,7 +10,7 @@ import os
 import sys
 
 from src.controlled_v6_messages import V6TriadBank
-from src.logging_utils import read_jsonl
+from src.logging_utils import publish_json_idempotent, read_jsonl
 from src.v6_calibration import (
     V6_VALIDATION_MODE,
     audit_v6_calibration_run,
@@ -35,13 +35,6 @@ def main(argv=None) -> int:
     parser.add_argument("--final-bank-out", required=True)
     parser.add_argument("--final-checkpoint-out", required=True)
     args = parser.parse_args(argv)
-    for path in (
-        args.validation_out,
-        args.final_bank_out,
-        args.final_checkpoint_out,
-    ):
-        if os.path.exists(path):
-            raise FileExistsError("refusing to overwrite %s" % path)
     pending = V6TriadBank.load(args.pending_bank)
     with open(args.pre_validation_checkpoint, "r", encoding="utf-8") as handle:
         prevalidation_checkpoint = json.load(handle)
@@ -94,20 +87,12 @@ def main(argv=None) -> int:
     validation["calibration_run_audit"] = run_audit
     validation["validation_manifest_file_sha256"] = file_sha256(manifest_path)
     validation["validation_log_file_sha256"] = file_sha256(args.validation_log)
-    parent = os.path.dirname(args.validation_out)
-    if parent:
-        os.makedirs(parent, exist_ok=True)
-    with open(args.validation_out, "w", encoding="utf-8") as handle:
-        json.dump(validation, handle, indent=2, allow_nan=False)
+    publish_json_idempotent(args.validation_out, validation)
     if not validation["pass"]:
         print("V6 SELECTED BANK VALIDATION FAILED; terminal instrument stop")
         return 2
     final_payload = finalize_validated_v6_bank(pending.payload, validation)
-    parent = os.path.dirname(args.final_bank_out)
-    if parent:
-        os.makedirs(parent, exist_ok=True)
-    with open(args.final_bank_out, "w", encoding="utf-8") as handle:
-        json.dump(final_payload, handle, indent=2, allow_nan=False)
+    publish_json_idempotent(args.final_bank_out, final_payload)
     final_checkpoint = build_v6_final_checkpoint(
         prevalidation_checkpoint_path=args.pre_validation_checkpoint,
         validation_summary_path=args.validation_out,
@@ -116,11 +101,7 @@ def main(argv=None) -> int:
         validated_bank_path=args.final_bank_out,
         repository_root=_bootstrap.ROOT,
     )
-    parent = os.path.dirname(args.final_checkpoint_out)
-    if parent:
-        os.makedirs(parent, exist_ok=True)
-    with open(args.final_checkpoint_out, "w", encoding="utf-8") as handle:
-        json.dump(final_checkpoint, handle, indent=2, allow_nan=False)
+    publish_json_idempotent(args.final_checkpoint_out, final_checkpoint)
     print("V6 selected bank validation: PASS")
     print("wrote finalized bank to %s" % args.final_bank_out)
     print("wrote final checkpoint to %s" % args.final_checkpoint_out)

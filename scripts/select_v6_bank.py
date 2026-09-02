@@ -10,21 +10,13 @@ import os
 import sys
 
 from src.controlled_v6_messages import V6TriadBank
-from src.logging_utils import read_jsonl
+from src.logging_utils import publish_json_idempotent, read_jsonl
 from src.v6_calibration import (
     V6_POOL_MODE,
     audit_v6_calibration_run,
     file_sha256,
     select_v6_bank,
 )
-
-
-def _write(path, payload):
-    parent = os.path.dirname(path)
-    if parent:
-        os.makedirs(parent, exist_ok=True)
-    with open(path, "w", encoding="utf-8") as handle:
-        json.dump(payload, handle, indent=2, ensure_ascii=False, allow_nan=False)
 
 
 def main(argv=None) -> int:
@@ -37,9 +29,6 @@ def main(argv=None) -> int:
     parser.add_argument("--bank-out", required=True)
     parser.add_argument("--report-out", required=True)
     args = parser.parse_args(argv)
-    for path in (args.bank_out, args.report_out):
-        if os.path.exists(path):
-            raise FileExistsError("refusing to overwrite %s" % path)
     pool = V6TriadBank.load(args.pool)
     records = list(read_jsonl(args.calibration_log))
     manifest_path = args.calibration_manifest or args.calibration_log.replace(
@@ -63,12 +52,15 @@ def main(argv=None) -> int:
     report["calibration_run_audit"] = run_audit
     report["calibration_manifest_file_sha256"] = file_sha256(manifest_path)
     report["calibration_log_file_sha256"] = file_sha256(args.calibration_log)
-    _write(args.report_out, report)
+    # Publish each deterministic artifact create-once/idempotently.  If the
+    # process stops between siblings, a retry accepts the exact completed file
+    # and fills only the missing one; a conflicting artifact fails closed.
+    publish_json_idempotent(args.report_out, report)
     if selected is None:
         print("V6 CALIBRATION SUPPORT GATE FAILED; terminal stop before validation")
         print("wrote diagnostic report to %s" % args.report_out)
         return 2
-    _write(args.bank_out, selected)
+    publish_json_idempotent(args.bank_out, selected)
     print("wrote pending selected bank to %s" % args.bank_out)
     print("wrote selection report to %s" % args.report_out)
     print("CONFIRMATORY RUN REMAINS BLOCKED pending one independent validation")

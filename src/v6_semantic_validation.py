@@ -13,6 +13,12 @@ from config import (
     CONTROLLED_V6_SEMANTIC_THRESHOLDS,
     STRATEGIES,
 )
+from .blind_judge import (
+    canonical_json_sha256,
+    codex_judge_contract,
+    replay_codex_judge_run_from_manifest,
+)
+from .controlled_v6_messages import audit_v6_bank_payload
 from .measurement_audit import cohens_kappa
 
 
@@ -31,9 +37,15 @@ def _canonical_hash(payload: Mapping[str, Any]) -> str:
 
 
 def load_v6_semantic_pool(path: str) -> Dict[str, Any]:
-    """Load a pool after validating the candidate structure used by this gate."""
+    """Load a pool only after the canonical full V6 structural audit passes."""
     with open(path, "r", encoding="utf-8") as handle:
         payload = json.load(handle)
+    audit = audit_v6_bank_payload(payload)
+    if not audit["pass"]:
+        failed = sorted(
+            name for name, passed in audit["checks"].items() if not passed
+        )
+        raise ValueError("invalid V6 semantic pool: %s" % ", ".join(failed))
     semantic_candidate_rows(payload)
     return payload
 
@@ -120,7 +132,7 @@ def _validated_result(result: Mapping[str, Any]) -> Dict[str, Any]:
         if isinstance(value, bool) or not isinstance(value, (int, float)):
             raise ValueError("semantic judge field %s is not numeric" % field)
         value = float(value)
-        if not 0.0 <= value <= 1.0:
+        if not math.isfinite(value) or not 0.0 <= value <= 1.0:
             raise ValueError("semantic judge field %s is outside [0,1]" % field)
         clean[field] = value
     return clean
@@ -157,6 +169,52 @@ def _judge_metrics(
     )
 
 
+def _artifact_results_match(
+    evaluator_results: Mapping[str, Mapping[str, Any]],
+    artifact_audit: Mapping[str, Any],
+) -> bool:
+    """Require the audited canonical map/hash to equal evaluator inputs."""
+    artifact_results = artifact_audit.get("result_map")
+    if not isinstance(artifact_results, Mapping):
+        return False
+    try:
+        clean_artifact = {
+            str(message): _validated_result(result)
+            for message, result in artifact_results.items()
+            if isinstance(result, Mapping)
+        }
+    except (TypeError, ValueError):
+        return False
+    if len(clean_artifact) != len(artifact_results):
+        return False
+    if artifact_audit.get("result_map_sha256") != canonical_json_sha256(
+        clean_artifact
+    ):
+        return False
+    return clean_artifact == dict(evaluator_results)
+
+
+def _artifact_contract_matches(
+    description: Mapping[str, Any], artifact_audit: Mapping[str, Any]
+) -> bool:
+    """Bind an audited artifact directory to the described judge contract."""
+    model = str(description.get("model", ""))
+    prompt_version = str(description.get("judge_prompt_version", ""))
+    if not model or artifact_audit.get("models") != [model]:
+        return False
+    if not prompt_version or artifact_audit.get("prompt_version") != prompt_version:
+        return False
+    optional_hashes = {
+        "judge_prompt_sha256": "prompt_sha256",
+        "judge_rubric_sha256": "rubric_sha256",
+    }
+    return all(
+        not description.get(description_key)
+        or artifact_audit.get(audit_key) == description.get(description_key)
+        for description_key, audit_key in optional_hashes.items()
+    )
+
+
 def _candidate_pass(
     result: Mapping[str, Any],
     intended: str,
@@ -188,6 +246,7 @@ def evaluate_v6_semantic_validation(
     """Join intended frames and triad IDs after both blind calls have finished."""
     thresholds = dict(thresholds or CONTROLLED_V6_SEMANTIC_THRESHOLDS)
     payload = _pool_payload(pool)
+    pool_audit = audit_v6_bank_payload(payload)
     rows = semantic_candidate_rows(payload)
     primary_metrics, primary_clean = _judge_metrics(rows, primary_results)
     sensitivity_metrics, sensitivity_clean = _judge_metrics(
@@ -264,13 +323,53 @@ def evaluate_v6_semantic_validation(
 
     primary_model = str(primary_description.get("model", ""))
     sensitivity_model = str(sensitivity_description.get("model", ""))
+    primary_artifact_results_match = _artifact_results_match(
+        primary_clean, primary_artifact_audit
+    )
+    sensitivity_artifact_results_match = _artifact_results_match(
+        sensitivity_clean, sensitivity_artifact_audit
+    )
+    primary_artifact_contract_match = _artifact_contract_matches(
+        primary_description, primary_artifact_audit
+    )
+    sensitivity_artifact_contract_match = _artifact_contract_matches(
+        sensitivity_description, sensitivity_artifact_audit
+    )
     gates = {
-        "pool_structurally_valid": True,
+        "pool_structurally_valid": bool(pool_audit.get("pass")),
         "judge_models_distinct": bool(primary_model)
         and bool(sensitivity_model)
         and primary_model != sensitivity_model,
         "both_artifact_audits_pass": bool(primary_artifact_audit.get("ok"))
         and bool(sensitivity_artifact_audit.get("ok")),
+        "primary_frozen_schedule_replayed": bool(
+            primary_artifact_audit.get("frozen_schedule_enforced")
+        ),
+        "sensitivity_frozen_schedule_replayed": bool(
+            sensitivity_artifact_audit.get("frozen_schedule_enforced")
+        ),
+        "primary_cache_reconciled_to_raw_artifacts": bool(
+            primary_artifact_audit.get("cache_reconciled")
+        ),
+        "sensitivity_cache_reconciled_to_raw_artifacts": bool(
+            sensitivity_artifact_audit.get("cache_reconciled")
+        ),
+        "primary_raw_run_manifest_recorded": isinstance(
+            primary_artifact_audit.get("judge_run_manifest"), Mapping
+        ),
+        "sensitivity_raw_run_manifest_recorded": isinstance(
+            sensitivity_artifact_audit.get("judge_run_manifest"), Mapping
+        ),
+        "primary_artifact_contract_matches_judge": primary_artifact_contract_match,
+        "sensitivity_artifact_contract_matches_judge": (
+            sensitivity_artifact_contract_match
+        ),
+        "primary_artifact_results_match_evaluator": (
+            primary_artifact_results_match
+        ),
+        "sensitivity_artifact_results_match_evaluator": (
+            sensitivity_artifact_results_match
+        ),
         "primary_accuracy": primary_metrics["accuracy"]
         >= thresholds["minimum_judge_accuracy"],
         "primary_all_class_recall": min(
@@ -296,7 +395,8 @@ def evaluate_v6_semantic_validation(
             "machine-only blind semantic manipulation gate; not human validation"
         ),
         "pool_id": str(payload.get("pool_id", "")),
-        "pool_sha256": _canonical_hash(payload),
+        "pool_sha256": str(pool_audit.get("sha256") or _canonical_hash(payload)),
+        "pool_audit": pool_audit,
         "n_triads": len(by_triad),
         "n_candidates": len(rows),
         "judge_visible_fields": ["sample_id", "message"],
@@ -329,4 +429,108 @@ def evaluate_v6_semantic_validation(
         "primary_artifact_audit": dict(primary_artifact_audit),
         "sensitivity_artifact_audit": dict(sensitivity_artifact_audit),
         "gates": gates,
+    }
+
+
+def audit_v6_semantic_validation_summary(
+    summary: Mapping[str, Any], pool: Any, repository_root: str
+) -> Dict[str, Any]:
+    """Recompute the semantic gate from raw batches/caches, ignoring ``pass``.
+
+    This is the checkpoint-facing verifier: a hand-edited summary cannot pass
+    unless its two repository-local raw run manifests replay exactly and the
+    complete deterministic evaluator output matches byte-independent canonical
+    JSON.
+    """
+    if not isinstance(summary, Mapping):
+        raise ValueError("semantic validation summary is not an object")
+    contract = summary.get("judge_contract")
+    manifests = summary.get("raw_judge_run_manifests")
+    if not isinstance(contract, Mapping) or not isinstance(manifests, Mapping):
+        raise ValueError("semantic summary lacks contract/raw run manifests")
+    if set(manifests) != {"primary", "sensitivity"}:
+        raise ValueError("semantic summary must contain exactly two run manifests")
+    frozen = {
+        key: contract.get(key)
+        for key in (
+            "models",
+            "seeds",
+            "batch_size",
+            "prompt_version",
+            "prompt_sha256",
+            "rubric_sha256",
+        )
+    }
+    if contract.get("contract_sha256") != canonical_json_sha256(frozen):
+        raise ValueError("semantic summary judge contract hash mismatch")
+    prompt = codex_judge_contract()
+    if any(frozen.get(key) != prompt[key] for key in prompt):
+        raise ValueError("semantic summary prompt contract mismatch")
+    models = frozen.get("models")
+    seeds = frozen.get("seeds")
+    batch_size = frozen.get("batch_size")
+    if (
+        not isinstance(models, list)
+        or len(models) != 2
+        or not isinstance(seeds, list)
+        or len(seeds) != 2
+        or isinstance(batch_size, bool)
+        or not isinstance(batch_size, int)
+        or batch_size < 1
+    ):
+        raise ValueError("semantic summary judge contract is malformed")
+
+    rows = semantic_candidate_rows(pool)
+    messages = [row["message"] for row in rows]
+    primary_replay = replay_codex_judge_run_from_manifest(
+        messages, manifests["primary"], repository_root
+    )
+    sensitivity_replay = replay_codex_judge_run_from_manifest(
+        messages, manifests["sensitivity"], repository_root
+    )
+    for index, (name, replay) in enumerate(
+        (("primary", primary_replay), ("sensitivity", sensitivity_replay))
+    ):
+        manifest = replay["judge_run_manifest"]
+        if (
+            manifest.get("model") != models[index]
+            or manifest.get("seed") != seeds[index]
+            or manifest.get("batch_size") != batch_size
+        ):
+            raise ValueError(
+                "semantic %s run differs from frozen judge contract" % name
+            )
+
+    primary_description = summary.get("primary_judge")
+    sensitivity_description = summary.get("sensitivity_judge")
+    if not isinstance(primary_description, Mapping) or not isinstance(
+        sensitivity_description, Mapping
+    ):
+        raise ValueError("semantic summary judge descriptions are missing")
+    recomputed = evaluate_v6_semantic_validation(
+        pool,
+        primary_replay["result_map"],
+        sensitivity_replay["result_map"],
+        primary_description,
+        sensitivity_description,
+        primary_replay,
+        sensitivity_replay,
+    )
+    supplied_evaluation = {
+        key: summary.get(key) for key in recomputed
+    }
+    if supplied_evaluation != recomputed:
+        raise ValueError("semantic summary differs from raw-file recomputation")
+    recomputed_sha256 = canonical_json_sha256(recomputed)
+    if summary.get("recomputed_evaluation_sha256") != recomputed_sha256:
+        raise ValueError("semantic recomputed evaluation hash mismatch")
+    return {
+        "ok": True,
+        "pass": bool(recomputed["pass"]),
+        "recomputed_evaluation_sha256": recomputed_sha256,
+        "primary_judge_run_manifest": primary_replay["judge_run_manifest"],
+        "sensitivity_judge_run_manifest": sensitivity_replay[
+            "judge_run_manifest"
+        ],
+        "recomputed_summary": recomputed,
     }

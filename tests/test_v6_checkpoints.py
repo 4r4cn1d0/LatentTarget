@@ -9,6 +9,7 @@ from copy import deepcopy
 from pathlib import Path
 
 import pytest
+import src.v6_protocol_gate as v6_protocol_gate_module
 
 from config import CONTROLLED_V6_VERSION, STRATEGIES
 from src.controlled_focal_agent import build_controlled_prompt
@@ -29,9 +30,12 @@ from src.v6_calibration import (
     select_v6_bank,
 )
 from src.v6_protocol_gate import (
+    V6_CONFIRMATORY_SOURCE_PATHS,
+    V6_PREVALIDATION_SOURCE_PATHS,
     audit_v6_calibration_plan,
     audit_v6_final_checkpoint,
     audit_v6_prevalidation_checkpoint,
+    build_v6_calibration_launch_receipt,
     build_v6_confirmatory_schedule_metadata,
     build_v6_final_checkpoint,
     v6_artifact_reference,
@@ -44,6 +48,46 @@ SOURCE_PROTOCOL = ROOT / "docs" / "v6_calibration_protocol.json"
 POOL_RUN_ID = "v6_pool_screening_qwen38_27b_20260902"
 VALIDATION_RUN_ID = "v6_bank_validation_qwen38_27b_20260902"
 CONFIRMATORY_RUN_ID = "qwen38_27b_v6_confirmatory_20260902"
+SYNTHETIC_FOCAL_RUNTIME = {
+    "evidence_version": "v6-focal-runtime-evidence-1.0",
+    "requested_device": "auto",
+    "resolved_device_type": "cuda",
+    "python": {
+        "implementation": "CPython",
+        "version": "3.12.11",
+        "version_info": [3, 12, 11],
+    },
+    "packages": {
+        "numpy": "2.3.4",
+        "torch": "2.9.1+cu128",
+        "torchvision": "0.24.1+cu128",
+        "torchaudio": "2.9.1+cu128",
+        "transformers": "5.16.1",
+        "accelerate": "1.14.0",
+        "sentencepiece": "0.2.1",
+    },
+    "module_versions": {
+        "numpy": "2.3.4",
+        "torch": "2.9.1+cu128",
+        "transformers": "5.16.1",
+        "accelerate": "1.14.0",
+    },
+    "cuda": {
+        "available": True,
+        "torch_build_version": "12.8",
+        "runtime_version": 12080,
+        "device_count": 1,
+        "bfloat16_supported": True,
+    },
+    "devices": [
+        {
+            "index": 0,
+            "name": "NVIDIA A100-SXM4-80GB",
+            "compute_capability": [8, 0],
+            "total_memory_bytes": 85_056_798_720,
+        }
+    ],
+}
 
 
 def _write_json(path: Path, payload) -> None:
@@ -80,6 +124,8 @@ def _provider(protocol, seed):
         "capture": False,
         "constrained_choices": ["1", "2", "3"],
         "torch_seed_base": seed,
+        "device": "auto",
+        "focal_runtime_evidence": deepcopy(SYNTHETIC_FOCAL_RUNTIME),
     }
 
 
@@ -174,10 +220,61 @@ def _load_script(monkeypatch, filename, module_name):
 def test_v6_checkpoint_chain_replays_selection_validation_and_run_identity(
     tmp_path, monkeypatch
 ):
+    def fake_judge_replay(summary, _pool, _root):
+        return {
+            "ok": True,
+            "pass": summary.get("pass") is True,
+            "recomputed_evaluation_sha256": summary.get(
+                "recomputed_evaluation_sha256"
+            ),
+        }
+
+    def fake_power_replay(payload, require_official=True):
+        assert require_official is True
+        selected = payload.get("selected_episode_seeds")
+        return {
+            "audit_pass": True,
+            "schema_version": "synthetic-power-replay",
+            "official": True,
+                "status": "PASS_V6_PROSPECTIVE_BUNDLE_POWER",
+            "scientific_power_pass": True,
+            "power_selection_pass": True,
+            "null_type_i_pass": True,
+            "selected_episode_seeds": selected,
+            "forbidden_outcome_flags": {
+                "focal_model_outcomes_used": False,
+                "confirmatory_outcomes_used": False,
+                "selected_bank_validation_outputs_used": False,
+            },
+        }
+
+    monkeypatch.setattr(
+        v6_protocol_gate_module,
+        "audit_v6_semantic_validation_summary",
+        fake_judge_replay,
+    )
+    monkeypatch.setattr(
+        v6_protocol_gate_module,
+        "audit_v6_quality_validation_summary",
+        fake_judge_replay,
+    )
+    monkeypatch.setattr(
+        v6_protocol_gate_module,
+        "audit_v6_power_payload",
+        fake_power_replay,
+    )
+    for relative_path in sorted(
+        set(V6_PREVALIDATION_SOURCE_PATHS) | set(V6_CONFIRMATORY_SOURCE_PATHS)
+    ):
+        source = ROOT / relative_path
+        destination = tmp_path / relative_path
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, destination)
     pool_path = tmp_path / "artifacts" / "pool.json"
     pool_path.parent.mkdir(parents=True)
     shutil.copyfile(SOURCE_POOL, pool_path)
     pool = V6TriadBank.load(str(pool_path))
+    protocol = json.loads(SOURCE_PROTOCOL.read_text(encoding="utf-8"))
     triad_ids = [
         triad["triad_id"]
         for split in ("development", "heldout")
@@ -189,14 +286,51 @@ def test_v6_checkpoint_chain_replays_selection_validation_and_run_identity(
         "eligible_triad_ids": triad_ids,
         "primary_judge": {"model": "gpt-5.6-sol"},
         "sensitivity_judge": {"model": "gpt-5.6-luna"},
+        "judge_contract": {
+            **protocol["semantic_validation"]["judge_contract"],
+            "kind": "semantic",
+            "enforced": True,
+        },
+        "raw_judge_run_manifests": {
+            "primary": {"manifest_sha256": "synthetic-semantic-primary"},
+            "sensitivity": {
+                "manifest_sha256": "synthetic-semantic-sensitivity"
+            },
+        },
+        "recomputed_evaluation_sha256": "synthetic-semantic-evaluation",
     }
     quality = deepcopy(semantic)
+    quality["judge_contract"] = {
+        **protocol["quality_validation"]["judge_contract"],
+        "kind": "quality",
+        "enforced": True,
+    }
+    quality["raw_judge_run_manifests"] = {
+        "primary": {"manifest_sha256": "synthetic-quality-primary"},
+        "sensitivity": {
+            "manifest_sha256": "synthetic-quality-sensitivity"
+        },
+    }
+    quality["recomputed_evaluation_sha256"] = "synthetic-quality-evaluation"
     semantic_path = tmp_path / "artifacts" / "semantic.json"
     quality_path = tmp_path / "artifacts" / "quality.json"
     _write_json(semantic_path, semantic)
     _write_json(quality_path, quality)
+    synthetic_measurement_paths = deepcopy(
+        v6_protocol_gate_module.V6_CANONICAL_MEASUREMENT_PATHS
+    )
+    synthetic_measurement_paths["semantic"]["summary"] = str(
+        semantic_path.relative_to(tmp_path)
+    )
+    synthetic_measurement_paths["quality"]["summary"] = str(
+        quality_path.relative_to(tmp_path)
+    )
+    monkeypatch.setattr(
+        v6_protocol_gate_module,
+        "V6_CANONICAL_MEASUREMENT_PATHS",
+        synthetic_measurement_paths,
+    )
 
-    protocol = json.loads(SOURCE_PROTOCOL.read_text(encoding="utf-8"))
     protocol["status"] = (
         "SEMANTIC_AND_QUALITY_GATES_PASSED_READY_FOR_PAID_POOL_SCREENING"
     )
@@ -228,29 +362,22 @@ def test_v6_checkpoint_chain_replays_selection_validation_and_run_identity(
     protocol_path = tmp_path / "artifacts" / "protocol.json"
     _write_json(protocol_path, protocol)
     power_design = protocol["power_design"]
+    power_contract = power_design["contract"]
     selected_episode_seeds = 24
     power = {
-        "status": "PASS_V6_PREVALIDATION_FINITE_GRID_POWER",
+        "status": "PASS_V6_PROSPECTIVE_BUNDLE_POWER",
         "pass": True,
         "power_selection_pass": True,
         "null_type_i_pass": True,
         "focal_model_outcomes_used": False,
         "confirmatory_outcomes_used": False,
         "selected_bank_validation_outputs_used": False,
-        "population_alternatives": power_design[
-            "population_smallest_effects_of_interest"
+        "contract": power_contract,
+        "episode_seed_grid": power_contract["power"]["n_grid"],
+        "n_sim_per_cell": power_contract["power"][
+            "official_simulations_per_cell_minimum"
         ],
-        "episode_seed_grid": power_design["episode_seed_grid"],
-        "planning_ceiling_episode_seeds": power_design[
-            "planning_ceiling_episode_seeds"
-        ],
-        "minimum_simulations_per_cell": power_design[
-            "minimum_simulations_per_cell"
-        ],
-        "n_sim_per_cell": power_design["minimum_simulations_per_cell"],
-        "n_sim_requirement_met": True,
-        "simulation_seed": power_design["seed"],
-        "target_power_lower_mc_bound": power_design["target_lower_mc_bound"],
+        "simulation_seed": power_contract["simulation"]["power_rng_root"],
         "selected_episode_seeds": selected_episode_seeds,
     }
     power_path = tmp_path / "artifacts" / "power.json"
@@ -284,7 +411,27 @@ def test_v6_checkpoint_chain_replays_selection_validation_and_run_identity(
         pool_seed,
         pool_log_path,
     )
-    pool_manifest["frozen_protocol"] = {"plan_audit": pool_plan}
+    pool_receipt_path = tmp_path / "artifacts" / "pool-launch-receipt.json"
+    _write_json(
+        pool_receipt_path,
+        build_v6_calibration_launch_receipt(
+            protocol=protocol,
+            protocol_path=str(protocol_path),
+            bank=pool,
+            mode=V6_POOL_MODE,
+            repository_root=str(tmp_path),
+            runtime_evidence=pool_provider["focal_runtime_evidence"],
+        ),
+    )
+    pool_manifest["frozen_protocol"] = {
+        "plan_audit": pool_plan,
+        "focal_runtime": v6_protocol_gate_module.require_v6_focal_runtime(
+            protocol, pool_provider["focal_runtime_evidence"]
+        ),
+        "single_launch_receipt": v6_artifact_reference(
+            str(pool_receipt_path), str(tmp_path)
+        ),
+    }
     pool_manifest_path = tmp_path / "artifacts" / "pool.manifest.json"
     _write_json(pool_manifest_path, pool_manifest)
     pool_run_audit = audit_v6_calibration_run(
@@ -345,6 +492,26 @@ def test_v6_checkpoint_chain_replays_selection_validation_and_run_identity(
         prevalidation, str(tmp_path)
     )
     assert prevalidation_audit["pass"] is True
+
+    # The source closure is deliberately exhaustive. A dependency that the
+    # earlier hand-written list omitted must now invalidate the checkpoint.
+    transitive_dependency = tmp_path / "src" / "controlled_messages.py"
+    original_dependency = transitive_dependency.read_text(encoding="utf-8")
+    transitive_dependency.write_text(
+        original_dependency + "\n# synthetic post-freeze drift\n",
+        encoding="utf-8",
+    )
+    dependency_drift_audit = audit_v6_prevalidation_checkpoint(
+        prevalidation, str(tmp_path)
+    )
+    assert dependency_drift_audit["pass"] is False
+    assert dependency_drift_audit["checks"][
+        "source_code_src/controlled_messages.py_hash"
+    ] is False
+    transitive_dependency.write_text(original_dependency, encoding="utf-8")
+    assert audit_v6_prevalidation_checkpoint(
+        prevalidation, str(tmp_path)
+    )["pass"] is True
 
     # Make an edited pending bank and selection report internally self-consistent.
     # Replaying selection must still recover the original objects and reject it.
@@ -418,10 +585,34 @@ def test_v6_checkpoint_chain_replays_selection_validation_and_run_identity(
         validation_seed,
         validation_log_path,
     )
+    validation_receipt_path = (
+        tmp_path / "artifacts" / "validation-launch-receipt.json"
+    )
+    prevalidation_reference = v6_artifact_reference(
+        str(prevalidation_path), str(tmp_path)
+    )
+    _write_json(
+        validation_receipt_path,
+        build_v6_calibration_launch_receipt(
+            protocol=protocol,
+            protocol_path=str(protocol_path),
+            bank=pending,
+            mode=V6_VALIDATION_MODE,
+            repository_root=str(tmp_path),
+            prevalidation_reference=prevalidation_reference,
+            runtime_evidence=validation_provider["focal_runtime_evidence"],
+        ),
+    )
     validation_manifest["frozen_protocol"] = {
         "plan_audit": validation_plan,
-        "prevalidation_checkpoint": v6_artifact_reference(
-            str(prevalidation_path), str(tmp_path)
+        "focal_runtime": v6_protocol_gate_module.require_v6_focal_runtime(
+            protocol,
+            validation_provider["focal_runtime_evidence"],
+            expected_evidence=prevalidation["focal_runtime"]["evidence"],
+        ),
+        "prevalidation_checkpoint": prevalidation_reference,
+        "single_launch_receipt": v6_artifact_reference(
+            str(validation_receipt_path), str(tmp_path)
         ),
     }
     validation_manifest_path = tmp_path / "artifacts" / "validation.manifest.json"
@@ -539,6 +730,24 @@ def test_v6_checkpoint_chain_replays_selection_validation_and_run_identity(
                 "replacement-validation-run",
                 "--pre-validation-checkpoint",
                 str(prevalidation_path),
+                "--dry-run",
+            ]
+        )
+    with pytest.raises(ValueError, match="single frozen canonical directory"):
+        run_cli.main(
+            [
+                "--bank",
+                str(pending_path),
+                "--protocol-spec",
+                str(protocol_path),
+                "--mode",
+                V6_VALIDATION_MODE,
+                "--run-id",
+                VALIDATION_RUN_ID,
+                "--pre-validation-checkpoint",
+                str(prevalidation_path),
+                "--out-dir",
+                str(tmp_path / "alternative-validation-output"),
                 "--dry-run",
             ]
         )

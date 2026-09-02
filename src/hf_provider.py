@@ -27,11 +27,147 @@ reach the model. ``tests/test_hf_provider.py`` asserts this.
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+import copy
+import importlib.metadata
+import platform
+import sys
+from typing import Any, Callable, Dict, List, Mapping, Optional, Sequence, Tuple
 
 import numpy as np
 
 from .focal_agent import BaseProvider, FocalPrompt, ProviderError
+
+
+V6_FOCAL_RUNTIME_EVIDENCE_VERSION = "v6-focal-runtime-evidence-1.0"
+
+
+def _cuda_runtime_version(torch: Any) -> int:
+    """Return the loaded CUDA runtime version without shelling out.
+
+    PyTorch's ``cudart`` wrapper returns ``(error_code, version)`` for
+    ``cudaRuntimeGetVersion`` on supported CUDA builds.  Keep the small amount
+    of shape tolerance here so a binding representation change fails with an
+    actionable error rather than silently omitting the runtime version.
+    """
+    try:
+        result = torch.cuda.cudart().cudaRuntimeGetVersion()
+    except Exception as exc:  # pragma: no cover - exercised on the GPU pod
+        raise ProviderError("could not query the loaded CUDA runtime version") from exc
+    if isinstance(result, tuple) and len(result) == 2:
+        status, version = result
+        status_code = int(getattr(status, "value", status))
+        if status_code != 0:
+            raise ProviderError(
+                "cudaRuntimeGetVersion failed with status %s" % status_code
+            )
+        return int(version)
+    if type(result) is int:
+        return result
+    raise ProviderError(
+        "cudaRuntimeGetVersion returned an unsupported value: %r" % (result,)
+    )
+
+
+def _default_focal_runtime_probe(_device: str) -> Dict[str, Any]:
+    """Collect model-free package, CUDA, and hardware evidence on the pod."""
+    try:
+        import accelerate
+        import torch
+        import transformers
+    except ImportError as exc:  # pragma: no cover - pod only
+        raise ProviderError(
+            "the frozen V6 focal runtime needs torch, transformers, and "
+            "accelerate from requirements-pod.txt (%s)" % exc
+        ) from exc
+
+    package_names = (
+        "numpy",
+        "torch",
+        "torchvision",
+        "torchaudio",
+        "transformers",
+        "accelerate",
+        "sentencepiece",
+    )
+    try:
+        packages = {
+            name: importlib.metadata.version(name) for name in package_names
+        }
+    except importlib.metadata.PackageNotFoundError as exc:  # pragma: no cover - pod only
+        raise ProviderError(
+            "the frozen V6 focal runtime is missing package %s" % exc.name
+        ) from exc
+
+    cuda_available = bool(torch.cuda.is_available())
+    device_count = int(torch.cuda.device_count()) if cuda_available else 0
+    devices: List[Dict[str, Any]] = []
+    if cuda_available:
+        for index in range(device_count):
+            properties = torch.cuda.get_device_properties(index)
+            capability = torch.cuda.get_device_capability(index)
+            devices.append(
+                {
+                    "index": index,
+                    "name": str(torch.cuda.get_device_name(index)),
+                    "compute_capability": [int(capability[0]), int(capability[1])],
+                    "total_memory_bytes": int(properties.total_memory),
+                }
+            )
+
+    return {
+        "evidence_version": V6_FOCAL_RUNTIME_EVIDENCE_VERSION,
+        "requested_device": "auto",
+        "resolved_device_type": "cuda" if cuda_available else None,
+        "python": {
+            "implementation": platform.python_implementation(),
+            "version": platform.python_version(),
+            "version_info": [
+                int(sys.version_info.major),
+                int(sys.version_info.minor),
+                int(sys.version_info.micro),
+            ],
+        },
+        "packages": packages,
+        "module_versions": {
+            "numpy": str(np.__version__),
+            "torch": str(torch.__version__),
+            "transformers": str(transformers.__version__),
+            "accelerate": str(accelerate.__version__),
+        },
+        "cuda": {
+            "available": cuda_available,
+            "torch_build_version": (
+                str(torch.version.cuda) if torch.version.cuda is not None else None
+            ),
+            "runtime_version": (
+                _cuda_runtime_version(torch) if cuda_available else None
+            ),
+            "device_count": device_count,
+            "bfloat16_supported": (
+                bool(torch.cuda.is_bf16_supported()) if cuda_available else False
+            ),
+        },
+        "devices": devices,
+    }
+
+
+def collect_focal_runtime_evidence(
+    *,
+    device: str = "auto",
+    probe: Optional[Callable[[str], Mapping[str, Any]]] = None,
+) -> Dict[str, Any]:
+    """Collect exact V6 focal-runtime evidence without loading a model.
+
+    ``probe`` is an explicit test seam: local tests can inject a complete
+    synthetic observation and never import torch or initialize CUDA.
+    """
+    if device != "auto":
+        raise ValueError("V6 focal runtime requires device='auto'; overrides are forbidden")
+    collector = probe or _default_focal_runtime_probe
+    observed = collector(device)
+    if not isinstance(observed, Mapping):
+        raise TypeError("focal runtime probe must return a mapping")
+    return copy.deepcopy(dict(observed))
 
 
 def _choice_token_sequences(tokenizer, choices: Sequence[str]) -> Tuple[Tuple[int, ...], ...]:
@@ -121,6 +257,7 @@ class HuggingFaceProvider(BaseProvider):
         top_k: int = 20,
         revision: Optional[str] = None,
         constrained_choices: Optional[Sequence[str]] = None,
+        runtime_evidence: Optional[Mapping[str, Any]] = None,
     ) -> None:
         self.model_id = model
         self.revision = revision
@@ -138,6 +275,11 @@ class HuggingFaceProvider(BaseProvider):
             tuple(str(choice) for choice in constrained_choices)
             if constrained_choices is not None else None
         )
+        self.runtime_evidence = (
+            copy.deepcopy(dict(runtime_evidence))
+            if runtime_evidence is not None
+            else None
+        )
         if self.constrained_choices is not None:
             if not self.constrained_choices or len(set(self.constrained_choices)) != len(
                 self.constrained_choices
@@ -154,6 +296,22 @@ class HuggingFaceProvider(BaseProvider):
         #: (meta, activations) pairs, filled by the runner via ``tag_last``.
         self.captured: List[Tuple[Dict[str, Any], np.ndarray]] = []
         self.kept_layers: List[int] = []
+
+    def bind_runtime_evidence(self, evidence: Mapping[str, Any]) -> None:
+        """Bind pre-generation V6 runtime evidence to provider metadata.
+
+        Binding is allowed only before the model is loaded, and a second bind
+        must be identical.  This prevents provider metadata from being swapped
+        after generation has begun.
+        """
+        if self._model is not None:
+            raise ProviderError("runtime evidence must be bound before model loading")
+        if not isinstance(evidence, Mapping):
+            raise TypeError("runtime evidence must be a mapping")
+        supplied = copy.deepcopy(dict(evidence))
+        if self.runtime_evidence is not None and self.runtime_evidence != supplied:
+            raise ProviderError("provider runtime evidence is already bound differently")
+        self.runtime_evidence = supplied
 
     # -- lazy load --
     def _ensure_loaded(self):
@@ -443,6 +601,11 @@ class HuggingFaceProvider(BaseProvider):
             "processor": type(self._processor).__name__ if self._processor is not None else None,
             "per_generation_seed_supported": True,
         }
+        if self.runtime_evidence is not None:
+            description["device"] = self.device
+            description["focal_runtime_evidence"] = copy.deepcopy(
+                self.runtime_evidence
+            )
         if self.constrained_choices is not None:
             description["constrained_choices"] = list(self.constrained_choices)
             description["invalid_output_policy"] = "provider error; no fallback"

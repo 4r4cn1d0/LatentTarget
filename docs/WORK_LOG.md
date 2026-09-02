@@ -939,3 +939,244 @@ synthetic validation and from claims that still require a real model.
   `git diff --check` passes; the repository secret scan found no live
   credential. No V6 judge, focal calibration, target-bearing, activation,
   probe, or steering result exists yet.
+
+## 2026-09-02 — V6 GSD deep-review block before judging
+
+- Pushed the pre-review snapshot as commit `b13c52c` so the protocol state was
+  timestamped before any machine judge saw the pool. This commit is not a
+  launch authorization.
+- The subsequent GSD deep review found six blockers and four warnings. Most
+  importantly, it constructed a text-blind odd/even round-by-slot policy that
+  passed the current 840-choice validation, proving the anti-position gate was
+  insufficient because each counterfactual permutation exposed a different
+  visible round number.
+- The review also found that validated status, pending-bank provenance,
+  recorded-choice mapping, and semantic cache/artifact provenance were not yet
+  cryptographically closed; no V6-specific exact power implementation existed;
+  and the prose/JSON disagreed about power timing.
+- **ACTION:** all judge and paid work was stopped before output. Every finding
+  is being repaired with adversarial regression tests. Power is now explicitly
+  frozen after calibration support but before independent validation, using no
+  validation output. Full review record:
+  `docs/V6_PREJUDGE_CODE_REVIEW.md`.
+
+## 2026-09-02 — V6 fail-closed remediation after second deep review
+
+- A second GSD review was run before any judge or GPU output. It found eight
+  Critical and two Warning issues, including an impossible pending/final bank
+  schedule comparison, omitted realized-balance failures in power, reuse of a
+  confirmatory cell for paid preflight, path-local rather than global run
+  uniqueness, incomplete raw-log reconciliation, replayable-status gaps for
+  judge/power outputs, an incomplete source-file closure, and a resume audit
+  that occurred too late. Paid execution remained stopped.
+- Changed confirmatory schedule identity to bind immutable candidate content.
+  Pending and validated full-bank hashes remain separately proven through the
+  deterministic validation transition.
+- Reworked power to sample realized multinomial no-history choices and apply
+  the exact observed frame-share/gap gates in every simulated study. Added a
+  fail-closed payload auditor that recomputes finite-grid rows, Wilson bounds,
+  sensitivity authority, Type-I decisions, selected episode count, and final
+  status without trusting saved booleans.
+- Rebuilt semantic and quality provenance around exact seed-derived batches.
+  Every batch filename, member/order, prompt/model/index, raw result, cache
+  entry, and file hash is replayed. The prevalidation checkpoint now calls both
+  raw replayers and explicitly binds their two-run manifests.
+- Added frozen canonical output/cache directories for all official stages and
+  atomic one-launch receipts for pool screening, selected-bank validation, and
+  confirmation. Later checkpoints or analysis reload and verify each receipt.
+  This prevents duplicate runs through normal tooling; as with any local
+  research code, a malicious privileged operator could delete files, so all
+  receipts and results will also be committed and pushed as external evidence.
+- Replaced the confirmatory-cell preflight with a permanently disjoint sentinel
+  scenario/message/seed probe. Added pre-provider resume replay and full
+  analysis reconstruction of raw selection, candidates, prompts, histories,
+  target probability, deterministic draw, choice, strategy match, and log hash.
+- Replaced the hand-maintained source list with an exact closure over every
+  Python file in `src/` and `scripts/`, `config.py`, `requirements.txt`, and
+  `requirements-pod.txt`. A regression test mutates a formerly omitted
+  dependency and confirms checkpoint failure.
+- **VERIFIED:** 138 combined focused tests passed; the full checkpoint chain
+  passed in 67.75 seconds; the complete suite passed **497/497** in 158.19
+  seconds. Compilation, protocol JSON parsing, and `git diff --check` passed.
+  No judge, focal-model, target-bearing, activation, probe, or steering output
+  exists. A final independent zero-Critical/zero-Warning review is still
+  required before commit/push and execution.
+
+## 2026-09-02 — V6 third adversarial review and crash-recovery hardening
+
+- The requested final review did **not** pass cleanly. It found three Critical
+  and three Warning issues before any V6 judge or GPU call. Work remained
+  stopped rather than treating the preceding 497-test pass as scientific
+  authorization.
+- **Power provenance:** the saved power auditor recomputed intervals and
+  summaries from stored tallies but did not regenerate those tallies. A forged,
+  internally coherent 10,000-trial payload could therefore authorize a false
+  sample size. The audit now deterministically reruns all 156 effect-grid and
+  13 null-grid cells from their frozen seeds and requires exact row equality
+  before returning an episode count. An adversarial coherent-forgery test is
+  part of the gate.
+- **Paid calibration recovery:** the one-launch receipt correctly prevented a
+  duplicate official run, but an interrupted run could be left with the
+  receipt, a valid JSONL prefix, and a running manifest that the CLI refused to
+  resume. Recovery is being changed to validate the exact frozen schedule
+  prefix and its sample artifacts before provider construction, then continue
+  at the first missing coordinate under the same receipt. Gaps, substitutions,
+  foreign configuration, or an invalid prefix remain terminal.
+- **Confirmatory finalization:** a crash after the generic runner marked a
+  manifest complete but before the V6 wrapper sealed the log and receipt hashes
+  could leave an otherwise complete run unusable. The final runner is being
+  made idempotent with a model-free finalize-only recovery that performs the
+  full raw-log replay before sealing; partially sealed or contradictory states
+  still fail closed.
+- **Judge cache durability:** raw batch artifacts and per-sample cache updates
+  had a narrow interruption window that could repeat a paid judge batch or
+  wedge replay. Successful batches are being changed to one recoverable atomic
+  cache transaction, with crash/tamper tests.
+- **Multi-artifact durability:** power, selection, validation/finalization, and
+  analysis wrote sibling artifacts sequentially and rejected all retries.
+  Shared persistence now fsyncs each paid JSONL row, writes manifests through a
+  durable atomic rename, and supports create-once/idempotent artifact
+  publication: exact retries fill missing siblings while conflicting existing
+  artifacts fail closed. Analysis is being changed to publish its verified
+  staged artifact set first and the summary last.
+- **VERIFIED DURING REMEDIATION:** deterministic power-replay focused tests,
+  atomic persistence tests, and interrupted sibling-publication tests pass.
+  Compilation and `git diff --check` pass. The full suite and a fresh GSD
+  zero-Critical/zero-Warning review remain required. No V6 paid output exists.
+
+## 2026-09-02 — V6 fourth scientific/code review and randomized redesign
+
+- Kept every judge and paid runner blocked and commissioned separate
+  scientific-design and adversarial code reviews of the complete pre-outcome
+  system. The scientific review rejected the observational inference: the old
+  sign-flip p-values were not licensed by random assignment, the swap sum could
+  pass through old-frame abandonment alone, the power model did not generate
+  the actual sequential experiment, key nuisance assumptions were not frozen,
+  and no-history replication was assumed rather than enforced. The code review
+  separately found receipt-schema drift, unattested Codex executable identity,
+  candidate-pool checks occurring too late, ancestor-swap/path hazards,
+  permissive JSON reads, unsafe evidence-file opens, and missing prompt-output
+  replication checks.
+- Replaced the design before any focal outcome with prospective matched
+  episode-seed-bundle randomization. Frozen root `20262006` with NumPy
+  `PCG64DXSM` independently assigns physical slots for the full/no-history
+  pair and the silent-swap/stable-old pair. One coin is shared over all three
+  stable targets and a separate coin over all six ordered transitions, so the
+  inferential sample size is the number of bundles rather than rounds,
+  targets, or transitions.
+- Added the `swap_control` condition. It carries the same nominal old→new
+  transition identity and schedule as the treated branch but keeps the old
+  target for all 24 rounds. Revision is now the swap-minus-stable adjusted
+  increase in the new frame plus the adjusted decline in the old frame. The
+  complete rule separately requires both components (`>=0.05`), their sum
+  (`>=0.15`), and a non-negative late new-minus-old contrast.
+- Made every no-history prompt a deterministic replicated generation across
+  hidden target labels and made full-history round one share the same prompt
+  and generation identity. A single helper now derives episode seeds, round
+  seeds, target-draw seeds, and replication IDs for both generation and exact
+  replay. Adversarial tests mutate a no-history output or allocation bit and
+  confirm that the analysis becomes provenance-invalid.
+- Added `v6_records_to_bundle_study`; confirmatory data and every prospective
+  simulation now call the same `analyze_v6_bundle_study` estimator, exact
+  Fisher randomization tests, and complete-gate implementation. The analyzer
+  also independently recomputes descriptive values and p-values and requires
+  exact agreement with the shared helper.
+- Rebuilt the power DGP as complete 24-round categorical trajectories with
+  frame-specific Beta-Bernoulli feedback updates, shared round one, structurally
+  frozen no-history paths, six matched transitions, component gates, three
+  learner/heterogeneity profiles, 13 frame-share nuisance cells, and
+  adversarial sharp-null profiles. Every numeric and structural assumption is
+  serialized in the protocol under contract SHA-256
+  `ed1b88b77df978c651f087b65c9cc8e01f390bbec5a631d44b9cbd00c10e36cf`.
+- Hardened the two blind judge paths. Official execution accepts only the
+  literal `codex` command, resolves its real regular executable, and attests
+  exact version and bytes before dispatch. The observed runtime is
+  `codex-cli 0.149.0` and executable SHA-256
+  `134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477`.
+  Candidate-pool raw/canonical identities are checked before calls; official
+  semantic and quality contracts are respectively
+  `b05625a950ee5c1c261d774ce4bcbf336f0087074e7acc6013c53940acd459eb`
+  and
+  `e6cdc0edac6e9255e8437219fb0d8fa796af0c7007d3fb9afd090ef6a762e1fd`.
+  Duplicate JSON keys, non-finite numbers, symlinks, FIFOs, and seven-file
+  evidence substitution now fail before acceptance.
+- Hardened artifact publication and recovery against parent-directory swaps:
+  atomic writes, manifests, and in-flight claims are rooted and opened through
+  verified descriptors with no-follow semantics. Runtime receipts now use one
+  exact schema and bind the randomization schedule plus focal runtime.
+- Focused verification after these changes: 156 judge tests, 51 artifact/
+  runner tests, 50 confirmatory-analysis tests, 16 power tests, and 5 protocol
+  tests passed. The positive Bayesian mock passes the machinery only; the
+  random mock is a valid negative. These are implementation controls, not
+  model evidence.
+
+## 2026-09-02 — Final V6 prospective power STOP
+
+- The redesigned power contract exposed an exact contradiction before any
+  judge or focal outcome. The complete rule requires the realized no-history
+  frame shares to stay in `[0.25,0.42]` with gap `<=0.15`, while the nuisance
+  grid includes the accepted population boundary `(0.25,0.35,0.40)`. There are
+  24 structurally unique no-history choices per bundle.
+- Implemented an exact multinomial enumeration over every three-frame count
+  tuple. The probability of passing the balance gate is:
+  `N=12: 0.4112390074827737`, `N=18: 0.4091412470556748`,
+  `N=24: 0.41459303042046547`, and
+  `N=30: 0.4188432268030808`.
+- Since complete-pattern success implies balance-gate success, these values are
+  hard upper bounds on complete power even if every other gate passes. All are
+  below the frozen required 0.80 lower bound. Running 169 × 10,000 Monte Carlo
+  cells cannot reverse that proof and would waste compute.
+- Ran `python scripts/power_controlled_v6.py`. It exited 2 as designed, wrote
+  `results/v6_design/power_prevalidation/v6_analytic_impossibility.json`, and
+  reported `STOP_V6_UNDERPOWERED_BEFORE_VALIDATION`. File SHA-256:
+  `5d229d650d1863c12c7aca023ce6ed6df85c84b0247bda971e6c2d3197c833c3`;
+  canonical certificate SHA-256:
+  `e4d78a4705e0debf3ae188c8d045dcf09585fbfd563e5f7aac1c2195645c083d`.
+  A separate auditor regenerates the entire certificate and rejects mutation.
+- Honored the preregistered terminal rule rather than moving the nuisance cell,
+  declaring stochastic balance structural, or demoting the failed gate after
+  seeing the result. There will be no V7 rescue in this milestone.
+- **Cost and execution:** zero new RunPod spend, zero GPU minutes, zero semantic
+  judge calls, zero quality judge calls, zero focal-model calls, zero target
+  outcomes. No new pod was deployed for V6. No API key or credential was used.
+- **FINAL LOCAL VERIFICATION:** `736 passed in 225.64s`; `compileall`, protocol
+  JSON parsing, and `git diff --check` passed. The GSD documentation wrapper
+  was requested, but its required local
+  `~/.Codex/get-shit-done/workflows/docs-update.md` file was absent, so the
+  code-verified documentation reconciliation was performed directly and this
+  fallback is recorded here.
+- Scientific interpretation: this is a prospective design/power limitation,
+  not evidence that Qwen does or does not form a latent target model. The full
+  conditional system is implemented and heavily tested, but no V6 behavioral
+  experiment occurred.
+- **RUNPOD ACCOUNT CHECK:** the prior V5 pod remains stopped at `$0.00/hr`.
+  Its 100 GB persistent network volume remains provisioned at `$7.00/month`;
+  account balance was `$48.05` when checked. V6 used neither resource. The
+  volume was not deleted because deletion is irreversible and was not needed
+  to close the study.
+
+## 2026-09-02 — IID terminal claim retracted before any model outcome
+
+- The final independent scientific and code reviews both rejected the claimed
+  exact impossibility proof. It enumerated IID multinomial choices, but the
+  registered power DGP includes shared scenario, triad, physical-slot, bundle,
+  and serial effects. The four reported IID probabilities remain arithmetically
+  correct only as a sensitivity calculation; they are not V6 power estimates.
+- Removed the IID certificate from the execution path and returned the protocol
+  to `V6_POWER_CORRECTION_FROZEN`. No judge, focal, target, calibration,
+  validation, or confirmatory output exists, so this correction observes no
+  experimental outcome and changes no scientific threshold.
+- Added a frozen heterogeneous-path dominance screen. It evaluates the same
+  no-history constructor, allocation, RNG roots, and study offsets as the
+  corresponding complete power cells. Complete success is a replicate-wise
+  subset of balance success, so Wilson-count monotonicity can validly
+  short-circuit an N only when the registered screen blocks it.
+- Corrected potential-outcome randomization: generation and target-draw streams
+  are now functions of bundle, physical slot, transition, and round rather than
+  assigned condition. No-history bytes are generated once per physical-slot
+  prompt and reused across hidden target labels.
+- Made judge authorization require the canonical repository protocol, an exact
+  `READY_FOR_TARGET_FREE_JUDGES` state, and a bound passing power result.
+  Missing, copied-inline, pending, unknown, and terminal statuses fail closed.
+- The corrected power code, protocol, and tests must be committed and tagged
+  before its fixed-seed CPU-only screen runs. Paid/model work remains blocked.

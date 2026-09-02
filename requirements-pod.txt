@@ -1,5 +1,9 @@
 # GPU-pod-only extras, on top of requirements.txt.
-# Nothing here is needed to run the tests or the analysis.
+# Official V6 focal runs additionally require CPython 3.12, device_map="auto",
+# one visible NVIDIA A100 80GB (compute capability 8.0), CUDA, and bfloat16.
+# The runtime probe records the exact Python patch, NumPy, sentencepiece, CUDA
+# build/runtime, and hardware values at pool screening; later V6 stages must
+# match that full observation. Nothing here is needed for tests or analysis.
 torch==2.9.1
 # Qwen's multimodal processor imports these even for text-only prompts. Keep
 # their release family aligned with torch to avoid loading template-provided

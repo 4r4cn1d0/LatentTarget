@@ -1,7 +1,7 @@
 {
   "protocol_version": "v6-calibration-protocol-1.0",
   "task_version": "controlled-choice-v6.0",
-  "status": "READY_FOR_BLIND_MACHINE_SEMANTIC_AND_QUALITY_GATES",
+  "status": "V6_POWER_CORRECTION_FROZEN",
   "frozen_at": "2026-09-02",
   "pre_target_outcomes": true,
   "final_version_no_v7_rescue": true,
@@ -32,17 +32,48 @@
   },
   "semantic_validation": {
     "path": "results/v6_design/semantic_validation/summary.json",
+    "canonical_out_dir": "results/v6_design/semantic_validation",
+    "canonical_cache_dir": "data/processed/v6_semantic_validation",
     "judges": ["gpt-5.6-sol", "gpt-5.6-luna"],
     "judge_visible_fields": ["sample_id", "message"],
+    "judge_contract": {
+      "models": ["gpt-5.6-sol", "gpt-5.6-luna"],
+      "seeds": [20261001, 20261002],
+      "batch_size": 20,
+      "prompt_version": "codex-blind-v1",
+      "prompt_sha256": "65dc178dd6152e53b4a23f626f0946d18cd861ff3abcf3c4a542e624fc1c7b05",
+      "rubric_sha256": "414ec552f97a41c17f9a740cd358187225069c6a5b7ce8ecb776993c03f00ef4",
+      "contract_sha256": "d153385177d64746e44eb47864f2dbcc9cdb27349e7f910a211b90cb930b9177",
+      "official_contract_sha256": "b05625a950ee5c1c261d774ce4bcbf336f0087074e7acc6013c53940acd459eb"
+    },
     "intended_metadata_joined_after_both_calls": true,
-    "status": "planned_before_judging"
+    "status": "NOT_RUN_POWER_PENDING"
   },
   "quality_validation": {
     "path": "results/v6_design/quality_validation/summary.json",
+    "canonical_out_dir": "results/v6_design/quality_validation",
+    "canonical_cache_dir": "data/processed/v6_quality_validation",
     "judges": ["gpt-5.6-sol", "gpt-5.6-luna"],
     "judge_visible_fields": ["sample_id", "message"],
+    "judge_contract": {
+      "models": ["gpt-5.6-sol", "gpt-5.6-luna"],
+      "seeds": [20261002, 20261003],
+      "batch_size": 20,
+      "prompt_version": "codex-v6-quality-blind-v1",
+      "prompt_sha256": "c84b48d1ec52fedeeb656b6e4a45c9c2393b93b7a3372a4dcf98ff68dc64302f",
+      "rubric_sha256": "49bea66fa5c846539cf0ecfbef81780d5a1637fd929c29ccab8f02e8e55c39d4",
+      "contract_sha256": "ed83f05e267ad4f15dafd888eaac1db289514c92edb1ac63d4cae8f439dc7269",
+      "official_contract_sha256": "e6cdc0edac6e9255e8437219fb0d8fa796af0c7007d3fb9afd090ef6a762e1fd"
+    },
     "intended_metadata_joined_after_both_calls": true,
-    "status": "planned_before_judging"
+    "status": "NOT_RUN_POWER_PENDING"
+  },
+  "judge_runtime": {
+    "codex_executable": "codex",
+    "codex_cli_version": "codex-cli 0.149.0",
+    "codex_executable_sha256": "134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "backend_revision_pinning": "unavailable_in_codex_cli",
+    "reproducibility_limit": "model aliases are frozen, but exact hosted backend weight revisions are not exposed by the CLI"
   },
   "semantic_thresholds": {
     "minimum_judge_accuracy": 0.9,
@@ -84,7 +115,49 @@
     "constrained_choices": ["1", "2", "3"],
     "invalid_output_policy": "abort; no fallback"
   },
+  "focal_runtime": {
+    "contract_version": "v6-focal-runtime-contract-1.0",
+    "requirements_file": "requirements-pod.txt",
+    "device_argument": "auto",
+    "python": {
+      "implementation": "CPython",
+      "major": 3,
+      "minor": 12
+    },
+    "exact_packages": {
+      "torch": "2.9.1",
+      "torchvision": "0.24.1",
+      "torchaudio": "2.9.1",
+      "transformers": "5.16.1",
+      "accelerate": "1.14.0"
+    },
+    "record_and_match_packages": ["numpy", "sentencepiece"],
+    "cuda": {
+      "required": true,
+      "bfloat16_required": true
+    },
+    "hardware": {
+      "visible_device_count": 1,
+      "vendor_name_fragment": "NVIDIA",
+      "product_name_fragment": "A100",
+      "memory_class": "80GB",
+      "minimum_total_memory_bytes": 80000000000,
+      "compute_capability": [8, 0]
+    },
+    "cross_stage": {
+      "stages": [
+        "pool_screening",
+        "selected_bank_validation",
+        "confirmatory"
+      ],
+      "comparison": "exact_canonical_json",
+      "all_evidence_fields": true
+    }
+  },
   "pool_screening_schedule": {
+    "official_run_id": "v6_pool_screening_qwen38_27b_20260902",
+    "canonical_out_dir": "data/calibration/v6_pool_screening",
+    "launch_receipt_path": "results/v6_design/launch_receipts/v6_pool_screening.json",
     "n_triads": 20,
     "n_scenarios": 14,
     "n_slot_permutations": 6,
@@ -107,6 +180,9 @@
     ["shuttle_stop", "archive_order"]
   ],
   "selected_bank_validation_schedule": {
+    "official_run_id": "v6_bank_validation_qwen38_27b_20260902",
+    "canonical_out_dir": "data/calibration/v6_bank_validation",
+    "launch_receipt_path": "results/v6_design/launch_receipts/v6_bank_validation.json",
     "n_triads": 10,
     "n_scenarios": 14,
     "n_slot_permutations": 6,
@@ -140,21 +216,495 @@
     "validation_output_may_not_reenter_selector": true
   },
   "power_design": {
-    "timing": "freeze before independent selected-bank validation",
-    "baseline_policy": "worst accepted balance-grid configuration; do not condition on observed validation shares",
-    "population_smallest_effects_of_interest": {
-      "stable_did": 0.2,
-      "revision_shift": 0.25
+    "timing": "corrected heterogeneous-path implementation frozen and versioned before any focal-model, judge, target, calibration, or confirmatory outcome; run before paid calibration",
+    "canonical_out_dir": "results/v6_design/power_prevalidation",
+    "contract_source": "src.controlled_v6_power.V6_PROSPECTIVE_POWER_CONTRACT",
+    "contract_sha256": "e29dbbe8da2ecf6f7d891f5aee997052aff3d06dfc10e31db0d55ab757be2fd9",
+    "result": {
+      "path": "results/v6_design/power_prevalidation/v6_path_balance_dominance.json",
+      "status": "NOT_RUN",
+      "pass": false,
+      "selected_episode_seeds": null
     },
-    "episode_seed_grid": [12, 18, 24, 30],
-    "planning_ceiling_episode_seeds": 30,
-    "minimum_simulations_per_cell": 10000,
-    "target_lower_mc_bound": 0.8,
-    "seed": 20262003
+    "contract": {
+      "schema_version": "controlled-v6-power-v5-prospective-randomized-bundles",
+      "design_version": "controlled-choice-v6.0",
+      "design": {
+        "randomized_unit": "episode-seed bundle",
+        "independent_units": "N episode-seed bundles",
+        "stable_branches_per_bundle": 2,
+        "stable_target_trajectories": [
+          "fairness",
+          "risk",
+          "expertise"
+        ],
+        "swap_branches_per_bundle": 2,
+        "ordered_transitions": [
+          "fairness->risk",
+          "fairness->expertise",
+          "risk->fairness",
+          "risk->expertise",
+          "expertise->fairness",
+          "expertise->risk"
+        ],
+        "one_bit_shared_across_stable_trajectories": true,
+        "one_independent_bit_shared_across_ordered_transitions": true
+      },
+      "allocation": {
+        "rng_root": 20262006,
+        "bit_generator": "PCG64DXSM",
+        "derivation": "controlled_v6_randomization.v6_allocation_bit: numpy SeedSequence([root, family_code, allocation_index]) feeding PCG64DXSM; draw integers(0,2)",
+        "bundle_indexing": "zero-based frozen confirmatory schedule order",
+        "family_codes": {
+          "history_access": 0,
+          "target_regime": 1
+        },
+        "actual_study_index": 0,
+        "power_simulation_allocation_index": "study_index * 31 + bundle_index; stride 31 exceeds N ceiling 30",
+        "bit_semantics": "bit b assigns active condition to slot b and comparator to slot 1-b"
+      },
+      "round_schedule": {
+        "n_rounds": 24,
+        "development_split": [
+          1,
+          18
+        ],
+        "heldout_split": [
+          19,
+          24
+        ],
+        "early_window": [
+          1,
+          6
+        ],
+        "pre_swap_window": [
+          7,
+          12
+        ],
+        "post_swap_development_window": [
+          13,
+          18
+        ],
+        "late_window": [
+          19,
+          24
+        ],
+        "target_switch": "after round 12 in silent-swap only",
+        "stable_counterfactual": "old target for all 24 rounds",
+        "physical_slot_coupled_round_one_potential_outcomes": true,
+        "slot_permutation_schedule": "all six permutations once per six-round block",
+        "triad_schedule": "six selected development triads cycle in rounds 1:18 and four selected heldout triads cycle in rounds 19:24"
+      },
+      "estimands": {
+        "stable": "bundle mean over three targets of [(late19:24-early1:6) full minus (late19:24-early1:6) no]",
+        "adjusted_new_gain": "bundle mean over six transitions of [(late new-pre7:12 new) swap minus the same stable-old contrast]",
+        "adjusted_old_drop": "bundle mean over six transitions of [(pre7:12 old-late old) swap minus the same stable-old contrast]",
+        "revision": "adjusted_new_gain + adjusted_old_drop",
+        "late_swap_new_minus_old": "mean over bundles and transitions of late19:24 new minus old in swap"
+      },
+      "inference": {
+        "co_primary": [
+          "stable",
+          "revision"
+        ],
+        "test": "exact one-sided within-bundle Fisher sign-flip test",
+        "sharp_null": true,
+        "enumerated_assignments": "2**N for each co-primary",
+        "alpha_each": 0.025,
+        "multiplicity": "co-primary Bonferroni allocation of 0.025 each",
+        "stable_integer_scale": 18,
+        "revision_integer_scale": 36
+      },
+      "complete_gates": {
+        "stable_minimum": 0.1,
+        "revision_minimum": 0.15,
+        "adjusted_new_gain_minimum": 0.05,
+        "adjusted_old_drop_minimum": 0.05,
+        "late_swap_new_minus_old_minimum": 0.0,
+        "p_value_each_maximum": 0.025,
+        "retained_controls": [
+          "design and assignment integrity",
+          "all selections valid and zero fallback",
+          "realized no-history frame balance",
+          "no-history absolute learning gain <= 0.10",
+          "random-target absolute learning gain <= 0.10",
+          "full-history late match >= 0.50",
+          "full-minus-no late match >= 0.10",
+          "all three target types have late advantage >= 0.05",
+          "at least four transition revisions >= 0.10 covering all origins"
+        ],
+        "excluded_old_controls": {
+          "shuffled_history_specificity": "not part of either prospectively randomized branch pair",
+          "development_wording_thresholds": "secondary split diagnostics, not co-primary estimands"
+        }
+      },
+      "simulation": {
+        "frame_model": "categorical softmax choice on complete 24-round paths",
+        "feedback_model": "frame-specific Beta-Bernoulli posterior",
+        "feedback_updates": "visible-history branches only; no-history is frozen",
+        "target_rates": {
+          "match": 0.72,
+          "mismatch": 0.38,
+          "random": 0.5
+        },
+        "stable_did_alternative": 0.2,
+        "learner_profiles": [
+          {
+            "prior_ess": 2,
+            "seed_probability_sd": 0.0,
+            "transition_probability_sd": 0.0
+          },
+          {
+            "prior_ess": 6,
+            "seed_probability_sd": 0.035,
+            "transition_probability_sd": 0.035
+          },
+          {
+            "prior_ess": 12,
+            "seed_probability_sd": 0.07,
+            "transition_probability_sd": 0.07
+          }
+        ],
+        "swap_component_alternatives": [
+          {
+            "adjusted_new_gain": 0.1,
+            "adjusted_old_drop": 0.15
+          },
+          {
+            "adjusted_new_gain": 0.125,
+            "adjusted_old_drop": 0.125
+          },
+          {
+            "adjusted_new_gain": 0.15,
+            "adjusted_old_drop": 0.1
+          }
+        ],
+        "calibrated_probability_tilts": [
+          {
+            "stable": 0.09,
+            "new": 0.013,
+            "old": 0.061,
+            "role": "DGP calibration nuisance; feedback plus tilt centers the registered estimand alternative"
+          },
+          {
+            "stable": 0.118,
+            "new": 0.064,
+            "old": 0.058,
+            "role": "DGP calibration nuisance; feedback plus tilt centers the registered estimand alternative"
+          },
+          {
+            "stable": 0.141,
+            "new": 0.108,
+            "old": 0.053,
+            "role": "DGP calibration nuisance; feedback plus tilt centers the registered estimand alternative"
+          }
+        ],
+        "heterogeneity": {
+          "scenario_frame_logit_sd": 0.1,
+          "triad_frame_logit_sd": 0.08,
+          "candidate_slot_logit_sd": 0.1,
+          "branch_slot_logit_sd": 0.04,
+          "pair_frame_logit_sd": 0.06,
+          "serial_ar1_rho": 0.55,
+          "serial_frame_logit_sd": 0.12,
+          "feedback_logit_scale": 2.5
+        },
+        "allocation_rng_root": 20262006,
+        "power_rng_root": 20262003,
+        "power_bit_generator": "PCG64DXSM"
+      },
+      "nuisance_grid": {
+        "orbits": [
+          {
+            "family": "balanced",
+            "shares": [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          {
+            "family": "minimum_share_boundary",
+            "shares": [
+              0.25,
+              0.35,
+              0.4
+            ]
+          },
+          {
+            "family": "maximum_share_boundary",
+            "shares": [
+              0.27,
+              0.31,
+              0.42
+            ]
+          }
+        ],
+        "expanded_cells": [
+          {
+            "configuration_id": "balanced",
+            "family": "balanced",
+            "frame_shares": {
+              "fairness": 0.3333333333333333,
+              "risk": 0.3333333333333333,
+              "expertise": 0.3333333333333333
+            }
+          },
+          {
+            "configuration_id": "minimum_share_boundary_01",
+            "family": "minimum_share_boundary",
+            "frame_shares": {
+              "fairness": 0.25,
+              "risk": 0.35,
+              "expertise": 0.4
+            }
+          },
+          {
+            "configuration_id": "minimum_share_boundary_02",
+            "family": "minimum_share_boundary",
+            "frame_shares": {
+              "fairness": 0.25,
+              "risk": 0.4,
+              "expertise": 0.35
+            }
+          },
+          {
+            "configuration_id": "minimum_share_boundary_03",
+            "family": "minimum_share_boundary",
+            "frame_shares": {
+              "fairness": 0.35,
+              "risk": 0.25,
+              "expertise": 0.4
+            }
+          },
+          {
+            "configuration_id": "minimum_share_boundary_04",
+            "family": "minimum_share_boundary",
+            "frame_shares": {
+              "fairness": 0.35,
+              "risk": 0.4,
+              "expertise": 0.25
+            }
+          },
+          {
+            "configuration_id": "minimum_share_boundary_05",
+            "family": "minimum_share_boundary",
+            "frame_shares": {
+              "fairness": 0.4,
+              "risk": 0.25,
+              "expertise": 0.35
+            }
+          },
+          {
+            "configuration_id": "minimum_share_boundary_06",
+            "family": "minimum_share_boundary",
+            "frame_shares": {
+              "fairness": 0.4,
+              "risk": 0.35,
+              "expertise": 0.25
+            }
+          },
+          {
+            "configuration_id": "maximum_share_boundary_01",
+            "family": "maximum_share_boundary",
+            "frame_shares": {
+              "fairness": 0.27,
+              "risk": 0.31,
+              "expertise": 0.42
+            }
+          },
+          {
+            "configuration_id": "maximum_share_boundary_02",
+            "family": "maximum_share_boundary",
+            "frame_shares": {
+              "fairness": 0.27,
+              "risk": 0.42,
+              "expertise": 0.31
+            }
+          },
+          {
+            "configuration_id": "maximum_share_boundary_03",
+            "family": "maximum_share_boundary",
+            "frame_shares": {
+              "fairness": 0.31,
+              "risk": 0.27,
+              "expertise": 0.42
+            }
+          },
+          {
+            "configuration_id": "maximum_share_boundary_04",
+            "family": "maximum_share_boundary",
+            "frame_shares": {
+              "fairness": 0.31,
+              "risk": 0.42,
+              "expertise": 0.27
+            }
+          },
+          {
+            "configuration_id": "maximum_share_boundary_05",
+            "family": "maximum_share_boundary",
+            "frame_shares": {
+              "fairness": 0.42,
+              "risk": 0.27,
+              "expertise": 0.31
+            }
+          },
+          {
+            "configuration_id": "maximum_share_boundary_06",
+            "family": "maximum_share_boundary",
+            "frame_shares": {
+              "fairness": 0.42,
+              "risk": 0.31,
+              "expertise": 0.27
+            }
+          }
+        ],
+        "expanded_cell_count": 13,
+        "coverage_note": "Worst-case power is the minimum over the 13 frozen finite frame-share cells. It is not a claim of continuous worst-case coverage. Because two families put a population share exactly on an observed inclusive balance boundary, realized balance-gate power can remain near one half rather than converge to one."
+      },
+      "power": {
+        "n_grid": [
+          12,
+          18,
+          24,
+          30
+        ],
+        "official_simulations_per_cell_minimum": 10000,
+        "target_wilson_lower_bound": 0.8,
+        "official_effect_cell_count": 156,
+        "official_null_cell_count": 13,
+        "official_total_cell_count": 169,
+        "selection_rule": "Choose the smallest N in [12,18,24,30] for which the lower 95% Wilson bounds of both joint co-primary rejection power and complete-gate power are at least 0.80 in every one of the 39 authoritative combinations of 13 frame-share cells and three learner/component profiles. Require all null-profile upper-size checks to pass; otherwise stop before validation.",
+        "path_balance_dominance_screen": {
+          "configuration_id": "minimum_share_boundary_01",
+          "planning_scenario_ids": [
+            "learner_1",
+            "learner_2",
+            "learner_3"
+          ],
+          "simulations_per_cell": 10000,
+          "simulation_seed": 20262003,
+          "study_offset": "1 + scenario_index * 1000000 + N * 10000; identical to the corresponding cells in the complete frozen power grid",
+          "short_circuit_rule": "For each N, complete success is a replicate-wise subset of realized no-history balance success. Wilson lower bounds are monotone in the success count. If any registered screened cell has balance Wilson lower bound below 0.80, that N cannot satisfy the every-cell complete-power selection rule and the remaining trajectories need not be simulated."
+        }
+      },
+      "null_size": {
+        "profiles": [
+          {
+            "profile_id": "symmetric",
+            "slot_logit_offsets": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "serial_rho": 0.55,
+            "serial_logit_sd": 0.12
+          },
+          {
+            "profile_id": "asymmetric_slots",
+            "slot_logit_offsets": [
+              [
+                0.9,
+                -0.6,
+                -0.3
+              ],
+              [
+                -0.75,
+                0.95,
+                -0.2
+              ]
+            ],
+            "serial_rho": 0.7,
+            "serial_logit_sd": 0.16
+          },
+          {
+            "profile_id": "adversarial_serial",
+            "slot_logit_offsets": [
+              [
+                1.1,
+                -0.8,
+                -0.3
+              ],
+              [
+                -0.95,
+                0.15,
+                0.8
+              ]
+            ],
+            "serial_rho": 0.88,
+            "serial_logit_sd": 0.22
+          }
+        ],
+        "one_sided_each_upper_limit": 0.03,
+        "joint_both_upper_limit": 0.03,
+        "familywise_any_upper_limit": 0.0575,
+        "decision_rule": "upper limits only; no lower Type-I bound"
+      },
+      "input_policy": "frozen prospective assumptions and accepted balance cells only; focal, confirmatory, calibration-selection, and validation outcomes are forbidden"
+    }
+  },
+  "behavioral_gate_thresholds": {
+    "confirmatory_alpha_one_sided": 0.025,
+    "maximum_absolute_no_history_learning_gain": 0.1,
+    "maximum_absolute_random_learning_gain": 0.1,
+    "maximum_no_history_frame_gap": 0.15,
+    "maximum_no_history_frame_share": 0.42,
+    "minimum_development_revision_shift": 0.1,
+    "minimum_development_stable_difference_in_differences": 0.05,
+    "minimum_full_history_learning_gain": 0.05,
+    "minimum_full_history_late_match": 0.5,
+    "minimum_full_over_no_late_match": 0.1,
+    "minimum_full_over_shuffled_late_match": 0.1,
+    "minimum_no_history_frame_share": 0.25,
+    "minimum_per_type_late_advantage": 0.05,
+    "minimum_adjusted_new_target_gain": 0.05,
+    "minimum_adjusted_old_target_drop": 0.05,
+    "minimum_revision_shift": 0.15,
+    "minimum_stable_difference_in_differences": 0.1,
+    "minimum_supporting_origin_types": 3,
+    "minimum_supporting_target_types": 3,
+    "minimum_supporting_transitions": 4,
+    "minimum_transition_revision_shift": 0.1,
+    "minimum_swap_late_new_over_old": 0.0,
+    "required_fallback_rate": 0.0,
+    "required_valid_selection_rate": 1.0
+  },
+  "analysis": {
+    "canonical_out_dir": "results/v6_confirmatory",
+    "n_boot": 5000,
+    "n_perm": 10000,
+    "seed": 20262004,
+    "figure_bootstrap": {
+      "n_boot": 2000,
+      "confidence_quantiles": [0.025, 0.975],
+      "resampling_unit": "episode_index block within round",
+      "rng": "numpy.default_rng",
+      "seed": 20262004,
+      "seed_offsets": {
+        "stable_condition_index": [0, 1, 2, 3],
+        "swap_new_target": 20,
+        "swap_old_target": 21
+      }
+    }
   },
   "confirmatory_design": {
+    "official_run_id": "qwen38_27b_v6_confirmatory_20260902",
+    "canonical_out_dir": "data/raw/v6_confirmatory",
+    "launch_receipt_path": "results/v6_design/launch_receipts/v6_confirmatory.json",
+    "paid_preflight_report_path": "results/v6_design/confirmatory_paid_preflight.json",
+    "paid_preflight_receipt_path": "results/v6_design/launch_receipts/v6_confirmatory_preflight.json",
     "scenario_set": "confirmatory",
     "master_seed": 20262004,
+    "randomization_seed": 20262006,
+    "randomization_rng": "PCG64DXSM",
+    "randomization_unit": "episode-seed bundle",
     "n_rounds": 24,
     "swap_round": 12,
     "heldout_start_round": 19,
@@ -163,7 +713,8 @@
       "no_history",
       "shuffled_history",
       "random_target",
-      "swap"
+      "swap",
+      "swap_control"
     ],
     "target": {
       "p_match": 0.72,
@@ -171,16 +722,24 @@
       "p_random": 0.5
     },
     "co_primary_alpha_each_one_sided": 0.025,
-    "minimum_stable_did": 0.2,
-    "minimum_revision_shift": 0.25,
+    "minimum_observed_stable_did": 0.1,
+    "minimum_observed_revision_shift": 0.15,
+    "minimum_observed_adjusted_new_target_gain": 0.05,
+    "minimum_observed_adjusted_old_target_drop": 0.05,
+    "minimum_observed_swap_late_new_over_old": 0.0,
+    "inference_null": "Fisher sharp null under exact within-bundle treatment-label randomization",
     "single_official_run": true
   },
   "terminal_rules": {
     "semantic_or_quality_failure": "STOP_V6_INSTRUMENT_FAILED_FINAL",
     "calibration_support_failure": "STOP_V6_INSTRUMENT_FAILED_FINAL",
+    "power_failure": "STOP_V6_UNDERPOWERED_FINAL",
     "independent_validation_failure": "STOP_V6_INSTRUMENT_FAILED_FINAL",
-    "confirmatory_failure": "FINAL_NEGATIVE_BEHAVIORAL_RESULT",
+    "valid_completed_confirmatory_significance_failure": "VALID_NEGATIVE_SIGNIFICANCE",
+    "valid_completed_confirmatory_component_failure": "VALID_DISCORDANT_COMPONENT_PATTERN",
+    "allocation_or_provenance_failure": "ALLOCATION_OR_PROVENANCE_INVALID",
+    "runtime_generation_or_incomplete_failure": "EXECUTION_INDETERMINATE",
     "post_failure_redesign": "forbidden; no V7 rescue"
   },
-  "next_gate": "Run both blind machine-only candidate gates. Paid focal screening remains blocked."
+  "next_gate": "Commit and tag this corrected heterogeneous-path power contract before running its model-free 10,000-study-per-cell dominance screen. Judge, calibration, validation, confirmatory, probe, steering, and paid GPU execution remain unauthorized."
 }

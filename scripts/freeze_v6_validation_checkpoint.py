@@ -9,6 +9,7 @@ import json
 import os
 import sys
 
+from src.logging_utils import publish_json_idempotent
 from src.v6_protocol_gate import build_v6_prevalidation_checkpoint
 
 
@@ -28,9 +29,6 @@ def main(argv=None) -> int:
     parser.add_argument("--pending-bank", required=True)
     parser.add_argument("--out", required=True)
     args = parser.parse_args(argv)
-    if os.path.exists(args.out):
-        raise FileExistsError("refusing to overwrite frozen checkpoint %s" % args.out)
-
     checkpoint = build_v6_prevalidation_checkpoint(
         calibration_protocol_path=args.calibration_protocol,
         source_pool_path=args.source_pool,
@@ -43,11 +41,7 @@ def main(argv=None) -> int:
         pending_bank_path=args.pending_bank,
         repository_root=_bootstrap.ROOT,
     )
-    parent = os.path.dirname(args.out)
-    if parent:
-        os.makedirs(parent, exist_ok=True)
-    with open(args.out, "w", encoding="utf-8") as handle:
-        json.dump(checkpoint, handle, indent=2, ensure_ascii=False, allow_nan=False)
+    publish_json_idempotent(args.out, checkpoint)
     print("FROZEN %s" % args.out)
     print("pending bank: %s" % checkpoint["pending_bank"]["bank_sha256"])
     print(

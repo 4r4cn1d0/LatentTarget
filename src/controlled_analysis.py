@@ -212,7 +212,13 @@ def audit_controlled_design(
     condition_set_ok = set(row["condition"] for row in records) == set(configured_conditions)
     n_seeds = int(manifest.get("config", {}).get("n_episode_seeds", -1))
     expected_condition_episode_counts = {
-        name: n_seeds * (6 if CONTROLLED_CONDITIONS[name].swap else 3)
+        name: n_seeds
+        * (
+            6
+            if CONTROLLED_CONDITIONS[name].swap
+            or CONTROLLED_CONDITIONS[name].stable_counterfactual
+            else 3
+        )
         for name in configured_conditions if name in CONTROLLED_CONDITIONS
     }
     actual_condition_episode_counts = Counter(
@@ -248,6 +254,8 @@ def audit_controlled_design(
         final = str(first["final_target_type"])
         swap_round = int(first["swap_round"]) if first["swap_round"] is not None else None
         if condition.swap:
+            target_transitions_ok &= initial != final and swap_round is not None
+        elif condition.stable_counterfactual:
             target_transitions_ok &= initial != final and swap_round is not None
         else:
             target_transitions_ok &= initial == final and swap_round is None

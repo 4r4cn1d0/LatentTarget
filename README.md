@@ -15,7 +15,35 @@ manipulate, profile or exploit anything.
 
 ---
 
-## Current status: V5 calibration stopped before confirmatory outcomes
+## Current status: corrected V6 power gate frozen; execution blocked
+
+V6 has not produced a judge, focal-model, target-bearing, activation, probe,
+steering, or paid GPU outcome. A final independent review correctly rejected
+an earlier terminal claim: its arithmetic was exact only for IID multinomial
+choices, while the registered power model contains heterogeneous, correlated
+round paths. That certificate has been withdrawn.
+
+The last adversarial review replaced invalid observational sign-flips with
+prospective matched-bundle randomization, added a stable-old counterfactual to
+every silent swap, required both new-frame acquisition and old-frame decay,
+made no-history generations exact prompt-level replications, and made the
+confirmatory analyzer call the same estimator/test/gate function as every
+power simulation. The complete execution and artifact graph is fail-closed:
+judge/runtime identity, immutable banks, launch receipts, exact record replay,
+safe descriptor reads, crash recovery, and source closures are all tested.
+
+The corrected, outcome-free power implementation now evaluates the exact
+registered heterogeneous no-history path constructor. It may short-circuit the
+larger power grid only through replicate-wise dominance: complete-pattern
+success implies balance-gate success under the same frozen simulation draws.
+The correction must be committed and tagged before that CPU-only screen runs.
+Until then V6 is **unresolved**, all model execution is fail-closed, and no
+experimental result is claimed. See
+[`docs/V6_FINAL_PROTOCOL.md`](docs/V6_FINAL_PROTOCOL.md),
+[`docs/V6_PREJUDGE_CODE_REVIEW.md`](docs/V6_PREJUDGE_CODE_REVIEW.md), and
+[`docs/V6_RUNBOOK.md`](docs/V6_RUNBOOK.md).
+
+## Previous result: V5 calibration stopped before confirmatory outcomes
 
 The paid V5 target-free calibration is complete, but **no V5 target-learning
 outcome exists**. The instrument failed its independently seeded balance gate,
@@ -61,8 +89,8 @@ The frozen target-free calibration protocol remains
 [`docs/v5_calibration_protocol.json`](docs/v5_calibration_protocol.json).
 It must not be relaxed or rewritten after this result. **Confirmatory V5,
 activations, probes, steering, and free-form replication remain blocked.** A
-future attempt must be versioned as V6, select whole candidate triads rather
-than marginal templates, add a pre-validation feasibility gate, and use a new
+V6 now implements that registered next step: whole candidate triads rather
+than marginal templates, a pre-validation feasibility gate, and a new
 independent validation seed.
 
 ### Why V4 remains a scientific STOP

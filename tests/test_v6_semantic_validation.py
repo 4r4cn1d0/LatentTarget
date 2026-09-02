@@ -8,6 +8,11 @@ from pathlib import Path
 import pytest
 
 from config import CONTROLLED_V6_SEMANTIC_THRESHOLDS, STRATEGIES
+from src.blind_judge import (
+    canonical_json_sha256,
+    canonical_semantic_result_map,
+    codex_judge_contract,
+)
 from src.v6_semantic_validation import (
     evaluate_v6_semantic_validation,
     semantic_candidate_rows,
@@ -28,6 +33,85 @@ def _pool_sha256(pool):
     return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
+_TEST_CODEX_RUNTIME = {
+    "codex_executable": "codex",
+    "codex_cli_version": "codex-cli test",
+    "codex_executable_sha256": "a" * 64,
+}
+
+
+def _official_semantic_fixture(
+    cli,
+    tmp_path,
+    monkeypatch,
+    *,
+    models=("gpt-5.6-sol", "gpt-5.6-luna"),
+    seeds=(20261001, 20261002),
+    batch_size=20,
+    out_dir="out",
+    cache_dir="cache",
+):
+    bank_path = tmp_path / "data" / "v6" / POOL.name
+    bank_path.parent.mkdir(parents=True, exist_ok=True)
+    bank_path.write_bytes(POOL.read_bytes())
+    pool = _pool()
+    pool_contract = {
+        "path": "data/v6/%s" % POOL.name,
+        "file_sha256": hashlib.sha256(bank_path.read_bytes()).hexdigest(),
+        "canonical_sha256": canonical_json_sha256(pool),
+    }
+    prompt = codex_judge_contract()
+    frozen = {
+        "models": list(models),
+        "seeds": list(seeds),
+        "batch_size": batch_size,
+        **prompt,
+    }
+    official = {
+        "contract_version": "v6-official-codex-judge-contract-v1",
+        "kind": "semantic",
+        **frozen,
+        "candidate_pool": pool_contract,
+        "codex_runtime": _TEST_CODEX_RUNTIME,
+    }
+    contract = {
+        "status": "READY_FOR_TARGET_FREE_JUDGES",
+        "power_design": {
+            "result": {
+                "status": "PASS_V6_PROSPECTIVE_BUNDLE_POWER",
+                "pass": True,
+                "selected_episode_seeds": 24,
+            }
+        },
+        "candidate_pool": {
+            "path": pool_contract["path"],
+            "file_sha256": pool_contract["file_sha256"],
+            "sha256": pool_contract["canonical_sha256"],
+        },
+        "judge_runtime": dict(_TEST_CODEX_RUNTIME),
+        "semantic_validation": {
+            "canonical_out_dir": out_dir,
+            "canonical_cache_dir": cache_dir,
+            "judge_contract": {
+                **frozen,
+                "official_contract_sha256": canonical_json_sha256(official),
+            },
+        },
+    }
+    contract_path = tmp_path / "docs" / "v6_calibration_protocol.json"
+    contract_path.parent.mkdir(parents=True, exist_ok=True)
+    contract_path.write_text(json.dumps(contract), encoding="utf-8")
+    monkeypatch.setattr(
+        cli,
+        "attest_codex_executable",
+        lambda *_args, **_kwargs: {
+            **_TEST_CODEX_RUNTIME,
+            "resolved_executable": "/test/codex",
+        },
+    )
+    return bank_path, contract_path, contract
+
+
 def _result(label, confidence=0.95):
     values = {frame: 0.05 for frame in (*STRATEGIES, "other")}
     values[label] = 0.90
@@ -45,15 +129,30 @@ def _description(model):
     return {"provider": "test", "model": model, "judge_prompt_version": "test"}
 
 
+def _artifact_audit(results, model, ok=True):
+    clean = canonical_semantic_result_map(results)
+    return {
+        "ok": ok,
+        "frozen_schedule_enforced": True,
+        "cache_reconciled": True,
+        "judge_run_manifest": {"manifest_sha256": "test"},
+        "models": [model],
+        "prompt_version": "test",
+        "result_map": clean,
+        "result_map_sha256": canonical_json_sha256(clean),
+    }
+
+
 def _evaluate(bank, primary, sensitivity, primary_model="judge-a", audit_ok=True):
+    sensitivity_model = "judge-b"
     return evaluate_v6_semantic_validation(
         bank,
         primary,
         sensitivity,
         _description(primary_model),
-        _description("judge-b"),
-        {"ok": audit_ok},
-        {"ok": True},
+        _description(sensitivity_model),
+        _artifact_audit(primary, primary_model, ok=audit_ok),
+        _artifact_audit(sensitivity, sensitivity_model),
     )
 
 
@@ -208,6 +307,50 @@ def test_semantic_gate_fails_same_model_or_failed_artifact_audit():
     assert summary["gates"]["both_artifact_audits_pass"] is False
 
 
+def test_semantic_gate_rejects_self_consistent_artifacts_with_different_results():
+    bank = _pool()
+    rows = semantic_candidate_rows(bank)
+    primary = _perfect_results(rows)
+    sensitivity = _perfect_results(rows)
+    forged = canonical_semantic_result_map(primary)
+    message = rows[0]["message"]
+    forged[message] = _result("other")
+    forged_audit = {
+        "ok": True,
+        "result_map": forged,
+        "result_map_sha256": canonical_json_sha256(forged),
+    }
+
+    summary = evaluate_v6_semantic_validation(
+        bank,
+        primary,
+        sensitivity,
+        _description("judge-a"),
+        _description("judge-b"),
+        forged_audit,
+        _artifact_audit(sensitivity, "judge-b"),
+    )
+
+    assert summary["pass"] is False
+    assert summary["gates"]["both_artifact_audits_pass"] is True
+    assert summary["gates"]["primary_artifact_results_match_evaluator"] is False
+
+
+def test_semantic_gate_uses_canonical_full_v6_bank_audit():
+    bank = _pool()
+    bank["candidate_text_authored_before_v6_focal_calibration"] = False
+    rows = semantic_candidate_rows(bank)
+    results = _perfect_results(rows)
+
+    summary = _evaluate(bank, results, results)
+
+    assert summary["pass"] is False
+    assert summary["gates"]["pool_structurally_valid"] is False
+    assert summary["pool_audit"]["checks"][
+        "candidate_text_authored_before_calibration"
+    ] is False
+
+
 def test_semantic_gate_requires_exact_message_coverage():
     bank = _pool()
     rows = semantic_candidate_rows(bank)
@@ -253,12 +396,14 @@ def test_cli_defaults_and_flow_pass_only_message_text_to_fake_judges(
     tmp_path, monkeypatch, capsys
 ):
     cli = _load_cli_module(monkeypatch)
+    monkeypatch.setattr(cli, "ROOT", str(tmp_path))
     defaults = cli.build_parser().parse_args([])
     assert defaults.bank == "data/v6/v6_triad_pool_v1.json"
     assert defaults.primary_model == "gpt-5.6-sol"
     assert defaults.sensitivity_model == "gpt-5.6-luna"
     assert defaults.out_dir == "results/v6_design/semantic_validation"
     assert defaults.cache_dir == "data/processed/v6_semantic_validation"
+    assert defaults.judge_contract == "docs/v6_calibration_protocol.json"
 
     rows = semantic_candidate_rows(_pool())
     intended_by_message = {
@@ -274,7 +419,15 @@ def test_cli_defaults_and_flow_pass_only_message_text_to_fake_judges(
             return _description(self.model)
 
     def fake_run_judge(
-        messages, model, cache, artifacts, batch_size, seed, executable, timeout
+        messages,
+        model,
+        cache,
+        artifacts,
+        batch_size,
+        seed,
+        executable,
+        timeout,
+        official_contract,
     ):
         messages = list(messages)
         calls.append((model, messages))
@@ -282,20 +435,25 @@ def test_cli_defaults_and_flow_pass_only_message_text_to_fake_judges(
         assert all(isinstance(message, str) for message in messages)
         return (
             FakeJudge(model),
-            {
+            (results := {
                 message: _result(intended_by_message[message])
                 for message in messages
-            },
-            {"ok": True, "models": [model]},
+            }),
+            _artifact_audit(results, model),
         )
 
     monkeypatch.setattr(cli, "_run_judge", fake_run_judge)
     out_dir = tmp_path / "out"
     cache_dir = tmp_path / "cache"
+    bank_path, contract_path, _ = _official_semantic_fixture(
+        cli, tmp_path, monkeypatch
+    )
     exit_code = cli.main(
         [
             "--bank",
-            str(POOL),
+            str(bank_path),
+            "--judge-contract",
+            str(contract_path),
             "--out-dir",
             str(out_dir),
             "--cache-dir",
@@ -309,4 +467,231 @@ def test_cli_defaults_and_flow_pass_only_message_text_to_fake_judges(
     assert summary["pass"] is True
     assert summary["pool_sha256"] == _pool_sha256(_pool())
     assert summary["pool_source_file_sha256"]
+    assert summary["judge_contract"]["enforced"] is True
     assert "PASS" in capsys.readouterr().out
+
+
+def test_official_cli_forbids_codex_executable_override_before_dispatch(
+    tmp_path, monkeypatch
+):
+    cli = _load_cli_module(monkeypatch)
+    called = False
+
+    def must_not_run(*args, **kwargs):
+        nonlocal called
+        called = True
+
+    monkeypatch.setattr(cli, "_run_judge", must_not_run)
+    with pytest.raises(ValueError, match="forbids --codex-executable"):
+        cli.main(["--codex-executable", str(tmp_path / "fake-codex")])
+    assert called is False
+
+
+def test_cli_frozen_judge_contract_is_enforced_before_calls(tmp_path, monkeypatch):
+    cli = _load_cli_module(monkeypatch)
+    monkeypatch.setattr(cli, "ROOT", str(tmp_path))
+    bank_path, contract_path, contract = _official_semantic_fixture(
+        cli, tmp_path, monkeypatch
+    )
+    called = False
+
+    def must_not_run(*args, **kwargs):
+        nonlocal called
+        called = True
+        raise AssertionError("judge must not run for a mismatched contract")
+
+    monkeypatch.setattr(cli, "_run_judge", must_not_run)
+    contract["semantic_validation"]["judge_contract"][
+        "rubric_sha256"
+    ] = "0" * 64
+    contract_path.write_text(json.dumps(contract), encoding="utf-8")
+    with pytest.raises(ValueError, match="mismatch for rubric_sha256"):
+        cli.main(
+            [
+                "--bank",
+                str(bank_path),
+                "--judge-contract",
+                str(contract_path),
+                "--out-dir",
+                str(tmp_path / "out"),
+                "--cache-dir",
+                str(tmp_path / "cache"),
+            ]
+        )
+    assert called is False
+
+
+def test_cli_rejects_copied_or_statusless_protocol_before_calls(
+    tmp_path, monkeypatch
+):
+    cli = _load_cli_module(monkeypatch)
+    monkeypatch.setattr(cli, "ROOT", str(tmp_path))
+    bank_path, contract_path, contract = _official_semantic_fixture(
+        cli, tmp_path, monkeypatch
+    )
+    called = False
+
+    def must_not_run(*args, **kwargs):
+        nonlocal called
+        called = True
+        raise AssertionError("unauthorized protocol dispatched a judge")
+
+    monkeypatch.setattr(cli, "_run_judge", must_not_run)
+    copied = tmp_path / "copied-protocol.json"
+    copied.write_bytes(contract_path.read_bytes())
+    with pytest.raises(ValueError, match="canonical repository protocol"):
+        cli.main(["--bank", str(bank_path), "--judge-contract", str(copied)])
+
+    contract.pop("status")
+    contract_path.write_text(json.dumps(contract), encoding="utf-8")
+    with pytest.raises(RuntimeError, match="does not authorize"):
+        cli.main(
+            ["--bank", str(bank_path), "--judge-contract", str(contract_path)]
+        )
+    assert called is False
+
+
+def test_official_cli_rejects_wrong_candidate_bank_before_dispatch(
+    tmp_path, monkeypatch
+):
+    cli = _load_cli_module(monkeypatch)
+    monkeypatch.setattr(cli, "ROOT", str(tmp_path))
+    bank_path, contract_path, _ = _official_semantic_fixture(
+        cli, tmp_path, monkeypatch
+    )
+    # Same canonical JSON, different frozen raw bytes.
+    bank_path.write_bytes(bank_path.read_bytes() + b"\n")
+    called = False
+
+    def must_not_run(*args, **kwargs):
+        nonlocal called
+        called = True
+        raise AssertionError("wrong candidate bank dispatched a judge")
+
+    monkeypatch.setattr(cli, "_run_judge", must_not_run)
+    with pytest.raises(ValueError, match="candidate pool path/hash mismatch"):
+        cli.main(
+            [
+                "--bank",
+                str(bank_path),
+                "--judge-contract",
+                str(contract_path),
+                "--out-dir",
+                str(tmp_path / "out"),
+                "--cache-dir",
+                str(tmp_path / "cache"),
+            ]
+        )
+    assert called is False
+
+
+@pytest.mark.parametrize(
+    "malformed",
+    [
+        '{"candidate_pool":{},"candidate_pool":{}}',
+        '{"candidate_pool":NaN}',
+    ],
+)
+def test_official_cli_strict_loads_candidate_pool_before_dispatch(
+    tmp_path, monkeypatch, malformed
+):
+    cli = _load_cli_module(monkeypatch)
+    monkeypatch.setattr(cli, "ROOT", str(tmp_path))
+    bank_path, contract_path, _ = _official_semantic_fixture(
+        cli, tmp_path, monkeypatch
+    )
+    bank_path.write_text(malformed, encoding="utf-8")
+    called = False
+
+    def must_not_run(*args, **kwargs):
+        nonlocal called
+        called = True
+
+    monkeypatch.setattr(cli, "_run_judge", must_not_run)
+    with pytest.raises(ValueError, match="strict JSON"):
+        cli.main(
+            [
+                "--bank",
+                str(bank_path),
+                "--judge-contract",
+                str(contract_path),
+                "--out-dir",
+                str(tmp_path / "out"),
+                "--cache-dir",
+                str(tmp_path / "cache"),
+            ]
+        )
+    assert called is False
+
+
+def test_semantic_cli_complete_run_lock_blocks_concurrent_dispatch(
+    tmp_path, monkeypatch
+):
+    cli = _load_cli_module(monkeypatch)
+    monkeypatch.setattr(cli, "ROOT", str(tmp_path))
+    out_dir = tmp_path / "out"
+    cache_dir = tmp_path / "cache"
+    out_dir.mkdir()
+    bank_path, contract_path, _ = _official_semantic_fixture(
+        cli, tmp_path, monkeypatch
+    )
+    called = False
+
+    def must_not_run(*args, **kwargs):
+        nonlocal called
+        called = True
+        raise AssertionError("concurrent semantic validator dispatched a batch")
+
+    monkeypatch.setattr(cli, "_run_judge", must_not_run)
+    lock_path = out_dir / ".semantic-validation.lock"
+    with cli.ExclusiveFileLock(str(lock_path), label="semantic test holder"):
+        with pytest.raises(RuntimeError, match="another process holds"):
+            cli.main(
+                [
+                    "--bank",
+                        str(bank_path),
+                    "--judge-contract",
+                    str(contract_path),
+                    "--out-dir",
+                    str(out_dir),
+                    "--cache-dir",
+                    str(cache_dir),
+                ]
+            )
+    assert called is False
+
+
+def test_semantic_cli_rejects_alternate_output_directory_before_calls(
+    tmp_path, monkeypatch
+):
+    cli = _load_cli_module(monkeypatch)
+    monkeypatch.setattr(cli, "ROOT", str(tmp_path))
+    bank_path, contract_path, _ = _official_semantic_fixture(
+        cli,
+        tmp_path,
+        monkeypatch,
+        out_dir="official-out",
+        cache_dir="official-cache",
+    )
+    called = False
+
+    def must_not_run(*args, **kwargs):
+        nonlocal called
+        called = True
+        raise AssertionError("alternate directory must fail before judging")
+
+    monkeypatch.setattr(cli, "_run_judge", must_not_run)
+    with pytest.raises(ValueError, match="canonical_out_dir"):
+        cli.main(
+            [
+                "--bank",
+                str(bank_path),
+                "--judge-contract",
+                str(contract_path),
+                "--out-dir",
+                str(tmp_path / "alternate-out"),
+                "--cache-dir",
+                str(tmp_path / "official-cache"),
+            ]
+        )
+    assert called is False

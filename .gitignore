@@ -14,6 +14,11 @@ data/processed/**/*.jsonl
 data/processed/*.npz
 !data/raw/*.manifest.json
 
+# V6's blind-judge caches are part of the frozen provenance graph, not merely
+# regenerable derived data. Preserve them alongside the audited raw batches.
+!data/processed/v6_semantic_validation/*.jsonl
+!data/processed/v6_quality_validation/*.jsonl
+
 # The first real-model checkpoint is small enough to preserve verbatim. Keep
 # later large/captured runs ignored unless they are reviewed explicitly.
 !data/raw/qwen38_27b_gonogo_20260826.jsonl
