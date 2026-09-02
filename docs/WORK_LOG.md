@@ -1237,3 +1237,68 @@ synthetic validation and from claims that still require a real model.
   target modelling. Per the frozen rule, no full-grid rescue, judge run,
   calibration, validation, confirmatory experiment, activation collection,
   probe, steering, or V7 redesign was run or remains authorized.
+
+## 2026-09-02 — Codex history imported; V7 candidate design screened and STOPPED under its own rule
+
+- **Session ownership:** this entry is Claude Code's (the prior 09-02 entries
+  are Codex's). Committed Codex's uncommitted V6 closure as `9ceb91f` after
+  `745 passed`; imported and distilled the 44 LatentTarget Codex sessions
+  into `.ai/CODEX_HISTORY.md` (`1a35712`); redacted raw exports at
+  `~/Desktop/codex-latenttarget/`. A RunPod key pasted into the Codex thread
+  on 08-26 was confirmed absent from all three repository histories and is
+  redacted in the export; the operator supplied a replacement key today, used
+  read-only and stored nowhere. Live account state: balance $47.96, spend
+  $0.01/hr (the 100 GB V5 volume only), pod `latenttarget-v5-calibration`
+  EXITED.
+- **V7 motivation (independent of any V6 model outcome):** V4's real result
+  (stable learning strong; revision gate failed; 92.2% expertise default), V5's
+  measurement that no bank can balance that default (best fairness candidate
+  33% selection), and the fact that V6's power DGP raises on the measured
+  prior (`_clean_accepted_frame_shares`). V7 keeps V6's matched stable-old
+  counterfactual and both exact tests, demotes the gates V5 showed to be
+  prior-dependent (balance, all-types, raw crossover, all-directions/origins)
+  to reported-only, and uses **measured** nuisance cells. Sibling module
+  `src/controlled_v7_power.py` (`5c8a37c`): verbatim extraction of V6 lines
+  1076–1320 with one substituted validator; a test asserts byte-identical
+  output to V6 under balanced shares; V6's file is untouched. Proposal with a
+  pre-committed decision rule: `275034a` (`docs/V7_DESIGN_PROPOSAL.md`).
+- **Pre-result diagnostic (`95a6601`):** V6's additive probability tilts
+  realize the registered 0.20/0.25 alternatives under both measured V5 priors
+  but compress to 0.153/0.177 under 5/15/80 and to **0.109/0.111** under the
+  V4-raw 1.2/6.5/92.2 cell. Recorded before the screen; rule left unchanged.
+- **Feasibility screen (exploratory, CPU only, 2,115 s, 48 cells × 500
+  studies; file SHA-256 `e1936570df64f602…`):** **FAIL** under the
+  pre-committed rule. `severe_default_80` blocks every N (V7-complete Wilson
+  lower 0.10–0.19) via `minimum_full_history_late_match = 0.50`, an absolute
+  late-match floor; under learner_1 also `revision` (0.51) and
+  `adjusted_new_gain` (0.56) at N = 30 because the realized revision effect
+  is 0.18 against the 0.15 floor. Both **measured** cells are powered: lower
+  bounds 0.81–0.92 at N = 24 and 0.84–0.96 at N = 30 across all learner
+  profiles, joint co-primary ≥ 0.98. V6's own rule scores 0.00–0.08 in the
+  same cells. `qwen38_v4bank_no_history` (reported-only) is 0.00 everywhere.
+  Verdict recorded in `41bb402`; **the rule was not changed after the result
+  and there is no rescue.**
+- **Null size at the measured prior (`results/v7_design/feasibility/
+  v7_null_size_measured_prior_large.json`, SHA-256 `d96d91b239172e09…`):** 4,000
+  null studies, N = 18, offsets 40000+. Stable test 0 rejections; revision test
+  36/2,000 (1.80%, Wilson hi 0.025), 27/1,000 (2.70%, hi 0.039), 28/1,000
+  (2.80%, hi 0.040) for symmetric / asymmetric_slots / adversarial_serial;
+  **joint co-primary 0/4,000.** The upper-size rule (every revision Wilson
+  upper ≤ 0.05) is met. An earlier 200-study pass showing 8/200 was noise.
+- **Replication model verified without GPU:** `google/gemma-4-31B-it` @
+  `842da379…` loads under the pod-pinned transformers 5.16.1 (fails under
+  4.57), keeps the system role, ignores `enable_thinking`, single-token
+  digits. Details in `docs/POD_RUNBOOK.md`.
+- **Adversarial design review:** five-lens review with three-skeptic
+  refutation per finding launched before the screen reported; synthesis to be
+  appended as a separate entry when it returns.
+- **Cost:** zero GPU minutes, zero API calls, zero judge or focal calls. All
+  computation CPU-local.
+- **Status:** `V7_PROPOSAL_SCREEN_FAILED_NOT_RESCUED`. No V7 protocol was
+  frozen; paid calibration, confirmatory, activation, probe, and steering work
+  remain blocked. Scientific interpretation: the prior-cancelling estimand is
+  powered where the model was measured; the proposal fails on a
+  hypothetical severe-default cell through an absolute-level gate and effect
+  compression, not through the estimand. Any successor is a new proposal that
+  must be adversarially reviewed before its own screen and use disjoint study
+  offsets.

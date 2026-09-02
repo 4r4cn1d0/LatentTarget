@@ -1,0 +1,64 @@
+{
+  "design": "v7",
+  "cell": "qwen38_v5bank_overall",
+  "N": 18,
+  "alpha_each": 0.025,
+  "study_offset_base": 40000,
+  "profiles": {
+    "symmetric": {
+      "n_sim": 2000,
+      "stable": {
+        "rejections": 0,
+        "rate": 0.0,
+        "wilson_hi": 0.0019171176005129348
+      },
+      "revision": {
+        "rejections": 36,
+        "rate": 0.018,
+        "wilson_hi": 0.02481818678403449
+      },
+      "joint": {
+        "rejections": 0,
+        "rate": 0.0,
+        "wilson_hi": 0.0019171176005129348
+      }
+    },
+    "asymmetric_slots": {
+      "n_sim": 1000,
+      "stable": {
+        "rejections": 0,
+        "rate": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "revision": {
+        "rejections": 27,
+        "rate": 0.027,
+        "wilson_hi": 0.03899898941343562
+      },
+      "joint": {
+        "rejections": 0,
+        "rate": 0.0,
+        "wilson_hi": 0.003826898586390522
+      }
+    },
+    "adversarial_serial": {
+      "n_sim": 1000,
+      "stable": {
+        "rejections": 0,
+        "rate": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "revision": {
+        "rejections": 28,
+        "rate": 0.028,
+        "wilson_hi": 0.040170444802420505
+      },
+      "joint": {
+        "rejections": 0,
+        "rate": 0.0,
+        "wilson_hi": 0.003826898586390522
+      }
+    }
+  },
+  "wall_seconds": 868.0623579025269
+}
