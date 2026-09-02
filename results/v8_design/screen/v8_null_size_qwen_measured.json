@@ -1,0 +1,520 @@
+{
+  "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+  "status": "V8_NULL_SIZE",
+  "alpha_each": 0.016666666666666666,
+  "required_gates": [
+    "design_integrity",
+    "all_selections_valid",
+    "zero_fallback",
+    "no_history_learning_control",
+    "random_target_learning_control",
+    "full_over_no_late",
+    "stable",
+    "revision",
+    "adjusted_old_drop",
+    "stratified_new_gain",
+    "stable_exact_test",
+    "revision_exact_test",
+    "stratified_exact_test"
+  ],
+  "dropped_gates": {
+    "full_history_late_level": "absolute level; binds under a strong default regardless of learning",
+    "all_target_types_supported": "absolute per-type level; ceiling-doomed for the default frame",
+    "late_swap_new_minus_old": "raw crossover; prior-confounded (V4 diagnosis)",
+    "directional_transition_support": "origin-based; replaced by the destination-stratified gate",
+    "all_origin_types_support_revision": "origin-based; replaced by the destination-stratified gate",
+    "no_history_frame_balance": "instrument property set by the model, not the design (V5)",
+    "adjusted_new_gain": "pooled over all transitions; passes on default-attraction (review finding 1); replaced by the stratified gate"
+  },
+  "n_sim_per_cell": 1000,
+  "seed": 20262003,
+  "study_offset_range": [
+    200000,
+    205999
+  ],
+  "n_cells": 6,
+  "wall_seconds": 258.06464409828186,
+  "cells": [
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_NULL_SIZE",
+      "n_episode_seeds": 18,
+      "n_sim": 1000,
+      "seed": 20262003,
+      "simulation_study_offset": 200000,
+      "scenario_id": "learner_2",
+      "null_profile_id": "symmetric",
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "joint_three_tests": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.999,
+        "full_over_no_late": 0.0,
+        "stable": 0.0,
+        "revision": 0.004,
+        "adjusted_old_drop": 0.068,
+        "stratified_new_gain": 0.108,
+        "stable_exact_test": 0.0,
+        "revision_exact_test": 0.013,
+        "stratified_exact_test": 0.017
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.003826898586390522,
+        "revision_exact_test": 0.022114652101014598,
+        "stratified_exact_test": 0.027056184371235047
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.0,
+        "all_target_types_supported": 0.0,
+        "late_swap_new_minus_old": 0.494,
+        "directional_transition_support": 0.039,
+        "all_origin_types_support_revision": 0.085,
+        "no_history_frame_balance": 0.0,
+        "adjusted_new_gain": 0.073
+      },
+      "mean_estimates": {
+        "stable": -1.5882357157832096e-19,
+        "revision": 0.0013734567901234585,
+        "adjusted_new_gain": 0.0009320987654320988,
+        "adjusted_old_drop": 0.00044135802469135637,
+        "full_history_late_match": 0.3333333333333318,
+        "strat:non_default_destination": 0.0017592592592592605,
+        "strat:orthogonal_pair": 0.0017361111111111104,
+        "strat:toward_default": -0.0007222222222222209,
+        "strat:away_from_default": 0.0017824074074074049,
+        "strat:secondary_toward_minus_away": -0.002504629629629629
+      },
+      "wall_seconds": 257.6503851413727,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_NULL_SIZE",
+      "n_episode_seeds": 18,
+      "n_sim": 1000,
+      "seed": 20262003,
+      "simulation_study_offset": 201000,
+      "scenario_id": "learner_2",
+      "null_profile_id": "asymmetric_slots",
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "joint_three_tests": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.997,
+        "full_over_no_late": 0.0,
+        "stable": 0.0,
+        "revision": 0.002,
+        "adjusted_old_drop": 0.069,
+        "stratified_new_gain": 0.102,
+        "stable_exact_test": 0.0,
+        "revision_exact_test": 0.011,
+        "stratified_exact_test": 0.015
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.003826898586390522,
+        "revision_exact_test": 0.01958959672837577,
+        "stratified_exact_test": 0.02460119479160246
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.0,
+        "all_target_types_supported": 0.0,
+        "late_swap_new_minus_old": 0.515,
+        "directional_transition_support": 0.035,
+        "all_origin_types_support_revision": 0.07,
+        "no_history_frame_balance": 0.157,
+        "adjusted_new_gain": 0.076
+      },
+      "mean_estimates": {
+        "stable": -1.5419764230904088e-21,
+        "revision": 0.00011111111111111057,
+        "adjusted_new_gain": 0.00013580246913580228,
+        "adjusted_old_drop": -2.4691358024691448e-05,
+        "full_history_late_match": 0.3333333333333318,
+        "strat:non_default_destination": 7.63888888888895e-05,
+        "strat:orthogonal_pair": 0.00044907407407407277,
+        "strat:toward_default": 0.0002546296296296305,
+        "strat:away_from_default": -0.0002962962962962963,
+        "strat:secondary_toward_minus_away": 0.0005509259259259231
+      },
+      "wall_seconds": 255.50995087623596,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_NULL_SIZE",
+      "n_episode_seeds": 18,
+      "n_sim": 1000,
+      "seed": 20262003,
+      "simulation_study_offset": 202000,
+      "scenario_id": "learner_2",
+      "null_profile_id": "adversarial_serial",
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "joint_three_tests": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.999,
+        "full_over_no_late": 0.0,
+        "stable": 0.0,
+        "revision": 0.005,
+        "adjusted_old_drop": 0.059,
+        "stratified_new_gain": 0.089,
+        "stable_exact_test": 0.0,
+        "revision_exact_test": 0.014,
+        "stratified_exact_test": 0.009
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.003826898586390522,
+        "revision_exact_test": 0.023362247976530262,
+        "stratified_exact_test": 0.017016007822824013
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.0,
+        "all_target_types_supported": 0.0,
+        "late_swap_new_minus_old": 0.519,
+        "directional_transition_support": 0.035,
+        "all_origin_types_support_revision": 0.075,
+        "no_history_frame_balance": 0.0,
+        "adjusted_new_gain": 0.071
+      },
+      "mean_estimates": {
+        "stable": 2.9297552038719436e-20,
+        "revision": -0.0006358024691358035,
+        "adjusted_new_gain": -0.0005709876543209875,
+        "adjusted_old_drop": -6.481481481481522e-05,
+        "full_history_late_match": 0.3333333333333318,
+        "strat:non_default_destination": -0.001168981481481481,
+        "strat:orthogonal_pair": 0.0005509259259259255,
+        "strat:toward_default": 0.0006249999999999998,
+        "strat:away_from_default": -0.0028888888888888888,
+        "strat:secondary_toward_minus_away": 0.003513888888888888
+      },
+      "wall_seconds": 257.34440183639526,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_NULL_SIZE",
+      "n_episode_seeds": 18,
+      "n_sim": 1000,
+      "seed": 20262003,
+      "simulation_study_offset": 203000,
+      "scenario_id": "learner_2",
+      "null_profile_id": "symmetric",
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "joint_three_tests": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.999,
+        "full_over_no_late": 0.0,
+        "stable": 0.0,
+        "revision": 0.008,
+        "adjusted_old_drop": 0.08,
+        "stratified_new_gain": 0.114,
+        "stable_exact_test": 0.0,
+        "revision_exact_test": 0.017,
+        "stratified_exact_test": 0.014
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.003826898586390522,
+        "revision_exact_test": 0.027056184371235047,
+        "stratified_exact_test": 0.023362247976530262
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.0,
+        "all_target_types_supported": 0.0,
+        "late_swap_new_minus_old": 0.501,
+        "directional_transition_support": 0.05,
+        "all_origin_types_support_revision": 0.093,
+        "no_history_frame_balance": 0.078,
+        "adjusted_new_gain": 0.069
+      },
+      "mean_estimates": {
+        "stable": -1.6704744583480377e-19,
+        "revision": 0.0012407407407407397,
+        "adjusted_new_gain": -0.0004104938271604927,
+        "adjusted_old_drop": 0.001651234567901236,
+        "full_history_late_match": 0.3333333333333318,
+        "strat:non_default_destination": -0.0007291666666666654,
+        "strat:orthogonal_pair": -0.0010925925925925927,
+        "strat:toward_default": 0.0002268518518518534,
+        "strat:away_from_default": -0.000365740740740741,
+        "strat:secondary_toward_minus_away": 0.0005925925925925914
+      },
+      "wall_seconds": 256.2300958633423,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_NULL_SIZE",
+      "n_episode_seeds": 18,
+      "n_sim": 1000,
+      "seed": 20262003,
+      "simulation_study_offset": 204000,
+      "scenario_id": "learner_2",
+      "null_profile_id": "asymmetric_slots",
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "joint_three_tests": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.99,
+        "full_over_no_late": 0.0,
+        "stable": 0.0,
+        "revision": 0.003,
+        "adjusted_old_drop": 0.071,
+        "stratified_new_gain": 0.104,
+        "stable_exact_test": 0.0,
+        "revision_exact_test": 0.012,
+        "stratified_exact_test": 0.009
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.003826898586390522,
+        "revision_exact_test": 0.020857473928157594,
+        "stratified_exact_test": 0.017016007822824013
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.0,
+        "all_target_types_supported": 0.0,
+        "late_swap_new_minus_old": 0.514,
+        "directional_transition_support": 0.024,
+        "all_origin_types_support_revision": 0.077,
+        "no_history_frame_balance": 0.021,
+        "adjusted_new_gain": 0.064
+      },
+      "mean_estimates": {
+        "stable": 2.174186756557599e-19,
+        "revision": 0.0006851851851851828,
+        "adjusted_new_gain": 0.00021450617283950532,
+        "adjusted_old_drop": 0.0004706790123456787,
+        "full_history_late_match": 0.3333333333333318,
+        "strat:non_default_destination": 0.0008912037037037047,
+        "strat:orthogonal_pair": -0.0003009259259259257,
+        "strat:toward_default": -0.001138888888888888,
+        "strat:away_from_default": 0.0020833333333333355,
+        "strat:secondary_toward_minus_away": -0.003222222222222222
+      },
+      "wall_seconds": 254.1132197380066,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_NULL_SIZE",
+      "n_episode_seeds": 18,
+      "n_sim": 1000,
+      "seed": 20262003,
+      "simulation_study_offset": 205000,
+      "scenario_id": "learner_2",
+      "null_profile_id": "adversarial_serial",
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "joint_three_tests": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.003826898586390522
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.995,
+        "full_over_no_late": 0.0,
+        "stable": 0.0,
+        "revision": 0.006,
+        "adjusted_old_drop": 0.064,
+        "stratified_new_gain": 0.111,
+        "stable_exact_test": 0.0,
+        "revision_exact_test": 0.015,
+        "stratified_exact_test": 0.012
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.003826898586390522,
+        "revision_exact_test": 0.02460119479160246,
+        "stratified_exact_test": 0.020857473928157594
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.0,
+        "all_target_types_supported": 0.0,
+        "late_swap_new_minus_old": 0.499,
+        "directional_transition_support": 0.035,
+        "all_origin_types_support_revision": 0.078,
+        "no_history_frame_balance": 0.484,
+        "adjusted_new_gain": 0.071
+      },
+      "mean_estimates": {
+        "stable": 3.5979449872111946e-21,
+        "revision": 0.0006450617283950623,
+        "adjusted_new_gain": 0.0004182098765432099,
+        "adjusted_old_drop": 0.00022685185185185257,
+        "full_history_late_match": 0.3333333333333318,
+        "strat:non_default_destination": 0.00022222222222222343,
+        "strat:orthogonal_pair": 0.0004074074074074085,
+        "strat:toward_default": 0.0008101851851851856,
+        "strat:away_from_default": 3.703703703703529e-05,
+        "strat:secondary_toward_minus_away": 0.000773148148148149
+      },
+      "wall_seconds": 255.8935351371765,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    }
+  ],
+  "canonical_sha256": "a6a00e4d1f6c554bc5957fcc486b85afd4a4ffe86be690a757cfc9092c6e7b9d"
+}

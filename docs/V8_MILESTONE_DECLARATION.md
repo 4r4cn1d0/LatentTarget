@@ -50,3 +50,40 @@ committed, and tagged before its official run.
 4. Freeze `docs/v8_protocol.json` with the selected model and N; commit; tag;
    official fixed-seed power run at offsets 300000+.
 5. One confirmatory run.
+
+## Screen verdict (2026-09-02, 22:50 IST): FAIL under the pre-committed rule — V8 stopped
+
+Exploratory screen at the two **measured** Qwen cells (`results/v8_design/screen/
+v8_screen_qwen_measured.json`, file SHA-256 `0b5e4a808495ee07…`; 24 cells × 500 studies,
+offsets 100000–111999). Rule: V8-complete Wilson lower ≥ 0.80 at some N in every
+measured cell (and, as V6's inherited convention, every learner profile).
+
+| N | min lower bound | blocking cell / profile | binding gate |
+|--:|--:|---|---|
+| 12 | 0.160 | overall / learner_1 | `stratified_exact_test` = 0.21 |
+| 18 | 0.260 | overall / learner_1 | 0.31 |
+| 24 | 0.433 | overall / learner_1 | 0.49 |
+| 30 | 0.556 | overall / learner_1 | 0.60 |
+
+**No N passes. V8 is stopped. The rule and the N grid are not changed.**
+
+Null size at the measured prior (`v8_null_size_qwen_measured.json`, SHA-256
+`738b3f59be1b405f…`; N = 18, 1,000 studies × 3 null profiles × 2 cells, offsets
+200000–205999): stable test 0 rejections; revision 1.1–1.7%; stratified
+0.9–1.7%; every Wilson upper ≤ 0.027 against the 0.05 rule; joint 0/6,000.
+**Type I error is controlled.** The failure is power, not validity.
+
+What the grid shows: at learner_2 and learner_3 the rule is met at N = 24–30
+(lower bounds 0.72–0.92 in both cells). The binding profile is learner_1, whose
+registered acquisition tilt is 0.013 — by V6's own DGP construction it barely
+acquires the new frame, so a gate that *requires* destination-specific
+acquisition is nearly unpowered against it at N ≤ 30. Both the gate (review
+finding 1–2) and the profile (V6) were pre-registered. Extending N after this
+outcome is forbidden.
+
+Interpretation, stated once: **a revision test that cannot be passed by
+default-attraction is underpowered at this model's measured prior against the
+weakest registered learner at N ≤ 30.** That closes the V5 → V6 → V7 → V8 line
+at the registered scale. Gemma's prior measurement cannot rescue V8, because
+Qwen's measured cells remain in the rule; it is a standalone characterization
+if run at all.

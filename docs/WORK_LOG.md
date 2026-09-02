@@ -1327,3 +1327,23 @@ synthetic validation and from claims that still require a real model.
   target-free prior measurement of `google/gemma-4-31B-it` on the frozen V5
   bank (≈ $2) under a new, explicitly declared protocol; operator decision.
 - Cost this session: $0.
+
+## 2026-09-02 — V8 declared, plumbed, screened, and STOPPED under its own rule
+
+- Operator declared V8 (explicit override of V6's terminal clause, ledger in
+  `docs/V8_MILESTONE_DECLARATION.md`). Built: `src/controlled_v8_power.py`
+  (destination-stratified acquisition gate with exact test on a 1/24 lattice,
+  α = 0.05/3, pinned offsets), `src/v8_protocol_gate.py`,
+  `scripts/run_v8_prior_measurement.py` (Gemma command passes a 37-check audit
+  in `--dry-run` with no model loaded), `scripts/register_v8_prior.py`
+  (reproduces V5's Qwen counts 79/197/300 and 33/62/49 from the raw log;
+  registered Qwen's default = expertise), `scripts/pod_bootstrap_v8.sh`.
+  Commits `674df86`…`8b75d00`, **pushed to origin/main** with the operator's
+  approval after a credential grep over the range.
+- **Screen at the measured Qwen cells: FAIL** — no N reaches a 0.80 lower
+  bound; binding gate `stratified_exact_test` under learner_1 (0.21 → 0.60).
+  learner_2/3 pass at N = 24–30. Null size clean: worst Wilson upper 0.027,
+  joint 0/6,000. Verdict recorded in the declaration; rule and grid unchanged.
+- **Status: `V8_STOPPED_UNDERPOWERED_AT_REGISTERED_GRID`.** No protocol
+  frozen; no tag; no pod deployed; $0 spent. The Gemma prior measurement, if
+  run, is a standalone characterization, not a V8 step.

@@ -1,0 +1,1960 @@
+{
+  "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+  "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+  "alpha_each": 0.016666666666666666,
+  "required_gates": [
+    "design_integrity",
+    "all_selections_valid",
+    "zero_fallback",
+    "no_history_learning_control",
+    "random_target_learning_control",
+    "full_over_no_late",
+    "stable",
+    "revision",
+    "adjusted_old_drop",
+    "stratified_new_gain",
+    "stable_exact_test",
+    "revision_exact_test",
+    "stratified_exact_test"
+  ],
+  "dropped_gates": {
+    "full_history_late_level": "absolute level; binds under a strong default regardless of learning",
+    "all_target_types_supported": "absolute per-type level; ceiling-doomed for the default frame",
+    "late_swap_new_minus_old": "raw crossover; prior-confounded (V4 diagnosis)",
+    "directional_transition_support": "origin-based; replaced by the destination-stratified gate",
+    "all_origin_types_support_revision": "origin-based; replaced by the destination-stratified gate",
+    "no_history_frame_balance": "instrument property set by the model, not the design (V5)",
+    "adjusted_new_gain": "pooled over all transitions; passes on default-attraction (review finding 1); replaced by the stratified gate"
+  },
+  "n_sim_per_cell": 500,
+  "seed": 20262003,
+  "study_offset_range": [
+    100000,
+    111999
+  ],
+  "n_cells": 24,
+  "wall_seconds": 1047.7398788928986,
+  "cells": [
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 12,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 100000,
+      "scenario_id": "learner_1",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 96,
+        "rate": 0.192,
+        "wilson_lo": 0.15987567270959485,
+        "wilson_hi": 0.22882109230544162
+      },
+      "joint_three_tests": {
+        "successes": 98,
+        "rate": 0.196,
+        "wilson_lo": 0.16357755483279346,
+        "wilson_hi": 0.23305821323399578
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.007624618530903363
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.982,
+        "full_over_no_late": 1.0,
+        "stable": 0.982,
+        "revision": 0.894,
+        "adjusted_old_drop": 0.986,
+        "stratified_new_gain": 0.706,
+        "stable_exact_test": 0.914,
+        "revision_exact_test": 0.754,
+        "stratified_exact_test": 0.212
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9355271999486967,
+        "revision_exact_test": 0.7897196261682243,
+        "stratified_exact_test": 0.24995285039349813
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.944,
+        "all_target_types_supported": 0.94,
+        "late_swap_new_minus_old": 0.822,
+        "directional_transition_support": 0.85,
+        "all_origin_types_support_revision": 0.854,
+        "no_history_frame_balance": 0.0,
+        "adjusted_new_gain": 0.866
+      },
+      "mean_estimates": {
+        "stable": 0.18327777777777773,
+        "revision": 0.23704166666666657,
+        "adjusted_new_gain": 0.09166203703703697,
+        "adjusted_old_drop": 0.1453796296296296,
+        "full_history_late_match": 0.553509259259259,
+        "strat:non_default_destination": 0.0760763888888889,
+        "strat:orthogonal_pair": 0.07111111111111107,
+        "strat:toward_default": 0.12283333333333339,
+        "strat:away_from_default": 0.08104166666666662,
+        "strat:secondary_toward_minus_away": 0.0417916666666667
+      },
+      "wall_seconds": 175.1260712146759,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 18,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 100500,
+      "scenario_id": "learner_1",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 149,
+        "rate": 0.298,
+        "wilson_lo": 0.25957253815100145,
+        "wilson_hi": 0.3395078077354835
+      },
+      "joint_three_tests": {
+        "successes": 151,
+        "rate": 0.302,
+        "wilson_lo": 0.26339087332996447,
+        "wilson_hi": 0.34362847560827325
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.007624618530903363
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.998,
+        "full_over_no_late": 1.0,
+        "stable": 0.984,
+        "revision": 0.91,
+        "adjusted_old_drop": 0.988,
+        "stratified_new_gain": 0.768,
+        "stable_exact_test": 0.988,
+        "revision_exact_test": 0.904,
+        "stratified_exact_test": 0.308
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9944890800328247,
+        "revision_exact_test": 0.9268268620944284,
+        "stratified_exact_test": 0.3498027886253091
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.978,
+        "all_target_types_supported": 0.982,
+        "late_swap_new_minus_old": 0.878,
+        "directional_transition_support": 0.894,
+        "all_origin_types_support_revision": 0.89,
+        "no_history_frame_balance": 0.0,
+        "adjusted_new_gain": 0.872
+      },
+      "mean_estimates": {
+        "stable": 0.17999999999999994,
+        "revision": 0.22929320987654353,
+        "adjusted_new_gain": 0.08738580246913578,
+        "adjusted_old_drop": 0.1419074074074074,
+        "full_history_late_match": 0.5551296296296299,
+        "strat:non_default_destination": 0.07566666666666669,
+        "strat:orthogonal_pair": 0.06811111111111114,
+        "strat:toward_default": 0.11082407407407402,
+        "strat:away_from_default": 0.08322222222222225,
+        "strat:secondary_toward_minus_away": 0.027601851851851888
+      },
+      "wall_seconds": 270.97519421577454,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 24,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 101000,
+      "scenario_id": "learner_1",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 238,
+        "rate": 0.476,
+        "wilson_lo": 0.4325734008661452,
+        "wilson_hi": 0.5197925808233381
+      },
+      "joint_three_tests": {
+        "successes": 244,
+        "rate": 0.488,
+        "wilson_lo": 0.4444444444444444,
+        "wilson_hi": 0.5317385464002973
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.007624618530903363
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.998,
+        "full_over_no_late": 1.0,
+        "stable": 0.992,
+        "revision": 0.94,
+        "adjusted_old_drop": 0.998,
+        "stratified_new_gain": 0.806,
+        "stable_exact_test": 1.0,
+        "revision_exact_test": 0.98,
+        "stratified_exact_test": 0.488
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9999999999999999,
+        "revision_exact_test": 0.9891009347644306,
+        "stratified_exact_test": 0.5317385464002973
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.986,
+        "all_target_types_supported": 0.988,
+        "late_swap_new_minus_old": 0.888,
+        "directional_transition_support": 0.932,
+        "all_origin_types_support_revision": 0.93,
+        "no_history_frame_balance": 0.0,
+        "adjusted_new_gain": 0.912
+      },
+      "mean_estimates": {
+        "stable": 0.18086574074074077,
+        "revision": 0.23129861111111102,
+        "adjusted_new_gain": 0.08996527777777782,
+        "adjusted_old_drop": 0.14133333333333334,
+        "full_history_late_match": 0.5532453703703707,
+        "strat:non_default_destination": 0.07731944444444443,
+        "strat:orthogonal_pair": 0.07330555555555561,
+        "strat:toward_default": 0.11525694444444438,
+        "strat:away_from_default": 0.0813333333333333,
+        "strat:secondary_toward_minus_away": 0.0339236111111111
+      },
+      "wall_seconds": 365.48656702041626,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 30,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 101500,
+      "scenario_id": "learner_1",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 300,
+        "rate": 0.6,
+        "wilson_lo": 0.5564533144716549,
+        "wilson_hi": 0.6420217618221643
+      },
+      "joint_three_tests": {
+        "successes": 302,
+        "rate": 0.604,
+        "wilson_lo": 0.5604950326399137,
+        "wilson_hi": 0.6459190467056583
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.007624618530903363
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 1.0,
+        "full_over_no_late": 1.0,
+        "stable": 0.996,
+        "revision": 0.95,
+        "adjusted_old_drop": 1.0,
+        "stratified_new_gain": 0.81,
+        "stable_exact_test": 1.0,
+        "revision_exact_test": 0.996,
+        "stratified_exact_test": 0.604
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9999999999999999,
+        "revision_exact_test": 0.9989023924587627,
+        "stratified_exact_test": 0.6459190467056583
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.994,
+        "all_target_types_supported": 0.992,
+        "late_swap_new_minus_old": 0.906,
+        "directional_transition_support": 0.958,
+        "all_origin_types_support_revision": 0.944,
+        "no_history_frame_balance": 0.0,
+        "adjusted_new_gain": 0.924
+      },
+      "mean_estimates": {
+        "stable": 0.18142962962962972,
+        "revision": 0.23308888888888898,
+        "adjusted_new_gain": 0.08999629629629635,
+        "adjusted_old_drop": 0.1430925925925925,
+        "full_history_late_match": 0.5566629629629621,
+        "strat:non_default_destination": 0.07703055555555556,
+        "strat:orthogonal_pair": 0.0689111111111111,
+        "strat:toward_default": 0.11592777777777778,
+        "strat:away_from_default": 0.08515000000000003,
+        "strat:secondary_toward_minus_away": 0.030777777777777758
+      },
+      "wall_seconds": 450.9131007194519,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 12,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 102000,
+      "scenario_id": "learner_2",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 162,
+        "rate": 0.324,
+        "wilson_lo": 0.2844545847826361,
+        "wilson_hi": 0.3662292809402419
+      },
+      "joint_three_tests": {
+        "successes": 167,
+        "rate": 0.334,
+        "wilson_lo": 0.2940631065718404,
+        "wilson_hi": 0.37646826678041956
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.007624618530903363
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.99,
+        "full_over_no_late": 1.0,
+        "stable": 0.986,
+        "revision": 0.848,
+        "adjusted_old_drop": 0.932,
+        "stratified_new_gain": 0.862,
+        "stable_exact_test": 0.958,
+        "revision_exact_test": 0.7,
+        "stratified_exact_test": 0.404
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9723679006652538,
+        "revision_exact_test": 0.7385187435059938,
+        "stratified_exact_test": 0.44758545703739777
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.932,
+        "all_target_types_supported": 0.948,
+        "late_swap_new_minus_old": 0.994,
+        "directional_transition_support": 0.83,
+        "all_origin_types_support_revision": 0.812,
+        "no_history_frame_balance": 0.0,
+        "adjusted_new_gain": 0.942
+      },
+      "mean_estimates": {
+        "stable": 0.1919907407407407,
+        "revision": 0.2279999999999999,
+        "adjusted_new_gain": 0.11768981481481489,
+        "adjusted_old_drop": 0.1103101851851851,
+        "full_history_late_match": 0.5455000000000001,
+        "strat:non_default_destination": 0.10518055555555558,
+        "strat:orthogonal_pair": 0.10191666666666666,
+        "strat:toward_default": 0.1427083333333334,
+        "strat:away_from_default": 0.10844444444444441,
+        "strat:secondary_toward_minus_away": 0.034263888888888885
+      },
+      "wall_seconds": 175.47115111351013,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 18,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 102500,
+      "scenario_id": "learner_2",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 290,
+        "rate": 0.58,
+        "wilson_lo": 0.5362886484411069,
+        "wilson_hi": 0.6224914125939485
+      },
+      "joint_three_tests": {
+        "successes": 293,
+        "rate": 0.586,
+        "wilson_lo": 0.5423304138904992,
+        "wilson_hi": 0.6283581517221855
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.007624618530903363
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 1.0,
+        "full_over_no_late": 1.0,
+        "stable": 0.996,
+        "revision": 0.884,
+        "adjusted_old_drop": 0.966,
+        "stratified_new_gain": 0.916,
+        "stable_exact_test": 0.998,
+        "revision_exact_test": 0.888,
+        "stratified_exact_test": 0.604
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9996468726904154,
+        "revision_exact_test": 0.9127376027165404,
+        "stratified_exact_test": 0.6459190467056583
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.942,
+        "all_target_types_supported": 0.972,
+        "late_swap_new_minus_old": 0.998,
+        "directional_transition_support": 0.902,
+        "all_origin_types_support_revision": 0.886,
+        "no_history_frame_balance": 0.0,
+        "adjusted_new_gain": 0.962
+      },
+      "mean_estimates": {
+        "stable": 0.18888888888888866,
+        "revision": 0.23141049382716028,
+        "adjusted_new_gain": 0.11668209876543219,
+        "adjusted_old_drop": 0.11472839506172834,
+        "full_history_late_match": 0.5420740740740743,
+        "strat:non_default_destination": 0.10590740740740731,
+        "strat:orthogonal_pair": 0.0991851851851852,
+        "strat:toward_default": 0.13823148148148148,
+        "strat:away_from_default": 0.11262962962962976,
+        "strat:secondary_toward_minus_away": 0.025601851851851844
+      },
+      "wall_seconds": 268.5816607475281,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 24,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 103000,
+      "scenario_id": "learner_2",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 382,
+        "rate": 0.764,
+        "wilson_lo": 0.7248548911970089,
+        "wilson_hi": 0.7991193102186741
+      },
+      "joint_three_tests": {
+        "successes": 390,
+        "rate": 0.78,
+        "wilson_lo": 0.7416305610182787,
+        "wilson_hi": 0.8140996526044155
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.007624618530903363
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.998,
+        "full_over_no_late": 1.0,
+        "stable": 1.0,
+        "revision": 0.952,
+        "adjusted_old_drop": 0.99,
+        "stratified_new_gain": 0.956,
+        "stable_exact_test": 1.0,
+        "revision_exact_test": 0.982,
+        "stratified_exact_test": 0.784
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9999999999999999,
+        "revision_exact_test": 0.9905019149482431,
+        "stratified_exact_test": 0.8178328349817475
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.988,
+        "all_target_types_supported": 0.996,
+        "late_swap_new_minus_old": 1.0,
+        "directional_transition_support": 0.942,
+        "all_origin_types_support_revision": 0.906,
+        "no_history_frame_balance": 0.0,
+        "adjusted_new_gain": 0.992
+      },
+      "mean_estimates": {
+        "stable": 0.1923703703703703,
+        "revision": 0.2323194444444445,
+        "adjusted_new_gain": 0.11841666666666667,
+        "adjusted_old_drop": 0.11390277777777777,
+        "full_history_late_match": 0.5465185185185183,
+        "strat:non_default_destination": 0.10777083333333341,
+        "strat:orthogonal_pair": 0.10048611111111101,
+        "strat:toward_default": 0.13970833333333343,
+        "strat:away_from_default": 0.11505555555555555,
+        "strat:secondary_toward_minus_away": 0.024652777777777767
+      },
+      "wall_seconds": 366.85677886009216,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 30,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 103500,
+      "scenario_id": "learner_2",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 431,
+        "rate": 0.862,
+        "wilson_lo": 0.8289973296731233,
+        "wilson_hi": 0.8894824465105026
+      },
+      "joint_three_tests": {
+        "successes": 443,
+        "rate": 0.886,
+        "wilson_lo": 0.8551502882823536,
+        "wilson_hi": 0.9109635062117889
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.007624618530903363
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 1.0,
+        "full_over_no_late": 1.0,
+        "stable": 0.998,
+        "revision": 0.964,
+        "adjusted_old_drop": 0.992,
+        "stratified_new_gain": 0.968,
+        "stable_exact_test": 1.0,
+        "revision_exact_test": 0.994,
+        "stratified_exact_test": 0.888
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9999999999999999,
+        "revision_exact_test": 0.9979574407023611,
+        "stratified_exact_test": 0.9127376027165404
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.984,
+        "all_target_types_supported": 0.998,
+        "late_swap_new_minus_old": 1.0,
+        "directional_transition_support": 0.974,
+        "all_origin_types_support_revision": 0.958,
+        "no_history_frame_balance": 0.0,
+        "adjusted_new_gain": 0.998
+      },
+      "mean_estimates": {
+        "stable": 0.19064074074074078,
+        "revision": 0.2359388888888891,
+        "adjusted_new_gain": 0.12050925925925927,
+        "adjusted_old_drop": 0.11542962962962952,
+        "full_history_late_match": 0.5444592592592592,
+        "strat:non_default_destination": 0.10965555555555555,
+        "strat:orthogonal_pair": 0.10432222222222226,
+        "strat:toward_default": 0.14221666666666674,
+        "strat:away_from_default": 0.11498888888888892,
+        "strat:secondary_toward_minus_away": 0.02722777777777777
+      },
+      "wall_seconds": 456.6953721046448,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 12,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 104000,
+      "scenario_id": "learner_3",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 237,
+        "rate": 0.474,
+        "wilson_lo": 0.430597326218342,
+        "wilson_hi": 0.5177991539452649
+      },
+      "joint_three_tests": {
+        "successes": 253,
+        "rate": 0.506,
+        "wilson_lo": 0.46229784108368,
+        "wilson_hi": 0.5496106634939493
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.007624618530903363
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.99,
+        "full_over_no_late": 1.0,
+        "stable": 0.988,
+        "revision": 0.856,
+        "adjusted_old_drop": 0.818,
+        "stratified_new_gain": 0.976,
+        "stable_exact_test": 0.972,
+        "revision_exact_test": 0.712,
+        "stratified_exact_test": 0.602
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9832491806913788,
+        "revision_exact_test": 0.7499573927711387,
+        "stratified_exact_test": 0.6439707735153876
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.912,
+        "all_target_types_supported": 0.96,
+        "late_swap_new_minus_old": 1.0,
+        "directional_transition_support": 0.834,
+        "all_origin_types_support_revision": 0.814,
+        "no_history_frame_balance": 0.0,
+        "adjusted_new_gain": 0.99
+      },
+      "mean_estimates": {
+        "stable": 0.19641666666666696,
+        "revision": 0.23699537037037047,
+        "adjusted_new_gain": 0.14606944444444445,
+        "adjusted_old_drop": 0.09092592592592588,
+        "full_history_late_match": 0.5411018518518521,
+        "strat:non_default_destination": 0.13963888888888892,
+        "strat:orthogonal_pair": 0.1321111111111111,
+        "strat:toward_default": 0.15893055555555574,
+        "strat:away_from_default": 0.14716666666666658,
+        "strat:secondary_toward_minus_away": 0.011763888888888898
+      },
+      "wall_seconds": 186.4573359489441,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 18,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 104500,
+      "scenario_id": "learner_3",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 376,
+        "rate": 0.752,
+        "wilson_lo": 0.7123207803781036,
+        "wilson_hi": 0.787836411882321
+      },
+      "joint_three_tests": {
+        "successes": 404,
+        "rate": 0.808,
+        "wilson_lo": 0.7711789076945584,
+        "wilson_hi": 0.8401243272904052
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.007624618530903363
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.994,
+        "full_over_no_late": 1.0,
+        "stable": 0.996,
+        "revision": 0.928,
+        "adjusted_old_drop": 0.872,
+        "stratified_new_gain": 0.988,
+        "stable_exact_test": 0.996,
+        "revision_exact_test": 0.926,
+        "stratified_exact_test": 0.838
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9989023924587627,
+        "revision_exact_test": 0.945839126122497,
+        "stratified_exact_test": 0.8676987099290632
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.938,
+        "all_target_types_supported": 0.978,
+        "late_swap_new_minus_old": 1.0,
+        "directional_transition_support": 0.946,
+        "all_origin_types_support_revision": 0.934,
+        "no_history_frame_balance": 0.0,
+        "adjusted_new_gain": 0.996
+      },
+      "mean_estimates": {
+        "stable": 0.19650000000000012,
+        "revision": 0.23858024691358043,
+        "adjusted_new_gain": 0.14599382716049378,
+        "adjusted_old_drop": 0.09258641975308651,
+        "full_history_late_match": 0.5410185185185185,
+        "strat:non_default_destination": 0.13746296296296304,
+        "strat:orthogonal_pair": 0.1299444444444444,
+        "strat:toward_default": 0.1630555555555556,
+        "strat:away_from_default": 0.14498148148148152,
+        "strat:secondary_toward_minus_away": 0.018074074074074107
+      },
+      "wall_seconds": 272.98897671699524,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 24,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 105000,
+      "scenario_id": "learner_3",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 435,
+        "rate": 0.87,
+        "wilson_lo": 0.8376779926652986,
+        "wilson_hi": 0.8966797896218328
+      },
+      "joint_three_tests": {
+        "successes": 463,
+        "rate": 0.926,
+        "wilson_lo": 0.8996646988891734,
+        "wilson_hi": 0.945839126122497
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.007624618530903363
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.998,
+        "full_over_no_late": 1.0,
+        "stable": 1.0,
+        "revision": 0.97,
+        "adjusted_old_drop": 0.932,
+        "stratified_new_gain": 0.996,
+        "stable_exact_test": 1.0,
+        "revision_exact_test": 0.99,
+        "stratified_exact_test": 0.928
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9999999999999999,
+        "revision_exact_test": 0.9957213092184797,
+        "stratified_exact_test": 0.9475422739464601
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.978,
+        "all_target_types_supported": 0.99,
+        "late_swap_new_minus_old": 1.0,
+        "directional_transition_support": 0.962,
+        "all_origin_types_support_revision": 0.952,
+        "no_history_frame_balance": 0.0,
+        "adjusted_new_gain": 1.0
+      },
+      "mean_estimates": {
+        "stable": 0.19543055555555558,
+        "revision": 0.2466458333333329,
+        "adjusted_new_gain": 0.1512569444444444,
+        "adjusted_old_drop": 0.09538888888888894,
+        "full_history_late_match": 0.54024537037037,
+        "strat:non_default_destination": 0.1409583333333335,
+        "strat:orthogonal_pair": 0.1340486111111111,
+        "strat:toward_default": 0.17185416666666675,
+        "strat:away_from_default": 0.1478680555555556,
+        "strat:secondary_toward_minus_away": 0.023986111111111107
+      },
+      "wall_seconds": 372.8434000015259,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 30,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 105500,
+      "scenario_id": "learner_3",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "default_frame": "expertise",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 463,
+        "rate": 0.926,
+        "wilson_lo": 0.8996646988891734,
+        "wilson_hi": 0.945839126122497
+      },
+      "joint_three_tests": {
+        "successes": 493,
+        "rate": 0.986,
+        "wilson_lo": 0.9713865738597492,
+        "wilson_hi": 0.9932022969282127
+      },
+      "v6_complete_for_reference": {
+        "successes": 0,
+        "rate": 0.0,
+        "wilson_lo": 0.0,
+        "wilson_hi": 0.007624618530903363
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 1.0,
+        "full_over_no_late": 1.0,
+        "stable": 1.0,
+        "revision": 0.968,
+        "adjusted_old_drop": 0.954,
+        "stratified_new_gain": 1.0,
+        "stable_exact_test": 1.0,
+        "revision_exact_test": 1.0,
+        "stratified_exact_test": 0.986
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9999999999999999,
+        "revision_exact_test": 0.9999999999999999,
+        "stratified_exact_test": 0.9932022969282127
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.986,
+        "all_target_types_supported": 0.994,
+        "late_swap_new_minus_old": 1.0,
+        "directional_transition_support": 0.976,
+        "all_origin_types_support_revision": 0.976,
+        "no_history_frame_balance": 0.0,
+        "adjusted_new_gain": 1.0
+      },
+      "mean_estimates": {
+        "stable": 0.19704444444444444,
+        "revision": 0.2450129629629629,
+        "adjusted_new_gain": 0.15006481481481487,
+        "adjusted_old_drop": 0.09494814814814817,
+        "full_history_late_match": 0.5411592592592599,
+        "strat:non_default_destination": 0.14453055555555544,
+        "strat:orthogonal_pair": 0.13949999999999993,
+        "strat:toward_default": 0.16113333333333335,
+        "strat:away_from_default": 0.1495611111111113,
+        "strat:secondary_toward_minus_away": 0.011572222222222223
+      },
+      "wall_seconds": 475.6336271762848,
+      "cell_id": "qwen38_v5bank_overall",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 12,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 106000,
+      "scenario_id": "learner_1",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 110,
+        "rate": 0.22,
+        "wilson_lo": 0.1859003473955845,
+        "wilson_hi": 0.2583694389817214
+      },
+      "joint_three_tests": {
+        "successes": 112,
+        "rate": 0.224,
+        "wilson_lo": 0.18963838082995066,
+        "wilson_hi": 0.262570408599108
+      },
+      "v6_complete_for_reference": {
+        "successes": 24,
+        "rate": 0.048,
+        "wilson_lo": 0.03246497509125218,
+        "wilson_hi": 0.07042768006068446
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.984,
+        "full_over_no_late": 1.0,
+        "stable": 0.976,
+        "revision": 0.914,
+        "adjusted_old_drop": 0.984,
+        "stratified_new_gain": 0.78,
+        "stable_exact_test": 0.938,
+        "revision_exact_test": 0.76,
+        "stratified_exact_test": 0.254
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9559810673863897,
+        "revision_exact_test": 0.7953627505813117,
+        "stratified_exact_test": 0.2939316846394487
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.98,
+        "all_target_types_supported": 0.968,
+        "late_swap_new_minus_old": 0.8,
+        "directional_transition_support": 0.884,
+        "all_origin_types_support_revision": 0.864,
+        "no_history_frame_balance": 0.092,
+        "adjusted_new_gain": 0.892
+      },
+      "mean_estimates": {
+        "stable": 0.19704629629629639,
+        "revision": 0.2519814814814812,
+        "adjusted_new_gain": 0.09879166666666671,
+        "adjusted_old_drop": 0.1531898148148149,
+        "full_history_late_match": 0.5727870370370374,
+        "strat:non_default_destination": 0.08782638888888893,
+        "strat:orthogonal_pair": 0.08699999999999992,
+        "strat:toward_default": 0.12072222222222229,
+        "strat:away_from_default": 0.08865277777777777,
+        "strat:secondary_toward_minus_away": 0.03206944444444445
+      },
+      "wall_seconds": 176.76869082450867,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 18,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 106500,
+      "scenario_id": "learner_1",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 208,
+        "rate": 0.416,
+        "wilson_lo": 0.37359670506840015,
+        "wilson_hi": 0.4596842308447916
+      },
+      "joint_three_tests": {
+        "successes": 210,
+        "rate": 0.42,
+        "wilson_lo": 0.3775085874060515,
+        "wilson_hi": 0.46371135155889304
+      },
+      "v6_complete_for_reference": {
+        "successes": 35,
+        "rate": 0.07,
+        "wilson_lo": 0.05075944317125315,
+        "wilson_hi": 0.09579772876532376
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.99,
+        "full_over_no_late": 1.0,
+        "stable": 0.998,
+        "revision": 0.948,
+        "adjusted_old_drop": 0.998,
+        "stratified_new_gain": 0.836,
+        "stable_exact_test": 0.992,
+        "revision_exact_test": 0.924,
+        "stratified_exact_test": 0.424
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9968847352024922,
+        "revision_exact_test": 0.9441312892658914,
+        "stratified_exact_test": 0.46773559018907274
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.99,
+        "all_target_types_supported": 0.984,
+        "late_swap_new_minus_old": 0.842,
+        "directional_transition_support": 0.948,
+        "all_origin_types_support_revision": 0.912,
+        "no_history_frame_balance": 0.088,
+        "adjusted_new_gain": 0.928
+      },
+      "mean_estimates": {
+        "stable": 0.19425308641975303,
+        "revision": 0.25595679012345685,
+        "adjusted_new_gain": 0.09930246913580246,
+        "adjusted_old_drop": 0.15665432098765425,
+        "full_history_late_match": 0.5701604938271612,
+        "strat:non_default_destination": 0.09194907407407407,
+        "strat:orthogonal_pair": 0.08813888888888892,
+        "strat:toward_default": 0.11400925925925927,
+        "strat:away_from_default": 0.09575925925925928,
+        "strat:secondary_toward_minus_away": 0.018250000000000006
+      },
+      "wall_seconds": 281.3696839809418,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 24,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 107000,
+      "scenario_id": "learner_1",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 269,
+        "rate": 0.538,
+        "wilson_lo": 0.4941760408295009,
+        "wilson_hi": 0.5812444881621506
+      },
+      "joint_three_tests": {
+        "successes": 269,
+        "rate": 0.538,
+        "wilson_lo": 0.4941760408295009,
+        "wilson_hi": 0.5812444881621506
+      },
+      "v6_complete_for_reference": {
+        "successes": 22,
+        "rate": 0.044,
+        "wilson_lo": 0.029233737680341678,
+        "wilson_hi": 0.06571991441984218
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.998,
+        "full_over_no_late": 1.0,
+        "stable": 0.996,
+        "revision": 0.954,
+        "adjusted_old_drop": 0.998,
+        "stratified_new_gain": 0.85,
+        "stable_exact_test": 0.998,
+        "revision_exact_test": 0.968,
+        "stratified_exact_test": 0.54
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9996468726904154,
+        "revision_exact_test": 0.980208658648717,
+        "stratified_exact_test": 0.5832156799913801
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.996,
+        "all_target_types_supported": 0.996,
+        "late_swap_new_minus_old": 0.862,
+        "directional_transition_support": 0.956,
+        "all_origin_types_support_revision": 0.926,
+        "no_history_frame_balance": 0.06,
+        "adjusted_new_gain": 0.918
+      },
+      "mean_estimates": {
+        "stable": 0.19593981481481473,
+        "revision": 0.24921296296296272,
+        "adjusted_new_gain": 0.09703935185185175,
+        "adjusted_old_drop": 0.152173611111111,
+        "full_history_late_match": 0.571064814814815,
+        "strat:non_default_destination": 0.0879756944444444,
+        "strat:orthogonal_pair": 0.08557638888888895,
+        "strat:toward_default": 0.11516666666666668,
+        "strat:away_from_default": 0.09037500000000001,
+        "strat:secondary_toward_minus_away": 0.024791666666666663
+      },
+      "wall_seconds": 378.29483222961426,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 30,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 107500,
+      "scenario_id": "learner_1",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 335,
+        "rate": 0.67,
+        "wilson_lo": 0.627624826873818,
+        "wilson_hi": 0.709782802825675
+      },
+      "joint_three_tests": {
+        "successes": 337,
+        "rate": 0.674,
+        "wilson_lo": 0.6317212496204101,
+        "wilson_hi": 0.7136253831308357
+      },
+      "v6_complete_for_reference": {
+        "successes": 11,
+        "rate": 0.022,
+        "wilson_lo": 0.01232788016714588,
+        "wilson_hi": 0.03896125514839773
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.998,
+        "full_over_no_late": 1.0,
+        "stable": 1.0,
+        "revision": 0.98,
+        "adjusted_old_drop": 1.0,
+        "stratified_new_gain": 0.884,
+        "stable_exact_test": 1.0,
+        "revision_exact_test": 0.994,
+        "stratified_exact_test": 0.674
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9999999999999999,
+        "revision_exact_test": 0.9979574407023611,
+        "stratified_exact_test": 0.7136253831308357
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 1.0,
+        "all_target_types_supported": 1.0,
+        "late_swap_new_minus_old": 0.886,
+        "directional_transition_support": 0.978,
+        "all_origin_types_support_revision": 0.97,
+        "no_history_frame_balance": 0.034,
+        "adjusted_new_gain": 0.954
+      },
+      "mean_estimates": {
+        "stable": 0.19502962962962955,
+        "revision": 0.2468518518518517,
+        "adjusted_new_gain": 0.09506851851851844,
+        "adjusted_old_drop": 0.15178333333333338,
+        "full_history_late_match": 0.5697962962962958,
+        "strat:non_default_destination": 0.08775833333333337,
+        "strat:orthogonal_pair": 0.08174999999999998,
+        "strat:toward_default": 0.10968888888888899,
+        "strat:away_from_default": 0.09376666666666664,
+        "strat:secondary_toward_minus_away": 0.01592222222222224
+      },
+      "wall_seconds": 455.4487421512604,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 12,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 108000,
+      "scenario_id": "learner_2",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 183,
+        "rate": 0.366,
+        "wilson_lo": 0.3249468744510326,
+        "wilson_hi": 0.40909652331524954
+      },
+      "joint_three_tests": {
+        "successes": 187,
+        "rate": 0.374,
+        "wilson_lo": 0.3326992639903926,
+        "wilson_hi": 0.41722213987939505
+      },
+      "v6_complete_for_reference": {
+        "successes": 42,
+        "rate": 0.084,
+        "wilson_lo": 0.06274379952220428,
+        "wilson_hi": 0.11159988309550732
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.982,
+        "full_over_no_late": 1.0,
+        "stable": 0.984,
+        "revision": 0.896,
+        "adjusted_old_drop": 0.936,
+        "stratified_new_gain": 0.882,
+        "stable_exact_test": 0.942,
+        "revision_exact_test": 0.722,
+        "stratified_exact_test": 0.416
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9593165352160771,
+        "revision_exact_test": 0.7594640461021093,
+        "stratified_exact_test": 0.4596842308447916
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.94,
+        "all_target_types_supported": 0.936,
+        "late_swap_new_minus_old": 0.996,
+        "directional_transition_support": 0.866,
+        "all_origin_types_support_revision": 0.872,
+        "no_history_frame_balance": 0.13,
+        "adjusted_new_gain": 0.95
+      },
+      "mean_estimates": {
+        "stable": 0.2035740740740742,
+        "revision": 0.2486111111111111,
+        "adjusted_new_gain": 0.12514351851851843,
+        "adjusted_old_drop": 0.12346759259259252,
+        "full_history_late_match": 0.5571203703703709,
+        "strat:non_default_destination": 0.11988888888888885,
+        "strat:orthogonal_pair": 0.11504166666666671,
+        "strat:toward_default": 0.1356527777777777,
+        "strat:away_from_default": 0.12473611111111114,
+        "strat:secondary_toward_minus_away": 0.010916666666666661
+      },
+      "wall_seconds": 189.93575310707092,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 18,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 108500,
+      "scenario_id": "learner_2",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 309,
+        "rate": 0.618,
+        "wilson_lo": 0.5746644739023564,
+        "wilson_hi": 0.6595361161243504
+      },
+      "joint_three_tests": {
+        "successes": 315,
+        "rate": 0.63,
+        "wilson_lo": 0.5868391297107901,
+        "wilson_hi": 0.671178469471175
+      },
+      "v6_complete_for_reference": {
+        "successes": 24,
+        "rate": 0.048,
+        "wilson_lo": 0.03246497509125218,
+        "wilson_hi": 0.07042768006068446
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.994,
+        "full_over_no_late": 1.0,
+        "stable": 0.996,
+        "revision": 0.92,
+        "adjusted_old_drop": 0.968,
+        "stratified_new_gain": 0.94,
+        "stable_exact_test": 0.998,
+        "revision_exact_test": 0.918,
+        "stratified_exact_test": 0.642
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9996468726904154,
+        "revision_exact_test": 0.938981242675059,
+        "stratified_exact_test": 0.6827931212344555
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.988,
+        "all_target_types_supported": 0.986,
+        "late_swap_new_minus_old": 0.996,
+        "directional_transition_support": 0.922,
+        "all_origin_types_support_revision": 0.904,
+        "no_history_frame_balance": 0.058,
+        "adjusted_new_gain": 0.97
+      },
+      "mean_estimates": {
+        "stable": 0.20320987654320985,
+        "revision": 0.2459074074074073,
+        "adjusted_new_gain": 0.12395679012345676,
+        "adjusted_old_drop": 0.12195061728395065,
+        "full_history_late_match": 0.5567222222222223,
+        "strat:non_default_destination": 0.11881944444444441,
+        "strat:orthogonal_pair": 0.11211111111111106,
+        "strat:toward_default": 0.13423148148148153,
+        "strat:away_from_default": 0.12552777777777785,
+        "strat:secondary_toward_minus_away": 0.00870370370370371
+      },
+      "wall_seconds": 291.92807602882385,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 24,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 109000,
+      "scenario_id": "learner_2",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 391,
+        "rate": 0.782,
+        "wilson_lo": 0.7437328590676937,
+        "wilson_hi": 0.8159668560808768
+      },
+      "joint_three_tests": {
+        "successes": 395,
+        "rate": 0.79,
+        "wilson_lo": 0.7521544200999409,
+        "wilson_hi": 0.8234233011521351
+      },
+      "v6_complete_for_reference": {
+        "successes": 25,
+        "rate": 0.05,
+        "wilson_lo": 0.03409350665098192,
+        "wilson_hi": 0.07276865002683111
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.998,
+        "full_over_no_late": 1.0,
+        "stable": 0.998,
+        "revision": 0.958,
+        "adjusted_old_drop": 0.992,
+        "stratified_new_gain": 0.972,
+        "stable_exact_test": 1.0,
+        "revision_exact_test": 0.978,
+        "stratified_exact_test": 0.794
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9999999999999999,
+        "revision_exact_test": 0.9876721198328542,
+        "stratified_exact_test": 0.8271439248241491
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.99,
+        "all_target_types_supported": 0.99,
+        "late_swap_new_minus_old": 1.0,
+        "directional_transition_support": 0.972,
+        "all_origin_types_support_revision": 0.928,
+        "no_history_frame_balance": 0.056,
+        "adjusted_new_gain": 0.986
+      },
+      "mean_estimates": {
+        "stable": 0.20287037037037053,
+        "revision": 0.24662731481481495,
+        "adjusted_new_gain": 0.12540509259259255,
+        "adjusted_old_drop": 0.12122222222222225,
+        "full_history_late_match": 0.5564027777777778,
+        "strat:non_default_destination": 0.12012152777777774,
+        "strat:orthogonal_pair": 0.11452777777777778,
+        "strat:toward_default": 0.1359722222222222,
+        "strat:away_from_default": 0.1257152777777779,
+        "strat:secondary_toward_minus_away": 0.010256944444444437
+      },
+      "wall_seconds": 361.02788615226746,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 30,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 109500,
+      "scenario_id": "learner_2",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 440,
+        "rate": 0.88,
+        "wilson_lo": 0.848579770224084,
+        "wilson_hi": 0.9056255196924294
+      },
+      "joint_three_tests": {
+        "successes": 440,
+        "rate": 0.88,
+        "wilson_lo": 0.848579770224084,
+        "wilson_hi": 0.9056255196924294
+      },
+      "v6_complete_for_reference": {
+        "successes": 16,
+        "rate": 0.032,
+        "wilson_lo": 0.01979134135128301,
+        "wilson_hi": 0.05134530159364255
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 1.0,
+        "full_over_no_late": 1.0,
+        "stable": 1.0,
+        "revision": 0.992,
+        "adjusted_old_drop": 0.996,
+        "stratified_new_gain": 0.98,
+        "stable_exact_test": 1.0,
+        "revision_exact_test": 0.998,
+        "stratified_exact_test": 0.88
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9999999999999999,
+        "revision_exact_test": 0.9996468726904154,
+        "stratified_exact_test": 0.9056255196924294
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.998,
+        "all_target_types_supported": 1.0,
+        "late_swap_new_minus_old": 1.0,
+        "directional_transition_support": 0.982,
+        "all_origin_types_support_revision": 0.968,
+        "no_history_frame_balance": 0.038,
+        "adjusted_new_gain": 0.996
+      },
+      "mean_estimates": {
+        "stable": 0.20263333333333347,
+        "revision": 0.2528000000000001,
+        "adjusted_new_gain": 0.12740925925925914,
+        "adjusted_old_drop": 0.12539074074074066,
+        "full_history_late_match": 0.5562148148148144,
+        "strat:non_default_destination": 0.11962222222222213,
+        "strat:orthogonal_pair": 0.11652222222222228,
+        "strat:toward_default": 0.1429833333333335,
+        "strat:away_from_default": 0.1227222222222222,
+        "strat:secondary_toward_minus_away": 0.02026111111111111
+      },
+      "wall_seconds": 369.94651222229004,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 12,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 110000,
+      "scenario_id": "learner_3",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 254,
+        "rate": 0.508,
+        "wilson_lo": 0.4642850183794739,
+        "wilson_hi": 0.5515929877240316
+      },
+      "joint_three_tests": {
+        "successes": 270,
+        "rate": 0.54,
+        "wilson_lo": 0.4961743505261478,
+        "wilson_hi": 0.5832156799913801
+      },
+      "v6_complete_for_reference": {
+        "successes": 38,
+        "rate": 0.076,
+        "wilson_lo": 0.05586871073410857,
+        "wilson_hi": 0.10259696578009747
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.984,
+        "full_over_no_late": 1.0,
+        "stable": 0.992,
+        "revision": 0.908,
+        "adjusted_old_drop": 0.878,
+        "stratified_new_gain": 0.962,
+        "stable_exact_test": 0.956,
+        "revision_exact_test": 0.768,
+        "stratified_exact_test": 0.622
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9707662623196583,
+        "revision_exact_test": 0.8028713622328494,
+        "stratified_exact_test": 0.6634199451693149
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.928,
+        "all_target_types_supported": 0.922,
+        "late_swap_new_minus_old": 1.0,
+        "directional_transition_support": 0.876,
+        "all_origin_types_support_revision": 0.856,
+        "no_history_frame_balance": 0.128,
+        "adjusted_new_gain": 0.998
+      },
+      "mean_estimates": {
+        "stable": 0.19938888888888887,
+        "revision": 0.25581944444444427,
+        "adjusted_new_gain": 0.15363425925925933,
+        "adjusted_old_drop": 0.10218518518518525,
+        "full_history_late_match": 0.5466666666666665,
+        "strat:non_default_destination": 0.14977083333333333,
+        "strat:orthogonal_pair": 0.14238888888888887,
+        "strat:toward_default": 0.16136111111111126,
+        "strat:away_from_default": 0.15715277777777778,
+        "strat:secondary_toward_minus_away": 0.00420833333333333
+      },
+      "wall_seconds": 189.05655121803284,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 18,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 110500,
+      "scenario_id": "learner_3",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 385,
+        "rate": 0.77,
+        "wilson_lo": 0.7311370330150648,
+        "wilson_hi": 0.8047456729782474
+      },
+      "joint_three_tests": {
+        "successes": 408,
+        "rate": 0.816,
+        "wilson_lo": 0.7796701866722183,
+        "wilson_hi": 0.8475110544162506
+      },
+      "v6_complete_for_reference": {
+        "successes": 32,
+        "rate": 0.064,
+        "wilson_lo": 0.045695733565557124,
+        "wilson_hi": 0.08895293379339062
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 0.994,
+        "full_over_no_late": 1.0,
+        "stable": 0.998,
+        "revision": 0.946,
+        "adjusted_old_drop": 0.916,
+        "stratified_new_gain": 0.982,
+        "stable_exact_test": 0.996,
+        "revision_exact_test": 0.932,
+        "stratified_exact_test": 0.842
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9989023924587627,
+        "revision_exact_test": 0.9509337866731715,
+        "stratified_exact_test": 0.8713477936271825
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.952,
+        "all_target_types_supported": 0.984,
+        "late_swap_new_minus_old": 1.0,
+        "directional_transition_support": 0.922,
+        "all_origin_types_support_revision": 0.916,
+        "no_history_frame_balance": 0.088,
+        "adjusted_new_gain": 1.0
+      },
+      "mean_estimates": {
+        "stable": 0.20166049382716056,
+        "revision": 0.25393827160493837,
+        "adjusted_new_gain": 0.15515740740740744,
+        "adjusted_old_drop": 0.09878086419753085,
+        "full_history_late_match": 0.5459999999999999,
+        "strat:non_default_destination": 0.14847222222222217,
+        "strat:orthogonal_pair": 0.14359259259259247,
+        "strat:toward_default": 0.1685277777777776,
+        "strat:away_from_default": 0.15335185185185188,
+        "strat:secondary_toward_minus_away": 0.015175925925925933
+      },
+      "wall_seconds": 256.7054913043976,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 24,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 111000,
+      "scenario_id": "learner_3",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 446,
+        "rate": 0.892,
+        "wilson_lo": 0.8617447145307382,
+        "wilson_hi": 0.9162775845410336
+      },
+      "joint_three_tests": {
+        "successes": 466,
+        "rate": 0.932,
+        "wilson_lo": 0.9064785429161282,
+        "wilson_hi": 0.9509337866731715
+      },
+      "v6_complete_for_reference": {
+        "successes": 30,
+        "rate": 0.06,
+        "wilson_lo": 0.042348086000950205,
+        "wilson_hi": 0.08436157830624476
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 1.0,
+        "full_over_no_late": 1.0,
+        "stable": 1.0,
+        "revision": 0.972,
+        "adjusted_old_drop": 0.944,
+        "stratified_new_gain": 0.996,
+        "stable_exact_test": 1.0,
+        "revision_exact_test": 0.988,
+        "stratified_exact_test": 0.94
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9999999999999999,
+        "revision_exact_test": 0.9944890800328247,
+        "stratified_exact_test": 0.9576519139990498
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.978,
+        "all_target_types_supported": 0.994,
+        "late_swap_new_minus_old": 1.0,
+        "directional_transition_support": 0.972,
+        "all_origin_types_support_revision": 0.946,
+        "no_history_frame_balance": 0.066,
+        "adjusted_new_gain": 1.0
+      },
+      "mean_estimates": {
+        "stable": 0.20194444444444462,
+        "revision": 0.2504884259259259,
+        "adjusted_new_gain": 0.15195138888888915,
+        "adjusted_old_drop": 0.09853703703703702,
+        "full_history_late_match": 0.5470648148148144,
+        "strat:non_default_destination": 0.14724652777777766,
+        "strat:orthogonal_pair": 0.1409097222222223,
+        "strat:toward_default": 0.161361111111111,
+        "strat:away_from_default": 0.15358333333333343,
+        "strat:secondary_toward_minus_away": 0.007777777777777777
+      },
+      "wall_seconds": 267.18460607528687,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    },
+    {
+      "design_id": "v8_declared_prior_cancelling_with_destination_gate",
+      "status": "V8_EXPLORATORY_SCREEN_NOT_THE_REGISTERED_POWER_RUN",
+      "n_episode_seeds": 30,
+      "n_sim": 500,
+      "seed": 20262003,
+      "simulation_study_offset": 111500,
+      "scenario_id": "learner_3",
+      "null_profile_id": null,
+      "baseline_frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "default_frame": "risk",
+      "alpha_each": 0.016666666666666666,
+      "v8_complete": {
+        "successes": 471,
+        "rate": 0.942,
+        "wilson_lo": 0.9179433020026042,
+        "wilson_hi": 0.9593165352160771
+      },
+      "joint_three_tests": {
+        "successes": 484,
+        "rate": 0.968,
+        "wilson_lo": 0.9486546984063574,
+        "wilson_hi": 0.980208658648717
+      },
+      "v6_complete_for_reference": {
+        "successes": 27,
+        "rate": 0.054,
+        "wilson_lo": 0.03737409848513375,
+        "wilson_hi": 0.07742706124443205
+      },
+      "required_gate_rates": {
+        "design_integrity": 1.0,
+        "all_selections_valid": 1.0,
+        "zero_fallback": 1.0,
+        "no_history_learning_control": 1.0,
+        "random_target_learning_control": 1.0,
+        "full_over_no_late": 1.0,
+        "stable": 1.0,
+        "revision": 0.978,
+        "adjusted_old_drop": 0.968,
+        "stratified_new_gain": 0.998,
+        "stable_exact_test": 1.0,
+        "revision_exact_test": 0.996,
+        "stratified_exact_test": 0.97
+      },
+      "required_test_wilson_hi": {
+        "stable_exact_test": 0.9999999999999999,
+        "revision_exact_test": 0.9989023924587627,
+        "stratified_exact_test": 0.9817369507659165
+      },
+      "reported_only_gate_rates": {
+        "full_history_late_level": 0.988,
+        "all_target_types_supported": 0.998,
+        "late_swap_new_minus_old": 1.0,
+        "directional_transition_support": 0.98,
+        "all_origin_types_support_revision": 0.974,
+        "no_history_frame_balance": 0.056,
+        "adjusted_new_gain": 1.0
+      },
+      "mean_estimates": {
+        "stable": 0.2033666666666666,
+        "revision": 0.24894074074074068,
+        "adjusted_new_gain": 0.15197592592592593,
+        "adjusted_old_drop": 0.09696481481481484,
+        "full_history_late_match": 0.5462999999999998,
+        "strat:non_default_destination": 0.14605555555555555,
+        "strat:orthogonal_pair": 0.14585555555555574,
+        "strat:toward_default": 0.1638166666666666,
+        "strat:away_from_default": 0.1462555555555557,
+        "strat:secondary_toward_minus_away": 0.01756111111111112
+      },
+      "wall_seconds": 300.7908728122711,
+      "cell_id": "qwen38_v5bank_heldout",
+      "kind": "measured",
+      "provenance": "V5 selected-bank validation, held-out 144 choices"
+    }
+  ],
+  "canonical_sha256": "adef370e1350c3130385043623bb540b4f4c51998d705a0a99d8aa7a0f6682de"
+}
