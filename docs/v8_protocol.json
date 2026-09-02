@@ -42,8 +42,56 @@
         "risk": 0.3420138888888889,
         "expertise": 0.5208333333333334
       },
-      "measurement_source": "docs/V5_CALIBRATION_RUN_20260901.md (selected-bank validation, 576 choices)",
-      "registered_default_frame": "expertise"
+      "measurement_source": {
+        "log_path": "data/calibration/qwen38_27b_v5_selected_bank_validation_20260901.jsonl",
+        "log_file_sha256": "4141622bfd6d35b54513e36a4eabdf6b7ab1f5b0d2e019997d71704da5e39120",
+        "manifest_path": "data/calibration/qwen38_27b_v5_selected_bank_validation_20260901.manifest.json",
+        "manifest_file_sha256": "c585579731a9dd5745edb955a83838a9e5b778098241651e19750272828be54e",
+        "n_records": 576,
+        "evaluator": "src.v5_calibration.evaluate_v5_bank_validation"
+      },
+      "registered_default_frame": "expertise",
+      "measured_sections": {
+        "overall": {
+          "n": 576,
+          "counts": {
+            "fairness": 79,
+            "risk": 197,
+            "expertise": 300
+          },
+          "shares": {
+            "fairness": 0.1371527777777778,
+            "risk": 0.3420138888888889,
+            "expertise": 0.5208333333333334
+          }
+        },
+        "development": {
+          "n": 432,
+          "counts": {
+            "fairness": 46,
+            "risk": 135,
+            "expertise": 251
+          },
+          "shares": {
+            "fairness": 0.10648148148148148,
+            "risk": 0.3125,
+            "expertise": 0.5810185185185185
+          }
+        },
+        "heldout": {
+          "n": 144,
+          "counts": {
+            "fairness": 33,
+            "risk": 62,
+            "expertise": 49
+          },
+          "shares": {
+            "fairness": 0.22916666666666666,
+            "risk": 0.4305555555555556,
+            "expertise": 0.3402777777777778
+          }
+        }
+      }
     },
     "gemma4_31b": {
       "id": "google/gemma-4-31B-it",
@@ -156,5 +204,27 @@
     "minimum_per_profile": 1000,
     "maximum_wilson_upper_per_required_test": 0.05
   },
-  "next_gate": "Measure Gemma-4-31B prior (not a gate). Then exploratory V8 screen at measured cells under the pre-committed rule; fail => stop and write up V4."
+  "next_gate": "Measure Gemma-4-31B prior (not a gate). Then exploratory V8 screen at measured cells under the pre-committed rule; fail => stop and write up V4.",
+  "nuisance_cells_measured": [
+    {
+      "cell_id": "qwen38_27b_v5bank_overall",
+      "kind": "measured",
+      "frame_shares": {
+        "fairness": 0.1371527777777778,
+        "risk": 0.3420138888888889,
+        "expertise": 0.5208333333333334
+      },
+      "provenance": "Qwen/Qwen3.8-27B target-free no-history overall section, n=576, log sha 4141622bfd6d35b5"
+    },
+    {
+      "cell_id": "qwen38_27b_v5bank_heldout",
+      "kind": "measured",
+      "frame_shares": {
+        "fairness": 0.22916666666666666,
+        "risk": 0.4305555555555556,
+        "expertise": 0.3402777777777778
+      },
+      "provenance": "Qwen/Qwen3.8-27B target-free no-history heldout section, n=144, log sha 4141622bfd6d35b5"
+    }
+  ]
 }
