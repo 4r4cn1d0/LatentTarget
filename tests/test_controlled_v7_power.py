@@ -84,3 +84,20 @@ def test_measured_cells_carry_provenance_and_are_simplex():
     for cell in V7_MEASURED_NUISANCE_CELLS:
         assert cell["provenance"]
         _clean_simplex_frame_shares(cell["frame_shares"])
+
+
+def test_screen_hash_ignores_timing():
+    """Review finding: the first artifact hashed per-cell wall_seconds. Fixed."""
+    from src.controlled_v7_power import v7_screen_canonical_sha256
+
+    base = {"design_id": "x", "n_sim_per_cell": 3, "wall_seconds": 1.0,
+            "cells": [{"cell_id": "a", "v7_complete": {"rate": 0.5}, "wall_seconds": 2.0}]}
+    alt = {**base, "wall_seconds": 99.0, "cells": [{**base["cells"][0], "wall_seconds": 77.0}]}
+    assert v7_screen_canonical_sha256(base) == v7_screen_canonical_sha256(alt)
+    changed = {**base, "cells": [{**base["cells"][0], "v7_complete": {"rate": 0.6}}]}
+    assert v7_screen_canonical_sha256(base) != v7_screen_canonical_sha256(changed)
+
+
+def test_every_nuisance_cell_declares_its_kind():
+    for cell in V7_MEASURED_NUISANCE_CELLS:
+        assert cell["kind"], cell["cell_id"]

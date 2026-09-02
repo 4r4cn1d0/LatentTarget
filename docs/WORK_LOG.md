@@ -1302,3 +1302,28 @@ synthetic validation and from claims that still require a real model.
   compression, not through the estimand. Any successor is a new proposal that
   must be adversarially reviewed before its own screen and use disjoint study
   offsets.
+
+## 2026-09-02 — V7 adversarial review: REJECTED; terminal status set
+
+- Five-lens review with three-skeptic refutation per finding (42 agents, 33
+  completed; 9 including the synthesis step failed on the operator's session
+  limit). Four **critical** findings survived full panels; full text and the
+  author's assessment in `docs/V7_REVIEW.md`. In brief: (1–2) V7's pooled
+  revision rule is satisfied by default-attraction alone and would have passed
+  the V4 pattern V4 called a failure — the demoted gates were construct-validity
+  gates; (3) the asymmetry secondary is entailed by the no-gating null; (4) V7
+  relaxed the gate V6 failed, after V6's outcome, in no declared milestone —
+  the "independently motivated" claim is retracted.
+- Three findings were counted "refuted" only because their refuters hit the
+  session limit; recorded as unverified. Author's own artifact errors confirmed
+  and corrected: the offset-disjointness claim was false (screen indices span
+  1–24,000); the screen's internal hash included timing fields (fixed,
+  `v7_screen_canonical_sha256`, tested); a hypothetical cell sat under a
+  "measured" name (`kind` field added); "one substitution" understated the
+  validator change.
+- **Status: `V7_STOPPED_INFEASIBLE_AND_REVIEW_REJECTED`.** V6 remains the last
+  frozen design; V4 remains the only real result. Paid work of every kind
+  remains blocked. The only proposed next action that relaxes nothing is a
+  target-free prior measurement of `google/gemma-4-31B-it` on the frozen V5
+  bank (≈ $2) under a new, explicitly declared protocol; operator decision.
+- Cost this session: $0.

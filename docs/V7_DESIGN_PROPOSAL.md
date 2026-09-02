@@ -1,16 +1,24 @@
 # V7 design proposal — prior-cancelling revision test without the balance gate
 
-Status: **PROPOSAL, pre-result.** Written and committed (`5c8a37c`) before the
-exploratory feasibility screen reported. Nothing here is a registered
-protocol yet. If the screen shows feasibility, the next step is a frozen
+Status: **REJECTED — see `docs/V7_REVIEW.md`.** Failed its own feasibility
+rule, would have been invalid had it passed (pooled rule passes on
+default-attraction), and was a threshold relaxation of V6 after V6's outcome.
+Kept as a record; nothing below was frozen or run against a model. Original
+header follows.
+
+Status at writing: proposal, pre-result. Written and committed (`5c8a37c`)
+before the exploratory feasibility screen reported. If the screen shows feasibility, the next step is a frozen
 `docs/v7_protocol.json`, a commit, and a tag *before* the official fixed-seed
 power run — the discipline V6 established and this proposal inherits.
 
-## Why a V7 is legitimate
+## Why a V7 is legitimate — RETRACTED
 
-The V6 terminal rule forbids an *outcome-triggered rescue of V6*. V6 produced
-no model outcome; its result was a design-feasibility limitation. V7 is
-motivated by measurements that predate V6:
+*(Review finding 4, 2026-09-02.)* This section claimed V7 was "independently
+motivated." That was wrong. V6 froze its balance band with V5's measurement
+already in hand and wrote "no threshold relaxation, no V7"; V7 removed exactly
+that gate, twenty-one minutes after V6 closed. V7 was a post-V6 redesign that
+relaxed the gate V6 failed and the gate V4 failed, in a milestone that was
+never declared. The original argument is kept below for the record:
 
 1. **V4 (real, 360 episodes, Qwen3.8-27B).** Stable target-specific selection
    was strong and survived every control. The silent-swap revision gate failed
@@ -124,8 +132,9 @@ feasible either and that is the result.
 V6's probability tilts are additive on the probability scale and were
 calibrated so the complete feedback model centers the estimands on the
 registered alternatives (stable DID 0.20, revision shift 0.25). Twenty V7
-studies per cell (learner_2, N = 18, study offsets 5000+, disjoint from the
-screen) show what the same tilts realize under each nuisance cell:
+studies per cell (learner_2, N = 18, study offsets 5000+ — **correction:**
+the screen used study indices 1–24,000, so these overlap it; only the 40000+
+null run is disjoint) show what the same tilts realize under each nuisance cell:
 
 | cell | stable | revision | new gain | old drop |
 |---|--:|--:|--:|--:|
@@ -154,15 +163,15 @@ less visible there.
    report the **realized population effect per cell** beside every power
    number. `simulate_controlled_v7_power` already returns `mean_estimates` for
    this reason; the screen table must print them.
-3. The official run, if any, uses study offsets disjoint from both this
-   diagnostic (5000+) and the exploratory screen.
+3. The official run, if any, uses study offsets disjoint from the screen's
+   1–24,000 range, the diagnostic, and both null runs.
 
 ## Pre-freeze evidence: Type I error of the V7 rule at the measured prior (2026-09-02)
 
 V6 could not run a null-size check at the real model's prior because its DGP
 rejected the prior. V7 can. 200 null studies per V6 null profile, N = 18,
-`qwen38_v5bank_overall`, study offsets 20000+ (disjoint from the screen and the
-effect-size diagnostic), both exact one-sided tests at α = 0.025:
+`qwen38_v5bank_overall`, study offsets 20000+ (**correction:** inside the
+screen's 1–24,000 index range; the 40000+ run below is the disjoint one), both exact one-sided tests at α = 0.025:
 
 | null profile | stable test | revision test | joint co-primary | V7-complete |
 |---|---|---|---|---|

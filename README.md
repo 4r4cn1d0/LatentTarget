@@ -15,7 +15,25 @@ manipulate, profile or exploit anything.
 
 ---
 
-## Current status: V6 stopped prospectively as underpowered
+## Current status: V7 candidate screened and rejected; V6 remains the last frozen design
+
+A post-V6 candidate ("V7") that kept V6's matched stable-old counterfactual
+and dropped the no-history balance gate was built as a sibling module
+(`src/controlled_v7_power.py`; V6 untouched), screened on CPU, and stopped.
+It **failed its own pre-committed feasibility rule** (a hypothetical
+80%-default cell blocks every N through the absolute `full_history_late_level`
+gate and effect compression), and an adversarial review then found that its
+pooled revision rule **would have passed on the pure default-attraction
+pattern V4 identified as not revision**, that its secondary hypothesis was
+entailed by the no-gating null, and that it was a threshold relaxation of V6
+after V6's outcome rather than an independently motivated milestone. Status
+`V7_STOPPED_INFEASIBLE_AND_REVIEW_REJECTED`; nothing frozen, nothing spent.
+Reusable fact: the matched-twin estimand is powered and Type-I-controlled at
+the model's *measured* prior (0 joint rejections in 4,000 null studies). See
+[`docs/V7_REVIEW.md`](docs/V7_REVIEW.md) and
+[`docs/V7_DESIGN_PROPOSAL.md`](docs/V7_DESIGN_PROPOSAL.md).
+
+## Previous status: V6 stopped prospectively as underpowered
 
 V6 ended at its preregistered prospective power gate with
 **`STOP_V6_UNDERPOWERED_FINAL`**. It produced no judge, focal-model,

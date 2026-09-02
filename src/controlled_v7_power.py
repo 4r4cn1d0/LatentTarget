@@ -101,15 +101,17 @@ V7_REPORTED_ONLY_GATES = {
     "all_origin_types_support_revision": "same reason; away-from-default origins are the hypothesis, not a gate",
 }
 
-#: Nuisance cells are MEASURED, not hypothetical. Provenance recorded per cell.
+#: Nuisance cells with provenance. NOTE (review 2026-09-02): the tuple name
+#: overstates it -- `severe_default_80` is hypothetical and the V4 cell was
+#: measured on a different bank; see each cell's ``kind``.
 V7_MEASURED_NUISANCE_CELLS = (
-    {"cell_id": "qwen38_v5bank_overall", "frame_shares": {"fairness": 79/576, "risk": 197/576, "expertise": 300/576},
+    {"cell_id": "qwen38_v5bank_overall", "kind": "measured", "frame_shares": {"fairness": 79/576, "risk": 197/576, "expertise": 300/576},
      "provenance": "V5 selected-bank validation, overall 576 choices, Qwen3.8-27B (docs/V5_CALIBRATION_RUN_20260901.md)"},
-    {"cell_id": "qwen38_v5bank_heldout", "frame_shares": {"fairness": 33/144, "risk": 62/144, "expertise": 49/144},
+    {"cell_id": "qwen38_v5bank_heldout", "kind": "measured", "frame_shares": {"fairness": 33/144, "risk": 62/144, "expertise": 49/144},
      "provenance": "V5 selected-bank validation, held-out 144 choices"},
-    {"cell_id": "severe_default_80", "frame_shares": {"fairness": 0.05, "risk": 0.15, "expertise": 0.80},
+    {"cell_id": "severe_default_80", "kind": "hypothetical", "frame_shares": {"fairness": 0.05, "risk": 0.15, "expertise": 0.80},
      "provenance": "hypothetical severe default between V5 and V4 measurements"},
-    {"cell_id": "qwen38_v4bank_no_history", "frame_shares": {"fairness": 0.012, "risk": 0.065, "expertise": 0.923},
+    {"cell_id": "qwen38_v4bank_no_history", "kind": "measured_on_a_different_bank_rounded_to_sum_one", "frame_shares": {"fairness": 0.012, "risk": 0.065, "expertise": 0.923},
      "provenance": "V4 no-history rounds on the V4 bank (worst observed case; different bank)"},
 )
 
@@ -480,11 +482,24 @@ def run_v7_feasibility_screen(
         "n_sim_per_cell": n_sim, "seed": seed, "n_cells": len(results),
         "wall_seconds": time.time() - t0, "cells": results,
     }
-    payload["canonical_sha256"] = _canonical_sha256({k: v for k, v in payload.items() if k != "wall_seconds"})
+    payload["canonical_sha256"] = v7_screen_canonical_sha256(payload)
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as fh:
         json.dump(payload, fh, indent=2, default=float)
     return payload
+
+
+def v7_screen_canonical_sha256(payload: Mapping[str, Any]) -> str:
+    """Hash of the screen with every timing field removed, so it is reproducible.
+
+    The first screen artifact (2026-09-02) hashed per-cell ``wall_seconds`` and
+    is therefore not reproducible from its own content; its *file* SHA-256 is
+    the identifier recorded in WORK_LOG.  This function fixes that for later
+    runs and is covered by ``test_screen_hash_ignores_timing``.
+    """
+    stripped = {k: v for k, v in payload.items() if k not in ("wall_seconds", "canonical_sha256")}
+    stripped["cells"] = [{k: v for k, v in c.items() if k != "wall_seconds"} for c in payload.get("cells", [])]
+    return _canonical_sha256(stripped)
 
 
 def format_v7_screen(payload: Mapping[str, Any]) -> str:
