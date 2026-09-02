@@ -218,3 +218,19 @@ on the instrument it would use, reviewed adversarially before any screen, and
 screened with study offsets disjoint from this one. It would also have to
 state plainly that it is powered for the measured prior and not for a
 hypothetical 80% default at these effect sizes.
+
+## Cross-check against the one real datapoint at a severe prior (2026-09-02, pre-review)
+
+The DGP's mean `full_history_late_match` at the V4-raw cell (1.2/6.5/92.2) is
+≈ 0.45 (screen, N = 30, learner_2), below the 0.50 absolute floor that blocks
+the severe cells. But the real V4 run — on a bank with exactly that 92.2%
+no-history default — measured **0.570** held-out full-history late match and
+cleared the floor. Caveat: V4 used a 20-round schedule with held-out rounds
+16–20 and target P(A) 0.72/0.38; the V6/V7 DGP is 24 rounds with V6's target
+parameters, so this is not apples-to-apples. What it suggests, and no more: the
+simulator's learning strength under a severe prior may be pessimistic relative
+to the real model, so the severe cell's failure is at least partly a property
+of the DGP's tilt parameterization rather than of the design. A successor
+would need to calibrate the DGP against V4's real full-history trajectory
+before its severe cells can be interpreted. This does not alter the verdict
+above.
