@@ -41,7 +41,8 @@ def test_real_spec_passes_for_both_registered_models(model_key):
 
 
 def test_unregistered_model_key_fails():
-    assert _audit(SPEC, "llama_whatever")["checks"]["model_key_registered"] is False
+    out = _audit(SPEC, "llama_whatever", provider=_provider_desc("qwen38_27b"))
+    assert not out["pass"] and out["checks"]["model_key_registered"] is False
 
 
 def test_wrong_revision_fails():

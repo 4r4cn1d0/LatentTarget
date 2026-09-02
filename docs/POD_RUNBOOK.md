@@ -260,3 +260,51 @@ compares `provider.describe()` to the spec's `primary_model` block, so the V7 sp
 carries Gemma's id and revision. The runner requires the bank status
 `selected_bank_pending_no_history_validation`, which `data/v5/v5_selected_bank_pending.json`
 still has.
+
+## V8 step 1 — Gemma-4-31B prior measurement (≈ $2, one pod, ~1 h)
+
+The command is audited locally before any pod exists:
+
+```bash
+.venv/bin/python scripts/run_v8_prior_measurement.py --model-key gemma4_31b \
+    --run-id v8-gemma4-prior --dry-run       # 37-check V8 audit; passes as of 2026-09-02
+```
+
+**Deploy (same class as V4/V5):** one on-demand **A100 SXM 80 GB**, the same
+image and pinned wheels as the V5 run (`transformers==5.16.1`; see
+`requirements-pod.txt`). **Do not rely on the 100 GB V5 volume for weights** —
+it already holds ~56 GB of Qwen3.8-27B cache and Gemma needs ~63 GB more. Give
+the pod ≥ 120 GB container disk and let `HF_HOME` default to it, or attach the
+volume only for the repo and outputs.
+
+**On the pod:**
+
+```bash
+git clone https://github.com/4r4cn1d0/LatentTarget && cd LatentTarget
+git checkout <the tagged V8 commit>            # never a dirty tree
+python3 -m venv .venv && . .venv/bin/activate
+pip install -r requirements.txt -r requirements-pod.txt
+pytest -q tests/test_v8_protocol_gate.py tests/test_controlled_v8_power.py
+
+# smoke: loader class + template + single-token digits, before spending an hour
+python - <<'PY'
+from src.hf_provider import HuggingFaceProvider
+p = HuggingFaceProvider("google/gemma-4-31B-it", revision="842da3794eaa0b77d5f08bae87a17459d91ff475",
+                        capture=False, constrained_choices=("1","2","3"))
+p._ensure_loaded(); print(p.describe())
+PY
+
+tmux new -s v8
+.venv/bin/python scripts/run_v8_prior_measurement.py --model-key gemma4_31b --run-id v8-gemma4-prior
+```
+
+576 constrained `1|2|3` choices, no history, no target, no capture. Output:
+`data/calibration/v8-gemma4-prior.jsonl` + manifest with the V8 audit embedded.
+Pull both back, then **stop the pod**. Analyse with the V5 selected-bank
+validation evaluator (`evaluate_v5_bank_validation`) to get the three shares;
+register them and the argmax frame in `docs/v8_protocol.json` under
+`models.gemma4_31b` **before** any Gemma cell enters the power screen.
+
+What the shares decide: if Gemma's largest frame share is well below Qwen's
+52%, V8's confirmatory run goes on Gemma; if it is as skewed, V8 runs on Qwen
+at its measured prior and Gemma is the replication arm.
