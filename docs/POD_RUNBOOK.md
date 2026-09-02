@@ -270,9 +270,16 @@ The command is audited locally before any pod exists:
     --run-id v8-gemma4-prior --dry-run       # 37-check V8 audit; passes as of 2026-09-02
 ```
 
-**Deploy (same class as V4/V5):** one on-demand **A100 SXM 80 GB**, the same
-image and pinned wheels as the V5 run (`transformers==5.16.1`; see
-`requirements-pod.txt`). **Do not rely on the 100 GB V5 volume for weights** —
+**Deploy (same class as V4/V5):** one on-demand **A100 SXM 80 GB**. The V4/V5
+runs did not record the RunPod template name, but they recorded the runtime that
+worked: **Python 3.12.3, PyTorch 2.9.1+cu128, CUDA 12.8, Transformers 5.16.1,
+Accelerate** (`docs/V5_CALIBRATION_RUN_20260901.md` §Environment). Two pitfalls
+V4 hit and fixed (`docs/V4_REAL_RUN_LOG_20260901.md` lines 68–81):
+
+- the template shipped **torch 2.8**; re-pin `torch==2.9.1 torchvision torchaudio==2.9.1`
+  together, or Transformers imports a mismatched torchaudio;
+- `libcusparseLt.so.0` was not found; export `LD_LIBRARY_PATH` to include the
+  CUDA wheel library directories under the venv's `site-packages/nvidia/*/lib`. **Do not rely on the 100 GB V5 volume for weights** —
 it already holds ~56 GB of Qwen3.8-27B cache and Gemma needs ~63 GB more. Give
 the pod ≥ 120 GB container disk and let `HF_HOME` default to it, or attach the
 volume only for the repo and outputs.
