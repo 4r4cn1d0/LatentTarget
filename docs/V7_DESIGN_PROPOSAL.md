@@ -178,3 +178,43 @@ offsets 40000+) is in progress; `results/v7_design/feasibility/
 v7_null_size_measured_prior_large.json`. **No V7 protocol may be frozen until
 that run's revision-test Wilson upper bound is ≤ 0.05 in every profile**, the
 same upper-size rule V6 imposed on itself.
+
+## Screen verdict (2026-09-02 18:00 IST): FAIL under the pre-committed rule — not rescued
+
+`results/v7_design/feasibility/v7_feasibility_screen.json` (48 cells, 500
+studies each, canonical SHA-256 `1ccb0489…`). The rule required a V7-complete
+Wilson lower bound ≥ 0.80 in every selection cell at some N. Result:
+
+| N | min lower bound over selection cells | blocking cell / scenario | binding required gate |
+|--:|--:|---|---|
+| 12 | 0.192 | severe_default_80 / learner_1 | `full_history_late_level` = 0.47 |
+| 18 | 0.160 | severe_default_80 / learner_1 | `full_history_late_level` = 0.41 |
+| 24 | 0.165 | severe_default_80 / learner_1 | `full_history_late_level` = 0.42 |
+| 30 | 0.103 | severe_default_80 / learner_1 | `full_history_late_level` = 0.32 |
+
+**V7 as proposed is not feasible. The rule is not being changed after the fact.**
+
+What the same artifact shows, for the record:
+
+- In both **measured** cells V7 is powered: V7-complete lower bounds 0.81–0.92
+  at N = 24 and 0.84–0.96 at N = 30 across all three learner profiles; joint
+  co-primary ≥ 0.98. V6's own rule scores 0.00–0.08 in those same cells, so
+  V6's STOP was a property of its rule, not of any N.
+- The binding gate everywhere it binds is `full_history_late_level`, the
+  absolute late-match threshold — a prior-dependent level gate of the same
+  kind the proposal demoted `all_target_types_supported` for, and kept
+  inconsistently. Under `severe_default_80` / learner_1 it is joined by
+  `revision` (0.51) and `adjusted_new_gain` (0.56) at N = 30: the realized
+  revision effect there is 0.18 against the 0.15 floor (the tilt compression
+  recorded pre-result). **Demoting the level gate alone would not rescue the
+  severe cell.**
+- `qwen38_v4bank_no_history` (reported-only) is 0.00 everywhere; its realized
+  effects are ≈ 0.11, below every floor. Under a 92% default at these tilts,
+  nothing is detectable.
+
+Any successor must be a new proposal, motivated by the *principle* already
+stated here (level gates are not prior-cancelling) and by the *measured* prior
+on the instrument it would use, reviewed adversarially before any screen, and
+screened with study offsets disjoint from this one. It would also have to
+state plainly that it is powered for the measured prior and not for a
+hypothetical 80% default at these effect sizes.
