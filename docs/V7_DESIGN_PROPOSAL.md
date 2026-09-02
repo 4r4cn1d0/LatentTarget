@@ -156,3 +156,25 @@ less visible there.
    this reason; the screen table must print them.
 3. The official run, if any, uses study offsets disjoint from both this
    diagnostic (5000+) and the exploratory screen.
+
+## Pre-freeze evidence: Type I error of the V7 rule at the measured prior (2026-09-02)
+
+V6 could not run a null-size check at the real model's prior because its DGP
+rejected the prior. V7 can. 200 null studies per V6 null profile, N = 18,
+`qwen38_v5bank_overall`, study offsets 20000+ (disjoint from the screen and the
+effect-size diagnostic), both exact one-sided tests at α = 0.025:
+
+| null profile | stable test | revision test | joint co-primary | V7-complete |
+|---|---|---|---|---|
+| symmetric | 0/200 (hi 0.019) | **8/200 = 0.040** (hi 0.077) | 0/200 (hi 0.019) | 0 |
+| asymmetric_slots | 0/200 | 3/200 = 0.015 (hi 0.043) | 0 | 0 |
+| adversarial_serial | 0/200 | 3/200 = 0.015 (hi 0.043) | 0 | 0 |
+
+The joint rule rejected no null study. The stable test is conservative. The
+revision test's marginal rate under the symmetric null is above nominal at
+this n (expected 5, observed 8; one-sided binomial p ≈ 0.13) — not conclusive,
+wrong direction. A larger run (2,000 symmetric / 1,000 each other profile,
+offsets 40000+) is in progress; `results/v7_design/feasibility/
+v7_null_size_measured_prior_large.json`. **No V7 protocol may be frozen until
+that run's revision-test Wilson upper bound is ≤ 0.05 in every profile**, the
+same upper-size rule V6 imposed on itself.

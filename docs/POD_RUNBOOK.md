@@ -235,3 +235,28 @@ These are formulas from current list prices, not a promised bill;
 check [Runpod pricing](https://www.runpod.io/pricing) immediately before rental.
 There is no paid API requirement if both focal and judge models are served
 locally.
+
+## Replication model: `google/gemma-4-31B-it` — verified 2026-09-02 (no GPU needed)
+
+Checked locally with the tokenizer only, in a throwaway venv, against the
+immutable revision `842da3794eaa0b77d5f08bae87a17459d91ff475`:
+
+| check | result |
+|---|---|
+| architecture | `Gemma4ForConditionalGeneration`, 31.3 B params → ~63 GB bf16 → **A100/H100 80 GB** |
+| `transformers` requirement | needs ≥ 5.x; **fails to load under 4.57** (`'list' object has no attribute 'keys'`). Loads under **5.16.1 — the version already pinned in `requirements-pod.txt` and used for V4.** |
+| `system` role | **kept** (Gemma 2 rejected it; Gemma 3 folded it; Gemma 4 keeps it) |
+| `enable_thinking=False` kwarg | silently ignored — template output identical with/without. The V5 audit's `thinking_disabled` check reads the *provider attribute*, so it still passes. |
+| generation prompt tail | `<\|turn>model\n<\|channel>thought\n<channel\|>` — an empty thought channel is emitted before the model's turn; constrained decoding to `1\|2\|3` applies at the correct position after it |
+| `1`, `2`, `3` single tokens | **yes** (required by exact constrained decoding) |
+
+Qwen3.8-27B (`1d4bf0f2…`) under the same test: system kept; `enable_thinking=False` is
+**load-bearing** — without it the template opens an unclosed `<think>` block. Keep V5's
+`enable_thinking: false`. Digits single-token.
+
+To run Gemma's prior measurement, reuse the V5 runner under a **V7 protocol file**
+(`--protocol-spec`), never under V5's frozen protocol; `audit_v5_calibration_plan`
+compares `provider.describe()` to the spec's `primary_model` block, so the V7 spec
+carries Gemma's id and revision. The runner requires the bank status
+`selected_bank_pending_no_history_validation`, which `data/v5/v5_selected_bank_pending.json`
+still has.
