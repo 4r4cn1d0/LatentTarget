@@ -87,3 +87,15 @@ weakest registered learner at N ≤ 30.** That closes the V5 → V6 → V7 → V
 at the registered scale. Gemma's prior measurement cannot rescue V8, because
 Qwen's measured cells remain in the rule; it is a standalone characterization
 if run at all.
+
+## Post-stop standalone measurement (declared 2026-09-03, before the spend)
+
+After V8's stop, the operator chose to run the target-free prior measurement of
+`google/gemma-4-31B-it` on the frozen V5 bank as a **standalone
+characterization of the replication model**. It is not a V8 step, it feeds no
+V8 decision, and it cannot rescue V8 (Qwen's measured cells remain in the rule
+and fail). Its output is Gemma's three no-history frame shares and default
+frame, registered by `scripts/register_v8_prior.py`. Pod: one A100-SXM4-80GB
+on-demand at $1.39/hr, image `runpod/pytorch:1.2.0-rc.162-cu1281-torch291-
+ubuntu2204`, deployed by the assistant via the RunPod API at the operator's
+explicit instruction; expected cost ≈ $2.
