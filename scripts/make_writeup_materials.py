@@ -51,7 +51,7 @@ def fig1_learning():
     for cond in ("full_history", "no_history", "shuffled_history", "random_target"):
         g = t[t.condition == cond].sort_values("round")
         ax.plot(g["round"], g["mean"], marker="o", ms=3.5, lw=1.6, color=COL[cond], label="%s (n=%d episodes)" % (cond, int(g["n"].iloc[0])))
-    ax.axhline(1/3, ls="--", lw=1, color="grey"); ax.text(1, 1/3 + .02, "chance (1/3)", fontsize=7, color="grey")
+    ax.axhline(1/3, ls="--", lw=1, color="grey"); ax.text(10.5, 1/3 - .045, "chance (1/3)", fontsize=7, color="grey", ha="center")
     ax.axvspan(15.5, 20.5, color="#eeeeee", zorder=0); ax.text(16, .95, "held-out\nwording", fontsize=7, color="#555555")
     ax.set_ylim(0, 1); ax.set_xticks(range(1, 21, 2))
     style(ax, "V4: P(chosen candidate's frame matches the hidden target) by round", "round", "match rate")
@@ -68,11 +68,11 @@ def fig2_swap():
     per = sw.groupby(["old_type", "new_type"]).agg(n=("episode_id", "size"), new_gain=("new_target_gain", "mean"), old_drop=("old_target_drop", "mean"), new_minus_old=("late_new_over_old", "mean"), adapted=("rounds_to_adapt", lambda x: int(x.notna().sum()))).reset_index()
     grp = sw.groupby("dir").agg(n=("episode_id", "size"), new_gain=("new_target_gain", "mean"), old_drop=("old_target_drop", "mean"), adapted=("rounds_to_adapt", lambda x: int(x.notna().sum()))).reset_index()
     fig, ax = plt.subplots(figsize=(7.2, 4), dpi=150)
-    labels = ["%s→%s" % (o, n) for o, n in zip(per.old_type, per.new_type)]; x = np.arange(len(labels))
+    labels = ["%s→%s\n(%d/%d adapted)" % (o, n, a, k) for o, n, a, k in zip(per.old_type, per.new_type, per.adapted, per.n)]; x = np.arange(len(labels))
     ax.bar(x - .2, per.new_gain, .4, color="#2ca02c", label="new-frame gain (late − pre)"); ax.bar(x + .2, per.old_drop, .4, color="#d62728", label="old-frame drop (pre − late)")
     ax.axhline(0, color="black", lw=.8); ax.axhline(.10, ls=":", lw=1, color="grey"); ax.text(len(x) - .5, .105, "registered gate 0.10", fontsize=7, color="grey", ha="right")
-    ax.set_xticks(x); ax.set_xticklabels(labels, rotation=25, ha="right", fontsize=8)
-    for i, (a, n) in enumerate(zip(per.adapted, per.n)): ax.text(i, max(per.new_gain.iloc[i], per.old_drop.iloc[i], 0) + .02, "%d/%d adapted" % (a, n), ha="center", fontsize=7)
+    ax.set_xticks(x); ax.set_xticklabels(labels, rotation=0, fontsize=7.5)
+    ax.set_ylim(0, max(per.new_gain.max(), per.old_drop.max()) * 1.25)
     style(ax, "V4 silent swap after round 10: revision by transition (20 episodes each)", "", "change in match rate")
     ax.legend(fontsize=7, frameon=False); fig.savefig(os.path.join(OUT, "fig_w2_v4_swap_by_transition.png"), bbox_inches="tight"); plt.close(fig)
     for _, r in per.iterrows(): N("V4 swap %s->%s new gain / old drop / adapted" % (r.old_type, r.new_type), "%.3f / %.3f / %d of %d" % (r.new_gain, r.old_drop, r.adapted, r.n), "v4_swap_episodes.csv (grouped)")
@@ -171,7 +171,7 @@ def main():
           "- Question: does an LLM, given only *get Option A chosen* and binary feedback, learn which persuasion frame a hidden partner responds to, and revise that when the partner silently changes?",
           "- Design (V4, real, preregistered, run once): Qwen3.8-27B @ 1d4bf0f2; 360 episodes, 7,200 choices; each round the model sees three unlabelled candidate messages (one per frame) and picks 1/2/3; the target responds to the candidate's registered frame (P(A)=0.72 match / 0.38 mismatch); rounds 16–20 use separately authored held-out wording; four conditions + silent swap after round 10.",
           "- Result 1 (learning): with its own history the match rate rose 0.383 → 0.570 on held-out rounds; no-history flat at 0.333; shuffled history 0.287 → 0.233; random target flat. Full-history learning gain 0.187 [0.083, 0.290]. Stable randomization test passed.",
-          "- Result 2 (revision): after the silent swap, new-frame use rose and old-frame use fell *symmetrically*; the registered final new-vs-old test failed. Mechanism: a large expertise default — swaps into expertise adapted %s, into fairness %s (fig_w2)." % (next(("%d of %d" % (r.adapted, r.n)) for _, r in grp.iterrows() if r.dir.startswith("into")), next(("%d of %d" % (r.adapted, r.n)) for _, r in per.iterrows() if r.new_type == "fairness" and r.old_type == "expertise")),
+          "- Result 2 (revision): after the silent swap, new-frame use rose and old-frame use fell *symmetrically*; the registered final new-vs-old test failed. Mechanism: a large expertise default — swaps into expertise adapted %s, into fairness %s (fig_w2)." % (next(("%d of %d" % (r.adapted, r.n)) for _, r in grp.iterrows() if r.dir.startswith("into")), "%d of %d" % (int(per[per.new_type == "fairness"].adapted.sum()), int(per[per.new_type == "fairness"].n.sum()))),
           "- Result 3 (cross-family default): no-history frame shares — Qwen V4 bank %s; Qwen V5 bank %s; Gemma-4-31B V5 bank %s. The expertise attractor is a task property, not a model quirk (fig_w3)." % (numbers[[n[0] for n in numbers].index("Qwen V4-bank no-history shares (f/r/e)")][1], numbers[[n[0] for n in numbers].index("Qwen V5-bank no-history shares (f/r/e)")][1], numbers[[n[0] for n in numbers].index("Gemma-4 V5-bank no-history shares (f/r/e)")][1]),
           "- Result 4 (four successors, four pre-registered stops): V5 (bank cannot be balanced), V6 (balance gate infeasible at every N; 120k-study screen), V7 (own feasibility rule fails; adversarial review: pooled rule passes on default-attraction), V8 (destination-stratified gate underpowered at N≤30 vs the weakest registered learner; Type I controlled, 0 joint rejections / 6,000 null studies). Nothing frozen or spent after a failed gate.",
           "- Methodological finding: a first-crossing 'probe leads behaviour' lag metric is biased by probe noise — a chance-level probe appears to lead by ~0.7 rounds with a CI excluding 0 in ~70% of runs (fig_w5). Replaced before any real probe was trained.",
