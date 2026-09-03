@@ -104,9 +104,62 @@
         "digits_single_token": true,
         "enable_thinking_ignored": true
       },
-      "prior_measured": false,
-      "measured_no_history_shares": null,
-      "registered_default_frame": null
+      "prior_measured": true,
+      "measured_no_history_shares": {
+        "fairness": 0.23958333333333334,
+        "risk": 0.12152777777777778,
+        "expertise": 0.6388888888888888
+      },
+      "registered_default_frame": "expertise",
+      "measured_sections": {
+        "overall": {
+          "n": 576,
+          "counts": {
+            "fairness": 138,
+            "risk": 70,
+            "expertise": 368
+          },
+          "shares": {
+            "fairness": 0.23958333333333334,
+            "risk": 0.12152777777777778,
+            "expertise": 0.6388888888888888
+          }
+        },
+        "development": {
+          "n": 432,
+          "counts": {
+            "fairness": 81,
+            "risk": 56,
+            "expertise": 295
+          },
+          "shares": {
+            "fairness": 0.1875,
+            "risk": 0.12962962962962962,
+            "expertise": 0.6828703703703703
+          }
+        },
+        "heldout": {
+          "n": 144,
+          "counts": {
+            "fairness": 57,
+            "risk": 14,
+            "expertise": 73
+          },
+          "shares": {
+            "fairness": 0.3958333333333333,
+            "risk": 0.09722222222222222,
+            "expertise": 0.5069444444444444
+          }
+        }
+      },
+      "measurement_source": {
+        "log_path": "data/calibration/v8-gemma4-prior.jsonl",
+        "log_file_sha256": "0520697d999d23fca05ca541aa39a895d291e9f10de4b19849bf17e9f89a8777",
+        "manifest_path": "data/calibration/v8-gemma4-prior.manifest.json",
+        "manifest_file_sha256": "38e0ac299da1a62a24350292a1cfffbec91da6383ce4fd20d087fa27fffdf9bf",
+        "n_records": 576,
+        "evaluator": "src.v5_calibration.evaluate_v5_bank_validation"
+      }
     }
   },
   "generation": {
@@ -225,6 +278,26 @@
         "expertise": 0.3402777777777778
       },
       "provenance": "Qwen/Qwen3.8-27B target-free no-history heldout section, n=144, log sha 4141622bfd6d35b5"
+    },
+    {
+      "cell_id": "gemma4_31b_v5bank_overall",
+      "kind": "measured",
+      "frame_shares": {
+        "fairness": 0.23958333333333334,
+        "risk": 0.12152777777777778,
+        "expertise": 0.6388888888888888
+      },
+      "provenance": "google/gemma-4-31B-it target-free no-history overall section, n=576, log sha 0520697d999d23fc"
+    },
+    {
+      "cell_id": "gemma4_31b_v5bank_heldout",
+      "kind": "measured",
+      "frame_shares": {
+        "fairness": 0.3958333333333333,
+        "risk": 0.09722222222222222,
+        "expertise": 0.5069444444444444
+      },
+      "provenance": "google/gemma-4-31B-it target-free no-history heldout section, n=144, log sha 0520697d999d23fc"
     }
   ]
 }

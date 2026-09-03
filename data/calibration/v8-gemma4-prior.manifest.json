@@ -1,0 +1,303 @@
+{
+  "calibration_version": "v5-bank-calibration-1.0",
+  "task_version": "controlled-choice-v5.0",
+  "mode": "selected_bank_validation",
+  "run_id": "v8-gemma4-prior",
+  "run_status": "completed",
+  "target_simulator_present": false,
+  "history_present": false,
+  "pool_sha256": "f3ee1ed4e2d1b717e78117d4a7ac90b2fc2d7b0fa932cb489c5d49327243bc75",
+  "bank_content_sha256": "bcd25bd3f11618e92ba5a48c70546de7532758fdf0e77076a02e7135503a9088",
+  "bank_source": "data/v5/v5_selected_bank_pending.json",
+  "provider": {
+    "provider": "huggingface",
+    "model": "google/gemma-4-31B-it",
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+    "temperature": 0.0,
+    "max_tokens": 2,
+    "dtype": "bfloat16",
+    "layer_stride": 1,
+    "capture": false,
+    "torch_seed_base": 20261003,
+    "enable_thinking": false,
+    "top_p": 0.8,
+    "top_k": 20,
+    "architecture": null,
+    "loaded_with": null,
+    "processor": null,
+    "per_generation_seed_supported": true,
+    "constrained_choices": [
+      "1",
+      "2",
+      "3"
+    ],
+    "invalid_output_policy": "provider error; no fallback"
+  },
+  "schedule": {
+    "n_episode_blocks": 24,
+    "n_rounds": 24,
+    "heldout_start_round": 19,
+    "seed": 20261003,
+    "n_records": 576
+  },
+  "schedule_audit": {
+    "pass": true,
+    "checks": {
+      "nonempty": true,
+      "unique_coordinates": true,
+      "complete_candidate_sets": true,
+      "exact_pool_membership": true,
+      "equal_candidate_exposure_within_split": true,
+      "candidate_slot_balance": true,
+      "pool_hash": true
+    },
+    "n_rows": 576,
+    "candidate_exposures": {
+      "v5-dev-risk-03": 72,
+      "v5-dev-fairness-00": 72,
+      "v5-dev-expertise-04": 72,
+      "v5-dev-fairness-01": 72,
+      "v5-dev-expertise-02": 72,
+      "v5-dev-risk-02": 72,
+      "v5-dev-risk-01": 72,
+      "v5-dev-fairness-06": 72,
+      "v5-dev-expertise-07": 72,
+      "v5-dev-fairness-05": 72,
+      "v5-dev-expertise-03": 72,
+      "v5-dev-expertise-01": 72,
+      "v5-dev-risk-04": 72,
+      "v5-dev-fairness-03": 72,
+      "v5-dev-risk-06": 72,
+      "v5-dev-fairness-02": 72,
+      "v5-dev-risk-05": 72,
+      "v5-dev-expertise-06": 72,
+      "v5-heldout-expertise-01": 36,
+      "v5-heldout-fairness-00": 36,
+      "v5-heldout-risk-04": 36,
+      "v5-heldout-fairness-01": 36,
+      "v5-heldout-risk-05": 36,
+      "v5-heldout-expertise-02": 36,
+      "v5-heldout-expertise-03": 36,
+      "v5-heldout-fairness-05": 36,
+      "v5-heldout-expertise-04": 36,
+      "v5-heldout-risk-00": 36,
+      "v5-heldout-risk-02": 36,
+      "v5-heldout-fairness-04": 36
+    },
+    "minimum_candidate_exposure": 36,
+    "candidate_slot_counts": {
+      "v5-dev-risk-03": {
+        "1": 24,
+        "3": 24,
+        "2": 24
+      },
+      "v5-dev-fairness-00": {
+        "2": 24,
+        "1": 24,
+        "3": 24
+      },
+      "v5-dev-expertise-04": {
+        "3": 24,
+        "1": 24,
+        "2": 24
+      },
+      "v5-dev-fairness-01": {
+        "1": 24,
+        "2": 24,
+        "3": 24
+      },
+      "v5-dev-expertise-02": {
+        "2": 24,
+        "3": 24,
+        "1": 24
+      },
+      "v5-dev-risk-02": {
+        "3": 24,
+        "1": 24,
+        "2": 24
+      },
+      "v5-dev-risk-01": {
+        "2": 24,
+        "3": 24,
+        "1": 24
+      },
+      "v5-dev-fairness-06": {
+        "3": 24,
+        "1": 24,
+        "2": 24
+      },
+      "v5-dev-expertise-07": {
+        "3": 24,
+        "2": 24,
+        "1": 24
+      },
+      "v5-dev-fairness-05": {
+        "1": 24,
+        "2": 24,
+        "3": 24
+      },
+      "v5-dev-expertise-03": {
+        "2": 24,
+        "1": 24,
+        "3": 24
+      },
+      "v5-dev-expertise-01": {
+        "1": 24,
+        "3": 24,
+        "2": 24
+      },
+      "v5-dev-risk-04": {
+        "1": 24,
+        "3": 24,
+        "2": 24
+      },
+      "v5-dev-fairness-03": {
+        "1": 24,
+        "2": 24,
+        "3": 24
+      },
+      "v5-dev-risk-06": {
+        "2": 24,
+        "1": 24,
+        "3": 24
+      },
+      "v5-dev-fairness-02": {
+        "3": 24,
+        "1": 24,
+        "2": 24
+      },
+      "v5-dev-risk-05": {
+        "1": 24,
+        "3": 24,
+        "2": 24
+      },
+      "v5-dev-expertise-06": {
+        "3": 24,
+        "2": 24,
+        "1": 24
+      },
+      "v5-heldout-expertise-01": {
+        "1": 12,
+        "3": 12,
+        "2": 12
+      },
+      "v5-heldout-fairness-00": {
+        "2": 12,
+        "3": 12,
+        "1": 12
+      },
+      "v5-heldout-risk-04": {
+        "3": 12,
+        "2": 12,
+        "1": 12
+      },
+      "v5-heldout-fairness-01": {
+        "1": 12,
+        "2": 12,
+        "3": 12
+      },
+      "v5-heldout-risk-05": {
+        "2": 12,
+        "1": 12,
+        "3": 12
+      },
+      "v5-heldout-expertise-02": {
+        "3": 12,
+        "2": 12,
+        "1": 12
+      },
+      "v5-heldout-expertise-03": {
+        "2": 12,
+        "3": 12,
+        "1": 12
+      },
+      "v5-heldout-fairness-05": {
+        "3": 12,
+        "1": 12,
+        "2": 12
+      },
+      "v5-heldout-expertise-04": {
+        "1": 12,
+        "2": 12,
+        "3": 12
+      },
+      "v5-heldout-risk-00": {
+        "3": 12,
+        "1": 12,
+        "2": 12
+      },
+      "v5-heldout-risk-02": {
+        "2": 12,
+        "3": 12,
+        "1": 12
+      },
+      "v5-heldout-fairness-04": {
+        "2": 12,
+        "1": 12,
+        "3": 12
+      }
+    }
+  },
+  "frozen_protocol": {
+    "protocol": "v8",
+    "protocol_path": "/workspace/LatentTarget/docs/v8_protocol.json",
+    "protocol_file_sha256": "19a56d8287516b1f12b386dc796c420e54fffd8ba0b6c117970679b4b698e05c",
+    "model_key": "gemma4_31b",
+    "plan_audit": {
+      "pass": true,
+      "model_key": "gemma4_31b",
+      "checks": {
+        "protocol_version": true,
+        "task_version": true,
+        "pre_focal_calibration": true,
+        "protocol_status": true,
+        "milestone_declared": true,
+        "model_key_registered": true,
+        "pool_file_exists": true,
+        "pool_file_hash": true,
+        "semantic_file_exists": true,
+        "semantic_file_hash": true,
+        "semantic_canonical_hash": true,
+        "semantic_gate_pass": true,
+        "bank_file_hash": true,
+        "bank_pending": true,
+        "bank_source_pool": true,
+        "bank_semantic_hash": true,
+        "model_id": true,
+        "model_revision": true,
+        "provider_kind": true,
+        "temperature": true,
+        "top_p": true,
+        "top_k": true,
+        "max_tokens": true,
+        "dtype": true,
+        "thinking_disabled": true,
+        "capture_disabled": true,
+        "constrained_choices": true,
+        "provider_seed": true,
+        "schedule_mode": true,
+        "schedule_is_not_a_gate": true,
+        "episode_blocks": true,
+        "rounds": true,
+        "heldout_start": true,
+        "schedule_seed": true,
+        "record_count": true,
+        "history_absent": true,
+        "target_absent": true
+      },
+      "protocol_version": "v8-protocol-1.0",
+      "protocol_canonical_sha256": "5e378aa2d21a231558f4f567f30c9546a7f68264ad1020630d83f222963fe9c6",
+      "semantic_validation_path": "/workspace/LatentTarget/results/v5_design/semantic_validation/summary.json",
+      "bank_path": "/workspace/LatentTarget/data/v5/v5_selected_bank_pending.json"
+    },
+    "is_gate": false
+  },
+  "n_records": 576,
+  "valid_selection_rate": 1.0,
+  "log_path": "/workspace/LatentTarget/data/calibration/v8-gemma4-prior.jsonl",
+  "log_file_sha256": "0520697d999d23fca05ca541aa39a895d291e9f10de4b19849bf17e9f89a8777",
+  "written_at": "2026-09-03T05:49:51+0000",
+  "python": "3.10.12 (main, Jul 15 2026, 23:40:17) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-59-generic-x86_64-with-glibc2.35",
+  "git_commit": "778194fe0e20c48cb8ab6f996a55a5fbf9051653"
+}
