@@ -1347,3 +1347,30 @@ synthetic validation and from claims that still require a real model.
 - **Status: `V8_STOPPED_UNDERPOWERED_AT_REGISTERED_GRID`.** No protocol
   frozen; no tag; no pod deployed; $0 spent. The Gemma prior measurement, if
   run, is a standalone characterization, not a V8 step.
+
+## 2026-09-03 — Gemma-4-31B prior measured (standalone); V8 remains stopped
+
+- **Result:** Gemma-4-31B-it, target-free, no history, frozen V5 bank, 576
+  constrained `1|2|3` choices, all valid, no fallback: **fairness 0.240 /
+  risk 0.122 / expertise 0.639** overall (held-out 0.396 / 0.097 / 0.507).
+  Default = expertise, stronger than Qwen's 0.521. Registered in
+  `docs/v8_protocol.json` (`787c93b`), pinned to the raw log by test
+  (`f5d0e5e`). Declared beforehand as a standalone characterization
+  (`778194f`); it feeds no V8 decision and cannot rescue V8.
+- **Execution record, honestly:** four pods were needed for one ~35-minute
+  job. Pod 1 (secure) reset SSH on any non-trivial command; pod 2 (community)
+  was healthy and was **terminated by an assistant bug** (macOS `wc` padding
+  broke a byte-count comparison); pod 3 (same community host) was terminated
+  by an over-strict 3/3-echo rule; pod 4 (secure) ran the job. Root causes of
+  the two false launches: `pgrep -f` matching the launcher's own command line
+  (fixed with an anchored pattern), and long-lived SSH channels dying on the
+  RunPod port mapping (fixed by short fetch-and-`setsid` commands and a
+  gzip-then-stream pull with hash verification).
+- **Cost:** ledger balance $47.96 → **$39.50 (−$8.46)**. Pod-hour
+  reconstruction from timestamps ≈ $3.53 (50 + 12 + 27 + 49 minutes at
+  $1.59/$1.39/$1.39/$1.59 per hour). **≈ $4.93 is unexplained** by that
+  reconstruction; the API exposes no billing history. Operator should check
+  the RunPod billing page. Gemma pod terminated; only the V5 volume
+  ($0.01/hr) remains.
+- **Status unchanged:** `V8_STOPPED_UNDERPOWERED_AT_REGISTERED_GRID`. V4 is
+  the only real result. Total project GPU spend to date ≈ $15.6 by ledger.

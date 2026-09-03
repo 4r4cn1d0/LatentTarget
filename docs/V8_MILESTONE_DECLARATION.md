@@ -99,3 +99,20 @@ frame, registered by `scripts/register_v8_prior.py`. Pod: one A100-SXM4-80GB
 on-demand at $1.39/hr, image `runpod/pytorch:1.2.0-rc.162-cu1281-torch291-
 ubuntu2204`, deployed by the assistant via the RunPod API at the operator's
 explicit instruction; expected cost ≈ $2.
+
+## Standalone measurement result (2026-09-03): Gemma-4-31B shares the expertise default
+
+`data/calibration/v8-gemma4-prior.jsonl` (576 records, file SHA-256 `0520697d999d23fc…`;
+manifest alongside with the 37-check V8 audit embedded). Registered by
+`scripts/register_v8_prior.py`; the committed registration is pinned to the raw
+log by `test_gemma_registration_on_disk_matches_the_raw_log`.
+
+| model, no history, frozen V5 bank | fairness | risk | expertise | default |
+|---|--:|--:|--:|---|
+| Gemma-4-31B-it, overall (576) | 0.240 | 0.122 | **0.639** | expertise |
+| Gemma-4-31B-it, held-out (144) | 0.396 | 0.097 | 0.507 | expertise |
+| Qwen3.8-27B, overall (576) | 0.137 | 0.342 | 0.521 | expertise |
+
+A second model family, more skewed toward expertise than Qwen, with risk
+nearly absent. The default frame is a property of the instrument-plus-task
+across families, not a Qwen idiosyncrasy. This does not reopen V8.

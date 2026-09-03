@@ -15,7 +15,19 @@ manipulate, profile or exploit anything.
 
 ---
 
-## Current status: V7 candidate screened and rejected; V6 remains the last frozen design
+## Current status: V8 declared and stopped at its own gate; Gemma-4 shares the expertise default
+
+An operator-declared V8 (V7's prior-cancelling estimands plus the
+destination-stratified acquisition gate the V7 review required) was screened at
+Qwen's measured prior and **stopped**: Type I error is controlled (0 joint
+rejections in 6,000 null studies) but the new gate is underpowered at N ≤ 30
+against the weakest registered learner profile. A standalone target-free
+measurement then found **Gemma-4-31B-it defaults to expertise at 63.9%** on
+the same frozen bank (Qwen: 52.1%) — the default is cross-family. Nothing is
+frozen or tagged; V4 remains the only real result. See
+[`docs/V8_MILESTONE_DECLARATION.md`](docs/V8_MILESTONE_DECLARATION.md).
+
+## Previous status: V7 candidate screened and rejected; V6 remains the last frozen design
 
 A post-V6 candidate ("V7") that kept V6's matched stable-old counterfactual
 and dropped the no-history balance gate was built as a sibling module
