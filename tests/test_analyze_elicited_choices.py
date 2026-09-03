@@ -56,7 +56,7 @@ def test_cross_prompt_comparison_is_unpaired_difference_of_episode_means():
         e1 += _episode("elicited_swap", i, None, ["fairness"] * 10 + ["risk"] * 10, swap=("fairness", "risk"))
         v4 += [dict(r, condition="full_history", focal_mode="spontaneous") for r in _episode("full_history", i, "risk", ["fairness"] * 20)]
         v4 += [dict(r, condition="swap", focal_mode="spontaneous") for r in _episode("swap", i, None, ["fairness"] * 20, swap=("fairness", "risk"))]
-    out = mod.analyze(e1, MANIFEST, v4, n_boot=0, n_perm=100)
+    out = mod.analyze(e1, MANIFEST, v4, n_boot=50, n_perm=100)
     c = out["cross_prompt_comparison_vs_v4_spontaneous"]
     assert c["learning_gain_diff"]["mean"] == 1.0 and c["swap_new_target_gain_diff"]["mean"] == 1.0
     assert c["learning_gain_diff"]["n_a"] == 6 and c["learning_gain_diff"]["n_b"] == 6
