@@ -1500,3 +1500,10 @@ synthetic validation and from claims that still require a real model.
 - **Status:** `V4_POSITIVE_BUT_MODEL_AND_PROMPT_SPECIFIC`. V4 (Qwen,
   spontaneous prompt) remains the only positive result; it does not
   replicate on Gemma-4-31B and does not survive belief elicitation on Qwen.
+- **Sanity check on the belief = choice claim (2026-09-03, after the E1
+  entry):** the runner records the model's own `"choice"` field
+  (`parse_controlled_choice`, `selected_slot=choice`), not an argmax; in all
+  3,600 records the model's stated choice was in the argmax set of its own
+  stated `p_a` (25 rounds had ties, all resolved by the model's `choice`).
+  The elicited history shows the model its past `predicted_p_a`, as declared.
+  The identity is therefore model behaviour, not a construction artefact.
