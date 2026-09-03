@@ -1507,3 +1507,31 @@ synthetic validation and from claims that still require a real model.
   stated `p_a` (25 rounds had ties, all resolved by the model's `choice`).
   The elicited history shows the model its past `predicted_p_a`, as declared.
   The identity is therefore model behaviour, not a construction artefact.
+
+## 2026-09-04 — Arm P1 result: the V4 learning effect survives a rewording of the prompt
+
+- **Arm:** `docs/v4_paraphrase_qwen38.json` = V4 spec with
+  `generation.prompt_variant = "paraphrase_1"` (declared in
+  `docs/V4_REPLICATION_DECLARATION.md` before the outcome; V4 template
+  pinned by SHA-256 in `tests/test_prompt_variant.py`, so the default cannot
+  drift). Run 19:57–21:23Z on pod `55mngrae0nld1g` (a first pod never came
+  up and was terminated); 7,200 records pulled with hash verification; pod
+  terminated. Frozen analyzer run once → `results/v4_real/paraphrase_qwen38/`.
+- **Result:** learning replicates. Full-history gain 0.207 [0.110, 0.307]
+  (V4 0.187); full − no-history DiD 0.207, p = 0.0002; full over shuffled
+  0.377, p = 0.0001; controls flat; per-target advantage fairness 0.28 /
+  risk 0.43 / expertise 0.09 (anti-default, as in V4). Revision fails as
+  predicted (new-over-old −0.077).
+- **Validity gate fails (0.898 < 0.98), benignly:** 733 rounds (10.2%)
+  are truncated reasoning preambles ("Looking at the history, the participant
+  chose…"), 0% under no-history, 11–14% in every history condition; the
+  frozen fallback assigned uniform random slots, which dilutes learning
+  toward chance (parsed-only late match 0.632 vs 0.600). Frozen decision is
+  therefore `STOP_BEFORE_FREEFORM_OR_MECHANISTIC_SCALING`; the learning
+  gates and the stable randomization test all pass. Not re-run with a larger
+  token budget: the arm was declared with V4 decoding unchanged.
+- **Status:** `V4_POSITIVE_WORDING_ROBUST_MODEL_AND_FORMAT_SPECIFIC`. The
+  effect is real for Qwen under this task in its spontaneous form (V4, P1),
+  absent in Gemma-4-31B (R1), absent under belief elicitation (E1).
+- **Cost:** ≈ 1.5 pod-hours ≈ $2.4 (plus a few cents on the stuck pod).
+  Write-up: Result 7, fourth panel on fig_w11, sourced numbers.

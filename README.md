@@ -15,7 +15,7 @@ manipulate, profile or exploit anything.
 
 ---
 
-## Current status: the V4 learning effect is model-specific and prompt-specific (Arms R1 and E1, 2026-09-03)
+## Current status: the V4 learning effect survives rewording (P1) but not a change of model (R1) or of output format (E1)
 
 Two arms of the **frozen** V4 design were declared before any outcome
 (`docs/V4_REPLICATION_DECLARATION.md`) and run on one A100 pod on 2026-09-03.
@@ -43,11 +43,23 @@ Two arms of the **frozen** V4 design were declared before any outcome
   feedback without changing the choice. No stated belief the behaviour
   ignores; no evidence of a separable partner model.
   `results/v4_real/elicited_qwen38/`.
+- **Arm P1 — Qwen3.8-27B, spontaneous prompt reworded (`prompt_variant =
+  paraphrase_1`), 7,200 records, run once, 2026-09-04: the learning effect
+  replicates.** Full-history gain 0.207 [0.110, 0.307] (V4 0.187); full −
+  no-history DiD p = 0.0002; controls flat; same anti-default per-target
+  pattern. Revision fails as predicted. The frozen decision is still STOP
+  because the valid-selection gate fails at 0.898: under the new wording the
+  model starts a reasoning preamble in ~10% of history rounds (0% without
+  history) and is truncated by V4's token budget; the fallback is a uniform
+  random pick, so this dilutes rather than inflates learning (parsed-only late
+  match 0.632). `results/v4_real/paraphrase_qwen38/`.
 - **Net:** the preregistered V4 learning result (Qwen, spontaneous prompt)
-  stands as run, and is now bracketed: absent in a second model family and
-  absent in the same model under a different output format. Status
-  `V4_POSITIVE_BUT_MODEL_AND_PROMPT_SPECIFIC`. Both arms' predictions,
-  corrections and outcomes are in `docs/V4_REPLICATION_DECLARATION.md`.
+  stands and is robust to how the prompt is worded, but it is absent in a
+  second model family and absent in the same model under a different output
+  format, where belief and choice turned out to be one object. Status
+  `V4_POSITIVE_WORDING_ROBUST_MODEL_AND_FORMAT_SPECIFIC`. All three arms'
+  predictions, corrections and outcomes are in
+  `docs/V4_REPLICATION_DECLARATION.md`.
 
 ## Previous status: V8 declared and stopped at its own gate; Gemma-4 shares the expertise default
 

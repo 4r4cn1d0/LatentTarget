@@ -174,3 +174,55 @@ V4 positive should be described as a single-prompt observation. Revision is
 predicted to fail again with the default-attraction asymmetry. Analysis: the
 frozen `scripts/analyze_controlled_v4.py` against this spec, run once.
 Cost ≈ 1 pod-hour ≈ $2.
+
+## Outcome, Arm P1 (prompt paraphrase, Qwen3.8-27B) — 2026-09-04 (00:00–21:23Z on 2026-09-03 clock), analyzed once
+
+Run 19:57–21:23Z on pod `55mngrae0nld1g` (a first pod, `jq6ok8utvmrg0v`,
+never exposed a runtime and was terminated unused); log
+`data/raw/v4p-qwen38.jsonl` (7,200 records, tarball SHA-256
+`956c694d…3542792`); manifest records `spontaneous_prompt_variant =
+paraphrase_1`. Frozen analyzer against `docs/v4_paraphrase_qwen38.json`
+with default seeds → `results/v4_real/paraphrase_qwen38/`. Design integrity
+PASS; slots balanced.
+
+**The learning effect replicates under the reworded prompt.**
+
+| metric | P1 paraphrase | V4 original |
+|---|---|---|
+| full-history learning gain (late held-out − early) | 0.207 [0.110, 0.307] | 0.187 [0.083, 0.290] |
+| full − no-history difference-in-differences, one-sided p | 0.207 [0.113, 0.303], p = 0.0002 | p < 0.001 |
+| full over shuffled, late held-out | 0.377 [0.267, 0.480], p = 0.0001 | — |
+| no-history / shuffled / random-target gain | 0.000 / −0.070 / −0.007 | 0.000 / −0.054 / ≈0 |
+| per-target advantage (full − no-history): fairness / risk / expertise | 0.28 / 0.43 / 0.09 | 0.19 / 0.51 / 0.01 |
+| swap: new-frame gain / old-frame drop / new-over-old, p | 0.133 / 0.132 / −0.077, p = 0.89 | 0.24 / 0.24 / ≈0, p > 0.05 |
+| valid selection rate (gate ≥ 0.98) | **0.898** | 0.985 |
+
+Every learning gate and the stable randomization test pass. The frozen
+decision is nonetheless `STOP_BEFORE_FREEFORM_OR_MECHANISTIC_SCALING`
+because two non-learning gates fail: the revision gates (predicted; same
+symmetric pattern as V4) and the valid-selection gate. The invalid outputs
+are all one thing: in 733 rounds (10.2%) the model began a reasoning
+preamble — "Looking at the history, the participant chose…" — and was cut
+off by V4's token budget. They occur in 11–14% of rounds in every condition
+that shows a history and in **0%** of no-history rounds, rising from round 6
+onward. The frozen fallback replaced each with a uniformly random slot
+(231/240/262 across slots; frames balanced), which can only move the
+full-history match toward chance: on parsed-only rounds the late held-out
+match is 0.632 against 0.600 with fallbacks. The learning result is therefore
+conservative, not inflated. The preambles themselves are a small qualitative
+observation: under this wording the model spontaneously refers to the
+participant's past choices when it starts to explain itself.
+
+Against the pre-stated predictions: (a) **held** — the effect is not tied
+to the exact V4 prompt string; the per-target anti-default pattern also
+held. Revision failed as predicted. Not predicted: the validity-gate failure
+from truncated reasoning, which a larger token budget would remove; it was
+not re-run, because the arm was declared with V4's decoding unchanged.
+
+**Combined reading of R1, E1, P1.** The V4 learning effect is robust to the
+wording of the prompt (P1), absent in a second model family under the
+identical design (R1), and absent in the same model when it must state
+beliefs in JSON (E1, where belief and choice were one object). It is a
+property of Qwen under this task in its spontaneous form, not a general
+property of instruction-tuned models, and not accompanied by a separable
+stated model of the partner.
