@@ -161,7 +161,7 @@ def main():
             elif "p_value" in kk and isinstance(v, (int, float)): pv[pre + kk] = v
     walk(s)
     for cond in ("full_history", "no_history", "shuffled_history", "random_target"):
-        g = m[cond]["learning_gain"]; N("V4 %s learning gain (late held-out − early), 95% CI" % cond, "%.3f [%.3f, %.3f], n=%d" % (g["mean"], g["ci_lo"], g["ci_hi"], g["n"]), "v4_checkpoint_summary.json stable_condition_metrics.%s.learning_gain" % cond)
+        g = m[cond]["learning_gain"]; N("V4 %s learning gain (late held-out − early), 95%% CI" % cond, "%.3f [%.3f, %.3f], n=%d" % (g["mean"], g["ci_lo"], g["ci_hi"], g["n"]), "v4_checkpoint_summary.json stable_condition_metrics.%s.learning_gain" % cond)
     for k, v in sorted(pv.items()): N("V4 p-value: " + k, v, "v4_checkpoint_summary.json")
     N("V4 decision", s["decision"], "v4_checkpoint_summary.json decision")
     N("V4 swap revision randomization test passed", s["inference_gates"]["swap_revision_randomization_test"], "v4_checkpoint_summary.json inference_gates")
