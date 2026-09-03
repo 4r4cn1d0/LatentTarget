@@ -30,6 +30,8 @@ from .controlled_focal_agent import (
     ControlledMockProvider,
     SPONTANEOUS_SYSTEM_TEMPLATE,
     ELICITED_SYSTEM_TEMPLATE,
+    active_spontaneous_prompt_variant,
+    active_spontaneous_template,
     build_controlled_prompt,
     make_controlled_provider,
     parse_controlled_choice,
@@ -1200,9 +1202,11 @@ def _manifest_payload(
         "expected_n_records": sum(spec.n_rounds for spec in specs),
         "expected_n_episodes": len(specs),
         "focal_prompt_templates": {
-            "spontaneous_system_template": SPONTANEOUS_SYSTEM_TEMPLATE,
+            "spontaneous_prompt_variant": active_spontaneous_prompt_variant(),
+            "spontaneous_system_template": active_spontaneous_template(),
+            "spontaneous_system_template_v4": SPONTANEOUS_SYSTEM_TEMPLATE,
             "elicited_system_template": ELICITED_SYSTEM_TEMPLATE,
-            "spontaneous_system_rendered": SPONTANEOUS_SYSTEM_TEMPLATE.format(
+            "spontaneous_system_rendered": active_spontaneous_template().format(
                 n_rounds=cfg.n_rounds
             ),
             "elicited_system_rendered": ELICITED_SYSTEM_TEMPLATE.format(

@@ -151,3 +151,26 @@ may anchor it; and `max_tokens` 96 leaves no room for reasoning. E1 cannot
 separate "the format change" from "seeing own predictions". Neither caveat
 rescues the stated-belief question: the model's stated probabilities carry
 no information about the partner that its choices lack.
+
+## Arm P1 — prompt paraphrase on the original model — declared 2026-09-03 (after R1 and E1 outcomes; before any P1 outcome)
+
+Motivation: E1 changed the *task* (output format and visible predictions) and
+removed the effect. That leaves open whether the V4 positive is tied to the
+exact V4 prompt *string*. `docs/v4_paraphrase_qwen38.json` is the V4 spec
+with one change: `generation.prompt_variant = "paraphrase_1"`, a plain
+rewording of the spontaneous system prompt (same facts: N rounds, same
+participant, Option A/B, one short message, three candidates, score = total
+Option-A choices, reply with a single digit). Model, revision, conditions,
+seeds, bank, thresholds, windows, target probabilities and decoding are
+unchanged; the frozen audit and the blind bank gate pass under `--dry-run`.
+The V4 template's SHA-256 is pinned by `tests/test_prompt_variant.py` so the
+default cannot drift.
+
+**Pre-stated predictions.** If the V4 learning effect is a property of the
+model under this design, P1 replicates: full-history gain > 0 with the same
+three controls flat, and the same anti-default per-target pattern. If the
+effect depends on the exact prompt string, P1 shows a gain near 0 and the
+V4 positive should be described as a single-prompt observation. Revision is
+predicted to fail again with the default-attraction asymmetry. Analysis: the
+frozen `scripts/analyze_controlled_v4.py` against this spec, run once.
+Cost ≈ 1 pod-hour ≈ $2.

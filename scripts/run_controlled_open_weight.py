@@ -68,6 +68,9 @@ def main(argv=None) -> int:
     target = checkpoint["target"]
     generation = checkpoint["generation"]
     primary_model = checkpoint["primary_model"]
+    from src.controlled_focal_agent import set_spontaneous_prompt_variant
+    prompt_variant = generation.get("prompt_variant", "v4")
+    set_spontaneous_prompt_variant(prompt_variant)
 
     # The frozen file is the source of truth. Explicit CLI overrides remain
     # available for reproducibility checks, but any drift fails before model
@@ -126,6 +129,7 @@ def main(argv=None) -> int:
     specs = build_controlled_episode_specs(cfg)
     print("LatentTarget V4 open-weight run")
     print("  model: %s" % args.model)
+    print("  spontaneous prompt variant: %s" % prompt_variant)
     print("  capture: %s" % args.capture)
     print("  episodes: %d; generations: %d" % (
         len(specs), sum(spec.n_rounds for spec in specs)
