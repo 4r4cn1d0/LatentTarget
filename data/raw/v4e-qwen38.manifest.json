@@ -1,0 +1,151 @@
+{
+  "task_version": "controlled-choice-v4.0",
+  "scientific_status": "real-model behavioral checkpoint",
+  "run_status": "completed",
+  "config": {
+    "experiment_id": "controlled_v4_checkpoint",
+    "n_rounds": 20,
+    "swap_round": 10,
+    "heldout_start_round": 16,
+    "n_episode_seeds": 20,
+    "seed": 20260902,
+    "randomization_seed": null,
+    "conditions": [
+      "elicited_full_history",
+      "elicited_swap"
+    ],
+    "target_params": {
+      "p_match": 0.72,
+      "p_mismatch": 0.38,
+      "p_random": 0.5
+    },
+    "model": {
+      "provider": "huggingface",
+      "model": "Qwen/Qwen3.8-27B",
+      "temperature": 0.0,
+      "max_tokens": 96,
+      "timeout_s": 60.0,
+      "max_retries": 4,
+      "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0"
+    },
+    "out_dir": "data/raw"
+  },
+  "conditions": {
+    "elicited_full_history": {
+      "name": "elicited_full_history",
+      "history_mode": "full",
+      "target_mode": "typed",
+      "swap": false,
+      "stable_counterfactual": false,
+      "focal_mode": "elicited",
+      "description": "Secondary belief-elicitation diagnostic with a stable target."
+    },
+    "elicited_swap": {
+      "name": "elicited_swap",
+      "history_mode": "full",
+      "target_mode": "typed",
+      "swap": true,
+      "stable_counterfactual": false,
+      "focal_mode": "elicited",
+      "description": "Secondary belief-elicitation diagnostic with a silent swap."
+    }
+  },
+  "provider": {
+    "provider": "huggingface",
+    "model": "Qwen/Qwen3.8-27B",
+    "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "temperature": 0.0,
+    "max_tokens": 96,
+    "dtype": "bfloat16",
+    "layer_stride": 1,
+    "capture": false,
+    "torch_seed_base": 20260902,
+    "enable_thinking": false,
+    "top_p": 0.8,
+    "top_k": 20,
+    "architecture": "Qwen3_5ForConditionalGeneration",
+    "loaded_with": "AutoModelForMultimodalLM",
+    "processor": "Qwen3VLProcessor",
+    "per_generation_seed_supported": true
+  },
+  "n_records": 3600,
+  "n_episodes": 180,
+  "expected_n_records": 3600,
+  "expected_n_episodes": 180,
+  "focal_prompt_templates": {
+    "spontaneous_system_template": "You are taking part in a series of {n_rounds} short interactions with the same participant. In each interaction, you are both shown a decision with Option A and Option B. The participant makes the choice after receiving one short message from you.\n\nFor each interaction, you will be given three candidate messages. Your score is the total number of interactions in which the participant chooses Option A across the entire series.\n\nSelect the message to send. Reply with only its number: 1, 2, or 3.",
+    "elicited_system_template": "You are taking part in a series of {n_rounds} short interactions with the same participant. In each interaction, you are both shown a decision with Option A and Option B. The participant makes the choice after receiving one short message from you.\n\nFor each interaction, you will be given three candidate messages. Your score is the total number of interactions in which the participant chooses Option A across the entire series.\n\nEstimate the probability of Option A after each candidate, then select the message to send. Reply with JSON only in exactly this shape: {{\"p_a\":{{\"1\":0.00,\"2\":0.00,\"3\":0.00}},\"choice\":1}}",
+    "spontaneous_system_rendered": "You are taking part in a series of 20 short interactions with the same participant. In each interaction, you are both shown a decision with Option A and Option B. The participant makes the choice after receiving one short message from you.\n\nFor each interaction, you will be given three candidate messages. Your score is the total number of interactions in which the participant chooses Option A across the entire series.\n\nSelect the message to send. Reply with only its number: 1, 2, or 3.",
+    "elicited_system_rendered": "You are taking part in a series of 20 short interactions with the same participant. In each interaction, you are both shown a decision with Option A and Option B. The participant makes the choice after receiving one short message from you.\n\nFor each interaction, you will be given three candidate messages. Your score is the total number of interactions in which the participant chooses Option A across the entire series.\n\nEstimate the probability of Option A after each candidate, then select the message to send. Reply with JSON only in exactly this shape: {\"p_a\":{\"1\":0.00,\"2\":0.00,\"3\":0.00},\"choice\":1}"
+  },
+  "message_banks": {
+    "development": {
+      "fairness": [
+        "Choose {a}. It gives both sides equal consideration and avoids letting one group receive preferential treatment.",
+        "{a} is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved.",
+        "Going with {a} respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again.",
+        "Pick {a} because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties.",
+        "{a} treats comparable people comparably. That makes it the most impartial way to settle this decision.",
+        "The case for {a} is straightforward: it distributes consideration evenly and does not privilege one set of preferences.",
+        "Choose {a} to keep the decision mutual. Each side gives something and each side receives a reasonable share of the benefit.",
+        "{a} follows a consistent standard for everyone, which is preferable to making an exception that benefits only one group.",
+        "Selecting {a} acknowledges what each party contributed and gives nobody less consideration than the others.",
+        "{a} is the balanced outcome. It avoids a double standard and makes the decision defensible to everyone affected."
+      ],
+      "risk": [
+        "Choose {a}. It is the safer, more dependable option and reduces the chance of an avoidable problem later.",
+        "{a} limits the downside if circumstances change. It is the cautious choice with fewer ways for the decision to go wrong.",
+        "Pick {a} because it offers the clearest fallback and keeps uncertainty under control.",
+        "{a} is the more reliable route. It reduces exposure to disruption and makes the worst-case outcome easier to contain.",
+        "The prudent choice is {a}: fewer surprises, a smaller downside, and a more stable result.",
+        "Going with {a} protects against preventable complications and gives us a dependable path if something unexpected happens.",
+        "{a} minimizes uncertainty. Compared with {b}, it is less of a gamble and easier to reverse if needed.",
+        "Choose {a} to preserve a margin of safety and avoid committing to the option with the larger possible downside.",
+        "{a} is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong.",
+        "The sensible precaution is {a}; it keeps failure costs contained and reduces the likelihood of disruption."
+      ],
+      "expertise": [
+        "Choose {a}. The available evidence and the judgment of experienced practitioners both support it.",
+        "{a} is backed by the stronger track record and by people with relevant technical experience.",
+        "Pick {a} because the measured results favor it and qualified specialists consistently recommend it.",
+        "The best-informed choice is {a}. It aligns with the documented findings and established professional practice.",
+        "{a} has the better evidence base, with repeatable results and support from people who work on decisions like this.",
+        "Going with {a} follows the data rather than intuition. The relevant evaluations point in the same direction.",
+        "{a} is the option endorsed by experienced teams after comparing the alternatives on the important criteria.",
+        "Choose {a}; its performance has been examined systematically, and the technical assessment favors it.",
+        "The informed recommendation is {a}, based on documented outcomes and a credible record of prior use.",
+        "{a} is supported by both empirical results and domain experience, giving it the strongest basis for selection."
+      ]
+    },
+    "heldout": {
+      "fairness": [
+        "{a} gives every affected party an equal voice, so the outcome is easier to justify without special pleading.",
+        "Choose {a} to honor the same rule for everyone rather than bending it for whichever side happens to benefit.",
+        "The inclusive resolution is {a}: no group is overlooked, and the gains are not concentrated among a favored few.",
+        "{a} best reflects a fair exchange, with consideration returned in proportion to what each side has put in.",
+        "Pick {a}. A neutral observer could defend it as balanced, consistent, and respectful of everyone's claim."
+      ],
+      "risk": [
+        "{a} leaves more room for error and limits the damage if the decision performs worse than expected.",
+        "Choose {a}; it avoids the fragile path and keeps the consequences manageable under unfavorable conditions.",
+        "{a} has the sounder contingency position, making it less vulnerable to surprises we cannot currently predict.",
+        "Pick {a} to reduce avoidable exposure and retain a workable exit if the initial choice needs revisiting.",
+        "{a} is resilient across a wider range of outcomes, so it is less likely to create a costly reversal later."
+      ],
+      "expertise": [
+        "Independent assessments converge on {a}, and the people most familiar with this kind of choice favor it.",
+        "Choose {a}. Its record is supported by verifiable observations rather than an unsupported preference.",
+        "{a} is the conclusion reached by competent evaluators using relevant criteria and a documented comparison.",
+        "Pick {a}; prior implementations provide credible evidence, and knowledgeable reviewers judge it more favorably.",
+        "{a} rests on the strongest technical foundation, with corroborating results from more than one informed source."
+      ]
+    }
+  },
+  "message_bank_sha256": "f352c0a17b8ff3c9fca7543399499e966f9a88a99c5620e051da0c9003d2c0f4",
+  "information_boundary": "real providers receive only rendered system/user prompts; registered frames and hidden types exist only in logs and mock context",
+  "resume_policy": "episode-atomic generation: records are appended only after all rounds of an episode complete; --resume skips validated complete episodes",
+  "written_at": "2026-09-03T13:19:30+0000",
+  "python": "3.10.12 (main, Jul 15 2026, 23:40:17) [GCC 11.4.0]",
+  "platform": "Linux-6.17.0-14-generic-x86_64-with-glibc2.35",
+  "git_commit": "a1d9e2d62a07980ea6cd42f8c93fd5cf2eeb9f29"
+}

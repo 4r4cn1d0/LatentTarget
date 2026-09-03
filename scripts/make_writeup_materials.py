@@ -36,6 +36,7 @@ R1_LOG = os.path.join(ROOT, "data", "raw", "v4r-gemma4.jsonl")
 R1_DIR = os.path.join(ROOT, "results", "v4_real", "replication_gemma4")   # Arm R1: Gemma-4-31B, frozen V4 design
 E1_DIR = os.path.join(ROOT, "results", "v4_real", "elicited_qwen38")      # Arm E1: Qwen3.8-27B, elicited beliefs
 E1_BELIEF = os.path.join(E1_DIR, "beliefs", "elicited_belief_summary.json")
+E1_LOG = os.path.join(ROOT, "data", "raw", "v4e-qwen38.jsonl")
 FRAMES = ("fairness", "risk", "expertise")
 COL = {"full_history": "#1f77b4", "no_history": "#ff7f0e", "shuffled_history": "#2ca02c", "random_target": "#d62728", "swap": "#9467bd"}
 numbers = []  # (label, value, source)
@@ -261,6 +262,38 @@ def fig10_history_sensitivity():
     return {"qwen": q, "gemma": g}
 
 
+def _e1_raw_diagnostics():
+    """Raw-log diagnostics for the elicited arm (not gates)."""
+    if not os.path.exists(E1_LOG):
+        return None
+    rs = [json.loads(l) for l in open(E1_LOG)]
+    fh = [r for r in rs if r["condition"] == "elicited_full_history"]
+    shares = {k: v / len(fh) for k, v in sorted(__import__("collections").Counter(r["selected_frame"] for r in fh).items())}
+    argmax_eq = sum(r["selected_slot"] in [int(k) for k, v in r["predicted_p_a"].items() if float(v) == max(float(x) for x in r["predicted_p_a"].values())] for r in rs)
+    byf = {}
+    for r in rs:
+        for c in r["candidates"]: byf.setdefault(c["frame"], []).append(float(r["predicted_p_a"][str(c["slot"])]))
+    byf = {k: float(np.mean(v)) for k, v in byf.items()}
+    eps = {}
+    for r in fh: eps.setdefault(r["episode_id"], []).append(r)
+    rs_ = rf_ = ns = nf = 0; cs = []; cf = []
+    for rows in eps.values():
+        rows.sort(key=lambda r: r["round"])
+        for prev, cur in zip(rows, rows[1:]):
+            same = cur["selected_frame"] == prev["selected_frame"]
+            pf = [float(cur["predicted_p_a"][str(c["slot"])]) for c in cur["candidates"] if c["frame"] == prev["selected_frame"]]
+            if prev["target_success"]: ns += 1; rs_ += same; cs += pf
+            else: nf += 1; rf_ += same; cf += pf
+    distinct = len(set(r["focal_output_raw"].strip() for r in rs))
+    N("E1 elicited_full_history frame shares (fairness / risk / expertise)", "%.3f / %.3f / %.3f" % (shares.get("fairness", 0), shares.get("risk", 0), shares.get("expertise", 0)), "raw log v4e-qwen38.jsonl")
+    N("E1 choice equals argmax of stated p_a", "%d of %d records" % (argmax_eq, len(rs)), "raw log v4e-qwen38.jsonl")
+    N("E1 mean stated p_a by candidate frame (fairness / risk / expertise)", "%.3f / %.3f / %.3f" % (byf.get("fairness", float("nan")), byf.get("risk", float("nan")), byf.get("expertise", float("nan"))), "raw log v4e-qwen38.jsonl")
+    N("E1 full_history: P(repeat frame | success) / P(repeat | failure) / gap", "%.3f / %.3f / %.3f (n=%d/%d)" % (rs_ / ns, rf_ / nf, rs_ / ns - rf_ / nf, ns, nf), "raw log, consecutive rounds")
+    N("E1 stated p_a of last round's frame: after success / after failure", "%.3f / %.3f" % (np.mean(cs), np.mean(cf)), "raw log, consecutive rounds")
+    N("E1 distinct raw JSON outputs", "%d of %d records" % (distinct, len(rs)), "raw log v4e-qwen38.jsonl")
+    return {"shares": shares, "argmax_eq": argmax_eq, "n": len(rs), "byf": byf, "ws": rs_ / ns, "ls": rf_ / nf, "distinct": distinct}
+
+
 def fig9_elicited():
     """Arm E1 (declared 2026-09-03): Qwen3.8-27B with elicited beliefs; primary = frozen V4 choice metrics, secondary = belief vs choice."""
     summ = os.path.join(E1_DIR, "elicited_choice_summary.json")
@@ -288,6 +321,7 @@ def fig9_elicited():
                 for tr, t in blk.get("by_transition", {}).items(): N("E1 %s %s post-swap rounds 1-5: belief=new / choice=new" % (cond, tr), "%.3f / %.3f (episodes=%d)" % (t["belief_matches_new"]["mean"], t["choice_matches_new"]["mean"], t["n_episodes"]), "elicited_belief_summary.json by_transition")
             if "stated_p_a_selected" in blk:
                 c = blk["stated_p_a_selected"]; N("E1 %s stated p_a(selected) mean / realized / Brier / stated|match / stated|mismatch" % cond, "%.3f / %.3f / %.3f / %.3f / %.3f" % (c["mean_stated"]["mean"], c["mean_realized_target_p_a"]["mean"], c["brier_selected"]["mean"] or float("nan"), c["mean_stated_when_match_regime"] or float("nan"), c["mean_stated_when_mismatch_regime"] or float("nan")), "elicited_belief_summary.json stated_p_a_selected")
+        out["diag"] = _e1_raw_diagnostics()
         src = os.path.join(E1_DIR, "beliefs", "fig_elicited_beliefs.png")
         if os.path.exists(src): shutil.copyfile(src, os.path.join(OUT, "fig_w9_elicited_belief_vs_choice.png"))
     return out
@@ -330,7 +364,7 @@ def main():
           "- Result 4 (four successors, four pre-registered stops): V5 (bank cannot be balanced), V6 (balance gate infeasible at every N; 120k-study screen), V7 (own feasibility rule fails; adversarial review: pooled rule passes on default-attraction), V8 (destination-stratified gate underpowered at N≤30 vs the weakest registered learner; Type I controlled, 0 joint rejections / 6,000 null studies). Nothing frozen or spent after a failed gate.",
           "- Methodological finding: a first-crossing 'probe leads behaviour' lag metric is biased by probe noise — a chance-level probe appears to lead by %.2f rounds with a CI excluding 0 in %.0f%% of runs under fig_w5's noise model (0.74 rounds / 71%% under the review's). Replaced before any real probe was trained." % (fc[0][1], 100 * fc[0][2]),
           ("- Result 5 (replication, Arm R1 — Gemma-4-31B on the frozen V4 design, run once, 7,200/7,200 valid): does NOT replicate. Decision `%s`; full-history learning gain %s (Qwen: 0.187 [0.083, 0.290]); revision test passed = %s. Gemma picks expertise ~90%% of rounds whatever the history: its choice equals the shuffled-history choice on the identical triple %.1f%% of the time (Qwen %.1f%%), and P(repeat frame) is %.3f after a success vs %.3f after a failure (Qwen %.3f vs %.3f). Per target the small movement is *toward* the default (expertise full 1.00 vs no-history 0.72; fairness 0.01 vs 0.16). The frozen V4 learning result is, so far, Qwen-specific (fig_w7, fig_w8, fig_w10)." % (r1["summary"]["decision"], numbers[[n[0] for n in numbers].index("R1 Gemma full_history learning gain (late held-out − early), 95% CI")][1], r1["summary"]["inference_gates"]["swap_revision_randomization_test"], 100 * hs["gemma"]["agreement"]["shuffled_history"][0], 100 * hs["qwen"]["agreement"]["shuffled_history"][0], hs["gemma"]["p_repeat_after_success"], hs["gemma"]["p_repeat_after_failure"], hs["qwen"]["p_repeat_after_success"], hs["qwen"]["p_repeat_after_failure"])) if (r1 and hs) else "- Result 5 (replication, Arm R1 — Gemma-4-31B): PENDING (declared 2026-09-03, docs/V4_REPLICATION_DECLARATION.md).",
-          ("- Result 6 (elicited belief, Arm E1 — Qwen3.8-27B forced to state p_a per candidate then choose): choice decision `%s`; post-swap rounds 1–5 P(belief=new) − P(choice=new) = %s (fig_w9). Belief/choice agreement and stated-p_a calibration in the numbers sheet." % (e1["summary"].get("decision"), next((n[1] for n in numbers if n[0].startswith("E1 elicited_swap post-swap rounds 1-5")), "n/a"))) if e1 else "- Result 6 (elicited belief, Arm E1 — Qwen3.8-27B): PENDING (declared 2026-09-03).",
+          ("- Result 6 (elicited belief, Arm E1 — same Qwen, same design, seeds and targets, but forced to state p_a per candidate and then choose; run once, 3,600/3,600 valid JSON): the V4 learning effect DISAPPEARS. Within-arm verdict `%s`; elicited full-history gain %s (V4 spontaneous 0.187); elicited − spontaneous learning-gain difference %s. Under this prompt the model picks expertise %.1f%% of rounds and never picks fairness; the choice is the argmax of its stated p_a in %d of %d records, so 'belief' and 'choice' are one object; stated confidence is a fixed frame ranking (expertise %.2f > risk %.2f > fairness %.2f) that barely moves with feedback (P(repeat) %.3f after success vs %.3f after failure; V4: 0.876 vs 0.693); post-swap P(belief=new) − P(choice=new) = %s. There is no stated belief that the behaviour ignores; and the V4 learning result is prompt-specific as well as model-specific (fig_w9)." % (e1["summary"].get("verdict"), next((n[1] for n in numbers if n[0].startswith("E1 elicited elicited_full_history learning gain")), "n/a"), next((n[1] for n in numbers if n[0].startswith("E1 − V4 spontaneous: full-history learning gain")), "n/a"), 100 * e1["diag"]["shares"].get("expertise", 0), e1["diag"]["argmax_eq"], e1["diag"]["n"], e1["diag"]["byf"].get("expertise", float("nan")), e1["diag"]["byf"].get("risk", float("nan")), e1["diag"]["byf"].get("fairness", float("nan")), e1["diag"]["ws"], e1["diag"]["ls"], next((n[1] for n in numbers if n[0].startswith("E1 elicited_swap post-swap rounds 1-5")), "n/a"))) if (e1 and e1.get("diag")) else "- Result 6 (elicited belief, Arm E1 — Qwen3.8-27B): PENDING (declared 2026-09-03).",
           "- What was NOT done: no activation capture, probe, or steering on a real model (gated behind a passed revision test that never came); no human validation of the message bank (two blind machine judges only).",
           "", "## Randomly selected V4 examples (seed 0, lines drawn uniformly from the 7,200-record log)", "",
           "The model sees the three candidates **without** frame labels; labels shown here are the registered ground truth. `→` marks the model's choice."]

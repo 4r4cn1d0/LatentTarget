@@ -15,7 +15,7 @@ manipulate, profile or exploit anything.
 
 ---
 
-## Current status: V4 learning does not replicate on Gemma-4-31B (Arm R1, 2026-09-03); elicited-belief arm pending
+## Current status: the V4 learning effect is model-specific and prompt-specific (Arms R1 and E1, 2026-09-03)
 
 Two arms of the **frozen** V4 design were declared before any outcome
 (`docs/V4_REPLICATION_DECLARATION.md`) and run on one A100 pod on 2026-09-03.
@@ -32,9 +32,22 @@ Two arms of the **frozen** V4 design were declared before any outcome
   the difference; feedback insensitivity does. On present evidence the V4
   learning result is Qwen-specific. `results/v4_real/replication_gemma4/`.
 - **Arm E1 — Qwen3.8-27B, elicited beliefs (`elicited_full_history`,
-  `elicited_swap`, 3,600 records):** running; analysis plan and code
-  committed before data (`scripts/analyze_elicited_choices.py`,
-  `scripts/analyze_elicited_beliefs.py`).
+  `elicited_swap`, 3,600 records, run once, 3,600/3,600 valid JSON): the
+  learning effect disappears.** Same model, design, seeds, targets and bank as
+  V4, but the model must output `{"p_a":{...},"choice":k}`: full-history gain
+  −0.020 [−0.053, 0.010] (V4: 0.187); elicited − spontaneous −0.207 [−0.317,
+  −0.097]; late held-out match at chance; expertise chosen 94% of rounds,
+  fairness never. The choice is the argmax of the stated p_a in every record,
+  so belief and choice are one object; stated confidence is a fixed frame
+  ranking (expertise 0.69 > risk 0.58 > fairness 0.49) that moves ≈ 0.05 with
+  feedback without changing the choice. No stated belief the behaviour
+  ignores; no evidence of a separable partner model.
+  `results/v4_real/elicited_qwen38/`.
+- **Net:** the preregistered V4 learning result (Qwen, spontaneous prompt)
+  stands as run, and is now bracketed: absent in a second model family and
+  absent in the same model under a different output format. Status
+  `V4_POSITIVE_BUT_MODEL_AND_PROMPT_SPECIFIC`. Both arms' predictions,
+  corrections and outcomes are in `docs/V4_REPLICATION_DECLARATION.md`.
 
 ## Previous status: V8 declared and stopped at its own gate; Gemma-4 shares the expertise default
 

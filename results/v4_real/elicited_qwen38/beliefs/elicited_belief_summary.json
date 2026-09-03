@@ -1,0 +1,1705 @@
+{
+  "belief_validity": {
+    "beliefs_valid_rate": 1.0,
+    "fallback_rate": 0.0,
+    "n_fully_valid": 3600,
+    "selection_valid_rate": 1.0
+  },
+  "conditions": [
+    "elicited_full_history",
+    "elicited_swap"
+  ],
+  "log": "data/raw/v4e-qwen38.jsonl",
+  "n_boot": 5000,
+  "n_elicited_records": 3600,
+  "n_records": 3600,
+  "per_condition": {
+    "elicited_full_history": {
+      "by_round": [
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "n": 60,
+          "round": 1
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.2,
+            "mean": 0.31666666666666665
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.2,
+            "mean": 0.31666666666666665
+          },
+          "n": 60,
+          "round": 2
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.48333333333333334,
+            "ci_low": 0.25,
+            "mean": 0.36666666666666664
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.48333333333333334,
+            "ci_low": 0.25,
+            "mean": 0.36666666666666664
+          },
+          "n": 60,
+          "round": 3
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 0.95,
+            "mean": 0.9833333333333333
+          },
+          "belief_matches_target": {
+            "ci_high": 0.5,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.38333333333333336
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": -0.050000000000000044,
+            "mean": -0.016666666666666663
+          },
+          "choice_matches_target": {
+            "ci_high": 0.5166666666666667,
+            "ci_low": 0.2833333333333333,
+            "mean": 0.4
+          },
+          "n": 60,
+          "round": 4
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.48333333333333334,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.35
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.48333333333333334,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.35
+          },
+          "n": 60,
+          "round": 5
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "n": 60,
+          "round": 6
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.2,
+            "mean": 0.31666666666666665
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.2,
+            "mean": 0.31666666666666665
+          },
+          "n": 60,
+          "round": 7
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "n": 60,
+          "round": 8
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.4166666666666667,
+            "ci_low": 0.2,
+            "mean": 0.3
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.4166666666666667,
+            "ci_low": 0.18333333333333332,
+            "mean": 0.3
+          },
+          "n": 60,
+          "round": 9
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.2,
+            "mean": 0.31666666666666665
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.2,
+            "mean": 0.31666666666666665
+          },
+          "n": 60,
+          "round": 10
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.48333333333333334,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.35
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.48333333333333334,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.35
+          },
+          "n": 60,
+          "round": 11
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.2,
+            "mean": 0.31666666666666665
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.2,
+            "mean": 0.31666666666666665
+          },
+          "n": 60,
+          "round": 12
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "n": 60,
+          "round": 13
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.4666666666666667,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.35
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.4666666666666667,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.35
+          },
+          "n": 60,
+          "round": 14
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "n": 60,
+          "round": 15
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.2,
+            "mean": 0.31666666666666665
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.2,
+            "mean": 0.31666666666666665
+          },
+          "n": 60,
+          "round": 16
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.4666666666666667,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "n": 60,
+          "round": 17
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "n": 60,
+          "round": 18
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3333333333333333
+          },
+          "n": 60,
+          "round": 19
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.4666666666666667,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.35
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.48333333333333334,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.35
+          },
+          "n": 60,
+          "round": 20
+        }
+      ],
+      "n_episodes": 60,
+      "n_records": 1200,
+      "stated_p_a_selected": {
+        "brier_selected": {
+          "ci_high": 0.3170563541666666,
+          "ci_low": 0.2830138541666667,
+          "mean": 0.30042708333333334
+        },
+        "mean_realized_target_p_a": {
+          "ci_high": 0.5332833333333333,
+          "ci_low": 0.4553666666666668,
+          "mean": 0.4941833333333334
+        },
+        "mean_stated": {
+          "ci_high": 0.7189177083333332,
+          "ci_low": 0.6664979166666667,
+          "mean": 0.6931249999999999
+        },
+        "mean_stated_when_match_regime": 0.7435483870967742,
+        "mean_stated_when_mismatch_regime": 0.6676286072772899,
+        "n": 1200
+      }
+    },
+    "elicited_swap": {
+      "by_round": [
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.4166666666666667,
+            "ci_low": 0.25,
+            "mean": 0.3333333333333333
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.4166666666666667,
+            "ci_low": 0.25,
+            "mean": 0.3333333333333333
+          },
+          "n": 120,
+          "round": 1
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "n": 120,
+          "round": 2
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.4583333333333333,
+            "ci_low": 0.2916666666666667,
+            "mean": 0.375
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.4583333333333333,
+            "ci_low": 0.2916666666666667,
+            "mean": 0.375
+          },
+          "n": 120,
+          "round": 3
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 0.9583333333333334,
+            "mean": 0.9833333333333333
+          },
+          "belief_matches_target": {
+            "ci_high": 0.49187499999999695,
+            "ci_low": 0.325,
+            "mean": 0.4083333333333333
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.025000000000000022,
+            "ci_low": -0.025000000000000022,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.5,
+            "ci_low": 0.32479166666666676,
+            "mean": 0.4083333333333333
+          },
+          "n": 120,
+          "round": 4
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "n": 120,
+          "round": 5
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.44166666666666665,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.45,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "n": 120,
+          "round": 6
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 0.975,
+            "mean": 0.9916666666666667
+          },
+          "belief_matches_target": {
+            "ci_high": 0.4666666666666667,
+            "ci_low": 0.3,
+            "mean": 0.38333333333333336
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.025000000000000022,
+            "ci_low": 0.0,
+            "mean": 0.00833333333333336
+          },
+          "choice_matches_target": {
+            "ci_high": 0.4666666666666667,
+            "ci_low": 0.2916666666666667,
+            "mean": 0.375
+          },
+          "n": 120,
+          "round": 7
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.44166666666666665,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.44166666666666665,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "n": 120,
+          "round": 8
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.44166666666666665,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.44166666666666665,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "n": 120,
+          "round": 9
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.4583333333333333,
+            "ci_low": 0.2916666666666667,
+            "mean": 0.375
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.4583333333333333,
+            "ci_low": 0.2916666666666667,
+            "mean": 0.375
+          },
+          "n": 120,
+          "round": 10
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.36666666666666664,
+            "ci_low": 0.20833333333333334,
+            "mean": 0.2833333333333333
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.36666666666666664,
+            "ci_low": 0.2,
+            "mean": 0.2833333333333333
+          },
+          "n": 120,
+          "round": 11
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 0.975,
+            "mean": 0.9916666666666667
+          },
+          "belief_matches_target": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.025000000000000022,
+            "ci_low": 0.0,
+            "mean": 0.00833333333333336
+          },
+          "choice_matches_target": {
+            "ci_high": 0.38333333333333336,
+            "ci_low": 0.225,
+            "mean": 0.3
+          },
+          "n": 120,
+          "round": 12
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 0.975,
+            "mean": 0.9916666666666667
+          },
+          "belief_matches_target": {
+            "ci_high": 0.4083333333333333,
+            "ci_low": 0.24166666666666667,
+            "mean": 0.325
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.025000000000000022,
+            "ci_low": 0.0,
+            "mean": 0.00833333333333336
+          },
+          "choice_matches_target": {
+            "ci_high": 0.4,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.31666666666666665
+          },
+          "n": 120,
+          "round": 13
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "n": 120,
+          "round": 14
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.4083333333333333,
+            "ci_low": 0.24166666666666667,
+            "mean": 0.325
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.40854166666666364,
+            "ci_low": 0.24166666666666667,
+            "mean": 0.325
+          },
+          "n": 120,
+          "round": 15
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.4,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.31666666666666665
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.4,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.31666666666666665
+          },
+          "n": 120,
+          "round": 16
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.30833333333333335
+          },
+          "n": 120,
+          "round": 17
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "n": 120,
+          "round": 18
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.4166666666666667,
+            "ci_low": 0.25,
+            "mean": 0.3333333333333333
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.4166666666666667,
+            "ci_low": 0.25,
+            "mean": 0.3333333333333333
+          },
+          "n": 120,
+          "round": 19
+        },
+        {
+          "belief_choice_agreement": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0
+          },
+          "belief_matches_target": {
+            "ci_high": 0.4,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.31666666666666665
+          },
+          "belief_minus_choice": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_target": {
+            "ci_high": 0.4,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.31666666666666665
+          },
+          "n": 120,
+          "round": 20
+        }
+      ],
+      "by_rounds_since_swap": [
+        {
+          "belief_matches_new": {
+            "ci_high": 0.4166666666666667,
+            "ci_low": 0.25,
+            "mean": 0.3333333333333333
+          },
+          "belief_matches_old": {
+            "ci_high": 0.4166666666666667,
+            "ci_low": 0.25,
+            "mean": 0.3333333333333333
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.425,
+            "ci_low": 0.25,
+            "mean": 0.3333333333333333
+          },
+          "choice_matches_old": {
+            "ci_high": 0.425,
+            "ci_low": 0.25,
+            "mean": 0.3333333333333333
+          },
+          "n": 120,
+          "rounds_since_swap": -9
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.4166666666666667,
+            "ci_low": 0.25,
+            "mean": 0.3333333333333333
+          },
+          "belief_matches_old": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.4166666666666667,
+            "ci_low": 0.25,
+            "mean": 0.3333333333333333
+          },
+          "choice_matches_old": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "n": 120,
+          "rounds_since_swap": -8
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "belief_matches_old": {
+            "ci_high": 0.4583333333333333,
+            "ci_low": 0.2916666666666667,
+            "mean": 0.375
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "choice_matches_old": {
+            "ci_high": 0.4666666666666667,
+            "ci_low": 0.29145833333333343,
+            "mean": 0.375
+          },
+          "n": 120,
+          "rounds_since_swap": -7
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "belief_matches_old": {
+            "ci_high": 0.49166666666666664,
+            "ci_low": 0.325,
+            "mean": 0.4083333333333333
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.024999999999999994,
+            "ci_low": -0.024999999999999967,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "choice_matches_old": {
+            "ci_high": 0.5,
+            "ci_low": 0.325,
+            "mean": 0.4083333333333333
+          },
+          "n": 120,
+          "rounds_since_swap": -6
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.4166666666666667,
+            "ci_low": 0.25,
+            "mean": 0.3333333333333333
+          },
+          "belief_matches_old": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.4166666666666667,
+            "ci_low": 0.25,
+            "mean": 0.3333333333333333
+          },
+          "choice_matches_old": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "n": 120,
+          "rounds_since_swap": -5
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.425,
+            "ci_low": 0.25833333333333336,
+            "mean": 0.3416666666666667
+          },
+          "belief_matches_old": {
+            "ci_high": 0.44166666666666665,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.425,
+            "ci_low": 0.25833333333333336,
+            "mean": 0.3416666666666667
+          },
+          "choice_matches_old": {
+            "ci_high": 0.44166666666666665,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "n": 120,
+          "rounds_since_swap": -4
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.38333333333333336,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3
+          },
+          "belief_matches_old": {
+            "ci_high": 0.475,
+            "ci_low": 0.3,
+            "mean": 0.38333333333333336
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": -0.025000000000000022,
+            "mean": -0.00833333333333336
+          },
+          "choice_matches_new": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "choice_matches_old": {
+            "ci_high": 0.4583333333333333,
+            "ci_low": 0.2916666666666667,
+            "mean": 0.375
+          },
+          "n": 120,
+          "rounds_since_swap": -3
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.4083333333333333,
+            "ci_low": 0.24166666666666667,
+            "mean": 0.325
+          },
+          "belief_matches_old": {
+            "ci_high": 0.44166666666666665,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.4083333333333333,
+            "ci_low": 0.24166666666666667,
+            "mean": 0.325
+          },
+          "choice_matches_old": {
+            "ci_high": 0.45,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "n": 120,
+          "rounds_since_swap": -2
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.4083333333333333,
+            "ci_low": 0.24166666666666667,
+            "mean": 0.325
+          },
+          "belief_matches_old": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.4083333333333333,
+            "ci_low": 0.24166666666666667,
+            "mean": 0.325
+          },
+          "choice_matches_old": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "n": 120,
+          "rounds_since_swap": -1
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.4,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.31666666666666665
+          },
+          "belief_matches_old": {
+            "ci_high": 0.4666666666666667,
+            "ci_low": 0.2916666666666667,
+            "mean": 0.375
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.4,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.31666666666666665
+          },
+          "choice_matches_old": {
+            "ci_high": 0.4583333333333333,
+            "ci_low": 0.2916666666666667,
+            "mean": 0.375
+          },
+          "n": 120,
+          "rounds_since_swap": 0
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.36666666666666664,
+            "ci_low": 0.20833333333333334,
+            "mean": 0.2833333333333333
+          },
+          "belief_matches_old": {
+            "ci_high": 0.4583333333333333,
+            "ci_low": 0.2916666666666667,
+            "mean": 0.375
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.36666666666666664,
+            "ci_low": 0.20833333333333334,
+            "mean": 0.2833333333333333
+          },
+          "choice_matches_old": {
+            "ci_high": 0.4583333333333333,
+            "ci_low": 0.2916666666666667,
+            "mean": 0.375
+          },
+          "n": 120,
+          "rounds_since_swap": 1
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "belief_matches_old": {
+            "ci_high": 0.44166666666666665,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.025000000000000022,
+            "ci_low": 0.0,
+            "mean": 0.00833333333333336
+          },
+          "choice_matches_new": {
+            "ci_high": 0.38333333333333336,
+            "ci_low": 0.21666666666666667,
+            "mean": 0.3
+          },
+          "choice_matches_old": {
+            "ci_high": 0.45,
+            "ci_low": 0.2833333333333333,
+            "mean": 0.36666666666666664
+          },
+          "n": 120,
+          "rounds_since_swap": 2
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.4083333333333333,
+            "ci_low": 0.24166666666666667,
+            "mean": 0.325
+          },
+          "belief_matches_old": {
+            "ci_high": 0.425,
+            "ci_low": 0.25833333333333336,
+            "mean": 0.3416666666666667
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.025000000000000022,
+            "ci_low": 0.0,
+            "mean": 0.00833333333333336
+          },
+          "choice_matches_new": {
+            "ci_high": 0.4,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.31666666666666665
+          },
+          "choice_matches_old": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "n": 120,
+          "rounds_since_swap": 3
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "belief_matches_old": {
+            "ci_high": 0.45,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "choice_matches_old": {
+            "ci_high": 0.44166666666666665,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "n": 120,
+          "rounds_since_swap": 4
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.4083333333333333,
+            "ci_low": 0.24166666666666667,
+            "mean": 0.325
+          },
+          "belief_matches_old": {
+            "ci_high": 0.4583333333333333,
+            "ci_low": 0.2833333333333333,
+            "mean": 0.36666666666666664
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.4083333333333333,
+            "ci_low": 0.24166666666666667,
+            "mean": 0.325
+          },
+          "choice_matches_old": {
+            "ci_high": 0.45,
+            "ci_low": 0.275,
+            "mean": 0.36666666666666664
+          },
+          "n": 120,
+          "rounds_since_swap": 5
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.4,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.31666666666666665
+          },
+          "belief_matches_old": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.4,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.31666666666666665
+          },
+          "choice_matches_old": {
+            "ci_high": 0.43354166666666366,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "n": 120,
+          "rounds_since_swap": 6
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "belief_matches_old": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "choice_matches_old": {
+            "ci_high": 0.43354166666666366,
+            "ci_low": 0.26666666666666666,
+            "mean": 0.35
+          },
+          "n": 120,
+          "rounds_since_swap": 7
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "belief_matches_old": {
+            "ci_high": 0.44166666666666665,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.39166666666666666,
+            "ci_low": 0.225,
+            "mean": 0.30833333333333335
+          },
+          "choice_matches_old": {
+            "ci_high": 0.44166666666666665,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "n": 120,
+          "rounds_since_swap": 8
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.4166666666666667,
+            "ci_low": 0.25,
+            "mean": 0.3333333333333333
+          },
+          "belief_matches_old": {
+            "ci_high": 0.425,
+            "ci_low": 0.25833333333333336,
+            "mean": 0.3416666666666667
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.4166666666666667,
+            "ci_low": 0.25,
+            "mean": 0.3333333333333333
+          },
+          "choice_matches_old": {
+            "ci_high": 0.43333333333333335,
+            "ci_low": 0.25833333333333336,
+            "mean": 0.3416666666666667
+          },
+          "n": 120,
+          "rounds_since_swap": 9
+        },
+        {
+          "belief_matches_new": {
+            "ci_high": 0.4,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.31666666666666665
+          },
+          "belief_matches_old": {
+            "ci_high": 0.44166666666666665,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "belief_minus_choice_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.4,
+            "ci_low": 0.23333333333333334,
+            "mean": 0.31666666666666665
+          },
+          "choice_matches_old": {
+            "ci_high": 0.44166666666666665,
+            "ci_low": 0.275,
+            "mean": 0.35833333333333334
+          },
+          "n": 120,
+          "rounds_since_swap": 10
+        }
+      ],
+      "by_transition": {
+        "expertise_to_fairness": {
+          "belief_matches_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "n_episodes": 20,
+          "n_records": 100
+        },
+        "expertise_to_risk": {
+          "belief_matches_new": {
+            "ci_high": 0.08,
+            "ci_low": 0.0,
+            "mean": 0.03
+          },
+          "choice_matches_new": {
+            "ci_high": 0.03,
+            "ci_low": 0.0,
+            "mean": 0.01
+          },
+          "n_episodes": 20,
+          "n_records": 100
+        },
+        "fairness_to_expertise": {
+          "belief_matches_new": {
+            "ci_high": 0.97,
+            "ci_low": 0.74,
+            "mean": 0.87
+          },
+          "choice_matches_new": {
+            "ci_high": 0.97,
+            "ci_low": 0.74,
+            "mean": 0.87
+          },
+          "n_episodes": 20,
+          "n_records": 100
+        },
+        "fairness_to_risk": {
+          "belief_matches_new": {
+            "ci_high": 0.17,
+            "ci_low": 0.02,
+            "mean": 0.09
+          },
+          "choice_matches_new": {
+            "ci_high": 0.18,
+            "ci_low": 0.02,
+            "mean": 0.09
+          },
+          "n_episodes": 20,
+          "n_records": 100
+        },
+        "risk_to_expertise": {
+          "belief_matches_new": {
+            "ci_high": 0.98,
+            "ci_low": 0.74,
+            "mean": 0.87
+          },
+          "choice_matches_new": {
+            "ci_high": 0.98,
+            "ci_low": 0.73,
+            "mean": 0.87
+          },
+          "n_episodes": 20,
+          "n_records": 100
+        },
+        "risk_to_fairness": {
+          "belief_matches_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "choice_matches_new": {
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "mean": 0.0
+          },
+          "n_episodes": 20,
+          "n_records": 100
+        }
+      },
+      "n_episodes": 120,
+      "n_records": 2400,
+      "post_swap_rounds_1_to_5_belief_minus_choice_new": {
+        "ci_high": 0.010000000000000009,
+        "ci_low": 0.0,
+        "mean": 0.003333333333333355,
+        "n_episodes": 120
+      },
+      "stated_p_a_selected": {
+        "brier_selected": {
+          "ci_high": 0.3131019010416667,
+          "ci_low": 0.2917226041666667,
+          "mean": 0.302246875
+        },
+        "mean_realized_target_p_a": {
+          "ci_high": 0.5073583333333334,
+          "ci_low": 0.4814297916666667,
+          "mean": 0.49475
+        },
+        "mean_stated": {
+          "ci_high": 0.7162296875,
+          "ci_low": 0.6755802083333334,
+          "mean": 0.6961458333333334
+        },
+        "mean_stated_when_match_regime": 0.7075308641975308,
+        "mean_stated_when_mismatch_regime": 0.6903459119496854,
+        "n": 2400
+      }
+    }
+  },
+  "seed": 20260903
+}

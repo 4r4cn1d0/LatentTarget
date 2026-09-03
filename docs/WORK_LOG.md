@@ -1463,3 +1463,40 @@ synthetic validation and from claims that still require a real model.
 - **Status:** V4 (Qwen) remains the only positive result, now with a
   documented failure to replicate on a second family under the identical
   frozen design. Arm E1 (Qwen, elicited beliefs) started 09:29Z; pending.
+
+## 2026-09-03 — Arm E1 result: eliciting beliefs removes the V4 learning effect; belief and choice are one object
+
+- **Run:** 09:29–13:19Z, same pod; 3,600 records pulled gzip-streamed,
+  tarball SHA-256 `10c80e9f…d91aa33`, line count verified; pod
+  `8okwbdycp0h4a8` terminated at 13:22Z after both pulls verified. Hourly
+  snapshots of the partial log were taken as insurance against a RunPod
+  host-alert on the account; not needed.
+- **Analysis (as corrected in the declaration before E1 started):**
+  `scripts/analyze_elicited_choices.py` (frozen functions/thresholds,
+  within-arm) and `scripts/analyze_elicited_beliefs.py` →
+  `results/v4_real/elicited_qwen38/`. 3,600/3,600 valid JSON; no fallback.
+- **Result:** verdict `ELICITED_LEARNING_FAIL_REVISION_FAIL`. Elicited
+  full-history gain −0.020 [−0.053, 0.010] against V4's 0.187; elicited −
+  spontaneous difference −0.207 [−0.317, −0.097]; late held-out match 0.333
+  (chance). Swap: nothing (new-frame gain −0.007). The model picks expertise
+  94.2% of full-history rounds and never picks fairness.
+- **Belief vs choice:** the choice is the argmax of the stated p_a in every
+  one of 3,600 records; post-swap P(belief = new) − P(choice = new) = 0.003.
+  Stated confidence is a fixed frame ranking (expertise 0.69 > risk 0.58 >
+  fairness 0.49) that moves ≈ 0.05 with feedback without changing the
+  choice; stated 0.695 vs realized 0.494 for the selected candidate
+  (Brier 0.30). Win-stay/lose-shift gap 0.025 (V4 spontaneous 0.183).
+- **Reading:** no stated belief that the behaviour ignores; no evidence of a
+  separable partner model. And the V4 learning effect is prompt-specific:
+  the same model, design, seeds, targets and bank show zero learning when
+  the output format changes. With Arm R1 (absent in Gemma), the positive V4
+  result is now bracketed on both sides. Caveats recorded in the declaration
+  (untuned elicited prompt; own predictions visible in history; 96 tokens).
+- **Write-up:** Result 6 and fig_w9 generated; sourced numbers added.
+- **Cost:** pod 8okwbdycp0h4a8 ran 08:33–13:22Z ≈ 4.8 h × $1.59 ≈ $7.7 for
+  both arms (10,800 real-model generations). Ledger: $39.50 → **$31.03
+  (−$8.47)**, matching the pod-hour reconstruction within $0.8. Only the V5
+  volume ($0.01/hr) is still billing.
+- **Status:** `V4_POSITIVE_BUT_MODEL_AND_PROMPT_SPECIFIC`. V4 (Qwen,
+  spontaneous prompt) remains the only positive result; it does not
+  replicate on Gemma-4-31B and does not survive belief elicitation on Qwen.

@@ -103,3 +103,51 @@ the shuffled-history choice 90.5% of the time). Default strength does not
 explain the difference; feedback use does. This is a model-level property,
 not a design artefact — the same bank, seeds, and analyzer produced learning
 in Qwen the day before.
+
+## Outcome, Arm E1 (Qwen3.8-27B, elicited beliefs) — 2026-09-03, analyzed once
+
+Run 09:29–13:19Z on the same pod; log `data/raw/v4e-qwen38.jsonl` (3,600
+records, tarball SHA-256 `10c80e9f…d91aa33`). Primary:
+`scripts/analyze_elicited_choices.py` (frozen functions and thresholds,
+within-arm; V4 spontaneous arm as the declared cross-prompt comparison).
+Secondary: `scripts/analyze_elicited_beliefs.py`. Both →
+`results/v4_real/elicited_qwen38/`. 3,600/3,600 valid JSON, valid beliefs,
+no fallback; slots balanced (0.31/0.35/0.35).
+
+**The V4 learning effect disappears under the elicited prompt.** Within-arm
+verdict `ELICITED_LEARNING_FAIL_REVISION_FAIL`.
+
+| metric | E1 elicited (Qwen) | V4 spontaneous (Qwen) |
+|---|---|---|
+| full-history learning gain (late held-out − early) | −0.020 [−0.053, 0.010], p = 0.90 | 0.187 [0.083, 0.290] |
+| elicited − spontaneous learning gain (unpaired episode bootstrap) | −0.207 [−0.317, −0.097] | — |
+| late held-out match, full history | 0.333 | 0.570 |
+| swap: new-frame gain / new-over-old, p | −0.007 / −0.035, p = 0.67 | 0.24 / ≈0 |
+| full-history frame shares (fairness / risk / expertise) | 0.000 / 0.058 / 0.942 | learned mix |
+| P(repeat frame | success) − P(repeat | failure) | 0.933 − 0.908 = 0.025 | 0.876 − 0.693 = 0.183 |
+| choice = argmax of stated p_a | 3,600 / 3,600 | — |
+| mean stated p_a by candidate frame (fairness / risk / expertise) | 0.494 / 0.581 / 0.691 | — |
+| stated p_a of selected vs realized target P(A) | 0.695 vs 0.494 (Brier 0.30) | — |
+| post-swap rounds 1–5: P(belief = new) − P(choice = new) | 0.003 [0.000, 0.010] | — |
+
+Against the pre-stated analysis: belief and choice do not merely "move
+together" — they are the same object (the choice is the argmax of the stated
+probabilities in every record), and neither moves. The stated confidence is a
+fixed frame ranking (expertise > risk > fairness) that responds to feedback by
+about 0.05 (0.705 after a success vs 0.660 after a failure for the repeated
+frame) without ever changing the choice. So there is no stated belief that
+the behaviour ignores, and no evidence of a separable model of the partner.
+
+**The larger point.** Same model, same design, same seeds and targets, same
+bank: changing the output format from a bare `1|2|3` to a JSON object with
+stated probabilities removed the learning entirely (difference −0.207, CI
+excluding zero). Together with Arm R1, the V4 learning result is now known
+to be both **model-specific** (absent in Gemma-4-31B) and
+**prompt-specific** (absent in Qwen under the elicited prompt).
+
+Limitations of E1, stated: the elicited prompt was never tuned (V4's was);
+the elicited history also shows the model its own past predictions, which
+may anchor it; and `max_tokens` 96 leaves no room for reasoning. E1 cannot
+separate "the format change" from "seeing own predictions". Neither caveat
+rescues the stated-belief question: the model's stated probabilities carry
+no information about the partner that its choices lack.
