@@ -134,10 +134,12 @@ def fig5_first_crossing_bias():
             d = np.array(d, float); boots = [rng.choice(d, len(d)).mean() for _ in range(300)]; lo = np.quantile(boots, .025); leads.append(d.mean()); excl += lo > 0
         res.append((acc, np.mean(leads), excl / reps))
     fig, ax = plt.subplots(figsize=(5.6, 3.4), dpi=150); ax.bar([("%.2f" % a) for a, _, _ in res], [l for _, l, _ in res], color="#d62728", width=.5)
+    ax.set_ylim(0, max(l for _, l, _ in res) * 1.35)
     for i, (a, l, e) in enumerate(res): ax.text(i, l + .05, "CI excludes 0\nin %.0f%% of runs" % (100 * e), ha="center", fontsize=7)
     style(ax, "First-crossing lag: apparent 'probe leads behaviour' from probe NOISE alone\n(behaviour flips at round 3; probe has NO target information)", "probe accuracy (chance = 0.33)", "apparent lead (rounds)")
     fig.savefig(os.path.join(OUT, "fig_w5_first_crossing_bias.png"), bbox_inches="tight"); plt.close(fig)
-    for a, l, e in res: N("first-crossing bias at probe acc %.2f: apparent lead / CI-excludes-0 rate" % a, "%.2f / %.2f" % (l, e), "scripts/make_writeup_materials.py fig5 (seed 0)")
+    for a, l, e in res: N("first-crossing bias at probe acc %.2f: apparent lead / CI-excludes-0 rate" % a, "%.2f / %.2f" % (l, e), "scripts/make_writeup_materials.py fig5 (seed 0; simpler noise model than docs/V7_REVIEW.md, which reported 0.74 / 0.71)")
+    return res
 
 
 def random_examples(k=5, seed=0):
@@ -153,7 +155,7 @@ def random_examples(k=5, seed=0):
 def main():
     os.makedirs(OUT, exist_ok=True)
     s = json.load(open(V4_SUM))
-    fig1_learning(); per, grp = fig2_swap(); fig3_priors(); fig4_v8_power(); fig5_first_crossing_bias()
+    fig1_learning(); per, grp = fig2_swap(); fig3_priors(); fig4_v8_power(); fc = fig5_first_crossing_bias()
     m = s["stable_condition_metrics"]; pv = {}
     def walk(x, pre=""):
         for kk, v in (x.items() if isinstance(x, dict) else []):
@@ -174,7 +176,7 @@ def main():
           "- Result 2 (revision): after the silent swap, new-frame use rose and old-frame use fell *symmetrically*; the registered final new-vs-old test failed. Mechanism: a large expertise default — swaps into expertise adapted %s, into fairness %s (fig_w2)." % (next(("%d of %d" % (r.adapted, r.n)) for _, r in grp.iterrows() if r.dir.startswith("into")), "%d of %d" % (int(per[per.new_type == "fairness"].adapted.sum()), int(per[per.new_type == "fairness"].n.sum()))),
           "- Result 3 (cross-family default): no-history frame shares — Qwen V4 bank %s; Qwen V5 bank %s; Gemma-4-31B V5 bank %s. The expertise attractor is a task property, not a model quirk (fig_w3)." % (numbers[[n[0] for n in numbers].index("Qwen V4-bank no-history shares (f/r/e)")][1], numbers[[n[0] for n in numbers].index("Qwen V5-bank no-history shares (f/r/e)")][1], numbers[[n[0] for n in numbers].index("Gemma-4 V5-bank no-history shares (f/r/e)")][1]),
           "- Result 4 (four successors, four pre-registered stops): V5 (bank cannot be balanced), V6 (balance gate infeasible at every N; 120k-study screen), V7 (own feasibility rule fails; adversarial review: pooled rule passes on default-attraction), V8 (destination-stratified gate underpowered at N≤30 vs the weakest registered learner; Type I controlled, 0 joint rejections / 6,000 null studies). Nothing frozen or spent after a failed gate.",
-          "- Methodological finding: a first-crossing 'probe leads behaviour' lag metric is biased by probe noise — a chance-level probe appears to lead by ~0.7 rounds with a CI excluding 0 in ~70% of runs (fig_w5). Replaced before any real probe was trained.",
+          "- Methodological finding: a first-crossing 'probe leads behaviour' lag metric is biased by probe noise — a chance-level probe appears to lead by %.2f rounds with a CI excluding 0 in %.0f%% of runs under fig_w5's noise model (0.74 rounds / 71%% under the review's). Replaced before any real probe was trained." % (fc[0][1], 100 * fc[0][2]),
           "- What was NOT done: no activation capture, probe, or steering on a real model (gated behind a passed revision test that never came); no human validation of the message bank (two blind machine judges only).",
           "", "## Randomly selected V4 examples (seed 0, lines drawn uniformly from the 7,200-record log)", "",
           "The model sees the three candidates **without** frame labels; labels shown here are the registered ground truth. `→` marks the model's choice."]
