@@ -212,14 +212,20 @@ def fig7_replication():
 
 def fig9_elicited():
     """Arm E1 (declared 2026-09-03): Qwen3.8-27B with elicited beliefs; primary = frozen V4 choice metrics, secondary = belief vs choice."""
-    summ = os.path.join(E1_DIR, "v4_checkpoint_summary.json")
+    summ = os.path.join(E1_DIR, "elicited_choice_summary.json")
     if not os.path.exists(summ):
         return None
-    s = json.load(open(summ)); out = {"summary": s}
+    s = json.load(open(summ)); s["decision"] = s.get("verdict"); out = {"summary": s}
+    sw = s["swap_metrics"]; N("E1 elicited_swap new gain / old drop / new-over-old (p) / adapted", "%.3f / %.3f / %.3f (p=%.4f) / %d of %d" % (sw["new_target_gain"]["mean"], sw["old_target_drop"]["mean"], sw["late_new_over_old"]["mean"], sw["late_new_over_old"]["p_value_one_sided"], sw["n_adapted"], sw["n_episodes"]), "elicited_choice_summary.json swap_metrics")
+    for tr, t in sw.get("by_transition", {}).items(): N("E1 elicited_swap %s new gain / old drop / adapted" % tr, "%.3f / %.3f / %d of %d" % (t["new_target_gain"], t["old_target_drop"], t["n_adapted"], t["n"]), "elicited_choice_summary.json swap_metrics.by_transition")
+    c = s.get("cross_prompt_comparison_vs_v4_spontaneous")
+    if c:
+        N("E1 − V4 spontaneous: full-history learning gain diff, 95%% CI", "%.3f [%.3f, %.3f]" % (c["learning_gain_diff"]["mean"], c["learning_gain_diff"]["ci_lo"], c["learning_gain_diff"]["ci_hi"]), "elicited_choice_summary.json cross_prompt_comparison")
+        N("E1 − V4 spontaneous: swap new-target gain diff, 95%% CI", "%.3f [%.3f, %.3f]" % (c["swap_new_target_gain_diff"]["mean"], c["swap_new_target_gain_diff"]["ci_lo"], c["swap_new_target_gain_diff"]["ci_hi"]), "elicited_choice_summary.json cross_prompt_comparison")
     for cond, mm in s.get("stable_condition_metrics", {}).items():
         if "learning_gain" in mm:
-            g = mm["learning_gain"]; N("E1 elicited %s learning gain (late held-out − early), 95%% CI" % cond, "%.3f [%.3f, %.3f], n=%d" % (g["mean"], g["ci_lo"], g["ci_hi"], g["n"]), "elicited_qwen38/v4_checkpoint_summary.json")
-    N("E1 elicited decision", s.get("decision"), "elicited_qwen38/v4_checkpoint_summary.json decision")
+            g = mm["learning_gain"]; N("E1 elicited %s learning gain (late held-out − early), 95%% CI" % cond, "%.3f [%.3f, %.3f], n=%d" % (g["mean"], g["ci_lo"], g["ci_hi"], g["n"]), "elicited_qwen38/elicited_choice_summary.json")
+    N("E1 elicited verdict (within-arm gates)", s.get("verdict"), "elicited_qwen38/elicited_choice_summary.json verdict")
     if os.path.exists(E1_BELIEF):
         b = json.load(open(E1_BELIEF)); out["beliefs"] = b; v = b["belief_validity"]
         N("E1 beliefs valid / selection valid / fallback", "%.3f / %.3f / %.3f (n=%d)" % (v["beliefs_valid_rate"], v["selection_valid_rate"], v["fallback_rate"], b["n_elicited_records"]), "elicited_belief_summary.json belief_validity")

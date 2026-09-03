@@ -50,3 +50,19 @@ One A100-80GB pod, both arms sequentially, ≈ 4–5 pod-hours ≈ $7. Both arms
 is pulled with hash verification and analyzed once with
 `scripts/analyze_controlled_v4.py` against its own spec. Failure of any audit
 stops that arm; the other still runs.
+
+## Correction, 2026-09-03 (before Arm E1 started; Arm R1 in progress, no R1 outcome read)
+
+"Analyzed once with `scripts/analyze_controlled_v4.py` against its own spec"
+is not executable for Arm E1: the frozen evaluator refuses a log that lacks
+the five V4 conditions, and E1 deliberately contains only the two elicited
+ones. Arm R1 is unaffected (all five conditions). For E1 the primary choice
+analysis is `scripts/analyze_elicited_choices.py`, which applies the frozen
+evaluator's *own* functions and thresholds (`_stable_episode_summaries`,
+`_swap_episode_summaries`, `_bootstrap_mean`, `_sign_flip_test`,
+`CONTROLLED_GATE_THRESHOLDS`, one-sided α) within the arm, and lists the V4
+gates that need control conditions as *not computable within E1*. The V4
+spontaneous arm's `full_history`/`swap` episodes are the declared cross-prompt
+comparison, reported with an unpaired episode bootstrap. The secondary
+belief analysis is `scripts/analyze_elicited_beliefs.py`. Both scripts and
+their tests were committed before any E1 record existed.

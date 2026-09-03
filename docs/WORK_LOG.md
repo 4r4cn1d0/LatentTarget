@@ -1417,3 +1417,13 @@ synthetic validation and from claims that still require a real model.
 - **Status while this runs:** unchanged
   (`V8_STOPPED_UNDERPOWERED_AT_REGISTERED_GRID`; V4 the only real result).
   Results will be appended below this entry, whatever they are.
+- **Analysis-plan correction (same day, before E1 started):** the frozen V4
+  evaluator refuses an elicited-only log (it requires all five V4
+  conditions), so the declaration's "frozen analyzer, run once per arm" was
+  not executable for Arm E1. Fixed by `scripts/analyze_elicited_choices.py`,
+  which calls the frozen evaluator's own functions and thresholds on the
+  elicited conditions and names the gates that cannot be computed within the
+  arm; addendum appended to `docs/V4_REPLICATION_DECLARATION.md`. Arm R1 is
+  unaffected. The write-up generator was pre-wired for both arms and
+  dry-tested on stand-in copies (removed afterwards); it prints PENDING until
+  the real result directories exist.
