@@ -37,6 +37,7 @@ R1_DIR = os.path.join(ROOT, "results", "v4_real", "replication_gemma4")   # Arm 
 E1_DIR = os.path.join(ROOT, "results", "v4_real", "elicited_qwen38")      # Arm E1: Qwen3.8-27B, elicited beliefs
 E1_BELIEF = os.path.join(E1_DIR, "beliefs", "elicited_belief_summary.json")
 E1_LOG = os.path.join(ROOT, "data", "raw", "v4e-qwen38.jsonl")
+P1_DIR = os.path.join(ROOT, "results", "v4_real", "paraphrase_qwen38")     # Arm P1: Qwen3.8-27B, reworded spontaneous prompt
 FRAMES = ("fairness", "risk", "expertise")
 COL = {"full_history": "#1f77b4", "no_history": "#ff7f0e", "shuffled_history": "#2ca02c", "random_target": "#d62728", "swap": "#9467bd"}
 numbers = []  # (label, value, source)
@@ -327,6 +328,24 @@ def fig9_elicited():
     return out
 
 
+def p1_paraphrase():
+    """Arm P1: frozen V4 design on Qwen with a reworded spontaneous prompt; frozen analyzer run once."""
+    summ = os.path.join(P1_DIR, "v4_checkpoint_summary.json")
+    if not os.path.exists(summ):
+        return None
+    s = json.load(open(summ)); m = s["stable_condition_metrics"]
+    for cond in ("full_history", "no_history", "shuffled_history", "random_target"):
+        g = m[cond]["learning_gain"]; N("P1 paraphrase %s learning gain (late held-out − early), 95%% CI" % cond, "%.3f [%.3f, %.3f], n=%d" % (g["mean"], g["ci_lo"], g["ci_hi"], g["n"]), "paraphrase_qwen38/v4_checkpoint_summary.json")
+    st = pd.read_csv(os.path.join(P1_DIR, "tables", "v4_stable_conditions.csv"))
+    for _, r in st.iterrows(): N("P1 paraphrase %s early / late held-out match" % r.condition, "%.3f / %.3f" % (r.early_match, r.late_heldout_match), "paraphrase_qwen38/tables/v4_stable_conditions.csv")
+    pc = s["primary_contrasts"]["full_vs_no_difference_in_differences"]; N("P1 paraphrase full − no-history difference-in-differences, one-sided p", "%.3f [%.3f, %.3f], p=%.4f" % (pc["mean"], pc["ci_lo"], pc["ci_hi"], pc["p_value_one_sided"]), "paraphrase_qwen38/v4_checkpoint_summary.json primary_contrasts")
+    for t, v in s["late_match_by_target_type"].items(): N("P1 paraphrase late match by target %s: full / no-history / advantage" % t, "%.3f / %.3f / %.3f" % (v["full_late_heldout"], v["no_history_late_heldout"], v["advantage"]), "paraphrase_qwen38/v4_checkpoint_summary.json late_match_by_target_type")
+    sw = s["swap_metrics"]; N("P1 paraphrase swap new gain / old drop / new-over-old (p) / adapted", "%.3f / %.3f / %.3f (p=%.4f) / %d of %d" % (sw["new_target_gain"]["mean"], sw["old_target_drop"]["mean"], sw["late_new_over_old"]["mean"], sw["late_new_over_old"]["p_value_one_sided"], sw["n_adapted"], sw["n_episodes"]), "paraphrase_qwen38/v4_checkpoint_summary.json swap_metrics")
+    N("P1 paraphrase decision", s["decision"], "paraphrase_qwen38/v4_checkpoint_summary.json decision")
+    N("P1 paraphrase stable primary randomization test passed", s["inference_gates"]["stable_primary_randomization_test"], "paraphrase_qwen38/v4_checkpoint_summary.json inference_gates")
+    return {"summary": s}
+
+
 def fig11_whole_story():
     """One figure for the summary: full-history match by round for V4 Qwen, R1 Gemma, E1 Qwen-elicited, with V4 no-history as the reference."""
     r1 = os.path.join(R1_DIR, "tables", "v4_round_trajectories.csv"); e1 = os.path.join(E1_DIR, "tables", "elicited_round_trajectories.csv")
@@ -334,10 +353,12 @@ def fig11_whole_story():
         return None
     tq = pd.read_csv(V4_TRAJ); tg = pd.read_csv(r1); te = pd.read_csv(e1)
     ref = tq[(tq.metric == "match") & (tq.condition == "no_history")].sort_values("round")
-    panels = [("Qwen3.8-27B, spontaneous prompt (V4)", tq, "full_history", COL["full_history"]),
-              ("Gemma-4-31B, same design (Arm R1)", tg, "full_history", "#9467bd"),
-              ("Qwen3.8-27B, must state beliefs (Arm E1)", te, "elicited_full_history", "#8c564b")]
-    fig, axes = plt.subplots(1, 3, figsize=(13, 3.9), dpi=150, sharey=True)
+    panels = [("Qwen3.8-27B, spontaneous prompt (V4)", tq, "full_history", COL["full_history"])]
+    p1 = os.path.join(P1_DIR, "tables", "v4_round_trajectories.csv")
+    if os.path.exists(p1): panels.append(("Qwen3.8-27B, reworded prompt (Arm P1)", pd.read_csv(p1), "full_history", "#17becf"))
+    panels += [("Gemma-4-31B, same design (Arm R1)", tg, "full_history", "#9467bd"),
+               ("Qwen3.8-27B, must state beliefs (Arm E1)", te, "elicited_full_history", "#8c564b")]
+    fig, axes = plt.subplots(1, len(panels), figsize=(4.4 * len(panels), 3.9), dpi=150, sharey=True)
     for ax, (title, t, cond, color) in zip(axes, panels):
         g = t[(t.metric == "match") & (t.condition == cond)].sort_values("round")
         ax.plot(g["round"], g["mean"], marker="o", ms=3.2, lw=1.8, color=color, label="with own history (n=%d episodes)" % int(g["n"].iloc[0]))
@@ -362,7 +383,7 @@ def random_examples(k=5, seed=0, log_path=None):
 def main():
     os.makedirs(OUT, exist_ok=True)
     s = json.load(open(V4_SUM))
-    fig1_learning(); per, grp = fig2_swap(); fig6_per_target(); fig3_priors(); fig4_v8_power(); fc = fig5_first_crossing_bias(); r1 = fig7_replication(); hs = fig10_history_sensitivity(); e1 = fig9_elicited(); whole = fig11_whole_story()
+    fig1_learning(); per, grp = fig2_swap(); fig6_per_target(); fig3_priors(); fig4_v8_power(); fc = fig5_first_crossing_bias(); r1 = fig7_replication(); hs = fig10_history_sensitivity(); e1 = fig9_elicited(); p1 = p1_paraphrase(); whole = fig11_whole_story()
     m = s["stable_condition_metrics"]; pv = {}
     def walk(x, pre=""):
         for kk, v in (x.items() if isinstance(x, dict) else []):
@@ -389,6 +410,7 @@ def main():
           "- Methodological finding: a first-crossing 'probe leads behaviour' lag metric is biased by probe noise — a chance-level probe appears to lead by %.2f rounds with a CI excluding 0 in %.0f%% of runs under fig_w5's noise model (0.74 rounds / 71%% under the review's). Replaced before any real probe was trained." % (fc[0][1], 100 * fc[0][2]),
           ("- Result 5 (replication, Arm R1 — Gemma-4-31B on the frozen V4 design, run once, 7,200/7,200 valid): does NOT replicate. Decision `%s`; full-history learning gain %s (Qwen: 0.187 [0.083, 0.290]); revision test passed = %s. Gemma picks expertise ~90%% of rounds whatever the history: its choice equals the shuffled-history choice on the identical triple %.1f%% of the time (Qwen %.1f%%), and P(repeat frame) is %.3f after a success vs %.3f after a failure (Qwen %.3f vs %.3f). Per target the small movement is *toward* the default (expertise full 1.00 vs no-history 0.72; fairness 0.01 vs 0.16). The frozen V4 learning result is, so far, Qwen-specific (fig_w7, fig_w8, fig_w10)." % (r1["summary"]["decision"], numbers[[n[0] for n in numbers].index("R1 Gemma full_history learning gain (late held-out − early), 95% CI")][1], r1["summary"]["inference_gates"]["swap_revision_randomization_test"], 100 * hs["gemma"]["agreement"]["shuffled_history"][0], 100 * hs["qwen"]["agreement"]["shuffled_history"][0], hs["gemma"]["p_repeat_after_success"], hs["gemma"]["p_repeat_after_failure"], hs["qwen"]["p_repeat_after_success"], hs["qwen"]["p_repeat_after_failure"])) if (r1 and hs) else "- Result 5 (replication, Arm R1 — Gemma-4-31B): PENDING (declared 2026-09-03, docs/V4_REPLICATION_DECLARATION.md).",
           ("- Result 6 (elicited belief, Arm E1 — same Qwen, same design, seeds and targets, but forced to state p_a per candidate and then choose; run once, 3,600/3,600 valid JSON): the V4 learning effect DISAPPEARS. Within-arm verdict `%s`; elicited full-history gain %s (V4 spontaneous 0.187); elicited − spontaneous learning-gain difference %s. Under this prompt the model picks expertise %.1f%% of rounds and never picks fairness; the choice is the argmax of its stated p_a in %d of %d records, so 'belief' and 'choice' are one object; stated confidence is a fixed frame ranking (expertise %.2f > risk %.2f > fairness %.2f) that barely moves with feedback (P(repeat) %.3f after success vs %.3f after failure; V4: 0.876 vs 0.693); post-swap P(belief=new) − P(choice=new) = %s. There is no stated belief that the behaviour ignores; and the V4 learning result is prompt-specific as well as model-specific (fig_w9)." % (e1["summary"].get("verdict"), next((n[1] for n in numbers if n[0].startswith("E1 elicited elicited_full_history learning gain")), "n/a"), next((n[1] for n in numbers if n[0].startswith("E1 − V4 spontaneous: full-history learning gain")), "n/a"), 100 * e1["diag"]["shares"].get("expertise", 0), e1["diag"]["argmax_eq"], e1["diag"]["n"], e1["diag"]["byf"].get("expertise", float("nan")), e1["diag"]["byf"].get("risk", float("nan")), e1["diag"]["byf"].get("fairness", float("nan")), e1["diag"]["ws"], e1["diag"]["ls"], next((n[1] for n in numbers if n[0].startswith("E1 elicited_swap post-swap rounds 1-5")), "n/a"))) if (e1 and e1.get("diag")) else "- Result 6 (elicited belief, Arm E1 — Qwen3.8-27B): PENDING (declared 2026-09-03).",
+          ("- Result 7 (prompt paraphrase, Arm P1 — same Qwen, same design, seeds, targets and bank, spontaneous prompt reworded): decision `%s`; full-history learning gain %s (V4: 0.187 [0.083, 0.290]); full − no-history DiD %s; stable randomization test passed = %s (fig_w11, second panel)." % (p1["summary"]["decision"], next((n[1] for n in numbers if n[0] == "P1 paraphrase full_history learning gain (late held-out − early), 95% CI"), "n/a"), next((n[1] for n in numbers if n[0].startswith("P1 paraphrase full − no-history")), "n/a"), p1["summary"]["inference_gates"]["stable_primary_randomization_test"])) if p1 else "- Result 7 (prompt paraphrase, Arm P1 — Qwen3.8-27B, reworded spontaneous prompt): PENDING (declared 2026-09-03).",
           "- What was NOT done: no activation capture, probe, or steering on a real model (gated behind a passed revision test that never came, and now moot: no behavioural effect survives a model or prompt change); no human validation of the message bank yet (two blind machine judges; a 45-template blind hand-label sheet exists); E1 cannot separate the output-format change from the model seeing its own past predictions.",
           "", "## Randomly selected V4 examples (seed 0, lines drawn uniformly from the 7,200-record log)", "",
           "The model sees the three candidates **without** frame labels; labels shown here are the registered ground truth. `→` marks the model's choice."]
@@ -411,6 +433,7 @@ def main():
            "| V8 | declared milestone; destination-stratified acquisition gate; α=0.05/3 | V8-complete Wilson lower ≥ 0.80 at some N, every measured cell | FAIL (0.10–0.56 vs learner_1); null size clean | docs/V8_MILESTONE_DECLARATION.md |",
            "| R1 | frozen V4 design on Gemma-4-31B (replication) | frozen V4 gates | learning FAIL (gain 0.040); revision FAIL; feedback-insensitive | results/v4_real/replication_gemma4/ |",
            "| E1 | frozen V4 design on Qwen, elicited-belief prompt | frozen V4 functions within-arm | learning FAIL (gain −0.020; −0.207 vs V4); belief = choice | results/v4_real/elicited_qwen38/ |",
+           ("| P1 | frozen V4 design on Qwen, spontaneous prompt reworded | frozen V4 gates | %s | results/v4_real/paraphrase_qwen38/ |" % p1["summary"]["decision"]) if p1 else "| P1 | frozen V4 design on Qwen, spontaneous prompt reworded | frozen V4 gates | PENDING | — |",
            "", "## Numbers sheet", "", "| label | value | source |", "|---|---|---|"]
     md += ["| %s | %s | `%s` |" % (a, b, c) for a, b, c in numbers]
     md += ["", "## Figures", "", "- fig_w1_v4_learning_by_condition.png — match rate by round, four stable conditions, held-out band marked",
