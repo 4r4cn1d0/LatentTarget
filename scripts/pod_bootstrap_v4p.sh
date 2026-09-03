@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# V4 replication (Gemma-4-31B, arm R1) then elicited-belief arm (Qwen3.8-27B, E1),
-# sequentially on one A100-80GB pod. Fail-closed: any audit failure stops that arm.
+# Arm P1: frozen V4 design on Qwen3.8-27B with the reworded spontaneous prompt
+# (prompt_variant=paraphrase_1), on one A100-80GB pod. Fail-closed on any audit failure.
 #   bash bootstrap.sh <COMMIT>
 set -euo pipefail
 COMMIT="${1:?commit sha required}"
@@ -18,5 +18,5 @@ python -m pytest -q -p no:warnings tests/test_v8_protocol_gate.py 2>&1 | tail -1
 python scripts/run_controlled_open_weight.py --checkpoint-spec docs/v4_paraphrase_qwen38.json --run-id v4p-qwen38 --dry-run | tail -2
 echo "=== ARM P1: Qwen3.8-27B paraphrase ($(date -u +%H:%MZ)) ==="
 python scripts/run_controlled_open_weight.py --checkpoint-spec docs/v4_paraphrase_qwen38.json --run-id v4p-qwen38 --resume --quiet && echo "=== ARM P1 DONE ($(date -u +%H:%MZ)) ==="
-ls -la data/raw/v4r-gemma4.jsonl data/raw/v4e-qwen38.jsonl
+ls -la data/raw/v4p-qwen38.jsonl data/raw/v4p-qwen38.manifest.json
 echo "=== done. Pull data/raw/v4p-qwen38.*, then STOP THE POD. ==="
