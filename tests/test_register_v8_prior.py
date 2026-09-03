@@ -29,15 +29,17 @@ def test_reproduces_the_published_v5_qwen_counts_exactly():
     m = spec["models"]["qwen38_27b"]
     assert m["prior_measured"] is True and m["registered_default_frame"] == "expertise"
     assert m["measured_no_history_shares"]["expertise"] == pytest.approx(300 / 576)
-    ids = [c["cell_id"] for c in spec["nuisance_cells_measured"]]
+    ids = [c["cell_id"] for c in spec["nuisance_cells_measured"] if c["cell_id"].startswith("qwen38_27b_")]
     assert ids == ["qwen38_27b_v5bank_overall", "qwen38_27b_v5bank_heldout"]
 
 
 def test_registration_is_idempotent():
     spec = copy.deepcopy(SPEC)
+    before = len([c for c in spec.get("nuisance_cells_measured", []) if not c["cell_id"].startswith("qwen38_27b_")])
     register(spec, RECORDS, BANK, "qwen38_27b", LOG, None)
     register(spec, RECORDS, BANK, "qwen38_27b", LOG, None)
-    assert len(spec["nuisance_cells_measured"]) == 2
+    qwen = [c for c in spec["nuisance_cells_measured"] if c["cell_id"].startswith("qwen38_27b_")]
+    assert len(qwen) == 2 and len(spec["nuisance_cells_measured"]) == before + 2
 
 
 def test_refuses_a_log_from_the_wrong_model():
@@ -60,3 +62,18 @@ def test_refuses_wrong_record_count():
     spec = copy.deepcopy(SPEC)
     with pytest.raises(ValueError, match="expected 576"):
         register(spec, RECORDS[:-1], BANK, "qwen38_27b", LOG, None)
+
+
+def test_gemma_registration_on_disk_matches_the_raw_log():
+    """The committed protocol must reproduce from the committed Gemma log."""
+    gl = os.path.join(ROOT, "data", "calibration", "v8-gemma4-prior.jsonl")
+    if not os.path.exists(gl):
+        pytest.skip("Gemma log not present")
+    recs = [json.loads(l) for l in open(gl) if l.strip()]
+    spec = copy.deepcopy(SPEC)
+    out = register(spec, recs, BANK, "gemma4_31b", gl, None)
+    reg = SPEC["models"]["gemma4_31b"]
+    assert reg["prior_measured"] is True and reg["registered_default_frame"] == out["default_frame"] == "expertise"
+    for f in ("fairness", "risk", "expertise"):
+        assert reg["measured_no_history_shares"][f] == pytest.approx(out["sections"]["overall"]["shares"][f])
+    assert out["sections"]["overall"]["counts"] == {"fairness": 138, "risk": 70, "expertise": 368}
