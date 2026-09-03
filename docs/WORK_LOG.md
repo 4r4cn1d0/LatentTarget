@@ -1374,3 +1374,46 @@ synthetic validation and from claims that still require a real model.
   ($0.01/hr) remains.
 - **Status unchanged:** `V8_STOPPED_UNDERPOWERED_AT_REGISTERED_GRID`. V4 is
   the only real result. Total project GPU spend to date ≈ $15.6 by ledger.
+
+## 2026-09-03 — V4 replication (Gemma-4-31B) and elicited-belief (Qwen3.8) arms: declared and launched, results pending
+
+- **Why:** the "holes" audit of the V4 result found two that money can close
+  before the deadline: V4 exists on one model family, and V4 never elicited a
+  belief, so "the model's stated model of the partner" was never observed —
+  only its choices. Both arms re-use the **frozen** V4 design verbatim (20
+  rounds, swap after 10, held-out wording 16–20, same bank, seeds,
+  thresholds); nothing is re-tuned.
+- **Declared before any outcome** in `docs/V4_REPLICATION_DECLARATION.md`
+  (`a1d9e2d`). Arm R1 = `docs/v4_replication_gemma4.json`
+  (`google/gemma-4-31B-it` @ `842da379…`, five conditions, 360 episodes,
+  7,200 records). Arm E1 = `docs/v4_elicited_qwen38.json`
+  (`elicited_full_history` + `elicited_swap`, 180 episodes, 3,600 records,
+  `max_tokens` 96, JSON `{"p_a":…,"choice":k}` output). Both passed the
+  frozen audit and the blind message-bank gate under `--dry-run` locally and
+  again on the pod before any model loaded.
+- **Pre-stated predictions (verbatim from the declaration):** R1 (a) H1–H3
+  replicate — full-history learning gain > 0, the three controls flat or below
+  chance; (b) the revision gate fails again with the default-attraction
+  asymmetry (adaptation *into* expertise high, *into* fairness/risk low;
+  Gemma's measured default is expertise at 63.9%); (c) per-target learning is
+  anti-default. If (a) fails, the learning result is Qwen-specific; if (b)
+  fails and revision passes, H4 was a Qwen limitation. E1: primary = frozen
+  V4 choice metrics (does elicitation change behaviour?); secondary =
+  stated belief (argmax p_a) vs choice by round and by rounds-since-swap with
+  episode-bootstrap CIs; **no first-crossing statistic**. If belief-matches-new
+  rises after the swap while choice-matches-new does not, a belief exists that
+  the behaviour ignores; if they move together, the stated belief describes
+  the policy.
+- **Secondary analysis code committed before data:**
+  `scripts/analyze_elicited_beliefs.py` (`8162f3c`), tested on hand-built
+  records and a mock elicited log. Primary analysis for both arms is the
+  unchanged `scripts/analyze_controlled_v4.py`, run once per arm against its
+  own spec.
+- **Launch:** one secure A100-SXM4-80GB pod (`8okwbdycp0h4a8`, $1.59/hr),
+  `scripts/pod_bootstrap_v4r.sh` fetched at `a1d9e2d` (byte-checked), detached
+  via `setsid`. Arm R1 started 2026-09-03 08:39Z; E1 follows automatically.
+  Logs are pulled gzip-streamed with SHA-256 verification; the pod is
+  stopped/terminated afterwards. Estimated ≈ 4–5 pod-hours ≈ $7.
+- **Status while this runs:** unchanged
+  (`V8_STOPPED_UNDERPOWERED_AT_REGISTERED_GRID`; V4 the only real result).
+  Results will be appended below this entry, whatever they are.
