@@ -66,3 +66,40 @@ spontaneous arm's `full_history`/`swap` episodes are the declared cross-prompt
 comparison, reported with an unpaired episode bootstrap. The secondary
 belief analysis is `scripts/analyze_elicited_beliefs.py`. Both scripts and
 their tests were committed before any E1 record existed.
+
+## Outcome, Arm R1 (Gemma-4-31B) — 2026-09-03, analyzed once
+
+Run 08:39–09:29Z on pod `8okwbdycp0h4a8`; log `data/raw/v4r-gemma4.jsonl`
+(7,200 records, tarball SHA-256 `ec415557…081a111`), frozen analyzer against
+`docs/v4_replication_gemma4.json` with default seeds →
+`results/v4_real/replication_gemma4/`. Design integrity PASS; 7,200/7,200
+valid selections; no fallback; slot positions balanced (0.34/0.33/0.33).
+
+**Does not replicate.** Decision `STOP_BEFORE_FREEFORM_OR_MECHANISTIC_SCALING`;
+every effect gate except `random_response_control` fails.
+
+| metric | Gemma-4-31B (R1) | Qwen3.8-27B (V4) |
+|---|---|---|
+| full-history learning gain (late held-out − early) | 0.040 [−0.007, 0.093] | 0.187 [0.083, 0.290] |
+| full − no-history difference-in-differences, one-sided p | 0.040, p = 0.16 | p < 0.001 |
+| no-history / shuffled / random-target gain | 0.000 / −0.017 / 0.010 | 0.000 / −0.054 / ≈0 |
+| swap: new-frame gain / old-frame drop / new-over-old, p | 0.000 / 0.005 / −0.055, p = 0.76 | 0.24 / 0.24 / ≈0, p > 0.05 |
+| full-history frame shares (expertise / fairness / risk) | 0.895 / 0.022 / 0.083 | — |
+| same choice as shuffled-history on the identical triple | 0.905 | 0.637 |
+| P(repeat frame | success) − P(repeat | failure) | 0.972 − 0.941 = 0.031 | 0.876 − 0.693 = 0.183 |
+
+Prediction (a) **failed**: Gemma does not learn under the frozen design, so
+the learning result is, on present evidence, Qwen-specific. Prediction (b)
+half-held: revision fails, but not through the predicted feedback-driven
+asymmetry — the "adapted" counts (36/40 into expertise, 1/40 into fairness)
+are the pre-existing default, not adaptation (new-frame gain ≈ 0 in every
+transition). Prediction (c) **failed**: per-target movement is *toward* the
+default (expertise 1.00 vs 0.72 no-history; fairness 0.01 vs 0.16).
+
+Reading: Gemma's no-history default is *weaker* than Qwen's on this bank
+(0.787 vs 0.922 expertise), yet it is almost insensitive to feedback
+(win-stay/lose-shift gap 0.03 vs 0.18) and to history content (choice equals
+the shuffled-history choice 90.5% of the time). Default strength does not
+explain the difference; feedback use does. This is a model-level property,
+not a design artefact — the same bank, seeds, and analyzer produced learning
+in Qwen the day before.

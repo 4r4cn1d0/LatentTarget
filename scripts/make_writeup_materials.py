@@ -32,6 +32,7 @@ V4_STAB = os.path.join(ROOT, "results", "v4_real", "checkpoint", "tables", "v4_s
 V8_SCREEN = os.path.join(ROOT, "results", "v8_design", "screen", "v8_screen_qwen_measured.json")
 V8_NULL = os.path.join(ROOT, "results", "v8_design", "screen", "v8_null_size_qwen_measured.json")
 V8_SPEC = os.path.join(ROOT, "docs", "v8_protocol.json")
+R1_LOG = os.path.join(ROOT, "data", "raw", "v4r-gemma4.jsonl")
 R1_DIR = os.path.join(ROOT, "results", "v4_real", "replication_gemma4")   # Arm R1: Gemma-4-31B, frozen V4 design
 E1_DIR = os.path.join(ROOT, "results", "v4_real", "elicited_qwen38")      # Arm E1: Qwen3.8-27B, elicited beliefs
 E1_BELIEF = os.path.join(E1_DIR, "beliefs", "elicited_belief_summary.json")
@@ -210,6 +211,56 @@ def fig7_replication():
     return {"summary": s, "per": per, "grp": grp}
 
 
+def _history_sensitivity(log_path):
+    """Two model-free diagnostics of whether choices depend on history at all (not gates; computed from the raw log).
+    (a) win-stay/lose-shift: P(repeat last frame | last round succeeded) - P(repeat | failed), full_history;
+    (b) same-choice agreement between full_history and shuffled_history / random_target / no_history on the identical
+        candidate triple (same episode index and round; V4 seeds make the triples identical across these conditions)."""
+    recs = [json.loads(l) for l in open(log_path)]
+    fh = {}
+    for r in recs:
+        if r["condition"] == "full_history": fh.setdefault(r["episode_id"], []).append(r)
+    rs = rf = ns = nf = 0
+    for rows in fh.values():
+        rows.sort(key=lambda r: r["round"])
+        for prev, cur in zip(rows, rows[1:]):
+            if prev["target_success"]: ns += 1; rs += cur["selected_frame"] == prev["selected_frame"]
+            else: nf += 1; rf += cur["selected_frame"] == prev["selected_frame"]
+    by = {}
+    for r in recs: by.setdefault(r["condition"], {})[(r["episode_index"], r["round"])] = r
+    agree = {}
+    for other in ("shuffled_history", "no_history", "random_target"):
+        keys = set(by["full_history"]) & set(by.get(other, {})); same = n = 0
+        for k in keys:
+            a, b = by["full_history"][k], by[other][k]
+            if [c["candidate_id"] for c in a["candidates"]] == [c["candidate_id"] for c in b["candidates"]]:
+                n += 1; same += a["selected_slot"] == b["selected_slot"]
+        agree[other] = (same / n if n else float("nan"), n)
+    return {"p_repeat_after_success": rs / ns, "n_success": ns, "p_repeat_after_failure": rf / nf, "n_failure": nf, "agreement": agree}
+
+
+def fig10_history_sensitivity():
+    if not os.path.exists(R1_LOG):
+        return None
+    q = _history_sensitivity(V4_LOG); g = _history_sensitivity(R1_LOG)
+    fig, axes = plt.subplots(1, 2, figsize=(10, 3.8), dpi=150)
+    ax = axes[0]; x = np.arange(2)
+    ax.bar(x - .18, [q["p_repeat_after_success"], g["p_repeat_after_success"]], .36, color="#2ca02c", label="after a success")
+    ax.bar(x + .18, [q["p_repeat_after_failure"], g["p_repeat_after_failure"]], .36, color="#d62728", label="after a failure")
+    ax.set_xticks(x); ax.set_xticklabels(["Qwen3.8-27B (V4)", "Gemma-4-31B (R1)"]); ax.set_ylim(0, 1.05)
+    style(ax, "Full history: P(repeat last round's frame)", "", "probability"); ax.legend(fontsize=7, frameon=False, loc="lower left")
+    ax = axes[1]; labels = ["vs shuffled\nhistory", "vs no\nhistory", "vs random\ntarget"]; x = np.arange(3)
+    ax.bar(x - .18, [q["agreement"][k][0] for k in ("shuffled_history", "no_history", "random_target")], .36, color="#1f77b4", label="Qwen3.8-27B (V4)")
+    ax.bar(x + .18, [g["agreement"][k][0] for k in ("shuffled_history", "no_history", "random_target")], .36, color="#9467bd", label="Gemma-4-31B (R1)")
+    ax.set_xticks(x); ax.set_xticklabels(labels, fontsize=8); ax.set_ylim(0, 1.05)
+    style(ax, "Same choice as full_history on the identical candidate triple", "", "agreement"); ax.legend(fontsize=7, frameon=False, loc="lower left")
+    fig.savefig(os.path.join(OUT, "fig_w10_history_sensitivity_qwen_vs_gemma.png"), bbox_inches="tight"); plt.close(fig)
+    for name, d in (("Qwen V4", q), ("Gemma R1", g)):
+        N("%s full_history: P(repeat frame | success) / P(repeat | failure) / gap" % name, "%.3f / %.3f / %.3f (n=%d/%d)" % (d["p_repeat_after_success"], d["p_repeat_after_failure"], d["p_repeat_after_success"] - d["p_repeat_after_failure"], d["n_success"], d["n_failure"]), "raw log, full_history consecutive rounds")
+        for k, (v, n) in d["agreement"].items(): N("%s same choice as full_history: %s" % (name, k), "%.3f (n=%d identical triples)" % (v, n), "raw log, paired by episode index and round")
+    return {"qwen": q, "gemma": g}
+
+
 def fig9_elicited():
     """Arm E1 (declared 2026-09-03): Qwen3.8-27B with elicited beliefs; primary = frozen V4 choice metrics, secondary = belief vs choice."""
     summ = os.path.join(E1_DIR, "elicited_choice_summary.json")
@@ -255,7 +306,7 @@ def random_examples(k=5, seed=0):
 def main():
     os.makedirs(OUT, exist_ok=True)
     s = json.load(open(V4_SUM))
-    fig1_learning(); per, grp = fig2_swap(); fig6_per_target(); fig3_priors(); fig4_v8_power(); fc = fig5_first_crossing_bias(); r1 = fig7_replication(); e1 = fig9_elicited()
+    fig1_learning(); per, grp = fig2_swap(); fig6_per_target(); fig3_priors(); fig4_v8_power(); fc = fig5_first_crossing_bias(); r1 = fig7_replication(); hs = fig10_history_sensitivity(); e1 = fig9_elicited()
     m = s["stable_condition_metrics"]; pv = {}
     def walk(x, pre=""):
         for kk, v in (x.items() if isinstance(x, dict) else []):
@@ -278,7 +329,7 @@ def main():
           "- Result 3 (cross-family default): no-history frame shares — Qwen V4 bank %s; Qwen V5 bank %s; Gemma-4-31B V5 bank %s. The expertise attractor is a task property, not a model quirk (fig_w3)." % (numbers[[n[0] for n in numbers].index("Qwen V4-bank no-history shares (f/r/e)")][1], numbers[[n[0] for n in numbers].index("Qwen V5-bank no-history shares (f/r/e)")][1], numbers[[n[0] for n in numbers].index("Gemma-4 V5-bank no-history shares (f/r/e)")][1]),
           "- Result 4 (four successors, four pre-registered stops): V5 (bank cannot be balanced), V6 (balance gate infeasible at every N; 120k-study screen), V7 (own feasibility rule fails; adversarial review: pooled rule passes on default-attraction), V8 (destination-stratified gate underpowered at N≤30 vs the weakest registered learner; Type I controlled, 0 joint rejections / 6,000 null studies). Nothing frozen or spent after a failed gate.",
           "- Methodological finding: a first-crossing 'probe leads behaviour' lag metric is biased by probe noise — a chance-level probe appears to lead by %.2f rounds with a CI excluding 0 in %.0f%% of runs under fig_w5's noise model (0.74 rounds / 71%% under the review's). Replaced before any real probe was trained." % (fc[0][1], 100 * fc[0][2]),
-          ("- Result 5 (replication, Arm R1 — Gemma-4-31B on the frozen V4 design): decision `%s`; full-history learning gain %s; revision test passed = %s; swaps into expertise adapted %s, into fairness %s (fig_w7, fig_w8)." % (r1["summary"]["decision"], numbers[[n[0] for n in numbers].index("R1 Gemma full_history learning gain (late held-out − early), 95% CI")][1], r1["summary"]["inference_gates"]["swap_revision_randomization_test"], (r1["grp"][r1["grp"]["dir"] == "into expertise (default)"].apply(lambda r: "%d/%d" % (r.adapted, r.n), axis=1).iloc[0] if r1["grp"] is not None else "n/a"), (r1["per"][r1["per"].new_type == "fairness"].pipe(lambda d: "%d/%d" % (d.adapted.sum(), d.n.sum())) if r1["per"] is not None else "n/a"))) if r1 else "- Result 5 (replication, Arm R1 — Gemma-4-31B): PENDING (declared 2026-09-03, docs/V4_REPLICATION_DECLARATION.md).",
+          ("- Result 5 (replication, Arm R1 — Gemma-4-31B on the frozen V4 design, run once, 7,200/7,200 valid): does NOT replicate. Decision `%s`; full-history learning gain %s (Qwen: 0.187 [0.083, 0.290]); revision test passed = %s. Gemma picks expertise ~90%% of rounds whatever the history: its choice equals the shuffled-history choice on the identical triple %.1f%% of the time (Qwen %.1f%%), and P(repeat frame) is %.3f after a success vs %.3f after a failure (Qwen %.3f vs %.3f). Per target the small movement is *toward* the default (expertise full 1.00 vs no-history 0.72; fairness 0.01 vs 0.16). The frozen V4 learning result is, so far, Qwen-specific (fig_w7, fig_w8, fig_w10)." % (r1["summary"]["decision"], numbers[[n[0] for n in numbers].index("R1 Gemma full_history learning gain (late held-out − early), 95% CI")][1], r1["summary"]["inference_gates"]["swap_revision_randomization_test"], 100 * hs["gemma"]["agreement"]["shuffled_history"][0], 100 * hs["qwen"]["agreement"]["shuffled_history"][0], hs["gemma"]["p_repeat_after_success"], hs["gemma"]["p_repeat_after_failure"], hs["qwen"]["p_repeat_after_success"], hs["qwen"]["p_repeat_after_failure"])) if (r1 and hs) else "- Result 5 (replication, Arm R1 — Gemma-4-31B): PENDING (declared 2026-09-03, docs/V4_REPLICATION_DECLARATION.md).",
           ("- Result 6 (elicited belief, Arm E1 — Qwen3.8-27B forced to state p_a per candidate then choose): choice decision `%s`; post-swap rounds 1–5 P(belief=new) − P(choice=new) = %s (fig_w9). Belief/choice agreement and stated-p_a calibration in the numbers sheet." % (e1["summary"].get("decision"), next((n[1] for n in numbers if n[0].startswith("E1 elicited_swap post-swap rounds 1-5")), "n/a"))) if e1 else "- Result 6 (elicited belief, Arm E1 — Qwen3.8-27B): PENDING (declared 2026-09-03).",
           "- What was NOT done: no activation capture, probe, or steering on a real model (gated behind a passed revision test that never came); no human validation of the message bank (two blind machine judges only).",
           "", "## Randomly selected V4 examples (seed 0, lines drawn uniformly from the 7,200-record log)", "",
@@ -302,7 +353,8 @@ def main():
            "- fig_w5_first_crossing_bias.png — apparent probe lead from noise alone",
            "- fig_w6_v4_learning_by_target.png — per hidden target: full vs no-history vs shuffled; learning is largest where the default is weakest",
            "- fig_w7_replication_learning_qwen_vs_gemma.png — Arm R1: match rate by round, Qwen (V4) vs Gemma-4-31B (same frozen design)" if r1 else "- fig_w7 (replication): pending",
-           "- fig_w8_replication_swap_by_transition_gemma.png — Arm R1: Gemma revision by transition" if r1 else "- fig_w8 (replication swap): pending",
+           "- fig_w8_replication_swap_by_transition_gemma.png — Arm R1: Gemma revision by transition (adapted counts are dominated by the pre-existing expertise default)" if r1 else "- fig_w8 (replication swap): pending",
+           "- fig_w10_history_sensitivity_qwen_vs_gemma.png — win-stay/lose-shift and cross-condition agreement: does the choice depend on history at all?" if hs else "- fig_w10 (history sensitivity): pending",
            "- fig_w9_elicited_belief_vs_choice.png — Arm E1: stated belief vs choice by round, and after the silent swap by rounds since swap" if e1 else "- fig_w9 (elicited belief): pending", ""]
     open(os.path.join(OUT, "WRITEUP_MATERIALS.md"), "w").write("\n".join(md)); print("wrote", OUT, "with", len(numbers), "sourced numbers and", len(ex), "random examples")
 

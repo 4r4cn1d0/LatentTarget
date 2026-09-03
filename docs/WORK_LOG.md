@@ -1427,3 +1427,39 @@ synthetic validation and from claims that still require a real model.
   unaffected. The write-up generator was pre-wired for both arms and
   dry-tested on stand-in copies (removed afterwards); it prints PENDING until
   the real result directories exist.
+
+## 2026-09-03 — Arm R1 result: Gemma-4-31B does NOT replicate the V4 learning effect
+
+- **Run:** 08:39–09:29Z, pod `8okwbdycp0h4a8`, bootstrap at `a1d9e2d`; 7,200
+  records pulled gzip-streamed, tarball SHA-256 `ec415557…081a111`, line
+  count verified. Frozen analyzer run once against
+  `docs/v4_replication_gemma4.json` (default seeds) →
+  `results/v4_real/replication_gemma4/`. Design integrity PASS, 7,200/7,200
+  valid, no fallback, slots balanced — the run is clean.
+- **Result:** decision `STOP_BEFORE_FREEFORM_OR_MECHANISTIC_SCALING`; every
+  effect gate except `random_response_control` fails. Full-history learning
+  gain 0.040 [−0.007, 0.093] (Qwen: 0.187 [0.083, 0.290]); full − no-history
+  difference-in-differences 0.040, p = 0.16; swap new-frame gain 0.000,
+  new-over-old −0.055, p = 0.76.
+- **Diagnosis (raw-log diagnostics, not gates):** Gemma picks expertise
+  0.895 of full-history rounds; its choice equals the *shuffled-history*
+  choice on the identical candidate triple 90.5% of the time (Qwen 63.7%),
+  the random-target choice 98.0%, the no-history choice 80.5%.
+  Win-stay/lose-shift: P(repeat frame | success) 0.972 vs P(repeat | failure)
+  0.941 — a 0.03 gap against Qwen's 0.18. Per-target movement is toward the
+  default (expertise full 1.00 vs no-history 0.72; fairness 0.01 vs 0.16), the
+  opposite of Qwen's anti-default pattern. Gemma's no-history default is
+  *weaker* than Qwen's on this bank (0.787 vs 0.922), so default strength
+  does not explain the non-replication; feedback insensitivity does.
+- **Against the pre-stated predictions:** (a) failed — the V4 learning
+  result is, on present evidence, Qwen-specific; (b) revision fails but not by
+  the predicted mechanism (the 36/40 "adapted into expertise" are the
+  standing default, new-frame gain ≈ 0 everywhere); (c) failed. Recorded in
+  `docs/V4_REPLICATION_DECLARATION.md` (Outcome section).
+- **Write-up:** `scripts/make_writeup_materials.py` now emits Result 5,
+  fig_w7 (learning by round, Qwen vs Gemma), fig_w8 (Gemma swap by
+  transition), fig_w10 (win-stay/lose-shift and cross-condition agreement,
+  both models), and the sourced numbers above.
+- **Status:** V4 (Qwen) remains the only positive result, now with a
+  documented failure to replicate on a second family under the identical
+  frozen design. Arm E1 (Qwen, elicited beliefs) started 09:29Z; pending.

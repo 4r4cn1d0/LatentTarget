@@ -15,7 +15,28 @@ manipulate, profile or exploit anything.
 
 ---
 
-## Current status: V8 declared and stopped at its own gate; Gemma-4 shares the expertise default
+## Current status: V4 learning does not replicate on Gemma-4-31B (Arm R1, 2026-09-03); elicited-belief arm pending
+
+Two arms of the **frozen** V4 design were declared before any outcome
+(`docs/V4_REPLICATION_DECLARATION.md`) and run on one A100 pod on 2026-09-03.
+
+- **Arm R1 — Gemma-4-31B, all five conditions, 7,200 records, run once, clean
+  (7,200/7,200 valid, design integrity PASS): does not replicate.** Decision
+  `STOP_BEFORE_FREEFORM_OR_MECHANISTIC_SCALING`; full-history learning gain
+  0.040 [−0.007, 0.093] against Qwen's 0.187 [0.083, 0.290]; swap new-frame gain
+  0.000. Gemma chooses expertise ~90% of rounds whatever the history: its choice
+  equals the shuffled-history choice on the identical candidate triple 90.5% of
+  the time (Qwen 63.7%), and P(repeat frame) is 0.972 after a success vs 0.941
+  after a failure (Qwen 0.876 vs 0.693). Its no-history default is *weaker*
+  than Qwen's (0.787 vs 0.922 expertise), so default strength does not explain
+  the difference; feedback insensitivity does. On present evidence the V4
+  learning result is Qwen-specific. `results/v4_real/replication_gemma4/`.
+- **Arm E1 — Qwen3.8-27B, elicited beliefs (`elicited_full_history`,
+  `elicited_swap`, 3,600 records):** running; analysis plan and code
+  committed before data (`scripts/analyze_elicited_choices.py`,
+  `scripts/analyze_elicited_beliefs.py`).
+
+## Previous status: V8 declared and stopped at its own gate; Gemma-4 shares the expertise default
 
 An operator-declared V8 (V7's prior-cancelling estimands plus the
 destination-stratified acquisition gate the V7 review required) was screened at
