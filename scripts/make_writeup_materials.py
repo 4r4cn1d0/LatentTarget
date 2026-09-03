@@ -80,6 +80,29 @@ def fig2_swap():
     return per, grp
 
 
+def fig6_per_target():
+    """Learning is anti-default: per hidden target, full-history vs no-history late match."""
+    rows = []
+    with open(V4_LOG) as fh:
+        for line in fh:
+            r = json.loads(line)
+            if r["condition"] in ("full_history", "no_history", "shuffled_history"):
+                rows.append((r["condition"], r["round"], r["hidden_target_type"], int(r["strategy_match"])))
+    df = pd.DataFrame(rows, columns=["condition", "round", "target", "match"])
+    fig, axes = plt.subplots(1, 3, figsize=(10.5, 3.4), dpi=150, sharey=True)
+    for ax, tgt in zip(axes, FRAMES):
+        for cond in ("full_history", "no_history", "shuffled_history"):
+            g = df[(df.target == tgt) & (df.condition == cond)].groupby("round")["match"].mean()
+            ax.plot(g.index, g.values, marker="o", ms=3, lw=1.5, color=COL[cond], label=cond)
+        ax.axhline(1/3, ls="--", lw=1, color="grey"); ax.axvspan(15.5, 20.5, color="#eeeeee", zorder=0); ax.set_ylim(0, 1); ax.set_xticks(range(1, 21, 4))
+        style(ax, "hidden target = %s" % tgt, "round", "P(chosen frame matches)" if tgt == "fairness" else "")
+    axes[0].legend(fontsize=7, frameon=False); fig.suptitle("V4 by hidden target: learning happens away from the expertise default, not toward it", fontsize=10)
+    fig.savefig(os.path.join(OUT, "fig_w6_v4_learning_by_target.png"), bbox_inches="tight"); plt.close(fig)
+    late = df[df["round"] >= 16].groupby(["condition", "target"])["match"].mean()
+    for tgt in FRAMES:
+        N("V4 late match, target=%s: full / no-history / shuffled" % tgt, "%.3f / %.3f / %.3f" % (late[("full_history", tgt)], late[("no_history", tgt)], late[("shuffled_history", tgt)]), "data/raw/qwen38_27b_v4_checkpoint_20260902.jsonl rounds 16-20")
+
+
 def v4_no_history_shares():
     c = Counter()
     with open(V4_LOG) as fh:
@@ -155,7 +178,7 @@ def random_examples(k=5, seed=0):
 def main():
     os.makedirs(OUT, exist_ok=True)
     s = json.load(open(V4_SUM))
-    fig1_learning(); per, grp = fig2_swap(); fig3_priors(); fig4_v8_power(); fc = fig5_first_crossing_bias()
+    fig1_learning(); per, grp = fig2_swap(); fig6_per_target(); fig3_priors(); fig4_v8_power(); fc = fig5_first_crossing_bias()
     m = s["stable_condition_metrics"]; pv = {}
     def walk(x, pre=""):
         for kk, v in (x.items() if isinstance(x, dict) else []):
@@ -174,6 +197,7 @@ def main():
           "- Design (V4, real, preregistered, run once): Qwen3.8-27B @ 1d4bf0f2; 360 episodes, 7,200 choices; each round the model sees three unlabelled candidate messages (one per frame) and picks 1/2/3; the target responds to the candidate's registered frame (P(A)=0.72 match / 0.38 mismatch); rounds 16–20 use separately authored held-out wording; four conditions + silent swap after round 10.",
           "- Result 1 (learning): with its own history the match rate rose 0.383 → 0.570 on held-out rounds; no-history flat at 0.333; shuffled history 0.287 → 0.233; random target flat. Full-history learning gain 0.187 [0.083, 0.290]. Stable randomization test passed.",
           "- Result 2 (revision): after the silent swap, new-frame use rose and old-frame use fell *symmetrically*; the registered final new-vs-old test failed. Mechanism: a large expertise default — swaps into expertise adapted %s, into fairness %s (fig_w2)." % (next(("%d of %d" % (r.adapted, r.n)) for _, r in grp.iterrows() if r.dir.startswith("into")), "%d of %d" % (int(per[per.new_type == "fairness"].adapted.sum()), int(per[per.new_type == "fairness"].n.sum()))),
+          "- Result 1b (per target): learning is anti-default. Late match full vs no-history: expertise 0.86 vs 0.85 (already the default; nothing to learn), fairness 0.24 vs 0.05, risk 0.61 vs 0.10 (fig_w6). The model moves away from expertise when feedback says so — and yet after a swap it re-acquires fairness 0/40 times. Acquisition from scratch works; re-acquisition after a formed preference does not.",
           "- Result 3 (cross-family default): no-history frame shares — Qwen V4 bank %s; Qwen V5 bank %s; Gemma-4-31B V5 bank %s. The expertise attractor is a task property, not a model quirk (fig_w3)." % (numbers[[n[0] for n in numbers].index("Qwen V4-bank no-history shares (f/r/e)")][1], numbers[[n[0] for n in numbers].index("Qwen V5-bank no-history shares (f/r/e)")][1], numbers[[n[0] for n in numbers].index("Gemma-4 V5-bank no-history shares (f/r/e)")][1]),
           "- Result 4 (four successors, four pre-registered stops): V5 (bank cannot be balanced), V6 (balance gate infeasible at every N; 120k-study screen), V7 (own feasibility rule fails; adversarial review: pooled rule passes on default-attraction), V8 (destination-stratified gate underpowered at N≤30 vs the weakest registered learner; Type I controlled, 0 joint rejections / 6,000 null studies). Nothing frozen or spent after a failed gate.",
           "- Methodological finding: a first-crossing 'probe leads behaviour' lag metric is biased by probe noise — a chance-level probe appears to lead by %.2f rounds with a CI excluding 0 in %.0f%% of runs under fig_w5's noise model (0.74 rounds / 71%% under the review's). Replaced before any real probe was trained." % (fc[0][1], 100 * fc[0][2]),
@@ -196,7 +220,8 @@ def main():
            "- fig_w2_v4_swap_by_transition.png — new-frame gain and old-frame drop per ordered transition, with adapted counts",
            "- fig_w3_default_frame_priors.png — no-history frame shares: Qwen on V4 bank, Qwen on V5 bank, Gemma-4 on V5 bank",
            "- fig_w4_v8_power_vs_n.png — V8-complete Wilson lower vs N by learner profile at both measured cells; dotted = stratified test alone",
-           "- fig_w5_first_crossing_bias.png — apparent probe lead from noise alone", ""]
+           "- fig_w5_first_crossing_bias.png — apparent probe lead from noise alone",
+           "- fig_w6_v4_learning_by_target.png — per hidden target: full vs no-history vs shuffled; learning is largest where the default is weakest", ""]
     open(os.path.join(OUT, "WRITEUP_MATERIALS.md"), "w").write("\n".join(md)); print("wrote", OUT, "with", len(numbers), "sourced numbers and", len(ex), "random examples")
 
 
