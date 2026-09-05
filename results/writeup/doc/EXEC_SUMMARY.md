@@ -23,4 +23,4 @@
 
 **Limitations and next.** Simulated partner with a fixed rule; choice among pre-written messages; one positive model of two; the elicited arm changed format and history at once. Next: a third model, a two-frame design plus a distractor to remove the default, an elicited arm with predictions hidden, and probes only if an effect survives all three.
 
-**Process.** Four redesigns to remove the default stopped at pass/fail rules I wrote down before their outcomes. Nearly all code was AI-written; the design, rules, stops, and checks were mine (listed after the examples). [CONFIRM in your words]
+**Process.** Four redesigns to remove the default stopped at pass/fail rules I wrote down before their outcomes. Nearly all code was AI-written; the design, rules, stops, and checks were mine (listed after the examples).

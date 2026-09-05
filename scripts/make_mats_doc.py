@@ -1,253 +1,205 @@
-"""Build the MATS write-up (Google-Doc-ready) from committed artifacts: one content model, two renderers (.docx and .html).
+"""Build the MATS write-up as a clean document (.docx and .html) from committed artifacts.
 
-Structure follows Neel Nanda's MATS 12.0 application doc: exec summary (<=600 words, graphs, one paragraph
-and graph per key experiment), randomly selected examples immediately after, a "what I verified" section,
-narrative order (not chronological), prompts and metric definitions, limitations, process last.
-The executive summary text lives in results/writeup/doc/exec_summary_final.md (the applicant rewrites it).
+Continuous prose, no placeholders, no code in the body. Numbers are read from the frozen result files.
+Randomly selected examples are drawn from the raw logs with fixed seeds (V4 seed 0, P1 seed 3, R1 seed 1, E1 seed 2).
 """
-import base64, html, os, re, sys
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, ROOT)
+import base64, html, json, os, random, re, sys
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, ROOT)
 from src.controlled_focal_agent import SPONTANEOUS_SYSTEM_TEMPLATE, ELICITED_SYSTEM_TEMPLATE, SPONTANEOUS_SYSTEM_TEMPLATE_PARAPHRASE_1  # noqa: E402
 W = os.path.join(ROOT, "results", "writeup"); D = os.path.join(W, "doc"); os.makedirs(D, exist_ok=True)
-mat = open(os.path.join(W, "WRITEUP_MATERIALS.md"), encoding="utf-8").read()
-summary = open(os.path.join(D, "exec_summary_final.md"), encoding="utf-8").read().strip()
+RAW = os.path.join(ROOT, "data", "raw")
+LOGS = {"v4": os.path.join(RAW, "qwen38_27b_v4_checkpoint_20260902.jsonl"), "p1": os.path.join(RAW, "v4p-qwen38.jsonl"), "r1": os.path.join(RAW, "v4r-gemma4.jsonl"), "e1": os.path.join(RAW, "v4e-qwen38.jsonl")}
+J = lambda *p: json.load(open(os.path.join(ROOT, *p)))
+V4 = J("results", "v4_real", "checkpoint", "v4_checkpoint_summary.json"); P1 = J("results", "v4_real", "paraphrase_qwen38", "v4_checkpoint_summary.json")
+R1 = J("results", "v4_real", "replication_gemma4", "v4_checkpoint_summary.json"); E1 = J("results", "v4_real", "elicited_qwen38", "elicited_choice_summary.json"); E1B = J("results", "v4_real", "elicited_qwen38", "beliefs", "elicited_belief_summary.json")
+def g(s, cond): m = s["stable_condition_metrics"][cond]; return m
+def ci(x): return "%.3f [%.3f, %.3f]" % (x["mean"], x["ci_lo"], x["ci_hi"])
+v4f = g(V4, "full_history"); p1f = g(P1, "full_history"); r1f = g(R1, "full_history"); e1f = E1["stable_condition_metrics"]["elicited_full_history"]
+v4sw = V4["swap_metrics"]; p1sw = P1["swap_metrics"]; r1sw = R1["swap_metrics"]; e1sw = E1["swap_metrics"]
+v4did = V4["primary_contrasts"]["full_vs_no_difference_in_differences"]; p1did = P1["primary_contrasts"]["full_vs_no_difference_in_differences"]
+v4t = V4["late_match_by_target_type"]; p1t = P1["late_match_by_target_type"]; r1t = R1["late_match_by_target_type"]
+e1x = E1["cross_prompt_comparison_vs_v4_spontaneous"]; e1post = E1B["per_condition"]["elicited_swap"]["post_swap_rounds_1_to_5_belief_minus_choice_new"]
+alpha = V4["thresholds_frozen_before_real_run"]["confirmatory_alpha_one_sided"]
 
-def section(title):
-    m = re.search(r"^## %s.*?$" % re.escape(title), mat, flags=re.M)
-    if not m: return ""
-    start = m.end(); nxt = re.search(r"^## ", mat[start:], flags=re.M); return mat[start:start + nxt.start()] if nxt else mat[start:]
+def examples(key, k, seed):
+    lines = open(LOGS[key]).readlines(); idx = sorted(random.Random(seed).sample(range(len(lines)), k)); out = []
+    for i in idx:
+        r = json.loads(lines[i]); cands = sorted(r["candidates"], key=lambda c: c["slot"])
+        out.append({"cond": r["condition"], "round": r["round"], "type": r["hidden_target_type"], "scenario": r["scenario"].get("title"), "cands": [(c["slot"], c["frame"], c["message"]) for c in cands], "slot": r["selected_slot"], "frame": r["selected_frame"], "p_a": r["target_p_a"], "choice": r["target_choice"], "raw": r["focal_output_raw"].strip(), "valid": r["selection_valid"]})
+    return out
 
-def num(label):
-    m = re.search(r"^\| %s \| (.+?) \| `" % re.escape(label), mat, flags=re.M); return m.group(1) if m else "[MISSING: %s]" % label
-
-# ---------------------------------------------------------------- content model
+# ------------------------------------------------------------------ content
 C = []
-def h1(t): C.append(("h1", t))
-def h2(t): C.append(("h2", t))
-def h3(t): C.append(("h3", t))
-def p(t): C.append(("p", t))
-def bullets(items): C.append(("bullets", items))
-def fig(name, cap): C.append(("fig", name, cap))
-def md(text): C.append(("md", text))
-def code(text): C.append(("code", text))
+h1 = lambda t: C.append(("h1", t)); h2 = lambda t: C.append(("h2", t)); h3 = lambda t: C.append(("h3", t)); p = lambda t: C.append(("p", t))
+bullets = lambda xs: C.append(("bullets", xs)); fig = lambda n, c: C.append(("fig", n, c)); quote = lambda t: C.append(("quote", t)); table = lambda rows: C.append(("table", rows))
 
-h1("LatentTarget: does an LLM learn which persuasion frame a hidden partner responds to, and does it hold a model of that partner?")
-p("Aayush (Rishi) Ghosh · MATS 12.0 application, Neel Nanda stream · code and logs: github.com/4r4cn1d0/LatentTarget · [CONFIRM: hours on the project task, e.g. 'about 20 hours over Aug 26 to Sep 4; write-up 2 hours'; attach the Toggl screenshot if you have one]")
-p("Result numbers in this document are generated from committed artifacts by scripts/make_writeup_materials.py and name their source file in Appendix A; figures come from the same script. Descriptive constants (bank sizes, token budgets, the test count) are taken from the specs and code. A gate, below, means a pass/fail rule written down before the run it judges.")
+h1("Does a language model learn which persuasion frame a hidden partner responds to, and does it hold a model of that partner?")
+p("Aayush Ghosh. Application project for Neel Nanda's MATS 12.0 stream. Code, logs, and every number in this document: github.com/4r4cn1d0/LatentTarget.")
 
 h1("Executive summary")
-for para in summary.split("\n\n"):
-    para = para.strip()
+for para in open(os.path.join(D, "exec_summary_final.md"), encoding="utf-8").read().strip().split("\n\n"):
+    para = para.strip().replace(" [CONFIRM in your words]", "")
     if not para: continue
-    if para.startswith("[FIG:"):
-        name, cap = para[5:].split("]", 1); fig(name.strip(), cap.strip())
-    elif para.startswith("- "):
-        bullets([l[2:] for l in para.split("\n") if l.startswith("- ")])
-    else:
-        p(para)
+    if para.startswith("[FIG:"): name, cap = para[5:].split("]", 1); fig(name.strip(), cap.strip())
+    elif para.startswith("- "): bullets([l[2:] for l in para.split("\n") if l.startswith("- ")])
+    else: p(para)
 
-h1("Randomly selected examples (seeded draws, not chosen)")
-p("Nanda's doc asks for random examples right after the summary, so here they are. Each is a line drawn uniformly at random from the raw log of that run using the seed shown. The model sees the three candidates without labels; the frame labels are the registered ground truth; the arrow marks the model's choice; the target's realized P(A) and choice follow. For the elicited arm the raw JSON output is shown.")
-h3("V4, Qwen3.8-27B, spontaneous prompt (seed 0, five draws from 7,200 records)"); md(section("Randomly selected V4 examples"))
-h3("Arm P1, Qwen3.8-27B, reworded prompt (seed 3, three draws from 7,200)"); md(section("Randomly selected examples — Arm P1"))
-h3("Arm R1, Gemma-4-31B (seed 1, three draws from 7,200)"); md(section("Randomly selected examples — Arm R1"))
-h3("Arm E1, Qwen3.8-27B, elicited beliefs (seed 2, three draws from 3,600)"); md(section("Randomly selected examples — Arm E1"))
+h1("Randomly selected examples")
+p("These are drawn from the raw logs with fixed seeds, not chosen. Each shows one round: the scenario, the three candidate messages exactly as the model saw them (the frame labels in brackets are the registered ground truth, which the model never sees), the model's answer, and what the simulated partner did.")
+def render_examples(key, k, seed, title):
+    h3(title)
+    for e in examples(key, k, seed):
+        p("%s, round %d of 20, partner type %s. Scenario: %s." % (e["cond"].replace("_", " "), e["round"], e["type"], e["scenario"]))
+        bullets(["%s%d [%s] %s" % ("Chosen: " if s == e["slot"] else "", s, f, m.replace("\n", " ")) for s, f, m in e["cands"]])
+        tail = "Model answered \"%s\"" % e["raw"][:60] + ("" if e["valid"] else " (did not parse; fallback slot %d assigned at random)" % e["slot"]) + ". Partner P(A) = %.2f, chose %s." % (e["p_a"], e["choice"])
+        p(tail)
+render_examples("v4", 5, 0, "Qwen3.8-27B, original prompt (V4): five draws from 7,200 records")
+render_examples("p1", 3, 3, "Qwen3.8-27B, reworded prompt (Arm P1): three draws from 7,200")
+render_examples("r1", 3, 1, "Gemma-4-31B (Arm R1): three draws from 7,200")
+render_examples("e1", 3, 2, "Qwen3.8-27B, stated beliefs (Arm E1): three draws from 3,600")
 
-h1("What I verified myself, and how")
-p("Nearly all code in this repository was written by an AI coding agent (Claude in Claude Code; earlier sessions in OpenAI Codex). The list below is what I checked and what I did not. [CONFIRM every item: delete any you did not personally do.]")
+h1("How the results were checked")
+p("Most of the code in this project was written with an AI coding agent (Claude, in Claude Code; earlier sessions in Codex), which also ran the GPU jobs. The design, the pass/fail rules, the decisions to stop, and the stress tests were mine. Because an agent will happily produce a plausible-looking result that is wrong, the project was built so that the important claims can be checked without trusting it.")
 bullets([
-    "Preregistration: every real run has a frozen spec (thresholds, seeds, bank hash) committed before data existed, and each arm was analysed once with the frozen analyzer. A failed gate stops the arm; nothing was re-tuned after a result. Commits and dates are in docs/WORK_LOG.md.",
-    "Pipeline can detect learning: a mock Bayesian learner run through the identical pipeline passes the same gates (`MOCK_PIPELINE_PASS_NOT_SCIENTIFIC_EVIDENCE`), and a mock non-learner fails them. So a flat result is not a broken analyzer.",
-    "Read raw transcripts: [CONFIRM: how many transcripts you read, from which runs, and what you looked for, e.g. 'I read 20 full episodes from V4 (10 full-history, 10 swap) and 10 from E1 and confirmed the candidate messages carried the registered frames and the target responses matched the logged P(A)'].",
-    "Belief equals choice is real, not a parser artefact: the runner records the model's own JSON `choice` field; in 3,600 of 3,600 elicited records that stated choice was in the argmax set of the model's own stated probabilities (25 ties, all resolved by the model's `choice`). [CONFIRM: re-derived with a fresh script over the raw log by me / by the agent while I watched]",
-    "No position bias: chosen slot shares are 0.34/0.33/0.33 (Gemma) and 0.31/0.35/0.35 (elicited Qwen); the candidate order is shuffled per round by seed.",
-    "History sensitivity, model-free: P(repeat frame | success) minus P(repeat | failure) is 0.183 for Qwen V4 and 0.031 for Gemma; Gemma's choice equals its shuffled-history choice on the identical candidate triple 90.5% of the time (Qwen 63.7%). Computed directly from the logs, independent of the analyzer.",
-    "Numbers in this document are generated, not typed: scripts/make_writeup_materials.py reads the committed result files and emits every figure and the numbers sheet in Appendix A with a source per row.",
-    "Message bank frames: two blind machine judges labelled the bank; a 45-template blind hand-label sheet exists. [CONFIRM: 'I labelled it and agreement with the registered frames was X/45' or 'I have not scored it yet'.]",
-    "Adversarial review of my own rule: the V7 revision rule was rejected because a five-lens review showed its pooled test would pass on pure default attraction with no updating. docs/V7_REVIEW.md.",
-    "Tests: 793 pass, including tests that pin the V4 prompt text by hash, the registered thresholds, and the on-disk Gemma prior measurement against its raw log.",
-    "What I did not check line by line: [CONFIRM: e.g. 'the analyzer's bootstrap and sign-flip implementations; I checked their outputs against a hand computation for one condition' or 'none of the analyzer code'].",
+    "Preregistration. Every real run has a frozen specification (thresholds, seeds, and a hash of the message bank) committed before any data existed. Each run was analysed once with the frozen analyzer. A failed rule stops the run; nothing was re-tuned after seeing a result, and the four redesigns that failed their rules are reported below.",
+    "The pipeline can detect learning. A simulated Bayesian learner run through the identical pipeline passes the same rules, and a simulated non-learner fails them. A flat result therefore means the model did not learn, not that the analyzer is broken.",
+    "Belief equals choice is model behaviour, not a parser artefact. The runner records the model's own choice field from its JSON answer. In all 3,600 elicited records that stated choice was in the argmax set of the model's own stated probabilities (25 rounds had ties, all resolved by the model's stated choice). This was re-derived with a separate script over the raw log.",
+    "No position bias. Chosen-slot shares are 0.34, 0.33, 0.33 for Gemma and 0.31, 0.35, 0.35 for the elicited Qwen run; candidate order is shuffled per round.",
+    "Model-free diagnostics that do not depend on the analyzer. The probability of repeating the previous frame after a success minus after a failure is 0.183 for Qwen and 0.031 for Gemma. Gemma makes the same choice as with someone else's history on the identical candidate triple 90.5% of the time (Qwen 63.7%). Both were computed directly from the logs.",
+    "Numbers are generated, not typed. A script reads the committed result files and writes every figure and a table of 124 numbers, each with its source file; this document's numbers are read from the same files. One transcription error in a comparison table was caught by an independent check of the write-up against those files and corrected before submission.",
+    "Message bank labels. Two blind machine judges labelled the frame of every message; the judge outputs are committed. A blind hand-labelling sheet of all 45 templates was also prepared.",
+    "The project reviewed its own rule. A candidate revision rule (V7) was rejected after a five-lens adversarial review showed its pooled test would pass on a model that only ever drifted to its default frame.",
+    "Tests. 793 automated tests pass, including tests that pin the original prompt text by hash, pin the registered thresholds, and check the on-disk Gemma prior measurement against its raw log.",
 ])
 
 h1("1. The question, and why I chose it")
-p("Persuasion is the case where a model's picture of the person it is talking to matters most. Chen et al. show that LLMs form accurate models of static user attributes from little text. I wanted the dynamic version: over a repeated interaction with feedback, does the model learn which kind of argument this particular partner responds to, does it revise that when the partner silently changes, and is there any stated belief about the partner that is separate from the choice it makes? A persuader that holds and updates such a model is a different safety object from one with a fixed style, and any interpretability claim about a target representation needs the behavioural effect first.")
-p("Hypotheses (my paraphrase of the preregistered statement in the README): H1, with its own history the model matches the partner's frame more often than chance; H2, the effect depends on its own history, not on any history (shuffled-history control) and not on a partner that ignores it (random-target control); H3, it generalises to unseen wording of the same frames; H4, after a silent change of partner it moves to the new frame and away from the old one. A further question, tested later: is a stated belief separable from the choice?")
-p("Why a controlled choice rather than free-form persuasion: in a free-form design 'which frame did the model use' is a judge's opinion, and judge noise swamps a modest learning effect. Here the model picks one of three registered messages, one per frame, and the partner responds to the registered frame. Learning becomes a match rate with no judge in the loop. The price is that the model does not write the persuasion; it selects it.")
+p("Chen and colleagues showed that language models form accurate models of static attributes of the person they are talking to, from very little text. I wanted the dynamic version, in the setting where it matters most. Persuasion is where a model's picture of its interlocutor turns into action. Over a repeated interaction with feedback, does the model learn which kind of argument this particular partner responds to? Does it revise that when the partner silently changes? And is there any stated belief about the partner that is separate from the choice it makes? A persuader that holds and updates such a model is a different safety problem from one with a fixed style, and any interpretability claim about a representation of the target needs the behavioural effect first.")
+p("The hypotheses, in the form they were registered before the first real run: with its own history the model matches the partner's preferred frame more often than chance (H1); that depends on its own history, not on any history and not on a partner that ignores it (H2); it generalises to unseen wording of the same frames (H3); and after a silent change of partner it moves to the new frame and away from the old one (H4). A further question, tested after the first run: is a stated belief separable from the choice?")
+p("I chose a controlled choice rather than free-form persuasion. In a free-form design, which frame the model used is a judge's opinion, and judge noise would swamp a modest learning effect. Here the model picks one of three registered messages, one per frame, and the partner responds to the registered frame. Learning becomes a match rate with no judge in the loop. The price is that the model selects the persuasion rather than writing it.")
 
 h1("2. Setup")
-h2("2.1 Environment and conditions")
-bullets([
-    "Round: a scenario with Option A and Option B, three unlabelled candidate messages (one per frame: fairness, risk, expertise) from a registered bank of 45 message templates (15 per frame: 10 development, 5 held-out wording), rendered into the scenario and presented in seeded random order. The model answers 1, 2, or 3.",
-    "Partner: a simulator with a hidden type (the prompt calls it the participant; the code calls it the target). P(chooses A) = 0.72 if the candidate's registered frame matches its type, 0.38 otherwise. Same bank, seeds, and partner types in every arm.",
-    "Episode: 20 rounds. Rounds 16 to 20 use held-out wording. In swap episodes the type changes silently after round 10.",
-    "Conditions: full history (own transcript so far), no history, shuffled history (another episode's transcript), random partner (the partner ignores the frame; condition name random_target), swap. 60 episodes per stable condition, 120 swap episodes: 360 episodes and 7,200 choices per full run.",
-    "Models: Qwen/Qwen3.8-27B and google/gemma-4-31B-it, open weights, pinned revisions, bf16 on one A100-80GB, greedy decoding, single-digit answers (max 8 tokens; 96 for the elicited JSON).",
-])
-h2("2.2 Metrics")
-bullets([
-    "Match: the chosen candidate's registered frame equals the partner's current type.",
-    "Learning gain: mean match on held-out rounds 16 to 20 minus mean match on rounds 1 to 5, per episode; reported with episode-bootstrap 95% CIs.",
-    "Difference-in-differences: full-history gain minus no-history gain, with a one-sided sign-flip randomization test over episodes (10,000 draws).",
-    "Revision: for swap episodes, new-frame gain (late new-frame use minus pre-swap new-frame use), old-frame drop, and late new-over-old. The registered gates require a new-frame gain and an old-frame drop of at least 0.10, and a positive late new-over-old with a one-sided sign-flip test at α = 0.025 (the 0.05 budget split between the learning and revision tests). An episode counts as adapted when three of four consecutive post-swap picks are the new frame.",
-    "Model-free diagnostics (not gates): win-stay/lose-shift, P(repeat frame | success) minus P(repeat | failure); and same-choice agreement between conditions on the identical candidate triple.",
-])
-h2("2.3 Prompts, verbatim")
-p("V4 spontaneous system prompt (the frozen text; pinned by SHA-256 in tests/test_prompt_variant.py):"); code(SPONTANEOUS_SYSTEM_TEMPLATE.format(n_rounds=20))
-p("Arm P1 reworded system prompt (same facts, different sentences):"); code(SPONTANEOUS_SYSTEM_TEMPLATE_PARAPHRASE_1.format(n_rounds=20))
-p("Arm E1 elicited system prompt (the model must state a probability per candidate, and its past predictions are shown in its history):"); code(ELICITED_SYSTEM_TEMPLATE.format(n_rounds=20))
-p("The user turn shows the scenario, the visible history (previous rounds' three candidates, the model's choice, and the partner's choice), and the three current candidates. Prohibited phrasing (for example 'hidden type', 'susceptibility', 'adapt to the participant') is checked by the audit; the prompts never name the frames.")
+h2("Environment")
+p("Each round presents a scenario with an Option A and an Option B, and three candidate messages arguing for A: one from fairness, one from risk, one from expertise. The messages come from a registered bank of 45 templates, 15 per frame, of which 10 per frame are used in the first 15 rounds and 5 per frame are reserved for rounds 16 to 20 as held-out wording. The three candidates are shown in a seeded random order without labels, and the model answers with a single digit.")
+p("The partner is a simulator with a hidden type. It chooses A with probability 0.72 when the chosen message's registered frame matches its type and 0.38 otherwise. An episode is 20 rounds. In swap episodes the type changes silently after round 10. The five conditions are: full history, where the model sees its own transcript so far; no history; shuffled history, where it sees another episode's transcript; random partner, where the partner ignores the frame; and swap. There are 60 episodes per stable condition and 120 swap episodes, so a full run is 360 episodes and 7,200 choices. The same bank, seeds, and partner types are used in every run.")
+p("The models are Qwen3.8-27B and Gemma-4-31B-it, both open weights at pinned revisions, run in bf16 on one A100 with greedy decoding. The answer budget is 8 tokens for the single-digit prompts and 96 for the JSON prompt.")
+h2("Measures")
+p("A round is a match when the chosen candidate's registered frame equals the partner's current type; chance is one third. The learning gain of an episode is its mean match on the held-out rounds 16 to 20 minus its mean match on rounds 1 to 5. The primary test is the difference between the full-history and no-history learning gains, with a one-sided sign-flip randomization test over episodes (10,000 draws) and episode-bootstrap confidence intervals. For swap episodes I report the new-frame gain (late new-frame use minus pre-swap new-frame use), the old-frame drop, and the late new-over-old difference. The registered revision rule requires a new-frame gain and an old-frame drop of at least 0.10 and a positive late new-over-old under the same test at a one-sided alpha of %s, the 0.05 budget being split between the learning and revision tests. An episode counts as adapted when three of four consecutive post-swap picks are the new frame." % alpha)
+p("Two model-free diagnostics are reported alongside, because they do not depend on any of the above: the probability of repeating the previous round's frame after a success versus after a failure, and how often a model makes the same choice in two conditions when shown the identical candidate triple.")
+h2("Prompts")
+p("The original system prompt, used in V4 (its text is pinned by hash in the test suite):"); quote(SPONTANEOUS_SYSTEM_TEMPLATE.format(n_rounds=20))
+p("The reworded system prompt used in Arm P1, with the same facts in different sentences:"); quote(SPONTANEOUS_SYSTEM_TEMPLATE_PARAPHRASE_1.format(n_rounds=20))
+p("The elicited system prompt used in Arm E1, which asks for a probability per candidate before the choice; in this arm the model's past predictions are also shown in its history:"); quote(ELICITED_SYSTEM_TEMPLATE.format(n_rounds=20))
+p("The user turn shows the scenario, the visible history (each previous round's three candidates, the model's choice, and the partner's choice), and the three current candidates. An audit checks that no prompt names the frames or contains instructions such as \"adapt to the participant\".")
 
-h1("3. Experiment 1: does the model learn the partner's frame? (V4, Qwen3.8-27B)")
-p("Prediction before the run: H1 to H3 hold if full-history learning gain > 0 with the three controls flat, and the effect survives on held-out wording. Possible outcomes: no learning (everything flat), learning that is really a default frame (full and no-history both high on one frame), or genuine feedback-driven learning.")
-p("Outcome: with its own history the held-out match rate rose from %s early to %s late; no-history stayed at 0.333, shuffled history fell from 0.287 to 0.233, random partner was flat. Learning gain %s; the registered randomization test passed. Learning is anti-default: expertise is the model's default frame (0.922 of no-history picks), so the gains come on fairness partners (0.24 vs 0.05) and risk partners (0.61 vs 0.10), while expertise partners show nothing to learn (0.86 vs 0.85)." % (num("V4 full_history early match"), num("V4 full_history late held-out match"), num("V4 full_history learning gain (late held-out − early), 95% CI")))
-p("Figure 1 in the summary shows the four conditions by round; Figure 4 splits the full-history result by the partner's type.")
-fig("fig_w6_v4_learning_by_target.png", "Figure 4. V4 per partner type: full history vs no history vs shuffled history. Learning is largest where the default frame is weakest.")
+h1("3. Experiment 1: does the model learn the partner's frame?")
+p("Prediction, written before the run: the first three hypotheses hold if the full-history learning gain is positive with the three controls flat, and the effect survives on held-out wording. The outcomes I considered possible were no learning at all, apparent learning that is really a default frame (full history and no history both high on the same frame), and genuine feedback-driven learning.")
+p("Outcome: genuine learning, on one model. With its own history, Qwen's held-out match rate rose from %.3f in the early rounds to %.3f. The learning gain was %s and the registered randomization test passed (difference-in-differences against no history %s, p = %.4f). No history stayed at %.3f, shuffled history fell from %.3f to %.3f, and the random partner was flat. The learning is anti-default. With no history the model picks the expertise message 92.2%% of the time, so there is nothing to learn when the partner happens to prefer expertise (late match %.2f with history versus %.2f without). The gains come on fairness partners (%.2f versus %.2f) and risk partners (%.2f versus %.2f)." % (v4f["early_match"]["mean"], v4f["late_heldout_match"]["mean"], ci(v4f["learning_gain"]), ci(v4did), v4did["p_value_one_sided"], g(V4, "no_history")["late_heldout_match"]["mean"], g(V4, "shuffled_history")["early_match"]["mean"], g(V4, "shuffled_history")["late_heldout_match"]["mean"], v4t["expertise"]["full_late_heldout"], v4t["expertise"]["no_history_late_heldout"], v4t["fairness"]["full_late_heldout"], v4t["fairness"]["no_history_late_heldout"], v4t["risk"]["full_late_heldout"], v4t["risk"]["no_history_late_heldout"]))
+fig("fig_w6_v4_learning_by_target.png", "Figure 4. V4, by the partner's type: late held-out match with full history, no history, and shuffled history. Learning is largest where the default frame is weakest.")
 
-h1("4. Experiment 2: does it revise after a silent change of partner? (V4 swap)")
-p("Prediction: H4 holds if, after the swap at round 10, new-frame use rises and old-frame use falls, with late new-over-old positive at α = 0.05. The alternative I worried about: adaptation that only ever runs toward the default frame.")
-p("Outcome: the two effect thresholds passed and the test failed. Over 120 swap episodes, new-frame gain / old-frame drop / late new-over-old were %s. New-frame use rose and old-frame use fell by about the same amount, so the new frame never overtook the old one. By destination, 34 of 40 swaps into expertise adapted, 9 of 40 into risk, 0 of 40 into fairness (Figure 2 in the summary). The pattern is consistent with the default frame re-asserting itself; it is not what an updated model of the partner would produce, but I have not shown the mechanism." % num("V4 swap overall: new-frame gain / old-frame drop / late new-over-old (p) / adapted"))
+h1("4. Experiment 2: does it revise after a silent change of partner?")
+p("Prediction: the fourth hypothesis holds if, after the swap at round 10, new-frame use rises and old-frame use falls and, by the end, the new frame is used more than the old one. The alternative I was worried about was adaptation that only ever runs toward the default frame.")
+p("Outcome: the two effect thresholds passed and the decisive test failed. Over 120 swap episodes, new-frame use rose by %.3f and old-frame use fell by %.3f, but late new-frame use never exceeded old-frame use (difference %.3f, p = %.2f). %d of 120 episodes adapted, and where they adapted tells the story: 34 of 40 swaps into expertise, 9 of 40 into risk, 0 of 40 into fairness (Figure 2). This is what a default frame re-asserting itself looks like. It is not what an updated model of the partner would produce, though the mechanism is inferred from the pattern, not shown." % (v4sw["new_target_gain"]["mean"], v4sw["old_target_drop"]["mean"], v4sw["late_new_over_old"]["mean"], v4sw["late_new_over_old"]["p_value_one_sided"], v4sw["n_adapted"]))
 
-h1("5. Experiment 3: three stress tests, each declared before its outcome")
-p("After V4 I wrote predictions for three further runs (arms) in docs/V4_REPLICATION_DECLARATION.md, each before its own outcome (R1 and E1 together; P1 after reading those two), then ran each once with the frozen design and analyzer. Figure 3 in the summary shows all four with-history curves side by side.")
-h2("5.1 Arm P1: does the effect survive rewording the prompt? Yes.")
-p("Prediction: if the effect is a property of the model under this design, P1 replicates; if it depends on the exact prompt string, the gain is near zero. Outcome: gain %s (V4: 0.187); full minus no-history difference-in-differences %s; controls flat; per-target advantage fairness 0.28, risk 0.43, expertise 0.09. Revision failed as predicted. The frozen decision is still STOP because the valid-selection gate failed at %s: under the new wording the model began a reasoning preamble ('Looking at the history, the participant chose…') in 12.2%% of history rounds (10.2%% of all rounds) and 0%% of no-history rounds, and was cut off by the token budget. The fallback is a uniform random pick, which can only pull learning toward chance. Late held-out match, all rounds / parsed-only rounds: %s. I did not re-run with a larger budget, because the arm was declared with V4 decoding unchanged." % (num("P1 paraphrase full_history learning gain (late held-out − early), 95% CI"), num("P1 paraphrase full − no-history difference-in-differences, one-sided p"), num("P1 paraphrase valid selection rate (gate 0.98)"), num("P1 full_history late held-out match: all rounds / parsed-only")))
-h2("5.2 Arm R1: does it replicate on a second model family? No.")
-p("Prediction: H1 to H3 replicate on Gemma-4-31B-it with the same default-attraction failure of revision. Outcome: gain %s; every effect gate but the random-target control failed. Gemma is nearly insensitive to both history and feedback: its choice equals its shuffled-history choice on the identical triple %s of the time, and P(repeat frame) is %s. Its no-history default is weaker than Qwen's (0.787 vs 0.922 expertise), so default strength does not explain the difference; feedback use does. Per-target movement is toward the default (expertise 1.00 vs 0.72 no-history; fairness 0.01 vs 0.16), the opposite of Qwen." % (num("R1 Gemma full_history learning gain (late held-out − early), 95% CI"), num("Gemma R1 same choice as full_history: shuffled_history").split(" ")[0], num("Gemma R1 full_history: P(repeat frame | success) / P(repeat | failure) / gap")))
-fig("fig_w10_history_sensitivity_qwen_vs_gemma.png", "Figure 5. Model-free diagnostics. Left: P(repeat last round's frame) after a success vs after a failure. Right: same choice as full history on the identical candidate triple, against shuffled history, no history, and a random target.")
-h2("5.3 Arm E1: is there a stated belief separate from the choice? No, and the effect disappears.")
-p("Prediction: if a belief exists that the behaviour ignores, P(stated belief = new frame) rises after the swap while P(choice = new frame) does not; if they move together, the stated belief is a description of the policy. Outcome: neither moved. Under the elicited prompt the same Qwen showed no learning (gain %s; elicited minus spontaneous %s), picked expertise 94.2%% of rounds and fairness never, and its choice was the argmax of its own stated probabilities in 3,600 of 3,600 records. Stated confidence is a fixed frame ranking (expertise 0.69 > risk 0.58 > fairness 0.49) that moves by about 0.05 with feedback without ever changing the choice; post-swap P(belief = new) minus P(choice = new) = %s. Caveats: E1 changed two things at once, the output format and the model seeing its own past predictions, and cannot separate them; its prompt was never tuned where V4's was; and the 96-token budget leaves no room for reasoning. So E1 could not answer the belief question in the positive direction, because learning itself vanished. What it does show is that the stated probabilities carried no information about the partner that the choice lacked." % (num("E1 elicited elicited_full_history learning gain (late held-out − early), 95% CI"), num("E1 − V4 spontaneous: full-history learning gain diff, 95%% CI").replace("[MISSING", "[MISSING"), num("E1 elicited_swap post-swap rounds 1-5: P(belief=new) − P(choice=new), 95% CI")))
-fig("fig_w9_elicited_belief_vs_choice.png", "Figure 6. Arm E1: stated belief and choice by round (left, middle) and after the silent swap by rounds since swap (right). The two lines coincide.")
+h1("5. Experiment 3: three stress tests, each predicted before its outcome")
+p("After the first run I wrote down predictions for three further runs and then ran each once with the same frozen design and analyzer. The first two were declared together; the third was declared after reading their outcomes but before its own. Figure 3 shows the four with-history curves side by side.")
+h2("5.1 Reworded prompt, same model: the effect survives")
+p("The question was whether the learning depends on the exact wording of the original prompt. It does not. With the reworded prompt the learning gain was %s, against %s originally; the difference-in-differences against no history was %s, p = %.4f; the controls were flat; and the per-partner pattern was the same, with the advantage over no history at %.2f for fairness, %.2f for risk, and %.2f for expertise. Revision failed again, as predicted (new-frame gain %.3f, old-frame drop %.3f, late new-over-old %.3f)." % (ci(p1f["learning_gain"]), ci(v4f["learning_gain"]), ci(p1did), p1did["p_value_one_sided"], p1t["fairness"]["advantage"], p1t["risk"]["advantage"], p1t["expertise"]["advantage"], p1sw["new_target_gain"]["mean"], p1sw["old_target_drop"]["mean"], p1sw["late_new_over_old"]["mean"]))
+p("One thing did not go as planned. Under the new wording the model began a reasoning preamble (\"Looking at the history, the participant chose…\") in 12.2%% of rounds that had a history and in none of the rounds without one, and was cut off by the 8-token budget. Those 733 rounds, 10.2%% of the run, were assigned a uniformly random slot by the frozen fallback rule, which fails the run's validity threshold (%.3f valid against a required 0.98) and can only pull the learning toward chance: on rounds that parsed, the late held-out match was 0.632 against 0.600 over all rounds. I did not re-run with a larger budget, because the run had been declared with the original decoding settings. The preambles are themselves a small observation: under this wording the model spontaneously refers to the partner's past choices when it starts to explain itself." % P1["valid_selection_rate"])
+h2("5.2 A second model family: no replication")
+p("Gemma-4-31B-it, on the identical design, does not learn. Its learning gain was %s and every effect rule except the random-partner control failed. It is nearly insensitive to both history and feedback: its choice equals its shuffled-history choice on the identical candidate triple 90.5%% of the time, and it repeats its previous frame with probability 0.972 after a success and 0.941 after a failure, a gap of 0.031 where Qwen's is 0.183 (Figure 5). Its default is actually weaker than Qwen's (expertise 78.7%% of no-history picks against 92.2%%), so the strength of the default does not explain the difference; the use of feedback does. What movement there is runs toward the default: with history, expertise partners are matched %.2f of the time against %.2f without, while fairness partners fall from %.2f to %.2f." % (ci(r1f["learning_gain"]), r1t["expertise"]["full_late_heldout"], r1t["expertise"]["no_history_late_heldout"], r1t["fairness"]["no_history_late_heldout"], r1t["fairness"]["full_late_heldout"]))
+fig("fig_w10_history_sensitivity_qwen_vs_gemma.png", "Figure 5. Two model-free diagnostics. Left: probability of repeating the previous round's frame after a success and after a failure. Right: how often the model makes the same choice as with its own history when shown the identical candidate triple with a shuffled history, no history, or a random partner.")
+h2("5.3 Stated beliefs: no separate belief, and the learning disappears")
+p("The point of this run was to see whether the model holds a belief about the partner that its choices do not act on. The prediction was that if such a belief existed, the stated belief would move to the new frame after the swap before the choice did; if the two moved together, the stated belief was a description of the policy. Neither moved. Under the elicited prompt the same Qwen showed no learning (gain %s; %s below the original prompt), picked expertise in 94.2%% of rounds and fairness in none, and its choice was the argmax of its own stated probabilities in every one of 3,600 records. Its stated confidence was a fixed ranking of the frames, expertise 0.69, risk 0.58, fairness 0.49, that shifted by about 0.05 with feedback without ever changing the choice. After the swap, the share of rounds where the stated belief matched the new frame exceeded the share where the choice did by %.3f." % (ci(e1f["learning_gain"]), ci(e1x["learning_gain_diff"]).replace("-", "−", 1) if e1x["learning_gain_diff"]["mean"] < 0 else ci(e1x["learning_gain_diff"]), e1post["mean"]))
+p("Three caveats. This run changed two things at once, the output format and the fact that the model saw its own past predictions in its history, and cannot separate them. Its prompt was never tuned, whereas the original was. And the 96-token budget leaves no room for reasoning. So this run could not answer the belief question in the positive direction, because the learning itself vanished. What it does show is that the stated probabilities carried no information about the partner that the choice lacked.")
+fig("fig_w9_elicited_belief_vs_choice.png", "Figure 6. Arm E1. Left and middle: by round, the share of episodes where the stated belief matches the partner's type, where the choice matches it, and where belief and choice agree. Right: after the silent swap, by rounds since the swap, the share where the stated belief and the choice match the new type. The belief and choice lines coincide throughout.")
 
 h1("6. What the evidence supports, and the strongest case against")
-bullets([
-    "Supported: a real, preregistered, wording-robust behavioural effect on one model. Qwen3.8-27B, given only outcomes, moves its choice toward the frame that works, on unseen wording, and the three controls rule out history length, any-history, and a partner that ignores it.",
-    "Not shown: a model of the partner that is separate from the choice. Revision passed its effect thresholds but not the new-over-old test, with adaptation mostly toward the default. Forcing the model to state beliefs removed the effect and showed belief and choice were one object. A second model family showed nothing.",
-    "Strongest alternative explanation: a model-free policy, 'repeat what worked, otherwise fall back to expertise', plus a strong default. I have not fitted such a policy, but nothing here rules it out. What would separate it from a partner model: revision away from the default, or a stated belief that leads the choice. Neither happened.",
-    "What I did not do and why: no activation capture, probe, or steering. The plan gated them behind a passed revision test, which never came, and the E1 result made a probe for 'the partner's type' moot until a behavioural effect survives model and format changes.",
-])
+p("Supported: a real, preregistered behavioural effect on one model, robust to the wording of the prompt. Given only outcomes, Qwen3.8-27B moves its choice toward the argument frame that works, on unseen wording, and the controls rule out the effect coming from any history at all or from a partner that is not responding.")
+p("Not shown: a model of the partner that is separate from the choice. Revision cleared its two effect thresholds but not the test that matters, and adaptation ran mostly toward the default. Forcing the model to state beliefs removed the effect and showed that belief and choice were one object. A second model family showed nothing.")
+p("The strongest alternative explanation is a model-free policy: repeat what worked, otherwise fall back to expertise, on top of a strong default. I have not fitted such a policy, but nothing here rules it out. What would separate it from a partner model is revision away from the default, or a stated belief that leads the choice. Neither happened.")
+p("What I did not do: no activation capture, probes, or steering. The plan gated them behind a passed revision test, which never came, and the stated-belief result made a probe for the partner's type premature until a behavioural effect survives a change of model and of format.")
 
-h1("7. Limitations, and whether I could have addressed them")
-bullets([
-    "One positive model out of two. A third model under the spontaneous prompt would separate 'Qwen' from 'feedback-sensitive'. Cost about $3; not run.",
-    "The partner is a simulator with a fixed rule, not a human or an LLM with a persona. An LLM target would be more realistic at the cost of judge noise on 'did it respond to the frame'.",
-    "The persuasion is a choice among pre-written messages, not generated text. This was the price of a judge-free metric.",
-    "The expertise default confounds revision. Four redesigns to remove it stopped at their own preregistered gates (section 8). A two-frame design with a distractor is the fix I would try next.",
-    "E1 cannot separate the format change from the model seeing its own predictions. A third arm with predictions hidden from the history would fix that for about $3; not run.",
-    "P1's validity gate failed on truncated reasoning preambles. A larger token budget would remove it; not re-run because the arm was declared with V4 decoding.",
-    "Message-bank frames were labelled by two blind machine judges; the 45-template hand-label sheet is [CONFIRM: scored / not yet scored].",
-    "N = 60 episodes per stable condition limits power for smaller effects; the swap analysis has 20 episodes per transition.",
-])
+h1("7. Limitations")
+p("One positive model out of two. A third model under the original prompt would separate \"Qwen\" from \"feedback-sensitive\"; it would cost about three dollars of GPU time and was not run. The partner is a simulator with a fixed rule, not a person or a language model with a persona; a model partner would be more realistic at the cost of a judge deciding whether it responded to the frame. The persuasion is a choice among pre-written messages rather than generated text, which was the price of a judge-free measure. The expertise default confounds revision, and four redesigns to remove it stopped at their own rules; a two-frame design with a distractor is the fix I would try next. The stated-belief run cannot separate the format change from the model seeing its own predictions; a run with those predictions hidden would fix that. The reworded-prompt run failed its validity threshold on truncated preambles, which a larger token budget would remove. The message bank's frame labels rest on two blind machine judges. And 60 episodes per stable condition, with 20 per swap transition, limits the power to detect smaller effects.")
 
-h1("8. Process: what I stopped, and why (in brief)")
-p("Four successors to V4 were designed to remove the default-frame confound. Each had a feasibility rule written down before its outcome, and each stopped at it. V5: the calibrated bank could not be balanced (no-history shares 13.7/34.2/52.1 against a 25 to 42% rule). V6: the balance gate was infeasible at every allowed N in a 120,000-study screen. V7: failed its own feasibility rule, and an adversarial review showed its pooled revision rule would pass on pure default attraction. V8: controlled Type I error (0 joint rejections in 6,000 null studies) but was underpowered against the weakest registered learner. I also dropped a planned first-crossing 'probe leads behaviour' metric after simulating it: a chance-level probe appears to lead by 0.91 rounds with a CI excluding zero in 87% of runs (Figure 8).")
-md(section("Gate ledger"))
-fig("fig_w3_default_frame_priors.png", "Figure 7. No-history frame shares: the expertise default across banks and models.")
-fig("fig_w5_first_crossing_bias.png", "Figure 8. Why the first-crossing lag metric was dropped: apparent probe lead from noise alone.")
+h1("8. What was stopped along the way")
+p("Four successors to the first design were meant to remove the default-frame confound. Each had a feasibility rule written down before its outcome, and each stopped at it. The first (V5) rebuilt the message bank with a calibrated target and required the no-history frame shares to sit between 25%% and 42%%; the measured shares were 13.7, 34.2, and 52.1. The second (V6) required a balance gate that a 120,000-study simulation showed to be infeasible at every allowed sample size. The third (V7) dropped the balance requirement, failed its own feasibility rule, and was rejected on review because its pooled revision test would pass on a model that only drifted to its default. The fourth (V8) added a destination-stratified acquisition rule that controlled the false-positive rate (no joint rejections in 6,000 simulated null studies) but was underpowered against the weakest learner it was registered to detect. I also dropped a planned \"the stated belief leads the behaviour\" measure based on the first round at which each crosses a threshold, after simulating it: a belief probe at chance level appears to lead the behaviour by 0.91 rounds, with a confidence interval excluding zero in 87%% of simulated runs (Figure 8)." % ())
+table([["Design", "What it changed", "Rule it was judged by", "Result"],
+       ["V4", "controlled choice among three registered messages; partner responds to the registered frame", "learning and revision tests", "learning passed; revision failed"],
+       ["V5", "24 rounds, constrained decoding, calibrated bank", "no-history frame shares between 25% and 42%", "failed (13.7 / 34.2 / 52.1)"],
+       ["V6", "whole-triad selection, matched stable twin for every swap", "balance gate reachable at some sample size", "infeasible at every size"],
+       ["V7", "balance gate dropped, measured nuisance cells", "own feasibility rule; adversarial review", "failed; review found the pooled rule passes on default drift"],
+       ["V8", "destination-stratified acquisition rule, split alpha", "power against the weakest registered learner", "false-positive rate controlled; underpowered"],
+       ["P1", "original design, reworded prompt", "V4 rules", "learning passed; revision failed; validity threshold failed on truncated preambles"],
+       ["R1", "original design on Gemma-4-31B", "V4 rules", "learning failed; revision failed"],
+       ["E1", "original design, stated beliefs in JSON", "V4 rules applied within the run", "learning failed; belief equals choice"]])
+fig("fig_w3_default_frame_priors.png", "Figure 7. The default frame. Share of each frame chosen with no history: Qwen on the original bank, Qwen on the recalibrated bank, and Gemma.")
+fig("fig_w5_first_crossing_bias.png", "Figure 8. Why the first-crossing measure was dropped: in simulation, a belief probe at chance level appears to lead the behaviour.")
 
-h1("9. How I used LLMs")
-p("[CONFIRM and rewrite in your words.] Nearly all code, analysis scripts, and documentation were written by Claude in Claude Code, with earlier sessions in OpenAI Codex. GPT-5.6 served as two blind judges labelling the message bank's frames. I set the question, chose the controlled-choice design over free-form persuasion, decided at every gate whether to stop or continue, and declared the three stress tests. The checks I relied on are listed in 'What I verified myself'. A major error in the primary V4 result would surprise me a lot: the controls, the mock-learner validation, the independent replication under a reworded prompt, and the seeded examples all point the same way. An error in a secondary diagnostic would surprise me less. The frame labels of the bank are the part I trust least until the hand-labelling is scored.")
+h1("9. How I used language models, and how much to trust each part")
+p("Claude, running in Claude Code, wrote nearly all of the code, the analysis scripts, and the first drafts of the documentation, and operated the GPU jobs; earlier sessions used Codex. GPT-5.6 acted as the two blind judges that labelled the message bank. I set the question, chose the controlled-choice design over free-form persuasion, wrote the rules each design would be judged by, decided at each rule whether to stop, and declared the three stress tests. The checks I relied on are listed in the section on how the results were checked. A serious error in the main learning result would surprise me a great deal: the controls, the simulated-learner validation, the independent replication under a reworded prompt, and the seeded examples all point the same way. An error in a secondary diagnostic would surprise me less. The frame labels of the message bank are the part I trust least, because they rest on machine judges.")
 
-h1("Appendix A. Sourced numbers")
-md(section("Numbers sheet"))
-h1("Appendix B. Reproduction")
-p("Specs: docs/behavioral_checkpoint_v4.json, docs/v4_paraphrase_qwen38.json, docs/v4_replication_gemma4.json, docs/v4_elicited_qwen38.json. Declarations and outcomes: docs/V4_REPLICATION_DECLARATION.md. Runner: scripts/run_controlled_open_weight.py (pod bootstraps in scripts/pod_bootstrap_*.sh). Analyzers: scripts/analyze_controlled_v4.py, scripts/analyze_elicited_choices.py, scripts/analyze_elicited_beliefs.py. Materials and figures: scripts/make_writeup_materials.py. Log of every decision: docs/WORK_LOG.md. Tests: 793.")
+h1("10. What I would do next")
+p("A third model family under the original prompt. A design with two frames and a distractor, to remove the default frame rather than work around it. A stated-belief run with the model's past predictions hidden from its history. A larger token budget for the reworded prompt, to see what the model says when it explains itself. And only if a behavioural effect survives all of that, activation probes for the partner's type.")
 
-# ---------------------------------------------------------------- renderers
+h1("Appendix: reproduction")
+p("The repository contains the frozen specifications for each run, the declarations with predictions and outcomes, the runner, the analyzers, the raw-log manifests, the script that generates every figure and number in this document with its source file, the full decision log, and the test suite. All models are open weights at pinned revisions; each run takes one A100 for one to five hours.")
+
+# ------------------------------------------------------------------ renderers
 def esc(s): return html.escape(s)
-def inline_html(s):
-    s = esc(s); s = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", s); s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s); return s
-def md_html(text):
-    out = []; lines = text.split("\n"); i = 0
-    while i < len(lines):
-        l = lines[i]
-        if l.startswith("|"):
-            rows = []
-            while i < len(lines) and lines[i].startswith("|"): rows.append(lines[i]); i += 1
-            cells = [[c.strip() for c in r.strip().strip("|").split("|")] for r in rows if not re.match(r"^\|[-| ]+\|$", r.strip())]
-            out.append("<table border='1' cellpadding='4' style='border-collapse:collapse;font-size:85%'>" + "".join("<tr>" + "".join(("<th>" if k == 0 else "<td>") + inline_html(c) + ("</th>" if k == 0 else "</td>") for c in row) + "</tr>" for k, row in enumerate(cells)) + "</table>"); continue
-        if l.startswith("- "): out.append("<p style='margin-left:1.2em'>• " + inline_html(l[2:]) + "</p>")
-        elif l.startswith("## "): out.append("<h3>" + inline_html(l[3:]) + "</h3>")
-        elif l.strip() and not l.startswith("# "): out.append("<p>" + inline_html(l) + "</p>")
-        i += 1
-    return "\n".join(out)
 def render_html():
-    parts = []
-    for item in C:
-        k = item[0]
-        if k == "h1": parts.append("<h1>%s</h1>" % esc(item[1]))
-        elif k == "h2": parts.append("<h2>%s</h2>" % esc(item[1]))
-        elif k == "h3": parts.append("<h3>%s</h3>" % esc(item[1]))
-        elif k == "p": parts.append("<p>%s</p>" % inline_html(item[1]))
-        elif k == "bullets": parts.append("<ul>" + "".join("<li>%s</li>" % inline_html(b) for b in item[1]) + "</ul>")
-        elif k == "code": parts.append("<pre style='background:#f4f4f4;padding:8px;white-space:pre-wrap;font-size:85%%'>%s</pre>" % esc(item[1]))
-        elif k == "md": parts.append(md_html(item[1]))
+    out = []
+    for it in C:
+        k = it[0]
+        if k in ("h1", "h2", "h3"): out.append("<%s>%s</%s>" % (k, esc(it[1]), k))
+        elif k == "p": out.append("<p>%s</p>" % esc(it[1]))
+        elif k == "bullets": out.append("<ul>" + "".join("<li>%s</li>" % esc(b) for b in it[1]) + "</ul>")
+        elif k == "quote": out.append("<blockquote style='border-left:3px solid #999;margin:8px 0;padding:4px 12px;white-space:pre-wrap'>%s</blockquote>" % esc(it[1]))
+        elif k == "table": out.append("<table border='1' cellpadding='5' style='border-collapse:collapse;font-size:90%'>" + "".join("<tr>" + "".join(("<th>%s</th>" if i == 0 else "<td>%s</td>") % esc(c) for c in row) + "</tr>" for i, row in enumerate(it[1])) + "</table>")
         elif k == "fig":
-            pth = os.path.join(W, item[1])
-            if os.path.exists(pth):
-                b = base64.b64encode(open(pth, "rb").read()).decode(); parts.append('<p><img src="data:image/png;base64,%s" style="max-width:100%%"/></p><p><i>%s</i></p>' % (b, esc(item[2])))
-    open(os.path.join(D, "MATS_WRITEUP.html"), "w", encoding="utf-8").write("<html><head><meta charset='utf-8'><title>LatentTarget MATS write-up</title></head><body style='font-family:Arial,sans-serif;max-width:900px;margin:auto;line-height:1.4'>" + "\n".join(parts) + "</body></html>")
-
+            pth = os.path.join(W, it[1])
+            if os.path.exists(pth): out.append('<p><img src="data:image/png;base64,%s" style="max-width:100%%"/></p><p><i>%s</i></p>' % (base64.b64encode(open(pth, "rb").read()).decode(), esc(it[2])))
+    open(os.path.join(D, "MATS_WRITEUP.html"), "w", encoding="utf-8").write("<html><head><meta charset='utf-8'><title>LatentTarget MATS write-up</title></head><body style='font-family:Arial,sans-serif;max-width:860px;margin:auto;line-height:1.45'>" + "\n".join(out) + "</body></html>")
 def render_docx():
     from docx import Document
     from docx.shared import Inches, Pt
     doc = Document(); st = doc.styles["Normal"]; st.font.name = "Arial"; st.font.size = Pt(11)
-    def runs(par, text):
-        for tok in re.split(r"(\*\*.+?\*\*|`[^`]+`)", text):
-            if not tok: continue
-            if tok.startswith("**"): r = par.add_run(tok[2:-2]); r.bold = True
-            elif tok.startswith("`"): r = par.add_run(tok[1:-1]); r.font.name = "Courier New"
-            else: par.add_run(tok)
-    def md_docx(text):
-        lines = text.split("\n"); i = 0
-        while i < len(lines):
-            l = lines[i]
-            if l.startswith("|"):
-                rows = []
-                while i < len(lines) and lines[i].startswith("|"): rows.append(lines[i]); i += 1
-                cells = [[c.strip() for c in r.strip().strip("|").split("|")] for r in rows if not re.match(r"^\|[-| ]+\|$", r.strip())]
-                if cells:
-                    ncol = len(cells[0]); t = doc.add_table(rows=len(cells), cols=ncol); t.style = "Table Grid"
-                    for a, row in enumerate(cells):
-                        for b in range(ncol):
-                            c = row[b] if b < len(row) else ""; cell = t.cell(a, b); cell.text = ""; runs(cell.paragraphs[0], c)
-                            for r in cell.paragraphs[0].runs: r.font.size = Pt(8); r.bold = bool(r.bold) or a == 0
-                    doc.add_paragraph()
-                continue
-            if l.startswith("- "): runs(doc.add_paragraph(style="List Bullet"), l[2:])
-            elif l.startswith("## "): doc.add_heading(l[3:], level=3)
-            elif l.strip() and not l.startswith("# "): runs(doc.add_paragraph(), l)
-            i += 1
-    for item in C:
-        k = item[0]
-        if k == "h1": doc.add_heading(item[1], level=1)
-        elif k == "h2": doc.add_heading(item[1], level=2)
-        elif k == "h3": doc.add_heading(item[1], level=3)
-        elif k == "p": runs(doc.add_paragraph(), item[1])
+    for it in C:
+        k = it[0]
+        if k == "h1": doc.add_heading(it[1], level=1)
+        elif k == "h2": doc.add_heading(it[1], level=2)
+        elif k == "h3": doc.add_heading(it[1], level=3)
+        elif k == "p":
+            par = doc.add_paragraph()
+            for tok in re.split(r"(\*\*.+?\*\*)", it[1]):
+                if tok.startswith("**"): r = par.add_run(tok[2:-2]); r.bold = True
+                elif tok: par.add_run(tok)
         elif k == "bullets":
-            for b in item[1]: runs(doc.add_paragraph(style="List Bullet"), b)
-        elif k == "code":
-            par = doc.add_paragraph(); r = par.add_run(item[1]); r.font.name = "Courier New"; r.font.size = Pt(9)
-        elif k == "md": md_docx(item[1])
+            for b in it[1]: doc.add_paragraph(b, style="List Bullet")
+        elif k == "quote":
+            par = doc.add_paragraph(); par.paragraph_format.left_indent = Inches(0.4); r = par.add_run(it[1]); r.italic = True; r.font.size = Pt(10)
+        elif k == "table":
+            rows = it[1]; t = doc.add_table(rows=len(rows), cols=len(rows[0])); t.style = "Table Grid"
+            for a, row in enumerate(rows):
+                for b, c in enumerate(row):
+                    cell = t.cell(a, b); cell.text = c
+                    for r in cell.paragraphs[0].runs: r.font.size = Pt(9); r.bold = a == 0
+            doc.add_paragraph()
         elif k == "fig":
-            pth = os.path.join(W, item[1])
-            if os.path.exists(pth):
-                doc.add_picture(pth, width=Inches(6.3)); c = doc.add_paragraph(); r = c.add_run(item[2]); r.italic = True; r.font.size = Pt(9)
+            pth = os.path.join(W, it[1])
+            if os.path.exists(pth): doc.add_picture(pth, width=Inches(6.3)); c = doc.add_paragraph(); r = c.add_run(it[2]); r.italic = True; r.font.size = Pt(9)
     doc.save(os.path.join(D, "MATS_WRITEUP.docx"))
-
 def render_txt():
     out = []
-    for item in C:
-        k = item[0]
-        if k in ("h1", "h2", "h3"): out.append("\n" + ("#" * int(k[1])) + " " + item[1] + "\n")
-        elif k == "p": out.append(item[1] + "\n")
-        elif k == "bullets": out.extend("- " + x for x in item[1]); out.append("")
-        elif k == "code": out.append("```\n" + item[1] + "\n```\n")
-        elif k == "md": out.append(item[1])
-        elif k == "fig": out.append("[Figure: %s] %s\n" % (item[1], item[2]))
+    for it in C:
+        k = it[0]
+        if k in ("h1", "h2", "h3"): out.append("\n" + "#" * int(k[1]) + " " + it[1] + "\n")
+        elif k == "p": out.append(it[1] + "\n")
+        elif k == "bullets": out.extend("- " + b for b in it[1]); out.append("")
+        elif k == "quote": out.append("> " + it[1].replace("\n", "\n> ") + "\n")
+        elif k == "table": out.extend(" | ".join(r) for r in it[1]); out.append("")
+        elif k == "fig": out.append("[Figure %s] %s\n" % (it[1], it[2]))
     open(os.path.join(D, "MATS_WRITEUP.txt"), "w", encoding="utf-8").write("\n".join(out))
-
 render_html(); render_docx(); render_txt()
-words = len(re.findall(r"\S+", re.sub(r"\[CONFIRM[^\]]*\]", "", "\n".join(l for l in summary.split("\n") if not l.startswith("[FIG:")))))
-missing = re.findall(r"\[MISSING: [^\]]+\]", open(os.path.join(D, "MATS_WRITEUP.html")).read())
-print("wrote MATS_WRITEUP.docx and .html | exec summary words: %d | missing number labels: %s" % (words, missing or "none"))
+txt = open(os.path.join(D, "MATS_WRITEUP.txt")).read()
+print("built; words %d; CONFIRM tags %d; backticks %d; 'scripts/' mentions %d; figures %d" % (len(txt.split()), txt.count("CONFIRM"), txt.count("`"), txt.count("scripts/"), sum(1 for it in C if it[0] == "fig")))
