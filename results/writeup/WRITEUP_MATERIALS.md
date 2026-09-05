@@ -247,6 +247,8 @@ The model sees the three candidates **without** frame labels; labels shown here 
 | V4 p-value: primary_contrasts.full_vs_no_difference_in_differences.p_value_one_sided | 9.999000099990002e-05 | `v4_checkpoint_summary.json` |
 | V4 p-value: swap_metrics.late_new_over_old.p_value_one_sided | 0.49825017498250174 | `v4_checkpoint_summary.json` |
 | V4 p-value: swap_metrics.new_target_gain.p_value_one_sided | 9.999000099990002e-05 | `v4_checkpoint_summary.json` |
+| V4 swap overall: new-frame gain / old-frame drop / late new-over-old (p) / adapted | 0.108 [0.058, 0.162] / 0.105 [0.058, 0.152] / 0.000 (p=0.498) / 43 of 120 | `v4_checkpoint_summary.json swap_metrics` |
+| V4 registered one-sided alpha | 0.025 | `v4_checkpoint_summary.json thresholds_frozen_before_real_run` |
 | V4 decision | STOP_BEFORE_FREEFORM_OR_MECHANISTIC_SCALING | `v4_checkpoint_summary.json decision` |
 | V4 swap revision randomization test passed | False | `v4_checkpoint_summary.json inference_gates` |
 

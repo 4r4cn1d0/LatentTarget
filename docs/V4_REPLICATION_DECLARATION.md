@@ -83,7 +83,7 @@ every effect gate except `random_response_control` fails.
 | full-history learning gain (late held-out − early) | 0.040 [−0.007, 0.093] | 0.187 [0.083, 0.290] |
 | full − no-history difference-in-differences, one-sided p | 0.040, p = 0.16 | p < 0.001 |
 | no-history / shuffled / random-target gain | 0.000 / −0.017 / 0.010 | 0.000 / −0.054 / ≈0 |
-| swap: new-frame gain / old-frame drop / new-over-old, p | 0.000 / 0.005 / −0.055, p = 0.76 | 0.24 / 0.24 / ≈0, p > 0.05 |
+| swap: new-frame gain / old-frame drop / new-over-old, p | 0.000 / 0.005 / −0.055, p = 0.76 | 0.108 / 0.105 / 0.000, p = 0.50 |
 | full-history frame shares (expertise / fairness / risk) | 0.895 / 0.022 / 0.083 | — |
 | same choice as shuffled-history on the identical triple | 0.905 | 0.637 |
 | P(repeat frame | success) − P(repeat | failure) | 0.972 − 0.941 = 0.031 | 0.876 − 0.693 = 0.183 |
@@ -122,7 +122,7 @@ verdict `ELICITED_LEARNING_FAIL_REVISION_FAIL`.
 | full-history learning gain (late held-out − early) | −0.020 [−0.053, 0.010], p = 0.90 | 0.187 [0.083, 0.290] |
 | elicited − spontaneous learning gain (unpaired episode bootstrap) | −0.207 [−0.317, −0.097] | — |
 | late held-out match, full history | 0.333 | 0.570 |
-| swap: new-frame gain / new-over-old, p | −0.007 / −0.035, p = 0.67 | 0.24 / ≈0 |
+| swap: new-frame gain / new-over-old, p | −0.007 / −0.035, p = 0.67 | 0.108 / 0.000, p = 0.50 |
 | full-history frame shares (fairness / risk / expertise) | 0.000 / 0.058 / 0.942 | learned mix |
 | P(repeat frame | success) − P(repeat | failure) | 0.933 − 0.908 = 0.025 | 0.876 − 0.693 = 0.183 |
 | choice = argmax of stated p_a | 3,600 / 3,600 | — |
@@ -194,7 +194,7 @@ PASS; slots balanced.
 | full over shuffled, late held-out | 0.377 [0.267, 0.480], p = 0.0001 | — |
 | no-history / shuffled / random-target gain | 0.000 / −0.070 / −0.007 | 0.000 / −0.054 / ≈0 |
 | per-target advantage (full − no-history): fairness / risk / expertise | 0.28 / 0.43 / 0.09 | 0.19 / 0.51 / 0.01 |
-| swap: new-frame gain / old-frame drop / new-over-old, p | 0.133 / 0.132 / −0.077, p = 0.89 | 0.24 / 0.24 / ≈0, p > 0.05 |
+| swap: new-frame gain / old-frame drop / new-over-old, p | 0.133 / 0.132 / −0.077, p = 0.89 | 0.108 / 0.105 / 0.000, p = 0.50 |
 | valid selection rate (gate ≥ 0.98) | **0.898** | 0.985 |
 
 Every learning gate and the stable randomization test pass. The frozen
@@ -226,3 +226,8 @@ beliefs in JSON (E1, where belief and choice were one object). It is a
 property of Qwen under this task in its spontaneous form, not a general
 property of instruction-tuned models, and not accompanied by a separable
 stated model of the partner.
+
+
+## Correction, 2026-09-05
+
+The V4 reference column of the three outcome tables above originally read "0.24 / 0.24" for the swap new-frame gain and old-frame drop. That was a transcription error made when the tables were written from memory; the frozen V4 analyzer output (`results/v4_real/checkpoint/v4_checkpoint_summary.json`, `swap_metrics`) gives new-frame gain 0.108 [0.058, 0.162], old-frame drop 0.105 [0.058, 0.152], late new-over-old 0.000 (p = 0.50), 43 of 120 episodes adapted (34 into expertise, 9 into risk, 0 into fairness). The cells are corrected in place (2 + 1 cells). No arm's own numbers were affected; the comparisons in the prose (E1's swap gain difference of −0.115 is −0.007 − 0.108) were always computed from the correct value.

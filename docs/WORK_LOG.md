@@ -1535,3 +1535,8 @@ synthetic validation and from claims that still require a real model.
   absent in Gemma-4-31B (R1), absent under belief elicitation (E1).
 - **Cost:** ≈ 1.5 pod-hours ≈ $2.4 (plus a few cents on the stuck pod).
   Write-up: Result 7, fourth panel on fig_w11, sourced numbers.
+
+
+## 2026-09-05 — Correction: V4 swap reference numbers in the declaration tables; write-up verification pass
+
+- A three-lens verification of the MATS write-up (numbers vs sheet, claims vs criteria, prose) found that the V4 column of the three outcome tables in `docs/V4_REPLICATION_DECLARATION.md` read "0.24 / 0.24" for swap new-frame gain / old-frame drop. The frozen output is 0.108 / 0.105 (late new-over-old 0.000, p = 0.50; 43/120 adapted: 34 into expertise, 9 into risk, 0 into fairness). Corrected in place with a dated note; the write-up now uses the sheet's new `V4 swap overall` row. Also corrected in the write-up: the bank is 45 templates (15 per frame, 10 development and 5 held-out), not "90 templates"; the registered one-sided alpha is 0.025; P1's truncated preambles are 12.2% of history rounds (10.2% of all rounds); revision is described as passing its two effect thresholds and failing the new-over-old test, with adaptation mostly (not only) toward the default.

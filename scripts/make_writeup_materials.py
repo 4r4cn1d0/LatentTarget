@@ -404,6 +404,8 @@ def main():
     for cond in ("full_history", "no_history", "shuffled_history", "random_target"):
         g = m[cond]["learning_gain"]; N("V4 %s learning gain (late held-out − early), 95%% CI" % cond, "%.3f [%.3f, %.3f], n=%d" % (g["mean"], g["ci_lo"], g["ci_hi"], g["n"]), "v4_checkpoint_summary.json stable_condition_metrics.%s.learning_gain" % cond)
     for k, v in sorted(pv.items()): N("V4 p-value: " + k, v, "v4_checkpoint_summary.json")
+    sw = s["swap_metrics"]; N("V4 swap overall: new-frame gain / old-frame drop / late new-over-old (p) / adapted", "%.3f [%.3f, %.3f] / %.3f [%.3f, %.3f] / %.3f (p=%.3f) / %d of %d" % (sw["new_target_gain"]["mean"], sw["new_target_gain"]["ci_lo"], sw["new_target_gain"]["ci_hi"], sw["old_target_drop"]["mean"], sw["old_target_drop"]["ci_lo"], sw["old_target_drop"]["ci_hi"], sw["late_new_over_old"]["mean"], sw["late_new_over_old"]["p_value_one_sided"], sw["n_adapted"], sw["n_episodes"]), "v4_checkpoint_summary.json swap_metrics")
+    N("V4 registered one-sided alpha", s["thresholds_frozen_before_real_run"]["confirmatory_alpha_one_sided"], "v4_checkpoint_summary.json thresholds_frozen_before_real_run")
     N("V4 decision", s["decision"], "v4_checkpoint_summary.json decision")
     N("V4 swap revision randomization test passed", s["inference_gates"]["swap_revision_randomization_test"], "v4_checkpoint_summary.json inference_gates")
     ex = random_examples()
