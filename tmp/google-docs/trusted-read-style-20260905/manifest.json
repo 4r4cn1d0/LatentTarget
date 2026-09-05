@@ -1,0 +1,59 @@
+{
+  "bridgeVersion": "3.6",
+  "kind": "google-docs-trusted-read",
+  "status": "complete",
+  "outputDir": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-style-20260905",
+  "target": {
+    "documentId": "1n42djKj_BI6uJdwVk2bNp-0n1fIrwgjdv_AmNqIGBUo",
+    "title": "Latent Target Writeup",
+    "revisionId": null,
+    "documentUrl": "https://docs.google.com/document/d/1n42djKj_BI6uJdwVk2bNp-0n1fIrwgjdv_AmNqIGBUo",
+    "selectedTabId": "t.0"
+  },
+  "dropdownMetadata": {
+    "status": "unavailable",
+    "resolvedTool": null,
+    "authoritative": false,
+    "count": 0
+  },
+  "controlAwareness": {
+    "hasProtectedControls": false,
+    "authoritativeDropdownCount": 0,
+    "opaqueControlCount": 0,
+    "affectedParagraphCount": 0,
+    "nativeElementCounts": {
+      "inlineObjectElement": 1
+    },
+    "preservationRequired": false,
+    "recommendedBehavior": "No protected controls were detected in the scanned scope."
+  },
+  "warnings": [],
+  "files": {
+    "document_result": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-style-20260905/document-result.json",
+      "bytes": 40428,
+      "sha256": "195a4e2b387b1c29297e80b856678999eb65d75214701c88dbcfe4d1c53874bd"
+    },
+    "control_inventory": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-style-20260905/control-inventory.json",
+      "bytes": 1820,
+      "sha256": "f8c171a75b3a816513ea30d141927b51711498f1654dbfe797517fcebfd189e5"
+    },
+    "document_outline": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-style-20260905/document-outline.json",
+      "bytes": 10465,
+      "sha256": "b66fd6bb5ddf73f06113b2dbed4cd499b9953625e0056b9d69999ec79d4ec777"
+    },
+    "document_text": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-style-20260905/document-text.md",
+      "bytes": 5388,
+      "sha256": "4b196c9580eb3b84be0e61caecf8b950b592c039441987480b5681b58c1b288f"
+    },
+    "receipt": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-style-20260905/receipt.json",
+      "bytes": 889,
+      "sha256": "f3dd027032c91610c7ca7801b4bd2867b29c0bf9af453daeb32fe6ccfbc01585"
+    }
+  },
+  "error": null
+}

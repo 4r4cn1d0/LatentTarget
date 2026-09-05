@@ -1,0 +1,524 @@
+{
+ "answers": [
+  {
+   "question": "evidence",
+   "answer": "First, my Apart Research fellowship under Erik Meijer. I built a reproducible eval harness for a static agent-safety verifier. It runs against NeMo Guardrails and Invariant Labs on AgentDojo and InjecAgent, across Claude, GPT and Gemini. Fair baselines and rerunnable comparisons are most of empirical research. The target is a CSF 2027 submission [CONFIRM: submission status]. Second, at Purdue's Applied AI Research Center I turned an analogy from reality-monitoring neuroscience into testable memory-verification mechanisms. They cut semantic-drift hallucinations by 17% on HaluMem. Turning a loose idea into a measured effect is what research needs most. Third, I finish infrastructure. I set up distributed quantum-ML training over SLURM/MPI with checkpoint recovery, 4x faster. Interpretability needs that plumbing done quickly.",
+   "word_count": 118,
+   "numbers_used": [
+    {
+     "value": "CSF 2027",
+     "source_label": "resume, Apart Research entry (not in WRITEUP_MATERIALS.md; question restricts sources to the resume)"
+    },
+    {
+     "value": "17%",
+     "source_label": "resume, Applied AI Research Center entry: semantic-drift hallucination reduction on HaluMem (not in WRITEUP_MATERIALS.md)"
+    },
+    {
+     "value": "4x",
+     "source_label": "resume, QUIP entry: distributed training speedup over SLURM/MPI (not in WRITEUP_MATERIALS.md)"
+    }
+   ],
+   "placeholders_for_applicant": [
+    "[CONFIRM: submission status] \u2014 whether the CSF 2027 paper is drafted, submitted, or still planned"
+   ]
+  },
+  {
+   "question": "against",
+   "answer": "The strongest evidence is Arm E1. I reran the frozen V4 design on the same Qwen3.8-27B, seeds, targets and bank. This time the model had to state a probability for each candidate before choosing. The learning effect vanished: full-history gain -0.020 [-0.053, 0.010] against 0.187 spontaneous, difference -0.207 [-0.317, -0.097]. The choice was the argmax of the stated probabilities in 3,600 of 3,600 records. Stated confidence was a fixed ranking (expertise 0.69, risk 0.58, fairness 0.49) that barely moved with feedback. So there is no belief the behaviour ignores, and no evidence of a separable partner model. E1 cannot separate the format change from the model seeing its own past predictions.\n\nSecond, Gemma-4-31B under the identical design does not learn: gain 0.040 [-0.007, 0.093]. It is nearly feedback-insensitive: P(repeat frame) 0.972 after a success vs 0.941 after a failure (Qwen 0.876 vs 0.693). So far the learning result is Qwen-specific.\n\nThird, revision after the silent swap failed the registered new-versus-old test even in Qwen (p = 0.498). The mechanism is a strong expertise default: 34 of 40 swaps into expertise counted as adapted, 0 of 40 into fairness. Acquisition from scratch works. Re-acquisition after a formed preference does not.",
+   "word_count": 199,
+   "numbers_used": [
+    {
+     "value": "-0.020 [-0.053, 0.010]",
+     "source_label": "E1 elicited elicited_full_history learning gain (late held-out \u2212 early), 95% CI"
+    },
+    {
+     "value": "0.187",
+     "source_label": "V4 full_history learning gain (late held-out \u2212 early), 95% CI"
+    },
+    {
+     "value": "-0.207 [-0.317, -0.097]",
+     "source_label": "E1 \u2212 V4 spontaneous: full-history learning gain diff, 95% CI"
+    },
+    {
+     "value": "3,600 of 3,600",
+     "source_label": "E1 choice equals argmax of stated p_a"
+    },
+    {
+     "value": "0.69 / 0.58 / 0.49",
+     "source_label": "E1 mean stated p_a by candidate frame (fairness / risk / expertise) = 0.494 / 0.581 / 0.691, rounded"
+    },
+    {
+     "value": "0.040 [-0.007, 0.093]",
+     "source_label": "R1 Gemma full_history learning gain (late held-out \u2212 early), 95% CI"
+    },
+    {
+     "value": "0.972 / 0.941",
+     "source_label": "Gemma R1 full_history: P(repeat frame | success) / P(repeat | failure)"
+    },
+    {
+     "value": "0.876 / 0.693",
+     "source_label": "Qwen V4 full_history: P(repeat frame | success) / P(repeat | failure)"
+    },
+    {
+     "value": "p = 0.498",
+     "source_label": "V4 p-value: swap_metrics.late_new_over_old.p_value_one_sided = 0.49825..., rounded"
+    },
+    {
+     "value": "34 of 40",
+     "source_label": "V4 swap into expertise (default): adapted"
+    },
+    {
+     "value": "0 of 40",
+     "source_label": "V4 swap expertise->fairness adapted 0 of 20 + risk->fairness adapted 0 of 20; Result 2 states 'into fairness 0 of 40'"
+    }
+   ],
+   "placeholders_for_applicant": []
+  },
+  {
+   "question": "mechinterp",
+   "answer": "I have no explicit mechanistic interpretability experience. I have never trained a probe, patched activations, or used a hooking library. [CONFIRM: any self-study to name]\n\nAt Purdue's Applied AI Research Center I built memory-verification mechanisms for LLM retrieval pipelines and modelled confabulation-like failures. That is behavioural work on outputs, not internals. At Apart Research under Erik Meijer I am building a static-verification layer that proves agent workflows safe before execution. That is formal reasoning about programs, not weights.\n\nIn my LatentTarget project I wrote residual-stream capture at the last prompt token, an episode-split logistic probe, and steering code. None of it ran on a real model, because the behavioural revision gate it waited on failed. A design review found my first-crossing probe-lead metric was biased by probe noise, so I dropped it.",
+   "word_count": 132,
+   "numbers_used": [],
+   "placeholders_for_applicant": [
+    "[CONFIRM: any self-study to name] \u2014 whether the applicant has done any mechanistic interpretability reading or coursework worth naming; the resume lists none, so nothing was invented."
+   ]
+  },
+  {
+   "question": "question",
+   "answer": "I asked whether a language model, told only to get Option A chosen, learns which persuasion frame a simulated partner responds to. The partner's tendency is hidden. Each round the model picks one of three unlabelled messages, one each for fairness, risk, and expertise. It then sees only whether the partner chose A. The first question is whether its choices converge on the partner's frame, including on held-out wording. The second is whether it revises when the partner's frame silently changes mid-episode. The sharper sub-question is whether any learning reflects a separable model of the partner, or a strong default frame that feedback nudges.",
+   "word_count": 104,
+   "numbers_used": [
+    {
+     "value": "three",
+     "source_label": "Exec-summary Design bullet: 'each round the model sees three unlabelled candidate messages (one per frame)'"
+    }
+   ],
+   "placeholders_for_applicant": []
+  },
+  {
+   "question": "conclusions",
+   "answer": "My conclusion is narrow. Qwen3.8-27B, given only binary feedback, learns which persuasion frame a hidden partner responds to. With its own history its chosen frame matched the target 0.570 of the time on held-out wording, up from 0.383 early. Controls stayed flat or fell. The learning gain was 0.187 [0.083, 0.290]. A reworded prompt gave 0.207 [0.110, 0.307], so the effect is not tied to one prompt string.\n\nThe effect does not generalise. Gemma-4-31B on the identical design showed a gain of 0.040. It repeated its frame 0.972 of the time after a success and 0.941 after a failure. Qwen showed 0.876 against 0.693. Gemma barely uses feedback.\n\nWhen I forced Qwen to state a probability per candidate, the gain was -0.020. Its choice equalled the argmax of its stated probabilities in 3,600 of 3,600 records. There is no stated belief separate from the choice.\n\nRevision after a silent swap failed. Swaps into expertise counted as adapted 34 of 40 times, swaps into fairness 0 of 40. That is a strong default frame, not updating.\n\nI cannot claim a latent partner model. A model-free repeat-what-worked policy fits every result. I have done no activation work, and none is justified yet. The message bank has only machine judges so far.",
+   "word_count": 209,
+   "numbers_used": [
+    {
+     "value": "0.570",
+     "source_label": "V4 full_history late held-out match (sheet: 0.57; Result 1 bullet: 0.383 \u2192 0.570)"
+    },
+    {
+     "value": "0.383",
+     "source_label": "V4 full_history early match"
+    },
+    {
+     "value": "0.187 [0.083, 0.290]",
+     "source_label": "V4 full_history learning gain (late held-out \u2212 early), 95% CI"
+    },
+    {
+     "value": "0.207 [0.110, 0.307]",
+     "source_label": "P1 paraphrase full_history learning gain (late held-out \u2212 early), 95% CI"
+    },
+    {
+     "value": "0.040",
+     "source_label": "R1 Gemma full_history learning gain (late held-out \u2212 early), 95% CI"
+    },
+    {
+     "value": "0.972 / 0.941",
+     "source_label": "Gemma R1 full_history: P(repeat frame | success) / P(repeat | failure)"
+    },
+    {
+     "value": "0.876 / 0.693",
+     "source_label": "Qwen V4 full_history: P(repeat frame | success) / P(repeat | failure)"
+    },
+    {
+     "value": "-0.020",
+     "source_label": "E1 elicited elicited_full_history learning gain (late held-out \u2212 early), 95% CI"
+    },
+    {
+     "value": "3,600 of 3,600",
+     "source_label": "E1 choice equals argmax of stated p_a (sheet: 3600 of 3600 records)"
+    },
+    {
+     "value": "34 of 40",
+     "source_label": "V4 swap into expertise (default): adapted"
+    },
+    {
+     "value": "0 of 40",
+     "source_label": "Result 2 bullet: swaps into fairness adapted 0 of 40 (sheet: expertise->fairness 0 of 20 plus risk->fairness 0 of 20)"
+    }
+   ],
+   "placeholders_for_applicant": []
+  },
+  {
+   "question": "technical",
+   "answer": "I quantify whether a model's choice of persuasion frame tracks a hidden partner, given only binary feedback.\n\nModels: Qwen3.8-27B and Gemma-4-31B-it, both recent open-weight checkpoints pinned to a revision hash.\n\nEnvironment: each round the model sees a low-stakes scenario and three unlabelled candidate messages, one per frame (fairness, risk, expertise). It outputs 1, 2 or 3. A simulated partner picks Option A with probability 0.72 if the candidate's registered frame matches its hidden type, and 0.38 otherwise. The model sees only the outcome. Episodes run 20 rounds. In the swap condition the hidden type changes silently after round 10. Rounds 16-20 use separately authored held-out wording. One run is 360 episodes and 7,200 choices.\n\nConditions: full history (own choices and outcomes), no history, shuffled history (another type's history, same scenarios), random target (outcomes independent of the message), and swap.\n\nMetrics: match rate is P(chosen frame equals the active hidden type). Learning gain is late held-out match minus early match. The primary contrast is the difference-in-differences of that gain against no history. After a swap I report new-frame gain, old-frame drop, and late new-over-old. Tests are exact one-sided sign-flip tests. Confidence intervals come from a bootstrap over episodes, not rounds, since rounds within an episode are correlated.\n\nPrompts: the main prompt asks for a single digit and nothing else. One arm instead requires JSON with a stated P(A) per candidate plus a choice, and shows the model its past predictions.\n\nPreregistration: model revision, message bank, probabilities, seeds, sample size, thresholds and tests were frozen before each run. The analyzer ran once.",
+   "word_count": 260,
+   "numbers_used": [
+    {
+     "value": "0.72",
+     "source_label": "Exec-summary Design bullet: target P(A)=0.72 match"
+    },
+    {
+     "value": "0.38",
+     "source_label": "Exec-summary Design bullet: target P(A)=0.38 mismatch"
+    },
+    {
+     "value": "three candidates, outputs 1/2/3",
+     "source_label": "Exec-summary Design bullet: three unlabelled candidate messages (one per frame), picks 1/2/3"
+    },
+    {
+     "value": "20 rounds",
+     "source_label": "Exec-summary Design bullet (rounds 16-20; 7,200 choices / 360 episodes); V4_REPLICATION_DECLARATION.md frozen design: 20 rounds"
+    },
+    {
+     "value": "swap after round 10",
+     "source_label": "Exec-summary Design bullet: silent swap after round 10"
+    },
+    {
+     "value": "rounds 16-20",
+     "source_label": "Exec-summary Design bullet: rounds 16-20 use separately authored held-out wording"
+    },
+    {
+     "value": "360 episodes",
+     "source_label": "Exec-summary Design bullet: 360 episodes"
+    },
+    {
+     "value": "7,200 choices",
+     "source_label": "Exec-summary Design bullet: 7,200 choices"
+    },
+    {
+     "value": "Qwen3.8-27B",
+     "source_label": "Exec-summary Design bullet: Qwen3.8-27B @ 1d4bf0f2"
+    },
+    {
+     "value": "Gemma-4-31B-it",
+     "source_label": "Result 5 (Arm R1): Gemma-4-31B; V4_REPLICATION_DECLARATION.md: google/gemma-4-31B-it @ 842da379"
+    }
+   ],
+   "placeholders_for_applicant": []
+  },
+  {
+   "question": "why",
+   "answer": "A persuader that models its target is a different object from one with a fixed style. It finds what works on you in particular and updates when you change. That is the safety-relevant capability. Any claim about a target model inside the network needs a behavioural effect to point at first.\n\nI moved from free-form persuasion to controlled choice. In free-form, a language scorer set the reward and a judge labelled the frame, so judge noise and circularity mixed with learning. In V4 the model picks one of three unlabelled candidates, one per registered frame. The target responds to that frame: P(A) 0.72 on a match, 0.38 otherwise. No scorer or judge is on the causal path. I chose it because it is cheap, 7,200 choices per arm, and each hypothesis has a control that can fail it. [CONFIRM: personal reason, if any]",
+   "word_count": 143,
+   "numbers_used": [
+    {
+     "value": "0.72",
+     "source_label": "Exec-summary Design bullet (V4): target P(A)=0.72 match"
+    },
+    {
+     "value": "0.38",
+     "source_label": "Exec-summary Design bullet (V4): target P(A)=0.38 mismatch"
+    },
+    {
+     "value": "three",
+     "source_label": "Exec-summary Design bullet (V4): three unlabelled candidate messages (one per frame)"
+    },
+    {
+     "value": "7,200",
+     "source_label": "Exec-summary Design bullet (V4): 360 episodes, 7,200 choices"
+    }
+   ],
+   "placeholders_for_applicant": [
+    "[CONFIRM: personal reason, if any] - the answer gives the project-level reason (cheap, controlled, falsifiable); add a personal motivation only if one is true"
+   ]
+  },
+  {
+   "question": "limitations",
+   "answer": "One positive model. Qwen3.8-27B learns (gain 0.187 [0.083, 0.290]). Gemma-4-31B does not (0.040). A third family cost one more run. I spent it on the paraphrase arm.\n\nThe target is a fixed rule: P(A) 0.72 on a frame match, 0.38 otherwise. Not a human, not an LLM. An LLM target was affordable, but it puts a language scorer back in the reward loop.\n\nThe frames are three pre-written candidates. The model never writes its own persuasion. Free-form was gated behind a revision pass that never came.\n\nRevision is confounded by an expertise default: 34 of 40 swaps into expertise counted as adapted, 0 of 40 into fairness. Four redesigns (V5 to V8) each stopped at its own preregistered gate. A fifth needs a new bank and calibration run, and might also fail.\n\nE1 changed the output format and showed the model its past predictions at once. Separating them needs another arm I did not run.\n\nP1 failed the validity gate at 0.898. Under the new wording the model started reasoning in about 10% of history rounds and was cut off. Random fallbacks dilute learning (parsed-only 0.632 vs 0.600). A larger token budget fixes this, but the arm was declared with V4 decoding.\n\nThe bank has two blind machine judges and no human labels. A 45-template hand-label sheet exists. Filling it costs [CONFIRM: hours needed]. I have not done it.\n\nNo activation-level evidence exists. The mechanistic claim was gated and never earned.\n\nN is 60 episodes per condition. Effects the size of Gemma's 0.040 are not resolvable. Doubling N means another full run per arm.",
+   "word_count": 264,
+   "numbers_used": [
+    {
+     "value": "0.187 [0.083, 0.290]",
+     "source_label": "V4 full_history learning gain (late held-out \u2212 early), 95% CI"
+    },
+    {
+     "value": "0.040",
+     "source_label": "R1 Gemma full_history learning gain (late held-out \u2212 early), 95% CI"
+    },
+    {
+     "value": "0.72 / 0.38",
+     "source_label": "Exec-summary design bullet: target responds P(A)=0.72 match / 0.38 mismatch"
+    },
+    {
+     "value": "three (candidate messages)",
+     "source_label": "Exec-summary design bullet: three unlabelled candidate messages (one per frame)"
+    },
+    {
+     "value": "34 of 40",
+     "source_label": "V4 swap into expertise (default): new gain / old drop / adapted"
+    },
+    {
+     "value": "0 of 40",
+     "source_label": "Result 2: swaps into fairness 0 of 40 (expertise->fairness 0 of 20 + risk->fairness 0 of 20)"
+    },
+    {
+     "value": "Four (V5 to V8)",
+     "source_label": "Result 4: four successors, four pre-registered stops; gate ledger rows V5, V6, V7, V8"
+    },
+    {
+     "value": "0.898",
+     "source_label": "P1 paraphrase valid selection rate (gate 0.98)"
+    },
+    {
+     "value": "about 10%",
+     "source_label": "Result 7: ~10% of history rounds; P1 invalid outputs share 0.102, share in no_history 0.000"
+    },
+    {
+     "value": "0.632 vs 0.600",
+     "source_label": "P1 full_history late held-out match: all rounds / parsed-only (0.600 / 0.632)"
+    },
+    {
+     "value": "two blind machine judges",
+     "source_label": "What was NOT done: no human validation of the message bank yet (two blind machine judges)"
+    },
+    {
+     "value": "45-template",
+     "source_label": "What was NOT done: a 45-template blind hand-label sheet exists"
+    },
+    {
+     "value": "60 (episodes per condition)",
+     "source_label": "n=60 in V4/R1/E1/P1 learning-gain rows"
+    },
+    {
+     "value": "Qwen3.8-27B, Gemma-4-31B",
+     "source_label": "Exec-summary design bullet; Result 5 (Arm R1)"
+    }
+   ],
+   "placeholders_for_applicant": [
+    "[CONFIRM: hours needed] \u2014 the applicant's own estimate of how long it takes to fill the 45-template blind hand-label sheet at data/processed/v4_bank_label_sheet.csv"
+   ]
+  },
+  {
+   "question": "whystream",
+   "answer": "My project asks what an LLM represents about the partner it is talking to, and whether that representation updates. The stream asks that of model internals. Qwen3.8-27B learns which frame a hidden partner responds to (gain 0.187). The effect survives a reworded prompt (0.207), fails on Gemma-4-31B (0.040), and vanishes when Qwen must state probabilities. There the choice equalled the argmax of the stated belief in 3,600 of 3,600 records. Behaviour alone cannot show a separable partner model. Activations could. I have captured none. Probes wait on a behavioural effect that survives. Four redesigns stopped at their own preregistered gates. The stream is known for sceptical, fast empirical iteration. [CONFIRM: name what you have actually read from the stream that shows you this] I want someone who pushes harder than I do. My prior work is verification: proving agent workflows safe before execution, and modelling confabulation-like failures in LLM memory systems. Both ask whether internal state tracks the world.",
+   "word_count": 159,
+   "numbers_used": [
+    {
+     "value": "0.187",
+     "source_label": "V4 full_history learning gain (late held-out \u2212 early), 95% CI: 0.187 [0.083, 0.290], n=60"
+    },
+    {
+     "value": "0.207",
+     "source_label": "P1 paraphrase full_history learning gain (late held-out \u2212 early), 95% CI: 0.207 [0.110, 0.307], n=60"
+    },
+    {
+     "value": "0.040",
+     "source_label": "R1 Gemma full_history learning gain (late held-out \u2212 early), 95% CI: 0.040 [-0.007, 0.093], n=60"
+    },
+    {
+     "value": "3,600 of 3,600",
+     "source_label": "E1 choice equals argmax of stated p_a: 3600 of 3600 records"
+    },
+    {
+     "value": "Four (redesigns)",
+     "source_label": "Result 4 (four successors, four pre-registered stops): V5, V6, V7, V8"
+    },
+    {
+     "value": "Qwen3.8-27B, Gemma-4-31B",
+     "source_label": "model names as given in the exec-summary skeleton (Design; Result 5)"
+    }
+   ],
+   "placeholders_for_applicant": [
+    "[CONFIRM: name what you have actually read from the stream that shows you this] \u2014 replace with one specific thing (a post, paper, talk, or piece of code) from Neel's stream that you have actually read, so the 'known for sceptical, fast empirical iteration' claim is yours and not generic. Keep it to about 15 words: the body is 145 words and the hard cap is 163."
+   ]
+  }
+ ],
+ "verifs": [
+  {
+   "ok": true,
+   "errors": [],
+   "overclaims": [],
+   "word_count": 104
+  },
+  {
+   "ok": false,
+   "errors": [],
+   "overclaims": [
+    {
+     "quoted_text": "So there is no belief the behaviour ignores, and no evidence of a separable partner model.",
+     "problem": "The source (V4_REPLICATION_DECLARATION.md lines 138-139) says 'no stated belief that the behaviour ignores'. Dropping 'stated' extends the claim to internal beliefs, which E1 did not test; no activation-level work was done.",
+     "fix": "So there is no stated belief the behaviour ignores, and no evidence of a separable partner model."
+    }
+   ],
+   "word_count": 199
+  },
+  {
+   "ok": false,
+   "errors": [],
+   "overclaims": [
+    {
+     "quoted_text": "I turned an analogy from reality-monitoring neuroscience into testable memory-verification mechanisms.",
+     "problem": "Minor. The resume lists two things in the same role: modelling confabulation-like failures using concepts from dementia and reality-monitoring neuroscience, and building memory-verification mechanisms (uncertainty gating, source tracking, retrieval-consistency scoring). It does not state that the mechanisms were derived from the neuroscience analogy, and it names dementia alongside reality monitoring.",
+     "fix": "State both as the resume does, e.g. 'I modelled confabulation-like failures in AI memory systems using ideas from dementia and reality-monitoring research, and built memory-verification mechanisms for retrieval pipelines (uncertainty gating, source tracking, retrieval-consistency scoring).' Keep the 'turned an analogy into mechanisms' framing only if the applicant can vouch for that causal chain."
+    }
+   ],
+   "word_count": 118
+  },
+  {
+   "ok": false,
+   "errors": [],
+   "overclaims": [
+    {
+     "quoted_text": "A model-free repeat-what-worked policy fits every result.",
+     "problem": "Stated as fact, but no source tests or asserts it. WRITEUP_MATERIALS.md reports win-stay/lose-shift gaps (Qwen 0.876 vs 0.693) and the declaration says there is 'no evidence of a separable model of the partner'; neither says a model-free policy fits every result. Result 1b even cuts against a pure repeat-what-worked account: acquisition of fairness from scratch reaches 0.24 while re-acquisition after a swap is 0 of 40 ('Acquisition from scratch works; re-acquisition after a formed preference does not'), which needs a default term on top of repeat-what-worked.",
+     "fix": "Replace with: 'I have not ruled out a model-free repeat-what-worked policy plus a strong default frame.'"
+    },
+    {
+     "quoted_text": "That is a strong default frame, not updating.",
+     "problem": "Overstates the null. The source (Result 2) says that after the silent swap 'new-frame use rose and old-frame use fell symmetrically' and the new-target gain test was significant (swap_metrics.new_target_gain one-sided p = 9.999e-05); what failed was the registered new-over-old test (p = 0.498). The 34/40 vs 0/40 asymmetry reflects the expertise default, but 'not updating' contradicts the recorded rise in new-frame use.",
+     "fix": "Replace with: 'That asymmetry is the default frame. New-frame use did rise after the swap, but it never overtook the old frame.'"
+    }
+   ],
+   "word_count": 209
+  },
+  {
+   "ok": false,
+   "errors": [
+    {
+     "quoted_text": "7,200 choices per arm",
+     "problem": "7,200 is the record count for the V4 run and for the two full-design arms R1 and P1 only. Arm E1 had 180 episodes and 3,600 records (WRITEUP_MATERIALS.md line 16: '3,600/3,600 valid JSON'; V4_REPLICATION_DECLARATION.md lines 27-29: '180 episodes, 3,600 records'). 'Per arm' attaches the number to the wrong quantity.",
+     "fix": "Write '7,200 choices in the V4 run' (or '7,200 choices for a full run of the design')."
+    }
+   ],
+   "overclaims": [
+    {
+     "quoted_text": "No scorer or judge is on the causal path.",
+     "problem": "True for the per-round reward (the target responds to the candidate's registered frame ID; docs/V4_REVIEW.md line 20 says no language scorer is on the causal path). But the frame labels that drive the target come from the message bank, which was validated only by two blind machine judges. No human validation exists yet; a 45-template blind hand-label sheet is still unfilled (WRITEUP_MATERIALS.md line 18). Stated without that caveat, the sentence understates a limitation.",
+     "fix": "Add one sentence: 'The frame labels come from a registered bank checked by two blind machine judges. I have not yet hand-labelled it.'"
+    },
+    {
+     "quoted_text": "each hypothesis has a control that can fail it",
+     "problem": "H1-H3 (learning) have the three controls: no-history, shuffled-history, random-target (V4_REPLICATION_DECLARATION.md lines 15-16; WRITEUP_MATERIALS.md line 9). H4 (revision after the silent swap) is tested by a registered final new-vs-old randomization test inside the swap condition, not by a separate control condition (WRITEUP_MATERIALS.md gate ledger line 97; V6 later added a 'matched stable-old twin', line 99, which V4 lacked). 'Each hypothesis has a control' is loose for H4.",
+     "fix": "Write 'each hypothesis has a preregistered test that can fail it, and the learning hypotheses each have a control'."
+    },
+    {
+     "quoted_text": "I moved from free-form persuasion to controlled choice. In free-form, a language scorer set the reward and a judge labelled the frame, so judge noise and circularity mixed with learning.",
+     "problem": "Not stated in either named source (WRITEUP_MATERIALS.md or V4_REPLICATION_DECLARATION.md). Verified elsewhere in the repo: docs/V8_MILESTONE_DECLARATION.md line 26 ('V3 free-form: learning pattern incomplete; keyword/judge circularity') and docs/V4_REVIEW.md line 20 ('Reward and primary measurement shared language-scoring vocabulary in V3'). Not an overclaim; recorded only so the parent knows its provenance.",
+     "fix": "No change needed."
+    }
+   ],
+   "word_count": 138
+  },
+  {
+   "ok": false,
+   "errors": [
+    {
+     "quoted_text": "Tests are exact one-sided sign-flip tests.",
+     "problem": "Not exact. The V4 analyzer (src/controlled_analysis.py, _sign_flip_test, called by scripts/analyze_controlled_v4.py with --n-perm default 10000) draws 10,000 random sign vectors and reports p = (exceed + 1) / (n_perm + 1). WRITEUP_MATERIALS.md confirms this: the V4 one-sided p-values are 9.999000099990002e-05 (= 1/10001) and 0.49825017498250174 (= 4983/10001). Exact enumerated sign-flip tests exist only in the V5/V6 power modules, which produced no reported result.",
+     "fix": "Tests are one-sided sign-flip randomization tests over episodes with 10,000 random sign draws. (Or simply: Tests are one-sided sign-flip randomization tests over episodes.)"
+    }
+   ],
+   "overclaims": [
+    {
+     "quoted_text": "The primary contrast is the difference-in-differences of that gain against no history.",
+     "problem": "The numbers sheet lists three registered primary contrasts (v4_checkpoint_summary.json primary_contrasts): full over no-history on late held-out match, full over shuffled on late held-out match, and full vs no-history difference-in-differences. Naming the DiD as 'the' primary contrast understates what was registered.",
+     "fix": "The primary contrasts are late held-out match for full history against no history and against shuffled history, and the difference-in-differences of the gain against no history."
+    },
+    {
+     "quoted_text": "One run is 360 episodes and 7,200 choices.",
+     "problem": "True for the five-condition design (V4, R1, P1). The elicited arm mentioned later in the answer ran only two conditions: 180 episodes and 3,600 records (WRITEUP_MATERIALS.md line 16; declaration lines 27-29).",
+     "fix": "A full five-condition run is 360 episodes and 7,200 choices. The elicited arm ran two conditions, 180 episodes and 3,600 choices."
+    },
+    {
+     "quoted_text": "The analyzer ran once.",
+     "problem": "Minor. For the elicited arm the frozen V4 analyzer could not run at all (it refuses a log without the five V4 conditions); a separate script applying the frozen functions and thresholds, committed before any E1 record existed, ran instead (declaration lines 54-68). 'The analyzer ran once' is accurate for V4, R1 and P1 only.",
+     "fix": "Each arm was analyzed once. For the elicited arm a separate script applied the frozen functions and thresholds and was committed before any record existed."
+    }
+   ],
+   "word_count": 260
+  },
+  {
+   "ok": false,
+   "errors": [
+    {
+     "quoted_text": "Filling it costs [CONFIRM: hours needed].",
+     "problem": "Unresolved placeholder. Neither WRITEUP_MATERIALS.md nor V4_REPLICATION_DECLARATION.md gives any time cost for the 45-template hand-label sheet, so no number can be filled in from the sources.",
+     "fix": "Delete the sentence, or replace it with a number-free statement such as 'I have not filled it yet.' Do not insert an hours figure unless the applicant has a real estimate; if one is inserted, note it is the applicant's own estimate."
+    },
+    {
+     "quoted_text": "started reasoning in about 10% of history rounds",
+     "problem": "Loose attachment. The numbers sheet (line 214) gives 733 invalid outputs / 0.102 share, which is the share of all 7,200 rounds. The declaration (lines 204-206) says these occur in 11-14% of rounds within each history condition and 0% of no-history rounds. 'About 10% of history rounds' understates the within-history rate, although it does echo the exec-summary wording on line 17.",
+     "fix": "Say 'in 733 of 7,200 rounds, about 10% overall, all in conditions that show a history' (733 and 0.102 are both in WRITEUP_MATERIALS.md), or say 'in about 10% of all rounds, never without history'."
+    }
+   ],
+   "overclaims": [
+    {
+     "quoted_text": "A third family cost one more run. I spent it on the paraphrase arm.",
+     "problem": "Neither source describes a budget trade-off between a third model family and the paraphrase arm. The declaration (lines 157-160) motivates P1 by the open question of whether the V4 positive is tied to the exact prompt string, and prices it at about 1 pod-hour, about $2. The claim that a third family was the alternative use of the same run is not documented and reads as an invented decision.",
+     "fix": "Replace with what the sources support: 'I did not run a third family. The last run went to the paraphrase arm, which tested whether the effect depended on the exact prompt string.' If the applicant actually made this trade-off, they can restore the framing in their own rewrite."
+    },
+    {
+     "quoted_text": "An LLM target was affordable, but it puts a language scorer back in the reward loop.",
+     "problem": "Not in either source. There is no statement about the affordability of an LLM target or about a 'language scorer in the reward loop' as the reason for a fixed-rule target. This is design rationale presented as a recorded fact.",
+     "fix": "Either drop the sentence or mark it as the applicant's own reasoning ('I chose a fixed rule so the reward did not depend on a second model reading text'). Do not state affordability as a fact unless the applicant can back it."
+    },
+    {
+     "quoted_text": "A fifth needs a new bank and calibration run, and might also fail.",
+     "problem": "Speculation not in the sources. The gate ledger (lines 97-101) records what V5-V8 required and where each stopped; nothing says what a fifth redesign would need. 'Needs a new bank and calibration run' is a specific requirement stated as fact.",
+     "fix": "Cut the sentence, or soften to 'I have not designed a fifth. Each of the four needed its own bank or calibration step, and each failed at that step.' (V5 required a calibration run per line 98; V6-V8 were design-stage screens.)"
+    },
+    {
+     "quoted_text": "A larger token budget fixes this, but the arm was declared with V4 decoding.",
+     "problem": "Stated as established fact; the declaration (lines 218-220) says a larger budget 'would remove' the truncation and that it was not re-run. The fix was never tested.",
+     "fix": "Change 'fixes this' to 'would probably fix this' or 'should remove the truncation. I did not re-run it, because the arm was declared with V4 decoding unchanged.'"
+    }
+   ],
+   "word_count": 264
+  },
+  {
+   "ok": false,
+   "errors": [
+    {
+     "quoted_text": "None of it ran on a real model, because the behavioural revision gate it waited on failed.",
+     "problem": "Inaccurate as stated. docs/WORK_LOG.md records the activation-capture and zero-vector steering preflight running on the real Qwen3.8-27B on RunPod three times (activation shape [1, 65, 5120], zero-vector steering byte-identical to the unsteered output, saved to results/tables/preflight_qwen38_27b.json). What never happened is a real activation dataset, a probe trained on real activations, or a non-zero intervention. WRITEUP_MATERIALS line 18 says 'no activation capture, probe, or steering on a real model', meaning no experiment, not that the code never touched a model. Neel will read the work log.",
+     "fix": "Replace with: 'I preflighted the capture hook and a zero-vector steering pass on the real model once. I never captured an activation dataset, trained a probe on real activations, or ran a non-zero intervention, because the behavioural revision gate they waited on failed.'"
+    },
+    {
+     "quoted_text": "I have never trained a probe, patched activations, or used a hooking library.",
+     "problem": "'never trained a probe' is contradicted by docs/WORK_LOG.md lines 198-201 and results/mockpilot_gpu_free/probe_tables/: the full train/dev/test probe script was run on 624 synthetic oracle activation rows and scored 1.0 on the planted layer. That is a trained probe, on synthetic data. 'never used a hooking library' is true (no TransformerLens or nnsight), but src/steering.py does use PyTorch register_forward_hook, so the phrasing invites a follow-up.",
+     "fix": "Replace with: 'I have never trained a probe on real activations, patched activations, or used TransformerLens or nnsight. My own probe code has only run on synthetic fixtures, and my steering code uses raw PyTorch forward hooks.'"
+    },
+    {
+     "quoted_text": "[CONFIRM: any self-study to name]",
+     "problem": "Unresolved placeholder still in the answer text. Word count is 132 with it and 127 without.",
+     "fix": "Fill it with a specific, true self-study item (a course, paper, or notebook actually worked through) or delete it. Do not invent one."
+    }
+   ],
+   "overclaims": [
+    {
+     "quoted_text": "A design review found my first-crossing probe-lead metric was biased by probe noise, so I dropped it.",
+     "problem": "Attribution and sequence go beyond the sources. WRITEUP_MATERIALS line 14 calls it a 'Methodological finding' and says it was 'Replaced before any real probe was trained'; V4_REPLICATION_DECLARATION line 40 only says 'No first-crossing statistic'. Neither attributes the discovery to a design review. In the repo, docs/PREREGISTRATION.md already labelled first-crossing lag secondary because 'random classifier flicker biases it toward early crossing', and docs/REVIEW.md (a GPU-free adversarial audit, largely LLM-run) lists it as finding 1, resolved by replacing the headline with a baseline-corrected post-swap rise statistic in src/probing.py. 'Dropped' also skips the replacement step. If the applicant identified the bias themselves, saying a review found it undersells that; if an automated audit flagged it, 'a design review' reads as a human reviewer.",
+     "fix": "State what actually happened and quantify it with a sourced number: 'I had listed first-crossing lag as secondary because chance-level probe flicker biases it toward early crossing. An adversarial review pass confirmed it: in simulation a probe with no target information appeared to lead behaviour by 0.91 rounds, with a CI excluding zero in 87% of runs. I replaced it with a baseline-corrected rise statistic and then dropped lag statistics entirely for the elicited-belief arm.' Adjust 'adversarial review pass' to 'I found' if the applicant confirms the preregistration note predates the audit."
+    }
+   ],
+   "word_count": 132
+  },
+  {
+   "ok": false,
+   "errors": [],
+   "overclaims": [
+    {
+     "quoted_text": "Behaviour alone cannot show a separable partner model.",
+     "problem": "Overgeneralises. Arm E1 was itself a behavioural test designed to show a separable stated belief if one existed (V4_REPLICATION_DECLARATION.md lines 41-44: belief-matches-new rising while choice-matches-new does not). What the sources support is that in E1 belief and choice were one object and neither moved, so there was no evidence of a separable partner model. Saying behaviour 'cannot' show it contradicts the design of the applicant's own experiment.",
+     "fix": "Replace with: 'In that arm the stated belief and the choice were one object, so behaviour gave no evidence of a separable partner model.'"
+    },
+    {
+     "quoted_text": "Probes wait on a behavioural effect that survives.",
+     "problem": "Misstates the gate and is internally inconsistent. WRITEUP_MATERIALS.md line 18 says probes were 'gated behind a passed revision test that never came'. The answer has just said the effect survives a reworded prompt (0.207), so 'an effect that survives' is not what blocked probes. The revision test failed in V4, R1, E1 and P1.",
+     "fix": "Replace with: 'Probes were gated behind a passed revision test. It never came.'"
+    },
+    {
+     "quoted_text": "vanishes when Qwen must state probabilities",
+     "problem": "Minor. The source lists a caveat the answer omits: E1 changed two things at once (output format and the model seeing its own past predictions) and 'cannot separate the output-format change from the model seeing its own past predictions' (WRITEUP_MATERIALS.md line 18; declaration lines 148-151). Attributing the disappearance to stating probabilities alone understates that confound.",
+     "fix": "Either say 'vanishes under a prompt that makes Qwen state probabilities and see its own past predictions' or add a short sentence: 'That arm also showed the model its own past predictions, so the two are not separated.'"
+    },
+    {
+     "quoted_text": "The stream is known for sceptical, fast empirical iteration. [CONFIRM: name what you have actually read from the stream that shows you this]",
+     "problem": "Not supported by any source and left as a placeholder. A bracketed CONFIRM note in a submitted answer would be an obvious defect, and an unspecific characterisation of the stream is the kind of generic praise the reader says he discounts.",
+     "fix": "Replace with one concrete thing actually read (a specific post, paper or talk) and what it showed, or delete the sentence. Word count without the bracket is 145."
+    }
+   ],
+   "word_count": 159
+  }
+ ],
+ "critique": []
+}

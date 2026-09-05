@@ -1,38 +1,30 @@
 
-# Does a language model learn which persuasion frame a hidden partner responds to, and does it hold a model of that partner?
+# Testing Whether Language Models Learn Hidden Persuasion Targets
 
 Aayush Ghosh. Application project for Neel Nanda's MATS 12.0 stream. Code, logs, and every number in this document: github.com/4r4cn1d0/LatentTarget.
 
 
 # Executive summary
 
-Problem. Chen et al. showed LLMs model static user attributes. I asked the dynamic version, in persuasion: given only a goal and a yes/no outcome each round, does a model learn which argument this partner responds to, revise when the partner changes, and hold a belief about the partner separate from its choice? A persuader that models and updates on its target is a different safety problem from one with a fixed style.
+The question. This project started with a question that sounds simple: if a language model keeps talking to the same person and only sees whether its argument worked, does it learn what that person responds to? More importantly, if that person changes without warning, can the model let go of its old picture and build a new one? Chen et al. found that LLMs model static user attributes. I wanted to test the dynamic version in persuasion, where a model's picture of someone can directly change what it says.
 
-Takeaways.
+What I built. Each episode has 20 rounds. In every round the model sees three unlabelled messages, one based on fairness, one on risk, and one on expertise, then answers 1, 2, or 3. The model never sees those labels or the partner's hidden type. The simulated partner chooses A with probability 0.72 when the chosen frame matches its type and 0.38 otherwise. Rounds 16 to 20 use unseen wording. I tested the model with its own history, no history, another episode's shuffled history, a random partner, and a partner that silently changes after round 10. Each run contains 360 episodes and 7,200 choices. Seeds and thresholds were frozen before each run.
 
-- Qwen3.8-27B learns which argument frame works, from outcomes alone, on unseen wording, and the effect survives rewording the prompt.
-- After a silent switch it moves toward the new frame but never past the old one, and the movement follows its default: 34 of 40 switches into expertise adapted, 9 into risk, 0 into fairness.
-- Two stress tests break the stronger reading. Gemma-4-31B shows no learning under the identical design. Forcing Qwen to state a probability per message removes the learning, and its stated belief and its choice were identical in 3,600 of 3,600 records.
+What happened first. Qwen3.8-27B learned. With its own history, its match rate rose from 0.383 in the first five rounds to 0.570 on the held-out rounds, a gain of 0.187 [0.083, 0.290]. No history stayed at 0.333, shuffled history fell to 0.233, and the random partner was flat. However, the model begins with a powerful expertise default: without history it chooses expertise 92.2% of the time. The useful learning happened on fairness partners (0.24 with history versus 0.05 without it) and risk partners (0.61 versus 0.10).
 
-Setup. Each of 20 rounds offers three unlabelled messages, one per frame (fairness, risk, expertise), and the model answers 1, 2, or 3. A simulated partner picks A with probability 0.72 if the frame matches its hidden type, else 0.38. "Match" means the chosen frame equals the partner's type; chance is 1/3. Rounds 16 to 20 use held-out wording. In swap episodes the type changes silently after round 10. Conditions: own history, no history, shuffled history (another episode's transcript), random partner, swap. 360 episodes and 7,200 choices per run. Thresholds and seeds were frozen before each run, which was analysed once.
+[Figure fig_w1_v4_learning_by_condition.png] Figure 1. Qwen's match rate by round. The grey band marks held-out wording.
 
-Experiment 1, learning (V4). With its own history the held-out match rate rose from 0.383 to 0.570. Learning gain (late held-out minus early) was 0.187 [0.083, 0.290] and the randomization test against no history passed. No history stayed at 0.333, shuffled history fell to 0.233, random partner was flat. Learning is anti-default: with no history the model picks expertise 0.922 of the time, and the gains come on fairness (0.24 vs 0.05) and risk (0.61 vs 0.10) partners.
+Then I changed the partner. After the silent switch, use of the new frame rose 0.108 and use of the old frame fell 0.105. That sounds promising, but the new frame never overtook the old one (difference 0.000, p = 0.50). The direction tells the real story: 34 of 40 switches into expertise adapted, nine into risk, and none into fairness. The model moved, but mostly back toward what it already preferred.
 
-[Figure fig_w1_v4_learning_by_condition.png] Figure 1. V4, Qwen3.8-27B: match rate by round, four stable conditions; grey band is held-out wording.
+[Figure fig_w2_v4_swap_by_transition.png] Figure 2. Qwen's change in new-frame and old-frame use after each type of switch.
 
-Experiment 2, revision (V4 swap). After the switch, new-frame use rose 0.108 and old-frame use fell 0.105, but the new frame never overtook the old (difference 0.000, p = 0.50), so the registered revision test failed.
+Now the difficult part. I tried to break the result in three ways, with predictions written before each outcome. Rewording the prompt preserved the learning: gain 0.207 [0.110, 0.307], p = 0.0002 against no history. Gemma-4-31B did not replicate it: gain 0.040 [-0.007, 0.093]. Gemma repeated its frame almost regardless of feedback, 0.972 after success and 0.941 after failure, while Qwen changed more, 0.876 versus 0.693. Finally, when Qwen had to state a probability for every message, the learning disappeared: gain -0.020 [-0.053, 0.010]. In all 3,600 records its choice was an argmax of its own probabilities, but those probabilities stayed in the same order: expertise 0.69, risk 0.58, fairness 0.49.
 
-[Figure fig_w2_v4_swap_by_transition.png] Figure 2. V4 silent swap: change in new-frame and old-frame use per transition, with the number of episodes that adapted.
+[Figure fig_w11_whole_story.png] Figure 3. The original result beside the prompt rewording, Gemma replication, and stated-belief arm.
 
-Experiment 3, three stress tests, predictions written before each outcome. Reworded prompt, same Qwen: replicates, gain 0.207 [0.110, 0.307], p = 0.0002 against no history. Gemma-4-31B, same design: gain 0.040 [-0.007, 0.093]; it repeats its frame 0.972 after a success and 0.941 after a failure (Qwen 0.876 vs 0.693). Same Qwen forced to state a probability per candidate: gain -0.020 [-0.053, 0.010]; its choice was the argmax of its stated probabilities in every record, and its stated confidence was a fixed ranking (expertise 0.69 > risk 0.58 > fairness 0.49).
+What I think this means. There is evidence for a narrow, prompt- and model-dependent behavioural effect. There is not yet evidence that the model holds a separate, updateable model of its partner. A simpler rule still fits everything: repeat what worked, and otherwise fall back to expertise.
 
-[Figure fig_w11_whole_story.png] Figure 3. With-history match rate by round: V4, reworded prompt, Gemma, and Qwen forced to state beliefs. Dashed: V4 no history.
-
-Reading. A real, wording-robust behavioural effect on one model. No evidence of a partner model separate from the choice: I have not ruled out a model-free policy: repeat what worked, else fall back to expertise.
-
-Limitations and next. Simulated partner with a fixed rule; choice among pre-written messages; one positive model of two; the elicited arm changed format and history at once. Next: a third model, a two-frame design plus a distractor to remove the default, an elicited arm with predictions hidden, and probes only if an effect survives all three.
-
-Process. Four redesigns to remove the default stopped at pass/fail rules I wrote down before their outcomes. Nearly all code was AI-written; the design, rules, stops, and checks were mine (listed after the examples).
+What comes next. The partner is simulated, the messages are pre-written, only one of two models learned, and the belief test changed two things at once. I would next test a third model, remove the expertise default with a two-frame design plus a distractor, and hide past predictions in the belief arm. Activation probes only make sense if the behavioural effect survives those tests.
 
 
 # Randomly selected examples
@@ -166,7 +158,7 @@ Model answered "{"p_a":{"1":0.25,"2":0.20,"3":0.35},"choice":3}". Partner P(A) =
 
 # How the results were checked
 
-Most of the code in this project was written with an AI coding agent (Claude, in Claude Code; earlier sessions in Codex), which also ran the GPU jobs. The design, the pass/fail rules, the decisions to stop, and the stress tests were mine. Because an agent will happily produce a plausible-looking result that is wrong, the project was built so that the important claims can be checked without trusting it.
+This project was heavily AI-assisted. Claude, in Claude Code, and Codex wrote most of the code, ran the GPU jobs, and helped draft the report. I set the research question, directed the project, and approved the sequence of experiments. Agents proposed and implemented many of the technical details. That makes the audit trail especially important: the central claims should stand on the frozen specifications, raw logs, and independent calculations, not on an agent sounding confident.
 
 - Preregistration. Every real run has a frozen specification (thresholds, seeds, and a hash of the message bank) committed before any data existed. Each run was analysed once with the frozen analyzer. A failed rule stops the run; nothing was re-tuned after seeing a result, and the four redesigns that failed their rules are reported below.
 - The pipeline can detect learning. A simulated Bayesian learner run through the identical pipeline passes the same rules, and a simulated non-learner fails them. A flat result therefore means the model did not learn, not that the analyzer is broken.
@@ -185,7 +177,7 @@ Chen and colleagues showed that language models form accurate models of static a
 
 The hypotheses, in the form they were registered before the first real run: with its own history the model matches the partner's preferred frame more often than chance (H1); that depends on its own history, not on any history and not on a partner that ignores it (H2); it generalises to unseen wording of the same frames (H3); and after a silent change of partner it moves to the new frame and away from the old one (H4). A further question, tested after the first run: is a stated belief separable from the choice?
 
-I chose a controlled choice rather than free-form persuasion. In a free-form design, which frame the model used is a judge's opinion, and judge noise would swamp a modest learning effect. Here the model picks one of three registered messages, one per frame, and the partner responds to the registered frame. Learning becomes a match rate with no judge in the loop. The price is that the model selects the persuasion rather than writing it.
+The project therefore moved from free-form persuasion to a controlled choice. In a free-form design, which frame the model used is a judge's opinion, and judge noise could swamp a modest learning effect. Here the model picks one of three registered messages, one per frame, and the partner responds to the registered frame. Learning becomes a match rate with no judge in the loop. The price is important: the model selects the persuasion rather than writing it.
 
 
 # 2. Setup
@@ -254,7 +246,7 @@ Outcome: the two effect thresholds passed and the decisive test failed. Over 120
 
 # 5. Experiment 3: three stress tests, each predicted before its outcome
 
-After the first run I wrote down predictions for three further runs and then ran each once with the same frozen design and analyzer. The first two were declared together; the third was declared after reading their outcomes but before its own. Figure 3 shows the four with-history curves side by side.
+After the first run, predictions were frozen for three further runs, and each was run once with the same design and analyzer. The first two were declared together. The third was declared after their outcomes were known but before its own run. Figure 3 shows the four with-history curves side by side.
 
 
 ## 5.1 Reworded prompt, same model: the effect survives
@@ -317,7 +309,7 @@ E1 | original design, stated beliefs in JSON | V4 rules applied within the run |
 
 # 9. How I used language models, and how much to trust each part
 
-Claude, running in Claude Code, wrote nearly all of the code, the analysis scripts, and the first drafts of the documentation, and operated the GPU jobs; earlier sessions used Codex. GPT-5.6 acted as the two blind judges that labelled the message bank. I set the question, chose the controlled-choice design over free-form persuasion, wrote the rules each design would be judged by, decided at each rule whether to stop, and declared the three stress tests. The checks I relied on are listed in the section on how the results were checked. A serious error in the main learning result would surprise me a great deal: the controls, the simulated-learner validation, the independent replication under a reworded prompt, and the seeded examples all point the same way. An error in a secondary diagnostic would surprise me less. The frame labels of the message bank are the part I trust least, because they rest on machine judges.
+Claude, running in Claude Code, and Codex wrote nearly all of the code and analysis scripts, operated the GPU jobs, and produced early drafts of the documentation. GPT-5.6 acted as the two blind judges that labelled the message bank. I supplied the research question, directed the work, and approved the experiment sequence; agents proposed and implemented many technical details, including the controlled-choice redesign and several gates. The checks are listed in the earlier audit section. I trust the main learning result more than the secondary diagnostics because the controls, simulated-learner validation, prompt rewording, and seeded examples all point in the same direction. I trust the message-bank labels least because they still rest on machine judges; the planned human labels have not been completed.
 
 
 # 10. What I would do next

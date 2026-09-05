@@ -30,10 +30,10 @@ def examples(key, k, seed):
 
 # ------------------------------------------------------------------ content
 C = []
-h1 = lambda t: C.append(("h1", t)); h2 = lambda t: C.append(("h2", t)); h3 = lambda t: C.append(("h3", t)); p = lambda t: C.append(("p", t))
+title = lambda t: C.append(("title", t)); h1 = lambda t: C.append(("h1", t)); h2 = lambda t: C.append(("h2", t)); h3 = lambda t: C.append(("h3", t)); p = lambda t: C.append(("p", t))
 bullets = lambda xs: C.append(("bullets", xs)); fig = lambda n, c: C.append(("fig", n, c)); quote = lambda t: C.append(("quote", t)); table = lambda rows: C.append(("table", rows))
 
-h1("Does a language model learn which persuasion frame a hidden partner responds to, and does it hold a model of that partner?")
+title("Testing Whether Language Models Learn Hidden Persuasion Targets")
 p("Aayush Ghosh. Application project for Neel Nanda's MATS 12.0 stream. Code, logs, and every number in this document: github.com/4r4cn1d0/LatentTarget.")
 
 h1("Executive summary")
@@ -61,7 +61,7 @@ render_examples("r1", 3, 1, "Gemma-4-31B (Arm R1): three draws from 7,200")
 render_examples("e1", 3, 2, "Qwen3.8-27B, stated beliefs (Arm E1): three draws from 3,600")
 
 h1("How the results were checked")
-p("Most of the code in this project was written with an AI coding agent (Claude, in Claude Code; earlier sessions in Codex), which also ran the GPU jobs. The design, the pass/fail rules, the decisions to stop, and the stress tests were mine. Because an agent will happily produce a plausible-looking result that is wrong, the project was built so that the important claims can be checked without trusting it.")
+p("This project was heavily AI-assisted. Claude, in Claude Code, and Codex wrote most of the code, ran the GPU jobs, and helped draft the report. I set the research question, directed the project, and approved the sequence of experiments. Agents proposed and implemented many of the technical details. That makes the audit trail especially important: the central claims should stand on the frozen specifications, raw logs, and independent calculations, not on an agent sounding confident.")
 bullets([
     "Preregistration. Every real run has a frozen specification (thresholds, seeds, and a hash of the message bank) committed before any data existed. Each run was analysed once with the frozen analyzer. A failed rule stops the run; nothing was re-tuned after seeing a result, and the four redesigns that failed their rules are reported below.",
     "The pipeline can detect learning. A simulated Bayesian learner run through the identical pipeline passes the same rules, and a simulated non-learner fails them. A flat result therefore means the model did not learn, not that the analyzer is broken.",
@@ -77,7 +77,7 @@ bullets([
 h1("1. The question, and why I chose it")
 p("Chen and colleagues showed that language models form accurate models of static attributes of the person they are talking to, from very little text. I wanted the dynamic version, in the setting where it matters most. Persuasion is where a model's picture of its interlocutor turns into action. Over a repeated interaction with feedback, does the model learn which kind of argument this particular partner responds to? Does it revise that when the partner silently changes? And is there any stated belief about the partner that is separate from the choice it makes? A persuader that holds and updates such a model is a different safety problem from one with a fixed style, and any interpretability claim about a representation of the target needs the behavioural effect first.")
 p("The hypotheses, in the form they were registered before the first real run: with its own history the model matches the partner's preferred frame more often than chance (H1); that depends on its own history, not on any history and not on a partner that ignores it (H2); it generalises to unseen wording of the same frames (H3); and after a silent change of partner it moves to the new frame and away from the old one (H4). A further question, tested after the first run: is a stated belief separable from the choice?")
-p("I chose a controlled choice rather than free-form persuasion. In a free-form design, which frame the model used is a judge's opinion, and judge noise would swamp a modest learning effect. Here the model picks one of three registered messages, one per frame, and the partner responds to the registered frame. Learning becomes a match rate with no judge in the loop. The price is that the model selects the persuasion rather than writing it.")
+p("The project therefore moved from free-form persuasion to a controlled choice. In a free-form design, which frame the model used is a judge's opinion, and judge noise could swamp a modest learning effect. Here the model picks one of three registered messages, one per frame, and the partner responds to the registered frame. Learning becomes a match rate with no judge in the loop. The price is important: the model selects the persuasion rather than writing it.")
 
 h1("2. Setup")
 h2("Environment")
@@ -103,7 +103,7 @@ p("Prediction: the fourth hypothesis holds if, after the swap at round 10, new-f
 p("Outcome: the two effect thresholds passed and the decisive test failed. Over 120 swap episodes, new-frame use rose by %.3f and old-frame use fell by %.3f, but late new-frame use never exceeded old-frame use (difference %.3f, p = %.2f). %d of 120 episodes adapted, and where they adapted tells the story: 34 of 40 swaps into expertise, 9 of 40 into risk, 0 of 40 into fairness (Figure 2). This is what a default frame re-asserting itself looks like. It is not what an updated model of the partner would produce, though the mechanism is inferred from the pattern, not shown." % (v4sw["new_target_gain"]["mean"], v4sw["old_target_drop"]["mean"], v4sw["late_new_over_old"]["mean"], v4sw["late_new_over_old"]["p_value_one_sided"], v4sw["n_adapted"]))
 
 h1("5. Experiment 3: three stress tests, each predicted before its outcome")
-p("After the first run I wrote down predictions for three further runs and then ran each once with the same frozen design and analyzer. The first two were declared together; the third was declared after reading their outcomes but before its own. Figure 3 shows the four with-history curves side by side.")
+p("After the first run, predictions were frozen for three further runs, and each was run once with the same design and analyzer. The first two were declared together. The third was declared after their outcomes were known but before its own run. Figure 3 shows the four with-history curves side by side.")
 h2("5.1 Reworded prompt, same model: the effect survives")
 p("The question was whether the learning depends on the exact wording of the original prompt. It does not. With the reworded prompt the learning gain was %s, against %s originally; the difference-in-differences against no history was %s, p = %.4f; the controls were flat; and the per-partner pattern was the same, with the advantage over no history at %.2f for fairness, %.2f for risk, and %.2f for expertise. Revision failed again, as predicted (new-frame gain %.3f, old-frame drop %.3f, late new-over-old %.3f)." % (ci(p1f["learning_gain"]), ci(v4f["learning_gain"]), ci(p1did), p1did["p_value_one_sided"], p1t["fairness"]["advantage"], p1t["risk"]["advantage"], p1t["expertise"]["advantage"], p1sw["new_target_gain"]["mean"], p1sw["old_target_drop"]["mean"], p1sw["late_new_over_old"]["mean"]))
 p("One thing did not go as planned. Under the new wording the model began a reasoning preamble (\"Looking at the history, the participant chose…\") in 12.2%% of rounds that had a history and in none of the rounds without one, and was cut off by the 8-token budget. Those 733 rounds, 10.2%% of the run, were assigned a uniformly random slot by the frozen fallback rule, which fails the run's validity threshold (%.3f valid against a required 0.98) and can only pull the learning toward chance: on rounds that parsed, the late held-out match was 0.632 against 0.600 over all rounds. I did not re-run with a larger budget, because the run had been declared with the original decoding settings. The preambles are themselves a small observation: under this wording the model spontaneously refers to the partner's past choices when it starts to explain itself." % P1["valid_selection_rate"])
@@ -139,7 +139,7 @@ fig("fig_w3_default_frame_priors.png", "Figure 7. The default frame. Share of ea
 fig("fig_w5_first_crossing_bias.png", "Figure 8. Why the first-crossing measure was dropped: in simulation, a belief probe at chance level appears to lead the behaviour.")
 
 h1("9. How I used language models, and how much to trust each part")
-p("Claude, running in Claude Code, wrote nearly all of the code, the analysis scripts, and the first drafts of the documentation, and operated the GPU jobs; earlier sessions used Codex. GPT-5.6 acted as the two blind judges that labelled the message bank. I set the question, chose the controlled-choice design over free-form persuasion, wrote the rules each design would be judged by, decided at each rule whether to stop, and declared the three stress tests. The checks I relied on are listed in the section on how the results were checked. A serious error in the main learning result would surprise me a great deal: the controls, the simulated-learner validation, the independent replication under a reworded prompt, and the seeded examples all point the same way. An error in a secondary diagnostic would surprise me less. The frame labels of the message bank are the part I trust least, because they rest on machine judges.")
+p("Claude, running in Claude Code, and Codex wrote nearly all of the code and analysis scripts, operated the GPU jobs, and produced early drafts of the documentation. GPT-5.6 acted as the two blind judges that labelled the message bank. I supplied the research question, directed the work, and approved the experiment sequence; agents proposed and implemented many technical details, including the controlled-choice redesign and several gates. The checks are listed in the earlier audit section. I trust the main learning result more than the secondary diagnostics because the controls, simulated-learner validation, prompt rewording, and seeded examples all point in the same direction. I trust the message-bank labels least because they still rest on machine judges; the planned human labels have not been completed.")
 
 h1("10. What I would do next")
 p("A third model family under the original prompt. A design with two frames and a distractor, to remove the default frame rather than work around it. A stated-belief run with the model's past predictions hidden from its history. A larger token budget for the reworded prompt, to see what the model says when it explains itself. And only if a behavioural effect survives all of that, activation probes for the partner's type.")
@@ -154,7 +154,8 @@ def render_html():
     out = []
     for it in C:
         k = it[0]
-        if k in ("h1", "h2", "h3"): out.append("<%s>%s</%s>" % (k, esc(it[1]), k))
+        if k == "title": out.append("<h1 class='title'>%s</h1>" % esc(it[1]))
+        elif k in ("h1", "h2", "h3"): out.append("<%s>%s</%s>" % (k, esc(it[1]), k))
         elif k == "p": out.append("<p>%s</p>" % inl(it[1]))
         elif k == "bullets": out.append("<ul>" + "".join("<li>%s</li>" % inl(b) for b in it[1]) + "</ul>")
         elif k == "quote": out.append("<blockquote style='border-left:3px solid #999;margin:8px 0;padding:4px 12px;white-space:pre-wrap'>%s</blockquote>" % esc(it[1]))
@@ -162,14 +163,34 @@ def render_html():
         elif k == "fig":
             pth = os.path.join(W, it[1])
             if os.path.exists(pth): out.append('<p><img src="data:image/png;base64,%s" style="max-width:100%%"/></p><p><i>%s</i></p>' % (base64.b64encode(open(pth, "rb").read()).decode(), esc(it[2])))
-    open(os.path.join(D, "MATS_WRITEUP.html"), "w", encoding="utf-8").write("<html><head><meta charset='utf-8'><title>LatentTarget MATS write-up</title></head><body style='font-family:Arial,sans-serif;max-width:860px;margin:auto;line-height:1.45'>" + "\n".join(out) + "</body></html>")
+    open(os.path.join(D, "MATS_WRITEUP.html"), "w", encoding="utf-8").write("<html><head><meta charset='utf-8'><title>LatentTarget MATS write-up</title><style>h1,h2,h3{color:#000}.title{font-size:1.65em}</style></head><body style='font-family:Arial,sans-serif;max-width:860px;margin:auto;line-height:1.45'>" + "\n".join(out) + "</body></html>")
 def render_docx():
     from docx import Document
-    from docx.shared import Inches, Pt
-    doc = Document(); st = doc.styles["Normal"]; st.font.name = "Arial"; st.font.size = Pt(11)
+    from docx.shared import Inches, Pt, RGBColor
+    from docx.oxml.ns import qn
+    doc = Document()
+    style_specs = {
+        "Normal": (11, False),
+        "Title": (18, True),
+        "Heading 1": (15, True),
+        "Heading 2": (12.5, True),
+        "Heading 3": (11.5, True),
+    }
+    for style_name, (size, bold) in style_specs.items():
+        st = doc.styles[style_name]
+        st.font.name = "Arial"
+        st._element.rPr.rFonts.set(qn("w:ascii"), "Arial")
+        st._element.rPr.rFonts.set(qn("w:hAnsi"), "Arial")
+        st.font.size = Pt(size)
+        st.font.bold = bold
+        st.font.color.rgb = RGBColor(0, 0, 0)
+    doc.styles["Title"].paragraph_format.space_after = Pt(8)
+    for style_name in ("Heading 1", "Heading 2", "Heading 3"):
+        doc.styles[style_name].paragraph_format.keep_with_next = True
     for it in C:
         k = it[0]
-        if k == "h1": doc.add_heading(it[1], level=1)
+        if k == "title": doc.add_paragraph(it[1], style="Title")
+        elif k == "h1": doc.add_heading(it[1], level=1)
         elif k == "h2": doc.add_heading(it[1], level=2)
         elif k == "h3": doc.add_heading(it[1], level=3)
         elif k == "p":
@@ -196,7 +217,8 @@ def render_txt():
     out = []
     for it in C:
         k = it[0]
-        if k in ("h1", "h2", "h3"): out.append("\n" + "#" * int(k[1]) + " " + it[1] + "\n")
+        if k == "title": out.append("\n# " + it[1] + "\n")
+        elif k in ("h1", "h2", "h3"): out.append("\n" + "#" * int(k[1]) + " " + it[1] + "\n")
         elif k == "p": out.append(it[1].replace("**", "") + "\n")
         elif k == "bullets": out.extend("- " + b.replace("**", "") for b in it[1]); out.append("")
         elif k == "quote": out.append("> " + it[1].replace("\n", "\n> ") + "\n")

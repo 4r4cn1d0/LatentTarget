@@ -1,0 +1,59 @@
+{
+  "bridgeVersion": "3.6",
+  "kind": "google-docs-trusted-read",
+  "status": "complete",
+  "outputDir": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-natural-final-20260905",
+  "target": {
+    "documentId": "1n42djKj_BI6uJdwVk2bNp-0n1fIrwgjdv_AmNqIGBUo",
+    "title": "Latent Target Writeup",
+    "revisionId": "ANLCKQkstrJo7c5QWsOb1-aFXJCy6gwlrvBx5ymz5NCz2KvZY8XI3Gr3QpljeIc3ZaNjLRQEdBcQXuV_bCQ3sEK3aOxi5tmeh8kvkZcW7PA",
+    "documentUrl": "https://docs.google.com/document/d/1n42djKj_BI6uJdwVk2bNp-0n1fIrwgjdv_AmNqIGBUo",
+    "selectedTabId": "t.0"
+  },
+  "dropdownMetadata": {
+    "status": "unavailable",
+    "resolvedTool": null,
+    "authoritative": false,
+    "count": 0
+  },
+  "controlAwareness": {
+    "hasProtectedControls": false,
+    "authoritativeDropdownCount": 0,
+    "opaqueControlCount": 0,
+    "affectedParagraphCount": 0,
+    "nativeElementCounts": {
+      "inlineObjectElement": 8
+    },
+    "preservationRequired": false,
+    "recommendedBehavior": "No protected controls were detected in the scanned scope."
+  },
+  "warnings": [],
+  "files": {
+    "document_result": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-natural-final-20260905/document-result.json",
+      "bytes": 474115,
+      "sha256": "cfb59c3ebfce1e40e5ed03601bdd351a8ab4324e82d3597a3af84cf8c17b2a2f"
+    },
+    "control_inventory": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-natural-final-20260905/control-inventory.json",
+      "bytes": 7958,
+      "sha256": "03e278294d564ed759a7c5d83c5463fb5aec298f45ac63561618e56abb4ea116"
+    },
+    "document_outline": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-natural-final-20260905/document-outline.json",
+      "bytes": 117509,
+      "sha256": "aecfac069ea22be454f0337ff095952571e2cc58184e4ac1b2cdff6437743a5f"
+    },
+    "document_text": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-natural-final-20260905/document-text.md",
+      "bytes": 47812,
+      "sha256": "51e19cac04fff2d27ae769955cdbabce774942ff0b6d12cc830270cd163321d1"
+    },
+    "receipt": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-natural-final-20260905/receipt.json",
+      "bytes": 994,
+      "sha256": "428adb6da67b7abe277a1c7b8b7b6691de9a531b2f8a82f9cffa6968e25916bb"
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,59 @@
+{
+  "bridgeVersion": "3.6",
+  "kind": "google-docs-trusted-read",
+  "status": "complete",
+  "outputDir": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-natural-pass-20260905",
+  "target": {
+    "documentId": "1n42djKj_BI6uJdwVk2bNp-0n1fIrwgjdv_AmNqIGBUo",
+    "title": "Latent Target Writeup",
+    "revisionId": "ANLCKQli9L7OTbRr9CthbpLstbs44fzYhp_gvVQwr7mCMcvp_h3826G3elRifk3blUi-oTKQnyZfQV-bY5gwBD_K-qBwqEDBHtEK4eSOfCY",
+    "documentUrl": "https://docs.google.com/document/d/1n42djKj_BI6uJdwVk2bNp-0n1fIrwgjdv_AmNqIGBUo",
+    "selectedTabId": "t.0"
+  },
+  "dropdownMetadata": {
+    "status": "unavailable",
+    "resolvedTool": null,
+    "authoritative": false,
+    "count": 0
+  },
+  "controlAwareness": {
+    "hasProtectedControls": false,
+    "authoritativeDropdownCount": 0,
+    "opaqueControlCount": 0,
+    "affectedParagraphCount": 0,
+    "nativeElementCounts": {
+      "inlineObjectElement": 8
+    },
+    "preservationRequired": false,
+    "recommendedBehavior": "No protected controls were detected in the scanned scope."
+  },
+  "warnings": [],
+  "files": {
+    "document_result": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-natural-pass-20260905/document-result.json",
+      "bytes": 437119,
+      "sha256": "37aaeea4938c03866d366b2554bbdb6fa3537ecbb8d5775f807f93fe388389af"
+    },
+    "control_inventory": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-natural-pass-20260905/control-inventory.json",
+      "bytes": 7958,
+      "sha256": "e573a5e375e30775ccba705e9f50b88654e67640b40bd20b6a71e4764d339bd1"
+    },
+    "document_outline": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-natural-pass-20260905/document-outline.json",
+      "bytes": 112873,
+      "sha256": "8637c09a3b00af3fb89f80910a0a3ad6c87231308f292333a1cbfbd9e4b3070b"
+    },
+    "document_text": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-natural-pass-20260905/document-text.md",
+      "bytes": 48572,
+      "sha256": "a0d6e69ae0d99c304444305a54e4ac59f354e4a3f2016d734572bbc937eb75a9"
+    },
+    "receipt": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-natural-pass-20260905/receipt.json",
+      "bytes": 994,
+      "sha256": "779d17d0d9ba73a80b06569f878de99819808e1bfdfd53040f5d76e4d430acf6"
+    }
+  },
+  "error": null
+}

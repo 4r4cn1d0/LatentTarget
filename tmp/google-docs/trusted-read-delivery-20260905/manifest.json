@@ -1,0 +1,59 @@
+{
+  "bridgeVersion": "3.6",
+  "kind": "google-docs-trusted-read",
+  "status": "complete",
+  "outputDir": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-delivery-20260905",
+  "target": {
+    "documentId": "1n42djKj_BI6uJdwVk2bNp-0n1fIrwgjdv_AmNqIGBUo",
+    "title": "Latent Target Writeup",
+    "revisionId": "ANLCKQndkYcvq2XS-bYZeQ8DXhn0M1WRqasbxYeJDUEqrDkbePIwtgtGF9XhdZPFIe8nTy2BFMvYZYEZSdNmWdCXYlzUoNzUM46JXidQspY",
+    "documentUrl": "https://docs.google.com/document/d/1n42djKj_BI6uJdwVk2bNp-0n1fIrwgjdv_AmNqIGBUo",
+    "selectedTabId": "t.0"
+  },
+  "dropdownMetadata": {
+    "status": "unavailable",
+    "resolvedTool": null,
+    "authoritative": false,
+    "count": 0
+  },
+  "controlAwareness": {
+    "hasProtectedControls": false,
+    "authoritativeDropdownCount": 0,
+    "opaqueControlCount": 0,
+    "affectedParagraphCount": 0,
+    "nativeElementCounts": {
+      "inlineObjectElement": 8
+    },
+    "preservationRequired": false,
+    "recommendedBehavior": "No protected controls were detected in the scanned scope."
+  },
+  "warnings": [],
+  "files": {
+    "document_result": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-delivery-20260905/document-result.json",
+      "bytes": 437082,
+      "sha256": "3eeda207aa56ac722ea8e4cbe53fc07834d426bb4335f9f05d4898b9330fdb11"
+    },
+    "control_inventory": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-delivery-20260905/control-inventory.json",
+      "bytes": 7958,
+      "sha256": "27d27bb6e62a14f563068b2476b32c7d5160b6ae406fd0334fb5c5da1151aa30"
+    },
+    "document_outline": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-delivery-20260905/document-outline.json",
+      "bytes": 112872,
+      "sha256": "888c1bd4fab7f6e8419600a11b10d94ebe28cf1167ab3ef626d8d891a3b1e077"
+    },
+    "document_text": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-delivery-20260905/document-text.md",
+      "bytes": 48571,
+      "sha256": "3e2f0ecbfeb11fbab2bc3692b746b3b93f5c1a77b9c52e83a17c9051b8dc4d56"
+    },
+    "receipt": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-delivery-20260905/receipt.json",
+      "bytes": 994,
+      "sha256": "6d2fbe5baa1074d543e7950bc44fe70de3840c6652ca8b5c3c1c2cb227a416b5"
+    }
+  },
+  "error": null
+}

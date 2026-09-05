@@ -1,0 +1,59 @@
+{
+  "bridgeVersion": "3.6",
+  "kind": "google-docs-trusted-read",
+  "status": "complete",
+  "outputDir": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-editor-20260905",
+  "target": {
+    "documentId": "1n42djKj_BI6uJdwVk2bNp-0n1fIrwgjdv_AmNqIGBUo",
+    "title": "Latent Target Writeup",
+    "revisionId": "ANLCKQk3WpRr_epH04VoVFHHOxTaRaHUt2H-8Hg08yRkvWjwjPqN3S4B--BiilICuCQOy2LhjYLLZCTAX7uD_t4fNEk-5pRnXejTN0LiaDg",
+    "documentUrl": "https://docs.google.com/document/d/1n42djKj_BI6uJdwVk2bNp-0n1fIrwgjdv_AmNqIGBUo",
+    "selectedTabId": "t.0"
+  },
+  "dropdownMetadata": {
+    "status": "unavailable",
+    "resolvedTool": null,
+    "authoritative": false,
+    "count": 0
+  },
+  "controlAwareness": {
+    "hasProtectedControls": false,
+    "authoritativeDropdownCount": 0,
+    "opaqueControlCount": 0,
+    "affectedParagraphCount": 0,
+    "nativeElementCounts": {
+      "inlineObjectElement": 1
+    },
+    "preservationRequired": false,
+    "recommendedBehavior": "No protected controls were detected in the scanned scope."
+  },
+  "warnings": [],
+  "files": {
+    "document_result": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-editor-20260905/document-result.json",
+      "bytes": 40524,
+      "sha256": "cbdfce2b05ba8ac31c114d535af0f6c3909b9b232aa248f2bf5690d9ff0fcd7b"
+    },
+    "control_inventory": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-editor-20260905/control-inventory.json",
+      "bytes": 1925,
+      "sha256": "a23c922a7829879ecfbf47d700156616e45695c39748c8e3bb7a2acbb6c9ec35"
+    },
+    "document_outline": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-editor-20260905/document-outline.json",
+      "bytes": 10570,
+      "sha256": "738df616fdc42a6980005686a92307975a9e02628f2a167b2565e5c934355126"
+    },
+    "document_text": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-editor-20260905/document-text.md",
+      "bytes": 5484,
+      "sha256": "6cc729bc12819834279c9491324b31a6c9bf3fbecc253fa6fcf4d49d47c83572"
+    },
+    "receipt": {
+      "path": "/Users/spiderishi/Coding/LatentTarget/tmp/google-docs/trusted-read-editor-20260905/receipt.json",
+      "bytes": 994,
+      "sha256": "f8f56040fc2fa2b1e78587fa69bfb6a61fa4596faad2960103ac9fc2dae10dc4"
+    }
+  },
+  "error": null
+}

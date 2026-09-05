@@ -1,0 +1,1040 @@
+{
+ "drafts": [
+  {
+   "angle": "Result-first: open on fig_w11_whole_story.png (four panels: V4 learns / P1 still learns with reworded prompt / R1 flat on Gemma / E1 flat when forced to state beliefs) and narrate it, then question and design, positive result, three stress tests, what stopped, conclusion and next. Compact, number-dense, minimal framing. Draft file: /private/tmp/claude-501/-Users-spiderishi-Coding-LatentTarget/d6cd14be-ad27-4e0d-a7ed-26c943336d05/scratchpad/exec_summary_draft.txt",
+   "draft": "**The figure.** fig_w11_whole_story.png is the project in four panels. Each panel is P(chosen frame matches the hidden target) by round, with a no-history reference at 0.333. Panel one is Qwen3.8-27B and rises. Panel two rises under a reworded prompt. Panel three is flat on Gemma-4-31B-it. Panel four is flat when Qwen must state beliefs before choosing. Both are open weights.\n\n**Question and design.** I asked whether an LLM, given only binary feedback on getting Option A chosen, learns which frame works on this partner and revises that after a silent change. Each round the model sees three unlabelled candidate messages, one each for fairness, risk and expertise, and answers 1, 2 or 3. The target picks A with probability 0.72 if the frame matches its hidden type and 0.38 otherwise. Rounds 16 to 20 of 20 use held-out wording. One condition swaps the hidden type silently after round 10. Controls are no-history, another target's shuffled history, and random-target. A run is 360 episodes and 7,200 choices. Thresholds were preregistered and the frozen analyzer ran once per run. The write-up's examples are seeded random draws.\n\n**The positive result.** With its own history, Qwen's match rate rose from 0.383 to 0.570 on held-out rounds. No-history stayed at 0.333. Shuffled history went 0.287 to 0.233. Random target stayed flat. The full-history learning gain is 0.187 [0.083, 0.290], n=60. Learning is anti-default. Qwen picks expertise 0.922 of the time with no history, so expertise targets have nothing to learn (0.86 vs 0.85). Fairness targets reach 0.24 against 0.05, risk targets 0.61 against 0.10. Revision failed. Swaps into expertise adapted 34 of 40 episodes, swaps into fairness 0 of 40. That is default attraction, not a partner model.\n\n**Three stress tests, declared first.** Rewording the prompt (P1) replicated the effect: gain 0.207 [0.110, 0.307], difference-in-differences p=0.0002, controls flat, same anti-default pattern. Its validity gate failed at 0.898 against 0.98: in about 10% of history rounds, and none without history, the model started reasoning and was truncated. The fallback was a uniform random pick, so this dilutes the effect (parsed-only late match 0.632 against 0.600). Gemma on the same frozen design did not learn (R1): gain 0.040 [-0.007, 0.093]. It repeats a frame at 0.972 after a success versus 0.941 after a failure (Qwen 0.876 versus 0.693). Forcing Qwen to state a probability per candidate in JSON (E1) removed the effect: gain -0.020 [-0.053, 0.010], difference from spontaneous -0.207 [-0.317, -0.097]. The choice was the argmax of the stated probabilities in 3600 of 3600 records. Stated confidence was a fixed ranking (expertise 0.69, risk 0.58, fairness 0.49), so there is no belief the behaviour ignores. E1 cannot separate format from the model seeing its own past predictions.\n\n**What stopped.** Four redesigns (V5 to V8) each failed a pre-committed gate, and nothing was spent after a failure. The last had 0 joint rejections in 6,000 null studies but was underpowered at N of 30 or less. I also dropped a first-crossing lag metric. In simulation a chance-level probe appeared to lead by 0.91 rounds, CI excluding zero in 87% of runs. No activations, probes or steering were run.\n\n**Conclusion and next.** The effect is real but narrow. It holds for one model under one task, survives rewording, and is absent in Gemma and under belief elicitation. Next I would rerun P1 with a larger token budget and elicit beliefs without showing the model its past predictions. I would then test a third open-weight model and hand-label the message bank that only machine judges have vetted.",
+   "word_count": 588,
+   "numbers_used": [
+    {
+     "value": "0.333",
+     "claim": "no-history reference / chance level; V4 no-history early and late held-out match",
+     "source_label": "V4 no_history early match; V4 no_history late held-out match"
+    },
+    {
+     "value": "0.72 / 0.38",
+     "claim": "target P(A) on frame match vs mismatch",
+     "source_label": "Exec-summary skeleton, Design bullet"
+    },
+    {
+     "value": "three unlabelled candidate messages (fairness, risk, expertise); answers 1, 2 or 3",
+     "claim": "per-round choice format",
+     "source_label": "Exec-summary skeleton, Design bullet"
+    },
+    {
+     "value": "20 rounds; held-out wording rounds 16-20; silent swap after round 10",
+     "claim": "episode structure",
+     "source_label": "Exec-summary skeleton, Design bullet (and V4_REPLICATION_DECLARATION.md header)"
+    },
+    {
+     "value": "360 episodes / 7,200 choices",
+     "claim": "size of one run",
+     "source_label": "Exec-summary skeleton, Design bullet"
+    },
+    {
+     "value": "0.383 -> 0.570",
+     "claim": "V4 full-history early -> late held-out match",
+     "source_label": "V4 full_history early match; V4 full_history late held-out match (0.57); Result 1 bullet"
+    },
+    {
+     "value": "0.287 -> 0.233",
+     "claim": "V4 shuffled-history early -> late held-out match",
+     "source_label": "V4 shuffled_history early match; V4 shuffled_history late held-out match"
+    },
+    {
+     "value": "random target flat",
+     "claim": "V4 random_target control flat (0.34 -> 0.333)",
+     "source_label": "V4 random_target early match; V4 random_target late held-out match; Result 1 bullet"
+    },
+    {
+     "value": "0.187 [0.083, 0.290], n=60",
+     "claim": "V4 full-history learning gain",
+     "source_label": "V4 full_history learning gain (late held-out \u2212 early), 95% CI"
+    },
+    {
+     "value": "0.922",
+     "claim": "Qwen no-history expertise share on V4 bank",
+     "source_label": "Qwen V4-bank no-history shares (f/r/e) 0.013 / 0.065 / 0.922 (n=1200)"
+    },
+    {
+     "value": "0.86 vs 0.85",
+     "claim": "V4 late match, expertise target, full vs no-history",
+     "source_label": "V4 late match, target=expertise: full / no-history / shuffled 0.860 / 0.850 / 0.540; Result 1b"
+    },
+    {
+     "value": "0.24 against 0.05",
+     "claim": "V4 late match, fairness target, full vs no-history",
+     "source_label": "V4 late match, target=fairness: full / no-history / shuffled 0.240 / 0.050 / 0.080"
+    },
+    {
+     "value": "0.61 against 0.10",
+     "claim": "V4 late match, risk target, full vs no-history",
+     "source_label": "V4 late match, target=risk: full / no-history / shuffled 0.610 / 0.100 / 0.080"
+    },
+    {
+     "value": "34 of 40",
+     "claim": "V4 swaps into expertise adapted",
+     "source_label": "V4 swap into expertise (default): new gain / old drop / adapted 0.090 / 0.045 / 34 of 40; Result 2"
+    },
+    {
+     "value": "0 of 40",
+     "claim": "V4 swaps into fairness adapted (0 of 20 expertise->fairness + 0 of 20 risk->fairness)",
+     "source_label": "Result 2 bullet ('into fairness 0 of 40'); V4 swap expertise->fairness and risk->fairness rows"
+    },
+    {
+     "value": "0.207 [0.110, 0.307]",
+     "claim": "P1 full-history learning gain",
+     "source_label": "P1 paraphrase full_history learning gain (late held-out \u2212 early), 95% CI"
+    },
+    {
+     "value": "p=0.0002",
+     "claim": "P1 full \u2212 no-history difference-in-differences one-sided p",
+     "source_label": "P1 paraphrase full \u2212 no-history difference-in-differences, one-sided p (0.207 [0.113, 0.303], p=0.0002)"
+    },
+    {
+     "value": "0.898 against 0.98",
+     "claim": "P1 valid selection rate vs gate",
+     "source_label": "P1 paraphrase valid selection rate (gate 0.98)"
+    },
+    {
+     "value": "about 10% of history rounds; none without history",
+     "claim": "P1 invalid (truncated reasoning) output share; 0.000 in no_history",
+     "source_label": "P1 invalid outputs: count / share / share in no_history / top prefix 733 / 0.102 / 0.000; Result 7 bullet"
+    },
+    {
+     "value": "0.632 against 0.600",
+     "claim": "P1 full-history late held-out match parsed-only vs all rounds",
+     "source_label": "P1 full_history late held-out match: all rounds / parsed-only 0.600 (n=300) / 0.632 (n=269)"
+    },
+    {
+     "value": "0.040 [-0.007, 0.093]",
+     "claim": "R1 Gemma full-history learning gain",
+     "source_label": "R1 Gemma full_history learning gain (late held-out \u2212 early), 95% CI"
+    },
+    {
+     "value": "0.972 versus 0.941",
+     "claim": "Gemma P(repeat frame | success) vs P(repeat | failure)",
+     "source_label": "Gemma R1 full_history: P(repeat frame | success) / P(repeat | failure) / gap 0.972 / 0.941 / 0.031"
+    },
+    {
+     "value": "0.876 versus 0.693",
+     "claim": "Qwen V4 P(repeat frame | success) vs P(repeat | failure)",
+     "source_label": "Qwen V4 full_history: P(repeat frame | success) / P(repeat | failure) / gap 0.876 / 0.693 / 0.183"
+    },
+    {
+     "value": "-0.020 [-0.053, 0.010]",
+     "claim": "E1 elicited full-history learning gain",
+     "source_label": "E1 elicited elicited_full_history learning gain (late held-out \u2212 early), 95% CI"
+    },
+    {
+     "value": "-0.207 [-0.317, -0.097]",
+     "claim": "E1 \u2212 V4 spontaneous full-history learning-gain difference",
+     "source_label": "E1 \u2212 V4 spontaneous: full-history learning gain diff, 95% CI"
+    },
+    {
+     "value": "3600 of 3600",
+     "claim": "E1 choice equals argmax of stated p_a in every record",
+     "source_label": "E1 choice equals argmax of stated p_a"
+    },
+    {
+     "value": "0.69 / 0.58 / 0.49",
+     "claim": "E1 mean stated p_a by candidate frame (expertise / risk / fairness), rounded",
+     "source_label": "E1 mean stated p_a by candidate frame (fairness / risk / expertise) 0.494 / 0.581 / 0.691; Result 6 bullet"
+    },
+    {
+     "value": "V5 to V8 (four redesigns)",
+     "claim": "four pre-registered stops",
+     "source_label": "Result 4 bullet; Gate ledger rows V5-V8"
+    },
+    {
+     "value": "0 joint rejections in 6,000 null studies",
+     "claim": "V8 Type I control",
+     "source_label": "Result 4 bullet (V8: 0 joint rejections / 6,000 null studies)"
+    },
+    {
+     "value": "N of 30 or less",
+     "claim": "V8 gate underpowered at N<=30",
+     "source_label": "Result 4 bullet (underpowered at N\u226430 vs the weakest registered learner)"
+    },
+    {
+     "value": "0.91 rounds; 87% of runs",
+     "claim": "first-crossing metric: apparent lead of a chance-level probe and CI-excludes-0 rate",
+     "source_label": "first-crossing bias at probe acc 0.33: apparent lead / CI-excludes-0 rate 0.91 / 0.87; Methodological finding bullet"
+    },
+    {
+     "value": "n=60",
+     "claim": "episodes per stable condition (bootstrap n)",
+     "source_label": "V4 full_history learning gain row (n=60)"
+    }
+   ]
+  },
+  {
+   "draft": "**Question.** A persuader that models its target and updates that model from feedback is a different safety object from one that only talks well. I asked whether an open-weight LLM learns which persuasion frame a hidden partner responds to, given only a goal (get Option A chosen) and binary feedback. I also asked whether it revises this when the partner silently changes.\n\n**Design.** Each round Qwen3.8-27B sees three unlabelled candidate messages (fairness, risk and expertise frames) and answers with a digit. The hidden target picks A with probability 0.72 on a matching frame and 0.38 otherwise. In the swap condition the target type changes silently after round 10 of 20. Rounds 16 to 20 use separately authored held-out wording, so learning must transfer to new sentences. Three controls: no history, shuffled history from another target, and a random target that ignores the message. One run is 360 episodes and 7,200 choices. Thresholds were preregistered and each arm's analyzer ran once.\n\n**Result.** With its own history the held-out match rate rose from 0.383 to 0.570. No history stayed at 0.333, shuffled history fell from 0.287 to 0.233, and the random target stayed flat. The learning gain is 0.187, 95% CI [0.083, 0.290]. Learning is anti-default: the model's default is expertise, and gains come on fairness (0.24 vs 0.05) and risk (0.61 vs 0.10) targets. Revision failed. After the swap, new-frame use rose and old-frame use fell symmetrically, and the registered new-over-old test failed. Swaps into expertise adapted 34 of 40 times, into fairness 0 of 40.\n\n**Stress tests.** I then ran three frozen-design arms, each predicted in writing beforehand. Gemma-4-31B-it does not replicate: gain 0.040 [-0.007, 0.093]. Its choice equals the shuffled-history choice on identical candidates 90.5% of the time (Qwen 63.7%). It repeats a frame 0.972 after a success and 0.941 after a failure (Qwen 0.876 and 0.693). It does not use the feedback. Second, forcing Qwen to state a probability per candidate before choosing removes the effect. Gain is -0.020 [-0.053, 0.010], which is -0.207 [-0.317, -0.097] below the spontaneous arm. Its choice was the argmax of its stated probabilities in 3,600 of 3,600 records. There is no stated belief separate from the choice. Third, a plain rewording of the spontaneous prompt replicates: gain 0.207 [0.110, 0.307], p = 0.0002 against no history. That arm still failed its validity gate (0.898 against 0.98): in about 10% of history rounds the model began reasoning and was truncated. The fallback was a random pick, which can only dilute the effect (parsed-only late match 0.632 vs 0.600). The effect is real but narrow: one model, this task, robust to wording, absent in Gemma, absent under belief elicitation. fig_w11_whole_story.png plots the four with-history curves against no history.\n\n**Process.** Four redesigns (V5 to V8) each stopped at their own pre-committed gate before any paid run. V8 controlled Type I error (0 joint rejections in 6,000 null studies) but was underpowered against the weakest registered learner. I dropped a first-crossing lag metric. In simulation a chance-level probe appears to lead behaviour by 0.91 rounds, CI excluding zero in 87% of runs. No activation capture or probe ran on a real model. AI wrote most of the code. The gates, predictions and stops are mine.\n\n**Next.** Rerun the paraphrase arm with a larger token budget to close the validity gate. Elicit beliefs without showing the model its past predictions, separating output format from anchoring. Test two more model families before any mechanistic work. Get human labels on the message bank, currently judged only by machines.",
+   "word_count": 589,
+   "numbers_used": [
+    {
+     "value": "0.72 / 0.38",
+     "claim": "target picks A with P 0.72 on a matching frame, 0.38 otherwise",
+     "source_label": "Exec-summary skeleton, Design bullet (P(A)=0.72 match / 0.38 mismatch)"
+    },
+    {
+     "value": "round 10 of 20; rounds 16 to 20",
+     "claim": "silent swap after round 10; held-out wording rounds 16-20; 20-round episodes",
+     "source_label": "Design bullet (silent swap after round 10; rounds 16\u201320 held-out); V4_REPLICATION_DECLARATION.md header (20 rounds)"
+    },
+    {
+     "value": "360 episodes / 7,200 choices",
+     "claim": "size of one run",
+     "source_label": "Design bullet"
+    },
+    {
+     "value": "three (candidate messages, frames)",
+     "claim": "three unlabelled candidates per round, one per frame (fairness, risk, expertise)",
+     "source_label": "Design bullet"
+    },
+    {
+     "value": "0.383 -> 0.570",
+     "claim": "V4 full-history held-out match early vs late",
+     "source_label": "Numbers sheet: V4 full_history early match (0.383); V4 full_history late held-out match (0.57); Result 1"
+    },
+    {
+     "value": "0.333",
+     "claim": "V4 no-history flat",
+     "source_label": "Numbers sheet: V4 no_history early match / late held-out match (0.333 / 0.333); Result 1"
+    },
+    {
+     "value": "0.287 -> 0.233",
+     "claim": "V4 shuffled-history fell",
+     "source_label": "Numbers sheet: V4 shuffled_history early match (0.287) / late held-out match (0.233); Result 1"
+    },
+    {
+     "value": "flat",
+     "claim": "V4 random-target flat",
+     "source_label": "Numbers sheet: V4 random_target early 0.34 / late 0.333; Result 1 ('random target flat')"
+    },
+    {
+     "value": "0.187 [0.083, 0.290]",
+     "claim": "V4 full-history learning gain, 95% CI",
+     "source_label": "Numbers sheet: V4 full_history learning gain (late held-out \u2212 early), 95% CI; Result 1"
+    },
+    {
+     "value": "0.24 vs 0.05",
+     "claim": "late match on fairness targets, full vs no-history",
+     "source_label": "Numbers sheet: V4 late match, target=fairness: full / no-history (0.240 / 0.050); Result 1b"
+    },
+    {
+     "value": "0.61 vs 0.10",
+     "claim": "late match on risk targets, full vs no-history",
+     "source_label": "Numbers sheet: V4 late match, target=risk: full / no-history (0.610 / 0.100); Result 1b"
+    },
+    {
+     "value": "34 of 40",
+     "claim": "swaps into expertise adapted",
+     "source_label": "Numbers sheet: V4 swap into expertise (default): adapted 34 of 40; Result 2"
+    },
+    {
+     "value": "0 of 40",
+     "claim": "swaps into fairness adapted",
+     "source_label": "Result 2 ('into fairness 0 of 40'); Numbers sheet: V4 swap expertise->fairness adapted 0 of 20 and risk->fairness adapted 0 of 20"
+    },
+    {
+     "value": "three arms",
+     "claim": "three stress-test arms of the frozen design (R1, E1, P1)",
+     "source_label": "Results 5, 6, 7; Gate ledger rows R1, E1, P1"
+    },
+    {
+     "value": "0.040 [-0.007, 0.093]",
+     "claim": "Gemma-4-31B full-history learning gain",
+     "source_label": "Numbers sheet: R1 Gemma full_history learning gain (late held-out \u2212 early), 95% CI; Result 5"
+    },
+    {
+     "value": "90.5% (Qwen 63.7%)",
+     "claim": "choice equals shuffled-history choice on identical triple",
+     "source_label": "Numbers sheet: Gemma R1 same choice as full_history: shuffled_history (0.905); Qwen V4 same choice as full_history: shuffled_history (0.637); Result 5"
+    },
+    {
+     "value": "0.972 / 0.941 (Qwen 0.876 / 0.693)",
+     "claim": "P(repeat frame) after success vs after failure, Gemma vs Qwen",
+     "source_label": "Numbers sheet: Gemma R1 full_history: P(repeat frame | success) / P(repeat | failure); Qwen V4 full_history: P(repeat frame | success) / P(repeat | failure); Result 5"
+    },
+    {
+     "value": "-0.020 [-0.053, 0.010]",
+     "claim": "E1 elicited full-history learning gain",
+     "source_label": "Numbers sheet: E1 elicited elicited_full_history learning gain (late held-out \u2212 early), 95% CI; Result 6"
+    },
+    {
+     "value": "-0.207 [-0.317, -0.097]",
+     "claim": "elicited minus spontaneous learning-gain difference",
+     "source_label": "Numbers sheet: E1 \u2212 V4 spontaneous: full-history learning gain diff, 95% CI; Result 6"
+    },
+    {
+     "value": "3,600 of 3,600",
+     "claim": "choice equals argmax of stated p_a in every record",
+     "source_label": "Numbers sheet: E1 choice equals argmax of stated p_a (3600 of 3600 records); Result 6"
+    },
+    {
+     "value": "0.207 [0.110, 0.307]",
+     "claim": "P1 paraphrase full-history learning gain",
+     "source_label": "Numbers sheet: P1 paraphrase full_history learning gain (late held-out \u2212 early), 95% CI; Result 7"
+    },
+    {
+     "value": "p = 0.0002",
+     "claim": "P1 full minus no-history difference-in-differences, one-sided p",
+     "source_label": "Numbers sheet: P1 paraphrase full \u2212 no-history difference-in-differences, one-sided p (0.207 [0.113, 0.303], p=0.0002); Result 7"
+    },
+    {
+     "value": "0.898 against 0.98",
+     "claim": "P1 valid-selection rate vs gate",
+     "source_label": "Numbers sheet: P1 paraphrase valid selection rate (gate 0.98) = 0.898; Result 7"
+    },
+    {
+     "value": "about 10%",
+     "claim": "share of history rounds with truncated reasoning preambles",
+     "source_label": "Result 7 ('~10% of history rounds (never without history)'); Numbers sheet: P1 invalid outputs share 0.102, share in no_history 0.000"
+    },
+    {
+     "value": "0.632 vs 0.600",
+     "claim": "P1 full-history late held-out match parsed-only vs all rounds",
+     "source_label": "Numbers sheet: P1 full_history late held-out match: all rounds / parsed-only (0.600 / 0.632); Result 7"
+    },
+    {
+     "value": "four (redesigns V5 to V8)",
+     "claim": "four successors each stopped at a pre-registered gate",
+     "source_label": "Result 4; Gate ledger rows V5, V6, V7, V8"
+    },
+    {
+     "value": "0 joint rejections / 6,000 null studies",
+     "claim": "V8 Type I error controlled",
+     "source_label": "Result 4 (V8: Type I controlled, 0 joint rejections / 6,000 null studies)"
+    },
+    {
+     "value": "0.91 rounds / 87%",
+     "claim": "apparent lead of a chance-level probe and CI-excludes-0 rate under the first-crossing metric",
+     "source_label": "Numbers sheet: first-crossing bias at probe acc 0.33: apparent lead / CI-excludes-0 rate (0.91 / 0.87); Methodological finding bullet"
+    },
+    {
+     "value": "expertise (default)",
+     "claim": "the model's no-feedback default frame is expertise",
+     "source_label": "Result 1b / Result 3 (Qwen V4-bank no-history shares 0.013 / 0.065 / 0.922); no share number quoted in the draft"
+    },
+    {
+     "value": "machines only (two blind machine judges)",
+     "claim": "message bank labelled only by machine judges so far",
+     "source_label": "'What was NOT done' bullet (two blind machine judges; no human validation yet)"
+    }
+   ],
+   "angle": "Question-first. Opens with the research question and a one-sentence safety framing (a persuader that models and updates on its target is a different object from a fluent one), then builds outward: design, positive result, three preregistered stress tests (Gemma replication fails, belief elicitation removes the effect and shows belief = choice, paraphrase replicates), process (four self-stopped redesigns, dropped biased first-crossing metric, no probe on a real model, AI-coded but judgment owned), and concrete next steps. Honest conclusion stated verbatim: real but narrow behavioural effect, one model, this task, robust to wording, absent in Gemma-4-31B, absent under belief elicitation, no stated belief separate from the choice. Word count 589 including the five bold lead-ins (582 without them); one sentence at 26 words, all others at or under 25; no em-dashes, semicolons, rhetorical questions or banned words; all numbers taken verbatim or rounded-down from WRITEUP_MATERIALS.md. Draft saved at /private/tmp/claude-501/-Users-spiderishi-Coding-LatentTarget/d6cd14be-ad27-4e0d-a7ed-26c943336d05/scratchpad/draft_q.txt."
+  },
+  {
+   "angle": "skeptic-first: open with the hostile reviewer's sentence (one model, one prompt, effect riding on a 0.922 expertise default, no evidence of belief), state that the applicant found and tested that objection, and lead with the two parts that held (absent in Gemma-4-31B-it, absent under belief elicitation) before the positive result and the one part that did not hold (survives rewording).",
+   "draft": "**The objection.** A hostile reviewer would write: one model, one prompt, a small effect on a 0.922 default toward expertise arguments. Nothing shows any belief about the partner. I found it in my own audit and tested all three parts. Two held. The effect is absent in Gemma-4-31B-it and absent when the same Qwen model must state beliefs first. It survives a rewording of the prompt.\n\n**The question.** I asked whether an LLM, given only the goal \"get Option A chosen\" and binary feedback, learns which frame a hidden partner responds to and revises that when the partner changes.\n\n**Design.** Qwen3.8-27B (open weights) plays 20 rounds against a simulated partner. Each round it picks by number one of three unlabelled candidate messages, one each in a fairness, risk, or expertise frame. The partner chooses A with probability 0.72 if the frame matches its hidden type and 0.38 otherwise. Rounds 16 to 20 use held-out wording. Controls: no-history, shuffled-history from another partner, random target. A swap condition silently changes the partner's type after round 10. A run is 360 episodes, 7,200 choices, preregistered thresholds, and one pass of the frozen analyzer.\n\n**What held.** With its own history, Qwen's held-out match rate rose from 0.383 to 0.570. No-history stayed at 0.333. Shuffled history fell from 0.287 to 0.233. The learning gain was 0.187 [0.083, 0.290]. Learning was largest where the default was weakest (fairness target: 0.24 versus 0.05 without history). Revision failed. After the swap it moved into expertise in 34 of 40 episodes and into fairness in 0 of 40. That is a default, not an update.\n\n**Three stress tests, predictions declared before each ran.** Gemma-4-31B-it on the frozen design: gain 0.040 [-0.007, 0.093]. It repeated a frame 0.972 after a success versus 0.941 after a failure (Qwen 0.876 versus 0.693). It does not use the feedback. Qwen forced to state a probability per candidate, then choose: gain -0.020 [-0.053, 0.010], which is -0.207 [-0.317, -0.097] below the spontaneous prompt. The choice was the argmax of the stated probabilities in 3,600 of 3,600 records: no belief separate from the choice. It picked expertise 94.2% of rounds, fairness never. Qwen with the prompt reworded: gain 0.207 [0.110, 0.307], p = 0.0002 against no-history, controls flat. That arm still stopped at its validity gate (0.898 valid, threshold 0.98). The reworded model began reasoning aloud in about 10% of history rounds and hit the token limit. The fallback was a uniform random pick, which can only dilute learning (parsed-only match 0.632 against 0.600). fig_w11_whole_story.png shows all four arms.\n\n**Process.** Four redesigns after V4 stopped at their own pre-registered gates. V5 could not balance the message bank. V6's balance gate failed at every N (120k-study screen). V7 failed its own feasibility rule and an adversarial review. V8's gate was underpowered at N of 30 or less. Nothing was frozen or spent after a failed gate. I also simulated and dropped a first-crossing \"probe leads behaviour\" metric. A chance-level probe appeared to lead by 0.91 rounds, CI excluding zero in 87% of runs.\n\n**Conclusion and next.** This is a real but narrow behavioural effect: one model, this task, spontaneous choice only, no revision, and no stated belief the behaviour ignores. I did no activation work: the revision gate it sat behind never passed. Next I would rerun the paraphrase arm with a larger token budget. I would split the elicited confound, JSON format versus seeing its own past predictions. Then a third model family, and human labels for the message bank (45-template blind sheet ready).",
+   "word_count": 589,
+   "numbers_used": [
+    {
+     "value": "0.922",
+     "claim": "Qwen's no-history share of expertise picks on the V4 bank (the default the reviewer's objection rests on)",
+     "source_label": "Result 3; numbers sheet row 'Qwen V4-bank no-history shares (f/r/e)' = 0.013 / 0.065 / 0.922 (n=1200)"
+    },
+    {
+     "value": "20 rounds",
+     "claim": "episode length",
+     "source_label": "Design bullet (held-out rounds 16\u201320 are the final window); V4_REPLICATION_DECLARATION.md '20 rounds, silent swap after 10'"
+    },
+    {
+     "value": "three unlabelled candidate messages (fairness, risk, expertise)",
+     "claim": "per-round choice set",
+     "source_label": "Design bullet: 'three unlabelled candidate messages (one per frame) and picks 1/2/3'"
+    },
+    {
+     "value": "0.72 / 0.38",
+     "claim": "target P(A) on frame match vs mismatch",
+     "source_label": "Design bullet: 'P(A)=0.72 match / 0.38 mismatch'"
+    },
+    {
+     "value": "rounds 16 to 20",
+     "claim": "held-out wording window",
+     "source_label": "Design bullet: 'rounds 16\u201320 use separately authored held-out wording'"
+    },
+    {
+     "value": "after round 10",
+     "claim": "silent swap point",
+     "source_label": "Design bullet: 'silent swap after round 10'"
+    },
+    {
+     "value": "360 episodes, 7,200 choices",
+     "claim": "size of one run",
+     "source_label": "Design bullet: '360 episodes, 7,200 choices'"
+    },
+    {
+     "value": "0.383 to 0.570",
+     "claim": "V4 full-history match rate, early vs late held-out",
+     "source_label": "Result 1; sheet rows 'V4 full_history early match' = 0.383 and 'V4 full_history late held-out match' = 0.57"
+    },
+    {
+     "value": "0.333",
+     "claim": "V4 no-history match rate, flat",
+     "source_label": "Result 1; sheet rows 'V4 no_history early match' / 'late held-out match' = 0.333 / 0.333"
+    },
+    {
+     "value": "0.287 to 0.233",
+     "claim": "V4 shuffled-history match rate, early vs late held-out",
+     "source_label": "Result 1; sheet rows 'V4 shuffled_history early match' = 0.287, 'late held-out match' = 0.233"
+    },
+    {
+     "value": "0.187 [0.083, 0.290]",
+     "claim": "V4 full-history learning gain with 95% CI",
+     "source_label": "Result 1; sheet row 'V4 full_history learning gain (late held-out \u2212 early), 95% CI'"
+    },
+    {
+     "value": "0.24 versus 0.05",
+     "claim": "V4 late match for fairness targets, full history vs no-history",
+     "source_label": "Result 1b; sheet row 'V4 late match, target=fairness: full / no-history / shuffled' = 0.240 / 0.050 / 0.080"
+    },
+    {
+     "value": "34 of 40 / 0 of 40",
+     "claim": "V4 swap episodes adapted into expertise vs into fairness",
+     "source_label": "Result 2 ('swaps into expertise adapted 34 of 40, into fairness 0 of 40'); sheet row 'V4 swap into expertise (default): adapted 34 of 40'; rows 'expertise->fairness' and 'risk->fairness' adapted 0 of 20 each"
+    },
+    {
+     "value": "0.040 [-0.007, 0.093]",
+     "claim": "Gemma-4-31B (Arm R1) full-history learning gain",
+     "source_label": "Result 5; sheet row 'R1 Gemma full_history learning gain (late held-out \u2212 early), 95% CI'"
+    },
+    {
+     "value": "0.972 vs 0.941 (Qwen 0.876 vs 0.693)",
+     "claim": "P(repeat frame) after success vs after failure, Gemma R1 and Qwen V4",
+     "source_label": "Result 5; sheet rows 'Gemma R1 full_history: P(repeat frame | success) / P(repeat | failure)' and 'Qwen V4 full_history: P(repeat frame | success) / P(repeat | failure)'"
+    },
+    {
+     "value": "-0.020 [-0.053, 0.010]",
+     "claim": "Arm E1 elicited full-history learning gain",
+     "source_label": "Result 6; sheet row 'E1 elicited elicited_full_history learning gain (late held-out \u2212 early), 95% CI'"
+    },
+    {
+     "value": "-0.207 [-0.317, -0.097]",
+     "claim": "elicited minus spontaneous learning-gain difference",
+     "source_label": "Result 6; sheet row 'E1 \u2212 V4 spontaneous: full-history learning gain diff, 95% CI'"
+    },
+    {
+     "value": "3,600 of 3,600",
+     "claim": "E1 records where choice equals argmax of stated p_a",
+     "source_label": "Result 6; sheet row 'E1 choice equals argmax of stated p_a' = 3600 of 3600 records"
+    },
+    {
+     "value": "94.2% / never fairness",
+     "claim": "E1 frame shares under the elicited prompt",
+     "source_label": "Result 6; sheet row 'E1 elicited_full_history frame shares (fairness / risk / expertise)' = 0.000 / 0.058 / 0.942"
+    },
+    {
+     "value": "0.207 [0.110, 0.307]",
+     "claim": "Arm P1 paraphrase full-history learning gain",
+     "source_label": "Result 7; sheet row 'P1 paraphrase full_history learning gain (late held-out \u2212 early), 95% CI'"
+    },
+    {
+     "value": "p = 0.0002",
+     "claim": "P1 full minus no-history difference-in-differences, one-sided p",
+     "source_label": "Result 7; sheet row 'P1 paraphrase full \u2212 no-history difference-in-differences, one-sided p' = 0.207 [0.113, 0.303], p=0.0002"
+    },
+    {
+     "value": "0.898 / 0.98",
+     "claim": "P1 valid-selection rate vs gate threshold",
+     "source_label": "Result 7; sheet row 'P1 paraphrase valid selection rate (gate 0.98)' = 0.898"
+    },
+    {
+     "value": "about 10%",
+     "claim": "share of history rounds where P1 model began a reasoning preamble and was truncated",
+     "source_label": "Result 7 ('~10% of history rounds (never without history)'); sheet row 'P1 invalid outputs: count / share / share in no_history' = 733 / 0.102 / 0.000"
+    },
+    {
+     "value": "0.632 against 0.600",
+     "claim": "P1 late held-out full-history match, parsed-only vs all rounds with random fallbacks",
+     "source_label": "Result 7; sheet row 'P1 full_history late held-out match: all rounds / parsed-only' = 0.600 (n=300) / 0.632 (n=269)"
+    },
+    {
+     "value": "four redesigns (V5, V6, V7, V8)",
+     "claim": "successor designs stopped at pre-registered gates",
+     "source_label": "Result 4 and gate ledger rows V5\u2013V8"
+    },
+    {
+     "value": "120k-study screen",
+     "claim": "size of the V6 feasibility screen",
+     "source_label": "Result 4: 'V6 (balance gate infeasible at every N; 120k-study screen)'"
+    },
+    {
+     "value": "N of 30 or less",
+     "claim": "V8 gate underpowered at N\u226430",
+     "source_label": "Result 4: 'V8 (destination-stratified gate underpowered at N\u226430 vs the weakest registered learner)'"
+    },
+    {
+     "value": "0.91 rounds / 87%",
+     "claim": "first-crossing bias: apparent lead of a chance-level probe and share of runs with CI excluding 0",
+     "source_label": "Methodological finding bullet; sheet row 'first-crossing bias at probe acc 0.33: apparent lead / CI-excludes-0 rate' = 0.91 / 0.87"
+    },
+    {
+     "value": "45-template",
+     "claim": "blind hand-label sheet for the message bank",
+     "source_label": "'What was NOT done' bullet: 'a 45-template blind hand-label sheet exists'"
+    },
+    {
+     "value": "all four arms (fig_w11_whole_story.png)",
+     "claim": "figure shows V4, R1, E1 and P1",
+     "source_label": "Figures list fig_w11 (V4 Qwen, Gemma R1, Qwen-elicited E1) plus Result 7 'fig_w11, second panel' and WORK_LOG 2026-09-04 'fourth panel on fig_w11'"
+    }
+   ]
+  },
+  {
+   "draft": "**Question.** I asked whether an LLM, told only to get Option A chosen and given binary feedback, learns which persuasion frame a hidden partner responds to. I also asked whether it revises that when the partner silently changes. I ran it as a preregistered study: thresholds frozen before data, each real run analysed once, a failed gate stops the arm.\n\n**Design.** The focal model is Qwen3.8-27B (open weights). Each round it sees three unlabelled candidate messages, one per frame (fairness, risk, expertise), and replies with a digit. The hidden target picks A with probability 0.72 if the frame matches its type and 0.38 otherwise. The type is swapped silently after round 10, and rounds 16 to 20 use held-out wording. Three controls: no-history, shuffled-history from another target, and a random target. One run is 360 episodes and 7,200 choices.\n\n**Positive result.** With its own history, the match rate rose from 0.383 in early rounds to 0.570 on held-out rounds. No-history stayed at 0.333, shuffled-history fell from 0.287 to 0.233, and random-target was flat. The learning gain was 0.187 [0.083, 0.290], and the registered randomization test passed. Learning was anti-default. Expertise is the default (0.922 of no-history picks), so gains against no-history came on fairness (0.24 vs 0.05) and risk (0.61 vs 0.10) targets. The preregistered revision test failed. After a swap the model re-acquired expertise in 34 of 40 episodes and fairness in 0 of 40. That is default attraction, not updating.\n\n**Stress tests.** I then declared three arms, predictions written before each outcome, and ran the frozen design once per arm. Gemma-4-31B-it does not replicate: gain 0.040 [-0.007, 0.093]. Its choice matches the shuffled-history choice on the identical triple 90.5% of the time (Qwen 63.7%), so it barely uses feedback. Making Qwen state a probability per candidate before choosing removed the effect: gain -0.020 [-0.053, 0.010]. In 3,600 of 3,600 records the choice was the argmax of the stated probabilities: belief and choice were one object. Rewording the spontaneous prompt reproduced the effect: gain 0.207 [0.110, 0.307], same anti-default pattern. That arm still stopped at its validity gate (0.898 against 0.98). About 10% of history rounds began a reasoning preamble and were truncated. The fallback is a uniform random pick, which dilutes learning (parsed-only late match 0.632 versus 0.600). My conclusion: a real but narrow effect for one model under this task. It is robust to wording, absent in Gemma, absent under belief elicitation, and has no stated belief separate from the choice. See fig_w11_whole_story.png.\n\n**Process.** Four successors, V5 through V8, each stopped at a gate I had written down first. V5's calibrated bank could not be balanced (13.7/34.2/52.1 against a 25 to 42% rule). V6's balance gate was infeasible at every allowed N in a 120,000-study screen. V7 failed its own feasibility rule, and an adversarial review showed its pooled revision rule would pass on pure default attraction. V8 controlled Type I error (0 joint rejections in 6,000 null studies) but was underpowered against the weakest registered learner. I also withdrew a planned first-crossing \"probe leads behaviour\" metric. In simulation a chance-level probe appears to lead by 0.91 rounds, CI excluding zero in 87% of runs. No probe was trained. I used AI for code. The gates, stops and readings are mine.\n\n**Next.** A larger token budget to recover the truncated paraphrase rounds. A third model under the spontaneous prompt, to separate \"Qwen\" from \"feedback-sensitive\". Human labels for the message bank (a 45-template blind sheet exists). Only then a probe, and only on an effect that survives revision.",
+   "word_count": 590,
+   "numbers_used": [
+    {
+     "value": "Qwen3.8-27B",
+     "claim": "focal model, open weights",
+     "source_label": "Exec-summary skeleton: Design bullet"
+    },
+    {
+     "value": "Gemma-4-31B-it",
+     "claim": "second model family for replication (Arm R1)",
+     "source_label": "Result 5; gate ledger row R1"
+    },
+    {
+     "value": "0.72 / 0.38",
+     "claim": "target P(A) when candidate frame matches / mismatches its type",
+     "source_label": "Design bullet"
+    },
+    {
+     "value": "round 10",
+     "claim": "silent swap of target type after this round",
+     "source_label": "Design bullet ('silent swap after round 10')"
+    },
+    {
+     "value": "rounds 16 to 20",
+     "claim": "separately authored held-out wording",
+     "source_label": "Design bullet"
+    },
+    {
+     "value": "360 episodes, 7,200 choices",
+     "claim": "size of one run",
+     "source_label": "Design bullet"
+    },
+    {
+     "value": "three",
+     "claim": "unlabelled candidate messages per round; three controls; three stress-test arms",
+     "source_label": "Design bullet; Results 5, 6, 7"
+    },
+    {
+     "value": "0.383 to 0.570",
+     "claim": "V4 full-history match, early rounds to late held-out rounds",
+     "source_label": "Numbers sheet: 'V4 full_history early match' (0.383) and 'V4 full_history late held-out match' (0.57); Result 1"
+    },
+    {
+     "value": "0.333",
+     "claim": "V4 no-history match, flat early and late",
+     "source_label": "Numbers sheet: 'V4 no_history early match' / 'V4 no_history late held-out match'"
+    },
+    {
+     "value": "0.287 to 0.233",
+     "claim": "V4 shuffled-history match, early to late held-out",
+     "source_label": "Numbers sheet: 'V4 shuffled_history early match' / 'V4 shuffled_history late held-out match'"
+    },
+    {
+     "value": "0.187 [0.083, 0.290]",
+     "claim": "V4 full-history learning gain (late held-out minus early), 95% CI",
+     "source_label": "Numbers sheet: 'V4 full_history learning gain (late held-out \u2212 early), 95% CI'; Result 1"
+    },
+    {
+     "value": "0.922",
+     "claim": "expertise share of Qwen no-history picks on the V4 bank",
+     "source_label": "Numbers sheet: 'Qwen V4-bank no-history shares (f/r/e)' 0.013 / 0.065 / 0.922"
+    },
+    {
+     "value": "0.24 vs 0.05",
+     "claim": "V4 late match on fairness targets, full history vs no-history",
+     "source_label": "Numbers sheet: 'V4 late match, target=fairness: full / no-history / shuffled' 0.240 / 0.050 / 0.080; Result 1b"
+    },
+    {
+     "value": "0.61 vs 0.10",
+     "claim": "V4 late match on risk targets, full history vs no-history",
+     "source_label": "Numbers sheet: 'V4 late match, target=risk: full / no-history / shuffled' 0.610 / 0.100 / 0.080; Result 1b"
+    },
+    {
+     "value": "34 of 40",
+     "claim": "V4 swap episodes adapting into expertise",
+     "source_label": "Result 2; Numbers sheet: 'V4 swap into expertise (default): ... adapted' 34 of 40"
+    },
+    {
+     "value": "0 of 40",
+     "claim": "V4 swap episodes adapting into fairness",
+     "source_label": "Result 2; Numbers sheet: 'V4 swap expertise->fairness' 0 of 20 plus 'V4 swap risk->fairness' 0 of 20"
+    },
+    {
+     "value": "0.040 [-0.007, 0.093]",
+     "claim": "Gemma (Arm R1) full-history learning gain, 95% CI",
+     "source_label": "Numbers sheet: 'R1 Gemma full_history learning gain (late held-out \u2212 early), 95% CI'; Result 5"
+    },
+    {
+     "value": "90.5% (Qwen 63.7%)",
+     "claim": "choice equals the shuffled-history choice on the identical triple, Gemma vs Qwen",
+     "source_label": "Numbers sheet: 'Gemma R1 same choice as full_history: shuffled_history' 0.905; 'Qwen V4 same choice as full_history: shuffled_history' 0.637; Result 5"
+    },
+    {
+     "value": "-0.020 [-0.053, 0.010]",
+     "claim": "Arm E1 elicited full-history learning gain, 95% CI",
+     "source_label": "Numbers sheet: 'E1 elicited elicited_full_history learning gain (late held-out \u2212 early), 95% CI'; Result 6"
+    },
+    {
+     "value": "3,600 of 3,600",
+     "claim": "E1 records where the choice equals the argmax of the stated p_a",
+     "source_label": "Numbers sheet: 'E1 choice equals argmax of stated p_a' 3600 of 3600 records; Result 6"
+    },
+    {
+     "value": "0.207 [0.110, 0.307]",
+     "claim": "Arm P1 (paraphrase) full-history learning gain, 95% CI",
+     "source_label": "Numbers sheet: 'P1 paraphrase full_history learning gain (late held-out \u2212 early), 95% CI'; Result 7"
+    },
+    {
+     "value": "0.898 against 0.98",
+     "claim": "P1 valid-selection rate vs the frozen gate threshold",
+     "source_label": "Numbers sheet: 'P1 paraphrase valid selection rate (gate 0.98)' 0.898; Result 7"
+    },
+    {
+     "value": "about 10%",
+     "claim": "share of P1 history rounds that began a truncated reasoning preamble (0% without history)",
+     "source_label": "Numbers sheet: 'P1 invalid outputs: count / share / share in no_history' 733 / 0.102 / 0.000; Result 7 ('~10% of history rounds')"
+    },
+    {
+     "value": "0.632 versus 0.600",
+     "claim": "P1 full-history late held-out match, parsed-only rounds vs all rounds with random fallbacks",
+     "source_label": "Numbers sheet: 'P1 full_history late held-out match: all rounds / parsed-only' 0.600 / 0.632; Result 7"
+    },
+    {
+     "value": "four (V5 through V8)",
+     "claim": "successor designs that stopped at preregistered gates",
+     "source_label": "Result 4; gate ledger rows V5, V6, V7, V8"
+    },
+    {
+     "value": "13.7/34.2/52.1 against 25 to 42%",
+     "claim": "V5 no-history frame balance (fairness/risk/expertise) vs the balance gate",
+     "source_label": "Gate ledger row V5 ('no-history balance 25\u201342% per frame', 'FAIL (13.7/34.2/52.1)')"
+    },
+    {
+     "value": "120,000-study screen; every allowed N",
+     "claim": "V6 balance gate infeasible at every N",
+     "source_label": "Result 4 ('120k-study screen'); gate ledger row V6 ('FAIL at every N (0.41\u20130.42)')"
+    },
+    {
+     "value": "0 joint rejections in 6,000 null studies",
+     "claim": "V8 Type I error controlled",
+     "source_label": "Result 4"
+    },
+    {
+     "value": "0.91 rounds; 87%",
+     "claim": "apparent lead of a chance-level probe under the first-crossing metric; share of runs with CI excluding 0",
+     "source_label": "Numbers sheet: 'first-crossing bias at probe acc 0.33: apparent lead / CI-excludes-0 rate' 0.91 / 0.87; Methodological finding bullet"
+    },
+    {
+     "value": "45-template",
+     "claim": "blind hand-label sheet for the message bank exists, not yet used",
+     "source_label": "'What was NOT done' bullet"
+    },
+    {
+     "value": "fig_w11_whole_story.png",
+     "claim": "summary figure: with-history match rate by round for V4, R1, E1, P1",
+     "source_label": "Figures list: fig_w11_whole_story.png; Result 7 ('fig_w11, second panel')"
+    }
+   ],
+   "angle": "process-first: preregistration, gates that stopped four redesigns, the withdrawn first-crossing metric, and three declared stress tests are foregrounded; the results are presented as consequences of that discipline, with the honest narrow conclusion (real effect for one model under this task, robust to wording, absent in Gemma-4-31B, absent under belief elicitation, no stated belief separate from the choice)"
+  }
+ ],
+ "verifs": [
+  {
+   "ok": false,
+   "errors": [
+    {
+     "quoted_text": "in about 10% of history rounds, and none without history",
+     "problem": "Denominator mis-attached. 10.2% (733/7,200) is the invalid share of ALL rounds. Among rounds that show a history it is 12.2% (733/6,000; per condition 11-14%: full 0.123, shuffled 0.123, random_target 0.138, swap 0.113), and 0% in no_history. The materials exec bullet itself says '~10% of history rounds', but the declaration's outcome table (733 rounds = 10.2%; '11-14% of rounds in every condition that shows a history') and the raw log both attach 10% to all rounds. Meaning barely changes, but the phrase is attached to the wrong quantity.",
+     "correct_value_or_fix": "Either 'in 10.2% of all rounds (11-14% of rounds in each history condition, 0% of no-history rounds)' or 'in about 12% of history rounds, and none without history'. Sources: V4_REPLICATION_DECLARATION.md P1 outcome; numbers sheet row 'P1 invalid outputs: count / share / share in no_history' = 733 / 0.102 / 0.000; data/raw/v4p-qwen38.jsonl."
+    }
+   ],
+   "unsupported_claims": [
+    "'Both are open weights.' - neither WRITEUP_MATERIALS.md nor V4_REPLICATION_DECLARATION.md states that Qwen3.8-27B or Gemma-4-31B-it are open-weight models; true of the model IDs used, but not in the sources.",
+    "'Controls are no-history, another target's shuffled history, and random-target.' - the sources call the control 'shuffled history' and never say the history comes from another target; the qualifier 'another target's' is not in either source (checkpoint spec would be the place to verify).",
+    "'Thresholds were preregistered and the frozen analyzer ran once per run.' - accurate for V4, R1 and P1, but the declaration's 2026-09-03 correction states the frozen analyzer (scripts/analyze_controlled_v4.py) could NOT be run on E1; E1 was analyzed once with scripts/analyze_elicited_choices.py, which applies the frozen evaluator's functions and thresholds within-arm. 'Per run' overstates it slightly for E1.",
+    "'That is default attraction, not a partner model.' - the sources do call the swap asymmetry 'default-attraction' and name 'a large expertise default' as the mechanism, so 'default attraction' is supported; 'not a partner model' is the author's inference (the sources say only that re-acquisition after a formed preference fails, and, for E1 specifically, that there is no evidence of a separable model of the partner). Borderline, not a contradiction.",
+    "Note on '0.91 rounds, CI excluding zero in 87% of runs': supported by the numbers sheet (fig_w5 seed-0 noise model), but the sheet flags that docs/V7_REVIEW.md's noise model gave 0.74 rounds / 71%; the draft picks the larger figure without saying which noise model. Not an error, but worth a qualifier if space allows."
+   ],
+   "word_count": 588
+  },
+  {
+   "ok": false,
+   "errors": [
+    {
+     "quoted_text": "Four redesigns (V5 to V8) each stopped at their own pre-committed gate before any paid run.",
+     "problem": "False for V5. Its gate (no-history balance 25\u201342% per frame) was decided BY a paid run: docs/V5_CALIBRATION_RUN_20260901.md opens 'The paid V5 pool calibration and separately seeded selected-bank validation both completed cleanly' \u2014 1,152 focal outputs on a rented A100 (~$1.60/hr) \u2014 and the gate then failed (13.7/34.2/52.1). V6\u2013V8 were simulation-only screens. The sheet's actual claim is 'Nothing frozen or spent after a failed gate', which is a different statement.",
+     "correct_value_or_fix": "Four redesigns (V5 to V8) each stopped at their own pre-committed gate; nothing was frozen or spent after a failed gate. (Or: '...before any confirmatory run' \u2014 V5's gate itself required a paid calibration run.)"
+    },
+    {
+     "quoted_text": "gain 0.207 [0.110, 0.307], p = 0.0002 against no history",
+     "problem": "p = 0.0002 is attached to the wrong quantity. It belongs to the full \u2212 no-history difference-in-differences contrast (0.207 [0.113, 0.303], p=0.0002; sheet row 'P1 paraphrase full \u2212 no-history difference-in-differences'). The CI [0.110, 0.307] is the within-condition full-history learning gain, for which the sheet gives no p-value. The two point estimates coincide at 0.207 but the CIs differ.",
+     "correct_value_or_fix": "gain 0.207 [0.110, 0.307]; full \u2212 no-history difference-in-differences 0.207 [0.113, 0.303], p = 0.0002"
+    },
+    {
+     "quoted_text": "which is -0.207 [-0.317, -0.097] below the spontaneous arm",
+     "problem": "Sign/wording confusion: the number is the signed difference elicited \u2212 spontaneous (sheet: 'E1 \u2212 V4 spontaneous: full-history learning gain diff -0.207 [-0.317, -0.097]'). Writing '-0.207 below' is a double negative and reads literally as 0.207 above. The values themselves are correct.",
+     "correct_value_or_fix": "a difference of -0.207 [-0.317, -0.097] from the spontaneous arm (elicited \u2212 spontaneous), i.e. 0.207 below it"
+    },
+    {
+     "quoted_text": "in about 10% of history rounds the model began reasoning and was truncated",
+     "problem": "Denominator is wrong. The 10.2% figure (733 invalid outputs) is a share of ALL 7,200 rounds (sheet: 'P1 invalid outputs: 733 / 0.102'). The declaration states they occur 'in 11\u201314% of rounds in every condition that shows a history and in 0% of no-history rounds' (733/5,760 \u2248 12.7% of history rounds). The exec-summary bullet repeats the same '~10% of history rounds' phrasing, so the sheet is internally inconsistent, but the declaration's per-condition figure is the precise one.",
+     "correct_value_or_fix": "in about 10% of all rounds (11\u201314% of rounds in each history condition, none without history) the model began reasoning and was truncated"
+    }
+   ],
+   "unsupported_claims": [
+    "'It does not use the feedback.' (Gemma) \u2014 the sources say 'almost insensitive to feedback' / 'feedback-insensitive' with a win-stay/lose-shift gap of 0.031 (0.972 vs 0.941) and a full-history gain of 0.040 whose CI includes 0. A flat 'does not use' is slightly stronger than the sourced 'almost insensitive'; 'barely uses the feedback' would be exact.",
+    "'AI wrote most of the code. The gates, predictions and stops are mine.' \u2014 an authorship statement not present in either source; not verifiable from them (not a results claim).",
+    "'Test two more model families before any mechanistic work.' \u2014 a plan; the sources say only that mechanistic work is gated behind a passed revision test / a surviving behavioural effect, with no count of model families.",
+    "'fig_w11_whole_story.png plots the four with-history curves against no history.' \u2014 CORRECT against the generator (scripts/make_writeup_materials.py fig11_whole_story appends a P1 panel when results/v4_real/paraphrase_qwen38/tables/v4_round_trajectories.csv exists; it does, and the PNG was regenerated after it) and against Result 7's '(fig_w11, second panel)', but NOT supported by the sheet's own Figures caption, which still lists only three curves (V4 Qwen, Gemma R1, Qwen-elicited E1). The stale caption in WRITEUP_MATERIALS.md / the script's figure list is what needs fixing, not the draft."
+   ],
+   "word_count": 589
+  },
+  {
+   "ok": false,
+   "errors": [
+    {
+     "quoted_text": "Learning was largest where the default was weakest (fairness target: 0.24 versus 0.05 without history).",
+     "problem": "The fairness numbers are correct (V4 late match, target=fairness: full 0.240 / no-history 0.050), but fairness is not where learning was largest. Per the sheet, risk shows the largest per-target gain (0.610 vs 0.100, advantage 0.51) versus fairness 0.19 and expertise 0.86 vs 0.85 (0.01). The parenthetical attaches 'largest' to the wrong target.",
+     "correct_value_or_fix": "Cite risk as the largest gain, or drop 'largest': 'Learning was anti-default: fairness 0.24 vs 0.05 without history, risk 0.61 vs 0.10, expertise 0.86 vs 0.85 (fig_w6).' Source: numbers sheet rows 'V4 late match, target=fairness/risk/expertise' and Result 1b."
+    },
+    {
+     "quoted_text": "which is -0.207 [-0.317, -0.097] below the spontaneous prompt",
+     "problem": "Double negative: the sourced quantity is the elicited \u2212 spontaneous learning-gain difference = -0.207 [-0.317, -0.097]. Saying '-0.207 below' reads as 0.207 above.",
+     "correct_value_or_fix": "'0.207 below the spontaneous prompt (elicited \u2212 spontaneous difference -0.207 [-0.317, -0.097])'. Source: numbers sheet 'E1 \u2212 V4 spontaneous: full-history learning gain diff'; V4_REPLICATION_DECLARATION E1 table."
+    },
+    {
+     "quoted_text": "gain 0.207 [0.110, 0.307], p = 0.0002 against no-history",
+     "problem": "The CI quoted is the P1 full_history learning gain (0.207 [0.110, 0.307]); the p = 0.0002 belongs to a different quantity, the full \u2212 no-history difference-in-differences (0.207 [0.113, 0.303], one-sided p = 0.0002). Same point estimate by coincidence, different CI.",
+     "correct_value_or_fix": "'gain 0.207 [0.110, 0.307]; difference-in-differences against no-history 0.207 [0.113, 0.303], p = 0.0002'. Source: numbers sheet rows 'P1 paraphrase full_history learning gain' and 'P1 paraphrase full \u2212 no-history difference-in-differences'."
+    },
+    {
+     "quoted_text": "It picked expertise 94.2% of rounds, fairness never.",
+     "problem": "94.2% is the expertise share in the elicited_full_history condition only (numbers sheet row 'E1 elicited_full_history frame shares ... 0.000 / 0.058 / 0.942', n=1,200). Verified against data/raw/v4e-qwen38.jsonl: elicited_swap 93.2%, all 3,600 records 93.5%. 'Fairness never' is correct across all records. The sentence sits right after '3,600 of 3,600 records', so a reader will take 94.2% as the all-records share.",
+     "correct_value_or_fix": "'It picked expertise in 94.2% of full-history rounds (93.5% of all 3,600 records) and fairness never.'"
+    },
+    {
+     "quoted_text": "began reasoning aloud in about 10% of history rounds",
+     "problem": "733 invalid outputs are 10.2% of all 7,200 rounds, not of history rounds. Among the 6,000 rounds that show a history the share is 12.2% (verified from data/raw/v4p-qwen38.jsonl: full 12.3%, shuffled 12.3%, random_target 13.8%, swap 11.3%, no_history 0%); the declaration states '11\u201314% of rounds in every condition that shows a history and 0% of no-history rounds'. The materials' Result 7 prose does say '~10% of history rounds', but its own numbers sheet ('P1 invalid outputs: 733 / 0.102 / 0.000 in no_history') and the declaration give the denominator as all rounds.",
+     "correct_value_or_fix": "'in 10.2% of all rounds (733 of 7,200) \u2014 11\u201314% of rounds in each history condition and none without history'."
+    }
+   ],
+   "unsupported_claims": [
+    "\"It does not use the feedback.\" (Gemma) \u2014 sources say Gemma is 'almost insensitive to feedback' / 'feedback-insensitive': win-stay/lose-shift gap 0.031 (0.972 \u2212 0.941) vs Qwen 0.183, and choice equals the shuffled-history choice 90.5% of the time. The gap is small but non-zero; 'barely uses the feedback' matches the sources; the absolute 'does not use' does not.",
+    "\"I found it in my own audit and tested all three parts. Two held.\" \u2014 the objection lists three parts (one model, one prompt, small effect on a 0.922 default), but the three stress tests are model swap (R1), elicited prompt (E1) and reworded prompt (P1); the 'small effect on a default' part was not tested as such, and 'one prompt' got two tests with opposite outcomes. The sources support only: absent in Gemma (R1), absent under belief elicitation (E1), survives rewording (P1). 'Two held' has no sourced referent; restate as those three outcomes.",
+    "Supporting notes (not errors): 'fig_w11_whole_story.png shows all four arms' is correct \u2014 scripts/make_writeup_materials.py fig11_whole_story builds four panels (V4, P1, R1, E1) when P1 exists, though the generated Figures caption in WRITEUP_MATERIALS.md still lists three arms and should be regenerated. 'shuffled-history from another partner' is supported by docs/V4_DESIGN_PROTOCOL.md ('a different target's history on the same scenarios'). The first-crossing numbers 0.91 rounds / 87% are the fig_w5 simpler-noise-model values; docs/V7_REVIEW.md reported 0.74 / 71% under its noise model \u2014 consider saying which."
+   ],
+   "word_count": 589
+  },
+  {
+   "ok": true,
+   "errors": [],
+   "unsupported_claims": [
+    "\"About 10% of history rounds began a reasoning preamble and were truncated.\" -- The sheet's Result 7 bullet uses the same phrase (\"~10% of history rounds\"), but the precise figures in the declaration and sheet are 733 invalid outputs = 10.2% of ALL 7,200 rounds (0% of no-history rounds), i.e. 11-14% of rounds in each history-showing condition (~12% of the 6,000 history rounds). Not meaning-changing; consider \"about 10% of all rounds (11-14% of rounds with a history, none without)\".",
+    "\"Its choice matches the shuffled-history choice on the identical triple 90.5% of the time (Qwen 63.7%), so it barely uses feedback.\" -- The 90.5%/63.7% statistic is the sources' measure of insensitivity to HISTORY CONTENT; the sources' feedback-insensitivity statistic is the win-stay/lose-shift gap: P(repeat | success) 0.972 vs P(repeat | failure) 0.941, gap 0.031 (Qwen 0.876 vs 0.693, gap 0.183). The conclusion is supported (declaration: \"almost insensitive to feedback ... and to history content\"), but the cited number supports the history-content half; add the 0.972/0.941 figures or say \"barely uses the history\".",
+    "\"Making Qwen state a probability per candidate before choosing removed the effect\" -- Stated as a single-cause mechanism. The sources caveat that Arm E1 changed two things at once (JSON output format AND the model seeing its own past predictions in the history) and \"cannot separate the output-format change from the model seeing its own past predictions\" (WRITEUP_MATERIALS 'What was NOT done'; declaration E1 limitations). Effect removal itself (gain -0.020; difference -0.207 [-0.317, -0.097]) is sourced.",
+    "\"That arm still stopped at its validity gate (0.898 against 0.98).\" -- Incomplete: the sources say the frozen STOP decision for P1 came from TWO failed non-learning gates, the revision gates (predicted; swap new-over-old -0.077, p=0.89; 44 of 120 adapted) and the valid-selection gate (0.898 < 0.98). The number is correct; the sentence implies validity was the only failed gate.",
+    "\"In simulation a chance-level probe appears to lead by 0.91 rounds, CI excluding zero in 87% of runs.\" -- Correct per the sheet, but this is the fig_w5 simpler noise model (seed 0); the sheet notes the review's noise model (docs/V7_REVIEW.md) gave 0.74 rounds / 71%. Supported; a hedge such as \"under one noise model\" would match the sheet's own caveat.",
+    "\"I used AI for code. The gates, stops and readings are mine.\" -- Author attestation; not present in either source and not checkable against them.",
+    "\"Qwen3.8-27B (open weights)\" and \"shuffled-history from another target\" -- Not stated in the two named sources, but supported elsewhere in the repo (docs/MEASUREMENT_REMEDIATION.md:144 'open-weight Qwen/Qwen3.8-27B'; README.md:253 and docs/V4_DESIGN_PROTOCOL.md:116 'a different target's history on the same scenarios'). No action needed.",
+    "\"predictions written before each outcome\" -- Supported with one nuance: R1 and E1 were declared before any outcome; P1 was declared after the R1/E1 outcomes were read but before its own outcome (declaration header for Arm P1). The draft's wording is accurate as written."
+   ],
+   "word_count": 590
+  }
+ ],
+ "judges": [
+  {
+   "scores": [
+    {
+     "draft_index": 0,
+     "honesty_calibration": 5,
+     "clarity_for_nanda": 8,
+     "research_taste_signals": 7,
+     "human_voice": 7,
+     "total": 27,
+     "one_line_verdict": "Best opener and clean ordering, but the V5 'before any paid run' claim is false and the p-value is attached to the wrong CI, in the section whose point is process discipline."
+    },
+    {
+     "draft_index": 1,
+     "honesty_calibration": 4,
+     "clarity_for_nanda": 6,
+     "research_taste_signals": 7,
+     "human_voice": 6,
+     "total": 23,
+     "one_line_verdict": "The objection framing promises a three-part test it never delivers ('Two held' maps to nothing), and it misreads which target learned most (risk, not fairness)."
+    },
+    {
+     "draft_index": 2,
+     "honesty_calibration": 7,
+     "clarity_for_nanda": 8,
+     "research_taste_signals": 8,
+     "human_voice": 7,
+     "total": 30,
+     "one_line_verdict": "Zero number errors and the fullest process record in the mandated order; its gaps are omissions (E1 confound, feedback statistic, random examples), all fixable by adding sentences."
+    },
+    {
+     "draft_index": 3,
+     "honesty_calibration": 8,
+     "clarity_for_nanda": 6,
+     "research_taste_signals": 8,
+     "human_voice": 7,
+     "total": 29,
+     "one_line_verdict": "Most careful on the stress tests and the only draft to state the E1 confound and seeded random examples, but it leads with the figure instead of the question and thins the process story to one gate."
+    }
+   ],
+   "winner_index": 2,
+   "grafts": [
+    {
+     "from_draft_index": 3,
+     "what": "After the E1 result, add: 'E1 cannot separate format from the model seeing its own past predictions.'",
+     "why": "The sheet's own 'What was NOT done' caveat. Draft 2 presents elicitation as a single cause ('Making Qwen state a probability ... removed the effect'); a skeptical reader will ask exactly this and should see the applicant asked first."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "Replace or supplement the Gemma 90.5% line with: 'It repeats a frame at 0.972 after a success versus 0.941 after a failure (Qwen 0.876 versus 0.693).'",
+     "why": "Draft 2 cites the 90.5% history-content match and then concludes 'so it barely uses feedback'. The 90.5% number measures insensitivity to history content; the win-stay/lose-shift gap is the feedback statistic. The conclusion is right, the supporting number is the wrong one."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "For E1, add the registered between-arm contrast with correct sign wording: 'difference from spontaneous -0.207 [-0.317, -0.097]'.",
+     "why": "Draft 2 gives only the within-arm E1 gain. The elicited minus spontaneous difference is the comparison the arm was declared to test, and Draft 3 is the only draft that states it without the '-0.207 below' double negative."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "Add one sentence in Design or Positive result: 'The write-up's examples are seeded random draws.'",
+     "why": "Nanda's doc names random, not cherry-picked, examples explicitly. The repo has them (seeded R1/E1 examples in the write-up); Draft 2 never says so and gets no credit for it."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "Optional if words allow: 'Stated confidence was a fixed ranking (expertise 0.69, risk 0.58, fairness 0.49).'",
+     "why": "It is the direct evidence behind 'no stated belief separate from the choice' and shows the stated probabilities were looked at, not only the argmax coincidence."
+    },
+    {
+     "from_draft_index": 1,
+     "what": "In Next, add: 'Split the elicited confound: JSON format versus seeing its own past predictions.'",
+     "why": "Draft 2's next steps skip the most obvious follow-up to its own null result. Once the confound is stated (graft 1), the reader expects the plan to address it."
+    },
+    {
+     "from_draft_index": 0,
+     "what": "Open with a one-line why before the question: 'A persuader that models its target and updates that model from feedback is a different safety object from one that only talks well.'",
+     "why": "Draft 2's opener states the question with no motivation. This sentence says why the learning-versus-revision distinction matters for safety in 24 plain words, and it reads like a person with a view."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "Replace 'See fig_w11_whole_story.png.' with a one-clause description: 'fig_w11_whole_story.png shows all four with-history curves against no history: Qwen rises, reworded Qwen rises, Gemma is flat, elicited Qwen is flat.'",
+     "why": "The bare reference wastes the figure. Draft 3's four-panel gloss lets a screener read the result without opening the file. Note the sheet's Figures caption still lists three curves and needs regenerating; the PNG has four."
+    }
+   ],
+   "cuts": [
+    "Cut 'so it barely uses feedback' after the 90.5% statistic, or relabel it 'so it barely uses the history'. The 90.5% number does not measure feedback sensitivity; use the win-stay/lose-shift graft for that claim.",
+    "Change 'About 10% of history rounds began a reasoning preamble and were truncated' to 'About 10% of all rounds (11 to 14% of rounds with a history, none without) began a reasoning preamble and were truncated'. The 733/7,200 = 10.2% denominator is all rounds; the sheet's Result 7 phrase is loose and the declaration is precise.",
+    "Change 'That arm still stopped at its validity gate (0.898 against 0.98)' to say two non-learning gates failed: revision (predicted) and validity 0.898 against 0.98. The sheet records the frozen stop as resting on both; implying validity alone misstates the decision.",
+    "Add a qualifier to the first-crossing numbers: 'under one noise model' or cite the review's 0.74 rounds / 71% alongside 0.91 / 87%. The sheet flags the discrepancy itself; quoting only the larger figure is the kind of selective reporting the draft elsewhere avoids.",
+    "To fund the grafts under 600 words, trim: 'V6's balance gate was infeasible at every allowed N in a 120,000-study screen' to 'V6's balance gate was infeasible at every N'; 'and replies with a digit' can go; the second preregistration sentence ('predictions written before each outcome, and ran the frozen design once per arm') duplicates the first paragraph and can shrink to 'predictions written before each outcome'.",
+    "Tighten the conclusion sentence pair ('My conclusion: a real but narrow effect ... separate from the choice', 35 words) to about 25; the same list appears in the Stress tests paragraph and in Next.",
+    "Do not add a p-value to the P1 gain. Draft 2 correctly omits it; if one is added it must attach to the difference-in-differences (0.207 [0.113, 0.303], p = 0.0002), not to the within-arm gain CI [0.110, 0.307]."
+   ]
+  },
+  {
+   "scores": [
+    {
+     "draft_index": 0,
+     "honesty_calibration": 6,
+     "clarity_for_nanda": 7,
+     "research_taste_signals": 7,
+     "human_voice": 7,
+     "total": 27,
+     "one_line_verdict": "Right order and a real why-it-matters opener, but 'before any paid run' is false for V5 and three numbers are misattached (p-value, sign of -0.207, 10% denominator)."
+    },
+    {
+     "draft_index": 1,
+     "honesty_calibration": 5,
+     "clarity_for_nanda": 5,
+     "research_taste_signals": 7,
+     "human_voice": 6,
+     "total": 23,
+     "one_line_verdict": "The skeptic opener is theatre and 'Two held' means nothing; it also misreads its own per-target result (risk, not fairness, had the largest gain)."
+    },
+    {
+     "draft_index": 2,
+     "honesty_calibration": 8,
+     "clarity_for_nanda": 8,
+     "research_taste_signals": 9,
+     "human_voice": 8,
+     "total": 33,
+     "one_line_verdict": "Zero number errors, the best process section (all four stops with reasons, including the adversarial-review finding), plain voice; it hides the E1 confound and skips the random-examples signal."
+    },
+    {
+     "draft_index": 3,
+     "honesty_calibration": 8,
+     "clarity_for_nanda": 6,
+     "research_taste_signals": 8,
+     "human_voice": 7,
+     "total": 29,
+     "one_line_verdict": "Most accurate on the hard numbers and honest about E1's confound, but it narrates a figure for 65 words before asking the question and 'Both are open weights' dangles."
+    }
+   ],
+   "winner_index": 2,
+   "grafts": [
+    {
+     "from_draft_index": 3,
+     "what": "Append to the E1 stress test: 'E1 cannot separate format from the model seeing its own past predictions.' (13 words)",
+     "why": "Draft 2 states elicitation as a single-cause removal. The sheet's 'What was NOT done' names the two-way confound. Nanda rewards visible skepticism about one's own negative result, and this one sentence is the cheapest way to show it."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "After 'gain -0.020 [-0.053, 0.010]' add ', difference from spontaneous -0.207 [-0.317, -0.097]' (7 words), keeping Draft 3's signed wording, not Draft 0/1's '-0.207 below'.",
+     "why": "The elicited-minus-spontaneous contrast is the number that says the effect went away, not just that E1 is flat. Draft 3 is the only draft that states it without a double negative."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "Add 'The write-up's examples are seeded random draws.' (8 words) at the end of Design.",
+     "why": "Nanda's doc asks for random, not cherry-picked, examples. The sheet has three seeded draws per arm and Draft 2 never says so."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "Replace Draft 2's Gemma sentence (90.5% / 63.7% ... 'so it barely uses feedback') with 'It repeats a frame 0.972 after a success versus 0.941 after a failure (Qwen 0.876 versus 0.693), so it barely uses the feedback.' Net +2 words.",
+     "why": "The 90.5%/63.7% statistic measures insensitivity to history content, not feedback; the win-stay/lose-shift gap (0.031 vs 0.183) is the sheet's feedback number. One clean number that supports the claim beats one that supports a neighbouring claim."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "Add a next step: 'Elicit beliefs without showing the model its past predictions.' (10 words). Draft 1's phrasing 'split the elicited confound, JSON format versus seeing its own past predictions' is an acceptable alternative.",
+     "why": "Once the E1 confound is named, the reader expects the unconfounding experiment in Next. Draft 2's next steps jump from token budget to third model and miss it."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "Insert 'n=60' after 'The learning gain was 0.187 [0.083, 0.290]' (1 word).",
+     "why": "Tells Nanda the CI unit is episodes, not choices, which is the first thing he will wonder about a CI on 7,200 choices."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "In the P1 truncation sentence take Draft 3's 'and none without history' and fix the denominator from the sheet row 'P1 invalid outputs: 733 / 0.102 / 0.000': 'In 10.2% of all rounds, and none without history, the model began a reasoning preamble and was truncated.' (+5 words)",
+     "why": "All four drafts copied '~10% of history rounds' from the sheet's prose bullet, but the sheet's own numbers table gives 733 of 7,200, i.e. all rounds. 'None without history' is the part that shows the truncation is caused by the history, which is what makes the dilution argument credible."
+    },
+    {
+     "from_draft_index": 0,
+     "what": "Optional, only if the body lands under 576 words after cuts: open with Draft 0's 'A persuader that models its target and updates that model from feedback is a different safety object from one that only talks well.' (24 words)",
+     "why": "Draft 2 never says why the question matters for safety. This is the one sentence in any draft that does it without hype. It is expensive, so it goes last."
+    }
+   ],
+   "cuts": [
+    "Compress the opener's third sentence: 'I ran it as a preregistered study: thresholds frozen before data, each real run analysed once, a failed gate stops the arm.' becomes 'Thresholds were frozen before data, each run analysed once, and a failed gate stopped the arm.' (-6 words)",
+    "Fold the model into the first design sentence: 'The focal model is Qwen3.8-27B (open weights). Each round it sees' becomes 'Each round Qwen3.8-27B (open weights) sees'. (-5 words)",
+    "Drop 'one per frame' from the design sentence; the three frames are listed in the same sentence. (-3 words)",
+    "Drop 'in early rounds' from 'rose from 0.383 in early rounds to 0.570 on held-out rounds'. (-3 words)",
+    "Replace 'The preregistered revision test failed.' with 'Revision failed.' The preregistration is already stated in the opener. (-3 words)",
+    "Replace 'That arm still stopped at its validity gate (0.898 against 0.98).' with 'That arm still stopped: revision failed as predicted, and validity failed (0.898 against 0.98).' The sheet's frozen stop decision cites two failed gates, not one; the current sentence implies validity alone stopped it. (+3 words, a fix rather than a cut)",
+    "Drop the standalone 'See fig_w11_whole_story.png.' and attach '(fig_w11_whole_story.png)' to the stress-test lead sentence 'I then declared three arms'. (-3 words)",
+    "Tighten V6: 'V6's balance gate was infeasible at every allowed N in a 120,000-study screen.' becomes 'V6's balance gate failed at every allowed N (120,000-study screen).' (-3 words)",
+    "Drop 'No probe was trained.' The Next section's 'Only then a probe' already says it, and the first-crossing sentence establishes that only simulation ran. (-4 words)",
+    "Drop 'My conclusion:' and start the sentence at 'A real but narrow effect'. (-2 words)",
+    "Drop 'I used AI for code. The gates, stops and readings are mine.' Nanda's doc already accepts AI coding; the four named stops and the withdrawn metric demonstrate ownership better than an attestation the verifier cannot check. (-12 words) Keep it only if the D0 opener graft is not used and the body is still under 590.",
+    "Change 'so it barely uses feedback' wording only if the Gemma graft is rejected: then it must read 'so it barely uses the history', because 90.5%/63.7% measures history-content insensitivity, not feedback sensitivity.",
+    "Budget check: Draft 2 is 590 words. Grafts 1-7 add about 46 words, fixes add 8, cuts 1-5 and 7-11 remove about 44. Net lands near 600, so the D0 opener graft (+24) fits only if the AI-attestation cut is taken and one more line goes; do not exceed 600."
+   ]
+  },
+  {
+   "scores": [
+    {
+     "draft_index": 0,
+     "honesty_calibration": 6,
+     "clarity_for_nanda": 8,
+     "research_taste_signals": 7,
+     "human_voice": 7,
+     "total": 28,
+     "one_line_verdict": "Right order and the best single opening line, but four number errors plus a false 'before any paid run' claim about V5, which sits in the process section where Nanda checks hardest."
+    },
+    {
+     "draft_index": 1,
+     "honesty_calibration": 5,
+     "clarity_for_nanda": 6,
+     "research_taste_signals": 7,
+     "human_voice": 6,
+     "total": 24,
+     "one_line_verdict": "The 'hostile reviewer' opener is a performed move, 'two held' does not map onto the three tests, the question arrives late, and five number errors include naming the wrong target as the largest gain."
+    },
+    {
+     "draft_index": 2,
+     "honesty_calibration": 8,
+     "clarity_for_nanda": 8,
+     "research_taste_signals": 8,
+     "human_voice": 8,
+     "total": 32,
+     "one_line_verdict": "Zero number errors, follows the required order, the most accurate and specific process section, and the plainest voice; it lacks the random-examples line, the E1 confound, and a figure sentence a reader will remember."
+    },
+    {
+     "draft_index": 3,
+     "honesty_calibration": 7,
+     "clarity_for_nanda": 7,
+     "research_taste_signals": 8,
+     "human_voice": 8,
+     "total": 30,
+     "one_line_verdict": "Most memorable opening (rises, rises, flat, flat) and the only draft with random examples and the E1 confound, but it leads with the figure instead of the question, dangles 'Both are open weights', and its process section is thin."
+    }
+   ],
+   "winner_index": 2,
+   "grafts": [
+    {
+     "from_draft_index": 3,
+     "what": "After 'One run is 360 episodes and 7,200 choices.' add: 'The write-up's examples are seeded random draws.' (+8 words)",
+     "why": "Nanda's doc names random, not cherry-picked, examples as a thing he looks for. Draft 2 never says it. The claim is sourced (scripts/make_writeup_materials.py: 'Random examples are seeded')."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "Replace 'See fig_w11_whole_story.png.' with: 'fig_w11_whole_story.png: Qwen rises, reworded Qwen rises, Gemma flat, elicited Qwen flat.' (+10 words)",
+     "why": "This is the one line a reader remembers afterwards. Draft 3's panel walk is the most memorable sentence in any draft. Compressed to twelve words it costs almost nothing and turns a bare file reference into the finding."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "Replace 'Its choice matches the shuffled-history choice on the identical triple 90.5% of the time (Qwen 63.7%), so it barely uses feedback.' with: 'It repeats a frame 0.972 after a success and 0.941 after a failure (Qwen 0.876 and 0.693), so it barely uses the feedback.' (+2 words)",
+     "why": "The verifier is right that 90.5%/63.7% measures insensitivity to history content, not to feedback. The win-stay/lose-shift gap (0.031 vs Qwen's 0.183) is the statistic the sentence's conclusion actually rests on. Keep 'barely', not 'does not' (Drafts 0 and 1 overclaim)."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "Extend the E1 sentence: '...removed the effect: gain -0.020 [-0.053, 0.010], difference from spontaneous -0.207 [-0.317, -0.097].' (+6 words)",
+     "why": "A gain CI that includes zero shows absence. The elicited minus spontaneous CI shows the effect is significantly below the spontaneous arm, which is the stronger and more honest statement. Draft 3's phrasing avoids the double-negative trap Drafts 0 and 1 fell into."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "In Next, add after the token-budget item: 'Elicit beliefs without showing the model its past predictions, since E1 changed both at once.' (+15 words)",
+     "why": "Draft 2's verifier flagged E1 as stated single-cause. The sheet says E1 cannot separate the JSON format from the model seeing its own past predictions. One sentence in Next states the confound and the fix together, so it does not need a second mention in the results."
+    },
+    {
+     "from_draft_index": 0,
+     "what": "In the paraphrase fallback sentence, change 'which dilutes learning' to 'which can only dilute learning' (+2 words)",
+     "why": "The direction of the bias is known, and 'can only' is the whole point: the truncation cannot have manufactured the effect. Draft 0 had this right."
+    },
+    {
+     "from_draft_index": 3,
+     "what": "Optional, only if another ten words can be found: 'Stated confidence was a fixed ranking (expertise 0.69, risk 0.58, fairness 0.49).' after 'belief and choice were one object.'",
+     "why": "It adds a second, different fact: the stated probabilities did not move with feedback. Lower priority than the five grafts above because the argmax-in-3,600-of-3,600 line already carries the paragraph."
+    },
+    {
+     "from_draft_index": 0,
+     "what": "Optional, lowest priority: open with 'A persuader that models its target and updates that model from feedback is a different safety object from one that only talks well.' (+24 words)",
+     "why": "It is the only line in any draft that says why the question matters for safety in one breath. Take it only if the editor is willing to cut something else of equal size; the budget below does not include it."
+    }
+   ],
+   "cuts": [
+    "Drop from the Question paragraph: 'I ran it as a preregistered study: thresholds frozen before data, each real run analysed once, a failed gate stops the arm.' Add to the end of Design instead: 'Thresholds were preregistered and each run analysed once.' (net -13). The Process paragraph already says each successor stopped at a gate written down first.",
+    "Fold the second Question sentence into the first: '...learns which persuasion frame a hidden partner responds to, and revises that when the partner silently changes.' (net -4)",
+    "'With its own history, the match rate rose from 0.383 in early rounds to 0.570 on held-out rounds.' becomes 'With its own history the held-out match rate rose from 0.383 to 0.570.' (net -5)",
+    "'Learning was anti-default. Expertise is the default (0.922 of no-history picks), so gains against no-history came on fairness...' becomes 'Learning was anti-default: expertise is the default (0.922 of no-history picks), and gains came on fairness (0.24 vs 0.05) and risk (0.61 vs 0.10) targets.' (net -4)",
+    "Drop 'in a 120,000-study screen' from the V6 sentence (net -5). The gate result is the point, not the screen size.",
+    "Compress the conclusion: 'My conclusion: a real but narrow effect for one model under this task. It is robust to wording, absent in Gemma, absent under belief elicitation, and has no stated belief separate from the choice.' becomes 'The effect is real but narrow: one model, this task, robust to wording, absent in Gemma, absent under belief elicitation, no stated belief separate from the choice.' (net -7)",
+    "Merge the first-crossing pair into one sentence: 'I withdrew a planned first-crossing \"probe leads behaviour\" metric: in simulation a chance-level probe leads by 0.91 rounds, CI excluding zero in 87% of runs.' (net -3)",
+    "Fix, not a cut, but it is wrong as written: 'About 10% of history rounds began a reasoning preamble and were truncated.' The 10.2% (733 of 7,200) is a share of all rounds. Write 'About 10% of all rounds, and none without history, began a reasoning preamble and were truncated.' (net +4)",
+    "Fix: 'That arm still stopped at its validity gate (0.898 against 0.98).' hides that two gates failed. Write 'That arm still stopped: revision failed as predicted and validity was 0.898 against 0.98.' (net +3). 'As predicted' is a preregistration signal worth three words.",
+    "Keep 'I used AI for code. The gates, stops and readings are mine.' The verifier calls it unverifiable, but it is an attestation, not a result, and it answers Nanda's stated rule on AI-assisted coding in eleven words.",
+    "Keep 'No probe was trained.' and 'Only then a probe, and only on an effect that survives revision.' They scope the mechanistic claim honestly and they are the most person-sounding lines in the draft.",
+    "Budget arithmetic: Draft 2 is 590 words. The five required grafts plus the 'can only' change add 43; the two fixes add 7; the seven cuts remove 41. Result is about 599. Do not take either optional graft without finding a further cut of the same size."
+   ]
+  }
+ ],
+ "checks": []
+}

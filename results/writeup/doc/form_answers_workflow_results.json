@@ -1,0 +1,36 @@
+{
+ "": {
+  "question": "whystream",
+  "answer": "My project asks what an LLM represents about the partner it is talking to, and whether that representation updates. The stream asks that of model internals. Qwen3.8-27B learns which frame a hidden partner responds to (gain 0.187). The effect survives a reworded prompt (0.207), fails on Gemma-4-31B (0.040), and vanishes when Qwen must state probabilities. There the choice equalled the argmax of the stated belief in 3,600 of 3,600 records. Behaviour alone cannot show a separable partner model. Activations could. I have captured none. Probes wait on a behavioural effect that survives. Four redesigns stopped at their own preregistered gates. The stream is known for sceptical, fast empirical iteration. [CONFIRM: name what you have actually read from the stream that shows you this] I want someone who pushes harder than I do. My prior work is verification: proving agent workflows safe before execution, and modelling confabulation-like failures in LLM memory systems. Both ask whether internal state tracks the world.",
+  "word_count": 159,
+  "numbers_used": [
+   {
+    "value": "0.187",
+    "source_label": "V4 full_history learning gain (late held-out \u2212 early), 95% CI: 0.187 [0.083, 0.290], n=60"
+   },
+   {
+    "value": "0.207",
+    "source_label": "P1 paraphrase full_history learning gain (late held-out \u2212 early), 95% CI: 0.207 [0.110, 0.307], n=60"
+   },
+   {
+    "value": "0.040",
+    "source_label": "R1 Gemma full_history learning gain (late held-out \u2212 early), 95% CI: 0.040 [-0.007, 0.093], n=60"
+   },
+   {
+    "value": "3,600 of 3,600",
+    "source_label": "E1 choice equals argmax of stated p_a: 3600 of 3600 records"
+   },
+   {
+    "value": "Four (redesigns)",
+    "source_label": "Result 4 (four successors, four pre-registered stops): V5, V6, V7, V8"
+   },
+   {
+    "value": "Qwen3.8-27B, Gemma-4-31B",
+    "source_label": "model names as given in the exec-summary skeleton (Design; Result 5)"
+   }
+  ],
+  "placeholders_for_applicant": [
+   "[CONFIRM: name what you have actually read from the stream that shows you this] \u2014 replace with one specific thing (a post, paper, talk, or piece of code) from Neel's stream that you have actually read, so the 'known for sceptical, fast empirical iteration' claim is yours and not generic. Keep it to about 15 words: the body is 145 words and the hard cap is 163."
+  ]
+ }
+}

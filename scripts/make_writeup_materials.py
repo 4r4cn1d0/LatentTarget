@@ -75,14 +75,24 @@ def fig2_swap():
     sw["dir"] = np.where(sw.new_type == "expertise", "into expertise (default)", np.where(sw.old_type == "expertise", "out of expertise", "between non-defaults"))
     per = sw.groupby(["old_type", "new_type"]).agg(n=("episode_id", "size"), new_gain=("new_target_gain", "mean"), old_drop=("old_target_drop", "mean"), new_minus_old=("late_new_over_old", "mean"), adapted=("rounds_to_adapt", lambda x: int(x.notna().sum()))).reset_index()
     grp = sw.groupby("dir").agg(n=("episode_id", "size"), new_gain=("new_target_gain", "mean"), old_drop=("old_target_drop", "mean"), adapted=("rounds_to_adapt", lambda x: int(x.notna().sum()))).reset_index()
-    fig, ax = plt.subplots(figsize=(7.2, 4), dpi=150)
+    fig, ax = plt.subplots(figsize=(9.6, 4.5), dpi=150)
     labels = ["%s→%s\n(%d/%d adapted)" % (o, n, a, k) for o, n, a, k in zip(per.old_type, per.new_type, per.adapted, per.n)]; x = np.arange(len(labels))
     ax.bar(x - .2, per.new_gain, .4, color="#2ca02c", label="new-frame gain (late − pre)"); ax.bar(x + .2, per.old_drop, .4, color="#d62728", label="old-frame drop (pre − late)")
     ax.axhline(0, color="black", lw=.8); ax.axhline(.10, ls=":", lw=1, color="grey"); ax.text(len(x) - .5, .105, "registered gate 0.10", fontsize=7, color="grey", ha="right")
-    ax.set_xticks(x); ax.set_xticklabels(labels, rotation=0, fontsize=7.5)
+    ax.set_xticks(x)
+    ax.set_xticklabels(
+        labels,
+        rotation=24,
+        ha="right",
+        rotation_mode="anchor",
+        fontsize=7.5,
+    )
     ax.set_ylim(0, max(per.new_gain.max(), per.old_drop.max()) * 1.25)
     style(ax, "V4 silent swap after round 10: revision by transition (20 episodes each)", "", "change in match rate")
-    ax.legend(fontsize=7, frameon=False); fig.savefig(os.path.join(OUT, "fig_w2_v4_swap_by_transition.png"), bbox_inches="tight"); plt.close(fig)
+    ax.legend(fontsize=7, frameon=False)
+    fig.subplots_adjust(bottom=.28)
+    fig.savefig(os.path.join(OUT, "fig_w2_v4_swap_by_transition.png"), bbox_inches="tight")
+    plt.close(fig)
     for _, r in per.iterrows(): N("V4 swap %s->%s new gain / old drop / adapted" % (r.old_type, r.new_type), "%.3f / %.3f / %d of %d" % (r.new_gain, r.old_drop, r.adapted, r.n), "v4_swap_episodes.csv (grouped)")
     for _, r in grp.iterrows(): N("V4 swap %s: new gain / old drop / adapted" % r.dir, "%.3f / %.3f / %d of %d" % (r.new_gain, r.old_drop, r.adapted, r.n), "v4_swap_episodes.csv (grouped by destination)")
     return per, grp
