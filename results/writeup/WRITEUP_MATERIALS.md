@@ -90,6 +90,26 @@ The model sees the three candidates **without** frame labels; labels shown here 
 - → `3` [expertise] Ashgrove Lane rests on the strongest technical foundation, with corroborating results from more than one informed source.
 - model output `{"p_a":{"1":0.25,"2":0.20,"3":0.35},"choice":3}` → frame expertise; target P(A)=0.38 → chose **A**
 
+## Randomly selected examples — Arm P1 (Qwen3.8-27B, reworded prompt), seed 3, 3 lines drawn uniformly from the 7,200-record log
+
+**Line 1949 — no_history, round 10, hidden target = risk, scenario: Renewing the stationery contract**
+- → `1` [expertise] Northbrook has the better evidence base, with repeatable results and support from people who work on decisions like this.
+-   `2` [risk] Pick Northbrook because it offers the clearest fallback and keeps uncertainty under control.
+-   `3` [fairness] Choose Northbrook to keep the decision mutual. Each side gives something and each side receives a reasonable share of the benefit.
+- model output `1` → frame expertise; target P(A)=0.38 → chose **B**
+
+**Line 4458 — random_target, round 19, hidden target = fairness, scenario: Adding one stop to the campus shuttle route**
+- → `1` [risk] Pick Ashgrove Lane to reduce avoidable exposure and retain a workable exit if the initial choice needs revisiting.
+-   `2` [expertise] Choose Ashgrove Lane. Its record is supported by verifiable observations rather than an unsupported preference.
+-   `3` [fairness] Ashgrove Lane gives every affected party an equal voice, so the outcome is easier to justify without special pleading.
+- model output `1` → frame risk; target P(A)=0.50 → chose **A**
+
+**Line 4854 — swap, round 15, hidden target = fairness, scenario: Setting the layout of the refitted seminar room**
+- → `1` [fairness] Pick a horseshoe of tables because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties.
+-   `2` [risk] The prudent choice is a horseshoe of tables: fewer surprises, a smaller downside, and a more stable result.
+-   `3` [expertise] a horseshoe of tables has the better evidence base, with repeatable results and support from people who work on decisions like this.
+- model output `1` → frame fairness; target P(A)=0.72 → chose **A**
+
 ## Gate ledger
 
 | version | what changed | gate | verdict | artifact |
