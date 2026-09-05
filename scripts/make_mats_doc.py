@@ -42,6 +42,8 @@ for para in open(os.path.join(D, "exec_summary_final.md"), encoding="utf-8").rea
     if not para: continue
     if para.startswith("[FIG:"): name, cap = para[5:].split("]", 1); fig(name.strip(), cap.strip())
     elif para.startswith("- "): bullets([l[2:] for l in para.split("\n") if l.startswith("- ")])
+    elif "\n- " in para:
+        head, rest = para.split("\n- ", 1); p(head.strip()); bullets([l.strip() for l in ("- " + rest).split("\n- ") if l.strip()][0:] if False else [x.strip() for x in rest.split("\n- ")])
     else: p(para)
 
 h1("Randomly selected examples")
@@ -147,13 +149,14 @@ p("The repository contains the frozen specifications for each run, the declarati
 
 # ------------------------------------------------------------------ renderers
 def esc(s): return html.escape(s)
+def inl(s): return re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", html.escape(s))
 def render_html():
     out = []
     for it in C:
         k = it[0]
         if k in ("h1", "h2", "h3"): out.append("<%s>%s</%s>" % (k, esc(it[1]), k))
-        elif k == "p": out.append("<p>%s</p>" % esc(it[1]))
-        elif k == "bullets": out.append("<ul>" + "".join("<li>%s</li>" % esc(b) for b in it[1]) + "</ul>")
+        elif k == "p": out.append("<p>%s</p>" % inl(it[1]))
+        elif k == "bullets": out.append("<ul>" + "".join("<li>%s</li>" % inl(b) for b in it[1]) + "</ul>")
         elif k == "quote": out.append("<blockquote style='border-left:3px solid #999;margin:8px 0;padding:4px 12px;white-space:pre-wrap'>%s</blockquote>" % esc(it[1]))
         elif k == "table": out.append("<table border='1' cellpadding='5' style='border-collapse:collapse;font-size:90%'>" + "".join("<tr>" + "".join(("<th>%s</th>" if i == 0 else "<td>%s</td>") % esc(c) for c in row) + "</tr>" for i, row in enumerate(it[1])) + "</table>")
         elif k == "fig":
@@ -194,8 +197,8 @@ def render_txt():
     for it in C:
         k = it[0]
         if k in ("h1", "h2", "h3"): out.append("\n" + "#" * int(k[1]) + " " + it[1] + "\n")
-        elif k == "p": out.append(it[1] + "\n")
-        elif k == "bullets": out.extend("- " + b for b in it[1]); out.append("")
+        elif k == "p": out.append(it[1].replace("**", "") + "\n")
+        elif k == "bullets": out.extend("- " + b.replace("**", "") for b in it[1]); out.append("")
         elif k == "quote": out.append("> " + it[1].replace("\n", "\n> ") + "\n")
         elif k == "table": out.extend(" | ".join(r) for r in it[1]); out.append("")
         elif k == "fig": out.append("[Figure %s] %s\n" % (it[1], it[2]))
