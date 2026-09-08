@@ -1,0 +1,10 @@
+{
+  "approved": true,
+  "packet_sha256": "ef4b8243492970c09849f74bfa0e999ef0e18b32003755bbfa199b2c9b91b0b1",
+  "maximum_requests": 660,
+  "pod_id": "i0szqs87ifg0id",
+  "maximum_total_usd": 5,
+  "watchdog_verified": true,
+  "hourly_quote_usd": 1.59,
+  "pod_deadline_utc": "2026-09-08T22:04:43.166975+00:00"
+}

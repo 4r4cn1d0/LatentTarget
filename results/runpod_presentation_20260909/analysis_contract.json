@@ -1,0 +1,17 @@
+{
+  "status": "frozen_before_new_real_outputs",
+  "packet_sha256": "dec89b900611e713d0209a2f813f8938b05f77071cb44992431a87b9184a9055",
+  "analyzer_sha256": "5cbd47557d7803fd6d76cdd6cbe05d5cbb880ba595350fb89584f4bc77fa7714",
+  "plan_sha256": "df055b591aa826962e7dc0f79e9435a7088fd98db370a0894298213638af0ee4",
+  "new_requests_maximum": 972,
+  "unit": "one of the 36 previously inspected bundles",
+  "primary": "binding in prose and lossless compact histories, averaged over three candidate rotations",
+  "paired_contrast": "compact minus prose, within bundle",
+  "controls": ["36 direct digit checks", "36 paired factual lookup questions per layout"],
+  "secondary": ["semantic stability across rotations", "numeric position counts"],
+  "missing": "retain every planned cell with conservative bounds",
+  "p_values": null,
+  "confidence_intervals": null,
+  "termination": "one bounded run; no automatic further version or model sweep",
+  "latent_representation_identified_by_this_assay": false
+}

@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/Jss7v3r4/UnUmH0402pKBiinnzU</id>
+  <title>arXiv Query: search_query=&amp;id_list=2310.15421,2405.15943,2302.08399,2406.14737,2210.13382,2309.16042,2501.15355,2602.12150,2603.26089,2604.10031&amp;start=0&amp;max_results=10</title>
+  <updated>2026-09-08T22:00:57Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=10&amp;id_list=2310.15421,2405.15943,2302.08399,2406.14737,2210.13382,2309.16042,2501.15355,2602.12150,2603.26089,2604.10031" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>10</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2405.15943v3</id>
+    <title>Transformers represent belief state geometry in their residual stream</title>
+    <updated>2025-02-04T03:38:57Z</updated>
+    <link href="https://arxiv.org/abs/2405.15943v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2405.15943v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>What computational structure are we building into large language models when we train them on next-token prediction? Here, we present evidence that this structure is given by the meta-dynamics of belief updating over hidden states of the data-generating process. Leveraging the theory of optimal prediction, we anticipate and then find that belief states are linearly represented in the residual stream of transformers, even in cases where the predicted belief state geometry has highly nontrivial fractal structure. We investigate cases where the belief state geometry is represented in the final residual stream or distributed across the residual streams of multiple layers, providing a framework to explain these observations. Furthermore we demonstrate that the inferred belief states contain information about the entire future, beyond the local next-token prediction that the transformers are explicitly trained on. Our work provides a general framework connecting the structure of training data to the geometric structure of activations inside transformers.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-05-24T21:14:10Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Adam S. Shai</name>
+    </author>
+    <author>
+      <name>Sarah E. Marzen</name>
+    </author>
+    <author>
+      <name>Lucas Teixeira</name>
+    </author>
+    <author>
+      <name>Alexander Gietelink Oldenziel</name>
+    </author>
+    <author>
+      <name>Paul M. Riechers</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2309.16042v2</id>
+    <title>Towards Best Practices of Activation Patching in Language Models: Metrics and Methods</title>
+    <updated>2024-01-17T04:07:06Z</updated>
+    <link href="https://arxiv.org/abs/2309.16042v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2309.16042v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Mechanistic interpretability seeks to understand the internal mechanisms of machine learning models, where localization -- identifying the important model components -- is a key step. Activation patching, also known as causal tracing or interchange intervention, is a standard technique for this task (Vig et al., 2020), but the literature contains many variants with little consensus on the choice of hyperparameters or methodology. In this work, we systematically examine the impact of methodological details in activation patching, including evaluation metrics and corruption methods. In several settings of localization and circuit discovery in language models, we find that varying these hyperparameters could lead to disparate interpretability results. Backed by empirical observations, we give conceptual arguments for why certain metrics or methods may be preferred. Finally, we provide recommendations for the best practices of activation patching going forwards.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-09-27T21:53:56Z</published>
+    <arxiv:comment>27 pages. ICLR 2024</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Fred Zhang</name>
+    </author>
+    <author>
+      <name>Neel Nanda</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2310.15421v3</id>
+    <title>FANToM: A Benchmark for Stress-testing Machine Theory of Mind in Interactions</title>
+    <updated>2023-10-31T17:58:30Z</updated>
+    <link href="https://arxiv.org/abs/2310.15421v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2310.15421v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Theory of mind (ToM) evaluations currently focus on testing models using passive narratives that inherently lack interactivity. We introduce FANToM, a new benchmark designed to stress-test ToM within information-asymmetric conversational contexts via question answering. Our benchmark draws upon important theoretical requisites from psychology and necessary empirical considerations when evaluating large language models (LLMs). In particular, we formulate multiple types of questions that demand the same underlying reasoning to identify illusory or false sense of ToM capabilities in LLMs. We show that FANToM is challenging for state-of-the-art LLMs, which perform significantly worse than humans even with chain-of-thought reasoning or fine-tuning.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-10-24T00:24:11Z</published>
+    <arxiv:comment>EMNLP 2023. Code and dataset can be found here: https://hyunw.kim/fantom</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Hyunwoo Kim</name>
+    </author>
+    <author>
+      <name>Melanie Sclar</name>
+    </author>
+    <author>
+      <name>Xuhui Zhou</name>
+    </author>
+    <author>
+      <name>Ronan Le Bras</name>
+    </author>
+    <author>
+      <name>Gunhee Kim</name>
+    </author>
+    <author>
+      <name>Yejin Choi</name>
+    </author>
+    <author>
+      <name>Maarten Sap</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2210.13382v5</id>
+    <title>Emergent World Representations: Exploring a Sequence Model Trained on a Synthetic Task</title>
+    <updated>2024-06-26T14:27:49Z</updated>
+    <link href="https://arxiv.org/abs/2210.13382v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2210.13382v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Language models show a surprising range of capabilities, but the source of their apparent competence is unclear. Do these networks just memorize a collection of surface statistics, or do they rely on internal representations of the process that generates the sequences they see? We investigate this question by applying a variant of the GPT model to the task of predicting legal moves in a simple board game, Othello. Although the network has no a priori knowledge of the game or its rules, we uncover evidence of an emergent nonlinear internal representation of the board state. Interventional experiments indicate this representation can be used to control the output of the network and create "latent saliency maps" that can help explain predictions in human terms.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-10-24T16:29:55Z</published>
+    <arxiv:comment>ICLR 2023 oral (notable-top-5%): https://openreview.net/forum?id=DeG07_TcZvT ; code: https://github.com/likenneth/othello_world</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Kenneth Li</name>
+    </author>
+    <author>
+      <name>Aspen K. Hopkins</name>
+    </author>
+    <author>
+      <name>David Bau</name>
+    </author>
+    <author>
+      <name>Fernanda Viégas</name>
+    </author>
+    <author>
+      <name>Hanspeter Pfister</name>
+    </author>
+    <author>
+      <name>Martin Wattenberg</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.26089v2</id>
+    <title>Selective Deficits in LLM Mental Self-Modeling in a Behavior-Based Test of Theory of Mind</title>
+    <updated>2026-05-09T17:44:52Z</updated>
+    <link href="https://arxiv.org/abs/2603.26089v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.26089v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The ability to represent oneself and others as agents with knowledge, intentions, and belief states that guide their behavior - Theory of Mind - is a human universal that enables us to navigate - and manipulate - the social world. It is supported by our ability to form mental models of ourselves and others. Its ubiquity in human affairs entails that LLMs have seen innumerable examples of it in their training data and therefore may have learned to mimic it, but whether they have actually learned causal models that they can deploy in arbitrary settings is unclear. We therefore develop a novel experimental paradigm that requires that subjects form representations of the mental states of themselves and others and act on them strategically rather than merely describe them. We test a wide range of leading open and closed source LLMs released since 2024, as well as human subjects, on this paradigm. We find that 1) LLMs released before mid-2025 fail at all of our tasks, 2) more recent LLMs achieve human-level performance on modeling the cognitive states of others, and 3) even frontier LLMs fail at our self-modeling task - unless afforded a scratchpad in the form of a reasoning trace. We further demonstrate cognitive load effects on other-modeling tasks, offering suggestive evidence that LLMs are using something akin to limited-capacity working memory to hold these mental representations in mind during a single forward pass. Finally, we explore the mechanisms by which reasoning models succeed at the self- and other-modeling tasks, and show that they readily engage in strategic deception.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-27T05:41:30Z</published>
+    <arxiv:comment>22 pages, 13 figures, 1 table</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Christopher Ackerman</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2406.14737v2</id>
+    <title>Dissecting the Ullman Variations with a SCALPEL: Why do LLMs fail at Trivial Alterations to the False Belief Task?</title>
+    <updated>2025-05-27T21:47:22Z</updated>
+    <link href="https://arxiv.org/abs/2406.14737v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2406.14737v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent empirical results have sparked a debate about whether or not Large Language Models (LLMs) are capable of Theory of Mind (ToM). While some have found LLMs to be successful on ToM evaluations such as the False Belief task, others have shown that their performance is not robust against trivial alterations to stimuli. In this paper, we introduce SCALPEL -- a technique to incrementally modify stimuli to test different specific hypotheses about why LLMs fail -- and apply this method to the "transparent-access" modification of the unexpected contents task. Our results suggest that LLMs often do poorly because they fail to make essential common-sense inferences, such as that seeing a transparent container implies recognizing its contents. We conclude that while modern LLMs go beyond mere pattern matching, they still fall short of robust human-like ToM. We argue that SCALPEL can help cognitive scientists examine LLMs' capabilities in finer detail and provide insight into alternative mechanisms by which tasks that are used to assess human cognition might be completed.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-06-20T21:02:30Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Zhiqiang Pi</name>
+    </author>
+    <author>
+      <name>Annapurna Vadaparty</name>
+    </author>
+    <author>
+      <name>Benjamin K. Bergen</name>
+    </author>
+    <author>
+      <name>Cameron R. Jones</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2302.08399v5</id>
+    <title>Large Language Models Fail on Trivial Alterations to Theory-of-Mind Tasks</title>
+    <updated>2023-03-14T13:47:26Z</updated>
+    <link href="https://arxiv.org/abs/2302.08399v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2302.08399v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Intuitive psychology is a pillar of common-sense reasoning. The replication of this reasoning in machine intelligence is an important stepping-stone on the way to human-like artificial intelligence. Several recent tasks and benchmarks for examining this reasoning in Large-Large Models have focused in particular on belief attribution in Theory-of-Mind tasks. These tasks have shown both successes and failures. We consider in particular a recent purported success case, and show that small variations that maintain the principles of ToM turn the results on their head. We argue that in general, the zero-hypothesis for model evaluation in intuitive psychology should be skeptical, and that outlying failure cases should outweigh average success rates. We also consider what possible future successes on Theory-of-Mind tasks by more powerful LLMs would mean for ToM tasks with people.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-02-16T16:18:03Z</published>
+    <arxiv:comment>11 pages, 2 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Tomer Ullman</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.12150v3</id>
+    <title>GPT-4o Lacks Core Features of Theory of Mind</title>
+    <updated>2026-02-26T04:35:19Z</updated>
+    <link href="https://arxiv.org/abs/2602.12150v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.12150v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Do Large Language Models (LLMs) possess a Theory of Mind (ToM)? Research into this question has focused on evaluating LLMs against benchmarks and found success across a range of social tasks. However, these evaluations do not test for the actual representations posited by ToM: namely, a causal model of mental states and behavior. Here, we use a cognitively-grounded definition of ToM to develop and test a new evaluation framework. Specifically, our approach probes whether LLMs have a coherent, domain-general, and consistent model of how mental states cause behavior -- regardless of whether that model matches a human-like ToM. We find that even though LLMs succeed in approximating human judgments in a simple ToM paradigm, they fail at a logically equivalent task and exhibit low consistency between their action predictions and corresponding mental state inferences. As such, these findings suggest that the social proficiency exhibited by LLMs is not the result of a domain-general or consistent ToM.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-12T16:33:58Z</published>
+    <arxiv:comment>Submitted to CogSci 2025; see more at https://jmuchovej.com/projects/llm-tom. Note: "abstractness" is the second feature we test for, but due to arXiv's abstract requirements, the text has been altered</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>John Muchovej</name>
+    </author>
+    <author>
+      <name>Amanda Royka</name>
+    </author>
+    <author>
+      <name>Shane Lee</name>
+    </author>
+    <author>
+      <name>Julian Jara-Ettinger</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2501.15355v1</id>
+    <title>Large Language Models as Theory of Mind Aware Generative Agents with Counterfactual Reflection</title>
+    <updated>2025-01-26T00:32:38Z</updated>
+    <link href="https://arxiv.org/abs/2501.15355v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2501.15355v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent studies have increasingly demonstrated that large language models (LLMs) possess significant theory of mind (ToM) capabilities, showing the potential for simulating the tracking of mental states in generative agents. In this study, we propose a novel paradigm called ToM-agent, designed to empower LLMs-based generative agents to simulate ToM in open-domain conversational interactions. ToM-agent disentangles the confidence from mental states, facilitating the emulation of an agent's perception of its counterpart's mental states, such as beliefs, desires, and intentions (BDIs). Using past conversation history and verbal reflections, ToM-Agent can dynamically adjust counterparts' inferred BDIs, along with related confidence levels. We further put forth a counterfactual intervention method that reflects on the gap between the predicted responses of counterparts and their real utterances, thereby enhancing the efficiency of reflection. Leveraging empathetic and persuasion dialogue datasets, we assess the advantages of implementing the ToM-agent with downstream tasks, as well as its performance in both the first-order and the \textit{second-order} ToM. Our findings indicate that the ToM-agent can grasp the underlying reasons for their counterpart's behaviors beyond mere semantic-emotional supporting or decision-making based on common sense, providing new insights for studying large-scale LLMs-based simulation of human social behaviors.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-01-26T00:32:38Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Bo Yang</name>
+    </author>
+    <author>
+      <name>Jiaxian Guo</name>
+    </author>
+    <author>
+      <name>Yusuke Iwasawa</name>
+    </author>
+    <author>
+      <name>Yutaka Matsuo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.10031v1</id>
+    <title>CoSToM:Causal-oriented Steering for Intrinsic Theory-of-Mind Alignment in Large Language Models</title>
+    <updated>2026-04-11T05:04:37Z</updated>
+    <link href="https://arxiv.org/abs/2604.10031v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.10031v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Theory of Mind (ToM), the ability to attribute mental states to others, is a hallmark of social intelligence. While large language models (LLMs) demonstrate promising performance on standard ToM benchmarks, we observe that they often fail to generalize to complex task-specific scenarios, relying heavily on prompt scaffolding to mimic reasoning. The critical misalignment between the internal knowledge and external behavior raises a fundamental question: Do LLMs truly possess intrinsic cognition, and can they externalize this internal knowledge into stable, high-quality behaviors? To answer this, we introduce CoSToM (Causal-oriented Steering for ToM alignment), a framework that transitions from mechanistic interpretation to active intervention. First, we employ causal tracing to map the internal distribution of ToM features, empirically uncovering the internal layers' characteristics in encoding fundamental ToM semantics. Building on this insight, we implement a lightweight alignment framework via targeted activation steering within these ToM-critical layers. Experiments demonstrate that CoSToM significantly enhances human-like social reasoning capabilities and downstream dialogue quality.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-11T05:04:37Z</published>
+    <arxiv:comment>Accepted to ACL 2026 (Main Conference)</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Mengfan Li</name>
+    </author>
+    <author>
+      <name>Xuanhua Shi</name>
+    </author>
+    <author>
+      <name>Yang Deng</name>
+    </author>
+  </entry>
+</feed>

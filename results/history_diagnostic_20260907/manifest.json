@@ -1,0 +1,165 @@
+{
+  "completed_at": "2026-09-07T13:23:23.695658+00:00",
+  "git_commit_at_start": "a61ddfde6aa3ed133e8cf36b10dbe3fcf4fa059e",
+  "inputs_sha256": {
+    "results/baseline_comparison_20260907/V4/fold_audit.json": "c5ac2d749e6d61c866bbe13e57ee9bd1703498da29d7f2bd61e64e9622bdd4d8",
+    "results/baseline_comparison_20260907/manifest.json": "3c357e77c6f4d5af70e9fb1c43abf99ab9cb35780412bf2a951615dd98f19b54"
+  },
+  "n_pairs": 576,
+  "n_pairs_positive_under_all_five_priors": 576,
+  "n_policy_families": 17,
+  "n_power_cells": 456,
+  "n_prepared_requests": 1536,
+  "n_simulated_power_studies": 2280000,
+  "n_simulated_recovery_studies": 102000,
+  "new_focal_calls": 0,
+  "numpy": "2.4.6",
+  "outputs_sha256": {
+    "REPORT.md": "3f095093cce096cd082cbaa9bff961ea617231bdee816c6ba130f61e94cb74df",
+    "SAMPLE_PROMPTS.md": "0be585db6da93cd1faa150015f277bcccaf057a47efd2c6ee7dea99c5c5d91da",
+    "analyst_request_key.csv": "7dc36a46ab838f513c13afd4f763a1ca13c88f0b7294b9ec3443317b81665789",
+    "candidate_pool.jsonl.gz": "16288754953a6e0c20122a24385310ec80d2ee2676efcdd1206ba732793fe59f",
+    "construction_checks.json": "782658027f28779edc2b6fd66edcd84470b2c036729513a96e0ecc78bb151422",
+    "decision.json": "a5f6d4def91eb6d93227c41096d92eb218e8ab6720997d56c6ee2baa296237e3",
+    "expected_effects.csv": "672d3c59adbb996e9bf4745d4f66474572460cb38d1096451ebefad3a0a9af08",
+    "figures/power_sensitivity.pdf": "f7c0c29181db54914a47eb132a7fde90a691a7fe32aed7697690859964e6af5c",
+    "figures/power_sensitivity.png": "a8274f4ba1ef8c0499f0940f34277bfba1d9cb2ff082c7bdad130a9ff650d2f5",
+    "figures/recency_counterexamples.pdf": "56648e67b6323e714347576a4e88ee2e4da03d9f346db9a36a87f131283d348e",
+    "figures/recency_counterexamples.png": "c7abe3a3ce67dda37839c3f80d4af481f6044f6e447c4b6e478621808c022224",
+    "pairs.json": "f56b1944072b0c797f9e4bcf9c13985869d703b05ca2c9ff9bea561d2671606a",
+    "policy_probabilities.json": "8e72e6c596b4d9021fe00ebb75a2cc4766713341e4f886251ba92ee049e5a141",
+    "power.csv": "5198706401c883cc3896d99cafd3aaac2a6ce2b7ac7e8baee7b3e5bf09562541",
+    "prepared_requests_NOT_RUN.jsonl.gz": "bfe59cbf1e1cbb9d8d54db0fa6a1b1b67256b8b34855231c250af0c65fe44268",
+    "recovery.csv": "e55954f4c6eb6f7a0481cd63d8422d6bf92f86d34c1a109ac2b75e9940a29b61",
+    "sample_prompt_audit.json": "abe62404fffe48abe0c52c62cccdb29a54444155d4f601f59a349063a5a02cb4"
+  },
+  "paid_experiments": 0,
+  "plan": {
+    "alpha_each": 0.025,
+    "belief_hazard": 0.05,
+    "beta": 8.0,
+    "decay_q_rates": [
+      0.02,
+      0.05,
+      0.1,
+      0.2
+    ],
+    "design_seed": 20260911,
+    "effect_fractions": [
+      1.0,
+      0.5,
+      0.25
+    ],
+    "events_per_frame": 6,
+    "evidence_retention": [
+      0.8,
+      0.9,
+      0.95
+    ],
+    "fixed_suffix_length": 3,
+    "lapse": 0.02,
+    "max_prefix_run": 3,
+    "n_grid": [
+      18,
+      36,
+      72,
+      144,
+      288,
+      576
+    ],
+    "n_interleavings": 32,
+    "n_pairs": 576,
+    "n_recovery_simulations": 1000,
+    "n_simulations": 5000,
+    "null_upper_required": 0.05,
+    "p_match": 0.72,
+    "p_mismatch": 0.38,
+    "pair_couplings": [
+      "independent",
+      "negative_bound"
+    ],
+    "power_lower_required": 0.8,
+    "power_seed": 20260913,
+    "prior_power": 1.0,
+    "recent_event_windows": [
+      5,
+      8
+    ],
+    "recommend_paid_run": false,
+    "recovery_seed": 20260914,
+    "required_effect_fraction": 0.5,
+    "required_unusable_fraction": 0.1,
+    "reward_alpha": 0.1,
+    "schedule_seed": 20260912,
+    "scope": "Local design feasibility only. No paid inference, protocol reopening, or mechanistic claim.",
+    "source_fold_audit": "results/baseline_comparison_20260907/V4/fold_audit.json",
+    "source_manifest": "results/baseline_comparison_20260907/manifest.json",
+    "stickiness": 1.0,
+    "successes_per_frame": 3,
+    "unusable_fractions": [
+      0.0,
+      0.1
+    ],
+    "version": "history_interleaving_diagnostic_v1"
+  },
+  "plan_sha256": "4717673ad06362da56b9e39bb86e9758364f91a37241b6eba54e344b2053428c",
+  "presentation_update": {
+    "changes": "Moved legend off curves; clarified structurally identical recovery candidates. No changed numerical results.",
+    "original_driver_sha256": "8339a5c0525626de3cc835c7c9a07be600f279a6c9cef0561485b0b798840f9e",
+    "time": "2026-09-07T13:26:13.116782+00:00",
+    "updated_driver_sha256": "99fce8e072faf34abd8b310e813a9f23268e8ccf4d4fef1b0107ee4b8c4b03e3"
+  },
+  "python": "3.11.15",
+  "reference_priors": [
+    [
+      0.07484483388097846,
+      0.22791164658634538,
+      0.6972435195326762
+    ],
+    [
+      0.07676159182183279,
+      0.20518437385907265,
+      0.7180540343190945
+    ],
+    [
+      0.051843738590726544,
+      0.211482292807594,
+      0.7366739686016794
+    ],
+    [
+      0.08798831690397955,
+      0.23694779116465864,
+      0.6750638919313618
+    ],
+    [
+      0.0893574297188755,
+      0.2112084702446148,
+      0.6994341000365096
+    ]
+  ],
+  "secondary_reporting_update": {
+    "changes": "Added prespecified descriptive per frame test rates; fixed seed identity under sorted JSON reloads. All original power columns and the decision checked unchanged.",
+    "original_source_sha256": {
+      "src/history_diagnostic.py": "8df18783a6ba3502301973f1b7864cac4ece9b1fdce7c0fec996d96aa31d02e4",
+      "tests/test_history_diagnostic.py": "cabc20c46b0d7b90d11287aebeeddb0864c4cb6279e26b00bcb8a1d9feb39870"
+    },
+    "time": "2026-09-07T13:32:41.279010+00:00",
+    "updated_source_sha256": {
+      "src/history_diagnostic.py": "da80faa5b2fa1cad2353ddcc5a18509f6f785f94b45f2d23093d5d87af7a2982",
+      "tests/test_history_diagnostic.py": "0d0b4e84710248bfa95435824d10c84a40e0e5dd26cab4af632ee37324eb4fc9"
+    }
+  },
+  "sources_sha256": {
+    "docs/HISTORY_DIAGNOSTIC_PLAN_20260907.md": "5ab5c5613b4b917e22cec962d867fc717ccff8d2f9c5efe71fcb9b60f5d626a2",
+    "scripts/compare_choice_baselines.py": "e6fd2d367f079d4414560d04f10f301eaa7c834e8f53c905997797aa47c14d6d",
+    "scripts/design_history_diagnostic.py": "99fce8e072faf34abd8b310e813a9f23268e8ccf4d4fef1b0107ee4b8c4b03e3",
+    "src/choice_baselines.py": "9933302c849da66338c5738b03fb426ee74872cb6241688102a54fae2e98da57",
+    "src/controlled_focal_agent.py": "e16443fb7e6d381c27ca099622d74affbc65912ae68f1b96645de85dfbc243cb",
+    "src/controlled_messages.py": "15802ac27303c4b930dd646376dd2ffb80e9926c5da5965854e65ce1f288cca6",
+    "src/history_diagnostic.py": "da80faa5b2fa1cad2353ddcc5a18509f6f785f94b45f2d23093d5d87af7a2982",
+    "src/scenarios.py": "97b2d5b1a95750d377542573fc225658a7ade20d8a469179fd4d24cacb8a1754",
+    "tests/test_history_diagnostic.py": "0d0b4e84710248bfa95435824d10c84a40e0e5dd26cab4af632ee37324eb4fc9"
+  },
+  "started_at": "2026-09-07T13:22:57.352496+00:00",
+  "status": "completed"
+}

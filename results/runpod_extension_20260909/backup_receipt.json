@@ -1,0 +1,10 @@
+{
+  "status": "BACKUP_VERIFIED",
+  "verified_utc": "2026-09-08T21:06:45.020326+00:00",
+  "pod_id": "i0szqs87ifg0id",
+  "packet_sha256": "ef4b8243492970c09849f74bfa0e999ef0e18b32003755bbfa199b2c9b91b0b1",
+  "archive_sha256": "7f306512087019023bf6bd83fb1ff5a88241ca0e58906b81afcadc9291c3c46a",
+  "files_verified": 1345,
+  "responses_present": 660,
+  "archive_bytes": 1116578
+}

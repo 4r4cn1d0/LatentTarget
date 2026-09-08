@@ -1,0 +1,37 @@
+{
+  "id": "partner_state_offline_screen_1",
+  "status": "OFFLINE_ONLY_NOT_A_RUN_AUTHORIZATION",
+  "design_path": "docs/partner_state_study_20260907.json",
+  "design_sha256": "ef68ae00ea8421bb21e99ef2901af0a69365f3c07adda0d3f8229969566a6dda",
+  "n_grid": [36, 72, 144, 288],
+  "studies_per_cell": 5000,
+  "batch_size": 100,
+  "seed": 202609071,
+  "required_joint_lower": 0.8,
+  "required_null_upper": 0.05,
+  "bootstrap_implementation": "exact_marginal_stratified_percentile_distribution_on_quarter_lattice",
+  "bootstrap_note": "Same whole bundle resampling law as draft, computed by finite convolution rather than 10000 Monte Carlo resamples. Does not make population coverage exact. Must agree with brute force and Monte Carlo checks.",
+  "policy_parameters": {"reward_alpha": 0.1, "belief_hazard": 0.05, "recent_window": 6, "initial_reward": 0.5},
+  "required_alternative_cells": ["belief_half_shared", "belief_half_independent", "belief_half_mcar_1pct", "belief_half_selective_1pct"],
+  "scenarios": [
+    {"id": "uniform_null", "policy": "uniform", "strength": 1.0, "coupling": "independent", "missing": "none", "rate": 0.0, "role": "null"},
+    {"id": "global_reward_null", "policy": "global_reward", "strength": 1.0, "coupling": "shared", "missing": "none", "rate": 0.0, "role": "null"},
+    {"id": "global_recency_null", "policy": "global_recency", "strength": 1.0, "coupling": "shared", "missing": "none", "rate": 0.0, "role": "null"},
+    {"id": "name_bias_null", "policy": "name_bias", "strength": 1.0, "coupling": "shared", "missing": "none", "rate": 0.0, "role": "null"},
+    {"id": "belief_full", "policy": "static_belief", "strength": 1.0, "coupling": "shared", "missing": "none", "rate": 0.0, "role": "reference"},
+    {"id": "belief_half_shared", "policy": "static_belief", "strength": 0.5, "coupling": "shared", "missing": "none", "rate": 0.0, "role": "required_alternative"},
+    {"id": "belief_half_independent", "policy": "static_belief", "strength": 0.5, "coupling": "independent", "missing": "none", "rate": 0.0, "role": "required_alternative"},
+    {"id": "belief_half_mcar_1pct", "policy": "static_belief", "strength": 0.5, "coupling": "shared", "missing": "mcar", "rate": 0.01, "role": "required_alternative"},
+    {"id": "belief_half_selective_1pct", "policy": "static_belief", "strength": 0.5, "coupling": "shared", "missing": "fairness_selective", "rate": 0.01, "role": "required_alternative"},
+    {"id": "belief_mcar_3pct", "policy": "static_belief", "strength": 1.0, "coupling": "shared", "missing": "mcar", "rate": 0.03, "role": "stress"},
+    {"id": "feature_reward", "policy": "participant_feature_reward", "strength": 1.0, "coupling": "shared", "missing": "none", "rate": 0.0, "role": "legitimate_alternative"},
+    {"id": "dynamic_belief", "policy": "dynamic_belief", "strength": 1.0, "coupling": "shared", "missing": "none", "rate": 0.0, "role": "reference"}
+  ],
+  "limitations": [
+    "Mathematical policies know registered frames; no simulated policy is a real LLM.",
+    "Mixture strength is probability of using the policy instead of an expertise default, not a claimed LLM effect size.",
+    "Numerical study generator covers the registered abstract simulator, not semantic classification error.",
+    "No sample recommendation becomes authority for paid deployment.",
+    "The original draft and all historical gates stay unchanged."
+  ]
+}

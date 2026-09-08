@@ -1,0 +1,596 @@
+[
+  {
+    "bank": "familiar",
+    "family": "reading_room",
+    "item_id": "31a9512d01345aa6841e",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "familiar",
+    "family": "reading_room",
+    "item_id": "66c42ee7b4f4095e5698",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "familiar",
+    "family": "reading_room",
+    "item_id": "baa5a850de99ae087133",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "near",
+    "family": "reading_room",
+    "item_id": "6e15b962d48b62fca7ea",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "near",
+    "family": "reading_room",
+    "item_id": "acd50742522641828a94",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "near",
+    "family": "reading_room",
+    "item_id": "c2eb9e7b06e06bba4d24",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "composite",
+    "family": "reading_room",
+    "item_id": "488df06f26520c6aa690",
+    "registered_vector": [
+      0.6666666666666666,
+      0.3333333333333333,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "composite",
+    "family": "reading_room",
+    "item_id": "ffaf0e10787773d608ff",
+    "registered_vector": [
+      0.0,
+      0.6666666666666666,
+      0.3333333333333333
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "composite",
+    "family": "reading_room",
+    "item_id": "7b45f85b00e9744ac3a7",
+    "registered_vector": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "familiar",
+    "family": "garden_tools",
+    "item_id": "c14608fbea4e8c548709",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "familiar",
+    "family": "garden_tools",
+    "item_id": "165608ce28b186ae6545",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "familiar",
+    "family": "garden_tools",
+    "item_id": "d911458357d5388c7c00",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "near",
+    "family": "garden_tools",
+    "item_id": "1050f149289569ed526b",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "near",
+    "family": "garden_tools",
+    "item_id": "bd56bcdd2b97da990ed7",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "near",
+    "family": "garden_tools",
+    "item_id": "90d3e21d13deaaaf5c6b",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "composite",
+    "family": "garden_tools",
+    "item_id": "007d5e1ab3b096e6717a",
+    "registered_vector": [
+      0.6666666666666666,
+      0.3333333333333333,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "composite",
+    "family": "garden_tools",
+    "item_id": "e1cd041cf25c6af43d21",
+    "registered_vector": [
+      0.0,
+      0.6666666666666666,
+      0.3333333333333333
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "composite",
+    "family": "garden_tools",
+    "item_id": "d59fc8cf1b8ed01f5d25",
+    "registered_vector": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "familiar",
+    "family": "club_transport",
+    "item_id": "ce8205775a6a0027c182",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "familiar",
+    "family": "club_transport",
+    "item_id": "1c9e4c1d59fc8723dbb4",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "familiar",
+    "family": "club_transport",
+    "item_id": "ed90e14cfc4852f07cee",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "near",
+    "family": "club_transport",
+    "item_id": "7fb7b4d3142271385981",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "near",
+    "family": "club_transport",
+    "item_id": "9a4ef7048c0499ad60b2",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "near",
+    "family": "club_transport",
+    "item_id": "f5a0d66c9af9d9f2f531",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "composite",
+    "family": "club_transport",
+    "item_id": "4668f024d46e53493f03",
+    "registered_vector": [
+      0.6666666666666666,
+      0.3333333333333333,
+      0.0
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "composite",
+    "family": "club_transport",
+    "item_id": "6f632fb8dc0781b9128e",
+    "registered_vector": [
+      0.0,
+      0.6666666666666666,
+      0.3333333333333333
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "composite",
+    "family": "club_transport",
+    "item_id": "1076abe6110238f88599",
+    "registered_vector": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666
+    ],
+    "split": "development"
+  },
+  {
+    "bank": "familiar",
+    "family": "exhibition_space",
+    "item_id": "e7249f24f0a07c6d9a87",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "familiar",
+    "family": "exhibition_space",
+    "item_id": "3444bda836aef09fd19d",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "familiar",
+    "family": "exhibition_space",
+    "item_id": "d7c686afe8c7e9354a2e",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "near",
+    "family": "exhibition_space",
+    "item_id": "e7659b8c2eaf86d7c6ab",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "near",
+    "family": "exhibition_space",
+    "item_id": "5b94d0173f94e07b9973",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "near",
+    "family": "exhibition_space",
+    "item_id": "af82f73c31bc147658b3",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "composite",
+    "family": "exhibition_space",
+    "item_id": "58ad6181a88f833a07e2",
+    "registered_vector": [
+      0.6666666666666666,
+      0.3333333333333333,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "composite",
+    "family": "exhibition_space",
+    "item_id": "206418ca6e229c9931eb",
+    "registered_vector": [
+      0.0,
+      0.6666666666666666,
+      0.3333333333333333
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "composite",
+    "family": "exhibition_space",
+    "item_id": "950bbf238a52f486d4f4",
+    "registered_vector": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "familiar",
+    "family": "repair_workshop",
+    "item_id": "0bd8d81e77c69b60e7ae",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "familiar",
+    "family": "repair_workshop",
+    "item_id": "41e2b7e01ed7bb7c9693",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "familiar",
+    "family": "repair_workshop",
+    "item_id": "325b2479c8e1831e73e3",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "near",
+    "family": "repair_workshop",
+    "item_id": "0b9c9a9eb9e771e728b0",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "near",
+    "family": "repair_workshop",
+    "item_id": "a14c8d1fa09967ee82a5",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "near",
+    "family": "repair_workshop",
+    "item_id": "1fb4311158607973c213",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "composite",
+    "family": "repair_workshop",
+    "item_id": "cb3a3636412a53f1b710",
+    "registered_vector": [
+      0.6666666666666666,
+      0.3333333333333333,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "composite",
+    "family": "repair_workshop",
+    "item_id": "fa251181e27ad8e086b2",
+    "registered_vector": [
+      0.0,
+      0.6666666666666666,
+      0.3333333333333333
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "composite",
+    "family": "repair_workshop",
+    "item_id": "1fef5a070d6951ef7112",
+    "registered_vector": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "familiar",
+    "family": "community_archive",
+    "item_id": "15586f5673cc81cef4b1",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "familiar",
+    "family": "community_archive",
+    "item_id": "1e69d3459ee4ed89902f",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "familiar",
+    "family": "community_archive",
+    "item_id": "bc5211cf8867df83753e",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "near",
+    "family": "community_archive",
+    "item_id": "ec0ac7c615965ba4b2f3",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "near",
+    "family": "community_archive",
+    "item_id": "137992c59601e53d043d",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "near",
+    "family": "community_archive",
+    "item_id": "34c393254a006cd886dc",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "composite",
+    "family": "community_archive",
+    "item_id": "b1ab30b05e568fd227c1",
+    "registered_vector": [
+      0.6666666666666666,
+      0.3333333333333333,
+      0.0
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "composite",
+    "family": "community_archive",
+    "item_id": "d17c3ba4aec65d925bef",
+    "registered_vector": [
+      0.0,
+      0.6666666666666666,
+      0.3333333333333333
+    ],
+    "split": "evaluation"
+  },
+  {
+    "bank": "composite",
+    "family": "community_archive",
+    "item_id": "3bd3cf82f6d6373c702b",
+    "registered_vector": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666
+    ],
+    "split": "evaluation"
+  }
+]

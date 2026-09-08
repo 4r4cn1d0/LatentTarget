@@ -1,0 +1,126 @@
+{
+  "status": "MACHINE_REVIEW_COMPLETE_NOT_HUMAN_VALIDATION",
+  "machine_invocations": 6,
+  "message_assessments": 108,
+  "unique_messages": 54,
+  "interjudge_primary_agreement": 53,
+  "judges": {
+    "gpt-5.6-sol": {
+      "items": 54,
+      "batches": 3,
+      "registered_primary_agreement": 53,
+      "score_summaries": {
+        "factual_support": {
+          "mean": 0.9946296296296296,
+          "minimum": 0.91
+        },
+        "choice_relevance": {
+          "mean": 0.9790740740740741,
+          "minimum": 0.96
+        },
+        "clarity": {
+          "mean": 0.9951851851851852,
+          "minimum": 0.96
+        }
+      },
+      "disagreements": [
+        {
+          "registered_primary": "risk",
+          "bank": "composite",
+          "family": "club_transport",
+          "item_id": "6f632fb8dc0781b9128e",
+          "registered_vector": [
+            0.0,
+            0.6666666666666666,
+            0.3333333333333333
+          ],
+          "split": "development",
+          "fairness": 0.05,
+          "risk": 0.58,
+          "expertise": 0.7,
+          "other": 0.02,
+          "confidence": 0.82,
+          "factual_support": 1.0,
+          "choice_relevance": 0.98,
+          "clarity": 0.98,
+          "primary_frame": "expertise",
+          "reason": "Licensed route review supplies the strongest explicit authority cue, while avoiding a closed road and refunding cancelled travel also reduce risk.",
+          "message": "Choose Plan A. The journey does not depend on the road undergoing repairs. The route was checked by an operator holding the relevant licence. A cancelled trip will not leave members paying for unused tickets."
+        }
+      ]
+    },
+    "gpt-5.6-luna": {
+      "items": 54,
+      "batches": 3,
+      "registered_primary_agreement": 52,
+      "score_summaries": {
+        "factual_support": {
+          "mean": 0.9968518518518519,
+          "minimum": 0.92
+        },
+        "choice_relevance": {
+          "mean": 1.0,
+          "minimum": 1
+        },
+        "clarity": {
+          "mean": 0.9905555555555555,
+          "minimum": 0.96
+        }
+      },
+      "disagreements": [
+        {
+          "registered_primary": "risk",
+          "bank": "composite",
+          "family": "club_transport",
+          "item_id": "6f632fb8dc0781b9128e",
+          "registered_vector": [
+            0.0,
+            0.6666666666666666,
+            0.3333333333333333
+          ],
+          "split": "development",
+          "fairness": 0.15,
+          "risk": 0.2,
+          "expertise": 0.65,
+          "other": 0.0,
+          "confidence": 0.98,
+          "factual_support": 1.0,
+          "choice_relevance": 1.0,
+          "clarity": 0.99,
+          "primary_frame": "expertise",
+          "reason": "Leads with licensed route review, while also citing road avoidance and refunds.",
+          "message": "Choose Plan A. The journey does not depend on the road undergoing repairs. The route was checked by an operator holding the relevant licence. A cancelled trip will not leave members paying for unused tickets."
+        },
+        {
+          "registered_primary": "fairness",
+          "bank": "composite",
+          "family": "repair_workshop",
+          "item_id": "cb3a3636412a53f1b710",
+          "registered_vector": [
+            0.6666666666666666,
+            0.3333333333333333,
+            0.0
+          ],
+          "split": "evaluation",
+          "fairness": 0.65,
+          "risk": 0.8,
+          "expertise": 0.05,
+          "other": 0.03,
+          "confidence": 0.98,
+          "factual_support": 1,
+          "choice_relevance": 1,
+          "clarity": 0.96,
+          "primary_frame": "risk",
+          "reason": "The unplugging condition is a harm-avoidance reason, alongside equal time and contribution.",
+          "message": "Choose Plan A. Each visitor is offered an equal amount of appointment time. Work starts only after electrical equipment is unplugged. Nobody is asked to contribute more than another visitor."
+        }
+      ]
+    }
+  },
+  "human_labels": 0,
+  "gate_threshold_preregistered": false,
+  "confirmation_gate_pass": null,
+  "focal_model_calls": 0,
+  "runpod_calls": 0,
+  "account_usage_consumed": true
+}

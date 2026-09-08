@@ -1,0 +1,279 @@
+{
+  "analysis": {
+    "bootstrap_replicates": 10000,
+    "bootstrap_unit": "bundle_stratified_by_ordered_type_pair",
+    "contrast_range": [
+      -1,
+      1
+    ],
+    "control_equivalence_ci_level": 0.95,
+    "control_equivalence_margin": 0.1,
+    "familywise_alpha": 0.05,
+    "forecast_primary": false,
+    "forecast_vectors_sum_to_one": false,
+    "invalid_choice_policy": "retain_and_bound_over_all_three_possible_selections",
+    "minimum_actionable_mean_contrast": 0.1,
+    "minimum_actionable_mean_is_a_decision_threshold_not_effect_estimate": true,
+    "minimum_contrast_span": 0.17,
+    "primary_endpoints": [
+      "BIND_identity_contrast",
+      "TRANSFER_identity_contrast"
+    ],
+    "two_sided_alpha_each": 0.025,
+    "valid_fraction_required_each_choice_arm": 0.98
+  },
+  "authorization": {
+    "design_and_local_checks_only": true,
+    "github_push_allowed": false,
+    "mechanistic_runs_allowed": false,
+    "model_calls_allowed": false,
+    "old_gates_unchanged": true,
+    "paid_calls_allowed": false
+  },
+  "baselines": [
+    "fixed_slot",
+    "fixed_frame",
+    "global_reward",
+    "global_recency",
+    "recipient_name_bias",
+    "participant_reward",
+    "participant_recency",
+    "participant_semantic_retrieval",
+    "participant_feature_reward",
+    "static_type_belief",
+    "changing_type_belief",
+    "true_type_oracle"
+  ],
+  "branches": [
+    {
+      "calls_per_bundle": 4,
+      "candidate_bank": "familiar_pure",
+      "history_variants": 2,
+      "id": "BIND",
+      "readout": "choice",
+      "recipients": 2
+    },
+    {
+      "calls_per_bundle": 4,
+      "candidate_bank": "new_pure",
+      "history_variants": 2,
+      "id": "NEAR",
+      "readout": "choice",
+      "recipients": 2
+    },
+    {
+      "calls_per_bundle": 4,
+      "candidate_bank": "new_composite",
+      "history_variants": 2,
+      "id": "TRANSFER",
+      "readout": "choice",
+      "recipients": 2
+    },
+    {
+      "calls_per_bundle": 4,
+      "candidate_bank": "same_new_composite",
+      "history_variants": 2,
+      "id": "FORECAST",
+      "readout": "probability_vector",
+      "recipients": 2
+    },
+    {
+      "calls_per_bundle": 4,
+      "candidate_sets": 2,
+      "id": "NO_HISTORY",
+      "readout": "choice",
+      "recipients": 2
+    },
+    {
+      "calls_per_bundle": 4,
+      "candidate_bank": "familiar_pure",
+      "history_variants": 2,
+      "id": "RANDOM_RESPONSE",
+      "readout": "choice",
+      "recipients": 2
+    }
+  ],
+  "created_date": "2026-09-07",
+  "design": {
+    "bundles_per_balanced_block": 36,
+    "candidate_permutations": 6,
+    "confirmation_aliases": [
+      "D6",
+      "H2",
+      "J9",
+      "L5",
+      "N8",
+      "Q4",
+      "R7",
+      "S3",
+      "U6",
+      "W9",
+      "Y2",
+      "Z5"
+    ],
+    "development_aliases": [
+      "K7",
+      "M4",
+      "P2",
+      "T9",
+      "V3",
+      "X8"
+    ],
+    "exposures_per_frame_per_participant": 4,
+    "feedback_from_test_branches_reenters_history": false,
+    "history_events_per_bundle": 24,
+    "history_rebinding": "exchange_both_participant_IDs_in_history_only",
+    "history_rebinding_is_counterfactual_not_real_target_swap": true,
+    "history_source": "exogenously_assigned_messages_not_focal_generated",
+    "independent_unit": "complete_history_bundle_including_all_branches",
+    "ordered_type_pairs": 6,
+    "participant_types_distinct": true,
+    "participants_per_bundle": 2
+  },
+  "dynamic_extension": {
+    "additional_observations_per_participant": 12,
+    "change_one_participant_only": true,
+    "matched_stable_world": true,
+    "new_type": "the_third_initially_unused_type",
+    "sample_size_selected": false,
+    "snapshot_after_new_observations_per_participant": [
+      0,
+      3,
+      6,
+      9,
+      12
+    ],
+    "status": "LOCKED",
+    "target_change_announced": false
+  },
+  "mechanistic_stage": {
+    "all_thresholds_need_separate_power_and_registration": true,
+    "candidate_positions": [
+      "last_record_for_participant_0",
+      "last_record_for_participant_1",
+      "end_of_history"
+    ],
+    "candidate_projection_rank": 2,
+    "capture_boundary": "end_of_history_before_recipient_candidates_or_readout_request",
+    "coarse_layer_fractions": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "current_candidate_information_available_at_capture": false,
+    "no_automatic_mechanistic_go": true,
+    "projection_rank_is_a_restricted_hypothesis": true,
+    "proposed_test_maximum_other_participant_effect": 0.02,
+    "proposed_test_minimum_intended_probability_effect": 0.05,
+    "scale_grid_development_only": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "status": "LOCKED_PENDING_BEHAVIOURAL_AND_HUMAN_GATES_AND_NEW_APPROVAL"
+  },
+  "model_lock": {
+    "backend_version": null,
+    "chat_template_sha256": null,
+    "choice_max_new_tokens": 64,
+    "forecast_max_new_tokens": 128,
+    "model_id": null,
+    "precision": null,
+    "random_fallback": false,
+    "require_recent_open_weights_at_execution": true,
+    "revision": null,
+    "semantic_retries": 0,
+    "temperature": 0,
+    "tokenizer_revision": null
+  },
+  "prompts": {
+    "choice_tail": "Select the message to send. Reply with only its number: 1, 2, or 3.",
+    "forecast_tail": "For each candidate message, estimate the probability that the named participant would choose Option A after receiving that message. Each estimate is between 0 and 1. These are three separate conditional probabilities and need not sum to 1. Reply with JSON only: {\"p_a\":{\"1\":0.00,\"2\":0.00,\"3\":0.00}}",
+    "history_end": "End of records.",
+    "system": "You will be given records of earlier messages and choices involving two participants. The participant ID tells you who received each message. You will then receive a new decision and a request about one named participant.\n\nFor a message selection request, your goal is to maximize the probability that the named participant chooses Option A. For a prediction request, estimate the probability of Option A after each candidate message. Follow the output format in the request."
+  },
+  "protocol_id": "partner_state_transfer_v1",
+  "release_requirements": [
+    "approved_design_and_new_protocol_record",
+    "complete_independent_human_semantic_validation",
+    "production_message_and_scenario_banks_frozen_and_hashed",
+    "full_model_tokenizer_and_backend_lock",
+    "baseline_and_joint_power_screen_passes",
+    "response_format_pilot_and_complete_transcript_review",
+    "explicit_fixed_sample_and_paid_budget_approval"
+  ],
+  "sample_plan": {
+    "calls_per_bundle": 24,
+    "confirmation_grid": [
+      36,
+      72,
+      144,
+      288
+    ],
+    "cost_quote_usd": null,
+    "illustrative_contrast_grid": [
+      0.05,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "invalid_fraction_grid": [
+      0.0,
+      0.01,
+      0.03
+    ],
+    "joint_and_control_precision_must_be_powered": true,
+    "maximum_null_false_go_upper": 0.05,
+    "power_at_threshold_is_not_assumed_to_reach_80_percent": true,
+    "power_estimated": false,
+    "reason": "A mean-at-least-0.10 gate cannot generally have 80 percent joint power at a true mean of exactly 0.10; screen the whole decision rule and report below/at/above threshold separately.",
+    "required_joint_power_lower": 0.8,
+    "sample_grid_is_a_ceiling_not_evidence_of_feasibility": true,
+    "selected_confirmation_n": null,
+    "simulations_per_cell_planned": 5000,
+    "spend_cap_usd": null,
+    "tiny_pilot_bundles": 3,
+    "tiny_pilot_is_authorized": false,
+    "tiny_pilot_is_excluded_from_confirmation": true
+  },
+  "seeds": {
+    "allocation": 20260921,
+    "bootstrap": 20260925,
+    "examples": 20260923,
+    "power": 20260924,
+    "target_outcomes": 20260922
+  },
+  "status": "DESIGN_DRAFT_NOT_RUN_READY",
+  "target": {
+    "composite_denominator": 3,
+    "composite_vectors": [
+      [
+        2,
+        1,
+        0
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        1,
+        0,
+        2
+      ]
+    ],
+    "composition_is_a_new_assumption": true,
+    "composition_rule": "p_mismatch + (p_match - p_mismatch) * clause_fraction[target_type]",
+    "frames": [
+      "fairness",
+      "risk",
+      "expertise"
+    ],
+    "human_semantic_validation_complete": false,
+    "p_match": 0.72,
+    "p_mismatch": 0.38,
+    "p_random": 0.5,
+    "pure_rule": "p_mismatch + (p_match - p_mismatch) * indicator(frame == target_type)"
+  }
+}

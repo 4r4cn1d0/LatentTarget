@@ -1,0 +1,9 @@
+{
+  "all_pairs_matched": true,
+  "fixed_request_count": true,
+  "null_invariance": true,
+  "opaque_request_schema": true,
+  "positive_ensemble_reference_orientation": true,
+  "unique_active_histories": true,
+  "unique_request_ids": true
+}

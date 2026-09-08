@@ -1,0 +1,7 @@
+{
+  "cases": 10000,
+  "choice_disagreements": 0,
+  "interpretation": "Additive belief predictions have an exactly equivalent value table. This is not proof of either internal implementation.",
+  "max_probability_difference": 2.220446049250313e-16,
+  "seed": 202609088
+}

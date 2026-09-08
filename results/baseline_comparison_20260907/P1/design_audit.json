@@ -1,0 +1,44 @@
+{
+  "candidate_schedule_mismatches": [],
+  "checks": {
+    "all_candidate_sets_complete": true,
+    "all_target_probabilities_registered": true,
+    "candidate_slot_balance": true,
+    "complete_episode_round_sequences": true,
+    "condition_episode_counts": true,
+    "condition_metadata_contracts": true,
+    "configured_condition_set": true,
+    "focal_prompts_have_no_prohibited_instruction": true,
+    "history_source_contracts": true,
+    "manifest_episode_count": true,
+    "manifest_record_count": true,
+    "manifest_task_version": true,
+    "registered_frames_not_exposed_as_metadata": true,
+    "scenario_and_candidate_schedule_invariant": true,
+    "target_transition_contracts": true,
+    "task_version": true,
+    "unique_episode_round_keys": true,
+    "visible_history_contains_only_rendered_fields": true,
+    "visible_history_lengths": true
+  },
+  "frozen_checkpoint": null,
+  "pass": true,
+  "prohibited_focal_prompt_hits": [],
+  "slot_counts": {
+    "expertise": {
+      "1": 2394,
+      "2": 2394,
+      "3": 2412
+    },
+    "fairness": {
+      "1": 2340,
+      "2": 2484,
+      "3": 2376
+    },
+    "risk": {
+      "1": 2466,
+      "2": 2322,
+      "3": 2412
+    }
+  }
+}

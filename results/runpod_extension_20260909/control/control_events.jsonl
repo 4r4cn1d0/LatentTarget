@@ -1,0 +1,8 @@
+{"event": "KEY_ACCEPTED_IN_MEMORY"}
+{"event": "POD", "pod": {"id": "cgy7iwpf6z74qr", "name": "latenttarget-diagnostic-20260909", "desiredStatus": "EXITED", "costPerHr": 1.59, "adjustedCostPerHr": null, "gpu": null, "publicIp": "", "portMappings": null, "lastStartedAt": "2026-09-08 19:58:48.972 +0000 UTC", "volumeInGb": 150, "volumeMountPath": "/workspace", "containerDiskInGb": 20, "networkVolumeId": null, "networkVolume": null, "image": null, "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404"}}
+{"event": "COMMAND_FAILED", "failure_type": "RuntimeError", "safe_message": "RunPod HTTP 500; response body withheld"}
+{"event": "ARMED", "pod_id": "cgy7iwpf6z74qr", "status": "EXITED", "hourly_usd": 1.59, "network_volume": false, "deadline_utc": "2026-09-08T22:02:18.836179+00:00", "billing_cap_guaranteed": false}
+{"event": "STOP_CONFIRMED", "pod_id": "cgy7iwpf6z74qr", "status": "EXITED", "hourly_usd": 1.59, "network_volume": false, "persistent_storage_still_billed": true}
+{"event": "STATUS", "pod": {"id": "cgy7iwpf6z74qr", "name": "latenttarget-diagnostic-20260909", "desiredStatus": "EXITED", "costPerHr": 1.59, "adjustedCostPerHr": null, "gpu": null, "publicIp": "", "portMappings": null, "lastStartedAt": "2026-09-08 19:58:48.972 +0000 UTC", "volumeInGb": 150, "volumeMountPath": "/workspace", "containerDiskInGb": 20, "networkVolumeId": null, "networkVolume": null, "image": null, "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404"}, "watchdog_armed": true, "watchdog_alive": false}
+{"event": "READ_QUERY", "result": {"data": {"gpuTypes": [{"id": "NVIDIA A100-SXM4-80GB", "memoryInGb": 80, "securePrice": 1.59, "lowestPrice": {"stockStatus": "Medium", "uninterruptablePrice": 1.59, "availableGpuCounts": null}}]}}}
+{"event": "CLOSED"}

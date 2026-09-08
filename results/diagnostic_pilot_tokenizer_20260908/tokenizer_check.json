@@ -1,0 +1,452 @@
+{
+  "status": "CPU_TOKENIZER_PATH_VERIFIED_NOT_GPU_PROCESSOR_PATH",
+  "packet_sha256": "418f24b657eff7bb731ddb93a066889c63507fcab5cadc414231c3257ecba4f1",
+  "model": "Qwen/Qwen3.8-27B",
+  "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "packages": {
+    "transformers": "5.16.1",
+    "tokenizers": "0.23.2",
+    "huggingface_hub": "1.30.0",
+    "jinja2": "3.1.6"
+  },
+  "tokenizer_class": "Qwen2Tokenizer",
+  "chat_template_sha256": "924d3fcc64873b375d5909e8a664ba0aca97c9d6381f5ebda004d1b8a2fb4d64",
+  "choice_token_ids": {
+    "1": [
+      16
+    ],
+    "2": [
+      17
+    ],
+    "3": [
+      18
+    ]
+  },
+  "minimum_input_tokens": 391,
+  "maximum_input_tokens": 5114,
+  "requests": [
+    {
+      "request_id": "confirmation-00003/BIND/3",
+      "input_tokens": 5088,
+      "rendered_text_sha256": "7b0b2d3051207e4e1ee30eee051f8b34135ac7b3a031bb865c2c4e9b3b3155f2",
+      "token_ids_sha256": "e9bc86a5202b642d5f5e44cc519ac95b08caf7260e01e323f39bb61edd8504bd",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/BIND/0",
+      "input_tokens": 5062,
+      "rendered_text_sha256": "bf7aa5706db5799b94260ea3dcb414d7c5407b8d5154f17476b65a456930436f",
+      "token_ids_sha256": "51a088ab3de6c233108a07bf3a5ab3568c6f25fec6542a301308b070420be0a3",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/BIND/1",
+      "input_tokens": 5062,
+      "rendered_text_sha256": "a8cdd71094668671159d8591d1b66e854f39c94a795a37b3f6c8ac0bd33335a2",
+      "token_ids_sha256": "80d3e9a64dfc9d82f61f1e162c2f1200214768b98003f407d0204fc2d43312ce",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/BIND/3",
+      "input_tokens": 5082,
+      "rendered_text_sha256": "a0040dacc559b960364a58ea67814080ffc05b819d4263cd42ef24ef7beb1dc3",
+      "token_ids_sha256": "c0750ac82ff9e52938fe72462d09c0e19ea85cabccc51ec8f6385991ee269b8b",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/NO_HISTORY/0",
+      "input_tokens": 401,
+      "rendered_text_sha256": "f1d5ffd9361571ae0961006c7e805f8007db8f9aef4f8c0ba863ff902b96e34f",
+      "token_ids_sha256": "d4a6c21febabc9b76ca6065736d38704eeef546175cdbbd44b31508a9581979b",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/TRANSFER/2",
+      "input_tokens": 5106,
+      "rendered_text_sha256": "d0ea653f2a05fe72d43970f11f4d30b8759e2ef50843bdad9ed6632d7338a53f",
+      "token_ids_sha256": "3e817a64540f0bd80ffde9a7c560d4c64c9943a1bd79967a924f06925f73c4cb",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/NO_HISTORY/2",
+      "input_tokens": 427,
+      "rendered_text_sha256": "21384ed38d9827ec445dd92cc918c51866fc51361ef6dc80f629e59e9f0c8adf",
+      "token_ids_sha256": "4130ae9220720620c1b5c1ab4ef149a59d4f127587de87b33f2d62b8b067e997",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/BIND/3",
+      "input_tokens": 5062,
+      "rendered_text_sha256": "34bd9a7d2e48e6e96fe2aaad1ab9c3aae4386d7c3b570b8c2afc33215be77cb4",
+      "token_ids_sha256": "312b8c400070d66970e1ebec7890eb9af88734c9ea56a75e092e4c7d398e8cb3",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/TRANSFER/3",
+      "input_tokens": 5114,
+      "rendered_text_sha256": "f3b18c5cf6ab307fe7111540331c16b37aac6880803edff828bc935c84e716fd",
+      "token_ids_sha256": "da06457e40c87a30dac33c8f398e3a8e38fd3d1b66beb95bf0e479f20c8fa2bf",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/NEAR/3",
+      "input_tokens": 5091,
+      "rendered_text_sha256": "d4bc80f6628d40a6239b6c7ae3ae2732f11dc263e2a1e2f5cec472d3af84fc46",
+      "token_ids_sha256": "894a93afb3cbd43d4a43f955d0f910c9fd2b420366ab940305b3406f94f7c3e6",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/NO_HISTORY/0",
+      "input_tokens": 403,
+      "rendered_text_sha256": "16ad0ee97052bb56f12108c5dd4d7da95539601613f507f46057e6401dfc1e48",
+      "token_ids_sha256": "a2259e66b05aa001060570189cfabe3a63d19c79ba0f677c177825f19d4a88f1",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/BIND/2",
+      "input_tokens": 5062,
+      "rendered_text_sha256": "4abcd679c0ddc351ace2ea179252073b933739dac37d16a396d5306f241ab787",
+      "token_ids_sha256": "ebb117570cbc7a63d1f352d1a683dc0d26eaa575070e9d51e196c65ebbc535cf",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/RANDOM_RESPONSE/2",
+      "input_tokens": 5088,
+      "rendered_text_sha256": "119e390fd6c6e47360fbfc0e3da700f6d7cb03ea3e5ea96ce4b59317ef13dec3",
+      "token_ids_sha256": "fab7cf6865868d67ac48ba22cfd96f60e8546f89f1259eaeaface04f248c16f2",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/RANDOM_RESPONSE/1",
+      "input_tokens": 5088,
+      "rendered_text_sha256": "26e2d0ea1a9c992ccdea9b69187da0527c068196e7c9624817515ebff037ab99",
+      "token_ids_sha256": "9a572582a322c2ff7a508cda36dbfc4a8999e14914ba9feb27c1b8dda3ddbdbf",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/TRANSFER/3",
+      "input_tokens": 5106,
+      "rendered_text_sha256": "2a8cd20ab770cb9fe3423383dec1dbe05a037149d39ae3dbc49a2952f877e061",
+      "token_ids_sha256": "dab50c30a2e2fd542f52425533cc260dfd2cbab11b9c21202e3b316080633977",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/TRANSFER/0",
+      "input_tokens": 5106,
+      "rendered_text_sha256": "67f647e36a1a60ca1e62334ef861f2bf00c5f463e8e32ed176ef6d558f6f8396",
+      "token_ids_sha256": "4348203b9d3fccee9fb0d0b092047ea361f50994cddc902f044e22972ba8d027",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/RANDOM_RESPONSE/2",
+      "input_tokens": 5082,
+      "rendered_text_sha256": "a09008ed7b1e1c3139b2bc9818515fd64b5fac3414ee139bc2e17437d577f240",
+      "token_ids_sha256": "11d609a15592ba817939c1e8c3b09b98694ee63a6905f996e5ef29cfda5532cf",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/TRANSFER/0",
+      "input_tokens": 5091,
+      "rendered_text_sha256": "58ce02cb7472c00e3eb6d2c75eb3f2d21ba9ba3f062cb8e2c768233a690fff43",
+      "token_ids_sha256": "94e836b3ac975be75e826ee82b2944aa1fbc921dc0abeb44b9b19e7c83f3a210",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/RANDOM_RESPONSE/3",
+      "input_tokens": 5082,
+      "rendered_text_sha256": "1e68fe2854b9c4b295a48f25ab07b809c78ac2219f97c15ae446d3733e7dbab4",
+      "token_ids_sha256": "227e88e7c749b1950f6c16f2f4c515c47f8c6bff86c73a2194a3f36e9075e13e",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/RANDOM_RESPONSE/0",
+      "input_tokens": 5088,
+      "rendered_text_sha256": "f85ab47c75f5dfbb9e2d5d6fe8d5ebc25110ac5f52355148040b3912471b9370",
+      "token_ids_sha256": "58b362d1dd6f4ed399c81a942e04815ac06b223c727b44c6765e6917df13aac3",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/TRANSFER/1",
+      "input_tokens": 5091,
+      "rendered_text_sha256": "3d6b61bad1e6da4b01056536171e9caf1140f276d6c974e00d2359ce3181dd6d",
+      "token_ids_sha256": "c228390dd4d5bbd5f6d370014a4425ab1439f2c1acebdd9080a36b726cf92e02",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/NO_HISTORY/3",
+      "input_tokens": 427,
+      "rendered_text_sha256": "7acdd423446c68dc2f5d45c00f48dd8f49106bee7c771edb6f2bcd5f96b52b07",
+      "token_ids_sha256": "ab96d9ebbc0de201a11ddd5943893bda72b22f3f324af2bc1ed0b7af52eabb1d",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/NEAR/1",
+      "input_tokens": 5106,
+      "rendered_text_sha256": "afefa98a918a10d13af5285d956d19fbaa9845bfdaea6acd1025ba8745c26f10",
+      "token_ids_sha256": "3126fdc22e556fc1742ef652d7e36ac4c6179cad38cb844e4d8637646b8dc415",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/NEAR/3",
+      "input_tokens": 5106,
+      "rendered_text_sha256": "f6c07e122a07803c123c7d971f4a3757ea3d96c949949649827710127819874c",
+      "token_ids_sha256": "3313466819f8058ca3fa96f4e02f4626aca596ce2fa08dfc48789afdac6605d3",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/NEAR/2",
+      "input_tokens": 5114,
+      "rendered_text_sha256": "93f249142f1dd2e458444fa5967858aed8cf626854d0ed2f9d982eab69e23e38",
+      "token_ids_sha256": "51afc1440cfecd9a6781aba0af9bde40544841c8c9236268eb018a193c3d3a2c",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/RANDOM_RESPONSE/3",
+      "input_tokens": 5088,
+      "rendered_text_sha256": "47b8cf33fea8ab4807c343c3ce1006fbc142fc36c27e7246a38c8c862d0555ae",
+      "token_ids_sha256": "dc61833a4d77d911591ff29fa29f2f59628bec536338fde646e8b00086d59506",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/BIND/0",
+      "input_tokens": 5088,
+      "rendered_text_sha256": "fcfe778a7c17bb0cfd6af7e9705abf3f4ed96c317b12e91ce0ca798363e30e52",
+      "token_ids_sha256": "281340feb9a17deea46c1b384751961cc9f80abcd464ff24e822b7b0851a9e05",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/RANDOM_RESPONSE/3",
+      "input_tokens": 5062,
+      "rendered_text_sha256": "aa827770f623223e0b158bd04c38dd91ae0641f347bdccd795afefd5e4201b90",
+      "token_ids_sha256": "ad98f1b7ea89f666355a853e5a235a74e3f9d3a32f8ef49bd18d016ea73f015a",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/NO_HISTORY/2",
+      "input_tokens": 420,
+      "rendered_text_sha256": "4143071c6a86a211e1ad6e07c2ff80d61af201272432b883346780bc12272853",
+      "token_ids_sha256": "8f8ec8d851a6a3232694f52c7f61c03c5a5078241d9a111afc5eda999febaac9",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/BIND/1",
+      "input_tokens": 5088,
+      "rendered_text_sha256": "e58c08dd73034ba99e951474a6fc2cdb53b661cfe736e0d88cf3519c144c547d",
+      "token_ids_sha256": "b652301229fa6340ac30e8163721e817e15681aae69c82200f9001f950b7a144",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/TRANSFER/2",
+      "input_tokens": 5091,
+      "rendered_text_sha256": "49b2999ea00100ff624b7dc95427b1769d9e02dfc9ac220d1c7bc6b4b6537e44",
+      "token_ids_sha256": "3e578dfe48cb967e41d594d3571da68644e6684dd3dbcc24fcd72eb7ac448ba7",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/TRANSFER/2",
+      "input_tokens": 5114,
+      "rendered_text_sha256": "5e0164125e5cb61476f345c93cffa21f7294848e36b9427dad4e722710b36d4e",
+      "token_ids_sha256": "da52a17314e268a8e9705c1419426513f4acbbfa654f9899fcbf017ad7cb4e1c",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/BIND/0",
+      "input_tokens": 5082,
+      "rendered_text_sha256": "26982d851a3b4984669e1706312032a4934792fb000095afaf0d9feacb0db9f9",
+      "token_ids_sha256": "2abad9d3d041705bebec9b69fd3890d6e4d55297cb759ce8e1c09733dcb15a7e",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/NO_HISTORY/3",
+      "input_tokens": 427,
+      "rendered_text_sha256": "f9507cbe92f0cf5d70185f2816e1f8ae2419c6c4d7e744b6fb79c78ee970165f",
+      "token_ids_sha256": "1c57bb9b2861573be4915bb073af4c0270d151a9e0ef5b351db19c733da4b058",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/BIND/2",
+      "input_tokens": 5088,
+      "rendered_text_sha256": "521c54309d500a93ffb1cd62c0d3ebc2f9c4b93e051a20805caf047d20ede5d3",
+      "token_ids_sha256": "71f8fd23ea28ac1523cb7716543be80444f26e2c4838ada3dc09943f67f98aa6",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/RANDOM_RESPONSE/1",
+      "input_tokens": 5062,
+      "rendered_text_sha256": "5cf9923853ff5f415f5d7d074c5e3dc6e29289769c79b1108aab58361889cb17",
+      "token_ids_sha256": "fef336480d7751772ca533a1ebd906d9629b1cfe80ad383dc77a4366a1963943",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/NEAR/2",
+      "input_tokens": 5106,
+      "rendered_text_sha256": "eef860e123c7072a8788a9af385712a07cec52af42432639ef3126d33a76b601",
+      "token_ids_sha256": "49ed47643bc86e2df0130c17644cb59a364d0c48af98635a495058bdc9f78a2c",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/NEAR/0",
+      "input_tokens": 5114,
+      "rendered_text_sha256": "57ee37cebbcce458b08b4ad9eb0308783771b0cd06f599dea9070d5807b15964",
+      "token_ids_sha256": "868ddde52caa28c21118d0eb7151a93bbc80bdb53b6dac45ccd2b749c0d42bc7",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/NEAR/1",
+      "input_tokens": 5114,
+      "rendered_text_sha256": "5320795c6d02902597944f86a700476832b3e7c3f75165589c9d2c2ebe7c58ce",
+      "token_ids_sha256": "33a8474a5e0d5539ae47c6db0b0c80c7a0947d2715e1a1a363d52b3b5fc44d64",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/NEAR/3",
+      "input_tokens": 5114,
+      "rendered_text_sha256": "650f33d5527696a299c442f90235b76692f10c54ed3a9d264afceaac119509af",
+      "token_ids_sha256": "56f6d030a5e2bab81bc20f46b23a2a1e5b52b93c6148d342e9a801bbc0f9c787",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/NO_HISTORY/1",
+      "input_tokens": 401,
+      "rendered_text_sha256": "357138dfc2d00d282226f76f380790920f11f18f2d1850ae3399893471b03406",
+      "token_ids_sha256": "eccf7c5e1ea9c6bf755623582ba5dbcbc0025f410a338df94bf64adf72091276",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/NO_HISTORY/1",
+      "input_tokens": 403,
+      "rendered_text_sha256": "c4632853c224a9d48e6b23159d4721043229f2f238c8e95ad283bd665221339f",
+      "token_ids_sha256": "dc81ef870a75d6525a0f6cfbaf4b563d39353786ea56c38632df397e6f91cd8b",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/RANDOM_RESPONSE/2",
+      "input_tokens": 5062,
+      "rendered_text_sha256": "8fd2e765d76970333e31423684028f094868772077b13b4cf3bd28923e099cee",
+      "token_ids_sha256": "a17a5e9dc5920aa7342a54678d526e106c52a57c278ef8e17656415a6e9a4f5b",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/BIND/1",
+      "input_tokens": 5082,
+      "rendered_text_sha256": "b7f936829dbc368daa3d08b1092e3688b3b3aeb2375d63c8ce5863d269d74821",
+      "token_ids_sha256": "262e75408eaf549b82e79939e7e63df18fe5acc369951930b5fb7eab79c9dc9a",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/NO_HISTORY/2",
+      "input_tokens": 427,
+      "rendered_text_sha256": "945db771826c4613fa32a1556c393ce0219a5b40f95033dfb3f9819b438b7cde",
+      "token_ids_sha256": "33503a511b64fce61dbc2566e5b70978606be219cf09f2043c152db0c14fbfc4",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/BIND/2",
+      "input_tokens": 5082,
+      "rendered_text_sha256": "070c4d98f797c9e8412c17cb08688d8cf3c4248fa3d595a26a26834a2d3c7b8f",
+      "token_ids_sha256": "57eb3fc1b48add2b727a9e0e88a62ece26b52efeb7deff2933788d6dc9b015e6",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/NO_HISTORY/0",
+      "input_tokens": 391,
+      "rendered_text_sha256": "fbbf81701343b81af5e3503b7e6bc37cc3dba203cf964637db62df58d600dafe",
+      "token_ids_sha256": "e7d1e64da6b3332eb961299978237ac63e1895669768e620e13e54636a3df3fe",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/NO_HISTORY/3",
+      "input_tokens": 420,
+      "rendered_text_sha256": "e1cb6fc7f7443fb6cefbc5acbff2b2daa6063b1c2d700922dae85e808393ca15",
+      "token_ids_sha256": "a159f655d6335990d508909ac50bfdc1600fb40ef30e05ce21d8502a3cfb02a1",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/NEAR/1",
+      "input_tokens": 5091,
+      "rendered_text_sha256": "1dbb6e3a36d5026cc9e982c40c595018e6556fd1eb5366151d94aed00768c3fc",
+      "token_ids_sha256": "7ebc43dc04a6470b08f5d3eda87f45db913c5cbc9397d7d5c053dc8696e22ba8",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/TRANSFER/3",
+      "input_tokens": 5091,
+      "rendered_text_sha256": "4df1a2890885c0a43c35cc9451e4727e7801476e49a6057a0be074761a7c337a",
+      "token_ids_sha256": "4ed4e6db758bcec7d1896e39fb102e53d094c0c45c75882bb1cb7a05f8289b91",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/TRANSFER/0",
+      "input_tokens": 5114,
+      "rendered_text_sha256": "ec87e60371930be13a182f630f7729b32163976fe406bd52b4eaefc76ee3e84b",
+      "token_ids_sha256": "c8da754a135d163b6e9b9077e4cc290ff3b41759a6fd4d195fb61415b2a81813",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/NO_HISTORY/1",
+      "input_tokens": 391,
+      "rendered_text_sha256": "17c4a68fa9e78b04eaf7649eb21b68499f02f2e454e87cda2ca2d360d12f4004",
+      "token_ids_sha256": "199e176cab49497d35ac69e99a82b18544c23ef46f968843fa6fa9bcb446e055",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/RANDOM_RESPONSE/0",
+      "input_tokens": 5082,
+      "rendered_text_sha256": "b7d134eda4abdb525e5dfe68a277c73240b14e3537fb0a46549e4251cdbe0127",
+      "token_ids_sha256": "c341c98035e7014692de2e80e5bf0bda2fd74826ad1c3fc1882b7009b44d5553",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/RANDOM_RESPONSE/1",
+      "input_tokens": 5082,
+      "rendered_text_sha256": "74853866b194f641c741e51216fe0e6aaf97ab98f3158073687377d10b922d78",
+      "token_ids_sha256": "3f0ad8f15e5a9ade7e1540d9347b0f7c7573418198f812951f2a05bb9f45e689",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/NEAR/2",
+      "input_tokens": 5091,
+      "rendered_text_sha256": "a902c05721ce4f36bc962063f1887db03b775045427eefa1a62c0e9f4e484cc7",
+      "token_ids_sha256": "b566206e0516ed4cc6a017e997f02ba86ed53b0379e3826c7a4931d4d1015dec",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/NEAR/0",
+      "input_tokens": 5091,
+      "rendered_text_sha256": "b23c7089c2a856b719170a5e32adf39f98948daf8eba9f947c4de24e2342b4d5",
+      "token_ids_sha256": "bd2b7d0397e6b3d047ef2a17736ee76eba763263ad38f84619f7f82b1f6b1673",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/NEAR/0",
+      "input_tokens": 5106,
+      "rendered_text_sha256": "1213bfae92974f6ddfe4136fdaf60e751c99b96f2abc308cc27ddc5eb74df5a2",
+      "token_ids_sha256": "9cf3ca99601efa240f330ed69ad13d3b1ac72fecf167cdf72fa7cd8dc30bb5f8",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00003/TRANSFER/1",
+      "input_tokens": 5114,
+      "rendered_text_sha256": "8986e2f70b80caf9c3c0983b5942b4ceffa7fb423deb1a1499511821a1d28dee",
+      "token_ids_sha256": "e32881406d0ae656064436205f205886e4dfe21dd2ba4bc71f15d0e7f5486469",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00001/RANDOM_RESPONSE/0",
+      "input_tokens": 5062,
+      "rendered_text_sha256": "d14eda8fc1383e349b9100abfead187f8ddeeb44c21e06b708736e78839dc5a6",
+      "token_ids_sha256": "07897617e50a3da821770b4bb708f703fdf859c01303bcc40ee2e1fd63e5c1f2",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    },
+    {
+      "request_id": "confirmation-00000/TRANSFER/1",
+      "input_tokens": 5106,
+      "rendered_text_sha256": "3558d383a0392553630ea9838c09751799e16e74223d4ea2632abd423e757829",
+      "token_ids_sha256": "cd11e245b9bcbe0dd9196fd01efdff92a0489e45091f5d7ff8c93c9c9244100e",
+      "rendered_suffix": "\nSelect the message to send. Reply with only its number: 1, 2, or 3.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+    }
+  ],
+  "weights_downloaded_by_this_script": false,
+  "model_generations": 0,
+  "gpu_processor_path_tested": false
+}

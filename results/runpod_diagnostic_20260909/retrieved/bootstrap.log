@@ -1,0 +1,280 @@
+Requirement already satisfied: pip in ./runtime/lib/python3.12/site-packages (24.0)
+Collecting pip
+  Downloading pip-26.2.1-py3-none-any.whl.metadata (4.6 kB)
+Downloading pip-26.2.1-py3-none-any.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 39.6 MB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 24.0
+    Uninstalling pip-24.0:
+      Successfully uninstalled pip-24.0
+Successfully installed pip-26.2.1
+Collecting numpy==2.4.6 (from -r package/requirements-local.txt (line 1))
+  Downloading numpy-2.4.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting torch==2.9.1 (from -r package/requirements-pod.txt (line 7))
+  Downloading torch-2.9.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (30 kB)
+Collecting torchvision==0.24.1 (from -r package/requirements-pod.txt (line 11))
+  Downloading torchvision-0.24.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (5.9 kB)
+Collecting torchaudio==2.9.1 (from -r package/requirements-pod.txt (line 12))
+  Downloading torchaudio-2.9.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (6.9 kB)
+Collecting transformers==5.16.1 (from -r package/requirements-pod.txt (line 13))
+  Downloading transformers-5.16.1-py3-none-any.whl.metadata (32 kB)
+Collecting accelerate==1.14.0 (from -r package/requirements-pod.txt (line 14))
+  Downloading accelerate-1.14.0-py3-none-any.whl.metadata (19 kB)
+Collecting sentencepiece>=0.2 (from -r package/requirements-pod.txt (line 15))
+  Downloading sentencepiece-0.2.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (33 kB)
+Collecting filelock (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading filelock-3.32.5-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions>=4.10.0 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting setuptools (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting sympy>=1.13.3 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx>=2.5.1 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+Collecting jinja2 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec>=0.8.5 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading fsspec-2026.7.0-py3-none-any.whl.metadata (10 kB)
+Collecting nvidia-cuda-nvrtc-cu12==12.8.93 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-runtime-cu12==12.8.90 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-cupti-cu12==12.8.90 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cudnn-cu12==9.10.2.21 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cudnn_cu12-9.10.2.21-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cublas-cu12==12.8.4.1 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cufft-cu12==11.3.3.83 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-curand-cu12==10.3.9.90 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cusolver-cu12==11.7.3.90 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cusparse-cu12==12.5.8.93 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cusparselt-cu12==0.7.1 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl.metadata (7.0 kB)
+Collecting nvidia-nccl-cu12==2.27.5 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_nccl_cu12-2.27.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.0 kB)
+Collecting nvidia-nvshmem-cu12==3.3.20 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_nvshmem_cu12-3.3.20-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.1 kB)
+Collecting nvidia-nvtx-cu12==12.8.90 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-nvjitlink-cu12==12.8.93 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cufile-cu12==1.13.1.3 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting triton==3.5.1 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading triton-3.5.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.7 kB)
+Collecting pillow!=8.3.*,>=5.3.0 (from torchvision==0.24.1->-r package/requirements-pod.txt (line 11))
+  Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting huggingface-hub<2.0,>=1.5.0 (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading huggingface_hub-1.30.0-py3-none-any.whl.metadata (16 kB)
+Collecting packaging>=20.0 (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyyaml>=5.1 (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting regex>=2025.10.22 (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading regex-2026.9.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting tokenizers<0.24.0,>=0.23.1 (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.8 kB)
+Collecting typer (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading typer-0.27.2-py3-none-any.whl.metadata (16 kB)
+Collecting safetensors>=0.8.0 (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Collecting tqdm>=4.60 (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading tqdm-4.70.0-py3-none-any.whl.metadata (57 kB)
+Collecting psutil (from accelerate==1.14.0->-r package/requirements-pod.txt (line 14))
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+Collecting click<9.0.0,>=8.4.2 (from huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting hf-xet<2.0.0,>=1.5.2 (from huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting httpx<1,>=0.23.0 (from huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting anyio (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting certifi (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+Collecting httpcore==1.* (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting idna (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading idna-3.19-py3-none-any.whl.metadata (9.2 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Collecting shellingham>=1.3.0 (from typer->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=13.8.0 (from typer->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting annotated-doc>=0.0.2 (from typer->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.8.0->typer->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading numpy-2.4.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 190.1 MB/s  0:00:00
+Downloading torch-2.9.1-cp312-cp312-manylinux_2_28_x86_64.whl (899.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 899.7/899.7 MB 187.7 MB/s  0:00:04
+Downloading torchvision-0.24.1-cp312-cp312-manylinux_2_28_x86_64.whl (8.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.0/8.0 MB 227.4 MB/s  0:00:00
+Downloading torchaudio-2.9.1-cp312-cp312-manylinux_2_28_x86_64.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 184.9 MB/s  0:00:00
+Downloading transformers-5.16.1-py3-none-any.whl (12.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.1/12.1 MB 538.1 MB/s  0:00:00
+Downloading accelerate-1.14.0-py3-none-any.whl (389 kB)
+Downloading nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl (594.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 594.3/594.3 MB 522.3 MB/s  0:00:01
+Downloading nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (10.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 181.5 MB/s  0:00:00
+Downloading nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (88.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 88.0/88.0 MB 256.7 MB/s  0:00:00
+Downloading nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (954 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 954.8/954.8 kB 405.8 MB/s  0:00:00
+Downloading nvidia_cudnn_cu12-9.10.2.21-py3-none-manylinux_2_27_x86_64.whl (706.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 706.8/706.8 MB 672.4 MB/s  0:00:01
+Downloading nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (193.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 193.1/193.1 MB 206.7 MB/s  0:00:00
+Downloading nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 577.7 MB/s  0:00:00
+Downloading nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl (63.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.6/63.6 MB 280.3 MB/s  0:00:00
+Downloading nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl (267.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 267.5/267.5 MB 256.6 MB/s  0:00:01
+Downloading nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (288.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 288.2/288.2 MB 301.9 MB/s  0:00:00
+Downloading nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl (287.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 287.2/287.2 MB 743.6 MB/s  0:00:00
+Downloading nvidia_nccl_cu12-2.27.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (322.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 322.3/322.3 MB 669.5 MB/s  0:00:00
+Downloading nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (39.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.3/39.3 MB 764.7 MB/s  0:00:00
+Downloading nvidia_nvshmem_cu12-3.3.20-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (124.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 124.7/124.7 MB 206.7 MB/s  0:00:00
+Downloading nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89 kB)
+Downloading triton-3.5.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (170.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 170.5/170.5 MB 274.1 MB/s  0:00:00
+Downloading huggingface_hub-1.30.0-py3-none-any.whl (796 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 796.8/796.8 kB 703.0 MB/s  0:00:00
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 557.0 MB/s  0:00:00
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 783.2 MB/s  0:00:00
+Downloading sentencepiece-0.2.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 326.4 MB/s  0:00:00
+Downloading filelock-3.32.5-py3-none-any.whl (100 kB)
+Downloading fsspec-2026.7.0-py3-none-any.whl (206 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 840.0 MB/s  0:00:00
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 265.1 MB/s  0:00:00
+Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 556.9 MB/s  0:00:00
+Downloading regex-2026.9.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (801 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 802.0/802.0 kB 614.0 MB/s  0:00:00
+Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 640.2 MB/s  0:00:00
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 764.4 MB/s  0:00:00
+Downloading tqdm-4.70.0-py3-none-any.whl (80 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+Downloading idna-3.19-py3-none-any.whl (68 kB)
+Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 858.9 MB/s  0:00:00
+Downloading typer-0.27.2-py3-none-any.whl (123 kB)
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 777.0 MB/s  0:00:00
+Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Installing collected packages: nvidia-cusparselt-cu12, mpmath, typing-extensions, triton, tqdm, sympy, shellingham, setuptools, sentencepiece, safetensors, regex, pyyaml, pygments, psutil, pillow, packaging, nvidia-nvtx-cu12, nvidia-nvshmem-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufile-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, networkx, mdurl, MarkupSafe, idna, hf-xet, h11, fsspec, filelock, click, certifi, annotated-doc, nvidia-cusparse-cu12, nvidia-cufft-cu12, nvidia-cudnn-cu12, markdown-it-py, jinja2, httpcore, anyio, rich, nvidia-cusolver-cu12, httpx, typer, torch, huggingface-hub, torchvision, torchaudio, tokenizers, accelerate, transformers
+
+Successfully installed MarkupSafe-3.0.3 accelerate-1.14.0 annotated-doc-0.0.5 anyio-4.15.1 certifi-2026.7.22 click-8.5.0 filelock-3.32.5 fsspec-2026.7.0 h11-0.16.0 hf-xet-1.6.0 httpcore-1.0.9 httpx-0.28.1 huggingface-hub-1.30.0 idna-3.19 jinja2-3.1.6 markdown-it-py-4.2.0 mdurl-0.1.2 mpmath-1.3.0 networkx-3.6.1 numpy-2.4.6 nvidia-cublas-cu12-12.8.4.1 nvidia-cuda-cupti-cu12-12.8.90 nvidia-cuda-nvrtc-cu12-12.8.93 nvidia-cuda-runtime-cu12-12.8.90 nvidia-cudnn-cu12-9.10.2.21 nvidia-cufft-cu12-11.3.3.83 nvidia-cufile-cu12-1.13.1.3 nvidia-curand-cu12-10.3.9.90 nvidia-cusolver-cu12-11.7.3.90 nvidia-cusparse-cu12-12.5.8.93 nvidia-cusparselt-cu12-0.7.1 nvidia-nccl-cu12-2.27.5 nvidia-nvjitlink-cu12-12.8.93 nvidia-nvshmem-cu12-3.3.20 nvidia-nvtx-cu12-12.8.90 packaging-26.3 pillow-12.3.0 psutil-7.2.2 pygments-2.21.0 pyyaml-6.0.3 regex-2026.9.3 rich-15.0.0 safetensors-0.8.0 sentencepiece-0.2.2 setuptools-84.0.0 shellingham-1.5.4 sympy-1.14.0 tokenizers-0.23.2 torch-2.9.1 torchaudio-2.9.1 torchvision-0.24.1 tqdm-4.70.0 transformers-5.16.1 triton-3.5.1 typer-0.27.2 typing-extensions-4.16.0
+{"python": "3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]", "torch": "2.9.1+cu128", "transformers": "5.16.1", "cuda": "12.8", "gpu_count": 1, "gpu": "NVIDIA A100-SXM4-80GB", "gpu_memory_bytes": 85094825984, "workspace_mount": true}
+{"status": "VERIFIED_NO_MODEL_CALLS", "packet_sha256": "418f24b657eff7bb731ddb93a066889c63507fcab5cadc414231c3257ecba4f1", "planned_requests": 60}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files:   6%|▌         | 1/18 [00:13<03:44, 13.22s/it]Fetching 18 files:  11%|█         | 2/18 [00:15<01:46,  6.64s/it]Fetching 18 files:  17%|█▋        | 3/18 [00:16<01:00,  4.03s/it]Fetching 18 files:  28%|██▊       | 5/18 [00:17<00:29,  2.23s/it]Fetching 18 files:  33%|███▎      | 6/18 [00:18<00:19,  1.62s/it]Fetching 18 files:  39%|███▉      | 7/18 [00:18<00:15,  1.41s/it]Fetching 18 files:  44%|████▍     | 8/18 [00:19<00:12,  1.28s/it]Fetching 18 files:  50%|█████     | 9/18 [00:24<00:19,  2.22s/it]Fetching 18 files:  56%|█████▌    | 10/18 [00:25<00:14,  1.83s/it]Fetching 18 files:  67%|██████▋   | 12/18 [00:26<00:07,  1.21s/it]Fetching 18 files:  72%|███████▏  | 13/18 [00:26<00:05,  1.03s/it]Fetching 18 files:  78%|███████▊  | 14/18 [00:27<00:03,  1.05it/s]Fetching 18 files:  83%|████████▎ | 15/18 [00:28<00:03,  1.12s/it]Fetching 18 files:  89%|████████▉ | 16/18 [00:29<00:01,  1.07it/s]Fetching 18 files:  94%|█████████▍| 17/18 [00:32<00:01,  1.41s/it]Fetching 18 files: 100%|██████████| 18/18 [00:32<00:00,  1.06s/it]Fetching 18 files: 100%|██████████| 18/18 [00:32<00:00,  1.79s/it]
+Loading weights:   0%|          | 0/1184 [00:00<?, ?it/s]Loading weights:   0%|          | 1/1184 [00:00<03:46,  5.23it/s]Loading weights:   0%|          | 2/1184 [00:00<05:40,  3.47it/s]Loading weights:   1%|          | 14/1184 [00:00<00:41, 27.95it/s]Loading weights:   2%|▏         | 29/1184 [00:00<00:21, 52.93it/s]Loading weights:   4%|▎         | 43/1184 [00:00<00:16, 68.08it/s]Loading weights:   4%|▍         | 52/1184 [00:01<00:15, 70.91it/s]Loading weights:   6%|▌         | 66/1184 [00:01<00:13, 81.25it/s]Loading weights:   7%|▋         | 77/1184 [00:01<00:12, 86.83it/s]Loading weights:   7%|▋         | 87/1184 [00:01<00:12, 85.93it/s]Loading weights:   8%|▊         | 97/1184 [00:01<00:13, 79.32it/s]Loading weights:   9%|▉         | 106/1184 [00:01<00:14, 73.87it/s]Loading weights:  10%|█         | 119/1184 [00:01<00:12, 85.91it/s]Loading weights:  11%|█         | 132/1184 [00:01<00:11, 95.09it/s]Loading weights:  12%|█▏        | 142/1184 [00:02<00:11, 88.94it/s]Loading weights:  13%|█▎        | 152/1184 [00:02<00:13, 74.13it/s]Loading weights:  14%|█▎        | 161/1184 [00:02<00:14, 72.62it/s]Loading weights:  15%|█▍        | 173/1184 [00:02<00:12, 81.16it/s]Loading weights:  16%|█▌        | 186/1184 [00:02<00:11, 89.23it/s]Loading weights:  17%|█▋        | 200/1184 [00:02<00:10, 93.74it/s]Loading weights:  18%|█▊        | 210/1184 [00:02<00:12, 76.82it/s]Loading weights:  19%|█▉        | 225/1184 [00:03<00:10, 87.52it/s]Loading weights:  20%|█▉        | 236/1184 [00:03<00:10, 90.76it/s]Loading weights:  21%|██        | 246/1184 [00:03<00:11, 84.36it/s]Loading weights:  22%|██▏       | 255/1184 [00:03<00:12, 75.39it/s]Loading weights:  22%|██▏       | 263/1184 [00:03<00:12, 75.63it/s]Loading weights:  23%|██▎       | 278/1184 [00:03<00:10, 87.62it/s]Loading weights:  24%|██▍       | 288/1184 [00:03<00:10, 88.21it/s]Loading weights:  25%|██▌       | 297/1184 [00:03<00:10, 82.98it/s]Loading weights:  26%|██▌       | 306/1184 [00:04<00:10, 83.23it/s]Loading weights:  27%|██▋       | 315/1184 [00:04<00:12, 68.48it/s]Loading weights:  28%|██▊       | 330/1184 [00:04<00:09, 86.81it/s]Loading weights:  29%|██▉       | 341/1184 [00:04<00:09, 89.76it/s]Loading weights:  30%|██▉       | 351/1184 [00:04<00:09, 85.15it/s]Loading weights:  30%|███       | 360/1184 [00:04<00:10, 79.96it/s]Loading weights:  31%|███       | 369/1184 [00:04<00:11, 73.31it/s]Loading weights:  32%|███▏      | 384/1184 [00:05<00:09, 83.62it/s]Loading weights:  34%|███▎      | 398/1184 [00:05<00:08, 93.40it/s]Loading weights:  35%|███▍      | 409/1184 [00:05<00:08, 95.36it/s]Loading weights:  35%|███▌      | 419/1184 [00:05<00:09, 76.63it/s]Loading weights:  37%|███▋      | 437/1184 [00:05<00:07, 96.64it/s]Loading weights:  38%|███▊      | 450/1184 [00:05<00:07, 103.48it/s]Loading weights:  39%|███▉      | 462/1184 [00:05<00:07, 102.98it/s]Loading weights:  40%|███▉      | 473/1184 [00:05<00:08, 85.34it/s] Loading weights:  41%|████▏     | 489/1184 [00:06<00:06, 100.95it/s]Loading weights:  43%|████▎     | 504/1184 [00:06<00:06, 109.66it/s]Loading weights:  44%|████▍     | 518/1184 [00:06<00:05, 112.93it/s]Loading weights:  45%|████▍     | 530/1184 [00:06<00:06, 94.21it/s] Loading weights:  46%|████▌     | 543/1184 [00:06<00:06, 98.14it/s]Loading weights:  47%|████▋     | 557/1184 [00:06<00:06, 100.70it/s]Loading weights:  48%|████▊     | 571/1184 [00:06<00:05, 105.13it/s]Loading weights:  49%|████▉     | 582/1184 [00:07<00:06, 90.15it/s] Loading weights:  50%|█████     | 597/1184 [00:07<00:06, 92.74it/s]Loading weights:  52%|█████▏    | 611/1184 [00:07<00:05, 100.98it/s]Loading weights:  53%|█████▎    | 624/1184 [00:07<00:05, 104.67it/s]Loading weights:  54%|█████▎    | 635/1184 [00:07<00:06, 89.82it/s] Loading weights:  55%|█████▍    | 649/1184 [00:07<00:05, 100.33it/s]Loading weights:  56%|█████▌    | 662/1184 [00:07<00:04, 105.96it/s]Loading weights:  57%|█████▋    | 674/1184 [00:07<00:04, 102.53it/s]Loading weights:  58%|█████▊    | 685/1184 [00:08<00:05, 85.83it/s] Loading weights:  59%|█████▉    | 703/1184 [00:08<00:04, 99.66it/s]Loading weights:  60%|██████    | 716/1184 [00:08<00:04, 95.50it/s]Loading weights:  61%|██████▏   | 726/1184 [00:08<00:05, 91.02it/s]Loading weights:  62%|██████▏   | 736/1184 [00:08<00:05, 76.64it/s]Loading weights:  64%|██████▍   | 755/1184 [00:08<00:04, 100.82it/s]Loading weights:  65%|██████▍   | 768/1184 [00:08<00:03, 105.78it/s]Loading weights:  66%|██████▌   | 780/1184 [00:09<00:04, 100.79it/s]Loading weights:  67%|██████▋   | 791/1184 [00:09<00:04, 86.65it/s] Loading weights:  68%|██████▊   | 808/1184 [00:09<00:03, 97.80it/s]Loading weights:  69%|██████▉   | 821/1184 [00:09<00:03, 104.92it/s]Loading weights:  70%|███████   | 833/1184 [00:09<00:03, 99.74it/s] Loading weights:  71%|███████▏  | 844/1184 [00:09<00:04, 81.21it/s]Loading weights:  81%|████████  | 955/1184 [00:09<00:00, 305.45it/s]Loading weights:  95%|█████████▍| 1123/1184 [00:10<00:00, 629.08it/s]Loading weights: 100%|██████████| 1184/1184 [00:10<00:00, 117.73it/s]
+{"completed": 1, "planned": 60, "mode": "hf"}
+{"completed": 2, "planned": 60, "mode": "hf"}
+{"completed": 3, "planned": 60, "mode": "hf"}
+{"completed": 4, "planned": 60, "mode": "hf"}
+{"completed": 5, "planned": 60, "mode": "hf"}
+{"completed": 6, "planned": 60, "mode": "hf"}
+{"completed": 7, "planned": 60, "mode": "hf"}
+{"completed": 8, "planned": 60, "mode": "hf"}
+{"completed": 9, "planned": 60, "mode": "hf"}
+{"completed": 10, "planned": 60, "mode": "hf"}
+{"completed": 11, "planned": 60, "mode": "hf"}
+{"completed": 12, "planned": 60, "mode": "hf"}
+{"completed": 13, "planned": 60, "mode": "hf"}
+{"completed": 14, "planned": 60, "mode": "hf"}
+{"completed": 15, "planned": 60, "mode": "hf"}
+{"completed": 16, "planned": 60, "mode": "hf"}
+{"completed": 17, "planned": 60, "mode": "hf"}
+{"completed": 18, "planned": 60, "mode": "hf"}
+{"completed": 19, "planned": 60, "mode": "hf"}
+{"completed": 20, "planned": 60, "mode": "hf"}
+{"completed": 21, "planned": 60, "mode": "hf"}
+{"completed": 22, "planned": 60, "mode": "hf"}
+{"completed": 23, "planned": 60, "mode": "hf"}
+{"completed": 24, "planned": 60, "mode": "hf"}
+{"completed": 25, "planned": 60, "mode": "hf"}
+{"completed": 26, "planned": 60, "mode": "hf"}
+{"completed": 27, "planned": 60, "mode": "hf"}
+{"completed": 28, "planned": 60, "mode": "hf"}
+{"completed": 29, "planned": 60, "mode": "hf"}
+{"completed": 30, "planned": 60, "mode": "hf"}
+{"completed": 31, "planned": 60, "mode": "hf"}
+{"completed": 32, "planned": 60, "mode": "hf"}
+{"completed": 33, "planned": 60, "mode": "hf"}
+{"completed": 34, "planned": 60, "mode": "hf"}
+{"completed": 35, "planned": 60, "mode": "hf"}
+{"completed": 36, "planned": 60, "mode": "hf"}
+{"completed": 37, "planned": 60, "mode": "hf"}
+{"completed": 38, "planned": 60, "mode": "hf"}
+{"completed": 39, "planned": 60, "mode": "hf"}
+{"completed": 40, "planned": 60, "mode": "hf"}
+{"completed": 41, "planned": 60, "mode": "hf"}
+{"completed": 42, "planned": 60, "mode": "hf"}
+{"completed": 43, "planned": 60, "mode": "hf"}
+{"completed": 44, "planned": 60, "mode": "hf"}
+{"completed": 45, "planned": 60, "mode": "hf"}
+{"completed": 46, "planned": 60, "mode": "hf"}
+{"completed": 47, "planned": 60, "mode": "hf"}
+{"completed": 48, "planned": 60, "mode": "hf"}
+{"completed": 49, "planned": 60, "mode": "hf"}
+{"completed": 50, "planned": 60, "mode": "hf"}
+{"completed": 51, "planned": 60, "mode": "hf"}
+{"completed": 52, "planned": 60, "mode": "hf"}
+{"completed": 53, "planned": 60, "mode": "hf"}
+{"completed": 54, "planned": 60, "mode": "hf"}
+{"completed": 55, "planned": 60, "mode": "hf"}
+{"completed": 56, "planned": 60, "mode": "hf"}
+{"completed": 57, "planned": 60, "mode": "hf"}
+{"completed": 58, "planned": 60, "mode": "hf"}
+{"completed": 59, "planned": 60, "mode": "hf"}
+{"completed": 60, "planned": 60, "mode": "hf"}
+{"packet_sha256": "418f24b657eff7bb731ddb93a066889c63507fcab5cadc414231c3257ecba4f1", "mode": "hf", "model": "Qwen/Qwen3.8-27B", "approval_sha256": "18d0a37f2412730b3d82e6a1512355b365c8bc40bebc4c6d79d7e844c4b8adf8", "status": "COMPLETE", "responses": 60, "scientific_result": false, "response_hashes": ["886714167b2df739e629aa7b3bf8ee512c3c99d1a669f4dbf058c5c0bbab2822", "9f991d8980e6e81971a911c3ce5d453ffd494949fe42d55a806c1b33224a3bd5", "b930bf3e3158ad5c030f7651f54c0d9e1846614bde0464d972db213203910148", "52ff63d96b977145380c51e27489c7e4bae3dc466c15921345d0cca4fb618bf9", "2f7f0b7d7597057b9ea44166d642e329135a23da6a90b4d8f56bc42f857166d9", "c1ef90c2870483366d40c738c2533758c2f9fa919946e9653e7a9b0b48dff4ce", "88ebeddfcc395945f8253dc70d052a024386277f4cb7b3df76e98fe56d2d80da", "db4d5282719fbef898b378d68195bd8776a676dbda5bcefebd8d5e695f58fbac", "4c105e2d218377333af12c34485b8e401694080ef00348f86fad8b64e4b5d52f", "3e257e44cf0cd42d28c9c5d3975d4cdc479e3cd3a6759ed1129cad4578d20104", "a63f2670b59d84a32fcaef3742b721ce482e3ec058426e9bd8c46e24302e7f9e", "ada6aeb44828e3c6bac6ed7702ff32e73bd9ef6055f77b36e7dacbbff4ac4f6e", "cdc38f3a1ff00deb1122012b85d3b29d59449f015d9edef79ff6dc9011173b83", "9c2ceb29ef282103638f6cf15a2d993a35fa57c6ac17e4bddccc45bab0977ee5", "888275bb229ebfc7985fa006807c49aa0dde17a628ebf89c168f693341b26b18", "72f184fea3757b115024a62a0d1ea4ed37f1ce7d0c87a0d325f068c268a8d31e", "1f8166ae710e712e79a17e35c9c20626e3fe59612971469ac38448d57ac8c67d", "4a492b529163fefb32f88a70045ae67d86884949baa3d925867228d1649d6e0c", "12eef6ac2df6735638475792497ecbf66125114e109cf9510765a1d06dbb81c2", "a2adc35e3984ebcab71cb45c0d55be29193587714a35db37e1a7714fe63534aa", "321882f50bfc9637a8d0c3845ab0e24d30386cf2af45eaefd8a9ed97ffd91690", "c14b23407227e35cbf0dbe1b33b8600b56bfce6917e45fd871b1bc6aaec330d9", "1a971428aa0362053adbb143eaaac9424b25623bb329fa0e4eab0c1985f63cca", "4147ac1ff2ceda43bd079bc077d67cde73b52a2087dcfa574a9e6e0764934105", "8c5fe00ef94ac765b2d25f7398da6970dc86db2f3d9bd3c7f67fda9da76ee0eb", "75b65f4dee5d7b4d94834ce2a1467db3b1354d4803f9584b4504e1342e7c77e7", "fcb4ccc1f266d4458109052e719e86d15ff78803b6f074ce72fbaef4a5866744", "c5d3db090898740c428cce9a57652cf3dcdca5e0b5bc8af81dd5e54c0649b6f2", "7153f742c34476933d9177460ff05ca673df6eefa5fcd145efbb304369c63766", "64252552c5dd95772d4649da874bc6f4613dd3035e5066a5a93a9f4150f06161", "21c91020502328934f9b1f9d58c1b0d84e7ddcae56018b7d47ad178c07ea17ea", "9cfc8207e2dc1e76cefefb20e2e3bd43b6414d281f4f105f272e1ac321dcc9de", "248210709e616f3e0e625d760dac68c41a9e5b6c13ac5e6aed551285f1ff8b15", "425f58782844c5ea3da496555522495f63432ffd4005778e67480656102e6f8f", "8d33a74f77bacb2fcb43139d73d47461c1cfe7bc0b9fac80f15c27a7ab1a32b0", "daa9c3fc5cd1fe23707611362ddecb92e4f3ea85a6bb35e4444686393656d268", "40c506b1802b37033c0116c0f5697efda7558e8dd3befff6593eae42c27423d4", "2011a757eef71d1adc2ddd3f7cfef4df8eff2799650c2490d81da794c0e1b4ee", "a8b725ce8e244a231f4852ce5be49407b91165b583dbef077818e72ccf2e01ef", "319eb20fa5f2df2cc3e7178ce1cb04c2345e90785134acc0397967450096a8a0", "f87c320467bd4d61c7a83ab6c1952694f017446fb3eb793a740a00727f569994", "a43047209f3490462bdbda4670cb711b561355224477dad757350628dbb6638b", "84bcc43cc6d40e8a5fa79e8551e0145c10fe05c669dd4aaa562e951746b95a3b", "ad9a962f904bcc1943030c54b87ab2577a96bc483871c264df3fd6f919694ca9", "c140a8b7f36089a122f08f6311cd6fb0d131ef2b20d1fdda13e0b738c3a0fb82", "d15982cfa5db7b90d8b77dabd32c0ee735a3c4a421011043b62655dc3144cc86", "840cdcbe89f9a2be0006e85a0f615ffb9739f8d49d057b21031f77fa0432d884", "01a29b9afff9bc28f68802abfda12738d4f2cabcd2d69514bcaf7becca622bbf", "af3cf874aecc90e179e06b65d498de2fcc6a3d9387059230151f342dca7972a8", "9059db3b0b89f74d3f30d82d8b43257e63b900a2c008f3b978b30a1a5f0d36a9", "98387c049eaf8a387651241e2b12a842e12611803e36aa1069d62898981411f9", "29e44d0ef68e869cae8ac99814c0adcab713e1cbe9a5ff220316ce0a876d3055", "08390ab5904b17c0fac80f53a690f7e48e3c6ef35fc7a20c3a0167e03d6816de", "376e22ad55f1afd516bc7ed45e8bc79a15fa75ce409315d6decf2388a6cbc7bd", "4f4aec672e0fe7d8e3834c4585dbef9c21a833cf7816c3ef3fe9727c080cd5b0", "d7d303e29620b3e8272cb6424ece5b6c02c9aa57d1cfcf56b78d1ef2859c4673", "795f65a076a073a59c3ea403ddf51760b8f020a500b1411e8e62f6933a58a40b", "7229c1a6e8d6d0bfe06dee24e945693933979bb4947339d84945d2564b4e5377", "8090c0f87230b5d57c57c12b8651938300bedd33b3b84c418b22638cb497db99", "5acf7d7cb2e24062d55882f016916f85b4868a10dc134a843f473c3c2e2e7c73"]}

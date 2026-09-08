@@ -1,0 +1,122 @@
+[
+  {
+    "item_id": "0ec352ad7988d053",
+    "registered_frame": 0,
+    "split": "development"
+  },
+  {
+    "item_id": "a53e12053a2a5a57",
+    "registered_frame": 0,
+    "split": "development"
+  },
+  {
+    "item_id": "e824944310e0bc3a",
+    "registered_frame": 0,
+    "split": "development"
+  },
+  {
+    "item_id": "25aed77368d30388",
+    "registered_frame": 0,
+    "split": "development"
+  },
+  {
+    "item_id": "ef3bf6e26ea8cb90",
+    "registered_frame": 1,
+    "split": "development"
+  },
+  {
+    "item_id": "c7357e0959869f02",
+    "registered_frame": 1,
+    "split": "development"
+  },
+  {
+    "item_id": "216b8869778c5072",
+    "registered_frame": 1,
+    "split": "development"
+  },
+  {
+    "item_id": "11004fd44c49e0fb",
+    "registered_frame": 1,
+    "split": "development"
+  },
+  {
+    "item_id": "583d5cc7ee36bcc5",
+    "registered_frame": 2,
+    "split": "development"
+  },
+  {
+    "item_id": "a3ed0a586f29494d",
+    "registered_frame": 2,
+    "split": "development"
+  },
+  {
+    "item_id": "1a10e6a57573685d",
+    "registered_frame": 2,
+    "split": "development"
+  },
+  {
+    "item_id": "c2e4b4a298198451",
+    "registered_frame": 2,
+    "split": "development"
+  },
+  {
+    "item_id": "82a5d0af5429482f",
+    "registered_frame": 0,
+    "split": "confirmation"
+  },
+  {
+    "item_id": "b94c6ea088173d1b",
+    "registered_frame": 0,
+    "split": "confirmation"
+  },
+  {
+    "item_id": "ac91f12f3d92c4b4",
+    "registered_frame": 0,
+    "split": "confirmation"
+  },
+  {
+    "item_id": "0904b79c5d2730a2",
+    "registered_frame": 0,
+    "split": "confirmation"
+  },
+  {
+    "item_id": "3262f15f7d385692",
+    "registered_frame": 1,
+    "split": "confirmation"
+  },
+  {
+    "item_id": "03f16f4afb30fe56",
+    "registered_frame": 1,
+    "split": "confirmation"
+  },
+  {
+    "item_id": "aee7fae42fd6636f",
+    "registered_frame": 1,
+    "split": "confirmation"
+  },
+  {
+    "item_id": "8b50da657f72d6d8",
+    "registered_frame": 1,
+    "split": "confirmation"
+  },
+  {
+    "item_id": "c6576ac6f7af9891",
+    "registered_frame": 2,
+    "split": "confirmation"
+  },
+  {
+    "item_id": "947235dc73a5e4b6",
+    "registered_frame": 2,
+    "split": "confirmation"
+  },
+  {
+    "item_id": "0c628823cae55bde",
+    "registered_frame": 2,
+    "split": "confirmation"
+  },
+  {
+    "item_id": "140aec007e6ee78d",
+    "registered_frame": 2,
+    "split": "confirmation"
+  }
+]

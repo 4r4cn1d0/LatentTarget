@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "results/partner_repair_calibration_20260908/manifest.json": "51cb925b9035b6d99930cb97fe56016337f2d7c4d689b3e3a2f6fc24556862c9",
+    "results/partner_repair_stimuli_20260908/manifest.json": "557d7c4c971ceb8a3a74b30219704330dfdd8de8d59771ad2ecc768b27862c2f",
+    "scripts/report_partner_repair.py": "f9d673d75f34807451197cb667d98a35ca0fd89070b714b16b892a2f632e6d2f"
+  },
+  "model_calls": 0,
+  "outputs": {
+    "REPORT.md": "50e75757bcf974d5afbea4bf7786d0fdb2f0806e2c733677376f73f01460d539",
+    "calibration_comparison.png": "efa5aef612a39cd0abf453d97ec0f750b4258ab384e94695d5c566ae181ecc30",
+    "calibration_comparison.svg": "f992d102e841530a876a4c9a39e87739323f19b6c73011b4675fcbdf1b20f6aa",
+    "wording_audit.png": "9788e97d39343e398c538da266d20956073792060d95745d3ccfc4236cca5bd8",
+    "wording_audit.svg": "4fce265276235021b76b2652b6414b9b4cb46754a74cab0a1f8e54466de30f84"
+  },
+  "paid_calls": 0,
+  "status": "COMPLETE"
+}

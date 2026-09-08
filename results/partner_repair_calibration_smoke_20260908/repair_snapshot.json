@@ -1,0 +1,88 @@
+{
+  "batch_size": 100,
+  "branch_validity": 0.98,
+  "control_alpha": 0.05,
+  "control_margin": 0.1,
+  "coverage_diagnostics": {
+    "distributions": [
+      "bernoulli",
+      "signed_bernoulli"
+    ],
+    "means": [
+      0.05,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "role": "diagnostic_not_an_alternative_method_selection_rule",
+    "seed": 202609085,
+    "studies_per_cell": 5000
+  },
+  "extra_scenarios": [
+    {
+      "coupling": "independent",
+      "id": "expertise_heavy_null",
+      "missing": "none",
+      "policy": "uniform",
+      "rate": 0.0,
+      "role": "null",
+      "strength": 0.1
+    },
+    {
+      "coupling": "shared",
+      "id": "shared_sparse_null",
+      "missing": "none",
+      "policy": "uniform",
+      "rate": 0.0,
+      "role": "null",
+      "strength": 0.5
+    }
+  ],
+  "id": "partner_calibration_repair_20260908",
+  "mean_threshold": 0.1,
+  "mechanistic_run_authorized": false,
+  "method": "stratified_unbiased_variance_minimum_df_t",
+  "method_candidates": 1,
+  "n_grid": [
+    36,
+    72,
+    144,
+    288
+  ],
+  "paid_run_authorized": false,
+  "parent_config": "docs/partner_state_offline_20260907.json",
+  "parent_sha256": "45cede3cbadeafc5dcbeb17388df375bcf67ac7c73e5a84da7a18635acdeeed5",
+  "primary_alpha": 0.025,
+  "required_joint_lower": 0.8,
+  "required_null_upper": 0.05,
+  "seed": 202609081,
+  "status": "OFFLINE_VALIDATION_ONLY",
+  "stimulus_audit": {
+    "banks": [
+      "original_confirmation",
+      "candidate_draft"
+    ],
+    "candidate_path": "docs/partner_wording_candidate_20260908.json",
+    "design": "paired_identical_histories_except_message_wording_and_candidate_wording",
+    "human_semantic_validation": false,
+    "n": 288,
+    "policies": [
+      "original_jaccard",
+      "content_jaccard",
+      "stem_jaccard",
+      "character_trigram",
+      "length_only",
+      "static_belief",
+      "participant_feature_reward",
+      "typed_history_oracle"
+    ],
+    "post_result_rewording_allowed": false,
+    "production_heldout_bank": false,
+    "seeds": [
+      202609082,
+      202609083,
+      202609084
+    ]
+  },
+  "studies_per_cell": 5000
+}

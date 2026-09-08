@@ -1,0 +1,239 @@
+{
+  "batch_size": 100,
+  "bootstrap_implementation": "exact_marginal_stratified_percentile_distribution_on_quarter_lattice",
+  "bootstrap_note": "Same whole bundle resampling law as draft, computed by finite convolution rather than 10000 Monte Carlo resamples. Does not make population coverage exact. Must agree with brute force and Monte Carlo checks.",
+  "branch_validity": 0.98,
+  "control_alpha": 0.05,
+  "control_margin": 0.1,
+  "coverage_diagnostics": {
+    "distributions": [
+      "bernoulli",
+      "signed_bernoulli"
+    ],
+    "means": [
+      0.05,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "role": "diagnostic_not_an_alternative_method_selection_rule",
+    "seed": 202609085,
+    "studies_per_cell": 5000
+  },
+  "design_path": "docs/partner_state_study_20260907.json",
+  "design_sha256": "ef68ae00ea8421bb21e99ef2901af0a69365f3c07adda0d3f8229969566a6dda",
+  "extra_scenarios": [
+    {
+      "coupling": "independent",
+      "id": "expertise_heavy_null",
+      "missing": "none",
+      "policy": "uniform",
+      "rate": 0.0,
+      "role": "null",
+      "strength": 0.1
+    },
+    {
+      "coupling": "shared",
+      "id": "shared_sparse_null",
+      "missing": "none",
+      "policy": "uniform",
+      "rate": 0.0,
+      "role": "null",
+      "strength": 0.5
+    }
+  ],
+  "id": "partner_calibration_repair_20260908",
+  "limitations": [
+    "Mathematical policies know registered frames; no simulated policy is a real LLM.",
+    "Mixture strength is probability of using the policy instead of an expertise default, not a claimed LLM effect size.",
+    "Numerical study generator covers the registered abstract simulator, not semantic classification error.",
+    "No sample recommendation becomes authority for paid deployment.",
+    "The original draft and all historical gates stay unchanged."
+  ],
+  "mean_threshold": 0.1,
+  "mechanistic_run_authorized": false,
+  "method": "stratified_unbiased_variance_minimum_df_t",
+  "method_candidates": 1,
+  "n_grid": [
+    36,
+    72,
+    144,
+    288
+  ],
+  "paid_run_authorized": false,
+  "parent_config": "docs/partner_state_offline_20260907.json",
+  "parent_sha256": "45cede3cbadeafc5dcbeb17388df375bcf67ac7c73e5a84da7a18635acdeeed5",
+  "policy_parameters": {
+    "belief_hazard": 0.05,
+    "initial_reward": 0.5,
+    "recent_window": 6,
+    "reward_alpha": 0.1
+  },
+  "primary_alpha": 0.025,
+  "required_alternative_cells": [
+    "belief_half_shared",
+    "belief_half_independent",
+    "belief_half_mcar_1pct",
+    "belief_half_selective_1pct"
+  ],
+  "required_joint_lower": 0.8,
+  "required_null_upper": 0.05,
+  "scenarios": [
+    {
+      "coupling": "independent",
+      "id": "uniform_null",
+      "missing": "none",
+      "policy": "uniform",
+      "rate": 0.0,
+      "role": "null",
+      "strength": 1.0
+    },
+    {
+      "coupling": "shared",
+      "id": "global_reward_null",
+      "missing": "none",
+      "policy": "global_reward",
+      "rate": 0.0,
+      "role": "null",
+      "strength": 1.0
+    },
+    {
+      "coupling": "shared",
+      "id": "global_recency_null",
+      "missing": "none",
+      "policy": "global_recency",
+      "rate": 0.0,
+      "role": "null",
+      "strength": 1.0
+    },
+    {
+      "coupling": "shared",
+      "id": "name_bias_null",
+      "missing": "none",
+      "policy": "name_bias",
+      "rate": 0.0,
+      "role": "null",
+      "strength": 1.0
+    },
+    {
+      "coupling": "shared",
+      "id": "belief_full",
+      "missing": "none",
+      "policy": "static_belief",
+      "rate": 0.0,
+      "role": "reference",
+      "strength": 1.0
+    },
+    {
+      "coupling": "shared",
+      "id": "belief_half_shared",
+      "missing": "none",
+      "policy": "static_belief",
+      "rate": 0.0,
+      "role": "required_alternative",
+      "strength": 0.5
+    },
+    {
+      "coupling": "independent",
+      "id": "belief_half_independent",
+      "missing": "none",
+      "policy": "static_belief",
+      "rate": 0.0,
+      "role": "required_alternative",
+      "strength": 0.5
+    },
+    {
+      "coupling": "shared",
+      "id": "belief_half_mcar_1pct",
+      "missing": "mcar",
+      "policy": "static_belief",
+      "rate": 0.01,
+      "role": "required_alternative",
+      "strength": 0.5
+    },
+    {
+      "coupling": "shared",
+      "id": "belief_half_selective_1pct",
+      "missing": "fairness_selective",
+      "policy": "static_belief",
+      "rate": 0.01,
+      "role": "required_alternative",
+      "strength": 0.5
+    },
+    {
+      "coupling": "shared",
+      "id": "belief_mcar_3pct",
+      "missing": "mcar",
+      "policy": "static_belief",
+      "rate": 0.03,
+      "role": "stress",
+      "strength": 1.0
+    },
+    {
+      "coupling": "shared",
+      "id": "feature_reward",
+      "missing": "none",
+      "policy": "participant_feature_reward",
+      "rate": 0.0,
+      "role": "legitimate_alternative",
+      "strength": 1.0
+    },
+    {
+      "coupling": "shared",
+      "id": "dynamic_belief",
+      "missing": "none",
+      "policy": "dynamic_belief",
+      "rate": 0.0,
+      "role": "reference",
+      "strength": 1.0
+    },
+    {
+      "coupling": "independent",
+      "id": "expertise_heavy_null",
+      "missing": "none",
+      "policy": "uniform",
+      "rate": 0.0,
+      "role": "null",
+      "strength": 0.1
+    },
+    {
+      "coupling": "shared",
+      "id": "shared_sparse_null",
+      "missing": "none",
+      "policy": "uniform",
+      "rate": 0.0,
+      "role": "null",
+      "strength": 0.5
+    }
+  ],
+  "seed": 202609081,
+  "status": "OFFLINE_VALIDATION_ONLY",
+  "stimulus_audit": {
+    "banks": [
+      "original_confirmation",
+      "candidate_draft"
+    ],
+    "candidate_path": "docs/partner_wording_candidate_20260908.json",
+    "design": "paired_identical_histories_except_message_wording_and_candidate_wording",
+    "human_semantic_validation": false,
+    "n": 288,
+    "policies": [
+      "original_jaccard",
+      "content_jaccard",
+      "stem_jaccard",
+      "character_trigram",
+      "length_only",
+      "static_belief",
+      "participant_feature_reward",
+      "typed_history_oracle"
+    ],
+    "post_result_rewording_allowed": false,
+    "production_heldout_bank": false,
+    "seeds": [
+      202609082,
+      202609083,
+      202609084
+    ]
+  },
+  "studies_per_cell": 5000
+}

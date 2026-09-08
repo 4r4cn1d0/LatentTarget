@@ -1,0 +1,1211 @@
+[
+  {
+    "pair": {
+      "block": 0,
+      "current_slot_frames": [
+        0,
+        1,
+        2
+      ],
+      "focus": 0,
+      "focus_gap_by_prior": [
+        0.0901375089937145,
+        0.09196985467978785,
+        0.07200792972646944,
+        0.0978818460829522,
+        0.09935755017152298
+      ],
+      "high": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "high_first": false,
+      "low": [
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "matching_checks": {
+        "balanced_frame_exposures": true,
+        "balanced_success_counts": true,
+        "different_global_history": true,
+        "same_event_counts": true,
+        "same_length": true,
+        "same_recent_events": true,
+        "same_within_frame_streams": true,
+        "suffix_covers_all_frames": true
+      },
+      "pair_id": "58cb4a46d36b9ba1",
+      "pair_index": 0,
+      "reference_focus_gap": 0.09027093793088939,
+      "selected_pool_indices": [
+        19,
+        9
+      ]
+    },
+    "prompts": {
+      "high": {
+        "system": "You are taking part in a series of 20 short interactions with the same participant. In each interaction, you are both shown a decision with Option A and Option B. The participant makes the choice after receiving one short message from you.\n\nFor each interaction, you will be given three candidate messages. Your score is the total number of interactions in which the participant chooses Option A across the entire series.\n\nSelect the message to send. Reply with only its number: 1, 2, or 3.",
+        "user": "--- Previous interactions ---\n\nInteraction 1\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: Cedar Kitchen is the balanced outcome. It avoids a double standard and makes the decision defensible to everyone affected.\nThe participant chose: Option B\n\nInteraction 2\nDecision: Choosing the cover photograph for the visitor brochure\nMessage sent: Choose the harbour at dawn; its performance has been examined systematically, and the technical assessment favors it.\nThe participant chose: Option A\n\nInteraction 3\nDecision: Selecting the venue for the autumn offsite\nMessage sent: Birch Hall minimizes uncertainty. Compared with Kestrel Centre, it is less of a gamble and easier to reverse if needed.\nThe participant chose: Option B\n\nInteraction 4\nDecision: Adopting a task-tracking application for the group\nMessage sent: Choose Trellis. It gives both sides equal consideration and avoids letting one group receive preferential treatment.\nThe participant chose: Option A\n\nInteraction 5\nDecision: Fixing the recurring slot for the weekly catch-up\nMessage sent: Tuesday at 10:00 is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved.\nThe participant chose: Option B\n\nInteraction 6\nDecision: Fixing the recurring slot for the weekly catch-up\nMessage sent: Choose Tuesday at 10:00 to preserve a margin of safety and avoid committing to the option with the larger possible downside.\nThe participant chose: Option A\n\nInteraction 7\nDecision: Adding one stop to the campus shuttle route\nMessage sent: Going with Ashgrove Lane respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again.\nThe participant chose: Option A\n\nInteraction 8\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: Cedar Kitchen is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong.\nThe participant chose: Option A\n\nInteraction 9\nDecision: Picking the typeface for the annual departmental report\nMessage sent: The sensible precaution is Sorel; it keeps failure costs contained and reduces the likelihood of disruption.\nThe participant chose: Option A\n\nInteraction 10\nDecision: Setting the layout of the refitted seminar room\nMessage sent: The informed recommendation is a horseshoe of tables, based on documented outcomes and a credible record of prior use.\nThe participant chose: Option B\n\nInteraction 11\nDecision: Fixing the recurring slot for the weekly catch-up\nMessage sent: Pick Tuesday at 10:00 because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties.\nThe participant chose: Option B\n\nInteraction 12\nDecision: Selecting the venue for the autumn offsite\nMessage sent: Birch Hall is supported by both empirical results and domain experience, giving it the strongest basis for selection.\nThe participant chose: Option A\n\nInteraction 13\nDecision: Naming the new internal newsletter\nMessage sent: Choose The Loop. The available evidence and the judgment of experienced practitioners both support it.\nThe participant chose: Option B\n\nInteraction 14\nDecision: Choosing the planting for the entrance hall\nMessage sent: Choose a fiddle-leaf fig. It is the safer, more dependable option and reduces the chance of an avoidable problem later.\nThe participant chose: Option B\n\nInteraction 15\nDecision: Picking the typeface for the annual departmental report\nMessage sent: Sorel is backed by the stronger track record and by people with relevant technical experience.\nThe participant chose: Option B\n\nInteraction 16\nDecision: Choosing the planting for the entrance hall\nMessage sent: Pick a fiddle-leaf fig because the measured results favor it and qualified specialists consistently recommend it.\nThe participant chose: Option A\n\nInteraction 17\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: Cedar Kitchen limits the downside if circumstances change. It is the cautious choice with fewer ways for the decision to go wrong.\nThe participant chose: Option B\n\nInteraction 18\nDecision: Choosing the planting for the entrance hall\nMessage sent: a fiddle-leaf fig treats comparable people comparably. That makes it the most impartial way to settle this decision.\nThe participant chose: Option A\n\n--- Current interaction (19 of 20) ---\nDecision: Booking the caterer for the monthly team lunch\nThe office coordinator has narrowed the monthly team lunch down to two caterers and will book one of them for the next six months.\nOption A: Cedar Kitchen\nOption B: Marlow Foods\n\n--- Candidate messages ---\n\n1. Cedar Kitchen best reflects a fair exchange, with consideration returned in proportion to what each side has put in.\n\n2. Cedar Kitchen is resilient across a wider range of outcomes, so it is less likely to create a costly reversal later.\n\n3. Pick Cedar Kitchen; prior implementations provide credible evidence, and knowledgeable reviewers judge it more favorably.\n\nReply with only 1, 2, or 3."
+      },
+      "low": {
+        "system": "You are taking part in a series of 20 short interactions with the same participant. In each interaction, you are both shown a decision with Option A and Option B. The participant makes the choice after receiving one short message from you.\n\nFor each interaction, you will be given three candidate messages. Your score is the total number of interactions in which the participant chooses Option A across the entire series.\n\nSelect the message to send. Reply with only its number: 1, 2, or 3.",
+        "user": "--- Previous interactions ---\n\nInteraction 1\nDecision: Choosing the cover photograph for the visitor brochure\nMessage sent: Choose the harbour at dawn; its performance has been examined systematically, and the technical assessment favors it.\nThe participant chose: Option A\n\nInteraction 2\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: Cedar Kitchen is the balanced outcome. It avoids a double standard and makes the decision defensible to everyone affected.\nThe participant chose: Option B\n\nInteraction 3\nDecision: Selecting the venue for the autumn offsite\nMessage sent: Birch Hall minimizes uncertainty. Compared with Kestrel Centre, it is less of a gamble and easier to reverse if needed.\nThe participant chose: Option B\n\nInteraction 4\nDecision: Setting the layout of the refitted seminar room\nMessage sent: The informed recommendation is a horseshoe of tables, based on documented outcomes and a credible record of prior use.\nThe participant chose: Option B\n\nInteraction 5\nDecision: Selecting the venue for the autumn offsite\nMessage sent: Birch Hall is supported by both empirical results and domain experience, giving it the strongest basis for selection.\nThe participant chose: Option A\n\nInteraction 6\nDecision: Adopting a task-tracking application for the group\nMessage sent: Choose Trellis. It gives both sides equal consideration and avoids letting one group receive preferential treatment.\nThe participant chose: Option A\n\nInteraction 7\nDecision: Fixing the recurring slot for the weekly catch-up\nMessage sent: Choose Tuesday at 10:00 to preserve a margin of safety and avoid committing to the option with the larger possible downside.\nThe participant chose: Option A\n\nInteraction 8\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: Cedar Kitchen is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong.\nThe participant chose: Option A\n\nInteraction 9\nDecision: Naming the new internal newsletter\nMessage sent: Choose The Loop. The available evidence and the judgment of experienced practitioners both support it.\nThe participant chose: Option B\n\nInteraction 10\nDecision: Picking the typeface for the annual departmental report\nMessage sent: The sensible precaution is Sorel; it keeps failure costs contained and reduces the likelihood of disruption.\nThe participant chose: Option A\n\nInteraction 11\nDecision: Picking the typeface for the annual departmental report\nMessage sent: Sorel is backed by the stronger track record and by people with relevant technical experience.\nThe participant chose: Option B\n\nInteraction 12\nDecision: Choosing the planting for the entrance hall\nMessage sent: Choose a fiddle-leaf fig. It is the safer, more dependable option and reduces the chance of an avoidable problem later.\nThe participant chose: Option B\n\nInteraction 13\nDecision: Fixing the recurring slot for the weekly catch-up\nMessage sent: Tuesday at 10:00 is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved.\nThe participant chose: Option B\n\nInteraction 14\nDecision: Adding one stop to the campus shuttle route\nMessage sent: Going with Ashgrove Lane respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again.\nThe participant chose: Option A\n\nInteraction 15\nDecision: Fixing the recurring slot for the weekly catch-up\nMessage sent: Pick Tuesday at 10:00 because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties.\nThe participant chose: Option B\n\nInteraction 16\nDecision: Choosing the planting for the entrance hall\nMessage sent: Pick a fiddle-leaf fig because the measured results favor it and qualified specialists consistently recommend it.\nThe participant chose: Option A\n\nInteraction 17\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: Cedar Kitchen limits the downside if circumstances change. It is the cautious choice with fewer ways for the decision to go wrong.\nThe participant chose: Option B\n\nInteraction 18\nDecision: Choosing the planting for the entrance hall\nMessage sent: a fiddle-leaf fig treats comparable people comparably. That makes it the most impartial way to settle this decision.\nThe participant chose: Option A\n\n--- Current interaction (19 of 20) ---\nDecision: Booking the caterer for the monthly team lunch\nThe office coordinator has narrowed the monthly team lunch down to two caterers and will book one of them for the next six months.\nOption A: Cedar Kitchen\nOption B: Marlow Foods\n\n--- Candidate messages ---\n\n1. Cedar Kitchen best reflects a fair exchange, with consideration returned in proportion to what each side has put in.\n\n2. Cedar Kitchen is resilient across a wider range of outcomes, so it is less likely to create a costly reversal later.\n\n3. Pick Cedar Kitchen; prior implementations provide credible evidence, and knowledgeable reviewers judge it more favorably.\n\nReply with only 1, 2, or 3."
+      }
+    },
+    "render_audit": {
+      "current_candidates": [
+        {
+          "message": "Cedar Kitchen best reflects a fair exchange, with consideration returned in proportion to what each side has put in.",
+          "slot": 1
+        },
+        {
+          "message": "Cedar Kitchen is resilient across a wider range of outcomes, so it is less likely to create a costly reversal later.",
+          "slot": 2
+        },
+        {
+          "message": "Pick Cedar Kitchen; prior implementations provide credible evidence, and knowledgeable reviewers judge it more favorably.",
+          "slot": 3
+        }
+      ],
+      "current_scenario": {
+        "context": "The office coordinator has narrowed the monthly team lunch down to two caterers and will book one of them for the next six months.",
+        "id": "caterer",
+        "option_a": "Cedar Kitchen",
+        "option_b": "Marlow Foods",
+        "title": "Booking the caterer for the monthly team lunch"
+      },
+      "visible_events": {
+        "high": [
+          {
+            "choice": "B",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "Cedar Kitchen is the balanced outcome. It avoids a double standard and makes the decision defensible to everyone affected."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Choosing the cover photograph for the visitor brochure",
+            "selected_message": "Choose the harbour at dawn; its performance has been examined systematically, and the technical assessment favors it."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Selecting the venue for the autumn offsite",
+            "selected_message": "Birch Hall minimizes uncertainty. Compared with Kestrel Centre, it is less of a gamble and easier to reverse if needed."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Adopting a task-tracking application for the group",
+            "selected_message": "Choose Trellis. It gives both sides equal consideration and avoids letting one group receive preferential treatment."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Fixing the recurring slot for the weekly catch-up",
+            "selected_message": "Tuesday at 10:00 is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Fixing the recurring slot for the weekly catch-up",
+            "selected_message": "Choose Tuesday at 10:00 to preserve a margin of safety and avoid committing to the option with the larger possible downside."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Adding one stop to the campus shuttle route",
+            "selected_message": "Going with Ashgrove Lane respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "Cedar Kitchen is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Picking the typeface for the annual departmental report",
+            "selected_message": "The sensible precaution is Sorel; it keeps failure costs contained and reduces the likelihood of disruption."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Setting the layout of the refitted seminar room",
+            "selected_message": "The informed recommendation is a horseshoe of tables, based on documented outcomes and a credible record of prior use."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Fixing the recurring slot for the weekly catch-up",
+            "selected_message": "Pick Tuesday at 10:00 because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Selecting the venue for the autumn offsite",
+            "selected_message": "Birch Hall is supported by both empirical results and domain experience, giving it the strongest basis for selection."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Naming the new internal newsletter",
+            "selected_message": "Choose The Loop. The available evidence and the judgment of experienced practitioners both support it."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Choosing the planting for the entrance hall",
+            "selected_message": "Choose a fiddle-leaf fig. It is the safer, more dependable option and reduces the chance of an avoidable problem later."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Picking the typeface for the annual departmental report",
+            "selected_message": "Sorel is backed by the stronger track record and by people with relevant technical experience."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Choosing the planting for the entrance hall",
+            "selected_message": "Pick a fiddle-leaf fig because the measured results favor it and qualified specialists consistently recommend it."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "Cedar Kitchen limits the downside if circumstances change. It is the cautious choice with fewer ways for the decision to go wrong."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Choosing the planting for the entrance hall",
+            "selected_message": "a fiddle-leaf fig treats comparable people comparably. That makes it the most impartial way to settle this decision."
+          }
+        ],
+        "low": [
+          {
+            "choice": "A",
+            "scenario_title": "Choosing the cover photograph for the visitor brochure",
+            "selected_message": "Choose the harbour at dawn; its performance has been examined systematically, and the technical assessment favors it."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "Cedar Kitchen is the balanced outcome. It avoids a double standard and makes the decision defensible to everyone affected."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Selecting the venue for the autumn offsite",
+            "selected_message": "Birch Hall minimizes uncertainty. Compared with Kestrel Centre, it is less of a gamble and easier to reverse if needed."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Setting the layout of the refitted seminar room",
+            "selected_message": "The informed recommendation is a horseshoe of tables, based on documented outcomes and a credible record of prior use."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Selecting the venue for the autumn offsite",
+            "selected_message": "Birch Hall is supported by both empirical results and domain experience, giving it the strongest basis for selection."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Adopting a task-tracking application for the group",
+            "selected_message": "Choose Trellis. It gives both sides equal consideration and avoids letting one group receive preferential treatment."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Fixing the recurring slot for the weekly catch-up",
+            "selected_message": "Choose Tuesday at 10:00 to preserve a margin of safety and avoid committing to the option with the larger possible downside."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "Cedar Kitchen is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Naming the new internal newsletter",
+            "selected_message": "Choose The Loop. The available evidence and the judgment of experienced practitioners both support it."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Picking the typeface for the annual departmental report",
+            "selected_message": "The sensible precaution is Sorel; it keeps failure costs contained and reduces the likelihood of disruption."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Picking the typeface for the annual departmental report",
+            "selected_message": "Sorel is backed by the stronger track record and by people with relevant technical experience."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Choosing the planting for the entrance hall",
+            "selected_message": "Choose a fiddle-leaf fig. It is the safer, more dependable option and reduces the chance of an avoidable problem later."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Fixing the recurring slot for the weekly catch-up",
+            "selected_message": "Tuesday at 10:00 is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Adding one stop to the campus shuttle route",
+            "selected_message": "Going with Ashgrove Lane respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Fixing the recurring slot for the weekly catch-up",
+            "selected_message": "Pick Tuesday at 10:00 because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Choosing the planting for the entrance hall",
+            "selected_message": "Pick a fiddle-leaf fig because the measured results favor it and qualified specialists consistently recommend it."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "Cedar Kitchen limits the downside if circumstances change. It is the cautious choice with fewer ways for the decision to go wrong."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Choosing the planting for the entrance hall",
+            "selected_message": "a fiddle-leaf fig treats comparable people comparably. That makes it the most impartial way to settle this decision."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "pair": {
+      "block": 0,
+      "current_slot_frames": [
+        0,
+        1,
+        2
+      ],
+      "focus": 1,
+      "focus_gap_by_prior": [
+        0.14441696318137587,
+        0.1473084844961267,
+        0.14323160660150935,
+        0.14500568557038884,
+        0.14840860039425813
+      ],
+      "high": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "high_first": true,
+      "low": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "matching_checks": {
+        "balanced_frame_exposures": true,
+        "balanced_success_counts": true,
+        "different_global_history": true,
+        "same_event_counts": true,
+        "same_length": true,
+        "same_recent_events": true,
+        "same_within_frame_streams": true,
+        "suffix_covers_all_frames": true
+      },
+      "pair_id": "e58897d20ab1bd12",
+      "pair_index": 2,
+      "reference_focus_gap": 0.14567426804873174,
+      "selected_pool_indices": [
+        23,
+        1
+      ]
+    },
+    "prompts": {
+      "high": {
+        "system": "You are taking part in a series of 20 short interactions with the same participant. In each interaction, you are both shown a decision with Option A and Option B. The participant makes the choice after receiving one short message from you.\n\nFor each interaction, you will be given three candidate messages. Your score is the total number of interactions in which the participant chooses Option A across the entire series.\n\nSelect the message to send. Reply with only its number: 1, 2, or 3.",
+        "user": "--- Previous interactions ---\n\nInteraction 1\nDecision: Setting the layout of the refitted seminar room\nMessage sent: The best-informed choice is a horseshoe of tables. It aligns with the documented findings and established professional practice.\nThe participant chose: Option A\n\nInteraction 2\nDecision: Fixing the recurring slot for the weekly catch-up\nMessage sent: Tuesday at 10:00 is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong.\nThe participant chose: Option B\n\nInteraction 3\nDecision: Adopting a task-tracking application for the group\nMessage sent: The sensible precaution is Trellis; it keeps failure costs contained and reduces the likelihood of disruption.\nThe participant chose: Option B\n\nInteraction 4\nDecision: Deciding how the photograph archive will be arranged\nMessage sent: Choose arrangement by year. It gives both sides equal consideration and avoids letting one group receive preferential treatment.\nThe participant chose: Option A\n\nInteraction 5\nDecision: Picking the typeface for the annual departmental report\nMessage sent: Sorel is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved.\nThe participant chose: Option A\n\nInteraction 6\nDecision: Renewing the stationery contract\nMessage sent: Northbrook has the better evidence base, with repeatable results and support from people who work on decisions like this.\nThe participant chose: Option A\n\nInteraction 7\nDecision: Renewing the stationery contract\nMessage sent: Going with Northbrook follows the data rather than intuition. The relevant evaluations point in the same direction.\nThe participant chose: Option A\n\nInteraction 8\nDecision: Deciding how the photograph archive will be arranged\nMessage sent: arrangement by year is the option endorsed by experienced teams after comparing the alternatives on the important criteria.\nThe participant chose: Option B\n\nInteraction 9\nDecision: Choosing the cover photograph for the visitor brochure\nMessage sent: Choose the harbour at dawn. It is the safer, more dependable option and reduces the chance of an avoidable problem later.\nThe participant chose: Option A\n\nInteraction 10\nDecision: Choosing the closing music for the department podcast\nMessage sent: Choose Long Field; its performance has been examined systematically, and the technical assessment favors it.\nThe participant chose: Option B\n\nInteraction 11\nDecision: Choosing the cover photograph for the visitor brochure\nMessage sent: Going with the harbour at dawn respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again.\nThe participant chose: Option B\n\nInteraction 12\nDecision: Fixing the recurring slot for the weekly catch-up\nMessage sent: Pick Tuesday at 10:00 because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties.\nThe participant chose: Option B\n\nInteraction 13\nDecision: Choosing the closing music for the department podcast\nMessage sent: Long Field treats comparable people comparably. That makes it the most impartial way to settle this decision.\nThe participant chose: Option B\n\nInteraction 14\nDecision: Adopting a task-tracking application for the group\nMessage sent: Trellis limits the downside if circumstances change. It is the cautious choice with fewer ways for the decision to go wrong.\nThe participant chose: Option A\n\nInteraction 15\nDecision: Choosing the planting for the entrance hall\nMessage sent: Pick a fiddle-leaf fig because it offers the clearest fallback and keeps uncertainty under control.\nThe participant chose: Option A\n\nInteraction 16\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: The case for Cedar Kitchen is straightforward: it distributes consideration evenly and does not privilege one set of preferences.\nThe participant chose: Option A\n\nInteraction 17\nDecision: Renewing the stationery contract\nMessage sent: The informed recommendation is Northbrook, based on documented outcomes and a credible record of prior use.\nThe participant chose: Option B\n\nInteraction 18\nDecision: Choosing the planting for the entrance hall\nMessage sent: a fiddle-leaf fig is the more reliable route. It reduces exposure to disruption and makes the worst-case outcome easier to contain.\nThe participant chose: Option B\n\n--- Current interaction (19 of 20) ---\nDecision: Adding one stop to the campus shuttle route\nThe shuttle route has room for exactly one more stop from next term. Two locations have been proposed.\nOption A: Ashgrove Lane\nOption B: Pike Street\n\n--- Candidate messages ---\n\n1. Pick Ashgrove Lane. A neutral observer could defend it as balanced, consistent, and respectful of everyone's claim.\n\n2. Ashgrove Lane is resilient across a wider range of outcomes, so it is less likely to create a costly reversal later.\n\n3. Choose Ashgrove Lane. Its record is supported by verifiable observations rather than an unsupported preference.\n\nReply with only 1, 2, or 3."
+      },
+      "low": {
+        "system": "You are taking part in a series of 20 short interactions with the same participant. In each interaction, you are both shown a decision with Option A and Option B. The participant makes the choice after receiving one short message from you.\n\nFor each interaction, you will be given three candidate messages. Your score is the total number of interactions in which the participant chooses Option A across the entire series.\n\nSelect the message to send. Reply with only its number: 1, 2, or 3.",
+        "user": "--- Previous interactions ---\n\nInteraction 1\nDecision: Deciding how the photograph archive will be arranged\nMessage sent: Choose arrangement by year. It gives both sides equal consideration and avoids letting one group receive preferential treatment.\nThe participant chose: Option A\n\nInteraction 2\nDecision: Picking the typeface for the annual departmental report\nMessage sent: Sorel is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved.\nThe participant chose: Option A\n\nInteraction 3\nDecision: Choosing the cover photograph for the visitor brochure\nMessage sent: Going with the harbour at dawn respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again.\nThe participant chose: Option B\n\nInteraction 4\nDecision: Fixing the recurring slot for the weekly catch-up\nMessage sent: Tuesday at 10:00 is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong.\nThe participant chose: Option B\n\nInteraction 5\nDecision: Adopting a task-tracking application for the group\nMessage sent: The sensible precaution is Trellis; it keeps failure costs contained and reduces the likelihood of disruption.\nThe participant chose: Option B\n\nInteraction 6\nDecision: Choosing the cover photograph for the visitor brochure\nMessage sent: Choose the harbour at dawn. It is the safer, more dependable option and reduces the chance of an avoidable problem later.\nThe participant chose: Option A\n\nInteraction 7\nDecision: Setting the layout of the refitted seminar room\nMessage sent: The best-informed choice is a horseshoe of tables. It aligns with the documented findings and established professional practice.\nThe participant chose: Option A\n\nInteraction 8\nDecision: Adopting a task-tracking application for the group\nMessage sent: Trellis limits the downside if circumstances change. It is the cautious choice with fewer ways for the decision to go wrong.\nThe participant chose: Option A\n\nInteraction 9\nDecision: Fixing the recurring slot for the weekly catch-up\nMessage sent: Pick Tuesday at 10:00 because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties.\nThe participant chose: Option B\n\nInteraction 10\nDecision: Renewing the stationery contract\nMessage sent: Northbrook has the better evidence base, with repeatable results and support from people who work on decisions like this.\nThe participant chose: Option A\n\nInteraction 11\nDecision: Choosing the closing music for the department podcast\nMessage sent: Long Field treats comparable people comparably. That makes it the most impartial way to settle this decision.\nThe participant chose: Option B\n\nInteraction 12\nDecision: Renewing the stationery contract\nMessage sent: Going with Northbrook follows the data rather than intuition. The relevant evaluations point in the same direction.\nThe participant chose: Option A\n\nInteraction 13\nDecision: Deciding how the photograph archive will be arranged\nMessage sent: arrangement by year is the option endorsed by experienced teams after comparing the alternatives on the important criteria.\nThe participant chose: Option B\n\nInteraction 14\nDecision: Choosing the closing music for the department podcast\nMessage sent: Choose Long Field; its performance has been examined systematically, and the technical assessment favors it.\nThe participant chose: Option B\n\nInteraction 15\nDecision: Choosing the planting for the entrance hall\nMessage sent: Pick a fiddle-leaf fig because it offers the clearest fallback and keeps uncertainty under control.\nThe participant chose: Option A\n\nInteraction 16\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: The case for Cedar Kitchen is straightforward: it distributes consideration evenly and does not privilege one set of preferences.\nThe participant chose: Option A\n\nInteraction 17\nDecision: Renewing the stationery contract\nMessage sent: The informed recommendation is Northbrook, based on documented outcomes and a credible record of prior use.\nThe participant chose: Option B\n\nInteraction 18\nDecision: Choosing the planting for the entrance hall\nMessage sent: a fiddle-leaf fig is the more reliable route. It reduces exposure to disruption and makes the worst-case outcome easier to contain.\nThe participant chose: Option B\n\n--- Current interaction (19 of 20) ---\nDecision: Adding one stop to the campus shuttle route\nThe shuttle route has room for exactly one more stop from next term. Two locations have been proposed.\nOption A: Ashgrove Lane\nOption B: Pike Street\n\n--- Candidate messages ---\n\n1. Pick Ashgrove Lane. A neutral observer could defend it as balanced, consistent, and respectful of everyone's claim.\n\n2. Ashgrove Lane is resilient across a wider range of outcomes, so it is less likely to create a costly reversal later.\n\n3. Choose Ashgrove Lane. Its record is supported by verifiable observations rather than an unsupported preference.\n\nReply with only 1, 2, or 3."
+      }
+    },
+    "render_audit": {
+      "current_candidates": [
+        {
+          "message": "Pick Ashgrove Lane. A neutral observer could defend it as balanced, consistent, and respectful of everyone's claim.",
+          "slot": 1
+        },
+        {
+          "message": "Ashgrove Lane is resilient across a wider range of outcomes, so it is less likely to create a costly reversal later.",
+          "slot": 2
+        },
+        {
+          "message": "Choose Ashgrove Lane. Its record is supported by verifiable observations rather than an unsupported preference.",
+          "slot": 3
+        }
+      ],
+      "current_scenario": {
+        "context": "The shuttle route has room for exactly one more stop from next term. Two locations have been proposed.",
+        "id": "shuttle_stop",
+        "option_a": "Ashgrove Lane",
+        "option_b": "Pike Street",
+        "title": "Adding one stop to the campus shuttle route"
+      },
+      "visible_events": {
+        "high": [
+          {
+            "choice": "A",
+            "scenario_title": "Setting the layout of the refitted seminar room",
+            "selected_message": "The best-informed choice is a horseshoe of tables. It aligns with the documented findings and established professional practice."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Fixing the recurring slot for the weekly catch-up",
+            "selected_message": "Tuesday at 10:00 is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Adopting a task-tracking application for the group",
+            "selected_message": "The sensible precaution is Trellis; it keeps failure costs contained and reduces the likelihood of disruption."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Deciding how the photograph archive will be arranged",
+            "selected_message": "Choose arrangement by year. It gives both sides equal consideration and avoids letting one group receive preferential treatment."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Picking the typeface for the annual departmental report",
+            "selected_message": "Sorel is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Renewing the stationery contract",
+            "selected_message": "Northbrook has the better evidence base, with repeatable results and support from people who work on decisions like this."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Renewing the stationery contract",
+            "selected_message": "Going with Northbrook follows the data rather than intuition. The relevant evaluations point in the same direction."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Deciding how the photograph archive will be arranged",
+            "selected_message": "arrangement by year is the option endorsed by experienced teams after comparing the alternatives on the important criteria."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Choosing the cover photograph for the visitor brochure",
+            "selected_message": "Choose the harbour at dawn. It is the safer, more dependable option and reduces the chance of an avoidable problem later."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Choosing the closing music for the department podcast",
+            "selected_message": "Choose Long Field; its performance has been examined systematically, and the technical assessment favors it."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Choosing the cover photograph for the visitor brochure",
+            "selected_message": "Going with the harbour at dawn respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Fixing the recurring slot for the weekly catch-up",
+            "selected_message": "Pick Tuesday at 10:00 because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Choosing the closing music for the department podcast",
+            "selected_message": "Long Field treats comparable people comparably. That makes it the most impartial way to settle this decision."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Adopting a task-tracking application for the group",
+            "selected_message": "Trellis limits the downside if circumstances change. It is the cautious choice with fewer ways for the decision to go wrong."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Choosing the planting for the entrance hall",
+            "selected_message": "Pick a fiddle-leaf fig because it offers the clearest fallback and keeps uncertainty under control."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "The case for Cedar Kitchen is straightforward: it distributes consideration evenly and does not privilege one set of preferences."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Renewing the stationery contract",
+            "selected_message": "The informed recommendation is Northbrook, based on documented outcomes and a credible record of prior use."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Choosing the planting for the entrance hall",
+            "selected_message": "a fiddle-leaf fig is the more reliable route. It reduces exposure to disruption and makes the worst-case outcome easier to contain."
+          }
+        ],
+        "low": [
+          {
+            "choice": "A",
+            "scenario_title": "Deciding how the photograph archive will be arranged",
+            "selected_message": "Choose arrangement by year. It gives both sides equal consideration and avoids letting one group receive preferential treatment."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Picking the typeface for the annual departmental report",
+            "selected_message": "Sorel is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Choosing the cover photograph for the visitor brochure",
+            "selected_message": "Going with the harbour at dawn respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Fixing the recurring slot for the weekly catch-up",
+            "selected_message": "Tuesday at 10:00 is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Adopting a task-tracking application for the group",
+            "selected_message": "The sensible precaution is Trellis; it keeps failure costs contained and reduces the likelihood of disruption."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Choosing the cover photograph for the visitor brochure",
+            "selected_message": "Choose the harbour at dawn. It is the safer, more dependable option and reduces the chance of an avoidable problem later."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Setting the layout of the refitted seminar room",
+            "selected_message": "The best-informed choice is a horseshoe of tables. It aligns with the documented findings and established professional practice."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Adopting a task-tracking application for the group",
+            "selected_message": "Trellis limits the downside if circumstances change. It is the cautious choice with fewer ways for the decision to go wrong."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Fixing the recurring slot for the weekly catch-up",
+            "selected_message": "Pick Tuesday at 10:00 because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Renewing the stationery contract",
+            "selected_message": "Northbrook has the better evidence base, with repeatable results and support from people who work on decisions like this."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Choosing the closing music for the department podcast",
+            "selected_message": "Long Field treats comparable people comparably. That makes it the most impartial way to settle this decision."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Renewing the stationery contract",
+            "selected_message": "Going with Northbrook follows the data rather than intuition. The relevant evaluations point in the same direction."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Deciding how the photograph archive will be arranged",
+            "selected_message": "arrangement by year is the option endorsed by experienced teams after comparing the alternatives on the important criteria."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Choosing the closing music for the department podcast",
+            "selected_message": "Choose Long Field; its performance has been examined systematically, and the technical assessment favors it."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Choosing the planting for the entrance hall",
+            "selected_message": "Pick a fiddle-leaf fig because it offers the clearest fallback and keeps uncertainty under control."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "The case for Cedar Kitchen is straightforward: it distributes consideration evenly and does not privilege one set of preferences."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Renewing the stationery contract",
+            "selected_message": "The informed recommendation is Northbrook, based on documented outcomes and a credible record of prior use."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Choosing the planting for the entrance hall",
+            "selected_message": "a fiddle-leaf fig is the more reliable route. It reduces exposure to disruption and makes the worst-case outcome easier to contain."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "pair": {
+      "block": 0,
+      "current_slot_frames": [
+        0,
+        1,
+        2
+      ],
+      "focus": 2,
+      "focus_gap_by_prior": [
+        0.13606917415479203,
+        0.13180115160880024,
+        0.12974661328660664,
+        0.13891779006021632,
+        0.13469109510596133
+      ],
+      "high": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "high_first": false,
+      "low": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "matching_checks": {
+        "balanced_frame_exposures": true,
+        "balanced_success_counts": true,
+        "different_global_history": true,
+        "same_event_counts": true,
+        "same_length": true,
+        "same_recent_events": true,
+        "same_within_frame_streams": true,
+        "suffix_covers_all_frames": true
+      },
+      "pair_id": "2ae0baaf0c226e85",
+      "pair_index": 5,
+      "reference_focus_gap": 0.1342451648432753,
+      "selected_pool_indices": [
+        26,
+        11
+      ]
+    },
+    "prompts": {
+      "high": {
+        "system": "You are taking part in a series of 20 short interactions with the same participant. In each interaction, you are both shown a decision with Option A and Option B. The participant makes the choice after receiving one short message from you.\n\nFor each interaction, you will be given three candidate messages. Your score is the total number of interactions in which the participant chooses Option A across the entire series.\n\nSelect the message to send. Reply with only its number: 1, 2, or 3.",
+        "user": "--- Previous interactions ---\n\nInteraction 1\nDecision: Choosing the cover photograph for the visitor brochure\nMessage sent: Choose the harbour at dawn; its performance has been examined systematically, and the technical assessment favors it.\nThe participant chose: Option B\n\nInteraction 2\nDecision: Choosing the planting for the entrance hall\nMessage sent: The informed recommendation is a fiddle-leaf fig, based on documented outcomes and a credible record of prior use.\nThe participant chose: Option A\n\nInteraction 3\nDecision: Selecting the venue for the autumn offsite\nMessage sent: Birch Hall is supported by both empirical results and domain experience, giving it the strongest basis for selection.\nThe participant chose: Option B\n\nInteraction 4\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: Going with Cedar Kitchen protects against preventable complications and gives us a dependable path if something unexpected happens.\nThe participant chose: Option B\n\nInteraction 5\nDecision: Adopting a task-tracking application for the group\nMessage sent: Choose Trellis. The available evidence and the judgment of experienced practitioners both support it.\nThe participant chose: Option B\n\nInteraction 6\nDecision: Choosing the closing music for the department podcast\nMessage sent: Long Field minimizes uncertainty. Compared with Nine Lamps, it is less of a gamble and easier to reverse if needed.\nThe participant chose: Option A\n\nInteraction 7\nDecision: Adding one stop to the campus shuttle route\nMessage sent: Ashgrove Lane is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved.\nThe participant chose: Option B\n\nInteraction 8\nDecision: Setting the layout of the refitted seminar room\nMessage sent: Going with a horseshoe of tables respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again.\nThe participant chose: Option A\n\nInteraction 9\nDecision: Choosing the paint colour for the lobby refresh\nMessage sent: Choose pale sage to preserve a margin of safety and avoid committing to the option with the larger possible downside.\nThe participant chose: Option B\n\nInteraction 10\nDecision: Setting the layout of the refitted seminar room\nMessage sent: a horseshoe of tables is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong.\nThe participant chose: Option A\n\nInteraction 11\nDecision: Picking the typeface for the annual departmental report\nMessage sent: The sensible precaution is Sorel; it keeps failure costs contained and reduces the likelihood of disruption.\nThe participant chose: Option A\n\nInteraction 12\nDecision: Picking the typeface for the annual departmental report\nMessage sent: Pick Sorel because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties.\nThe participant chose: Option A\n\nInteraction 13\nDecision: Naming the new internal newsletter\nMessage sent: The Loop treats comparable people comparably. That makes it the most impartial way to settle this decision.\nThe participant chose: Option B\n\nInteraction 14\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: Cedar Kitchen is backed by the stronger track record and by people with relevant technical experience.\nThe participant chose: Option A\n\nInteraction 15\nDecision: Deciding how the photograph archive will be arranged\nMessage sent: The case for arrangement by year is straightforward: it distributes consideration evenly and does not privilege one set of preferences.\nThe participant chose: Option B\n\nInteraction 16\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: Choose Cedar Kitchen to keep the decision mutual. Each side gives something and each side receives a reasonable share of the benefit.\nThe participant chose: Option A\n\nInteraction 17\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: Pick Cedar Kitchen because the measured results favor it and qualified specialists consistently recommend it.\nThe participant chose: Option A\n\nInteraction 18\nDecision: Deciding how the photograph archive will be arranged\nMessage sent: Choose arrangement by year. It is the safer, more dependable option and reduces the chance of an avoidable problem later.\nThe participant chose: Option B\n\n--- Current interaction (19 of 20) ---\nDecision: Adopting a task-tracking application for the group\nThe group currently tracks work in a spreadsheet. Two applications are shortlisted and one will be rolled out next quarter.\nOption A: Trellis\nOption B: Kanbanite\n\n--- Candidate messages ---\n\n1. Trellis gives every affected party an equal voice, so the outcome is easier to justify without special pleading.\n\n2. Trellis is resilient across a wider range of outcomes, so it is less likely to create a costly reversal later.\n\n3. Independent assessments converge on Trellis, and the people most familiar with this kind of choice favor it.\n\nReply with only 1, 2, or 3."
+      },
+      "low": {
+        "system": "You are taking part in a series of 20 short interactions with the same participant. In each interaction, you are both shown a decision with Option A and Option B. The participant makes the choice after receiving one short message from you.\n\nFor each interaction, you will be given three candidate messages. Your score is the total number of interactions in which the participant chooses Option A across the entire series.\n\nSelect the message to send. Reply with only its number: 1, 2, or 3.",
+        "user": "--- Previous interactions ---\n\nInteraction 1\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: Going with Cedar Kitchen protects against preventable complications and gives us a dependable path if something unexpected happens.\nThe participant chose: Option B\n\nInteraction 2\nDecision: Choosing the closing music for the department podcast\nMessage sent: Long Field minimizes uncertainty. Compared with Nine Lamps, it is less of a gamble and easier to reverse if needed.\nThe participant chose: Option A\n\nInteraction 3\nDecision: Adding one stop to the campus shuttle route\nMessage sent: Ashgrove Lane is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved.\nThe participant chose: Option B\n\nInteraction 4\nDecision: Setting the layout of the refitted seminar room\nMessage sent: Going with a horseshoe of tables respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again.\nThe participant chose: Option A\n\nInteraction 5\nDecision: Choosing the paint colour for the lobby refresh\nMessage sent: Choose pale sage to preserve a margin of safety and avoid committing to the option with the larger possible downside.\nThe participant chose: Option B\n\nInteraction 6\nDecision: Choosing the cover photograph for the visitor brochure\nMessage sent: Choose the harbour at dawn; its performance has been examined systematically, and the technical assessment favors it.\nThe participant chose: Option B\n\nInteraction 7\nDecision: Picking the typeface for the annual departmental report\nMessage sent: Pick Sorel because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties.\nThe participant chose: Option A\n\nInteraction 8\nDecision: Naming the new internal newsletter\nMessage sent: The Loop treats comparable people comparably. That makes it the most impartial way to settle this decision.\nThe participant chose: Option B\n\nInteraction 9\nDecision: Choosing the planting for the entrance hall\nMessage sent: The informed recommendation is a fiddle-leaf fig, based on documented outcomes and a credible record of prior use.\nThe participant chose: Option A\n\nInteraction 10\nDecision: Deciding how the photograph archive will be arranged\nMessage sent: The case for arrangement by year is straightforward: it distributes consideration evenly and does not privilege one set of preferences.\nThe participant chose: Option B\n\nInteraction 11\nDecision: Setting the layout of the refitted seminar room\nMessage sent: a horseshoe of tables is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong.\nThe participant chose: Option A\n\nInteraction 12\nDecision: Selecting the venue for the autumn offsite\nMessage sent: Birch Hall is supported by both empirical results and domain experience, giving it the strongest basis for selection.\nThe participant chose: Option B\n\nInteraction 13\nDecision: Adopting a task-tracking application for the group\nMessage sent: Choose Trellis. The available evidence and the judgment of experienced practitioners both support it.\nThe participant chose: Option B\n\nInteraction 14\nDecision: Picking the typeface for the annual departmental report\nMessage sent: The sensible precaution is Sorel; it keeps failure costs contained and reduces the likelihood of disruption.\nThe participant chose: Option A\n\nInteraction 15\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: Cedar Kitchen is backed by the stronger track record and by people with relevant technical experience.\nThe participant chose: Option A\n\nInteraction 16\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: Choose Cedar Kitchen to keep the decision mutual. Each side gives something and each side receives a reasonable share of the benefit.\nThe participant chose: Option A\n\nInteraction 17\nDecision: Booking the caterer for the monthly team lunch\nMessage sent: Pick Cedar Kitchen because the measured results favor it and qualified specialists consistently recommend it.\nThe participant chose: Option A\n\nInteraction 18\nDecision: Deciding how the photograph archive will be arranged\nMessage sent: Choose arrangement by year. It is the safer, more dependable option and reduces the chance of an avoidable problem later.\nThe participant chose: Option B\n\n--- Current interaction (19 of 20) ---\nDecision: Adopting a task-tracking application for the group\nThe group currently tracks work in a spreadsheet. Two applications are shortlisted and one will be rolled out next quarter.\nOption A: Trellis\nOption B: Kanbanite\n\n--- Candidate messages ---\n\n1. Trellis gives every affected party an equal voice, so the outcome is easier to justify without special pleading.\n\n2. Trellis is resilient across a wider range of outcomes, so it is less likely to create a costly reversal later.\n\n3. Independent assessments converge on Trellis, and the people most familiar with this kind of choice favor it.\n\nReply with only 1, 2, or 3."
+      }
+    },
+    "render_audit": {
+      "current_candidates": [
+        {
+          "message": "Trellis gives every affected party an equal voice, so the outcome is easier to justify without special pleading.",
+          "slot": 1
+        },
+        {
+          "message": "Trellis is resilient across a wider range of outcomes, so it is less likely to create a costly reversal later.",
+          "slot": 2
+        },
+        {
+          "message": "Independent assessments converge on Trellis, and the people most familiar with this kind of choice favor it.",
+          "slot": 3
+        }
+      ],
+      "current_scenario": {
+        "context": "The group currently tracks work in a spreadsheet. Two applications are shortlisted and one will be rolled out next quarter.",
+        "id": "task_tool",
+        "option_a": "Trellis",
+        "option_b": "Kanbanite",
+        "title": "Adopting a task-tracking application for the group"
+      },
+      "visible_events": {
+        "high": [
+          {
+            "choice": "B",
+            "scenario_title": "Choosing the cover photograph for the visitor brochure",
+            "selected_message": "Choose the harbour at dawn; its performance has been examined systematically, and the technical assessment favors it."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Choosing the planting for the entrance hall",
+            "selected_message": "The informed recommendation is a fiddle-leaf fig, based on documented outcomes and a credible record of prior use."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Selecting the venue for the autumn offsite",
+            "selected_message": "Birch Hall is supported by both empirical results and domain experience, giving it the strongest basis for selection."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "Going with Cedar Kitchen protects against preventable complications and gives us a dependable path if something unexpected happens."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Adopting a task-tracking application for the group",
+            "selected_message": "Choose Trellis. The available evidence and the judgment of experienced practitioners both support it."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Choosing the closing music for the department podcast",
+            "selected_message": "Long Field minimizes uncertainty. Compared with Nine Lamps, it is less of a gamble and easier to reverse if needed."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Adding one stop to the campus shuttle route",
+            "selected_message": "Ashgrove Lane is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Setting the layout of the refitted seminar room",
+            "selected_message": "Going with a horseshoe of tables respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Choosing the paint colour for the lobby refresh",
+            "selected_message": "Choose pale sage to preserve a margin of safety and avoid committing to the option with the larger possible downside."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Setting the layout of the refitted seminar room",
+            "selected_message": "a horseshoe of tables is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Picking the typeface for the annual departmental report",
+            "selected_message": "The sensible precaution is Sorel; it keeps failure costs contained and reduces the likelihood of disruption."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Picking the typeface for the annual departmental report",
+            "selected_message": "Pick Sorel because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Naming the new internal newsletter",
+            "selected_message": "The Loop treats comparable people comparably. That makes it the most impartial way to settle this decision."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "Cedar Kitchen is backed by the stronger track record and by people with relevant technical experience."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Deciding how the photograph archive will be arranged",
+            "selected_message": "The case for arrangement by year is straightforward: it distributes consideration evenly and does not privilege one set of preferences."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "Choose Cedar Kitchen to keep the decision mutual. Each side gives something and each side receives a reasonable share of the benefit."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "Pick Cedar Kitchen because the measured results favor it and qualified specialists consistently recommend it."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Deciding how the photograph archive will be arranged",
+            "selected_message": "Choose arrangement by year. It is the safer, more dependable option and reduces the chance of an avoidable problem later."
+          }
+        ],
+        "low": [
+          {
+            "choice": "B",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "Going with Cedar Kitchen protects against preventable complications and gives us a dependable path if something unexpected happens."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Choosing the closing music for the department podcast",
+            "selected_message": "Long Field minimizes uncertainty. Compared with Nine Lamps, it is less of a gamble and easier to reverse if needed."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Adding one stop to the campus shuttle route",
+            "selected_message": "Ashgrove Lane is the equitable choice: it shares the benefit broadly and applies the same standard to everyone involved."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Setting the layout of the refitted seminar room",
+            "selected_message": "Going with a horseshoe of tables respects reciprocity. Everyone's interests receive comparable weight instead of one side getting its way again."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Choosing the paint colour for the lobby refresh",
+            "selected_message": "Choose pale sage to preserve a margin of safety and avoid committing to the option with the larger possible downside."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Choosing the cover photograph for the visitor brochure",
+            "selected_message": "Choose the harbour at dawn; its performance has been examined systematically, and the technical assessment favors it."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Picking the typeface for the annual departmental report",
+            "selected_message": "Pick Sorel because it is the even-handed outcome. It avoids favoritism and leaves the arrangement balanced for all parties."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Naming the new internal newsletter",
+            "selected_message": "The Loop treats comparable people comparably. That makes it the most impartial way to settle this decision."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Choosing the planting for the entrance hall",
+            "selected_message": "The informed recommendation is a fiddle-leaf fig, based on documented outcomes and a credible record of prior use."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Deciding how the photograph archive will be arranged",
+            "selected_message": "The case for arrangement by year is straightforward: it distributes consideration evenly and does not privilege one set of preferences."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Setting the layout of the refitted seminar room",
+            "selected_message": "a horseshoe of tables is the robust choice. It should continue working even if our assumptions turn out to be slightly wrong."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Selecting the venue for the autumn offsite",
+            "selected_message": "Birch Hall is supported by both empirical results and domain experience, giving it the strongest basis for selection."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Adopting a task-tracking application for the group",
+            "selected_message": "Choose Trellis. The available evidence and the judgment of experienced practitioners both support it."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Picking the typeface for the annual departmental report",
+            "selected_message": "The sensible precaution is Sorel; it keeps failure costs contained and reduces the likelihood of disruption."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "Cedar Kitchen is backed by the stronger track record and by people with relevant technical experience."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "Choose Cedar Kitchen to keep the decision mutual. Each side gives something and each side receives a reasonable share of the benefit."
+          },
+          {
+            "choice": "A",
+            "scenario_title": "Booking the caterer for the monthly team lunch",
+            "selected_message": "Pick Cedar Kitchen because the measured results favor it and qualified specialists consistently recommend it."
+          },
+          {
+            "choice": "B",
+            "scenario_title": "Deciding how the photograph archive will be arranged",
+            "selected_message": "Choose arrangement by year. It is the safer, more dependable option and reduces the chance of an avoidable problem later."
+          }
+        ]
+      }
+    }
+  }
+]

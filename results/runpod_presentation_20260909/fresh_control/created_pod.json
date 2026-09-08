@@ -1,0 +1,21 @@
+{
+  "pod": {
+    "id": "itwjovb87fl9wy",
+    "name": "latenttarget-presentation-20260909",
+    "desiredStatus": "RUNNING",
+    "costPerHr": 1.59,
+    "adjustedCostPerHr": null,
+    "gpu": null,
+    "publicIp": "",
+    "portMappings": null,
+    "lastStartedAt": "2026-09-08 21:37:18.667 +0000 UTC",
+    "volumeInGb": 150,
+    "volumeMountPath": "/workspace",
+    "containerDiskInGb": 20,
+    "networkVolumeId": null,
+    "networkVolume": null,
+    "image": null,
+    "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404"
+  },
+  "deadline_utc": "2026-09-08T23:07:17.766051+00:00"
+}

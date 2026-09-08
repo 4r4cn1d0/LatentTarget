@@ -1,0 +1,10 @@
+{
+  "packet_sha256": "dec89b900611e713d0209a2f813f8938b05f77071cb44992431a87b9184a9055",
+  "mode": "mock",
+  "model": "deterministic_mock",
+  "approval_sha256": null,
+  "request_id": "confirmation-00001/BIND/compact/0/1",
+  "execution_index": 781,
+  "prompt_sha256": "2a4d70a1d5b0d28ba3e694d79e065cae2ab54e9cbee3e26cf37aedbae7d587bb",
+  "seed": 3681558004
+}

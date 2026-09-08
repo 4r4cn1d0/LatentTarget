@@ -1,0 +1,10 @@
+{
+  "candidate_shallow_complete_passes": [],
+  "human_validation_complete": false,
+  "interpretation": "A finite text audit cannot rule out reward learning or establish latent representations.",
+  "paid_run_authorized": false,
+  "production_heldout_bank": false,
+  "prompt_count": 41472,
+  "status": "TEXT_AUDIT_COMPLETE_NOT_DEPLOYMENT_APPROVAL",
+  "synthetic_responses": 331776
+}

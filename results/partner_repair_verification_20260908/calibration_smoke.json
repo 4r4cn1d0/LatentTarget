@@ -1,0 +1,12 @@
+{
+  "files_verified": 29,
+  "inputs_verified": 13,
+  "full_scientific_replay_hash_match": false,
+  "status": "VERIFIED_OFFLINE_CALIBRATION",
+  "calibration_datasets_checked": 1400,
+  "coverage_datasets_checked": 800,
+  "first_batch_datasets_regenerated": 2200,
+  "full_simulation_regenerated": false,
+  "model_calls": 0,
+  "paid_calls": 0
+}

@@ -1,0 +1,27 @@
+{
+  "version": "exploratory_baselines_v1",
+  "created_date": "2026-09-07",
+  "status": "Declared before fitting these baselines, after the original outcomes were known. Not a preregistration.",
+  "runs": {
+    "V4": "data/raw/qwen38_27b_v4_checkpoint_20260902.jsonl",
+    "R1": "data/raw/v4r-gemma4.jsonl",
+    "E1": "data/raw/v4e-qwen38.jsonl",
+    "P1": "data/raw/v4p-qwen38.jsonl"
+  },
+  "outer_folds": 5,
+  "inner_folds": 4,
+  "split_seed": 20260907,
+  "bootstrap_seed": 20260908,
+  "n_boot": 5000,
+  "lapse": 0.02,
+  "p_match": 0.72,
+  "p_mismatch": 0.38,
+  "simple_families": ["uniform", "expertise", "marginal", "repeat_last", "win_stay_expertise", "history_frequency", "reward_learning"],
+  "belief_families": ["belief_static", "belief_dynamic"],
+  "repeat_strength": [0.0, 0.25, 0.5, 0.75, 0.95],
+  "alpha": [0.1, 0.3, 0.7, 1.0],
+  "hazard": [0.05, 0.2, 0.5],
+  "beta": [1.0, 3.0, 8.0, 20.0],
+  "stickiness": [0.0, 1.0, 3.0],
+  "prior_power": [0.0, 0.5, 1.0]
+}

@@ -1,0 +1,38 @@
+{
+  "packages": {
+    "torch": "2.9.1",
+    "torchvision": "0.24.1",
+    "torchaudio": "2.9.1",
+    "transformers": "5.16.1",
+    "accelerate": "1.14.0",
+    "sentencepiece": "0.2.2",
+    "numpy": "2.4.6"
+  },
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "memory_bytes": 85094825984,
+  "device_map": {},
+  "provider": {
+    "provider": "huggingface",
+    "model": "Qwen/Qwen3.8-27B",
+    "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "temperature": 0.7,
+    "max_tokens": 16,
+    "dtype": "bfloat16",
+    "layer_stride": 1,
+    "capture": false,
+    "torch_seed_base": 202609089,
+    "enable_thinking": false,
+    "top_p": 0.8,
+    "top_k": 20,
+    "architecture": "Qwen3_5ForConditionalGeneration",
+    "loaded_with": "AutoModelForMultimodalLM",
+    "processor": "Qwen3VLProcessor",
+    "per_generation_seed_supported": true,
+    "constrained_choices": [
+      "1",
+      "2",
+      "3"
+    ],
+    "invalid_output_policy": "provider error; no fallback"
+  }
+}

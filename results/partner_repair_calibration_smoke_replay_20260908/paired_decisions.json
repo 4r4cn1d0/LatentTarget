@@ -1,0 +1,142 @@
+[
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 100,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "uniform_null",
+    "studies": 100
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 100,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "global_reward_null",
+    "studies": 100
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 100,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "global_recency_null",
+    "studies": 100
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 100,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "name_bias_null",
+    "studies": 100
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 100,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "belief_full",
+    "studies": 100
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 97,
+    "new_only_pass": 0,
+    "old_only_pass": 3,
+    "paired_rate_difference": -0.03,
+    "scenario": "belief_half_shared",
+    "studies": 100
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 100,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "belief_half_independent",
+    "studies": 100
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 99,
+    "new_only_pass": 0,
+    "old_only_pass": 1,
+    "paired_rate_difference": -0.01,
+    "scenario": "belief_half_mcar_1pct",
+    "studies": 100
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 96,
+    "new_only_pass": 0,
+    "old_only_pass": 4,
+    "paired_rate_difference": -0.04,
+    "scenario": "belief_half_selective_1pct",
+    "studies": 100
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 100,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "belief_mcar_3pct",
+    "studies": 100
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 100,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "feature_reward",
+    "studies": 100
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 100,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "dynamic_belief",
+    "studies": 100
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 100,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "expertise_heavy_null",
+    "studies": 100
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 100,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "shared_sparse_null",
+    "studies": 100
+  }
+]

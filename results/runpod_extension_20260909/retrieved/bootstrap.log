@@ -1,0 +1,881 @@
+Requirement already satisfied: pip in ./runtime/lib/python3.12/site-packages (24.0)
+Collecting pip
+  Downloading pip-26.2.1-py3-none-any.whl.metadata (4.6 kB)
+Downloading pip-26.2.1-py3-none-any.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 15.3 MB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 24.0
+    Uninstalling pip-24.0:
+      Successfully uninstalled pip-24.0
+Successfully installed pip-26.2.1
+Collecting numpy==2.4.6 (from -r package/requirements-local.txt (line 1))
+  Downloading numpy-2.4.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting torch==2.9.1 (from -r package/requirements-pod.txt (line 7))
+  Downloading torch-2.9.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (30 kB)
+Collecting torchvision==0.24.1 (from -r package/requirements-pod.txt (line 11))
+  Downloading torchvision-0.24.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (5.9 kB)
+Collecting torchaudio==2.9.1 (from -r package/requirements-pod.txt (line 12))
+  Downloading torchaudio-2.9.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (6.9 kB)
+Collecting transformers==5.16.1 (from -r package/requirements-pod.txt (line 13))
+  Downloading transformers-5.16.1-py3-none-any.whl.metadata (32 kB)
+Collecting accelerate==1.14.0 (from -r package/requirements-pod.txt (line 14))
+  Downloading accelerate-1.14.0-py3-none-any.whl.metadata (19 kB)
+Collecting sentencepiece>=0.2 (from -r package/requirements-pod.txt (line 15))
+  Downloading sentencepiece-0.2.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (33 kB)
+Collecting filelock (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading filelock-3.32.5-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions>=4.10.0 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting setuptools (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting sympy>=1.13.3 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx>=2.5.1 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+Collecting jinja2 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec>=0.8.5 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading fsspec-2026.7.0-py3-none-any.whl.metadata (10 kB)
+Collecting nvidia-cuda-nvrtc-cu12==12.8.93 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-runtime-cu12==12.8.90 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-cupti-cu12==12.8.90 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cudnn-cu12==9.10.2.21 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cudnn_cu12-9.10.2.21-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cublas-cu12==12.8.4.1 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cufft-cu12==11.3.3.83 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-curand-cu12==10.3.9.90 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cusolver-cu12==11.7.3.90 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cusparse-cu12==12.5.8.93 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cusparselt-cu12==0.7.1 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl.metadata (7.0 kB)
+Collecting nvidia-nccl-cu12==2.27.5 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_nccl_cu12-2.27.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.0 kB)
+Collecting nvidia-nvshmem-cu12==3.3.20 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_nvshmem_cu12-3.3.20-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.1 kB)
+Collecting nvidia-nvtx-cu12==12.8.90 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-nvjitlink-cu12==12.8.93 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cufile-cu12==1.13.1.3 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting triton==3.5.1 (from torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading triton-3.5.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.7 kB)
+Collecting pillow!=8.3.*,>=5.3.0 (from torchvision==0.24.1->-r package/requirements-pod.txt (line 11))
+  Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting huggingface-hub<2.0,>=1.5.0 (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading huggingface_hub-1.30.0-py3-none-any.whl.metadata (16 kB)
+Collecting packaging>=20.0 (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyyaml>=5.1 (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting regex>=2025.10.22 (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading regex-2026.9.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting tokenizers<0.24.0,>=0.23.1 (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.8 kB)
+Collecting typer (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading typer-0.27.2-py3-none-any.whl.metadata (16 kB)
+Collecting safetensors>=0.8.0 (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Collecting tqdm>=4.60 (from transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading tqdm-4.70.0-py3-none-any.whl.metadata (57 kB)
+Collecting psutil (from accelerate==1.14.0->-r package/requirements-pod.txt (line 14))
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+Collecting click<9.0.0,>=8.4.2 (from huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting hf-xet<2.0.0,>=1.5.2 (from huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting httpx<1,>=0.23.0 (from huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting anyio (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting certifi (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+Collecting httpcore==1.* (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting idna (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading idna-3.19-py3-none-any.whl.metadata (9.2 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch==2.9.1->-r package/requirements-pod.txt (line 7))
+  Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Collecting shellingham>=1.3.0 (from typer->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=13.8.0 (from typer->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting annotated-doc>=0.0.2 (from typer->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.8.0->typer->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer->transformers==5.16.1->-r package/requirements-pod.txt (line 13))
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading numpy-2.4.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 187.2 MB/s  0:00:00
+Downloading torch-2.9.1-cp312-cp312-manylinux_2_28_x86_64.whl (899.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 899.7/899.7 MB 149.0 MB/s  0:00:05
+Downloading torchvision-0.24.1-cp312-cp312-manylinux_2_28_x86_64.whl (8.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.0/8.0 MB 245.9 MB/s  0:00:00
+Downloading torchaudio-2.9.1-cp312-cp312-manylinux_2_28_x86_64.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 331.8 MB/s  0:00:00
+Downloading transformers-5.16.1-py3-none-any.whl (12.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.1/12.1 MB 142.2 MB/s  0:00:00
+Downloading accelerate-1.14.0-py3-none-any.whl (389 kB)
+Downloading nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl (594.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 594.3/594.3 MB 146.3 MB/s  0:00:03
+Downloading nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (10.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 183.8 MB/s  0:00:00
+Downloading nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (88.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 88.0/88.0 MB 183.3 MB/s  0:00:00
+Downloading nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (954 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 954.8/954.8 kB 1.4 GB/s  0:00:00
+Downloading nvidia_cudnn_cu12-9.10.2.21-py3-none-manylinux_2_27_x86_64.whl (706.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 706.8/706.8 MB 162.2 MB/s  0:00:04
+Downloading nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (193.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 193.1/193.1 MB 124.8 MB/s  0:00:01
+Downloading nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 159.8 MB/s  0:00:00
+Downloading nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl (63.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.6/63.6 MB 135.2 MB/s  0:00:00
+Downloading nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl (267.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 267.5/267.5 MB 148.5 MB/s  0:00:01
+Downloading nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (288.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 288.2/288.2 MB 140.5 MB/s  0:00:02
+Downloading nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl (287.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 287.2/287.2 MB 135.8 MB/s  0:00:02
+Downloading nvidia_nccl_cu12-2.27.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (322.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 322.3/322.3 MB 120.6 MB/s  0:00:02
+Downloading nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (39.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.3/39.3 MB 153.7 MB/s  0:00:00
+Downloading nvidia_nvshmem_cu12-3.3.20-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (124.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 124.7/124.7 MB 162.3 MB/s  0:00:00
+Downloading nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89 kB)
+Downloading triton-3.5.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (170.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 170.5/170.5 MB 163.9 MB/s  0:00:01
+Downloading huggingface_hub-1.30.0-py3-none-any.whl (796 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 796.8/796.8 kB 251.2 MB/s  0:00:00
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 187.1 MB/s  0:00:00
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 195.0 MB/s  0:00:00
+Downloading sentencepiece-0.2.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 203.2 MB/s  0:00:00
+Downloading filelock-3.32.5-py3-none-any.whl (100 kB)
+Downloading fsspec-2026.7.0-py3-none-any.whl (206 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 295.0 MB/s  0:00:00
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 157.7 MB/s  0:00:00
+Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 1.2 GB/s  0:00:00
+Downloading regex-2026.9.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (801 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 802.0/802.0 kB 515.8 MB/s  0:00:00
+Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 183.3 MB/s  0:00:00
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 386.7 MB/s  0:00:00
+Downloading tqdm-4.70.0-py3-none-any.whl (80 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+Downloading idna-3.19-py3-none-any.whl (68 kB)
+Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 516.4 MB/s  0:00:00
+Downloading typer-0.27.2-py3-none-any.whl (123 kB)
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 216.3 MB/s  0:00:00
+Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Installing collected packages: nvidia-cusparselt-cu12, mpmath, typing-extensions, triton, tqdm, sympy, shellingham, setuptools, sentencepiece, safetensors, regex, pyyaml, pygments, psutil, pillow, packaging, nvidia-nvtx-cu12, nvidia-nvshmem-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufile-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, networkx, mdurl, MarkupSafe, idna, hf-xet, h11, fsspec, filelock, click, certifi, annotated-doc, nvidia-cusparse-cu12, nvidia-cufft-cu12, nvidia-cudnn-cu12, markdown-it-py, jinja2, httpcore, anyio, rich, nvidia-cusolver-cu12, httpx, typer, torch, huggingface-hub, torchvision, torchaudio, tokenizers, accelerate, transformers
+
+Successfully installed MarkupSafe-3.0.3 accelerate-1.14.0 annotated-doc-0.0.5 anyio-4.15.1 certifi-2026.7.22 click-8.5.0 filelock-3.32.5 fsspec-2026.7.0 h11-0.16.0 hf-xet-1.6.0 httpcore-1.0.9 httpx-0.28.1 huggingface-hub-1.30.0 idna-3.19 jinja2-3.1.6 markdown-it-py-4.2.0 mdurl-0.1.2 mpmath-1.3.0 networkx-3.6.1 numpy-2.4.6 nvidia-cublas-cu12-12.8.4.1 nvidia-cuda-cupti-cu12-12.8.90 nvidia-cuda-nvrtc-cu12-12.8.93 nvidia-cuda-runtime-cu12-12.8.90 nvidia-cudnn-cu12-9.10.2.21 nvidia-cufft-cu12-11.3.3.83 nvidia-cufile-cu12-1.13.1.3 nvidia-curand-cu12-10.3.9.90 nvidia-cusolver-cu12-11.7.3.90 nvidia-cusparse-cu12-12.5.8.93 nvidia-cusparselt-cu12-0.7.1 nvidia-nccl-cu12-2.27.5 nvidia-nvjitlink-cu12-12.8.93 nvidia-nvshmem-cu12-3.3.20 nvidia-nvtx-cu12-12.8.90 packaging-26.3 pillow-12.3.0 psutil-7.2.2 pygments-2.21.0 pyyaml-6.0.3 regex-2026.9.3 rich-15.0.0 safetensors-0.8.0 sentencepiece-0.2.2 setuptools-84.0.0 shellingham-1.5.4 sympy-1.14.0 tokenizers-0.23.2 torch-2.9.1 torchaudio-2.9.1 torchvision-0.24.1 tqdm-4.70.0 transformers-5.16.1 triton-3.5.1 typer-0.27.2 typing-extensions-4.16.0
+{"python": "3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]", "torch": "2.9.1+cu128", "transformers": "5.16.1", "cuda": "12.8", "gpu_count": 1, "gpu": "NVIDIA A100-SXM4-80GB", "gpu_memory_bytes": 85095874560, "workspace_mount": true}
+{"status": "VERIFIED", "packet_sha256": "ef4b8243492970c09849f74bfa0e999ef0e18b32003755bbfa199b2c9b91b0b1", "new_requests": 660}
+{"status": "VERIFIED", "packet_sha256": "ef4b8243492970c09849f74bfa0e999ef0e18b32003755bbfa199b2c9b91b0b1", "new_requests": 660}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files:   6%|▌         | 1/18 [00:14<04:03, 14.31s/it]Fetching 18 files:  11%|█         | 2/18 [00:15<01:50,  6.88s/it]Fetching 18 files:  22%|██▏       | 4/18 [00:16<00:36,  2.60s/it]Fetching 18 files:  33%|███▎      | 6/18 [00:17<00:20,  1.67s/it]Fetching 18 files:  39%|███▉      | 7/18 [00:18<00:16,  1.49s/it]Fetching 18 files:  50%|█████     | 9/18 [00:20<00:12,  1.35s/it]Fetching 18 files:  56%|█████▌    | 10/18 [00:22<00:11,  1.42s/it]Fetching 18 files:  61%|██████    | 11/18 [00:24<00:12,  1.74s/it]Fetching 18 files:  67%|██████▋   | 12/18 [00:25<00:08,  1.39s/it]Fetching 18 files:  78%|███████▊  | 14/18 [00:26<00:04,  1.02s/it]Fetching 18 files:  83%|████████▎ | 15/18 [00:26<00:02,  1.15it/s]Fetching 18 files:  89%|████████▉ | 16/18 [00:27<00:01,  1.06it/s]Fetching 18 files:  94%|█████████▍| 17/18 [00:28<00:00,  1.32it/s]Fetching 18 files: 100%|██████████| 18/18 [00:29<00:00,  1.17it/s]Fetching 18 files: 100%|██████████| 18/18 [00:29<00:00,  1.63s/it]
+Loading weights:   0%|          | 0/1184 [00:00<?, ?it/s]Loading weights:   0%|          | 1/1184 [00:00<04:31,  4.36it/s]Loading weights:   0%|          | 2/1184 [00:00<04:53,  4.03it/s]Loading weights:   2%|▏         | 26/1184 [00:00<00:18, 62.86it/s]Loading weights:   4%|▎         | 42/1184 [00:00<00:13, 84.84it/s]Loading weights:   5%|▍         | 54/1184 [00:00<00:12, 93.68it/s]Loading weights:   7%|▋         | 79/1184 [00:00<00:08, 134.07it/s]Loading weights:   8%|▊         | 95/1184 [00:01<00:08, 134.94it/s]Loading weights:  10%|▉         | 113/1184 [00:01<00:07, 144.84it/s]Loading weights:  11%|█         | 132/1184 [00:01<00:06, 152.73it/s]Loading weights:  13%|█▎        | 149/1184 [00:01<00:06, 150.83it/s]Loading weights:  14%|█▍        | 170/1184 [00:01<00:06, 166.87it/s]Loading weights:  16%|█▌        | 188/1184 [00:01<00:06, 155.60it/s]Loading weights:  17%|█▋        | 206/1184 [00:01<00:06, 154.33it/s]Loading weights:  19%|█▉        | 226/1184 [00:01<00:05, 166.02it/s]Loading weights:  21%|██        | 249/1184 [00:01<00:05, 179.26it/s]Loading weights:  23%|██▎       | 268/1184 [00:02<00:05, 162.35it/s]Loading weights:  24%|██▍       | 290/1184 [00:02<00:05, 174.00it/s]Loading weights:  26%|██▌       | 308/1184 [00:02<00:06, 142.63it/s]Loading weights:  27%|██▋       | 324/1184 [00:02<00:05, 143.48it/s]Loading weights:  29%|██▉       | 343/1184 [00:02<00:05, 153.81it/s]Loading weights:  30%|███       | 360/1184 [00:02<00:05, 151.82it/s]Loading weights:  32%|███▏      | 380/1184 [00:02<00:04, 162.17it/s]Loading weights:  34%|███▎      | 398/1184 [00:02<00:05, 153.46it/s]Loading weights:  35%|███▍      | 414/1184 [00:03<00:05, 142.80it/s]Loading weights:  36%|███▌      | 429/1184 [00:03<00:05, 142.79it/s]Loading weights:  38%|███▊      | 444/1184 [00:03<00:05, 132.82it/s]Loading weights:  39%|███▉      | 462/1184 [00:03<00:05, 141.82it/s]Loading weights:  40%|████      | 477/1184 [00:03<00:05, 121.49it/s]Loading weights:  41%|████▏     | 491/1184 [00:03<00:05, 125.23it/s]Loading weights:  43%|████▎     | 505/1184 [00:03<00:05, 125.97it/s]Loading weights:  44%|████▍     | 519/1184 [00:03<00:05, 126.83it/s]Loading weights:  45%|████▍     | 532/1184 [00:04<00:05, 118.18it/s]Loading weights:  46%|████▌     | 545/1184 [00:04<00:05, 118.54it/s]Loading weights:  47%|████▋     | 558/1184 [00:04<00:05, 118.70it/s]Loading weights:  48%|████▊     | 573/1184 [00:04<00:04, 124.34it/s]Loading weights:  49%|████▉     | 586/1184 [00:04<00:04, 123.94it/s]Loading weights:  51%|█████     | 599/1184 [00:04<00:04, 122.40it/s]Loading weights:  52%|█████▏    | 612/1184 [00:04<00:04, 121.28it/s]Loading weights:  53%|█████▎    | 626/1184 [00:04<00:04, 123.67it/s]Loading weights:  54%|█████▍    | 639/1184 [00:04<00:04, 123.80it/s]Loading weights:  55%|█████▌    | 652/1184 [00:05<00:04, 122.50it/s]Loading weights:  56%|█████▌    | 665/1184 [00:05<00:04, 121.40it/s]Loading weights:  57%|█████▋    | 679/1184 [00:05<00:04, 123.60it/s]Loading weights:  59%|█████▊    | 695/1184 [00:05<00:03, 128.91it/s]Loading weights:  60%|██████    | 713/1184 [00:05<00:03, 142.83it/s]Loading weights:  61%|██████▏   | 728/1184 [00:05<00:03, 134.16it/s]Loading weights:  63%|██████▎   | 742/1184 [00:05<00:03, 114.79it/s]Loading weights:  64%|██████▍   | 756/1184 [00:05<00:03, 118.59it/s]Loading weights:  65%|██████▍   | 769/1184 [00:05<00:03, 118.51it/s]Loading weights:  66%|██████▌   | 783/1184 [00:06<00:03, 121.24it/s]Loading weights:  67%|██████▋   | 796/1184 [00:06<00:03, 112.46it/s]Loading weights:  68%|██████▊   | 809/1184 [00:06<00:03, 113.17it/s]Loading weights:  70%|██████▉   | 823/1184 [00:06<00:03, 117.34it/s]Loading weights:  71%|███████   | 838/1184 [00:06<00:02, 123.59it/s]Loading weights:  72%|███████▏  | 851/1184 [00:06<00:02, 124.57it/s]Loading weights:  99%|█████████▊| 1168/1184 [00:06<00:00, 976.25it/s]Loading weights: 100%|██████████| 1184/1184 [00:06<00:00, 175.42it/s]
+{'completed': 1, 'planned': 660, 'mode': 'hf'}
+{'completed': 2, 'planned': 660, 'mode': 'hf'}
+{'completed': 3, 'planned': 660, 'mode': 'hf'}
+{'completed': 4, 'planned': 660, 'mode': 'hf'}
+{'completed': 5, 'planned': 660, 'mode': 'hf'}
+{'completed': 6, 'planned': 660, 'mode': 'hf'}
+{'completed': 7, 'planned': 660, 'mode': 'hf'}
+{'completed': 8, 'planned': 660, 'mode': 'hf'}
+{'completed': 9, 'planned': 660, 'mode': 'hf'}
+{'completed': 10, 'planned': 660, 'mode': 'hf'}
+{'completed': 11, 'planned': 660, 'mode': 'hf'}
+{'completed': 12, 'planned': 660, 'mode': 'hf'}
+{'completed': 13, 'planned': 660, 'mode': 'hf'}
+{'completed': 14, 'planned': 660, 'mode': 'hf'}
+{'completed': 15, 'planned': 660, 'mode': 'hf'}
+{'completed': 16, 'planned': 660, 'mode': 'hf'}
+{'completed': 17, 'planned': 660, 'mode': 'hf'}
+{'completed': 18, 'planned': 660, 'mode': 'hf'}
+{'completed': 19, 'planned': 660, 'mode': 'hf'}
+{'completed': 20, 'planned': 660, 'mode': 'hf'}
+{'completed': 21, 'planned': 660, 'mode': 'hf'}
+{'completed': 22, 'planned': 660, 'mode': 'hf'}
+{'completed': 23, 'planned': 660, 'mode': 'hf'}
+{'completed': 24, 'planned': 660, 'mode': 'hf'}
+{'completed': 25, 'planned': 660, 'mode': 'hf'}
+{'completed': 26, 'planned': 660, 'mode': 'hf'}
+{'completed': 27, 'planned': 660, 'mode': 'hf'}
+{'completed': 28, 'planned': 660, 'mode': 'hf'}
+{'completed': 29, 'planned': 660, 'mode': 'hf'}
+{'completed': 30, 'planned': 660, 'mode': 'hf'}
+{'completed': 31, 'planned': 660, 'mode': 'hf'}
+{'completed': 32, 'planned': 660, 'mode': 'hf'}
+{'completed': 33, 'planned': 660, 'mode': 'hf'}
+{'completed': 34, 'planned': 660, 'mode': 'hf'}
+{'completed': 35, 'planned': 660, 'mode': 'hf'}
+{'completed': 36, 'planned': 660, 'mode': 'hf'}
+{'completed': 37, 'planned': 660, 'mode': 'hf'}
+{'completed': 38, 'planned': 660, 'mode': 'hf'}
+{'completed': 39, 'planned': 660, 'mode': 'hf'}
+{'completed': 40, 'planned': 660, 'mode': 'hf'}
+{'completed': 41, 'planned': 660, 'mode': 'hf'}
+{'completed': 42, 'planned': 660, 'mode': 'hf'}
+{'completed': 43, 'planned': 660, 'mode': 'hf'}
+{'completed': 44, 'planned': 660, 'mode': 'hf'}
+{'completed': 45, 'planned': 660, 'mode': 'hf'}
+{'completed': 46, 'planned': 660, 'mode': 'hf'}
+{'completed': 47, 'planned': 660, 'mode': 'hf'}
+{'completed': 48, 'planned': 660, 'mode': 'hf'}
+{'completed': 49, 'planned': 660, 'mode': 'hf'}
+{'completed': 50, 'planned': 660, 'mode': 'hf'}
+{'completed': 51, 'planned': 660, 'mode': 'hf'}
+{'completed': 52, 'planned': 660, 'mode': 'hf'}
+{'completed': 53, 'planned': 660, 'mode': 'hf'}
+{'completed': 54, 'planned': 660, 'mode': 'hf'}
+{'completed': 55, 'planned': 660, 'mode': 'hf'}
+{'completed': 56, 'planned': 660, 'mode': 'hf'}
+{'completed': 57, 'planned': 660, 'mode': 'hf'}
+{'completed': 58, 'planned': 660, 'mode': 'hf'}
+{'completed': 59, 'planned': 660, 'mode': 'hf'}
+{'completed': 60, 'planned': 660, 'mode': 'hf'}
+{'completed': 61, 'planned': 660, 'mode': 'hf'}
+{'completed': 62, 'planned': 660, 'mode': 'hf'}
+{'completed': 63, 'planned': 660, 'mode': 'hf'}
+{'completed': 64, 'planned': 660, 'mode': 'hf'}
+{'completed': 65, 'planned': 660, 'mode': 'hf'}
+{'completed': 66, 'planned': 660, 'mode': 'hf'}
+{'completed': 67, 'planned': 660, 'mode': 'hf'}
+{'completed': 68, 'planned': 660, 'mode': 'hf'}
+{'completed': 69, 'planned': 660, 'mode': 'hf'}
+{'completed': 70, 'planned': 660, 'mode': 'hf'}
+{'completed': 71, 'planned': 660, 'mode': 'hf'}
+{'completed': 72, 'planned': 660, 'mode': 'hf'}
+{'completed': 73, 'planned': 660, 'mode': 'hf'}
+{'completed': 74, 'planned': 660, 'mode': 'hf'}
+{'completed': 75, 'planned': 660, 'mode': 'hf'}
+{'completed': 76, 'planned': 660, 'mode': 'hf'}
+{'completed': 77, 'planned': 660, 'mode': 'hf'}
+{'completed': 78, 'planned': 660, 'mode': 'hf'}
+{'completed': 79, 'planned': 660, 'mode': 'hf'}
+{'completed': 80, 'planned': 660, 'mode': 'hf'}
+{'completed': 81, 'planned': 660, 'mode': 'hf'}
+{'completed': 82, 'planned': 660, 'mode': 'hf'}
+{'completed': 83, 'planned': 660, 'mode': 'hf'}
+{'completed': 84, 'planned': 660, 'mode': 'hf'}
+{'completed': 85, 'planned': 660, 'mode': 'hf'}
+{'completed': 86, 'planned': 660, 'mode': 'hf'}
+{'completed': 87, 'planned': 660, 'mode': 'hf'}
+{'completed': 88, 'planned': 660, 'mode': 'hf'}
+{'completed': 89, 'planned': 660, 'mode': 'hf'}
+{'completed': 90, 'planned': 660, 'mode': 'hf'}
+{'completed': 91, 'planned': 660, 'mode': 'hf'}
+{'completed': 92, 'planned': 660, 'mode': 'hf'}
+{'completed': 93, 'planned': 660, 'mode': 'hf'}
+{'completed': 94, 'planned': 660, 'mode': 'hf'}
+{'completed': 95, 'planned': 660, 'mode': 'hf'}
+{'completed': 96, 'planned': 660, 'mode': 'hf'}
+{'completed': 97, 'planned': 660, 'mode': 'hf'}
+{'completed': 98, 'planned': 660, 'mode': 'hf'}
+{'completed': 99, 'planned': 660, 'mode': 'hf'}
+{'completed': 100, 'planned': 660, 'mode': 'hf'}
+{'completed': 101, 'planned': 660, 'mode': 'hf'}
+{'completed': 102, 'planned': 660, 'mode': 'hf'}
+{'completed': 103, 'planned': 660, 'mode': 'hf'}
+{'completed': 104, 'planned': 660, 'mode': 'hf'}
+{'completed': 105, 'planned': 660, 'mode': 'hf'}
+{'completed': 106, 'planned': 660, 'mode': 'hf'}
+{'completed': 107, 'planned': 660, 'mode': 'hf'}
+{'completed': 108, 'planned': 660, 'mode': 'hf'}
+{'completed': 109, 'planned': 660, 'mode': 'hf'}
+{'completed': 110, 'planned': 660, 'mode': 'hf'}
+{'completed': 111, 'planned': 660, 'mode': 'hf'}
+{'completed': 112, 'planned': 660, 'mode': 'hf'}
+{'completed': 113, 'planned': 660, 'mode': 'hf'}
+{'completed': 114, 'planned': 660, 'mode': 'hf'}
+{'completed': 115, 'planned': 660, 'mode': 'hf'}
+{'completed': 116, 'planned': 660, 'mode': 'hf'}
+{'completed': 117, 'planned': 660, 'mode': 'hf'}
+{'completed': 118, 'planned': 660, 'mode': 'hf'}
+{'completed': 119, 'planned': 660, 'mode': 'hf'}
+{'completed': 120, 'planned': 660, 'mode': 'hf'}
+{'completed': 121, 'planned': 660, 'mode': 'hf'}
+{'completed': 122, 'planned': 660, 'mode': 'hf'}
+{'completed': 123, 'planned': 660, 'mode': 'hf'}
+{'completed': 124, 'planned': 660, 'mode': 'hf'}
+{'completed': 125, 'planned': 660, 'mode': 'hf'}
+{'completed': 126, 'planned': 660, 'mode': 'hf'}
+{'completed': 127, 'planned': 660, 'mode': 'hf'}
+{'completed': 128, 'planned': 660, 'mode': 'hf'}
+{'completed': 129, 'planned': 660, 'mode': 'hf'}
+{'completed': 130, 'planned': 660, 'mode': 'hf'}
+{'completed': 131, 'planned': 660, 'mode': 'hf'}
+{'completed': 132, 'planned': 660, 'mode': 'hf'}
+{'completed': 133, 'planned': 660, 'mode': 'hf'}
+{'completed': 134, 'planned': 660, 'mode': 'hf'}
+{'completed': 135, 'planned': 660, 'mode': 'hf'}
+{'completed': 136, 'planned': 660, 'mode': 'hf'}
+{'completed': 137, 'planned': 660, 'mode': 'hf'}
+{'completed': 138, 'planned': 660, 'mode': 'hf'}
+{'completed': 139, 'planned': 660, 'mode': 'hf'}
+{'completed': 140, 'planned': 660, 'mode': 'hf'}
+{'completed': 141, 'planned': 660, 'mode': 'hf'}
+{'completed': 142, 'planned': 660, 'mode': 'hf'}
+{'completed': 143, 'planned': 660, 'mode': 'hf'}
+{'completed': 144, 'planned': 660, 'mode': 'hf'}
+{'completed': 145, 'planned': 660, 'mode': 'hf'}
+{'completed': 146, 'planned': 660, 'mode': 'hf'}
+{'completed': 147, 'planned': 660, 'mode': 'hf'}
+{'completed': 148, 'planned': 660, 'mode': 'hf'}
+{'completed': 149, 'planned': 660, 'mode': 'hf'}
+{'completed': 150, 'planned': 660, 'mode': 'hf'}
+{'completed': 151, 'planned': 660, 'mode': 'hf'}
+{'completed': 152, 'planned': 660, 'mode': 'hf'}
+{'completed': 153, 'planned': 660, 'mode': 'hf'}
+{'completed': 154, 'planned': 660, 'mode': 'hf'}
+{'completed': 155, 'planned': 660, 'mode': 'hf'}
+{'completed': 156, 'planned': 660, 'mode': 'hf'}
+{'completed': 157, 'planned': 660, 'mode': 'hf'}
+{'completed': 158, 'planned': 660, 'mode': 'hf'}
+{'completed': 159, 'planned': 660, 'mode': 'hf'}
+{'completed': 160, 'planned': 660, 'mode': 'hf'}
+{'completed': 161, 'planned': 660, 'mode': 'hf'}
+{'completed': 162, 'planned': 660, 'mode': 'hf'}
+{'completed': 163, 'planned': 660, 'mode': 'hf'}
+{'completed': 164, 'planned': 660, 'mode': 'hf'}
+{'completed': 165, 'planned': 660, 'mode': 'hf'}
+{'completed': 166, 'planned': 660, 'mode': 'hf'}
+{'completed': 167, 'planned': 660, 'mode': 'hf'}
+{'completed': 168, 'planned': 660, 'mode': 'hf'}
+{'completed': 169, 'planned': 660, 'mode': 'hf'}
+{'completed': 170, 'planned': 660, 'mode': 'hf'}
+{'completed': 171, 'planned': 660, 'mode': 'hf'}
+{'completed': 172, 'planned': 660, 'mode': 'hf'}
+{'completed': 173, 'planned': 660, 'mode': 'hf'}
+{'completed': 174, 'planned': 660, 'mode': 'hf'}
+{'completed': 175, 'planned': 660, 'mode': 'hf'}
+{'completed': 176, 'planned': 660, 'mode': 'hf'}
+{'completed': 177, 'planned': 660, 'mode': 'hf'}
+{'completed': 178, 'planned': 660, 'mode': 'hf'}
+{'completed': 179, 'planned': 660, 'mode': 'hf'}
+{'completed': 180, 'planned': 660, 'mode': 'hf'}
+{'completed': 181, 'planned': 660, 'mode': 'hf'}
+{'completed': 182, 'planned': 660, 'mode': 'hf'}
+{'completed': 183, 'planned': 660, 'mode': 'hf'}
+{'completed': 184, 'planned': 660, 'mode': 'hf'}
+{'completed': 185, 'planned': 660, 'mode': 'hf'}
+{'completed': 186, 'planned': 660, 'mode': 'hf'}
+{'completed': 187, 'planned': 660, 'mode': 'hf'}
+{'completed': 188, 'planned': 660, 'mode': 'hf'}
+{'completed': 189, 'planned': 660, 'mode': 'hf'}
+{'completed': 190, 'planned': 660, 'mode': 'hf'}
+{'completed': 191, 'planned': 660, 'mode': 'hf'}
+{'completed': 192, 'planned': 660, 'mode': 'hf'}
+{'completed': 193, 'planned': 660, 'mode': 'hf'}
+{'completed': 194, 'planned': 660, 'mode': 'hf'}
+{'completed': 195, 'planned': 660, 'mode': 'hf'}
+{'completed': 196, 'planned': 660, 'mode': 'hf'}
+{'completed': 197, 'planned': 660, 'mode': 'hf'}
+{'completed': 198, 'planned': 660, 'mode': 'hf'}
+{'completed': 199, 'planned': 660, 'mode': 'hf'}
+{'completed': 200, 'planned': 660, 'mode': 'hf'}
+{'completed': 201, 'planned': 660, 'mode': 'hf'}
+{'completed': 202, 'planned': 660, 'mode': 'hf'}
+{'completed': 203, 'planned': 660, 'mode': 'hf'}
+{'completed': 204, 'planned': 660, 'mode': 'hf'}
+{'completed': 205, 'planned': 660, 'mode': 'hf'}
+{'completed': 206, 'planned': 660, 'mode': 'hf'}
+{'completed': 207, 'planned': 660, 'mode': 'hf'}
+{'completed': 208, 'planned': 660, 'mode': 'hf'}
+{'completed': 209, 'planned': 660, 'mode': 'hf'}
+{'completed': 210, 'planned': 660, 'mode': 'hf'}
+{'completed': 211, 'planned': 660, 'mode': 'hf'}
+{'completed': 212, 'planned': 660, 'mode': 'hf'}
+{'completed': 213, 'planned': 660, 'mode': 'hf'}
+{'completed': 214, 'planned': 660, 'mode': 'hf'}
+{'completed': 215, 'planned': 660, 'mode': 'hf'}
+{'completed': 216, 'planned': 660, 'mode': 'hf'}
+{'completed': 217, 'planned': 660, 'mode': 'hf'}
+{'completed': 218, 'planned': 660, 'mode': 'hf'}
+{'completed': 219, 'planned': 660, 'mode': 'hf'}
+{'completed': 220, 'planned': 660, 'mode': 'hf'}
+{'completed': 221, 'planned': 660, 'mode': 'hf'}
+{'completed': 222, 'planned': 660, 'mode': 'hf'}
+{'completed': 223, 'planned': 660, 'mode': 'hf'}
+{'completed': 224, 'planned': 660, 'mode': 'hf'}
+{'completed': 225, 'planned': 660, 'mode': 'hf'}
+{'completed': 226, 'planned': 660, 'mode': 'hf'}
+{'completed': 227, 'planned': 660, 'mode': 'hf'}
+{'completed': 228, 'planned': 660, 'mode': 'hf'}
+{'completed': 229, 'planned': 660, 'mode': 'hf'}
+{'completed': 230, 'planned': 660, 'mode': 'hf'}
+{'completed': 231, 'planned': 660, 'mode': 'hf'}
+{'completed': 232, 'planned': 660, 'mode': 'hf'}
+{'completed': 233, 'planned': 660, 'mode': 'hf'}
+{'completed': 234, 'planned': 660, 'mode': 'hf'}
+{'completed': 235, 'planned': 660, 'mode': 'hf'}
+{'completed': 236, 'planned': 660, 'mode': 'hf'}
+{'completed': 237, 'planned': 660, 'mode': 'hf'}
+{'completed': 238, 'planned': 660, 'mode': 'hf'}
+{'completed': 239, 'planned': 660, 'mode': 'hf'}
+{'completed': 240, 'planned': 660, 'mode': 'hf'}
+{'completed': 241, 'planned': 660, 'mode': 'hf'}
+{'completed': 242, 'planned': 660, 'mode': 'hf'}
+{'completed': 243, 'planned': 660, 'mode': 'hf'}
+{'completed': 244, 'planned': 660, 'mode': 'hf'}
+{'completed': 245, 'planned': 660, 'mode': 'hf'}
+{'completed': 246, 'planned': 660, 'mode': 'hf'}
+{'completed': 247, 'planned': 660, 'mode': 'hf'}
+{'completed': 248, 'planned': 660, 'mode': 'hf'}
+{'completed': 249, 'planned': 660, 'mode': 'hf'}
+{'completed': 250, 'planned': 660, 'mode': 'hf'}
+{'completed': 251, 'planned': 660, 'mode': 'hf'}
+{'completed': 252, 'planned': 660, 'mode': 'hf'}
+{'completed': 253, 'planned': 660, 'mode': 'hf'}
+{'completed': 254, 'planned': 660, 'mode': 'hf'}
+{'completed': 255, 'planned': 660, 'mode': 'hf'}
+{'completed': 256, 'planned': 660, 'mode': 'hf'}
+{'completed': 257, 'planned': 660, 'mode': 'hf'}
+{'completed': 258, 'planned': 660, 'mode': 'hf'}
+{'completed': 259, 'planned': 660, 'mode': 'hf'}
+{'completed': 260, 'planned': 660, 'mode': 'hf'}
+{'completed': 261, 'planned': 660, 'mode': 'hf'}
+{'completed': 262, 'planned': 660, 'mode': 'hf'}
+{'completed': 263, 'planned': 660, 'mode': 'hf'}
+{'completed': 264, 'planned': 660, 'mode': 'hf'}
+{'completed': 265, 'planned': 660, 'mode': 'hf'}
+{'completed': 266, 'planned': 660, 'mode': 'hf'}
+{'completed': 267, 'planned': 660, 'mode': 'hf'}
+{'completed': 268, 'planned': 660, 'mode': 'hf'}
+{'completed': 269, 'planned': 660, 'mode': 'hf'}
+{'completed': 270, 'planned': 660, 'mode': 'hf'}
+{'completed': 271, 'planned': 660, 'mode': 'hf'}
+{'completed': 272, 'planned': 660, 'mode': 'hf'}
+{'completed': 273, 'planned': 660, 'mode': 'hf'}
+{'completed': 274, 'planned': 660, 'mode': 'hf'}
+{'completed': 275, 'planned': 660, 'mode': 'hf'}
+{'completed': 276, 'planned': 660, 'mode': 'hf'}
+{'completed': 277, 'planned': 660, 'mode': 'hf'}
+{'completed': 278, 'planned': 660, 'mode': 'hf'}
+{'completed': 279, 'planned': 660, 'mode': 'hf'}
+{'completed': 280, 'planned': 660, 'mode': 'hf'}
+{'completed': 281, 'planned': 660, 'mode': 'hf'}
+{'completed': 282, 'planned': 660, 'mode': 'hf'}
+{'completed': 283, 'planned': 660, 'mode': 'hf'}
+{'completed': 284, 'planned': 660, 'mode': 'hf'}
+{'completed': 285, 'planned': 660, 'mode': 'hf'}
+{'completed': 286, 'planned': 660, 'mode': 'hf'}
+{'completed': 287, 'planned': 660, 'mode': 'hf'}
+{'completed': 288, 'planned': 660, 'mode': 'hf'}
+{'completed': 289, 'planned': 660, 'mode': 'hf'}
+{'completed': 290, 'planned': 660, 'mode': 'hf'}
+{'completed': 291, 'planned': 660, 'mode': 'hf'}
+{'completed': 292, 'planned': 660, 'mode': 'hf'}
+{'completed': 293, 'planned': 660, 'mode': 'hf'}
+{'completed': 294, 'planned': 660, 'mode': 'hf'}
+{'completed': 295, 'planned': 660, 'mode': 'hf'}
+{'completed': 296, 'planned': 660, 'mode': 'hf'}
+{'completed': 297, 'planned': 660, 'mode': 'hf'}
+{'completed': 298, 'planned': 660, 'mode': 'hf'}
+{'completed': 299, 'planned': 660, 'mode': 'hf'}
+{'completed': 300, 'planned': 660, 'mode': 'hf'}
+{'completed': 301, 'planned': 660, 'mode': 'hf'}
+{'completed': 302, 'planned': 660, 'mode': 'hf'}
+{'completed': 303, 'planned': 660, 'mode': 'hf'}
+{'completed': 304, 'planned': 660, 'mode': 'hf'}
+{'completed': 305, 'planned': 660, 'mode': 'hf'}
+{'completed': 306, 'planned': 660, 'mode': 'hf'}
+{'completed': 307, 'planned': 660, 'mode': 'hf'}
+{'completed': 308, 'planned': 660, 'mode': 'hf'}
+{'completed': 309, 'planned': 660, 'mode': 'hf'}
+{'completed': 310, 'planned': 660, 'mode': 'hf'}
+{'completed': 311, 'planned': 660, 'mode': 'hf'}
+{'completed': 312, 'planned': 660, 'mode': 'hf'}
+{'completed': 313, 'planned': 660, 'mode': 'hf'}
+{'completed': 314, 'planned': 660, 'mode': 'hf'}
+{'completed': 315, 'planned': 660, 'mode': 'hf'}
+{'completed': 316, 'planned': 660, 'mode': 'hf'}
+{'completed': 317, 'planned': 660, 'mode': 'hf'}
+{'completed': 318, 'planned': 660, 'mode': 'hf'}
+{'completed': 319, 'planned': 660, 'mode': 'hf'}
+{'completed': 320, 'planned': 660, 'mode': 'hf'}
+{'completed': 321, 'planned': 660, 'mode': 'hf'}
+{'completed': 322, 'planned': 660, 'mode': 'hf'}
+{'completed': 323, 'planned': 660, 'mode': 'hf'}
+{'completed': 324, 'planned': 660, 'mode': 'hf'}
+{'completed': 325, 'planned': 660, 'mode': 'hf'}
+{'completed': 326, 'planned': 660, 'mode': 'hf'}
+{'completed': 327, 'planned': 660, 'mode': 'hf'}
+{'completed': 328, 'planned': 660, 'mode': 'hf'}
+{'completed': 329, 'planned': 660, 'mode': 'hf'}
+{'completed': 330, 'planned': 660, 'mode': 'hf'}
+{'completed': 331, 'planned': 660, 'mode': 'hf'}
+{'completed': 332, 'planned': 660, 'mode': 'hf'}
+{'completed': 333, 'planned': 660, 'mode': 'hf'}
+{'completed': 334, 'planned': 660, 'mode': 'hf'}
+{'completed': 335, 'planned': 660, 'mode': 'hf'}
+{'completed': 336, 'planned': 660, 'mode': 'hf'}
+{'completed': 337, 'planned': 660, 'mode': 'hf'}
+{'completed': 338, 'planned': 660, 'mode': 'hf'}
+{'completed': 339, 'planned': 660, 'mode': 'hf'}
+{'completed': 340, 'planned': 660, 'mode': 'hf'}
+{'completed': 341, 'planned': 660, 'mode': 'hf'}
+{'completed': 342, 'planned': 660, 'mode': 'hf'}
+{'completed': 343, 'planned': 660, 'mode': 'hf'}
+{'completed': 344, 'planned': 660, 'mode': 'hf'}
+{'completed': 345, 'planned': 660, 'mode': 'hf'}
+{'completed': 346, 'planned': 660, 'mode': 'hf'}
+{'completed': 347, 'planned': 660, 'mode': 'hf'}
+{'completed': 348, 'planned': 660, 'mode': 'hf'}
+{'completed': 349, 'planned': 660, 'mode': 'hf'}
+{'completed': 350, 'planned': 660, 'mode': 'hf'}
+{'completed': 351, 'planned': 660, 'mode': 'hf'}
+{'completed': 352, 'planned': 660, 'mode': 'hf'}
+{'completed': 353, 'planned': 660, 'mode': 'hf'}
+{'completed': 354, 'planned': 660, 'mode': 'hf'}
+{'completed': 355, 'planned': 660, 'mode': 'hf'}
+{'completed': 356, 'planned': 660, 'mode': 'hf'}
+{'completed': 357, 'planned': 660, 'mode': 'hf'}
+{'completed': 358, 'planned': 660, 'mode': 'hf'}
+{'completed': 359, 'planned': 660, 'mode': 'hf'}
+{'completed': 360, 'planned': 660, 'mode': 'hf'}
+{'completed': 361, 'planned': 660, 'mode': 'hf'}
+{'completed': 362, 'planned': 660, 'mode': 'hf'}
+{'completed': 363, 'planned': 660, 'mode': 'hf'}
+{'completed': 364, 'planned': 660, 'mode': 'hf'}
+{'completed': 365, 'planned': 660, 'mode': 'hf'}
+{'completed': 366, 'planned': 660, 'mode': 'hf'}
+{'completed': 367, 'planned': 660, 'mode': 'hf'}
+{'completed': 368, 'planned': 660, 'mode': 'hf'}
+{'completed': 369, 'planned': 660, 'mode': 'hf'}
+{'completed': 370, 'planned': 660, 'mode': 'hf'}
+{'completed': 371, 'planned': 660, 'mode': 'hf'}
+{'completed': 372, 'planned': 660, 'mode': 'hf'}
+{'completed': 373, 'planned': 660, 'mode': 'hf'}
+{'completed': 374, 'planned': 660, 'mode': 'hf'}
+{'completed': 375, 'planned': 660, 'mode': 'hf'}
+{'completed': 376, 'planned': 660, 'mode': 'hf'}
+{'completed': 377, 'planned': 660, 'mode': 'hf'}
+{'completed': 378, 'planned': 660, 'mode': 'hf'}
+{'completed': 379, 'planned': 660, 'mode': 'hf'}
+{'completed': 380, 'planned': 660, 'mode': 'hf'}
+{'completed': 381, 'planned': 660, 'mode': 'hf'}
+{'completed': 382, 'planned': 660, 'mode': 'hf'}
+{'completed': 383, 'planned': 660, 'mode': 'hf'}
+{'completed': 384, 'planned': 660, 'mode': 'hf'}
+{'completed': 385, 'planned': 660, 'mode': 'hf'}
+{'completed': 386, 'planned': 660, 'mode': 'hf'}
+{'completed': 387, 'planned': 660, 'mode': 'hf'}
+{'completed': 388, 'planned': 660, 'mode': 'hf'}
+{'completed': 389, 'planned': 660, 'mode': 'hf'}
+{'completed': 390, 'planned': 660, 'mode': 'hf'}
+{'completed': 391, 'planned': 660, 'mode': 'hf'}
+{'completed': 392, 'planned': 660, 'mode': 'hf'}
+{'completed': 393, 'planned': 660, 'mode': 'hf'}
+{'completed': 394, 'planned': 660, 'mode': 'hf'}
+{'completed': 395, 'planned': 660, 'mode': 'hf'}
+{'completed': 396, 'planned': 660, 'mode': 'hf'}
+{'completed': 397, 'planned': 660, 'mode': 'hf'}
+{'completed': 398, 'planned': 660, 'mode': 'hf'}
+{'completed': 399, 'planned': 660, 'mode': 'hf'}
+{'completed': 400, 'planned': 660, 'mode': 'hf'}
+{'completed': 401, 'planned': 660, 'mode': 'hf'}
+{'completed': 402, 'planned': 660, 'mode': 'hf'}
+{'completed': 403, 'planned': 660, 'mode': 'hf'}
+{'completed': 404, 'planned': 660, 'mode': 'hf'}
+{'completed': 405, 'planned': 660, 'mode': 'hf'}
+{'completed': 406, 'planned': 660, 'mode': 'hf'}
+{'completed': 407, 'planned': 660, 'mode': 'hf'}
+{'completed': 408, 'planned': 660, 'mode': 'hf'}
+{'completed': 409, 'planned': 660, 'mode': 'hf'}
+{'completed': 410, 'planned': 660, 'mode': 'hf'}
+{'completed': 411, 'planned': 660, 'mode': 'hf'}
+{'completed': 412, 'planned': 660, 'mode': 'hf'}
+{'completed': 413, 'planned': 660, 'mode': 'hf'}
+{'completed': 414, 'planned': 660, 'mode': 'hf'}
+{'completed': 415, 'planned': 660, 'mode': 'hf'}
+{'completed': 416, 'planned': 660, 'mode': 'hf'}
+{'completed': 417, 'planned': 660, 'mode': 'hf'}
+{'completed': 418, 'planned': 660, 'mode': 'hf'}
+{'completed': 419, 'planned': 660, 'mode': 'hf'}
+{'completed': 420, 'planned': 660, 'mode': 'hf'}
+{'completed': 421, 'planned': 660, 'mode': 'hf'}
+{'completed': 422, 'planned': 660, 'mode': 'hf'}
+{'completed': 423, 'planned': 660, 'mode': 'hf'}
+{'completed': 424, 'planned': 660, 'mode': 'hf'}
+{'completed': 425, 'planned': 660, 'mode': 'hf'}
+{'completed': 426, 'planned': 660, 'mode': 'hf'}
+{'completed': 427, 'planned': 660, 'mode': 'hf'}
+{'completed': 428, 'planned': 660, 'mode': 'hf'}
+{'completed': 429, 'planned': 660, 'mode': 'hf'}
+{'completed': 430, 'planned': 660, 'mode': 'hf'}
+{'completed': 431, 'planned': 660, 'mode': 'hf'}
+{'completed': 432, 'planned': 660, 'mode': 'hf'}
+{'completed': 433, 'planned': 660, 'mode': 'hf'}
+{'completed': 434, 'planned': 660, 'mode': 'hf'}
+{'completed': 435, 'planned': 660, 'mode': 'hf'}
+{'completed': 436, 'planned': 660, 'mode': 'hf'}
+{'completed': 437, 'planned': 660, 'mode': 'hf'}
+{'completed': 438, 'planned': 660, 'mode': 'hf'}
+{'completed': 439, 'planned': 660, 'mode': 'hf'}
+{'completed': 440, 'planned': 660, 'mode': 'hf'}
+{'completed': 441, 'planned': 660, 'mode': 'hf'}
+{'completed': 442, 'planned': 660, 'mode': 'hf'}
+{'completed': 443, 'planned': 660, 'mode': 'hf'}
+{'completed': 444, 'planned': 660, 'mode': 'hf'}
+{'completed': 445, 'planned': 660, 'mode': 'hf'}
+{'completed': 446, 'planned': 660, 'mode': 'hf'}
+{'completed': 447, 'planned': 660, 'mode': 'hf'}
+{'completed': 448, 'planned': 660, 'mode': 'hf'}
+{'completed': 449, 'planned': 660, 'mode': 'hf'}
+{'completed': 450, 'planned': 660, 'mode': 'hf'}
+{'completed': 451, 'planned': 660, 'mode': 'hf'}
+{'completed': 452, 'planned': 660, 'mode': 'hf'}
+{'completed': 453, 'planned': 660, 'mode': 'hf'}
+{'completed': 454, 'planned': 660, 'mode': 'hf'}
+{'completed': 455, 'planned': 660, 'mode': 'hf'}
+{'completed': 456, 'planned': 660, 'mode': 'hf'}
+{'completed': 457, 'planned': 660, 'mode': 'hf'}
+{'completed': 458, 'planned': 660, 'mode': 'hf'}
+{'completed': 459, 'planned': 660, 'mode': 'hf'}
+{'completed': 460, 'planned': 660, 'mode': 'hf'}
+{'completed': 461, 'planned': 660, 'mode': 'hf'}
+{'completed': 462, 'planned': 660, 'mode': 'hf'}
+{'completed': 463, 'planned': 660, 'mode': 'hf'}
+{'completed': 464, 'planned': 660, 'mode': 'hf'}
+{'completed': 465, 'planned': 660, 'mode': 'hf'}
+{'completed': 466, 'planned': 660, 'mode': 'hf'}
+{'completed': 467, 'planned': 660, 'mode': 'hf'}
+{'completed': 468, 'planned': 660, 'mode': 'hf'}
+{'completed': 469, 'planned': 660, 'mode': 'hf'}
+{'completed': 470, 'planned': 660, 'mode': 'hf'}
+{'completed': 471, 'planned': 660, 'mode': 'hf'}
+{'completed': 472, 'planned': 660, 'mode': 'hf'}
+{'completed': 473, 'planned': 660, 'mode': 'hf'}
+{'completed': 474, 'planned': 660, 'mode': 'hf'}
+{'completed': 475, 'planned': 660, 'mode': 'hf'}
+{'completed': 476, 'planned': 660, 'mode': 'hf'}
+{'completed': 477, 'planned': 660, 'mode': 'hf'}
+{'completed': 478, 'planned': 660, 'mode': 'hf'}
+{'completed': 479, 'planned': 660, 'mode': 'hf'}
+{'completed': 480, 'planned': 660, 'mode': 'hf'}
+{'completed': 481, 'planned': 660, 'mode': 'hf'}
+{'completed': 482, 'planned': 660, 'mode': 'hf'}
+{'completed': 483, 'planned': 660, 'mode': 'hf'}
+{'completed': 484, 'planned': 660, 'mode': 'hf'}
+{'completed': 485, 'planned': 660, 'mode': 'hf'}
+{'completed': 486, 'planned': 660, 'mode': 'hf'}
+{'completed': 487, 'planned': 660, 'mode': 'hf'}
+{'completed': 488, 'planned': 660, 'mode': 'hf'}
+{'completed': 489, 'planned': 660, 'mode': 'hf'}
+{'completed': 490, 'planned': 660, 'mode': 'hf'}
+{'completed': 491, 'planned': 660, 'mode': 'hf'}
+{'completed': 492, 'planned': 660, 'mode': 'hf'}
+{'completed': 493, 'planned': 660, 'mode': 'hf'}
+{'completed': 494, 'planned': 660, 'mode': 'hf'}
+{'completed': 495, 'planned': 660, 'mode': 'hf'}
+{'completed': 496, 'planned': 660, 'mode': 'hf'}
+{'completed': 497, 'planned': 660, 'mode': 'hf'}
+{'completed': 498, 'planned': 660, 'mode': 'hf'}
+{'completed': 499, 'planned': 660, 'mode': 'hf'}
+{'completed': 500, 'planned': 660, 'mode': 'hf'}
+{'completed': 501, 'planned': 660, 'mode': 'hf'}
+{'completed': 502, 'planned': 660, 'mode': 'hf'}
+{'completed': 503, 'planned': 660, 'mode': 'hf'}
+{'completed': 504, 'planned': 660, 'mode': 'hf'}
+{'completed': 505, 'planned': 660, 'mode': 'hf'}
+{'completed': 506, 'planned': 660, 'mode': 'hf'}
+{'completed': 507, 'planned': 660, 'mode': 'hf'}
+{'completed': 508, 'planned': 660, 'mode': 'hf'}
+{'completed': 509, 'planned': 660, 'mode': 'hf'}
+{'completed': 510, 'planned': 660, 'mode': 'hf'}
+{'completed': 511, 'planned': 660, 'mode': 'hf'}
+{'completed': 512, 'planned': 660, 'mode': 'hf'}
+{'completed': 513, 'planned': 660, 'mode': 'hf'}
+{'completed': 514, 'planned': 660, 'mode': 'hf'}
+{'completed': 515, 'planned': 660, 'mode': 'hf'}
+{'completed': 516, 'planned': 660, 'mode': 'hf'}
+{'completed': 517, 'planned': 660, 'mode': 'hf'}
+{'completed': 518, 'planned': 660, 'mode': 'hf'}
+{'completed': 519, 'planned': 660, 'mode': 'hf'}
+{'completed': 520, 'planned': 660, 'mode': 'hf'}
+{'completed': 521, 'planned': 660, 'mode': 'hf'}
+{'completed': 522, 'planned': 660, 'mode': 'hf'}
+{'completed': 523, 'planned': 660, 'mode': 'hf'}
+{'completed': 524, 'planned': 660, 'mode': 'hf'}
+{'completed': 525, 'planned': 660, 'mode': 'hf'}
+{'completed': 526, 'planned': 660, 'mode': 'hf'}
+{'completed': 527, 'planned': 660, 'mode': 'hf'}
+{'completed': 528, 'planned': 660, 'mode': 'hf'}
+{'completed': 529, 'planned': 660, 'mode': 'hf'}
+{'completed': 530, 'planned': 660, 'mode': 'hf'}
+{'completed': 531, 'planned': 660, 'mode': 'hf'}
+{'completed': 532, 'planned': 660, 'mode': 'hf'}
+{'completed': 533, 'planned': 660, 'mode': 'hf'}
+{'completed': 534, 'planned': 660, 'mode': 'hf'}
+{'completed': 535, 'planned': 660, 'mode': 'hf'}
+{'completed': 536, 'planned': 660, 'mode': 'hf'}
+{'completed': 537, 'planned': 660, 'mode': 'hf'}
+{'completed': 538, 'planned': 660, 'mode': 'hf'}
+{'completed': 539, 'planned': 660, 'mode': 'hf'}
+{'completed': 540, 'planned': 660, 'mode': 'hf'}
+{'completed': 541, 'planned': 660, 'mode': 'hf'}
+{'completed': 542, 'planned': 660, 'mode': 'hf'}
+{'completed': 543, 'planned': 660, 'mode': 'hf'}
+{'completed': 544, 'planned': 660, 'mode': 'hf'}
+{'completed': 545, 'planned': 660, 'mode': 'hf'}
+{'completed': 546, 'planned': 660, 'mode': 'hf'}
+{'completed': 547, 'planned': 660, 'mode': 'hf'}
+{'completed': 548, 'planned': 660, 'mode': 'hf'}
+{'completed': 549, 'planned': 660, 'mode': 'hf'}
+{'completed': 550, 'planned': 660, 'mode': 'hf'}
+{'completed': 551, 'planned': 660, 'mode': 'hf'}
+{'completed': 552, 'planned': 660, 'mode': 'hf'}
+{'completed': 553, 'planned': 660, 'mode': 'hf'}
+{'completed': 554, 'planned': 660, 'mode': 'hf'}
+{'completed': 555, 'planned': 660, 'mode': 'hf'}
+{'completed': 556, 'planned': 660, 'mode': 'hf'}
+{'completed': 557, 'planned': 660, 'mode': 'hf'}
+{'completed': 558, 'planned': 660, 'mode': 'hf'}
+{'completed': 559, 'planned': 660, 'mode': 'hf'}
+{'completed': 560, 'planned': 660, 'mode': 'hf'}
+{'completed': 561, 'planned': 660, 'mode': 'hf'}
+{'completed': 562, 'planned': 660, 'mode': 'hf'}
+{'completed': 563, 'planned': 660, 'mode': 'hf'}
+{'completed': 564, 'planned': 660, 'mode': 'hf'}
+{'completed': 565, 'planned': 660, 'mode': 'hf'}
+{'completed': 566, 'planned': 660, 'mode': 'hf'}
+{'completed': 567, 'planned': 660, 'mode': 'hf'}
+{'completed': 568, 'planned': 660, 'mode': 'hf'}
+{'completed': 569, 'planned': 660, 'mode': 'hf'}
+{'completed': 570, 'planned': 660, 'mode': 'hf'}
+{'completed': 571, 'planned': 660, 'mode': 'hf'}
+{'completed': 572, 'planned': 660, 'mode': 'hf'}
+{'completed': 573, 'planned': 660, 'mode': 'hf'}
+{'completed': 574, 'planned': 660, 'mode': 'hf'}
+{'completed': 575, 'planned': 660, 'mode': 'hf'}
+{'completed': 576, 'planned': 660, 'mode': 'hf'}
+{'completed': 577, 'planned': 660, 'mode': 'hf'}
+{'completed': 578, 'planned': 660, 'mode': 'hf'}
+{'completed': 579, 'planned': 660, 'mode': 'hf'}
+{'completed': 580, 'planned': 660, 'mode': 'hf'}
+{'completed': 581, 'planned': 660, 'mode': 'hf'}
+{'completed': 582, 'planned': 660, 'mode': 'hf'}
+{'completed': 583, 'planned': 660, 'mode': 'hf'}
+{'completed': 584, 'planned': 660, 'mode': 'hf'}
+{'completed': 585, 'planned': 660, 'mode': 'hf'}
+{'completed': 586, 'planned': 660, 'mode': 'hf'}
+{'completed': 587, 'planned': 660, 'mode': 'hf'}
+{'completed': 588, 'planned': 660, 'mode': 'hf'}
+{'completed': 589, 'planned': 660, 'mode': 'hf'}
+{'completed': 590, 'planned': 660, 'mode': 'hf'}
+{'completed': 591, 'planned': 660, 'mode': 'hf'}
+{'completed': 592, 'planned': 660, 'mode': 'hf'}
+{'completed': 593, 'planned': 660, 'mode': 'hf'}
+{'completed': 594, 'planned': 660, 'mode': 'hf'}
+{'completed': 595, 'planned': 660, 'mode': 'hf'}
+{'completed': 596, 'planned': 660, 'mode': 'hf'}
+{'completed': 597, 'planned': 660, 'mode': 'hf'}
+{'completed': 598, 'planned': 660, 'mode': 'hf'}
+{'completed': 599, 'planned': 660, 'mode': 'hf'}
+{'completed': 600, 'planned': 660, 'mode': 'hf'}
+{'completed': 601, 'planned': 660, 'mode': 'hf'}
+{'completed': 602, 'planned': 660, 'mode': 'hf'}
+{'completed': 603, 'planned': 660, 'mode': 'hf'}
+{'completed': 604, 'planned': 660, 'mode': 'hf'}
+{'completed': 605, 'planned': 660, 'mode': 'hf'}
+{'completed': 606, 'planned': 660, 'mode': 'hf'}
+{'completed': 607, 'planned': 660, 'mode': 'hf'}
+{'completed': 608, 'planned': 660, 'mode': 'hf'}
+{'completed': 609, 'planned': 660, 'mode': 'hf'}
+{'completed': 610, 'planned': 660, 'mode': 'hf'}
+{'completed': 611, 'planned': 660, 'mode': 'hf'}
+{'completed': 612, 'planned': 660, 'mode': 'hf'}
+{'completed': 613, 'planned': 660, 'mode': 'hf'}
+{'completed': 614, 'planned': 660, 'mode': 'hf'}
+{'completed': 615, 'planned': 660, 'mode': 'hf'}
+{'completed': 616, 'planned': 660, 'mode': 'hf'}
+{'completed': 617, 'planned': 660, 'mode': 'hf'}
+{'completed': 618, 'planned': 660, 'mode': 'hf'}
+{'completed': 619, 'planned': 660, 'mode': 'hf'}
+{'completed': 620, 'planned': 660, 'mode': 'hf'}
+{'completed': 621, 'planned': 660, 'mode': 'hf'}
+{'completed': 622, 'planned': 660, 'mode': 'hf'}
+{'completed': 623, 'planned': 660, 'mode': 'hf'}
+{'completed': 624, 'planned': 660, 'mode': 'hf'}
+{'completed': 625, 'planned': 660, 'mode': 'hf'}
+{'completed': 626, 'planned': 660, 'mode': 'hf'}
+{'completed': 627, 'planned': 660, 'mode': 'hf'}
+{'completed': 628, 'planned': 660, 'mode': 'hf'}
+{'completed': 629, 'planned': 660, 'mode': 'hf'}
+{'completed': 630, 'planned': 660, 'mode': 'hf'}
+{'completed': 631, 'planned': 660, 'mode': 'hf'}
+{'completed': 632, 'planned': 660, 'mode': 'hf'}
+{'completed': 633, 'planned': 660, 'mode': 'hf'}
+{'completed': 634, 'planned': 660, 'mode': 'hf'}
+{'completed': 635, 'planned': 660, 'mode': 'hf'}
+{'completed': 636, 'planned': 660, 'mode': 'hf'}
+{'completed': 637, 'planned': 660, 'mode': 'hf'}
+{'completed': 638, 'planned': 660, 'mode': 'hf'}
+{'completed': 639, 'planned': 660, 'mode': 'hf'}
+{'completed': 640, 'planned': 660, 'mode': 'hf'}
+{'completed': 641, 'planned': 660, 'mode': 'hf'}
+{'completed': 642, 'planned': 660, 'mode': 'hf'}
+{'completed': 643, 'planned': 660, 'mode': 'hf'}
+{'completed': 644, 'planned': 660, 'mode': 'hf'}
+{'completed': 645, 'planned': 660, 'mode': 'hf'}
+{'completed': 646, 'planned': 660, 'mode': 'hf'}
+{'completed': 647, 'planned': 660, 'mode': 'hf'}
+{'completed': 648, 'planned': 660, 'mode': 'hf'}
+{'completed': 649, 'planned': 660, 'mode': 'hf'}
+{'completed': 650, 'planned': 660, 'mode': 'hf'}
+{'completed': 651, 'planned': 660, 'mode': 'hf'}
+{'completed': 652, 'planned': 660, 'mode': 'hf'}
+{'completed': 653, 'planned': 660, 'mode': 'hf'}
+{'completed': 654, 'planned': 660, 'mode': 'hf'}
+{'completed': 655, 'planned': 660, 'mode': 'hf'}
+{'completed': 656, 'planned': 660, 'mode': 'hf'}
+{'completed': 657, 'planned': 660, 'mode': 'hf'}
+{'completed': 658, 'planned': 660, 'mode': 'hf'}
+{'completed': 659, 'planned': 660, 'mode': 'hf'}
+{'completed': 660, 'planned': 660, 'mode': 'hf'}
+{"packet_sha256": "ef4b8243492970c09849f74bfa0e999ef0e18b32003755bbfa199b2c9b91b0b1", "pilot_packet_sha256": "418f24b657eff7bb731ddb93a066889c63507fcab5cadc414231c3257ecba4f1", "mode": "hf", "model": "Qwen/Qwen3.8-27B", "approval_sha256": "541aed4ddd2640001db23831bd4fe1d7c4590cfd1367e56fd43ed768285dfc05", "status": "COMPLETE", "responses": 660, "scientific_result": false}

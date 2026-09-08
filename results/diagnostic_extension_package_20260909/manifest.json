@@ -1,0 +1,14 @@
+{
+  "status": "PACKAGED_NOT_RUN",
+  "new_requests": 660,
+  "existing_requests": 60,
+  "combined_bundles": 36,
+  "packet_sha256": "ef4b8243492970c09849f74bfa0e999ef0e18b32003755bbfa199b2c9b91b0b1",
+  "archive_sha256": "1222c954fafc71c8ddaa1641af53fc88ece0f552018f3edf1ce43c074197ebf6",
+  "maximum_total_usd_including_pilot": 5,
+  "maximum_restart_seconds": 5400,
+  "reuse_prior_results_without_regeneration": true,
+  "no_new_histories": true,
+  "no_prompt_or_model_change": true,
+  "no_activation_capture": true
+}

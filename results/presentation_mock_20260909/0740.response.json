@@ -1,0 +1,16 @@
+{
+  "packet_sha256": "dec89b900611e713d0209a2f813f8938b05f77071cb44992431a87b9184a9055",
+  "mode": "mock",
+  "model": "deterministic_mock",
+  "approval_sha256": null,
+  "request_id": "confirmation-00005/BIND/prose/0/2",
+  "execution_index": 740,
+  "prompt_sha256": "3c077b42f4ca1cbbb238c582aa6efb8e9ef491c72e4e238f4120e33366c2643a",
+  "seed": 3008269120,
+  "status": "VALID",
+  "raw_response": "2",
+  "failure_type": null,
+  "input_tokens": null,
+  "seconds": 0.0003510839305818081,
+  "record_sha256": "cf469be9bb28408bd828bb077601dfcb233142110915aa6887127cd23339a1a0"
+}

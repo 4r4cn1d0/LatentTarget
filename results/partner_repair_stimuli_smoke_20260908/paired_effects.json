@@ -1,0 +1,394 @@
+[
+  {
+    "descriptive_not_a_selection_test": true,
+    "direction": "candidate_minus_original",
+    "mean_lower": [
+      0.013888888888888888,
+      -0.3055555555555556,
+      -0.05555555555555555,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "mean_upper": [
+      0.013888888888888888,
+      -0.3055555555555556,
+      -0.05555555555555555,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "multiplicity_adjusted_across_policies": false,
+    "outer_ci": [
+      [
+        -0.030046964579842267,
+        0.05782474235762004
+      ],
+      [
+        -0.7852417227806249,
+        0.1741306116695137
+      ],
+      [
+        -0.3972568899505523,
+        0.28614577883944115
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "policy": "original_jaccard",
+    "seed": 202609082
+  },
+  {
+    "descriptive_not_a_selection_test": true,
+    "direction": "candidate_minus_original",
+    "mean_lower": [
+      0.0,
+      -0.3055555555555556,
+      -0.5277777777777778,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "mean_upper": [
+      0.0,
+      -0.3055555555555556,
+      -0.5277777777777778,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "multiplicity_adjusted_across_policies": false,
+    "outer_ci": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        -0.5691706763679425,
+        -0.04194043474316861
+      ],
+      [
+        -0.7070030333454029,
+        -0.34855252221015265
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "policy": "content_jaccard",
+    "seed": 202609082
+  },
+  {
+    "descriptive_not_a_selection_test": true,
+    "direction": "candidate_minus_original",
+    "mean_lower": [
+      0.0,
+      -0.3055555555555556,
+      -0.5277777777777778,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "mean_upper": [
+      0.0,
+      -0.3055555555555556,
+      -0.5277777777777778,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "multiplicity_adjusted_across_policies": false,
+    "outer_ci": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        -0.5691706763679425,
+        -0.04194043474316861
+      ],
+      [
+        -0.7070030333454029,
+        -0.34855252221015265
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "policy": "stem_jaccard",
+    "seed": 202609082
+  },
+  {
+    "descriptive_not_a_selection_test": true,
+    "direction": "candidate_minus_original",
+    "mean_lower": [
+      0.05555555555555555,
+      -0.7222222222222222,
+      -0.3333333333333333,
+      0.0,
+      0.0,
+      -0.027777777777777776
+    ],
+    "mean_upper": [
+      0.05555555555555555,
+      -0.7222222222222222,
+      -0.3333333333333333,
+      0.0,
+      0.0,
+      -0.027777777777777776
+    ],
+    "multiplicity_adjusted_across_policies": false,
+    "outer_ci": [
+      [
+        -0.07477924845406875,
+        0.18589035956517985
+      ],
+      [
+        -1.119106729798553,
+        -0.32533771464589145
+      ],
+      [
+        -0.5314743085577893,
+        -0.13519235810887736
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        -0.2455339169653799,
+        0.18997836140982433
+      ]
+    ],
+    "policy": "character_trigram",
+    "seed": 202609082
+  },
+  {
+    "descriptive_not_a_selection_test": true,
+    "direction": "candidate_minus_original",
+    "mean_lower": [
+      -0.6805555555555556,
+      0.0,
+      0.2222222222222222,
+      0.0,
+      0.0,
+      -0.013888888888888888
+    ],
+    "mean_upper": [
+      -0.6805555555555556,
+      0.0,
+      0.2222222222222222,
+      0.0,
+      0.0,
+      -0.013888888888888888
+    ],
+    "multiplicity_adjusted_across_policies": false,
+    "outer_ci": [
+      [
+        -0.9019852829831431,
+        -0.4591258281279681
+      ],
+      [
+        -0.30942821027385403,
+        0.30942821027385403
+      ],
+      [
+        0.03195757159374499,
+        0.4124868728506994
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        -0.2862596160512576,
+        0.2584818382734798
+      ]
+    ],
+    "policy": "length_only",
+    "seed": 202609082
+  },
+  {
+    "descriptive_not_a_selection_test": true,
+    "direction": "candidate_minus_original",
+    "mean_lower": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "mean_upper": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "multiplicity_adjusted_across_policies": false,
+    "outer_ci": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "policy": "static_belief",
+    "seed": 202609082
+  },
+  {
+    "descriptive_not_a_selection_test": true,
+    "direction": "candidate_minus_original",
+    "mean_lower": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "mean_upper": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "multiplicity_adjusted_across_policies": false,
+    "outer_ci": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "policy": "participant_feature_reward",
+    "seed": 202609082
+  },
+  {
+    "descriptive_not_a_selection_test": true,
+    "direction": "candidate_minus_original",
+    "mean_lower": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "mean_upper": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "multiplicity_adjusted_across_policies": false,
+    "outer_ci": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "policy": "typed_history_oracle",
+    "seed": 202609082
+  }
+]

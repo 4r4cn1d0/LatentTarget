@@ -1,0 +1,562 @@
+[
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "uniform_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 72,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "uniform_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 144,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "uniform_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 288,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "uniform_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "global_reward_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 72,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "global_reward_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 144,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "global_reward_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 288,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "global_reward_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "global_recency_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 72,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "global_recency_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 144,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "global_recency_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 288,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "global_recency_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "name_bias_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 72,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "name_bias_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 144,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "name_bias_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 288,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "name_bias_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "belief_full",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 72,
+    "neither_pass": 4999,
+    "new_only_pass": 0,
+    "old_only_pass": 1,
+    "paired_rate_difference": -0.0002,
+    "scenario": "belief_full",
+    "studies": 5000
+  },
+  {
+    "both_pass": 339,
+    "n": 144,
+    "neither_pass": 4216,
+    "new_only_pass": 0,
+    "old_only_pass": 445,
+    "paired_rate_difference": -0.089,
+    "scenario": "belief_full",
+    "studies": 5000
+  },
+  {
+    "both_pass": 3474,
+    "n": 288,
+    "neither_pass": 1367,
+    "new_only_pass": 0,
+    "old_only_pass": 159,
+    "paired_rate_difference": -0.03180000000000005,
+    "scenario": "belief_full",
+    "studies": 5000
+  },
+  {
+    "both_pass": 10,
+    "n": 36,
+    "neither_pass": 4761,
+    "new_only_pass": 0,
+    "old_only_pass": 229,
+    "paired_rate_difference": -0.0458,
+    "scenario": "belief_half_shared",
+    "studies": 5000
+  },
+  {
+    "both_pass": 380,
+    "n": 72,
+    "neither_pass": 3822,
+    "new_only_pass": 0,
+    "old_only_pass": 798,
+    "paired_rate_difference": -0.15960000000000002,
+    "scenario": "belief_half_shared",
+    "studies": 5000
+  },
+  {
+    "both_pass": 3276,
+    "n": 144,
+    "neither_pass": 1453,
+    "new_only_pass": 0,
+    "old_only_pass": 271,
+    "paired_rate_difference": -0.054200000000000026,
+    "scenario": "belief_half_shared",
+    "studies": 5000
+  },
+  {
+    "both_pass": 4874,
+    "n": 288,
+    "neither_pass": 103,
+    "new_only_pass": 0,
+    "old_only_pass": 23,
+    "paired_rate_difference": -0.0046000000000000485,
+    "scenario": "belief_half_shared",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "belief_half_independent",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 72,
+    "neither_pass": 4989,
+    "new_only_pass": 0,
+    "old_only_pass": 11,
+    "paired_rate_difference": -0.0022,
+    "scenario": "belief_half_independent",
+    "studies": 5000
+  },
+  {
+    "both_pass": 706,
+    "n": 144,
+    "neither_pass": 3886,
+    "new_only_pass": 0,
+    "old_only_pass": 408,
+    "paired_rate_difference": -0.0816,
+    "scenario": "belief_half_independent",
+    "studies": 5000
+  },
+  {
+    "both_pass": 4127,
+    "n": 288,
+    "neither_pass": 769,
+    "new_only_pass": 0,
+    "old_only_pass": 104,
+    "paired_rate_difference": -0.02079999999999993,
+    "scenario": "belief_half_independent",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 4955,
+    "new_only_pass": 0,
+    "old_only_pass": 45,
+    "paired_rate_difference": -0.009,
+    "scenario": "belief_half_mcar_1pct",
+    "studies": 5000
+  },
+  {
+    "both_pass": 83,
+    "n": 72,
+    "neither_pass": 4634,
+    "new_only_pass": 0,
+    "old_only_pass": 283,
+    "paired_rate_difference": -0.0566,
+    "scenario": "belief_half_mcar_1pct",
+    "studies": 5000
+  },
+  {
+    "both_pass": 2280,
+    "n": 144,
+    "neither_pass": 2358,
+    "new_only_pass": 0,
+    "old_only_pass": 362,
+    "paired_rate_difference": -0.07239999999999996,
+    "scenario": "belief_half_mcar_1pct",
+    "studies": 5000
+  },
+  {
+    "both_pass": 4624,
+    "n": 288,
+    "neither_pass": 317,
+    "new_only_pass": 0,
+    "old_only_pass": 59,
+    "paired_rate_difference": -0.011800000000000033,
+    "scenario": "belief_half_mcar_1pct",
+    "studies": 5000
+  },
+  {
+    "both_pass": 6,
+    "n": 36,
+    "neither_pass": 4856,
+    "new_only_pass": 0,
+    "old_only_pass": 138,
+    "paired_rate_difference": -0.0276,
+    "scenario": "belief_half_selective_1pct",
+    "studies": 5000
+  },
+  {
+    "both_pass": 236,
+    "n": 72,
+    "neither_pass": 4122,
+    "new_only_pass": 0,
+    "old_only_pass": 642,
+    "paired_rate_difference": -0.12840000000000001,
+    "scenario": "belief_half_selective_1pct",
+    "studies": 5000
+  },
+  {
+    "both_pass": 2921,
+    "n": 144,
+    "neither_pass": 1734,
+    "new_only_pass": 0,
+    "old_only_pass": 345,
+    "paired_rate_difference": -0.06899999999999995,
+    "scenario": "belief_half_selective_1pct",
+    "studies": 5000
+  },
+  {
+    "both_pass": 4811,
+    "n": 288,
+    "neither_pass": 168,
+    "new_only_pass": 0,
+    "old_only_pass": 21,
+    "paired_rate_difference": -0.0041999999999999815,
+    "scenario": "belief_half_selective_1pct",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "belief_mcar_3pct",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 72,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "belief_mcar_3pct",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 144,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "belief_mcar_3pct",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 288,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "belief_mcar_3pct",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "feature_reward",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 72,
+    "neither_pass": 4998,
+    "new_only_pass": 0,
+    "old_only_pass": 2,
+    "paired_rate_difference": -0.0004,
+    "scenario": "feature_reward",
+    "studies": 5000
+  },
+  {
+    "both_pass": 174,
+    "n": 144,
+    "neither_pass": 4412,
+    "new_only_pass": 0,
+    "old_only_pass": 414,
+    "paired_rate_difference": -0.0828,
+    "scenario": "feature_reward",
+    "studies": 5000
+  },
+  {
+    "both_pass": 3208,
+    "n": 288,
+    "neither_pass": 1632,
+    "new_only_pass": 0,
+    "old_only_pass": 160,
+    "paired_rate_difference": -0.03200000000000003,
+    "scenario": "feature_reward",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "dynamic_belief",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 72,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "dynamic_belief",
+    "studies": 5000
+  },
+  {
+    "both_pass": 187,
+    "n": 144,
+    "neither_pass": 4472,
+    "new_only_pass": 0,
+    "old_only_pass": 341,
+    "paired_rate_difference": -0.0682,
+    "scenario": "dynamic_belief",
+    "studies": 5000
+  },
+  {
+    "both_pass": 3236,
+    "n": 288,
+    "neither_pass": 1580,
+    "new_only_pass": 0,
+    "old_only_pass": 184,
+    "paired_rate_difference": -0.036800000000000055,
+    "scenario": "dynamic_belief",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "expertise_heavy_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 72,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "expertise_heavy_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 144,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "expertise_heavy_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 288,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "expertise_heavy_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 36,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "shared_sparse_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 72,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "shared_sparse_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 144,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "shared_sparse_null",
+    "studies": 5000
+  },
+  {
+    "both_pass": 0,
+    "n": 288,
+    "neither_pass": 5000,
+    "new_only_pass": 0,
+    "old_only_pass": 0,
+    "paired_rate_difference": 0.0,
+    "scenario": "shared_sparse_null",
+    "studies": 5000
+  }
+]

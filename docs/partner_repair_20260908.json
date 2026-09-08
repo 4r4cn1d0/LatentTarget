@@ -1,0 +1,43 @@
+{
+  "id": "partner_calibration_repair_20260908",
+  "status": "OFFLINE_VALIDATION_ONLY",
+  "parent_config": "docs/partner_state_offline_20260907.json",
+  "parent_sha256": "45cede3cbadeafc5dcbeb17388df375bcf67ac7c73e5a84da7a18635acdeeed5",
+  "method": "stratified_unbiased_variance_minimum_df_t",
+  "method_candidates": 1,
+  "n_grid": [36, 72, 144, 288],
+  "studies_per_cell": 5000,
+  "batch_size": 100,
+  "seed": 202609081,
+  "required_joint_lower": 0.8,
+  "required_null_upper": 0.05,
+  "primary_alpha": 0.025,
+  "control_alpha": 0.05,
+  "mean_threshold": 0.1,
+  "control_margin": 0.1,
+  "branch_validity": 0.98,
+  "extra_scenarios": [
+    {"id": "expertise_heavy_null", "policy": "uniform", "strength": 0.1, "coupling": "independent", "missing": "none", "rate": 0.0, "role": "null"},
+    {"id": "shared_sparse_null", "policy": "uniform", "strength": 0.5, "coupling": "shared", "missing": "none", "rate": 0.0, "role": "null"}
+  ],
+  "coverage_diagnostics": {
+    "means": [0.05, 0.1, 0.2, 0.3],
+    "distributions": ["bernoulli", "signed_bernoulli"],
+    "studies_per_cell": 5000,
+    "seed": 202609085,
+    "role": "diagnostic_not_an_alternative_method_selection_rule"
+  },
+  "stimulus_audit": {
+    "candidate_path": "docs/partner_wording_candidate_20260908.json",
+    "seeds": [202609082, 202609083, 202609084],
+    "n": 288,
+    "policies": ["original_jaccard", "content_jaccard", "stem_jaccard", "character_trigram", "length_only", "static_belief", "participant_feature_reward", "typed_history_oracle"],
+    "banks": ["original_confirmation", "candidate_draft"],
+    "design": "paired_identical_histories_except_message_wording_and_candidate_wording",
+    "post_result_rewording_allowed": false,
+    "human_semantic_validation": false,
+    "production_heldout_bank": false
+  },
+  "paid_run_authorized": false,
+  "mechanistic_run_authorized": false
+}

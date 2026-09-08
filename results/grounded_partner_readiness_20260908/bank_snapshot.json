@@ -1,0 +1,248 @@
+{
+  "development": [
+    {
+      "decision": "Choose a booking plan for a shared reading room. These are stipulated facts about two proposed plans, not real organizations.",
+      "facts": [
+        [
+          "Every member receives the same weekly booking allowance.",
+          "All applications use identical eligibility rules.",
+          "Priority rotates between members each month."
+        ],
+        [
+          "A spare room is reserved if the main room closes.",
+          "Bookings can be cancelled without a fee.",
+          "An outage checklist is prepared in advance."
+        ],
+        [
+          "An experienced librarian reviewed the plan.",
+          "The booking software passed a documented trial.",
+          "A trained coordinator will manage the room."
+        ]
+      ],
+      "id": "reading_room",
+      "option_a": "Plan A, ready tomorrow",
+      "option_b": "Plan B, ready today",
+      "paraphrases": [
+        [
+          "Each member gets an equal amount of room time.",
+          "Nobody faces a different application standard.",
+          "Members take turns receiving booking priority."
+        ],
+        [
+          "Another room is available if this one becomes unusable.",
+          "Changing a booking will not create a cancellation charge.",
+          "There are written steps for handling an interruption."
+        ],
+        [
+          "A librarian with relevant experience checked this arrangement.",
+          "The scheduling system has been tested and the results recorded.",
+          "The person running the room has received training."
+        ]
+      ]
+    },
+    {
+      "decision": "Choose a lending plan for community garden tools. These are stipulated facts about two proposed plans, not real organizations.",
+      "facts": [
+        [
+          "Each household gets the same borrowing period.",
+          "The deposit is identical for every household.",
+          "Access to popular tools rotates between households."
+        ],
+        [
+          "Damaged equipment is removed from circulation.",
+          "Replacement tools are kept in reserve.",
+          "Borrowers can report faults before using a tool."
+        ],
+        [
+          "A qualified technician checked the equipment.",
+          "Maintenance records document the condition of each tool.",
+          "An experienced gardener prepared the instructions."
+        ]
+      ],
+      "id": "garden_tools",
+      "option_a": "Plan A, ready tomorrow",
+      "option_b": "Plan B, ready today",
+      "paraphrases": [
+        [
+          "No household receives a longer loan than another.",
+          "Everyone is asked for the same deposit.",
+          "Households take turns borrowing the most requested equipment."
+        ],
+        [
+          "Tools with damage are not lent out.",
+          "There are spare tools if a borrowed item fails.",
+          "Problems can be flagged before anyone operates the equipment."
+        ],
+        [
+          "The equipment was examined by someone with technical qualifications.",
+          "Written service histories support the assessment of the tools.",
+          "The instructions were developed by a practitioner with gardening experience."
+        ]
+      ]
+    },
+    {
+      "decision": "Choose a transport plan for a local club outing. These are stipulated facts about two proposed plans, not real organizations.",
+      "facts": [
+        [
+          "All members pay the same fare.",
+          "Seats are allocated by a public lottery.",
+          "Members who missed the last outing receive the next priority."
+        ],
+        [
+          "A backup vehicle is available.",
+          "The route avoids a road currently closed for repairs.",
+          "Tickets can be refunded if the outing is cancelled."
+        ],
+        [
+          "A licensed operator reviewed the route.",
+          "The vehicle has a current inspection certificate.",
+          "The driver has completed the required training."
+        ]
+      ],
+      "id": "club_transport",
+      "option_a": "Plan A, ready tomorrow",
+      "option_b": "Plan B, ready today",
+      "paraphrases": [
+        [
+          "The charge does not vary from one member to another.",
+          "An open draw decides who receives a seat.",
+          "Those previously left out go first on the next trip."
+        ],
+        [
+          "A replacement vehicle can take over if needed.",
+          "The journey does not depend on the road undergoing repairs.",
+          "A cancelled trip will not leave members paying for unused tickets."
+        ],
+        [
+          "The route was checked by an operator holding the relevant licence.",
+          "A valid inspection record supports the vehicle's readiness.",
+          "The person driving has the training this trip requires."
+        ]
+      ]
+    }
+  ],
+  "evaluation": [
+    {
+      "decision": "Choose an allocation plan for a neighbourhood art exhibition. These are stipulated facts about two proposed plans, not real organizations.",
+      "facts": [
+        [
+          "Every artist receives an equally sized display area.",
+          "The entry fee is the same for all artists.",
+          "The prominent display position rotates during the event."
+        ],
+        [
+          "Covered storage is available if rain interrupts the event.",
+          "Display stands are secured against falling.",
+          "Artists can withdraw before setup without losing their fee."
+        ],
+        [
+          "A professional curator checked the layout.",
+          "A written load test supports the stand design.",
+          "The installation team has relevant exhibition experience."
+        ]
+      ],
+      "id": "exhibition_space",
+      "option_a": "Plan A, ready tomorrow",
+      "option_b": "Plan B, ready today",
+      "paraphrases": [
+        [
+          "No artist is given more display space than another.",
+          "Artists are charged an identical amount to participate.",
+          "Different artists take turns occupying the most visible position."
+        ],
+        [
+          "The artwork can be moved indoors when the weather turns.",
+          "The stands are fixed in place so they do not topple.",
+          "Pulling out before installation does not cost an artist the entry payment."
+        ],
+        [
+          "The arrangement was reviewed by someone who curates exhibitions professionally.",
+          "Recorded testing provides evidence about the stands' ability to carry weight.",
+          "The people installing the displays have done this kind of work before."
+        ]
+      ]
+    },
+    {
+      "decision": "Choose an operating plan for a volunteer repair workshop. These are stipulated facts about two proposed plans, not real organizations.",
+      "facts": [
+        [
+          "Visitors receive the same appointment length.",
+          "The contribution requested is identical for every visitor.",
+          "Walk in priority rotates between the participating neighbourhoods."
+        ],
+        [
+          "Electrical items are disconnected before work begins.",
+          "A replacement workspace is available if the main site closes.",
+          "Visitors may decline a repair before any irreversible change."
+        ],
+        [
+          "An accredited repair specialist reviewed the procedures.",
+          "A documented practice session tested the workflow.",
+          "The volunteers completed training for their assigned tasks."
+        ]
+      ],
+      "id": "repair_workshop",
+      "option_a": "Plan A, ready tomorrow",
+      "option_b": "Plan B, ready today",
+      "paraphrases": [
+        [
+          "Each visitor is offered an equal amount of appointment time.",
+          "Nobody is asked to contribute more than another visitor.",
+          "The neighbourhoods take turns having first access to walk in places."
+        ],
+        [
+          "Work starts only after electrical equipment is unplugged.",
+          "The workshop can move elsewhere if the usual venue becomes unavailable.",
+          "People can refuse the repair before anything permanent is done."
+        ],
+        [
+          "The procedures were examined by a repair practitioner with recognized qualifications.",
+          "There is a written record of the trial of this process.",
+          "The people doing the work have been instructed in those particular jobs."
+        ]
+      ]
+    },
+    {
+      "decision": "Choose a digitisation plan for a community archive. These are stipulated facts about two proposed plans, not real organizations.",
+      "facts": [
+        [
+          "Each contributing group receives the same scanning quota.",
+          "All contributors face identical submission rules.",
+          "The first scanning appointment rotates between groups."
+        ],
+        [
+          "A second copy is stored at a separate location.",
+          "Original documents are returned before public release.",
+          "Contributors can remove private pages before publication."
+        ],
+        [
+          "A qualified archivist reviewed the procedure.",
+          "A recorded sample check verified image readability.",
+          "Staff were trained to handle fragile documents."
+        ]
+      ],
+      "id": "community_archive",
+      "option_a": "Plan A, ready tomorrow",
+      "option_b": "Plan B, ready today",
+      "paraphrases": [
+        [
+          "No contributing group receives a larger share of scanning capacity.",
+          "The standards for submitting material do not depend on the contributor.",
+          "Groups take turns occupying the first appointment."
+        ],
+        [
+          "A copy elsewhere protects the files if one location is lost.",
+          "The source documents go back to their owners before anything is released.",
+          "Sensitive pages can be taken out before they become public."
+        ],
+        [
+          "The process was checked by an archivist with relevant qualifications.",
+          "A documented inspection of sample images confirmed that they could be read.",
+          "The staff handling delicate papers have received appropriate instruction."
+        ]
+      ]
+    }
+  ],
+  "id": "grounded_partner_diagnostic_bank_1",
+  "status": "DIAGNOSTIC_NOT_HUMAN_VALIDATED"
+}

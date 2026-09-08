@@ -1,0 +1,13 @@
+{
+  "packet_archive_sha256": "ab6489fbc6fbe78edb45112b70534c9d50293c4b08e9649522b306bb3c7a8a4e",
+  "packet_sha256": "418f24b657eff7bb731ddb93a066889c63507fcab5cadc414231c3257ecba4f1",
+  "source_hashes": {
+    "scripts/runpod_session.py": "0ea38fe98d334d92c2c31a3e8a118c41439a42dfc44308f35001a749ba93ccef",
+    "scripts/bootstrap_diagnostic_gpu.sh": "e9482d68d74e30e89fea5a6c301a88752bf544be6c52d54fbc6385afd6d3eea7",
+    "src/diagnostic_watchdog.py": "cefd56498b4380dc31956077e1cf6cf1daa872de69f6ff7fa1edfa740e46d5c1"
+  },
+  "approved_requests": 60,
+  "proposed_budget_usd": 5,
+  "human_labels": 0,
+  "real_calls_before_deployment": 0
+}

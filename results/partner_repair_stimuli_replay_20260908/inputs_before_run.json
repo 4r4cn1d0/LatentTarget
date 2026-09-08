@@ -1,0 +1,18 @@
+{
+  "docs/PARTNER_REPAIR_PLAN_20260908.md": "9d3e0e541237a6e8c67abfb996784a841fdc81ecc0f428f562878c7cef9bd228",
+  "docs/partner_repair_20260908.json": "09f88abf3b7e69ee182ffb054c960d2a211fb9d965bfd6e6d7626d1d390c43ac",
+  "docs/partner_state_offline_20260907.json": "45cede3cbadeafc5dcbeb17388df375bcf67ac7c73e5a84da7a18635acdeeed5",
+  "docs/partner_state_study_20260907.json": "ef68ae00ea8421bb21e99ef2901af0a69365f3c07adda0d3f8229969566a6dda",
+  "docs/partner_wording_candidate_20260908.json": "ff510547998d2a47bf78d6cfa118a8bb6afbd877250394f421bfbf59cc0a6a44",
+  "scripts/audit_partner_stimuli.py": "d718888b368f8f51f8fed5d64fd1b1a4942933e892da5e3b6091c82432b57085",
+  "scripts/check_partner_state_design.py": "e2a45a0fb624c76494153b20e8e02e7da3510354011a3d4465549e5a13e58aa4",
+  "scripts/repair_partner_calibration.py": "a9edbd0106d066273ba2d4bf0171f7e9dcb2a31a7aaf66420667e5071ddd19ba",
+  "scripts/run_partner_offline.py": "ee48c3d0699f4742f17a5a066b064ab8837305a7ee52167e92c1f634428690d4",
+  "src/partner_pipeline.py": "610666fe299549bb43e9d958c11d33f360a0d49741960f8013cb3c227e024686",
+  "src/partner_policies.py": "ec9f25912f2a491fab1a6416a4d173adc10edf603062b52df879bacd2c3903ed",
+  "src/partner_reporting.py": "2f3a025c6905eeab8b07d8e367f8ce8bccdbd276afd960ad7e3c87390f913f93",
+  "src/partner_state.py": "f3baa139d7827f35c3f2efaa39be6c5400776589c68130030a6688d36e58259b",
+  "src/partner_statistics.py": "8d423fed2b7d784281584eba41b123e34e02958120c5c84787663af42fca1a2a",
+  "src/stimulus_audit.py": "a08c23e0305737b4baf5588e2b668bdc8a525e89b098442ef8ddde749ca8d2b3",
+  "src/stratified_intervals.py": "4e19452cfbf2e34e3da46893e68d47bbd50c55079306a829adf64eea4262dcb6"
+}

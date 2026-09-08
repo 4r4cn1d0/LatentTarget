@@ -9,7 +9,15 @@ to choose Option A. It is not told to manipulate, profile, or exploit the partne
 
 ## Current status
 
-Updated 5 September 2026. [Verification log](docs/README_UPDATE_LOG_20260905.md).
+Updated 9 September 2026. [Original README verification](docs/README_UPDATE_LOG_20260905.md).
+[New baseline analysis log](docs/BASELINE_COMPARISON_WORK_LOG_20260907.md).
+[Local diagnostic design log](docs/HISTORY_DIAGNOSTIC_WORK_LOG_20260907.md).
+[New participant study design](docs/PARTNER_STATE_STUDY_DESIGN_20260907.md).
+[Offline implementation and verification log](docs/PARTNER_STATE_OFFLINE_WORK_LOG_20260907.md).
+[Bounded repair and audit log](docs/PARTNER_REPAIR_WORK_LOG_20260908.md).
+[RunPod preparation work log](docs/POD_READINESS_WORK_LOG_20260908.md).
+[Completed RunPod diagnostic and limitations](docs/RUNPOD_DIAGNOSTIC_FINDINGS_20260909.md).
+[Completed 720 choice followup](docs/RUNPOD_EXTENSION_FINDINGS_20260909.md).
 
 **One model showed behavioural learning under the original prompt. Reliable
 revision after a silent change of partner has not been established, and the
@@ -23,12 +31,93 @@ available as historical work.
 - [V4 pilot report: exact prompts, target logic, and three complete transcripts](PILOT_REPORT_V4_REAL.md)
 - [Frozen V4 specification](docs/behavioral_checkpoint_v4.json)
 - [Source table for the writeup figures and numbers](results/writeup/WRITEUP_MATERIALS.md)
+- [New comparison against simpler explanations](docs/BASELINE_COMPARISON_FINDINGS_20260907.md)
+- [Why the matched history diagnostic stopped locally](docs/HISTORY_DIAGNOSTIC_FINDINGS_20260907.md)
+- [Partner study offline findings and remaining blockers](docs/PARTNER_STATE_OFFLINE_FINDINGS_20260907.md)
+- [Calibration repair and paired wording audit](docs/PARTNER_REPAIR_FINDINGS_20260908.md)
+- [Prepared GPU diagnostic, exact prompts and remaining limitations](docs/POD_READINESS_FINDINGS_20260908.md)
 
-The Google Doc contains the latest prose and interpretation. Earlier local
+The Google Doc contains the main writeup. The 7 September baseline comparison
+and local diagnostic screen, plus the partner study offline work, 8 September repair and 9 September GPU diagnostic, are
+documented separately and have not yet been added to that document. Earlier local
 writeup exports and outcome notes retain some stronger readings, particularly
 about prompt robustness and stated beliefs. They are historical records, not
 the current claim boundary. Frozen specifications and result files have not
 been changed to obtain a different verdict.
+
+### Completed: GPU pilot and the complete fixed diagnostic bank
+
+The local preparation now includes a grounded message bank, separate development
+and evaluation scenario families, frozen wording based controls, and two completed
+blind machine reviews. The reviewers assessed 54 messages each. They agreed with
+the registered primary frame on 53 and 52 messages respectively. The two disputed
+messages remain unchanged. This is machine review, not human validation.
+
+A portable [pilot packet](results/diagnostic_pilot_package_20260908/package/packet.json)
+contains 60 exact choice requests across three complete bundles and all three
+evaluation families. [The transcripts](results/diagnostic_pilot_package_20260908/THREE_TRANSCRIPTS.md)
+include every simulated history record, choice, frame and target probability.
+These are teacher forced histories with participant identity rebinding, not a
+new silent target swap experiment. All 60 real focal choices have now been
+collected from the unchanged packet, with no missing outputs or fallback choices.
+
+The bounded runner and analysis have completed a 60 choice mock run. The real
+Qwen3.8 tokenizer also passed all 60 prompts on CPU: 391 to 5,114 input tokens.
+The pinned Qwen3.8-27B checkpoint then loaded on an A100 80GB and completed the
+real processor path. The new pod was stopped after all results were backed up
+and verified. This used the approved $5 allocation, without automatic scaling.
+Constrained digit decoding gave 60/60 valid outputs; it is not an unconstrained
+instruction following test. The [execution log](docs/RUNPOD_EXECUTION_LOG_20260909.md)
+records cost estimates, warnings and storage cleanup status.
+
+Mean familiar binding was 0.000, composite transfer -0.167 and paraphrase binding
+-0.167. These are normalized contrasts, not success rates. An independent scoring
+implementation reproduced them. The three bundles do not support an inference
+about the model's general ability. Their noisy histories also make the privileged
+static belief reference's average binding zero. See the
+[findings and evidence audit](docs/RUNPOD_DIAGNOSTIC_FINDINGS_20260909.md) and
+[all raw choices](results/runpod_diagnostic_20260909/analysis/PILOT_COLLECTION_REPORT.md).
+The complete fixed bank information audit is now done: 46/72 participant
+histories uniquely favour the true type, 16 tie while including it, and 10
+favour a wrong type. Following the user's request to run the experiments,
+[the remaining 33 bundles have now completed](docs/RUNPOD_EXTENSION_FINDINGS_20260909.md)
+on RunPod. This added 660 choices without repeating the original 60 or changing
+any histories, prompts or model settings. All 720 outputs are valid under
+constrained digit decoding. The combined 36 bundle dataset is a descriptive
+followup, not an untouched confirmation sample.
+
+Across all 36 bundles, mean binding is 0.076, composite transfer is -0.028 and
+paraphrase binding is 0.007. Character trigram matching scores 0.583, 0.417 and
+0.347 respectively. All eight original baselines and all controls remain in
+[the full report, with every raw choice](results/runpod_extension_20260909/analysis/REPORT.md).
+An independent calculation reproduced every score. This weak result does not
+establish a latent partner model or prove that the capability is absent.
+
+Both temporary GPUs are stopped and their experiment files are backed up and
+verified locally. Estimated GPU compute cost, including the pilot, is about
+$1.20, excluding continuing storage charges and pending final billing. The
+temporary pod disks are retained while deletion permission is pending. See
+[the detailed execution log](docs/RUNPOD_EXTENSION_LOG_20260909.md). No activation
+experiment or further paid run has started.
+
+**This does not fix the scientific identification problem.** Simple wording
+policies still produce substantial participant binding and composite transfer.
+Also, the additive simulator's belief predictions have an exactly equivalent
+reward value representation. Neither a positive diagnostic nor a better fit
+than one selected baseline would prove a latent partner representation. All
+eight references are retained and no confirmatory test is claimed for this followup.
+
+To verify the immutable package locally:
+
+```bash
+python results/diagnostic_pilot_package_20260908/package/scripts/run_diagnostic_pilot.py
+```
+
+The detailed work log records tests, implementation mistakes, account usage and
+the exact boundary between local checks, actual GPU execution and scientific claims.
+The full local repository suite passed 1,067 tests on 9 September, followed by
+12 final focused analysis and retrieval tests. This is engineering verification,
+not scientific validation of the target model claim.
 
 ### Completed model runs
 
@@ -79,8 +168,10 @@ of the time.
 - **The effect did not replicate in Gemma under this design.** Its choices were
   less sensitive to history and feedback. These diagnostics do not establish
   the cause, and a null result does not prove that a capability is absent.
-- **A simpler learning rule remains plausible.** Repeat what worked and
-  otherwise favour expertise has not yet been fitted to these data.
+- **A simpler learning rule predicts the original Qwen choices well.** The
+  new grouped evaluation favoured basic reward learning over the tested belief
+  model set: prediction loss 0.4973 versus 0.5128, with 80.9% versus 79.9%
+  choice prediction accuracy. This does not identify Qwen's internal mechanism.
 - **Human validation is unfinished.** Two blind machine judging passes checked
   the message bank. Agreement between machine judges is not independent human
   validation.
@@ -94,6 +185,195 @@ V4, R1, and P1 retain
 `ELICITED_LEARNING_FAIL_REVISION_FAIL`; it lacks the three control conditions
 needed to compute the full V4 gate set. None of these results authorizes
 mechanistic scaling.
+
+### New comparison against simpler explanations
+
+The [exploratory baseline analysis](docs/BASELINE_COMPARISON_FINDINGS_20260907.md)
+used all 25,200 existing records across V4, R1, E1 and P1. No new model calls
+were made. Nine families included fixed preferences, repetition, history
+frequency, reward learning, and static or changing beliefs about partner type.
+Parameters and model set winners were selected without their outer test seed
+bundles. Donor histories stayed in the same fold as their recipients.
+
+Basic reward learning predicted the original Qwen choices slightly better than
+the belief model set. Gemma favoured the static belief model set, although its
+individual reward learning family was close and simple family selection was
+unstable. E1 and P1 showed little separation. Prediction quality is not evidence
+of an internal representation. The original checkpoint verdicts are unchanged.
+
+See the [full report](results/baseline_comparison_20260907/REPORT.md) for every
+family, control, invalid response count and uncertainty qualification. The
+baselines received explicit frame annotations; the belief models also knew the
+target likelihoods. These advantages were not given explicitly to the LLM.
+
+With the four local raw logs available, reproduce the comparison into a new
+directory. The command refuses to overwrite an existing result:
+
+```bash
+.venv/bin/python scripts/compare_choice_baselines.py \
+  --out-dir results/baseline_comparison_replay
+```
+
+Synthetic and isolation tests do not need the real logs:
+
+```bash
+.venv/bin/python -m pytest -q tests/test_choice_baselines.py
+```
+
+### Local diagnostic screen: no paid run recommended
+
+The follow up [matched history diagnostic](docs/HISTORY_DIAGNOSTIC_FINDINGS_20260907.md)
+preserved each frame's own outcome sequence while changing the interleaving
+between frames. It built 576 pairs and tested 17 mathematical policies in
+2.28 million simulated studies. These were CPU simulations, not LLM calls.
+
+The proposed test failed its sensitivity requirement at every planned sample
+size. At 576 pairs, even the nominal dynamic belief model passed both tests
+in only 56.3% of independent, no loss simulations. Under the required weaker
+effect and conservative conditions, the detection rate was 8.5%. Simple recent
+memory rules also produced the supposed diagnostic effect, so a positive test
+would not be specific evidence for a partner representation.
+
+The [full screen report](results/history_diagnostic_20260907/REPORT.md) and
+[exact constructed prompts](results/history_diagnostic_20260907/SAMPLE_PROMPTS.md)
+are available. No prompts were dispatched. The sample grid and earlier
+scientific gates were not changed to obtain a pass.
+
+```bash
+.venv/bin/python scripts/design_history_diagnostic.py \
+  --out-dir results/history_diagnostic_replay
+```
+
+This local command uses the saved baseline fit summaries and refuses an
+existing output directory. It does not use raw focal logs, weights or API keys.
+
+### Proposed next study: participant binding and transfer
+
+The [new design](docs/PARTNER_STATE_STUDY_DESIGN_20260907.md) asks whether
+information stays attached to the right participant when two participants
+appear in one history, and whether that information affects new composite
+message choices. Four matched requests change the queried recipient and
+exchange the history IDs while keeping other content fixed. Forecasts are
+collected separately and never shown in later history.
+
+This is a study of supplied interaction records, not spontaneous exploration.
+A participant specific feature reward table can pass both behavioural tests;
+the design explicitly demonstrates that limitation. Selective activation
+interventions and silent updating are proposed later stages, not completed
+experiments or exceptions to the existing stop conditions.
+
+[Three illustrative histories and exact prompts](docs/PARTNER_STATE_EXAMPLE_PROMPTS_20260907.md)
+include simulator choices and analyst probability tables. No focal LLM has
+received these examples. The [machine readable draft](docs/partner_state_study_20260907.json)
+allows no model calls and selects neither a model nor a confirmation sample.
+The original bootstrap screen did not clear its decision rule. A bounded
+8 September interval candidate clears the prespecified synthetic screen at
+288 bundles, but has separate coverage failures. Validated production stimuli, independent human
+semantic validation and a new approved checkpoint remain required. No new evidence of a latent
+representation is claimed, and this design has not been added to Google Docs.
+
+Run the local consistency checks without keys or model weights:
+
+```bash
+.venv/bin/python scripts/check_partner_state_design.py
+.venv/bin/python -m pytest -q tests/test_partner_state_design.py
+```
+
+### Partner study offline screen: implemented, not cleared for deployment
+
+The [offline findings](docs/PARTNER_STATE_OFFLINE_FINDINGS_20260907.md) report
+240,000 synthetic studies across 48 declared cells, plus 13 reference policies
+on 288 saved bundles. All 6,912 planned prompts remain undispatched. The
+pipeline now includes balanced allocation, exact prompt hashes, strict response
+accounting, conservative missing answer bounds, forecast diagnostics and
+complete decision analysis. No API calls or GPU deployment occurred.
+The full repository run passed 956 tests; two additional verifier tests passed
+separately. An exact replay reproduced all 85 scientific output hashes.
+
+At 288 bundles, all four required sensitivity scenarios pass their Monte Carlo
+precision requirement. However, the uniform null primary rejection estimate
+is 4.44%, with an upper 95% bound of 5.0468%, just above the declared 5% limit.
+Smaller samples show more serious calibration problems. The result is
+`OFFLINE_SCREEN_NO_GO`, not a selected sample size. The full decision produced
+zero continuations in all tested null cells; this does not repair primary
+interval calibration.
+
+A participant specific word overlap retrieval policy passes both behavioural
+tests on the saved bank: BIND 0.5955 and TRANSFER 0.1944. It receives no hidden
+type or frame labels. This limits any claim that the proposed transfer test
+requires an abstract target model. Feature reward learning also passes.
+
+See the [complete report](results/partner_state_offline_20260907/REPORT.md) and
+[exact methods and limitations](docs/PARTNER_STATE_OFFLINE_METHODS_20260907.md).
+The bounded calibration and stimulus review is now complete, as described
+below. The original result files and failed verdict remain intact.
+
+Reproduce locally into a fresh directory, without credentials or weights:
+
+```bash
+.venv/bin/python scripts/run_partner_offline.py \
+  --out-dir results/partner_state_offline_reproduction
+.venv/bin/python scripts/verify_partner_offline.py \
+  results/partner_state_offline_reproduction
+```
+
+Add `--smoke` to the first command for a functional check that cannot select N.
+The verifier checks hashes and regenerates every saved bundle, prompt and mock
+analysis. It accepts `--replay-dir` to compare a second full execution.
+
+### Bounded repair: conditional statistical pass, wording still limited
+
+The [8 September findings](docs/PARTNER_REPAIR_FINDINGS_20260908.md) report one
+fixed interval candidate and one wording draft. No model calls ran. Both
+interval methods analyzed the same 280,000 fresh simulated datasets, with
+160,000 additional known mean coverage diagnostics.
+
+At N = 288, the candidate clears all four required sensitivity scenarios and
+six null checks. The uniform null rejection rate is 4.12% [3.60%, 4.71%]. The
+weakest required complete pass rate is 82.54% [81.46%, 83.57%]. These are
+pointwise Monte Carlo intervals for synthetic policies, not LLM power.
+
+The repair is not a general confidence coverage solution. For example,
+coverage is 87.36% against nominal 97.5% for a sparse Bernoulli diagnostic at
+N = 72, worse than the original bootstrap. Even at N = 288, the Bernoulli
+mean 0.10 diagnostic has 96.84% coverage [96.32%, 97.29%]. These failures remain
+visible and do not change the historical analysis.
+
+The paired text audit saved 41,472 undispatched prompts and 331,776 synthetic
+responses across three seeds. None of five frozen shallow policies passed
+the new draft's positive complete gate. However, character overlap produced
+consistently negative transfer, suggesting a potentially invertible shortcut.
+Feature reward learning also remains a viable simpler explanation. The draft
+is not certified as lexically clean or semantically valid.
+
+See the [full report and plots](results/partner_repair_report_20260908/REPORT.md)
+and [fixed methods](docs/PARTNER_REPAIR_PLAN_20260908.md). Independent review,
+a separate evaluation bank, a clearer claim boundary and a new approved
+checkpoint remain necessary before paid confirmation or internal interventions.
+
+Reproduce the bounded repair without keys or weights, using fresh directories:
+
+```bash
+.venv/bin/python scripts/repair_partner_calibration.py \
+  --out-dir results/partner_repair_calibration_reproduction
+.venv/bin/python scripts/audit_partner_stimuli.py \
+  --out-dir results/partner_repair_stimuli_reproduction
+.venv/bin/python scripts/verify_partner_repair.py \
+  results/partner_repair_calibration_reproduction --calibration
+.venv/bin/python scripts/report_partner_repair.py \
+  --calibration results/partner_repair_calibration_reproduction \
+  --stimuli results/partner_repair_stimuli_reproduction \
+  --out-dir results/partner_repair_report_reproduction
+```
+
+The two runners accept `--smoke`; smoke runs cannot select a sample size.
+Full output directories are immutable. The verifier reconstructs archived
+decisions and the first batch of each simulation cell; this is not a full
+simulation replay. The complete text audit was separately rerun and all 124
+scientific artifact hashes matched. The 54 exported human review labels remain
+blank. No new latent representation or silent updating result is claimed.
+The full repository suite passed 993 tests; two later verifier tests passed
+separately and within the final 37 test focused run.
 
 ## What the experiment does
 
@@ -301,10 +581,11 @@ completed finding.
 ## What comes next
 
 1. Complete blind human validation of the message templates.
-2. Fit simple learning rules and compare them with models that track beliefs on
-   episodes reserved for evaluation.
-3. Develop a feasible test of revision away from the default, with its decisions
-   fixed before a new run. Do not reopen a stopped design by changing its rules.
+2. Bring the baseline comparison and failed local diagnostic screen into the
+   main writeup. The interleaving diagnostic is not recommended for a paid run.
+3. Any new diagnostic or revision study needs a separately reviewed question,
+   stronger competing explanations, and prospective sensitivity checks. Do
+   not reopen a stopped design by changing its rules.
 4. Separately test the effects of showing past predictions and requiring
    probabilities, address truncated responses, and evaluate a third model family.
 5. Consider internal representations only after the behavioural result supports
@@ -324,6 +605,8 @@ does not establish a latent target model.
 | [src/controlled_focal_agent.py](src/controlled_focal_agent.py) | Prompts, parser, and mock policies |
 | [src/controlled_experiment.py](src/controlled_experiment.py) | Conditions, resumable runs, and logging |
 | [src/controlled_analysis.py](src/controlled_analysis.py) | Metrics, inference, and integrity checks |
+| [src/choice_baselines.py](src/choice_baselines.py) | Grouped exploratory prediction against simpler learning rules |
+| [src/history_diagnostic.py](src/history_diagnostic.py) | Matched histories, recency counterexamples and CPU sensitivity checks |
 | [scripts/run_controlled_v4.py](scripts/run_controlled_v4.py) | Local mock or network provider runner |
 | [scripts/run_controlled_open_weight.py](scripts/run_controlled_open_weight.py) | Frozen GPU runner and free dry run |
 | [scripts/analyze_controlled_v4.py](scripts/analyze_controlled_v4.py) | V4 tables, figures, and decisions |

@@ -1,0 +1,7 @@
+{
+  "status": "PACKAGED_NOT_RUN",
+  "maximum_requests": 972,
+  "packet_sha256": "dec89b900611e713d0209a2f813f8938b05f77071cb44992431a87b9184a9055",
+  "archive_sha256": "9f929696f3429fcc507dbd205e7d12d086a1dadd30c11d8eea581c85ed215037",
+  "analyst_key_sha256": "48c51a7eab9f5b3a82b67db60576961b33edc23fac21d9d2d911b37c93e8be3f"
+}

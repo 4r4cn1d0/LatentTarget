@@ -1,0 +1,10 @@
+{
+  "conditional_candidate_n": null,
+  "human_validation_complete": false,
+  "interpretation": "Participant specific reward learning can pass. No latent representation claim.",
+  "mechanistic_work_authorized": false,
+  "model_selected": false,
+  "paid_run_authorized": false,
+  "passing_grid_values": [],
+  "status": "SMOKE_ONLY"
+}

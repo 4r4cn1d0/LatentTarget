@@ -1,0 +1,16 @@
+# Proposed source list only. GSD discovery approval has not been given.
+# Historical specifications remain controlling for their original experiments.
+# The new study is a proposal, not an override of an existing specification.
+docs:
+  - path: README.md
+    type: DOC
+  - path: docs/AI_SPEC.md
+    type: SPEC
+  - path: docs/V4_DESIGN_PROTOCOL.md
+    type: SPEC
+  - path: docs/BASELINE_COMPARISON_FINDINGS_20260907.md
+    type: DOC
+  - path: docs/HISTORY_DIAGNOSTIC_FINDINGS_20260907.md
+    type: DOC
+  - path: docs/PARTNER_STATE_STUDY_DESIGN_20260907.md
+    type: DOC

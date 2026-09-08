@@ -1,0 +1,11 @@
+{
+  "packet_sha256": "418f24b657eff7bb731ddb93a066889c63507fcab5cadc414231c3257ecba4f1",
+  "approved": true,
+  "pod_id": "cgy7iwpf6z74qr",
+  "maximum_requests": 60,
+  "maximum_total_usd": 5.0,
+  "hourly_quote_usd": 1.59,
+  "pod_deadline_utc": "2026-09-08T21:58:48.060691+00:00",
+  "stop_watchdog_verified": true,
+  "results_on_persistent_volume": true
+}

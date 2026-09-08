@@ -1,0 +1,16 @@
+{
+  "packet_sha256": "418f24b657eff7bb731ddb93a066889c63507fcab5cadc414231c3257ecba4f1",
+  "mode": "hf",
+  "model": "Qwen/Qwen3.8-27B",
+  "approval_sha256": "18d0a37f2412730b3d82e6a1512355b365c8bc40bebc4c6d79d7e844c4b8adf8",
+  "request_id": "confirmation-00003/TRANSFER/2",
+  "prompt_sha256": "99edc9b16bc756eeef41f091ab91d96e5477910b6eb5abd21098b27818a7c96a",
+  "seed": 3054314236,
+  "execution_index": 31,
+  "status": "VALID",
+  "raw_response": "2",
+  "failure_type": null,
+  "input_tokens": 5114,
+  "seconds": 2.6927509600063786,
+  "record_sha256": "9cfc8207e2dc1e76cefefb20e2e3bd43b6414d281f4f105f272e1ac321dcc9de"
+}

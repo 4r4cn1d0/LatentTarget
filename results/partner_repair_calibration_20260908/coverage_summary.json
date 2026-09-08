@@ -1,0 +1,2818 @@
+[
+  {
+    "average_unbiased_variance": 0.0013025925925925926,
+    "cell_seed": "1672907148647538540836778570917692861331880067631086114764700252338915777489",
+    "coverage": {
+      "count": 4131,
+      "mc_ci": [
+        0.8154472060035272,
+        0.8364519452475176
+      ],
+      "rate": 0.8262
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.04914444444444445,
+    "method": "original_bootstrap",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 389,
+      "mc_ci": [
+        0.07069543003370962,
+        0.08555281748869661
+      ],
+      "rate": 0.0778
+    },
+    "sd_study_mean": 0.03629730687739286,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 389,
+      "mc_ci": [
+        0.07069543003370962,
+        0.08555281748869661
+      ],
+      "rate": 0.0778
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 824,
+      "mc_ci": [
+        0.1547746563489679,
+        0.17534001103499844
+      ],
+      "rate": 0.1648
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0013025925925925926,
+    "cell_seed": "1672907148647538540836778570917692861331880067631086114764700252338915777489",
+    "coverage": {
+      "count": 4176,
+      "mc_ci": [
+        0.8246599889650017,
+        0.8452253436510322
+      ],
+      "rate": 0.8352
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.04914444444444445,
+    "method": "minimum_df_t",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    },
+    "sd_study_mean": 0.03629730687739286,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 824,
+      "mc_ci": [
+        0.1547746563489679,
+        0.17534001103499844
+      ],
+      "rate": 0.1648
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0006491196689113355,
+    "cell_seed": "24317387375401934520584242548672031988857677249849313391912932641527771049446",
+    "coverage": {
+      "count": 4853,
+      "mc_ci": [
+        0.9655443196141249,
+        0.9749331193151876
+      ],
+      "rate": 0.9706
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.049191666666666675,
+    "method": "original_bootstrap",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 1480,
+      "mc_ci": [
+        0.28350744801554745,
+        0.30880577437803586
+      ],
+      "rate": 0.296
+    },
+    "sd_study_mean": 0.025507682157515255,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 124,
+      "mc_ci": [
+        0.020840470557508064,
+        0.029489153371074234
+      ],
+      "rate": 0.0248
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 124,
+      "mc_ci": [
+        0.020840470557508064,
+        0.029489153371074234
+      ],
+      "rate": 0.0248
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0006491196689113355,
+    "cell_seed": "24317387375401934520584242548672031988857677249849313391912932641527771049446",
+    "coverage": {
+      "count": 4368,
+      "mc_ci": [
+        0.864101550187278,
+        0.8825248229193756
+      ],
+      "rate": 0.8736
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.049191666666666675,
+    "method": "minimum_df_t",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 376,
+      "mc_ci": [
+        0.06821201319858257,
+        0.08284022637393797
+      ],
+      "rate": 0.0752
+    },
+    "sd_study_mean": 0.025507682157515255,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 124,
+      "mc_ci": [
+        0.020840470557508064,
+        0.029489153371074234
+      ],
+      "rate": 0.0248
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 124,
+      "mc_ci": [
+        0.020840470557508064,
+        0.029489153371074234
+      ],
+      "rate": 0.0248
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0003346953837895867,
+    "cell_seed": "77365060557334254645483976482942846194833725354863637948475348941772060123453",
+    "coverage": {
+      "count": 4678,
+      "mc_ci": [
+        0.9284561911432091,
+        0.9420749869222572
+      ],
+      "rate": 0.9356
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.050775,
+    "method": "original_bootstrap",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4347,
+      "mc_ci": [
+        0.8597757419718284,
+        0.8784570798311635
+      ],
+      "rate": 0.8694
+    },
+    "sd_study_mean": 0.017980943982763464,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 22,
+      "mc_ci": [
+        0.002907564752999219,
+        0.006653381414941403
+      ],
+      "rate": 0.0044
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0003346953837895867,
+    "cell_seed": "77365060557334254645483976482942846194833725354863637948475348941772060123453",
+    "coverage": {
+      "count": 4687,
+      "mc_ci": [
+        0.9303439051736698,
+        0.9437845091647944
+      ],
+      "rate": 0.9374
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.050775,
+    "method": "minimum_df_t",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 3761,
+      "mc_ci": [
+        0.7400425478311325,
+        0.7639702233077807
+      ],
+      "rate": 0.7522
+    },
+    "sd_study_mean": 0.017980943982763464,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 22,
+      "mc_ci": [
+        0.002907564752999219,
+        0.006653381414941403
+      ],
+      "rate": 0.0044
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.00016559606481481487,
+    "cell_seed": "57697381870935555143466803532422812213661962236558550379357100923056001492570",
+    "coverage": {
+      "count": 4849,
+      "mc_ci": [
+        0.9646838626619504,
+        0.9741948045904739
+      ],
+      "rate": 0.9698
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.05021805555555556,
+    "method": "original_bootstrap",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4992,
+      "mc_ci": [
+        0.9968457298408953,
+        0.9991890248602717
+      ],
+      "rate": 0.9984
+    },
+    "sd_study_mean": 0.012907226517831391,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 2,
+      "mc_ci": [
+        0.00010970128207763504,
+        0.0014573865014234437
+      ],
+      "rate": 0.0004
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.00016559606481481487,
+    "cell_seed": "57697381870935555143466803532422812213661962236558550379357100923056001492570",
+    "coverage": {
+      "count": 4862,
+      "mc_ci": [
+        0.9674837353935126,
+        0.9765909398087975
+      ],
+      "rate": 0.9724
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.05021805555555556,
+    "method": "minimum_df_t",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4982,
+      "mc_ci": [
+        0.9943162662633602,
+        0.997721559245587
+      ],
+      "rate": 0.9964
+    },
+    "sd_study_mean": 0.012907226517831391,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 2,
+      "mc_ci": [
+        0.00010970128207763504,
+        0.0014573865014234437
+      ],
+      "rate": 0.0004
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0025163271604938275,
+    "cell_seed": "108534125020196321922245282759445364851973365833606119212992740285880988997600",
+    "coverage": {
+      "count": 4439,
+      "mc_ci": [
+        0.8787524100213376,
+        0.8962521603500763
+      ],
+      "rate": 0.8878
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.10058333333333333,
+    "method": "original_bootstrap",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 2108,
+      "mc_ci": [
+        0.40797770330766836,
+        0.4353426723573166
+      ],
+      "rate": 0.4216
+    },
+    "sd_study_mean": 0.049578439839631686,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 2108,
+      "mc_ci": [
+        0.40797770330766836,
+        0.4353426723573166
+      ],
+      "rate": 0.4216
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 109,
+      "mc_ci": [
+        0.018104377913406702,
+        0.026229852226845936
+      ],
+      "rate": 0.0218
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0025163271604938275,
+    "cell_seed": "108534125020196321922245282759445364851973365833606119212992740285880988997600",
+    "coverage": {
+      "count": 4891,
+      "mc_ci": [
+        0.973770147773154,
+        0.9818956220865933
+      ],
+      "rate": 0.9782
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.10058333333333333,
+    "method": "minimum_df_t",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 90,
+      "mc_ci": [
+        0.014667759588024541,
+        0.02207230508701053
+      ],
+      "rate": 0.018
+    },
+    "sd_study_mean": 0.049578439839631686,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 90,
+      "mc_ci": [
+        0.014667759588024541,
+        0.02207230508701053
+      ],
+      "rate": 0.018
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 109,
+      "mc_ci": [
+        0.018104377913406702,
+        0.026229852226845936
+      ],
+      "rate": 0.0218
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0012580352132435465,
+    "cell_seed": "28162455281977229044425582918031308471679234727295397598737322151756339622532",
+    "coverage": {
+      "count": 4683,
+      "mc_ci": [
+        0.9295047307968795,
+        0.9430249118646968
+      ],
+      "rate": 0.9366
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.10066944444444445,
+    "method": "original_bootstrap",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4348,
+      "mc_ci": [
+        0.8599816595221793,
+        0.8786508552000346
+      ],
+      "rate": 0.8696
+    },
+    "sd_study_mean": 0.03512289868707712,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 2235,
+      "mc_ci": [
+        0.4332649607438761,
+        0.4608164156623
+      ],
+      "rate": 0.447
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 1,
+      "mc_ci": [
+        3.530578343936526e-05,
+        0.0011320890808397363
+      ],
+      "rate": 0.0002
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0012580352132435465,
+    "cell_seed": "28162455281977229044425582918031308471679234727295397598737322151756339622532",
+    "coverage": {
+      "count": 4886,
+      "mc_ci": [
+        0.9726816973620263,
+        0.9809856079016113
+      ],
+      "rate": 0.9772
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.10066944444444445,
+    "method": "minimum_df_t",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 3138,
+      "mc_ci": [
+        0.614106685941129,
+        0.6408973965224924
+      ],
+      "rate": 0.6276
+    },
+    "sd_study_mean": 0.03512289868707712,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 2235,
+      "mc_ci": [
+        0.4332649607438761,
+        0.4608164156623
+      ],
+      "rate": 0.447
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 1,
+      "mc_ci": [
+        3.530578343936526e-05,
+        0.0011320890808397363
+      ],
+      "rate": 0.0002
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0006263175993022007,
+    "cell_seed": "43686131608217495279879156483175444254841983436893524241469136288482656181362",
+    "coverage": {
+      "count": 4829,
+      "mc_ci": [
+        0.960394103115057,
+        0.9704907057529278
+      ],
+      "rate": 0.9658
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.100175,
+    "method": "original_bootstrap",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4998,
+      "mc_ci": [
+        0.9985426134985768,
+        0.9998902987179225
+      ],
+      "rate": 0.9996
+    },
+    "sd_study_mean": 0.02508878467114553,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 2370,
+      "mc_ci": [
+        0.4601849713398053,
+        0.48785494916133776
+      ],
+      "rate": 0.474
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0006263175993022007,
+    "cell_seed": "43686131608217495279879156483175444254841983436893524241469136288482656181362",
+    "coverage": {
+      "count": 4884,
+      "mc_ci": [
+        0.9722469007540413,
+        0.9806210186711524
+      ],
+      "rate": 0.9768
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.100175,
+    "method": "minimum_df_t",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4987,
+      "mc_ci": [
+        0.9955564171048898,
+        0.9984798730001674
+      ],
+      "rate": 0.9974
+    },
+    "sd_study_mean": 0.02508878467114553,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 2370,
+      "mc_ci": [
+        0.4601849713398053,
+        0.48785494916133776
+      ],
+      "rate": 0.474
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.00031204401431573424,
+    "cell_seed": "111809888095780854959947416026210584316040419890217358427490273115131234017809",
+    "coverage": {
+      "count": 4867,
+      "mc_ci": [
+        0.9685633431009765,
+        0.9775097966974436
+      ],
+      "rate": 0.9734
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.0998375,
+    "method": "original_bootstrap",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "sd_study_mean": 0.017703120385263702,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 2498,
+      "mc_ci": [
+        0.48574659409377463,
+        0.5134540200677815
+      ],
+      "rate": 0.4996
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.00031204401431573424,
+    "cell_seed": "111809888095780854959947416026210584316040419890217358427490273115131234017809",
+    "coverage": {
+      "count": 4842,
+      "mc_ci": [
+        0.9631801521274299,
+        0.9729006646904408
+      ],
+      "rate": 0.9684
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.0998375,
+    "method": "minimum_df_t",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "sd_study_mean": 0.017703120385263702,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 2498,
+      "mc_ci": [
+        0.48574659409377463,
+        0.5134540200677815
+      ],
+      "rate": 0.4996
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.004430432098765432,
+    "cell_seed": "114271766208970271591501096973649786738869765033904653092178538483099617777377",
+    "coverage": {
+      "count": 4657,
+      "mc_ci": [
+        0.92405730403111,
+        0.9380803227306949
+      ],
+      "rate": 0.9314
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.20045555555555555,
+    "method": "original_bootstrap",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4606,
+      "mc_ci": [
+        0.9134045309031973,
+        0.9283487569782867
+      ],
+      "rate": 0.9212
+    },
+    "sd_study_mean": 0.06681654579064115,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4606,
+      "mc_ci": [
+        0.9134045309031973,
+        0.9283487569782867
+      ],
+      "rate": 0.9212
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 2,
+      "mc_ci": [
+        0.00010970128207763504,
+        0.0014573865014234437
+      ],
+      "rate": 0.0004
+    }
+  },
+  {
+    "average_unbiased_variance": 0.004430432098765432,
+    "cell_seed": "114271766208970271591501096973649786738869765033904653092178538483099617777377",
+    "coverage": {
+      "count": 4919,
+      "mc_ci": [
+        0.9799110235294284,
+        0.9869461480685344
+      ],
+      "rate": 0.9838
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.20045555555555555,
+    "method": "minimum_df_t",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 1757,
+      "mc_ci": [
+        0.33828584793683797,
+        0.3647423130812331
+      ],
+      "rate": 0.3514
+    },
+    "sd_study_mean": 0.06681654579064115,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 1757,
+      "mc_ci": [
+        0.33828584793683797,
+        0.3647423130812331
+      ],
+      "rate": 0.3514
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 2,
+      "mc_ci": [
+        0.00010970128207763504,
+        0.0014573865014234437
+      ],
+      "rate": 0.0004
+    }
+  },
+  {
+    "average_unbiased_variance": 0.002225578703703704,
+    "cell_seed": "10991349223675100002476964427610457678909657767771521079984369212383620229007",
+    "coverage": {
+      "count": 4753,
+      "mc_ci": [
+        0.9442398676450816,
+        0.956268279362033
+      ],
+      "rate": 0.9506
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.2003361111111111,
+    "method": "original_bootstrap",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4999,
+      "mc_ci": [
+        0.9988679109191605,
+        0.9999646942165608
+      ],
+      "rate": 0.9998
+    },
+    "sd_study_mean": 0.04786375824142997,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4903,
+      "mc_ci": [
+        0.9763916915746409,
+        0.9840703933157704
+      ],
+      "rate": 0.9806
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.002225578703703704,
+    "cell_seed": "10991349223675100002476964427610457678909657767771521079984369212383620229007",
+    "coverage": {
+      "count": 4892,
+      "mc_ci": [
+        0.9739880967674184,
+        0.9820773660115512
+      ],
+      "rate": 0.9784
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.2003361111111111,
+    "method": "minimum_df_t",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4970,
+      "mc_ci": [
+        0.9914476466387817,
+        0.995793863839502
+      ],
+      "rate": 0.994
+    },
+    "sd_study_mean": 0.04786375824142997,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4903,
+      "mc_ci": [
+        0.9763916915746409,
+        0.9840703933157704
+      ],
+      "rate": 0.9806
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0011101097020933975,
+    "cell_seed": "89995752623488832275538316907905198178480275728718336160217175694637522377547",
+    "coverage": {
+      "count": 4839,
+      "mc_ci": [
+        0.9625364838902845,
+        0.9723452541699201
+      ],
+      "rate": 0.9678
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.19973611111111114,
+    "method": "original_bootstrap",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "sd_study_mean": 0.03307181262986339,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4999,
+      "mc_ci": [
+        0.9988679109191605,
+        0.9999646942165608
+      ],
+      "rate": 0.9998
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0011101097020933975,
+    "cell_seed": "89995752623488832275538316907905198178480275728718336160217175694637522377547",
+    "coverage": {
+      "count": 4891,
+      "mc_ci": [
+        0.973770147773154,
+        0.9818956220865933
+      ],
+      "rate": 0.9782
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.19973611111111114,
+    "method": "minimum_df_t",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "sd_study_mean": 0.03307181262986339,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4999,
+      "mc_ci": [
+        0.9988679109191605,
+        0.9999646942165608
+      ],
+      "rate": 0.9998
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0005547489616167585,
+    "cell_seed": "88180861983180668976981573320626988858068183907902702407517318563156104121030",
+    "coverage": {
+      "count": 4886,
+      "mc_ci": [
+        0.9726816973620263,
+        0.9809856079016113
+      ],
+      "rate": 0.9772
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.19965972222222222,
+    "method": "original_bootstrap",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "sd_study_mean": 0.023295945668381886,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0005547489616167585,
+    "cell_seed": "88180861983180668976981573320626988858068183907902702407517318563156104121030",
+    "coverage": {
+      "count": 4901,
+      "mc_ci": [
+        0.9759537946503457,
+        0.9837089044016215
+      ],
+      "rate": 0.9802
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.19965972222222222,
+    "method": "minimum_df_t",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "sd_study_mean": 0.023295945668381886,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.005852870370370371,
+    "cell_seed": "23164803160903508334664287956485001755346253423999504574186204454639078824610",
+    "coverage": {
+      "count": 4774,
+      "mc_ci": [
+        0.9486842567086267,
+        0.9602174416021494
+      ],
+      "rate": 0.9548
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.30219444444444443,
+    "method": "original_bootstrap",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4985,
+      "mc_ci": [
+        0.995055834044251,
+        0.9981810702223624
+      ],
+      "rate": 0.997
+    },
+    "sd_study_mean": 0.07636954671357393,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4985,
+      "mc_ci": [
+        0.995055834044251,
+        0.9981810702223624
+      ],
+      "rate": 0.997
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.005852870370370371,
+    "cell_seed": "23164803160903508334664287956485001755346253423999504574186204454639078824610",
+    "coverage": {
+      "count": 4966,
+      "mc_ci": [
+        0.9905130722319657,
+        0.99512966656943
+      ],
+      "rate": 0.9932
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.30219444444444443,
+    "method": "minimum_df_t",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4178,
+      "mc_ci": [
+        0.8250696954201525,
+        0.8456150230343252
+      ],
+      "rate": 0.8356
+    },
+    "sd_study_mean": 0.07636954671357393,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4178,
+      "mc_ci": [
+        0.8250696954201525,
+        0.8456150230343252
+      ],
+      "rate": 0.8356
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.002915533810325477,
+    "cell_seed": "105492837414293404216331742133773231710611922255345457570216243741746549471330",
+    "coverage": {
+      "count": 4822,
+      "mc_ci": [
+        0.9588971852515538,
+        0.9691897731818773
+      ],
+      "rate": 0.9644
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.300275,
+    "method": "original_bootstrap",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "sd_study_mean": 0.054886898640886084,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4999,
+      "mc_ci": [
+        0.9988679109191605,
+        0.9999646942165608
+      ],
+      "rate": 0.9998
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.002915533810325477,
+    "cell_seed": "105492837414293404216331742133773231710611922255345457570216243741746549471330",
+    "coverage": {
+      "count": 4919,
+      "mc_ci": [
+        0.9799110235294284,
+        0.9869461480685344
+      ],
+      "rate": 0.9838
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.300275,
+    "method": "minimum_df_t",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "sd_study_mean": 0.054886898640886084,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4999,
+      "mc_ci": [
+        0.9988679109191605,
+        0.9999646942165608
+      ],
+      "rate": 0.9998
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0014593175489801392,
+    "cell_seed": "54546364355860210800363990909470383658328122828240456619613402880189522737631",
+    "coverage": {
+      "count": 4837,
+      "mc_ci": [
+        0.9621076221106554,
+        0.9719747301111054
+      ],
+      "rate": 0.9674
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.30052083333333335,
+    "method": "original_bootstrap",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "sd_study_mean": 0.038332999302713056,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0014593175489801392,
+    "cell_seed": "54546364355860210800363990909470383658328122828240456619613402880189522737631",
+    "coverage": {
+      "count": 4883,
+      "mc_ci": [
+        0.9720296233018809,
+        0.9804386032040907
+      ],
+      "rate": 0.9766
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.30052083333333335,
+    "method": "minimum_df_t",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "sd_study_mean": 0.038332999302713056,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0007276880992251115,
+    "cell_seed": "107649831511066711400510041928339680635532922902425733411829301005029248820855",
+    "coverage": {
+      "count": 4855,
+      "mc_ci": [
+        0.9659748874643569,
+        0.9753019373033994
+      ],
+      "rate": 0.971
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.29899861111111115,
+    "method": "original_bootstrap",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "sd_study_mean": 0.027132291369281858,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0007276880992251115,
+    "cell_seed": "107649831511066711400510041928339680635532922902425733411829301005029248820855",
+    "coverage": {
+      "count": 4889,
+      "mc_ci": [
+        0.9733345120945426,
+        0.9815318719267608
+      ],
+      "rate": 0.9778
+    },
+    "distribution": "bernoulli",
+    "empirical_mean": 0.29899861111111115,
+    "method": "minimum_df_t",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "sd_study_mean": 0.027132291369281858,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 5000,
+      "mc_ci": [
+        0.9992322980549431,
+        1.0
+      ],
+      "rate": 1.0
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.027710493827160496,
+    "cell_seed": "113471961124088151791873225693437993300800294329972068591152078102120086572922",
+    "coverage": {
+      "count": 4772,
+      "mc_ci": [
+        0.9482604246805078,
+        0.9598418877918244
+      ],
+      "rate": 0.9544
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.0511,
+    "method": "original_bootstrap",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 156,
+      "mc_ci": [
+        0.0267293173446752,
+        0.03639047999901036
+      ],
+      "rate": 0.0312
+    },
+    "sd_study_mean": 0.16570786533578194,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 156,
+      "mc_ci": [
+        0.0267293173446752,
+        0.03639047999901036
+      ],
+      "rate": 0.0312
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.027710493827160496,
+    "cell_seed": "113471961124088151791873225693437993300800294329972068591152078102120086572922",
+    "coverage": {
+      "count": 4976,
+      "mc_ci": [
+        0.9928674488725447,
+        0.9967722191210707
+      ],
+      "rate": 0.9952
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.0511,
+    "method": "minimum_df_t",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 26,
+      "mc_ci": [
+        0.003551168641804525,
+        0.0076085492030240065
+      ],
+      "rate": 0.0052
+    },
+    "sd_study_mean": 0.16570786533578194,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 26,
+      "mc_ci": [
+        0.003551168641804525,
+        0.0076085492030240065
+      ],
+      "rate": 0.0052
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.013848751402918072,
+    "cell_seed": "76911994346264471103620015785508819111401110497750885213192148005506643653382",
+    "coverage": {
+      "count": 4814,
+      "mc_ci": [
+        0.9571890088775437,
+        0.9677004062021115
+      ],
+      "rate": 0.9628
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.04728333333333334,
+    "method": "original_bootstrap",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 178,
+      "mc_ci": [
+        0.030810226818122823,
+        0.041102814748446244
+      ],
+      "rate": 0.0356
+    },
+    "sd_study_mean": 0.12023916025071958,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 178,
+      "mc_ci": [
+        0.030810226818122823,
+        0.041102814748446244
+      ],
+      "rate": 0.0356
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.013848751402918072,
+    "cell_seed": "76911994346264471103620015785508819111401110497750885213192148005506643653382",
+    "coverage": {
+      "count": 4932,
+      "mc_ci": [
+        0.982795771379468,
+        0.9892574081683806
+      ],
+      "rate": 0.9864
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.04728333333333334,
+    "method": "minimum_df_t",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 104,
+      "mc_ci": [
+        0.017196560621745918,
+        0.02513920492239683
+      ],
+      "rate": 0.0208
+    },
+    "sd_study_mean": 0.12023916025071958,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 104,
+      "mc_ci": [
+        0.017196560621745918,
+        0.02513920492239683
+      ],
+      "rate": 0.0208
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0069280797101449266,
+    "cell_seed": "32432151939575689470060775972706442582994012955850560630014819738737770914732",
+    "coverage": {
+      "count": 4855,
+      "mc_ci": [
+        0.9659748874643569,
+        0.9753019373033994
+      ],
+      "rate": 0.971
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.050072222222222226,
+    "method": "original_bootstrap",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 255,
+      "mc_ci": [
+        0.04523938710267117,
+        0.05745000924399013
+      ],
+      "rate": 0.051
+    },
+    "sd_study_mean": 0.08343205960901966,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 255,
+      "mc_ci": [
+        0.04523938710267117,
+        0.05745000924399013
+      ],
+      "rate": 0.051
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0069280797101449266,
+    "cell_seed": "32432151939575689470060775972706442582994012955850560630014819738737770914732",
+    "coverage": {
+      "count": 4902,
+      "mc_ci": [
+        0.9761726918525208,
+        0.9838897001186685
+      ],
+      "rate": 0.9804
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.050072222222222226,
+    "method": "minimum_df_t",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 186,
+      "mc_ci": [
+        0.03229959379788856,
+        0.042810991122456316
+      ],
+      "rate": 0.0372
+    },
+    "sd_study_mean": 0.08343205960901966,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 186,
+      "mc_ci": [
+        0.03229959379788856,
+        0.042810991122456316
+      ],
+      "rate": 0.0372
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0034622984797741006,
+    "cell_seed": "61024404408101854789698004299676858454642814502895880424805658725958965073671",
+    "coverage": {
+      "count": 4860,
+      "mc_ci": [
+        0.9670523336223422,
+        0.9762229557415238
+      ],
+      "rate": 0.972
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.050025,
+    "method": "original_bootstrap",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 368,
+      "mc_ci": [
+        0.06668501359537639,
+        0.08116968262336834
+      ],
+      "rate": 0.0736
+    },
+    "sd_study_mean": 0.05967816415233959,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 368,
+      "mc_ci": [
+        0.06668501359537639,
+        0.08116968262336834
+      ],
+      "rate": 0.0736
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0034622984797741006,
+    "cell_seed": "61024404408101854789698004299676858454642814502895880424805658725958965073671",
+    "coverage": {
+      "count": 4881,
+      "mc_ci": [
+        0.9715953051318653,
+        0.9800735355356622
+      ],
+      "rate": 0.9762
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.050025,
+    "method": "minimum_df_t",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 366,
+      "mc_ci": [
+        0.06630341758111985,
+        0.08075189279918091
+      ],
+      "rate": 0.0732
+    },
+    "sd_study_mean": 0.05967816415233959,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 366,
+      "mc_ci": [
+        0.06630341758111985,
+        0.08075189279918091
+      ],
+      "rate": 0.0732
+    },
+    "true_mean": 0.05,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.027493950617283953,
+    "cell_seed": "83559356756985741635737265344291302954570514315874339452564028033729417898112",
+    "coverage": {
+      "count": 4730,
+      "mc_ci": [
+        0.9393858810432103,
+        0.9519293288217987
+      ],
+      "rate": 0.946
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.10016666666666667,
+    "method": "original_bootstrap",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 308,
+      "mc_ci": [
+        0.05526643146986404,
+        0.06860668959556206
+      ],
+      "rate": 0.0616
+    },
+    "sd_study_mean": 0.16631800082134174,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 308,
+      "mc_ci": [
+        0.05526643146986404,
+        0.06860668959556206
+      ],
+      "rate": 0.0616
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.027493950617283953,
+    "cell_seed": "83559356756985741635737265344291302954570514315874339452564028033729417898112",
+    "coverage": {
+      "count": 4977,
+      "mc_ci": [
+        0.9931066129381813,
+        0.9969327479746563
+      ],
+      "rate": 0.9954
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.10016666666666667,
+    "method": "minimum_df_t",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 64,
+      "mc_ci": [
+        0.010037035568302636,
+        0.016311013206961034
+      ],
+      "rate": 0.0128
+    },
+    "sd_study_mean": 0.16631800082134174,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 64,
+      "mc_ci": [
+        0.010037035568302636,
+        0.016311013206961034
+      ],
+      "rate": 0.0128
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.01375973625140292,
+    "cell_seed": "94562239959151303997914164120206252749618247733128531507795755722882124871303",
+    "coverage": {
+      "count": 4851,
+      "mc_ci": [
+        0.9651139794808733,
+        0.9745640736099951
+      ],
+      "rate": 0.9702
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.10196666666666666,
+    "method": "original_bootstrap",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 403,
+      "mc_ci": [
+        0.07337259170799372,
+        0.0884713566835202
+      ],
+      "rate": 0.0806
+    },
+    "sd_study_mean": 0.11539076997785688,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 403,
+      "mc_ci": [
+        0.07337259170799372,
+        0.0884713566835202
+      ],
+      "rate": 0.0806
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.01375973625140292,
+    "cell_seed": "94562239959151303997914164120206252749618247733128531507795755722882124871303",
+    "coverage": {
+      "count": 4946,
+      "mc_ci": [
+        0.985936070182191,
+        0.9917128102347651
+      ],
+      "rate": 0.9892
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.10196666666666666,
+    "method": "minimum_df_t",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 251,
+      "mc_ci": [
+        0.04448534215006972,
+        0.05660528251970369
+      ],
+      "rate": 0.0502
+    },
+    "sd_study_mean": 0.11539076997785688,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 251,
+      "mc_ci": [
+        0.04448534215006972,
+        0.05660528251970369
+      ],
+      "rate": 0.0502
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.006876142310789049,
+    "cell_seed": "14308625824531432828421563117823719969153752283360872093388326566396208152060",
+    "coverage": {
+      "count": 4849,
+      "mc_ci": [
+        0.9646838626619504,
+        0.9741948045904739
+      ],
+      "rate": 0.9698
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.09911944444444444,
+    "method": "original_bootstrap",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 722,
+      "mc_ci": [
+        0.13493014833825648,
+        0.15441584128506822
+      ],
+      "rate": 0.1444
+    },
+    "sd_study_mean": 0.08354368917308784,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 722,
+      "mc_ci": [
+        0.13493014833825648,
+        0.15441584128506822
+      ],
+      "rate": 0.1444
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.006876142310789049,
+    "cell_seed": "14308625824531432828421563117823719969153752283360872093388326566396208152060",
+    "coverage": {
+      "count": 4909,
+      "mc_ci": [
+        0.9777079320442816,
+        0.9851523103614614
+      ],
+      "rate": 0.9818
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.09911944444444444,
+    "method": "minimum_df_t",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 578,
+      "mc_ci": [
+        0.10703088700143776,
+        0.12475932225392217
+      ],
+      "rate": 0.1156
+    },
+    "sd_study_mean": 0.08354368917308784,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 578,
+      "mc_ci": [
+        0.10703088700143776,
+        0.12475932225392217
+      ],
+      "rate": 0.1156
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.003438193623588127,
+    "cell_seed": "42583098936589866036595790308216281068861586318346631421301229672455960850277",
+    "coverage": {
+      "count": 4885,
+      "mc_ci": [
+        0.972464258435715,
+        0.9808033539087004
+      ],
+      "rate": 0.977
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.10001666666666667,
+    "method": "original_bootstrap",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 1327,
+      "mc_ci": [
+        0.2533446711909176,
+        0.2778155345617033
+      ],
+      "rate": 0.2654
+    },
+    "sd_study_mean": 0.05722999940891356,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 1327,
+      "mc_ci": [
+        0.2533446711909176,
+        0.2778155345617033
+      ],
+      "rate": 0.2654
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.003438193623588127,
+    "cell_seed": "42583098936589866036595790308216281068861586318346631421301229672455960850277",
+    "coverage": {
+      "count": 4910,
+      "mc_ci": [
+        0.9779276949129895,
+        0.9853322404119754
+      ],
+      "rate": 0.982
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.10001666666666667,
+    "method": "minimum_df_t",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 1324,
+      "mc_ci": [
+        0.2527539713788939,
+        0.277207155616061
+      ],
+      "rate": 0.2648
+    },
+    "sd_study_mean": 0.05722999940891356,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 1324,
+      "mc_ci": [
+        0.2527539713788939,
+        0.277207155616061
+      ],
+      "rate": 0.2648
+    },
+    "true_mean": 0.1,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.026664074074074073,
+    "cell_seed": "19837663673612632999167949012178635980704069515172739732405353975697630630259",
+    "coverage": {
+      "count": 4770,
+      "mc_ci": [
+        0.9478367139692659,
+        0.9594662126646222
+      ],
+      "rate": 0.954
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.2006777777777778,
+    "method": "original_bootstrap",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 832,
+      "mc_ci": [
+        0.1563335899211296,
+        0.17697862081661253
+      ],
+      "rate": 0.1664
+    },
+    "sd_study_mean": 0.16377820471320403,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 832,
+      "mc_ci": [
+        0.1563335899211296,
+        0.17697862081661253
+      ],
+      "rate": 0.1664
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.026664074074074073,
+    "cell_seed": "19837663673612632999167949012178635980704069515172739732405353975697630630259",
+    "coverage": {
+      "count": 4970,
+      "mc_ci": [
+        0.9914476466387817,
+        0.995793863839502
+      ],
+      "rate": 0.994
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.2006777777777778,
+    "method": "minimum_df_t",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 243,
+      "mc_ci": [
+        0.042978532307529155,
+        0.05491454900846843
+      ],
+      "rate": 0.0486
+    },
+    "sd_study_mean": 0.16377820471320403,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 243,
+      "mc_ci": [
+        0.042978532307529155,
+        0.05491454900846843
+      ],
+      "rate": 0.0486
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.013318265993265993,
+    "cell_seed": "58487557628242949991764115600947791944374405919736092082379050565738011756771",
+    "coverage": {
+      "count": 4796,
+      "mc_ci": [
+        0.9533548791191986,
+        0.9643400634144612
+      ],
+      "rate": 0.9592
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.2019888888888889,
+    "method": "original_bootstrap",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 1542,
+      "mc_ci": [
+        0.2957500469590558,
+        0.3213441364262901
+      ],
+      "rate": 0.3084
+    },
+    "sd_study_mean": 0.1165904408105566,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 1542,
+      "mc_ci": [
+        0.2957500469590558,
+        0.3213441364262901
+      ],
+      "rate": 0.3084
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.013318265993265993,
+    "cell_seed": "58487557628242949991764115600947791944374405919736092082379050565738011756771",
+    "coverage": {
+      "count": 4935,
+      "mc_ci": [
+        0.9834654072308784,
+        0.9897868510746362
+      ],
+      "rate": 0.987
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.2019888888888889,
+    "method": "minimum_df_t",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 1123,
+      "mc_ci": [
+        0.21324666355355051,
+        0.236376186677787
+      ],
+      "rate": 0.2246
+    },
+    "sd_study_mean": 0.1165904408105566,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 1123,
+      "mc_ci": [
+        0.21324666355355051,
+        0.236376186677787
+      ],
+      "rate": 0.2246
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.006663622181964573,
+    "cell_seed": "21105310506953907340724022719060957934200949058652916922221203283707901278049",
+    "coverage": {
+      "count": 4846,
+      "mc_ci": [
+        0.9640390968689954,
+        0.973640491625763
+      ],
+      "rate": 0.9692
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.1996527777777778,
+    "method": "original_bootstrap",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 2814,
+      "mc_ci": [
+        0.5490076944229593,
+        0.5764958822127414
+      ],
+      "rate": 0.5628
+    },
+    "sd_study_mean": 0.08245161254577335,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 2814,
+      "mc_ci": [
+        0.5490076944229593,
+        0.5764958822127414
+      ],
+      "rate": 0.5628
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.006663622181964573,
+    "cell_seed": "21105310506953907340724022719060957934200949058652916922221203283707901278049",
+    "coverage": {
+      "count": 4902,
+      "mc_ci": [
+        0.9761726918525208,
+        0.9838897001186685
+      ],
+      "rate": 0.9804
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.1996527777777778,
+    "method": "minimum_df_t",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 2543,
+      "mc_ci": [
+        0.49474172816650724,
+        0.522445067360038
+      ],
+      "rate": 0.5086
+    },
+    "sd_study_mean": 0.08245161254577335,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 2543,
+      "mc_ci": [
+        0.49474172816650724,
+        0.522445067360038
+      ],
+      "rate": 0.5086
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0033335225407144734,
+    "cell_seed": "97404289617787934920399358645396155421377245793247235840728425651801852137019",
+    "coverage": {
+      "count": 4876,
+      "mc_ci": [
+        0.9705108466289258,
+        0.979159529442492
+      ],
+      "rate": 0.9752
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.1995,
+    "method": "original_bootstrap",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4343,
+      "mc_ci": [
+        0.8589521438934818,
+        0.8776819062326221
+      ],
+      "rate": 0.8686
+    },
+    "sd_study_mean": 0.0577997550241754,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4343,
+      "mc_ci": [
+        0.8589521438934818,
+        0.8776819062326221
+      ],
+      "rate": 0.8686
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0033335225407144734,
+    "cell_seed": "97404289617787934920399358645396155421377245793247235840728425651801852137019",
+    "coverage": {
+      "count": 4889,
+      "mc_ci": [
+        0.9733345120945426,
+        0.9815318719267608
+      ],
+      "rate": 0.9778
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.1995,
+    "method": "minimum_df_t",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4340,
+      "mc_ci": [
+        0.8583345206733344,
+        0.8771004506951037
+      ],
+      "rate": 0.868
+    },
+    "sd_study_mean": 0.0577997550241754,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4340,
+      "mc_ci": [
+        0.8583345206733344,
+        0.8771004506951037
+      ],
+      "rate": 0.868
+    },
+    "true_mean": 0.2,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.025227530864197534,
+    "cell_seed": "55909349045871671646675790170810165462136417082876113026026325246376522800439",
+    "coverage": {
+      "count": 4719,
+      "mc_ci": [
+        0.9370689738970595,
+        0.9498496138565078
+      ],
+      "rate": 0.9438
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.2992333333333333,
+    "method": "original_bootstrap",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 1824,
+      "mc_ci": [
+        0.3515657497900631,
+        0.37824183681588047
+      ],
+      "rate": 0.3648
+    },
+    "sd_study_mean": 0.16056536094661286,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 1824,
+      "mc_ci": [
+        0.3515657497900631,
+        0.37824183681588047
+      ],
+      "rate": 0.3648
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.025227530864197534,
+    "cell_seed": "55909349045871671646675790170810165462136417082876113026026325246376522800439",
+    "coverage": {
+      "count": 4973,
+      "mc_ci": [
+        0.9921545307176877,
+        0.9962860585182619
+      ],
+      "rate": 0.9946
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.2992333333333333,
+    "method": "minimum_df_t",
+    "n": 36,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 734,
+      "mc_ci": [
+        0.13726156477427967,
+        0.15688073987970877
+      ],
+      "rate": 0.1468
+    },
+    "sd_study_mean": 0.16056536094661286,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 734,
+      "mc_ci": [
+        0.13726156477427967,
+        0.15688073987970877
+      ],
+      "rate": 0.1468
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.012617957351290685,
+    "cell_seed": "70162284980978585001269854163027087245923367505453793240013130643403394168980",
+    "coverage": {
+      "count": 4809,
+      "mc_ci": [
+        0.9561227277633483,
+        0.9667682227201971
+      ],
+      "rate": 0.9618
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.3018222222222222,
+    "method": "original_bootstrap",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 3158,
+      "mc_ci": [
+        0.6181333353458941,
+        0.6448646055021671
+      ],
+      "rate": 0.6316
+    },
+    "sd_study_mean": 0.11232258576374803,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 3158,
+      "mc_ci": [
+        0.6181333353458941,
+        0.6448646055021671
+      ],
+      "rate": 0.6316
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.012617957351290685,
+    "cell_seed": "70162284980978585001269854163027087245923367505453793240013130643403394168980",
+    "coverage": {
+      "count": 4944,
+      "mc_ci": [
+        0.9854848874542347,
+        0.9913646071242775
+      ],
+      "rate": 0.9888
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.3018222222222222,
+    "method": "minimum_df_t",
+    "n": 72,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 2695,
+      "mc_ci": [
+        0.525158517058884,
+        0.5527816021894016
+      ],
+      "rate": 0.539
+    },
+    "sd_study_mean": 0.11232258576374803,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 2695,
+      "mc_ci": [
+        0.525158517058884,
+        0.5527816021894016
+      ],
+      "rate": 0.539
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.00630984970477724,
+    "cell_seed": "110326103112470858050183681579400833158441350181021869590590368613868133009670",
+    "coverage": {
+      "count": 4840,
+      "mc_ci": [
+        0.9627509894432541,
+        0.9725304415361725
+      ],
+      "rate": 0.968
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.3017888888888889,
+    "method": "original_bootstrap",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4617,
+      "mc_ci": [
+        0.9156988390794669,
+        0.9304510709134588
+      ],
+      "rate": 0.9234
+    },
+    "sd_study_mean": 0.08056175694032232,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4617,
+      "mc_ci": [
+        0.9156988390794669,
+        0.9304510709134588
+      ],
+      "rate": 0.9234
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.00630984970477724,
+    "cell_seed": "110326103112470858050183681579400833158441350181021869590590368613868133009670",
+    "coverage": {
+      "count": 4893,
+      "mc_ci": [
+        0.9742061347688524,
+        0.9822590209293391
+      ],
+      "rate": 0.9786
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.3017888888888889,
+    "method": "minimum_df_t",
+    "n": 144,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4508,
+      "mc_ci": [
+        0.8930331434630062,
+        0.9095502383347239
+      ],
+      "rate": 0.9016
+    },
+    "sd_study_mean": 0.08056175694032232,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4508,
+      "mc_ci": [
+        0.8930331434630062,
+        0.9095502383347239
+      ],
+      "rate": 0.9016
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0031579029994089837,
+    "cell_seed": "36284593949236081359018639661014552054700834675106517799123634571394507927999",
+    "coverage": {
+      "count": 4856,
+      "mc_ci": [
+        0.9661902582001316,
+        0.9754862594868465
+      ],
+      "rate": 0.9712
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.3011986111111111,
+    "method": "original_bootstrap",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4994,
+      "mc_ci": [
+        0.9973842237073702,
+        0.9994499168322408
+      ],
+      "rate": 0.9988
+    },
+    "sd_study_mean": 0.055844000544570206,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4994,
+      "mc_ci": [
+        0.9973842237073702,
+        0.9994499168322408
+      ],
+      "rate": 0.9988
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  },
+  {
+    "average_unbiased_variance": 0.0031579029994089837,
+    "cell_seed": "36284593949236081359018639661014552054700834675106517799123634571394507927999",
+    "coverage": {
+      "count": 4893,
+      "mc_ci": [
+        0.9742061347688524,
+        0.9822590209293391
+      ],
+      "rate": 0.9786
+    },
+    "distribution": "signed_bernoulli",
+    "empirical_mean": 0.3011986111111111,
+    "method": "minimum_df_t",
+    "n": 288,
+    "nominal_coverage": 0.975,
+    "positive_detection": {
+      "count": 4994,
+      "mc_ci": [
+        0.9973842237073702,
+        0.9994499168322408
+      ],
+      "rate": 0.9988
+    },
+    "sd_study_mean": 0.055844000544570206,
+    "studies": 5000,
+    "threshold_continuation": {
+      "count": 4994,
+      "mc_ci": [
+        0.9973842237073702,
+        0.9994499168322408
+      ],
+      "rate": 0.9988
+    },
+    "true_mean": 0.3,
+    "zero_variance": {
+      "count": 0,
+      "mc_ci": [
+        0.0,
+        0.0007677019450571244
+      ],
+      "rate": 0.0
+    }
+  }
+]

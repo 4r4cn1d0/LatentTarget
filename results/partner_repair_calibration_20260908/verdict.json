@@ -1,0 +1,25 @@
+{
+  "coverage_is_not_distribution_free": true,
+  "minimum_df_t": {
+    "conditional_candidate_n": 288,
+    "human_validation_complete": false,
+    "interpretation": "Participant specific reward learning can pass. No latent representation claim.",
+    "mechanistic_work_authorized": false,
+    "model_selected": false,
+    "paid_run_authorized": false,
+    "passing_grid_values": [
+      288
+    ],
+    "status": "OFFLINE_SENSITIVITY_PASS"
+  },
+  "original_bootstrap": {
+    "conditional_candidate_n": null,
+    "human_validation_complete": false,
+    "interpretation": "Participant specific reward learning can pass. No latent representation claim.",
+    "mechanistic_work_authorized": false,
+    "model_selected": false,
+    "paid_run_authorized": false,
+    "passing_grid_values": [],
+    "status": "OFFLINE_SCREEN_NO_GO"
+  }
+}

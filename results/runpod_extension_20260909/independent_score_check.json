@@ -1,0 +1,8 @@
+{
+  "status": "INDEPENDENT_SCORE_CHECK_PASSED",
+  "n_bundles": 36,
+  "planned_choices": 720,
+  "maximum_difference": 1.1102230246251565e-16,
+  "summary_sha256": "e3a00946316bec727d2fd8e23531330204d0a4018f43c64e2a2ec10fac633341",
+  "script_sha256": "71393d8d104baca170195a7fa63c18be4fd4751f1c2f8741f4dc0ab1325a8043"
+}

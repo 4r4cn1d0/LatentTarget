@@ -1,0 +1,19 @@
+{
+  "written_before_extension_choices_were_inspected": true,
+  "pilot_outcomes_already_known": true,
+  "status": "descriptive_followup_not_confirmation",
+  "new_requests": 660,
+  "unchanged_prior_requests": 60,
+  "combined_bundles": 36,
+  "source_packet_sha256": "ef4b8243492970c09849f74bfa0e999ef0e18b32003755bbfa199b2c9b91b0b1",
+  "analyzer_sha256": "c52e777636713057bf5051a60041c5464c46f9b4754d14caa1a8a2bd238a5682",
+  "measures": ["BIND", "TRANSFER", "NEAR", "NO_HISTORY_familiar", "NO_HISTORY_composite", "RANDOM_RESPONSE"],
+  "all_eight_baselines_retained": true,
+  "unit": "complete history bundle",
+  "invalid_and_missing": "all planned choice cells retained in conservative bounds",
+  "supplementary_measure": "posterior expected regret relative to privileged static Bayesian reference",
+  "p_values": null,
+  "confidence_intervals": null,
+  "no_activation_capture": true,
+  "no_temporal_swap_in_this_run": true
+}

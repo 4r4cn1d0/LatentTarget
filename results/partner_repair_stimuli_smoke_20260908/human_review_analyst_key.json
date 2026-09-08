@@ -1,0 +1,542 @@
+[
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "familiar",
+    "item_id": "28925a40d43e8fd79bf2",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "familiar",
+    "item_id": "eb26ec29f40a42d55c1d",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "familiar",
+    "item_id": "4034f97f08c01f31ac2c",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "near",
+    "item_id": "d19ede5328dae3853480",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "near",
+    "item_id": "f6091f1c6439b990ae2b",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "near",
+    "item_id": "ac54e60ea7a4ba4ab523",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "composite",
+    "item_id": "b16e50f8abf2b53dfbe8",
+    "registered_vector": [
+      0.6666666666666666,
+      0.3333333333333333,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "composite",
+    "item_id": "1f6061379aecfea7627b",
+    "registered_vector": [
+      0.0,
+      0.6666666666666666,
+      0.3333333333333333
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "composite",
+    "item_id": "3f67398c8cc28b7fe2ce",
+    "registered_vector": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "familiar",
+    "item_id": "e9f2e454b34d66500417",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "familiar",
+    "item_id": "29f8b96a17986a469679",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "familiar",
+    "item_id": "9d81af530030fdb49519",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "near",
+    "item_id": "13a69ecce0a990862095",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "near",
+    "item_id": "b7d5da1e4c1961a9fd42",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "near",
+    "item_id": "909bc4274c1d1205d780",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "composite",
+    "item_id": "2054f2578cad6ecc8c97",
+    "registered_vector": [
+      0.6666666666666666,
+      0.3333333333333333,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "composite",
+    "item_id": "2d2283ac3e1fafae985c",
+    "registered_vector": [
+      0.0,
+      0.6666666666666666,
+      0.3333333333333333
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "composite",
+    "item_id": "9cb351f68ade3f6b668e",
+    "registered_vector": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "familiar",
+    "item_id": "6b457b5260ade9fd5284",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "familiar",
+    "item_id": "ce8ff0a04bbd9ee3a38f",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "familiar",
+    "item_id": "afb35e5497b74d9e3a0b",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "near",
+    "item_id": "1867cfadbfab0cd92e2b",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "near",
+    "item_id": "87f285d786107942de32",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "near",
+    "item_id": "425d11073a9688ab9a1a",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "composite",
+    "item_id": "695017745ef0830d53f8",
+    "registered_vector": [
+      0.6666666666666666,
+      0.3333333333333333,
+      0.0
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "composite",
+    "item_id": "fed674a7c0baf09b6910",
+    "registered_vector": [
+      0.0,
+      0.6666666666666666,
+      0.3333333333333333
+    ]
+  },
+  {
+    "bank": "original_confirmation",
+    "candidate_kind": "composite",
+    "item_id": "78884223adb172b8caea",
+    "registered_vector": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "familiar",
+    "item_id": "b433fb1d777bd74d55a8",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "familiar",
+    "item_id": "4fdcd62dfbc83ea1e665",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "familiar",
+    "item_id": "411d1b8d2a788963b4a7",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "near",
+    "item_id": "d6e2ed76515e19b025f9",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "near",
+    "item_id": "a97483b0ab1b706c4225",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "near",
+    "item_id": "5fbd8e341c25a59661fd",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "composite",
+    "item_id": "2c524226da10ce5d33a1",
+    "registered_vector": [
+      0.6666666666666666,
+      0.3333333333333333,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "composite",
+    "item_id": "236a52344b103fa30d86",
+    "registered_vector": [
+      0.0,
+      0.6666666666666666,
+      0.3333333333333333
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "composite",
+    "item_id": "97ee3568b3f0d71360fb",
+    "registered_vector": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "familiar",
+    "item_id": "6d64147ec78a017653f8",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "familiar",
+    "item_id": "95853f33ff9fcd5c576c",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "familiar",
+    "item_id": "c16b564d9ee9ad85e6e6",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "near",
+    "item_id": "3e6b56e8240314a1c03e",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "near",
+    "item_id": "2670b238bdb0d25c54f6",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "near",
+    "item_id": "22d01a77d7b82cb1c3f7",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "composite",
+    "item_id": "6ea9f6d9f9876b9dea4a",
+    "registered_vector": [
+      0.6666666666666666,
+      0.3333333333333333,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "composite",
+    "item_id": "d07d094c1b7e8036fb1a",
+    "registered_vector": [
+      0.0,
+      0.6666666666666666,
+      0.3333333333333333
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "composite",
+    "item_id": "e5a8960ba51eeda6c7c6",
+    "registered_vector": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "familiar",
+    "item_id": "f5f1cc510c00b7afeb95",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "familiar",
+    "item_id": "b1df2ce9b18f1ad87006",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "familiar",
+    "item_id": "5598531be6d4ccf359de",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "near",
+    "item_id": "196bd2a742e97651efc0",
+    "registered_vector": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "near",
+    "item_id": "9a211a2148e90494bc72",
+    "registered_vector": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "near",
+    "item_id": "00b4984376dd492557ee",
+    "registered_vector": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "composite",
+    "item_id": "f62d672b4fa25111b107",
+    "registered_vector": [
+      0.6666666666666666,
+      0.3333333333333333,
+      0.0
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "composite",
+    "item_id": "42f60b32935ca6207d2b",
+    "registered_vector": [
+      0.0,
+      0.6666666666666666,
+      0.3333333333333333
+    ]
+  },
+  {
+    "bank": "candidate_draft",
+    "candidate_kind": "composite",
+    "item_id": "d127eff721444e751b97",
+    "registered_vector": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666
+    ]
+  }
+]

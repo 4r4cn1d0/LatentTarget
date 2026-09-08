@@ -1,0 +1,10 @@
+{
+  "packet_sha256": "ef4b8243492970c09849f74bfa0e999ef0e18b32003755bbfa199b2c9b91b0b1",
+  "pilot_packet_sha256": "418f24b657eff7bb731ddb93a066889c63507fcab5cadc414231c3257ecba4f1",
+  "mode": "hf",
+  "model": "Qwen/Qwen3.8-27B",
+  "approval_sha256": "541aed4ddd2640001db23831bd4fe1d7c4590cfd1367e56fd43ed768285dfc05",
+  "request_id": "confirmation-00004/TRANSFER/1",
+  "prompt_sha256": "f170a1960b3aac020cf739c711c90dc74ff52fcf78f56f2e2ce3a0e1751158c3",
+  "seed": 1859770237
+}

@@ -1,0 +1,9 @@
+{
+  "pod_id": "i0szqs87ifg0id",
+  "packet_sha256": "dec89b900611e713d0209a2f813f8938b05f77071cb44992431a87b9184a9055",
+  "maximum_requests": 972,
+  "maximum_total_usd_including_prior_runs": 5,
+  "started_utc": "2026-09-08T21:35:39.279215+00:00",
+  "deadline_utc": "2026-09-08T23:05:39.279215+00:00",
+  "hourly_quote_usd": 1.59
+}

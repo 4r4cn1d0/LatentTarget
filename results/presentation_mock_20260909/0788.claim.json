@@ -1,0 +1,10 @@
+{
+  "packet_sha256": "dec89b900611e713d0209a2f813f8938b05f77071cb44992431a87b9184a9055",
+  "mode": "mock",
+  "model": "deterministic_mock",
+  "approval_sha256": null,
+  "request_id": "confirmation-00000/LOOKUP/prose",
+  "execution_index": 788,
+  "prompt_sha256": "1397deb22347203b79c7d02c3ef934ec327e83e7a64ba3aa7a360b13472ad2b2",
+  "seed": 2285922109
+}

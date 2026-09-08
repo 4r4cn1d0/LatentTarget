@@ -1,0 +1,19 @@
+{
+  "status": "DESIGN_CONSISTENCY_CHECKS_PASS_NOT_A_SCIENTIFIC_GO",
+  "analytic_cases": 72,
+  "example_requests_checked": 36,
+  "example_histories": 3,
+  "history_records_per_example": 24,
+  "calls_per_future_bundle": 24,
+  "tiny_pilot_planned_calls_not_authorized": 72,
+  "confirmation_call_grid_not_authorized": {
+    "36": 864,
+    "72": 1728,
+    "144": 3456,
+    "288": 6912
+  },
+  "participant_feature_reward_can_pass": true,
+  "power_estimated": false,
+  "model_calls": 0,
+  "paid_calls": 0
+}

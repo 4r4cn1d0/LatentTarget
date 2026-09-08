@@ -1,0 +1,2442 @@
+{
+  "candidate_draft": {
+    "0": {
+      "candidate_by_training_similarity": {
+        "character_trigram": {
+          "composite": [
+            [
+              0.02830188679245283,
+              0.041237113402061855,
+              0.04950495049504951
+            ],
+            [
+              0.06787330316742081,
+              0.03286384976525822,
+              0.07476635514018691
+            ],
+            [
+              0.0391304347826087,
+              0.0182648401826484,
+              0.04017857142857143
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.02654867256637168,
+              0.016129032258064516
+            ],
+            [
+              0.02654867256637168,
+              1.0,
+              0.028037383177570093
+            ],
+            [
+              0.016129032258064516,
+              0.028037383177570093,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.022935779816513763,
+              0.029850746268656716,
+              0.03827751196172249
+            ],
+            [
+              0.047619047619047616,
+              0.05154639175257732,
+              0.07537688442211055
+            ],
+            [
+              0.06751054852320675,
+              0.017167381974248927,
+              0.05555555555555555
+            ]
+          ]
+        },
+        "content_jaccard": {
+          "composite": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        "length_only": {
+          "composite": [
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ],
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ],
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ],
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ],
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ]
+          ]
+        },
+        "original_jaccard": {
+          "composite": [
+            [
+              0.034482758620689655,
+              0.034482758620689655,
+              0.03571428571428571
+            ],
+            [
+              0.03125,
+              0.03125,
+              0.03225806451612903
+            ],
+            [
+              0.03125,
+              0.03125,
+              0.03225806451612903
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.058823529411764705,
+              0.0625
+            ],
+            [
+              0.058823529411764705,
+              1.0,
+              0.0625
+            ],
+            [
+              0.0625,
+              0.0625,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.03333333333333333,
+              0.03333333333333333,
+              0.034482758620689655
+            ],
+            [
+              0.03125,
+              0.03125,
+              0.03225806451612903
+            ],
+            [
+              0.03225806451612903,
+              0.03225806451612903,
+              0.03333333333333333
+            ]
+          ]
+        },
+        "stem_jaccard": {
+          "composite": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "canonical_slot_frame_order": [
+        "fairness",
+        "risk",
+        "expertise"
+      ],
+      "exact_content_overlaps": {
+        "composite": [
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ]
+        ],
+        "familiar": [
+          [
+            [
+              "arbitrary",
+              "deserves",
+              "equal",
+              "everyone",
+              "favouritism",
+              "portions",
+              "today"
+            ],
+            [],
+            []
+          ],
+          [
+            [],
+            [
+              "backups",
+              "easily",
+              "keep",
+              "mistakes",
+              "ready",
+              "remain",
+              "reversible"
+            ],
+            []
+          ],
+          [
+            [],
+            [],
+            [
+              "credentials",
+              "evidence",
+              "specialists",
+              "trained",
+              "trust",
+              "verified"
+            ]
+          ]
+        ],
+        "near": [
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ]
+        ]
+      },
+      "lengths": {
+        "composite": [
+          {
+            "characters": 178,
+            "complete_text": "Choose Maple. Allocate comparable benefits across members of this group. Prevent disruptions from becoming costly disasters for us. Apply identical standards regardless of any personal status.",
+            "words": 24
+          },
+          {
+            "characters": 196,
+            "complete_text": "Choose Maple. Limit potential losses while retaining an emergency exit. Consult experienced practitioners familiar with the relevant discipline. Reduce uncertain threats before committing our limited resources.",
+            "words": 24
+          },
+          {
+            "characters": 209,
+            "complete_text": "Choose Maple. Let professional qualifications guide a careful technical assessment. Return consideration when others have contributed their effort. Prefer conclusions supported by rigorous independent systematic evaluation.",
+            "words": 24
+          }
+        ],
+        "familiar": [
+          {
+            "characters": 69,
+            "complete_text": "Choose Maple; everyone deserves equal portions without arbitrary favouritism today.",
+            "words": 8
+          },
+          {
+            "characters": 56,
+            "complete_text": "Choose Maple; keep backups ready so mistakes remain easily reversible.",
+            "words": 8
+          },
+          {
+            "characters": 66,
+            "complete_text": "Choose Maple; trust trained specialists using verified evidence and credentials.",
+            "words": 8
+          }
+        ],
+        "near": [
+          {
+            "characters": 183,
+            "complete_text": "Choose Maple. Allocate comparable benefits across members of this group. Apply identical standards regardless of any personal status. Return consideration when others have contributed their effort.",
+            "words": 24
+          },
+          {
+            "characters": 182,
+            "complete_text": "Choose Maple. Prevent disruptions from becoming costly disasters for us. Limit potential losses while retaining an emergency exit. Reduce uncertain threats before committing our limited resources.",
+            "words": 24
+          },
+          {
+            "characters": 218,
+            "complete_text": "Choose Maple. Consult experienced practitioners familiar with the relevant discipline. Let professional qualifications guide a careful technical assessment. Prefer conclusions supported by rigorous independent systematic evaluation.",
+            "words": 24
+          }
+        ]
+      },
+      "word_counts_are_not_model_token_counts": true
+    },
+    "1": {
+      "candidate_by_training_similarity": {
+        "character_trigram": {
+          "composite": [
+            [
+              0.02830188679245283,
+              0.041237113402061855,
+              0.04950495049504951
+            ],
+            [
+              0.06787330316742081,
+              0.03286384976525822,
+              0.07476635514018691
+            ],
+            [
+              0.0391304347826087,
+              0.0182648401826484,
+              0.04017857142857143
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.02654867256637168,
+              0.016129032258064516
+            ],
+            [
+              0.02654867256637168,
+              1.0,
+              0.028037383177570093
+            ],
+            [
+              0.016129032258064516,
+              0.028037383177570093,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.022935779816513763,
+              0.029850746268656716,
+              0.03827751196172249
+            ],
+            [
+              0.047619047619047616,
+              0.05154639175257732,
+              0.07537688442211055
+            ],
+            [
+              0.06751054852320675,
+              0.017167381974248927,
+              0.05555555555555555
+            ]
+          ]
+        },
+        "content_jaccard": {
+          "composite": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        "length_only": {
+          "composite": [
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ],
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ],
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ],
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ],
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ]
+          ]
+        },
+        "original_jaccard": {
+          "composite": [
+            [
+              0.06666666666666667,
+              0.06666666666666667,
+              0.06896551724137931
+            ],
+            [
+              0.06060606060606061,
+              0.06060606060606061,
+              0.0625
+            ],
+            [
+              0.06060606060606061,
+              0.06060606060606061,
+              0.0625
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.1111111111111111,
+              0.11764705882352941
+            ],
+            [
+              0.1111111111111111,
+              1.0,
+              0.11764705882352941
+            ],
+            [
+              0.11764705882352941,
+              0.11764705882352941,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.06451612903225806,
+              0.06451612903225806,
+              0.06666666666666667
+            ],
+            [
+              0.06060606060606061,
+              0.06060606060606061,
+              0.0625
+            ],
+            [
+              0.0625,
+              0.0625,
+              0.06451612903225806
+            ]
+          ]
+        },
+        "stem_jaccard": {
+          "composite": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "canonical_slot_frame_order": [
+        "fairness",
+        "risk",
+        "expertise"
+      ],
+      "exact_content_overlaps": {
+        "composite": [
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ]
+        ],
+        "familiar": [
+          [
+            [
+              "arbitrary",
+              "deserves",
+              "equal",
+              "everyone",
+              "favouritism",
+              "portions",
+              "today"
+            ],
+            [],
+            []
+          ],
+          [
+            [],
+            [
+              "backups",
+              "easily",
+              "keep",
+              "mistakes",
+              "ready",
+              "remain",
+              "reversible"
+            ],
+            []
+          ],
+          [
+            [],
+            [],
+            [
+              "credentials",
+              "evidence",
+              "specialists",
+              "trained",
+              "trust",
+              "verified"
+            ]
+          ]
+        ],
+        "near": [
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ]
+        ]
+      },
+      "lengths": {
+        "composite": [
+          {
+            "characters": 178,
+            "complete_text": "Choose the striped cover. Allocate comparable benefits across members of this group. Prevent disruptions from becoming costly disasters for us. Apply identical standards regardless of any personal status.",
+            "words": 24
+          },
+          {
+            "characters": 196,
+            "complete_text": "Choose the striped cover. Limit potential losses while retaining an emergency exit. Consult experienced practitioners familiar with the relevant discipline. Reduce uncertain threats before committing our limited resources.",
+            "words": 24
+          },
+          {
+            "characters": 209,
+            "complete_text": "Choose the striped cover. Let professional qualifications guide a careful technical assessment. Return consideration when others have contributed their effort. Prefer conclusions supported by rigorous independent systematic evaluation.",
+            "words": 24
+          }
+        ],
+        "familiar": [
+          {
+            "characters": 69,
+            "complete_text": "Choose the striped cover; everyone deserves equal portions without arbitrary favouritism today.",
+            "words": 8
+          },
+          {
+            "characters": 56,
+            "complete_text": "Choose the striped cover; keep backups ready so mistakes remain easily reversible.",
+            "words": 8
+          },
+          {
+            "characters": 66,
+            "complete_text": "Choose the striped cover; trust trained specialists using verified evidence and credentials.",
+            "words": 8
+          }
+        ],
+        "near": [
+          {
+            "characters": 183,
+            "complete_text": "Choose the striped cover. Allocate comparable benefits across members of this group. Apply identical standards regardless of any personal status. Return consideration when others have contributed their effort.",
+            "words": 24
+          },
+          {
+            "characters": 182,
+            "complete_text": "Choose the striped cover. Prevent disruptions from becoming costly disasters for us. Limit potential losses while retaining an emergency exit. Reduce uncertain threats before committing our limited resources.",
+            "words": 24
+          },
+          {
+            "characters": 218,
+            "complete_text": "Choose the striped cover. Consult experienced practitioners familiar with the relevant discipline. Let professional qualifications guide a careful technical assessment. Prefer conclusions supported by rigorous independent systematic evaluation.",
+            "words": 24
+          }
+        ]
+      },
+      "word_counts_are_not_model_token_counts": true
+    },
+    "2": {
+      "candidate_by_training_similarity": {
+        "character_trigram": {
+          "composite": [
+            [
+              0.02830188679245283,
+              0.041237113402061855,
+              0.04950495049504951
+            ],
+            [
+              0.06787330316742081,
+              0.03286384976525822,
+              0.07476635514018691
+            ],
+            [
+              0.0391304347826087,
+              0.0182648401826484,
+              0.04017857142857143
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.02654867256637168,
+              0.016129032258064516
+            ],
+            [
+              0.02654867256637168,
+              1.0,
+              0.028037383177570093
+            ],
+            [
+              0.016129032258064516,
+              0.028037383177570093,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.022935779816513763,
+              0.029850746268656716,
+              0.03827751196172249
+            ],
+            [
+              0.047619047619047616,
+              0.05154639175257732,
+              0.07537688442211055
+            ],
+            [
+              0.06751054852320675,
+              0.017167381974248927,
+              0.05555555555555555
+            ]
+          ]
+        },
+        "content_jaccard": {
+          "composite": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        "length_only": {
+          "composite": [
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ],
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ],
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ],
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ],
+            [
+              0.058823529411764705,
+              0.058823529411764705,
+              0.058823529411764705
+            ]
+          ]
+        },
+        "original_jaccard": {
+          "composite": [
+            [
+              0.0967741935483871,
+              0.0967741935483871,
+              0.1
+            ],
+            [
+              0.08823529411764706,
+              0.08823529411764706,
+              0.09090909090909091
+            ],
+            [
+              0.08823529411764706,
+              0.08823529411764706,
+              0.09090909090909091
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.15789473684210525,
+              0.16666666666666666
+            ],
+            [
+              0.15789473684210525,
+              1.0,
+              0.16666666666666666
+            ],
+            [
+              0.16666666666666666,
+              0.16666666666666666,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.09375,
+              0.09375,
+              0.0967741935483871
+            ],
+            [
+              0.08823529411764706,
+              0.08823529411764706,
+              0.09090909090909091
+            ],
+            [
+              0.09090909090909091,
+              0.09090909090909091,
+              0.09375
+            ]
+          ]
+        },
+        "stem_jaccard": {
+          "composite": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "canonical_slot_frame_order": [
+        "fairness",
+        "risk",
+        "expertise"
+      ],
+      "exact_content_overlaps": {
+        "composite": [
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ]
+        ],
+        "familiar": [
+          [
+            [
+              "arbitrary",
+              "deserves",
+              "equal",
+              "everyone",
+              "favouritism",
+              "portions",
+              "today"
+            ],
+            [],
+            []
+          ],
+          [
+            [],
+            [
+              "backups",
+              "easily",
+              "keep",
+              "mistakes",
+              "ready",
+              "remain",
+              "reversible"
+            ],
+            []
+          ],
+          [
+            [],
+            [],
+            [
+              "credentials",
+              "evidence",
+              "specialists",
+              "trained",
+              "trust",
+              "verified"
+            ]
+          ]
+        ],
+        "near": [
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ]
+        ]
+      },
+      "lengths": {
+        "composite": [
+          {
+            "characters": 178,
+            "complete_text": "Choose the north board first. Allocate comparable benefits across members of this group. Prevent disruptions from becoming costly disasters for us. Apply identical standards regardless of any personal status.",
+            "words": 24
+          },
+          {
+            "characters": 196,
+            "complete_text": "Choose the north board first. Limit potential losses while retaining an emergency exit. Consult experienced practitioners familiar with the relevant discipline. Reduce uncertain threats before committing our limited resources.",
+            "words": 24
+          },
+          {
+            "characters": 209,
+            "complete_text": "Choose the north board first. Let professional qualifications guide a careful technical assessment. Return consideration when others have contributed their effort. Prefer conclusions supported by rigorous independent systematic evaluation.",
+            "words": 24
+          }
+        ],
+        "familiar": [
+          {
+            "characters": 69,
+            "complete_text": "Choose the north board first; everyone deserves equal portions without arbitrary favouritism today.",
+            "words": 8
+          },
+          {
+            "characters": 56,
+            "complete_text": "Choose the north board first; keep backups ready so mistakes remain easily reversible.",
+            "words": 8
+          },
+          {
+            "characters": 66,
+            "complete_text": "Choose the north board first; trust trained specialists using verified evidence and credentials.",
+            "words": 8
+          }
+        ],
+        "near": [
+          {
+            "characters": 183,
+            "complete_text": "Choose the north board first. Allocate comparable benefits across members of this group. Apply identical standards regardless of any personal status. Return consideration when others have contributed their effort.",
+            "words": 24
+          },
+          {
+            "characters": 182,
+            "complete_text": "Choose the north board first. Prevent disruptions from becoming costly disasters for us. Limit potential losses while retaining an emergency exit. Reduce uncertain threats before committing our limited resources.",
+            "words": 24
+          },
+          {
+            "characters": 218,
+            "complete_text": "Choose the north board first. Consult experienced practitioners familiar with the relevant discipline. Let professional qualifications guide a careful technical assessment. Prefer conclusions supported by rigorous independent systematic evaluation.",
+            "words": 24
+          }
+        ]
+      },
+      "word_counts_are_not_model_token_counts": true
+    }
+  },
+  "original_confirmation": {
+    "0": {
+      "candidate_by_training_similarity": {
+        "character_trigram": {
+          "composite": [
+            [
+              0.0728476821192053,
+              0.030303030303030304,
+              0.03333333333333333
+            ],
+            [
+              0.04294478527607362,
+              0.0658682634730539,
+              0.08379888268156424
+            ],
+            [
+              0.025157232704402517,
+              0.049079754601226995,
+              0.08092485549132948
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.03529411764705882,
+              0.0196078431372549
+            ],
+            [
+              0.03529411764705882,
+              1.0,
+              0.01818181818181818
+            ],
+            [
+              0.0196078431372549,
+              0.01818181818181818,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.06,
+              0.018292682926829267,
+              0.03389830508474576
+            ],
+            [
+              0.05405405405405406,
+              0.05128205128205128,
+              0.046511627906976744
+            ],
+            [
+              0.024096385542168676,
+              0.0658682634730539,
+              0.10227272727272728
+            ]
+          ]
+        },
+        "content_jaccard": {
+          "composite": [
+            [
+              0.05555555555555555,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.05263157894736842
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.058823529411764705,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.05263157894736842
+            ]
+          ]
+        },
+        "length_only": {
+          "composite": [
+            [
+              0.058823529411764705,
+              0.07142857142857142,
+              0.07692307692307693
+            ],
+            [
+              0.058823529411764705,
+              0.07142857142857142,
+              0.07692307692307693
+            ],
+            [
+              0.07692307692307693,
+              0.1,
+              0.1111111111111111
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.25,
+              0.2
+            ],
+            [
+              0.25,
+              1.0,
+              0.5
+            ],
+            [
+              0.2,
+              0.5,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.07142857142857142,
+              0.09090909090909091,
+              0.1
+            ],
+            [
+              0.058823529411764705,
+              0.07142857142857142,
+              0.07692307692307693
+            ],
+            [
+              0.0625,
+              0.07692307692307693,
+              0.08333333333333333
+            ]
+          ]
+        },
+        "original_jaccard": {
+          "composite": [
+            [
+              0.07407407407407407,
+              0.034482758620689655,
+              0.03571428571428571
+            ],
+            [
+              0.08695652173913043,
+              0.08333333333333333,
+              0.08695652173913043
+            ],
+            [
+              0.045454545454545456,
+              0.043478260869565216,
+              0.045454545454545456
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.07142857142857142,
+              0.07692307692307693
+            ],
+            [
+              0.07142857142857142,
+              1.0,
+              0.07142857142857142
+            ],
+            [
+              0.07692307692307693,
+              0.07142857142857142,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.07692307692307693,
+              0.03571428571428571,
+              0.037037037037037035
+            ],
+            [
+              0.09090909090909091,
+              0.041666666666666664,
+              0.043478260869565216
+            ],
+            [
+              0.041666666666666664,
+              0.08333333333333333,
+              0.08695652173913043
+            ]
+          ]
+        },
+        "stem_jaccard": {
+          "composite": [
+            [
+              0.05555555555555555,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.05263157894736842
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.058823529411764705,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.05263157894736842
+            ]
+          ]
+        }
+      },
+      "canonical_slot_frame_order": [
+        "fairness",
+        "risk",
+        "expertise"
+      ],
+      "exact_content_overlaps": {
+        "composite": [
+          [
+            [
+              "person"
+            ],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            [
+              "people"
+            ]
+          ],
+          [
+            [],
+            [],
+            []
+          ]
+        ],
+        "familiar": [
+          [
+            [
+              "deserves",
+              "hearing",
+              "impartial",
+              "person"
+            ],
+            [],
+            []
+          ],
+          [
+            [],
+            [
+              "becoming",
+              "loss",
+              "prevent",
+              "problem",
+              "serious",
+              "small"
+            ],
+            []
+          ],
+          [
+            [],
+            [],
+            [
+              "assessment",
+              "careful",
+              "decision",
+              "guide",
+              "people",
+              "qualified"
+            ]
+          ]
+        ],
+        "near": [
+          [
+            [
+              "person"
+            ],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            [
+              "people"
+            ]
+          ]
+        ]
+      },
+      "lengths": {
+        "composite": [
+          {
+            "characters": 135,
+            "complete_text": "Choose Maple. Consider each person's interests on equal terms. Retain a way to reverse course if necessary. Do not give one group special privileges.",
+            "words": 22
+          },
+          {
+            "characters": 149,
+            "complete_text": "Choose Maple. Reduce the consequences of an unexpected failure. Seek advice from people who understand the subject. Avoid exposing the group to unnecessary losses.",
+            "words": 22
+          },
+          {
+            "characters": 150,
+            "complete_text": "Choose Maple. Let relevant qualifications inform the choice. Treat contributions with reciprocal consideration. Check the reasoning against a systematic evaluation.",
+            "words": 18
+          }
+        ],
+        "familiar": [
+          {
+            "characters": 43,
+            "complete_text": "Choose Maple; every person deserves an impartial hearing.",
+            "words": 6
+          },
+          {
+            "characters": 53,
+            "complete_text": "Choose Maple; prevent a small problem from becoming a serious loss.",
+            "words": 9
+          },
+          {
+            "characters": 67,
+            "complete_text": "Choose Maple; a careful assessment by qualified people should guide the decision.",
+            "words": 10
+          }
+        ],
+        "near": [
+          {
+            "characters": 141,
+            "complete_text": "Choose Maple. Consider each person's interests on equal terms. Do not give one group special privileges. Treat contributions with reciprocal consideration.",
+            "words": 19
+          },
+          {
+            "characters": 142,
+            "complete_text": "Choose Maple. Retain a way to reverse course if necessary. Reduce the consequences of an unexpected failure. Avoid exposing the group to unnecessary losses.",
+            "words": 22
+          },
+          {
+            "characters": 151,
+            "complete_text": "Choose Maple. Seek advice from people who understand the subject. Let relevant qualifications inform the choice. Check the reasoning against a systematic evaluation.",
+            "words": 21
+          }
+        ]
+      },
+      "word_counts_are_not_model_token_counts": true
+    },
+    "1": {
+      "candidate_by_training_similarity": {
+        "character_trigram": {
+          "composite": [
+            [
+              0.0728476821192053,
+              0.030303030303030304,
+              0.03333333333333333
+            ],
+            [
+              0.04294478527607362,
+              0.0658682634730539,
+              0.08379888268156424
+            ],
+            [
+              0.025157232704402517,
+              0.049079754601226995,
+              0.08092485549132948
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.03529411764705882,
+              0.0196078431372549
+            ],
+            [
+              0.03529411764705882,
+              1.0,
+              0.01818181818181818
+            ],
+            [
+              0.0196078431372549,
+              0.01818181818181818,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.06,
+              0.018292682926829267,
+              0.03389830508474576
+            ],
+            [
+              0.05405405405405406,
+              0.05128205128205128,
+              0.046511627906976744
+            ],
+            [
+              0.024096385542168676,
+              0.0658682634730539,
+              0.10227272727272728
+            ]
+          ]
+        },
+        "content_jaccard": {
+          "composite": [
+            [
+              0.05555555555555555,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.05263157894736842
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.058823529411764705,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.05263157894736842
+            ]
+          ]
+        },
+        "length_only": {
+          "composite": [
+            [
+              0.058823529411764705,
+              0.07142857142857142,
+              0.07692307692307693
+            ],
+            [
+              0.058823529411764705,
+              0.07142857142857142,
+              0.07692307692307693
+            ],
+            [
+              0.07692307692307693,
+              0.1,
+              0.1111111111111111
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.25,
+              0.2
+            ],
+            [
+              0.25,
+              1.0,
+              0.5
+            ],
+            [
+              0.2,
+              0.5,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.07142857142857142,
+              0.09090909090909091,
+              0.1
+            ],
+            [
+              0.058823529411764705,
+              0.07142857142857142,
+              0.07692307692307693
+            ],
+            [
+              0.0625,
+              0.07692307692307693,
+              0.08333333333333333
+            ]
+          ]
+        },
+        "original_jaccard": {
+          "composite": [
+            [
+              0.10714285714285714,
+              0.06666666666666667,
+              0.06896551724137931
+            ],
+            [
+              0.125,
+              0.12,
+              0.125
+            ],
+            [
+              0.08695652173913043,
+              0.08333333333333333,
+              0.08695652173913043
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.13333333333333333,
+              0.14285714285714285
+            ],
+            [
+              0.13333333333333333,
+              1.0,
+              0.13333333333333333
+            ],
+            [
+              0.14285714285714285,
+              0.13333333333333333,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.1111111111111111,
+              0.06896551724137931,
+              0.07142857142857142
+            ],
+            [
+              0.13043478260869565,
+              0.08,
+              0.08333333333333333
+            ],
+            [
+              0.08,
+              0.12,
+              0.125
+            ]
+          ]
+        },
+        "stem_jaccard": {
+          "composite": [
+            [
+              0.05555555555555555,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.05263157894736842
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.058823529411764705,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.05263157894736842
+            ]
+          ]
+        }
+      },
+      "canonical_slot_frame_order": [
+        "fairness",
+        "risk",
+        "expertise"
+      ],
+      "exact_content_overlaps": {
+        "composite": [
+          [
+            [
+              "person"
+            ],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            [
+              "people"
+            ]
+          ],
+          [
+            [],
+            [],
+            []
+          ]
+        ],
+        "familiar": [
+          [
+            [
+              "deserves",
+              "hearing",
+              "impartial",
+              "person"
+            ],
+            [],
+            []
+          ],
+          [
+            [],
+            [
+              "becoming",
+              "loss",
+              "prevent",
+              "problem",
+              "serious",
+              "small"
+            ],
+            []
+          ],
+          [
+            [],
+            [],
+            [
+              "assessment",
+              "careful",
+              "decision",
+              "guide",
+              "people",
+              "qualified"
+            ]
+          ]
+        ],
+        "near": [
+          [
+            [
+              "person"
+            ],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            [
+              "people"
+            ]
+          ]
+        ]
+      },
+      "lengths": {
+        "composite": [
+          {
+            "characters": 135,
+            "complete_text": "Choose the striped cover. Consider each person's interests on equal terms. Retain a way to reverse course if necessary. Do not give one group special privileges.",
+            "words": 22
+          },
+          {
+            "characters": 149,
+            "complete_text": "Choose the striped cover. Reduce the consequences of an unexpected failure. Seek advice from people who understand the subject. Avoid exposing the group to unnecessary losses.",
+            "words": 22
+          },
+          {
+            "characters": 150,
+            "complete_text": "Choose the striped cover. Let relevant qualifications inform the choice. Treat contributions with reciprocal consideration. Check the reasoning against a systematic evaluation.",
+            "words": 18
+          }
+        ],
+        "familiar": [
+          {
+            "characters": 43,
+            "complete_text": "Choose the striped cover; every person deserves an impartial hearing.",
+            "words": 6
+          },
+          {
+            "characters": 53,
+            "complete_text": "Choose the striped cover; prevent a small problem from becoming a serious loss.",
+            "words": 9
+          },
+          {
+            "characters": 67,
+            "complete_text": "Choose the striped cover; a careful assessment by qualified people should guide the decision.",
+            "words": 10
+          }
+        ],
+        "near": [
+          {
+            "characters": 141,
+            "complete_text": "Choose the striped cover. Consider each person's interests on equal terms. Do not give one group special privileges. Treat contributions with reciprocal consideration.",
+            "words": 19
+          },
+          {
+            "characters": 142,
+            "complete_text": "Choose the striped cover. Retain a way to reverse course if necessary. Reduce the consequences of an unexpected failure. Avoid exposing the group to unnecessary losses.",
+            "words": 22
+          },
+          {
+            "characters": 151,
+            "complete_text": "Choose the striped cover. Seek advice from people who understand the subject. Let relevant qualifications inform the choice. Check the reasoning against a systematic evaluation.",
+            "words": 21
+          }
+        ]
+      },
+      "word_counts_are_not_model_token_counts": true
+    },
+    "2": {
+      "candidate_by_training_similarity": {
+        "character_trigram": {
+          "composite": [
+            [
+              0.0728476821192053,
+              0.030303030303030304,
+              0.03333333333333333
+            ],
+            [
+              0.04294478527607362,
+              0.0658682634730539,
+              0.08379888268156424
+            ],
+            [
+              0.025157232704402517,
+              0.049079754601226995,
+              0.08092485549132948
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.03529411764705882,
+              0.0196078431372549
+            ],
+            [
+              0.03529411764705882,
+              1.0,
+              0.01818181818181818
+            ],
+            [
+              0.0196078431372549,
+              0.01818181818181818,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.06,
+              0.018292682926829267,
+              0.03389830508474576
+            ],
+            [
+              0.05405405405405406,
+              0.05128205128205128,
+              0.046511627906976744
+            ],
+            [
+              0.024096385542168676,
+              0.0658682634730539,
+              0.10227272727272728
+            ]
+          ]
+        },
+        "content_jaccard": {
+          "composite": [
+            [
+              0.05555555555555555,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.05263157894736842
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.058823529411764705,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.05263157894736842
+            ]
+          ]
+        },
+        "length_only": {
+          "composite": [
+            [
+              0.058823529411764705,
+              0.07142857142857142,
+              0.07692307692307693
+            ],
+            [
+              0.058823529411764705,
+              0.07142857142857142,
+              0.07692307692307693
+            ],
+            [
+              0.07692307692307693,
+              0.1,
+              0.1111111111111111
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.25,
+              0.2
+            ],
+            [
+              0.25,
+              1.0,
+              0.5
+            ],
+            [
+              0.2,
+              0.5,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.07142857142857142,
+              0.09090909090909091,
+              0.1
+            ],
+            [
+              0.058823529411764705,
+              0.07142857142857142,
+              0.07692307692307693
+            ],
+            [
+              0.0625,
+              0.07692307692307693,
+              0.08333333333333333
+            ]
+          ]
+        },
+        "original_jaccard": {
+          "composite": [
+            [
+              0.13793103448275862,
+              0.0967741935483871,
+              0.1
+            ],
+            [
+              0.16,
+              0.15384615384615385,
+              0.16
+            ],
+            [
+              0.125,
+              0.12,
+              0.125
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.1875,
+              0.2
+            ],
+            [
+              0.1875,
+              1.0,
+              0.1875
+            ],
+            [
+              0.2,
+              0.1875,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.14285714285714285,
+              0.1,
+              0.10344827586206896
+            ],
+            [
+              0.16666666666666666,
+              0.11538461538461539,
+              0.12
+            ],
+            [
+              0.11538461538461539,
+              0.15384615384615385,
+              0.16
+            ]
+          ]
+        },
+        "stem_jaccard": {
+          "composite": [
+            [
+              0.05555555555555555,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.05263157894736842
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "familiar": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "near": [
+            [
+              0.058823529411764705,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.05263157894736842
+            ]
+          ]
+        }
+      },
+      "canonical_slot_frame_order": [
+        "fairness",
+        "risk",
+        "expertise"
+      ],
+      "exact_content_overlaps": {
+        "composite": [
+          [
+            [
+              "person"
+            ],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            [
+              "people"
+            ]
+          ],
+          [
+            [],
+            [],
+            []
+          ]
+        ],
+        "familiar": [
+          [
+            [
+              "deserves",
+              "hearing",
+              "impartial",
+              "person"
+            ],
+            [],
+            []
+          ],
+          [
+            [],
+            [
+              "becoming",
+              "loss",
+              "prevent",
+              "problem",
+              "serious",
+              "small"
+            ],
+            []
+          ],
+          [
+            [],
+            [],
+            [
+              "assessment",
+              "careful",
+              "decision",
+              "guide",
+              "people",
+              "qualified"
+            ]
+          ]
+        ],
+        "near": [
+          [
+            [
+              "person"
+            ],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            []
+          ],
+          [
+            [],
+            [],
+            [
+              "people"
+            ]
+          ]
+        ]
+      },
+      "lengths": {
+        "composite": [
+          {
+            "characters": 135,
+            "complete_text": "Choose the north board first. Consider each person's interests on equal terms. Retain a way to reverse course if necessary. Do not give one group special privileges.",
+            "words": 22
+          },
+          {
+            "characters": 149,
+            "complete_text": "Choose the north board first. Reduce the consequences of an unexpected failure. Seek advice from people who understand the subject. Avoid exposing the group to unnecessary losses.",
+            "words": 22
+          },
+          {
+            "characters": 150,
+            "complete_text": "Choose the north board first. Let relevant qualifications inform the choice. Treat contributions with reciprocal consideration. Check the reasoning against a systematic evaluation.",
+            "words": 18
+          }
+        ],
+        "familiar": [
+          {
+            "characters": 43,
+            "complete_text": "Choose the north board first; every person deserves an impartial hearing.",
+            "words": 6
+          },
+          {
+            "characters": 53,
+            "complete_text": "Choose the north board first; prevent a small problem from becoming a serious loss.",
+            "words": 9
+          },
+          {
+            "characters": 67,
+            "complete_text": "Choose the north board first; a careful assessment by qualified people should guide the decision.",
+            "words": 10
+          }
+        ],
+        "near": [
+          {
+            "characters": 141,
+            "complete_text": "Choose the north board first. Consider each person's interests on equal terms. Do not give one group special privileges. Treat contributions with reciprocal consideration.",
+            "words": 19
+          },
+          {
+            "characters": 142,
+            "complete_text": "Choose the north board first. Retain a way to reverse course if necessary. Reduce the consequences of an unexpected failure. Avoid exposing the group to unnecessary losses.",
+            "words": 22
+          },
+          {
+            "characters": 151,
+            "complete_text": "Choose the north board first. Seek advice from people who understand the subject. Let relevant qualifications inform the choice. Check the reasoning against a systematic evaluation.",
+            "words": 21
+          }
+        ]
+      },
+      "word_counts_are_not_model_token_counts": true
+    }
+  }
+}

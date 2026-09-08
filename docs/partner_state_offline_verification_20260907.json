@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED_OFFLINE_ARTIFACTS",
+  "directory": "results/partner_state_offline_20260907",
+  "replay_directory": "results/partner_state_offline_replay_20260907",
+  "files_hashed_per_run": 85,
+  "inputs_hashed": 9,
+  "bundle_count": 288,
+  "undispatched_requests": 6912,
+  "mock_policies_regenerated_and_reanalyzed": 13,
+  "unique_monte_carlo_studies": 240000,
+  "full_simulation_replay_hashes_match": true,
+  "replay_is_additional_independent_evidence": false,
+  "screen_verdict": "OFFLINE_SCREEN_NO_GO",
+  "model_calls": 0,
+  "paid_calls": 0,
+  "full_repository_test_run": {"passed": 956, "seconds": 674.88},
+  "additional_verifier_tests": {"passed": 2, "seconds": 0.90},
+  "final_focused_test_run": {"passed": 116, "seconds": 6.38},
+  "verifier_sha256": "28c6e1b986aa8e77b9ba9f3adff8834b4b5409a8f8c18bf043496085e413e0cc",
+  "methods_sha256": "2ad121e977727b4a803e11fce4294f2aadd9fe4d3e87606bfcc303ce8fac20fb",
+  "verdict_sha256": "953012d954b4af5a61cd5a349f3361732929a401489e3f7d15ca17cf9842fe17"
+}

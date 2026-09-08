@@ -1,0 +1,232 @@
+{
+  "analysis": "exploratory; no change to original gates",
+  "completed_at": "2026-09-07T12:45:05.467404+00:00",
+  "git_commit_at_start": "a61ddfde6aa3ed133e8cf36b10dbe3fcf4fa059e",
+  "inputs": {
+    "E1": {
+      "design_audit_pass": true,
+      "manifest_sha256": "640519f247018e14ae51946b426dd0558c54bdb8ca0b6c005b39f2c2a595dcb8",
+      "model": {
+        "architecture": "Qwen3_5ForConditionalGeneration",
+        "capture": false,
+        "dtype": "bfloat16",
+        "enable_thinking": false,
+        "layer_stride": 1,
+        "loaded_with": "AutoModelForMultimodalLM",
+        "max_tokens": 96,
+        "model": "Qwen/Qwen3.8-27B",
+        "per_generation_seed_supported": true,
+        "processor": "Qwen3VLProcessor",
+        "provider": "huggingface",
+        "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+        "temperature": 0.0,
+        "top_k": 20,
+        "top_p": 0.8,
+        "torch_seed_base": 20260902
+      },
+      "n_episodes": 180,
+      "n_records": 3600,
+      "path": "data/raw/v4e-qwen38.jsonl",
+      "sha256": "ee759429a5552ef87592cb7740b2171d3109dfdc585b0a197d08914b7910515a"
+    },
+    "P1": {
+      "design_audit_pass": true,
+      "manifest_sha256": "d50ab6d8c26772098607d9843365467d8ee90f6f62afad2d18ccfbf1533682d5",
+      "model": {
+        "architecture": "Qwen3_5ForConditionalGeneration",
+        "capture": false,
+        "dtype": "bfloat16",
+        "enable_thinking": false,
+        "layer_stride": 1,
+        "loaded_with": "AutoModelForMultimodalLM",
+        "max_tokens": 8,
+        "model": "Qwen/Qwen3.8-27B",
+        "per_generation_seed_supported": true,
+        "processor": "Qwen3VLProcessor",
+        "provider": "huggingface",
+        "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+        "temperature": 0.0,
+        "top_k": 20,
+        "top_p": 0.8,
+        "torch_seed_base": 20260902
+      },
+      "n_episodes": 360,
+      "n_records": 7200,
+      "path": "data/raw/v4p-qwen38.jsonl",
+      "sha256": "9922615d12ae9d4646ce2955f78ee3ba0a15d87812645cbb0b8a463122e661d2"
+    },
+    "R1": {
+      "design_audit_pass": true,
+      "manifest_sha256": "9f8241fff3656b97a041c8d9c2b43dd0d01307531c9b2fd886f0a28212be8ac3",
+      "model": {
+        "architecture": "Gemma4ForConditionalGeneration",
+        "capture": false,
+        "dtype": "bfloat16",
+        "enable_thinking": false,
+        "layer_stride": 1,
+        "loaded_with": "AutoModelForMultimodalLM",
+        "max_tokens": 8,
+        "model": "google/gemma-4-31B-it",
+        "per_generation_seed_supported": true,
+        "processor": "Gemma4Processor",
+        "provider": "huggingface",
+        "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+        "temperature": 0.0,
+        "top_k": 20,
+        "top_p": 0.8,
+        "torch_seed_base": 20260902
+      },
+      "n_episodes": 360,
+      "n_records": 7200,
+      "path": "data/raw/v4r-gemma4.jsonl",
+      "sha256": "6730359c3d95d6094d32cccf014990f1256b1463fb6b09e60b95ae05b64f3185"
+    },
+    "V4": {
+      "design_audit_pass": true,
+      "manifest_sha256": "b92f6d02b33f7874141dccd0a3086c9802fa918a9ffe88c9512b4a7484f80b66",
+      "model": {
+        "architecture": "Qwen3_5ForConditionalGeneration",
+        "capture": false,
+        "dtype": "bfloat16",
+        "enable_thinking": false,
+        "layer_stride": 1,
+        "loaded_with": "AutoModelForMultimodalLM",
+        "max_tokens": 8,
+        "model": "Qwen/Qwen3.8-27B",
+        "per_generation_seed_supported": true,
+        "processor": "Qwen3VLProcessor",
+        "provider": "huggingface",
+        "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+        "temperature": 0.0,
+        "top_k": 20,
+        "top_p": 0.8,
+        "torch_seed_base": 20260902
+      },
+      "n_episodes": 360,
+      "n_records": 7200,
+      "path": "data/raw/qwen38_27b_v4_checkpoint_20260902.jsonl",
+      "sha256": "d7e3cdf26ba3d8c3c3c5ea48667aa69c79f44786c8a92e124db495158e639a33"
+    }
+  },
+  "matplotlib": "3.11.1",
+  "numpy": "2.4.6",
+  "outputs_sha256": {
+    "E1/bundle_losses.csv": "ae539c4c8228e2b81c5279f686f1a17917bf4cac7ed1ff14cef3db4856783063",
+    "E1/calibration.csv": "15b9dc1aaf8f4c165c4f9322c27a2b4fb4bacf16f8774aa3d49363721c41b57f",
+    "E1/contrasts.csv": "ecf6eec3bb1b2b76003744be2a275eaa88acf2e2c11ab27a37f4c1844a4c11fb",
+    "E1/design_audit.json": "a81582bcf1456dab08cc955950d4da61cde2dfe6a872047076e4e1b015799c9e",
+    "E1/diagnostics.csv": "6a47a0f2033c62838d43db812ea1cdce7592f9e4a649da1af743148b94aef93e",
+    "E1/fold_audit.json": "c271e862e544e98bf5e86140fe704afbd3521960189ac5ac13ed63045dbb88fe",
+    "E1/metrics.csv": "b13516343bcc950cf04fdbbc2a009439323a909ca57e438338ce98d0bb9a3561",
+    "E1/predictions.csv.gz": "9000777571d48b5c9d0d401b58b829e4218920a4393a0e470894c83ca88c62bf",
+    "E1/summary.json": "b244b3bcc0a7c199058d2df8f230999531cffafc3ef7eaf8d6664f24adf08975",
+    "P1/bundle_losses.csv": "518b26280220797cff4fde8b164b3c2eb37f04498cbc1a986b8e63ee997c5a20",
+    "P1/calibration.csv": "a5188a910b1a0f2b1f04caba2f5062bf56e1610ec5cde652b6e46fbef0c21ccd",
+    "P1/contrasts.csv": "793d9ca0a39fdeaa18cdeee69b8450a51d9276607020acc261c6301d777a20ef",
+    "P1/design_audit.json": "498a7a111285e55cb6673418922b8a10644a55f417cf54f2794314922f0ee976",
+    "P1/diagnostics.csv": "014000d118947c017e15e1a3654ae32d620fac3b666d7a3bc5818442e3c173a6",
+    "P1/fold_audit.json": "62bc8782dde3a9b950e79255afc2ac4f304516beeb128f65f733cc8b3c5bff4f",
+    "P1/metrics.csv": "68e519506f7fad4f209e772b0c44d8a4c7837e28699841ddffb461d1345caf6e",
+    "P1/predictions.csv.gz": "41b96207add72ee632d0739d30dd8a419ca035aa3728899731190646a34e321c",
+    "P1/summary.json": "b0fa444dfbc05280fad9927c076abcdac8b0176ab88df644d788f921b01a8ed6",
+    "R1/bundle_losses.csv": "86cc13ef32eabd0134a5c7fd13422675cfc6fd051054b1d5d8cc193c4adf70a7",
+    "R1/calibration.csv": "42e65a19233826f6606a928aa98e6d4bcaa48d9e2ff4af3d6e60404bbea80dbb",
+    "R1/contrasts.csv": "eaf9dfaf5c077ed759d46afc20b21331476965c6cbb5dda092a947b581bfded5",
+    "R1/design_audit.json": "498a7a111285e55cb6673418922b8a10644a55f417cf54f2794314922f0ee976",
+    "R1/diagnostics.csv": "486ec87f417bbde3a5e5ae2baa62ba420e1fd5839a4c86c14eb2404e4ba114c1",
+    "R1/fold_audit.json": "8c3565d38a3a29c37dedf63ceb575b411e719cec33c5e25e03315d48224f2d4a",
+    "R1/metrics.csv": "177d198991a6e25ac6353662548c90a66c1534438652e3350749ea48ec95b458",
+    "R1/predictions.csv.gz": "50fcd859acb34d6253abfb3eb073a99366f92025084ee1b970fee06a94f79c58",
+    "R1/summary.json": "7947799f4b0497b3cbc8cbb9cefe08372ef9dda5782e465bdd68c8c566dc22a3",
+    "REPORT.md": "0e522631c08547785e24cdd07ec93be00b1a2f2af1d549cae8e6c883aae747be",
+    "V4/bundle_losses.csv": "f3204b917cc4eb064ef98897a5e5f6ca129614d580f27a0af5073c225f7750c8",
+    "V4/calibration.csv": "8228b133fbde2712a13e13ac4a14f28ec27ec2715010b6264a2d83eb90f3a894",
+    "V4/contrasts.csv": "ba9d7890221aec7a5c880878db3e02033779c1752d6ac9a554f8c7dc08795e35",
+    "V4/design_audit.json": "498a7a111285e55cb6673418922b8a10644a55f417cf54f2794314922f0ee976",
+    "V4/diagnostics.csv": "a61944c1f6075a958b1aaaf58e53a4d8154d4142a029d988a4addfa0d14b2b5e",
+    "V4/fold_audit.json": "c5ac2d749e6d61c866bbe13e57ee9bd1703498da29d7f2bd61e64e9622bdd4d8",
+    "V4/metrics.csv": "7810ecb7b876cb670016f336b15a10386064f517cf5773f1c0be02fe14580d36",
+    "V4/predictions.csv.gz": "46aac2b3acf102d13e963e53071efe7f59c842cc2f38356648b8da3871e0235d",
+    "V4/summary.json": "be3b94629fdf920280676835458aa327e62ddc92dcb8164b58e73bdf95e23988",
+    "figures/bundle_diagnostics.pdf": "68822d5f2acae2913773b7cc2214c02125ebfaefd4f59a23ead376c44fca669d",
+    "figures/bundle_diagnostics.png": "c15f7f6f129b58ed5cee52b44a0e06472f2582b2a0b642f31f510949a256cbc8",
+    "figures/primary_comparison.pdf": "15dd5de100bda87595613ae95906aedd763c385763df01b000505769c54e6253",
+    "figures/primary_comparison.png": "fdc4005399f685733808bbb5030274edcfb675f6f39e573a099181036710c949"
+  },
+  "plan": {
+    "alpha": [
+      0.1,
+      0.3,
+      0.7,
+      1.0
+    ],
+    "belief_families": [
+      "belief_static",
+      "belief_dynamic"
+    ],
+    "beta": [
+      1.0,
+      3.0,
+      8.0,
+      20.0
+    ],
+    "bootstrap_seed": 20260908,
+    "created_date": "2026-09-07",
+    "hazard": [
+      0.05,
+      0.2,
+      0.5
+    ],
+    "inner_folds": 4,
+    "lapse": 0.02,
+    "n_boot": 5000,
+    "outer_folds": 5,
+    "p_match": 0.72,
+    "p_mismatch": 0.38,
+    "prior_power": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "repeat_strength": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      0.95
+    ],
+    "runs": {
+      "E1": "data/raw/v4e-qwen38.jsonl",
+      "P1": "data/raw/v4p-qwen38.jsonl",
+      "R1": "data/raw/v4r-gemma4.jsonl",
+      "V4": "data/raw/qwen38_27b_v4_checkpoint_20260902.jsonl"
+    },
+    "simple_families": [
+      "uniform",
+      "expertise",
+      "marginal",
+      "repeat_last",
+      "win_stay_expertise",
+      "history_frequency",
+      "reward_learning"
+    ],
+    "split_seed": 20260907,
+    "status": "Declared before fitting these baselines, after the original outcomes were known. Not a preregistration.",
+    "stickiness": [
+      0.0,
+      1.0,
+      3.0
+    ],
+    "version": "exploratory_baselines_v1"
+  },
+  "plan_sha256": "e862649f14392e86d91aac9374cd323f52b04b0f5660ac3418a88b3854565c2d",
+  "python": "3.11.15",
+  "source_sha256": {
+    "docs/BASELINE_COMPARISON_PLAN_20260907.md": "ca1176846afdc150a1549ba4f81560c5806eeb06371e0e298be1d22f7adb88c6",
+    "scripts/compare_choice_baselines.py": "e6fd2d367f079d4414560d04f10f301eaa7c834e8f53c905997797aa47c14d6d",
+    "src/choice_baselines.py": "9933302c849da66338c5738b03fb426ee74872cb6241688102a54fae2e98da57",
+    "tests/test_choice_baselines.py": "7f430694d111b9077a40f4c70756f9dc9367acfe99c7bd533d25579630223cfd"
+  },
+  "started_at": "2026-09-07T12:44:35.382490+00:00",
+  "status": "completed"
+}

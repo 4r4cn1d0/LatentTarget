@@ -1,0 +1,19 @@
+{
+  "packet_sha256": "ef4b8243492970c09849f74bfa0e999ef0e18b32003755bbfa199b2c9b91b0b1",
+  "files": {
+    "extension_packet.json": "84f63b50e4358d061e8056861d3ecd85fa1bcba5a2b863517e4ef05c235006ba",
+    "requirements-local.txt": "7242524339a9388141e1383e79b66ac2fd4b82276448eae06b8fa428192ccd1f",
+    "config.py": "8b521aa15a54d6bd3fbf7912723a2a6f3c53784b4910e1ff67c8203dfe1f8a17",
+    "packet.json": "4debd72b83e65df6f7e2ba276cd1d79b6bc82e251b6ab378f24c0a79213d6fcd",
+    "requirements-pod.txt": "bff6b48e104e538187e769d783cec2b60d7621de0090e419647f6dff460e03d0",
+    "RUN.md": "2524f7f42050af924d5756b17112006a10e9d6351dd66d0052808fa3600a407a",
+    "scripts/run_diagnostic_pilot.py": "f220922c6a9feaefb5b59a2a675cac3a6e27685e90857c944d98a3ce17389b96",
+    "scripts/run_diagnostic_extension.py": "b2831b69945199e666c20e46fb74b484905560f587b843a55700372eea43c634",
+    "src/diagnostic_pilot.py": "aa76dd2d0b00b4ee2c793ac1f848cac7fb6b0c9c67db9ded2ce7e08b914bb890",
+    "src/__init__.py": "b48248a99ed1ae5394849380497ed41e1164a68392550be16c4cc7f353ce66e1",
+    "src/diagnostic_extension.py": "6a9f010586dd0be61dfe71edc8e3903af2e81a9daddc879899bb29554d73797f",
+    "src/focal_agent.py": "2690b1419b09c4208a394f4b2a41b8ece0848da4cba1c981f2a09eb7d22aa4de",
+    "src/lexicons.py": "744da27bcf4aa09791853485e1db197bb45ee44541e246b2e5e1c2f5c24ad350",
+    "src/hf_provider.py": "c069df1168b9a9822db70c5f4b679721c3ffbdff2e8a7c89e0b8fe23b9e7a4b1"
+  }
+}

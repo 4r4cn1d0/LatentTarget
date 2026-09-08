@@ -1,0 +1,22 @@
+{
+  "name": "latenttarget-presentation-20260909",
+  "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404",
+  "cloudType": "SECURE",
+  "computeType": "GPU",
+  "gpuCount": 1,
+  "gpuTypeIds": ["NVIDIA A100-SXM4-80GB"],
+  "gpuTypePriority": "availability",
+  "interruptible": false,
+  "containerDiskInGb": 20,
+  "volumeInGb": 150,
+  "volumeMountPath": "/workspace",
+  "minRAMPerGPU": 100,
+  "minVCPUPerGPU": 8,
+  "ports": ["22/tcp"],
+  "supportPublicIp": true,
+  "globalNetworking": false,
+  "env": {
+    "PUBLIC_KEY": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMOPw0BwCzIhFRQCHdSjOBALiTH/QHYKFa93648TfOuJ ib1518a055017dfc@c-mercor.com",
+    "HF_HOME": "/workspace/latenttarget-presentation-20260909/hf-cache"
+  }
+}

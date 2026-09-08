@@ -1,0 +1,49 @@
+{
+  "id": "grounded_diagnostic_pilot_20260908",
+  "status": "DIAGNOSTIC_ONLY_AWAITING_GPU_EXECUTION_APPROVAL",
+  "selection": "First bundle by bundle_index for each evaluation family, in bank family order. Do not select using outcomes, model choices or judge scores.",
+  "n_bundles": 3,
+  "max_requests": 60,
+  "model": "Qwen/Qwen3.8-27B",
+  "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "generation": {
+    "temperature": 0.7,
+    "max_tokens": 16,
+    "device": "cuda:0",
+    "dtype": "bfloat16",
+    "capture": false,
+    "seed": 202609089,
+    "enable_thinking": false,
+    "top_p": 0.8,
+    "top_k": 20,
+    "constrained_choices": ["1", "2", "3"]
+  },
+  "max_input_tokens": 12000,
+  "max_run_seconds": 3600,
+  "deployment": {
+    "gpu_count": 1,
+    "gpu": "A100 80GB",
+    "maximum_hourly_usd": 2.0,
+    "maximum_pod_seconds_including_setup": 7200,
+    "proposed_total_budget_usd": 5.0,
+    "persistent_volume_gb": 150,
+    "container_disk_gb": 20,
+    "network_volume": false,
+    "public_starting_hourly_quote_usd": 1.59,
+    "quote_checked_date": "2026-09-08",
+    "quote_source": "https://www.runpod.io/pricing",
+    "actual_quote_must_be_checked_before_creation": true,
+    "process_timeout_is_not_a_pod_billing_cap": true
+  },
+  "scope": {
+    "self_generated_interaction": false,
+    "teacher_forced_histories": true,
+    "silent_target_swap": false,
+    "participant_identity_rebinding": true,
+    "forecast_queries": false,
+    "activation_capture": false,
+    "human_validation": false,
+    "confirmation_tests": false,
+    "automatic_scaling": false
+  }
+}

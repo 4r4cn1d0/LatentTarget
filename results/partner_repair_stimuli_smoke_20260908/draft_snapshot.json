@@ -1,0 +1,39 @@
+{
+  "clauses": [
+    [
+      "Allocate comparable benefits across members of this group.",
+      "Apply identical standards regardless of any personal status.",
+      "Return consideration when others have contributed their effort."
+    ],
+    [
+      "Prevent disruptions from becoming costly disasters for us.",
+      "Limit potential losses while retaining an emergency exit.",
+      "Reduce uncertain threats before committing our limited resources."
+    ],
+    [
+      "Consult experienced practitioners familiar with the relevant discipline.",
+      "Let professional qualifications guide a careful technical assessment.",
+      "Prefer conclusions supported by rigorous independent systematic evaluation."
+    ]
+  ],
+  "construction": "Each training body and each clause has eight whitespace words. Three clauses per new candidate. Same additive frame vectors as the original draft.",
+  "frame_order": [
+    "fairness",
+    "risk",
+    "expertise"
+  ],
+  "id": "partner_wording_audit_candidate_1",
+  "limitations": [
+    "Authored after seeing the original bank audit, before this new audit.",
+    "Category criteria do not establish why the preferred option meets those criteria.",
+    "Word counts are not tokenizer counts or semantic validation.",
+    "No revision after inspecting shallow policy outcomes in this audit.",
+    "This audit does not supply a fresh production confirmation split."
+  ],
+  "status": "DRAFT_NOT_HUMAN_VALIDATED_NOT_PRODUCTION",
+  "training": [
+    "Choose {a}; everyone deserves equal portions without arbitrary favouritism today.",
+    "Choose {a}; keep backups ready so mistakes remain easily reversible.",
+    "Choose {a}; trust trained specialists using verified evidence and credentials."
+  ]
+}

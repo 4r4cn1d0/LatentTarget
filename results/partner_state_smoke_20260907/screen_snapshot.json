@@ -1,0 +1,148 @@
+{
+  "batch_size": 100,
+  "bootstrap_implementation": "exact_marginal_stratified_percentile_distribution_on_quarter_lattice",
+  "bootstrap_note": "Same whole bundle resampling law as draft, computed by finite convolution rather than 10000 Monte Carlo resamples. Does not make population coverage exact. Must agree with brute force and Monte Carlo checks.",
+  "design_path": "docs/partner_state_study_20260907.json",
+  "design_sha256": "ef68ae00ea8421bb21e99ef2901af0a69365f3c07adda0d3f8229969566a6dda",
+  "id": "partner_state_offline_screen_1",
+  "limitations": [
+    "Mathematical policies know registered frames; no simulated policy is a real LLM.",
+    "Mixture strength is probability of using the policy instead of an expertise default, not a claimed LLM effect size.",
+    "Numerical study generator covers the registered abstract simulator, not semantic classification error.",
+    "No sample recommendation becomes authority for paid deployment.",
+    "The original draft and all historical gates stay unchanged."
+  ],
+  "n_grid": [
+    36,
+    72,
+    144,
+    288
+  ],
+  "policy_parameters": {
+    "belief_hazard": 0.05,
+    "initial_reward": 0.5,
+    "recent_window": 6,
+    "reward_alpha": 0.1
+  },
+  "required_alternative_cells": [
+    "belief_half_shared",
+    "belief_half_independent",
+    "belief_half_mcar_1pct",
+    "belief_half_selective_1pct"
+  ],
+  "required_joint_lower": 0.8,
+  "required_null_upper": 0.05,
+  "scenarios": [
+    {
+      "coupling": "independent",
+      "id": "uniform_null",
+      "missing": "none",
+      "policy": "uniform",
+      "rate": 0.0,
+      "role": "null",
+      "strength": 1.0
+    },
+    {
+      "coupling": "shared",
+      "id": "global_reward_null",
+      "missing": "none",
+      "policy": "global_reward",
+      "rate": 0.0,
+      "role": "null",
+      "strength": 1.0
+    },
+    {
+      "coupling": "shared",
+      "id": "global_recency_null",
+      "missing": "none",
+      "policy": "global_recency",
+      "rate": 0.0,
+      "role": "null",
+      "strength": 1.0
+    },
+    {
+      "coupling": "shared",
+      "id": "name_bias_null",
+      "missing": "none",
+      "policy": "name_bias",
+      "rate": 0.0,
+      "role": "null",
+      "strength": 1.0
+    },
+    {
+      "coupling": "shared",
+      "id": "belief_full",
+      "missing": "none",
+      "policy": "static_belief",
+      "rate": 0.0,
+      "role": "reference",
+      "strength": 1.0
+    },
+    {
+      "coupling": "shared",
+      "id": "belief_half_shared",
+      "missing": "none",
+      "policy": "static_belief",
+      "rate": 0.0,
+      "role": "required_alternative",
+      "strength": 0.5
+    },
+    {
+      "coupling": "independent",
+      "id": "belief_half_independent",
+      "missing": "none",
+      "policy": "static_belief",
+      "rate": 0.0,
+      "role": "required_alternative",
+      "strength": 0.5
+    },
+    {
+      "coupling": "shared",
+      "id": "belief_half_mcar_1pct",
+      "missing": "mcar",
+      "policy": "static_belief",
+      "rate": 0.01,
+      "role": "required_alternative",
+      "strength": 0.5
+    },
+    {
+      "coupling": "shared",
+      "id": "belief_half_selective_1pct",
+      "missing": "fairness_selective",
+      "policy": "static_belief",
+      "rate": 0.01,
+      "role": "required_alternative",
+      "strength": 0.5
+    },
+    {
+      "coupling": "shared",
+      "id": "belief_mcar_3pct",
+      "missing": "mcar",
+      "policy": "static_belief",
+      "rate": 0.03,
+      "role": "stress",
+      "strength": 1.0
+    },
+    {
+      "coupling": "shared",
+      "id": "feature_reward",
+      "missing": "none",
+      "policy": "participant_feature_reward",
+      "rate": 0.0,
+      "role": "legitimate_alternative",
+      "strength": 1.0
+    },
+    {
+      "coupling": "shared",
+      "id": "dynamic_belief",
+      "missing": "none",
+      "policy": "dynamic_belief",
+      "rate": 0.0,
+      "role": "reference",
+      "strength": 1.0
+    }
+  ],
+  "seed": 202609071,
+  "status": "OFFLINE_ONLY_NOT_A_RUN_AUTHORIZATION",
+  "studies_per_cell": 5000
+}

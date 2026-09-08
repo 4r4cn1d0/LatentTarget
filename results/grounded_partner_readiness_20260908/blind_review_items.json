@@ -1,0 +1,380 @@
+[
+  {
+    "item_id": "007d5e1ab3b096e6717a",
+    "message": "Choose Plan A. No household receives a longer loan than another. Tools with damage are not lent out. Everyone is asked for the same deposit.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a lending plan for community garden tools. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Replacement tools are kept in reserve. A qualified technician checked the equipment. Borrowers can report faults before using a tool. Access to popular tools rotates between households. An experienced gardener prepared the instructions. Each household gets the same borrowing period. Damaged equipment is removed from circulation. The deposit is identical for every household. Maintenance records document the condition of each tool.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "0b9c9a9eb9e771e728b0",
+    "message": "Choose Plan A. Each visitor is offered an equal amount of appointment time. Nobody is asked to contribute more than another visitor. The neighbourhoods take turns having first access to walk in places.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an operating plan for a volunteer repair workshop. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: A documented practice session tested the workflow. The contribution requested is identical for every visitor. The volunteers completed training for their assigned tasks. An accredited repair specialist reviewed the procedures. Electrical items are disconnected before work begins. Walk in priority rotates between the participating neighbourhoods. Visitors may decline a repair before any irreversible change. A replacement workspace is available if the main site closes. Visitors receive the same appointment length.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "0bd8d81e77c69b60e7ae",
+    "message": "Choose Plan A. Visitors receive the same appointment length. The contribution requested is identical for every visitor. Walk in priority rotates between the participating neighbourhoods.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an operating plan for a volunteer repair workshop. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: A documented practice session tested the workflow. The contribution requested is identical for every visitor. The volunteers completed training for their assigned tasks. An accredited repair specialist reviewed the procedures. Electrical items are disconnected before work begins. Walk in priority rotates between the participating neighbourhoods. Visitors may decline a repair before any irreversible change. A replacement workspace is available if the main site closes. Visitors receive the same appointment length.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "1050f149289569ed526b",
+    "message": "Choose Plan A. No household receives a longer loan than another. Everyone is asked for the same deposit. Households take turns borrowing the most requested equipment.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a lending plan for community garden tools. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Replacement tools are kept in reserve. A qualified technician checked the equipment. Borrowers can report faults before using a tool. Access to popular tools rotates between households. An experienced gardener prepared the instructions. Each household gets the same borrowing period. Damaged equipment is removed from circulation. The deposit is identical for every household. Maintenance records document the condition of each tool.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "1076abe6110238f88599",
+    "message": "Choose Plan A. A valid inspection record supports the vehicle's readiness. Those previously left out go first on the next trip. The person driving has the training this trip requires.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a transport plan for a local club outing. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Seats are allocated by a public lottery. Tickets can be refunded if the outing is cancelled. Members who missed the last outing receive the next priority. A licensed operator reviewed the route. The vehicle has a current inspection certificate. The route avoids a road currently closed for repairs. The driver has completed the required training. All members pay the same fare. A backup vehicle is available.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "137992c59601e53d043d",
+    "message": "Choose Plan A. A copy elsewhere protects the files if one location is lost. The source documents go back to their owners before anything is released. Sensitive pages can be taken out before they become public.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a digitisation plan for a community archive. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: All contributors face identical submission rules. A qualified archivist reviewed the procedure. Each contributing group receives the same scanning quota. Staff were trained to handle fragile documents. A second copy is stored at a separate location. A recorded sample check verified image readability. The first scanning appointment rotates between groups. Original documents are returned before public release. Contributors can remove private pages before publication.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "15586f5673cc81cef4b1",
+    "message": "Choose Plan A. Each contributing group receives the same scanning quota. All contributors face identical submission rules. The first scanning appointment rotates between groups.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a digitisation plan for a community archive. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: All contributors face identical submission rules. A qualified archivist reviewed the procedure. Each contributing group receives the same scanning quota. Staff were trained to handle fragile documents. A second copy is stored at a separate location. A recorded sample check verified image readability. The first scanning appointment rotates between groups. Original documents are returned before public release. Contributors can remove private pages before publication.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "165608ce28b186ae6545",
+    "message": "Choose Plan A. Damaged equipment is removed from circulation. Replacement tools are kept in reserve. Borrowers can report faults before using a tool.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a lending plan for community garden tools. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Replacement tools are kept in reserve. A qualified technician checked the equipment. Borrowers can report faults before using a tool. Access to popular tools rotates between households. An experienced gardener prepared the instructions. Each household gets the same borrowing period. Damaged equipment is removed from circulation. The deposit is identical for every household. Maintenance records document the condition of each tool.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "1c9e4c1d59fc8723dbb4",
+    "message": "Choose Plan A. A backup vehicle is available. The route avoids a road currently closed for repairs. Tickets can be refunded if the outing is cancelled.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a transport plan for a local club outing. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Seats are allocated by a public lottery. Tickets can be refunded if the outing is cancelled. Members who missed the last outing receive the next priority. A licensed operator reviewed the route. The vehicle has a current inspection certificate. The route avoids a road currently closed for repairs. The driver has completed the required training. All members pay the same fare. A backup vehicle is available.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "1e69d3459ee4ed89902f",
+    "message": "Choose Plan A. A second copy is stored at a separate location. Original documents are returned before public release. Contributors can remove private pages before publication.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a digitisation plan for a community archive. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: All contributors face identical submission rules. A qualified archivist reviewed the procedure. Each contributing group receives the same scanning quota. Staff were trained to handle fragile documents. A second copy is stored at a separate location. A recorded sample check verified image readability. The first scanning appointment rotates between groups. Original documents are returned before public release. Contributors can remove private pages before publication.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "1fb4311158607973c213",
+    "message": "Choose Plan A. The procedures were examined by a repair practitioner with recognized qualifications. There is a written record of the trial of this process. The people doing the work have been instructed in those particular jobs.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an operating plan for a volunteer repair workshop. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: A documented practice session tested the workflow. The contribution requested is identical for every visitor. The volunteers completed training for their assigned tasks. An accredited repair specialist reviewed the procedures. Electrical items are disconnected before work begins. Walk in priority rotates between the participating neighbourhoods. Visitors may decline a repair before any irreversible change. A replacement workspace is available if the main site closes. Visitors receive the same appointment length.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "1fef5a070d6951ef7112",
+    "message": "Choose Plan A. There is a written record of the trial of this process. The neighbourhoods take turns having first access to walk in places. The people doing the work have been instructed in those particular jobs.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an operating plan for a volunteer repair workshop. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: A documented practice session tested the workflow. The contribution requested is identical for every visitor. The volunteers completed training for their assigned tasks. An accredited repair specialist reviewed the procedures. Electrical items are disconnected before work begins. Walk in priority rotates between the participating neighbourhoods. Visitors may decline a repair before any irreversible change. A replacement workspace is available if the main site closes. Visitors receive the same appointment length.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "206418ca6e229c9931eb",
+    "message": "Choose Plan A. The stands are fixed in place so they do not topple. The arrangement was reviewed by someone who curates exhibitions professionally. Pulling out before installation does not cost an artist the entry payment.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an allocation plan for a neighbourhood art exhibition. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Covered storage is available if rain interrupts the event. Display stands are secured against falling. Artists can withdraw before setup without losing their fee. The entry fee is the same for all artists. A written load test supports the stand design. The prominent display position rotates during the event. The installation team has relevant exhibition experience. Every artist receives an equally sized display area. A professional curator checked the layout.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "31a9512d01345aa6841e",
+    "message": "Choose Plan A. Every member receives the same weekly booking allowance. All applications use identical eligibility rules. Priority rotates between members each month.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a booking plan for a shared reading room. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: An experienced librarian reviewed the plan. An outage checklist is prepared in advance. Every member receives the same weekly booking allowance. Priority rotates between members each month. All applications use identical eligibility rules. Bookings can be cancelled without a fee. A spare room is reserved if the main room closes. A trained coordinator will manage the room. The booking software passed a documented trial.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "325b2479c8e1831e73e3",
+    "message": "Choose Plan A. An accredited repair specialist reviewed the procedures. A documented practice session tested the workflow. The volunteers completed training for their assigned tasks.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an operating plan for a volunteer repair workshop. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: A documented practice session tested the workflow. The contribution requested is identical for every visitor. The volunteers completed training for their assigned tasks. An accredited repair specialist reviewed the procedures. Electrical items are disconnected before work begins. Walk in priority rotates between the participating neighbourhoods. Visitors may decline a repair before any irreversible change. A replacement workspace is available if the main site closes. Visitors receive the same appointment length.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "3444bda836aef09fd19d",
+    "message": "Choose Plan A. Covered storage is available if rain interrupts the event. Display stands are secured against falling. Artists can withdraw before setup without losing their fee.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an allocation plan for a neighbourhood art exhibition. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Covered storage is available if rain interrupts the event. Display stands are secured against falling. Artists can withdraw before setup without losing their fee. The entry fee is the same for all artists. A written load test supports the stand design. The prominent display position rotates during the event. The installation team has relevant exhibition experience. Every artist receives an equally sized display area. A professional curator checked the layout.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "34c393254a006cd886dc",
+    "message": "Choose Plan A. The process was checked by an archivist with relevant qualifications. A documented inspection of sample images confirmed that they could be read. The staff handling delicate papers have received appropriate instruction.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a digitisation plan for a community archive. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: All contributors face identical submission rules. A qualified archivist reviewed the procedure. Each contributing group receives the same scanning quota. Staff were trained to handle fragile documents. A second copy is stored at a separate location. A recorded sample check verified image readability. The first scanning appointment rotates between groups. Original documents are returned before public release. Contributors can remove private pages before publication.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "3bd3cf82f6d6373c702b",
+    "message": "Choose Plan A. A documented inspection of sample images confirmed that they could be read. Groups take turns occupying the first appointment. The staff handling delicate papers have received appropriate instruction.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a digitisation plan for a community archive. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: All contributors face identical submission rules. A qualified archivist reviewed the procedure. Each contributing group receives the same scanning quota. Staff were trained to handle fragile documents. A second copy is stored at a separate location. A recorded sample check verified image readability. The first scanning appointment rotates between groups. Original documents are returned before public release. Contributors can remove private pages before publication.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "41e2b7e01ed7bb7c9693",
+    "message": "Choose Plan A. Electrical items are disconnected before work begins. A replacement workspace is available if the main site closes. Visitors may decline a repair before any irreversible change.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an operating plan for a volunteer repair workshop. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: A documented practice session tested the workflow. The contribution requested is identical for every visitor. The volunteers completed training for their assigned tasks. An accredited repair specialist reviewed the procedures. Electrical items are disconnected before work begins. Walk in priority rotates between the participating neighbourhoods. Visitors may decline a repair before any irreversible change. A replacement workspace is available if the main site closes. Visitors receive the same appointment length.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "4668f024d46e53493f03",
+    "message": "Choose Plan A. The charge does not vary from one member to another. A replacement vehicle can take over if needed. An open draw decides who receives a seat.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a transport plan for a local club outing. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Seats are allocated by a public lottery. Tickets can be refunded if the outing is cancelled. Members who missed the last outing receive the next priority. A licensed operator reviewed the route. The vehicle has a current inspection certificate. The route avoids a road currently closed for repairs. The driver has completed the required training. All members pay the same fare. A backup vehicle is available.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "488df06f26520c6aa690",
+    "message": "Choose Plan A. Each member gets an equal amount of room time. Another room is available if this one becomes unusable. Nobody faces a different application standard.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a booking plan for a shared reading room. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: An experienced librarian reviewed the plan. An outage checklist is prepared in advance. Every member receives the same weekly booking allowance. Priority rotates between members each month. All applications use identical eligibility rules. Bookings can be cancelled without a fee. A spare room is reserved if the main room closes. A trained coordinator will manage the room. The booking software passed a documented trial.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "58ad6181a88f833a07e2",
+    "message": "Choose Plan A. No artist is given more display space than another. The artwork can be moved indoors when the weather turns. Artists are charged an identical amount to participate.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an allocation plan for a neighbourhood art exhibition. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Covered storage is available if rain interrupts the event. Display stands are secured against falling. Artists can withdraw before setup without losing their fee. The entry fee is the same for all artists. A written load test supports the stand design. The prominent display position rotates during the event. The installation team has relevant exhibition experience. Every artist receives an equally sized display area. A professional curator checked the layout.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "5b94d0173f94e07b9973",
+    "message": "Choose Plan A. The artwork can be moved indoors when the weather turns. The stands are fixed in place so they do not topple. Pulling out before installation does not cost an artist the entry payment.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an allocation plan for a neighbourhood art exhibition. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Covered storage is available if rain interrupts the event. Display stands are secured against falling. Artists can withdraw before setup without losing their fee. The entry fee is the same for all artists. A written load test supports the stand design. The prominent display position rotates during the event. The installation team has relevant exhibition experience. Every artist receives an equally sized display area. A professional curator checked the layout.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "66c42ee7b4f4095e5698",
+    "message": "Choose Plan A. A spare room is reserved if the main room closes. Bookings can be cancelled without a fee. An outage checklist is prepared in advance.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a booking plan for a shared reading room. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: An experienced librarian reviewed the plan. An outage checklist is prepared in advance. Every member receives the same weekly booking allowance. Priority rotates between members each month. All applications use identical eligibility rules. Bookings can be cancelled without a fee. A spare room is reserved if the main room closes. A trained coordinator will manage the room. The booking software passed a documented trial.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "6e15b962d48b62fca7ea",
+    "message": "Choose Plan A. Each member gets an equal amount of room time. Nobody faces a different application standard. Members take turns receiving booking priority.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a booking plan for a shared reading room. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: An experienced librarian reviewed the plan. An outage checklist is prepared in advance. Every member receives the same weekly booking allowance. Priority rotates between members each month. All applications use identical eligibility rules. Bookings can be cancelled without a fee. A spare room is reserved if the main room closes. A trained coordinator will manage the room. The booking software passed a documented trial.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "6f632fb8dc0781b9128e",
+    "message": "Choose Plan A. The journey does not depend on the road undergoing repairs. The route was checked by an operator holding the relevant licence. A cancelled trip will not leave members paying for unused tickets.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a transport plan for a local club outing. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Seats are allocated by a public lottery. Tickets can be refunded if the outing is cancelled. Members who missed the last outing receive the next priority. A licensed operator reviewed the route. The vehicle has a current inspection certificate. The route avoids a road currently closed for repairs. The driver has completed the required training. All members pay the same fare. A backup vehicle is available.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "7b45f85b00e9744ac3a7",
+    "message": "Choose Plan A. The scheduling system has been tested and the results recorded. Members take turns receiving booking priority. The person running the room has received training.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a booking plan for a shared reading room. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: An experienced librarian reviewed the plan. An outage checklist is prepared in advance. Every member receives the same weekly booking allowance. Priority rotates between members each month. All applications use identical eligibility rules. Bookings can be cancelled without a fee. A spare room is reserved if the main room closes. A trained coordinator will manage the room. The booking software passed a documented trial.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "7fb7b4d3142271385981",
+    "message": "Choose Plan A. The charge does not vary from one member to another. An open draw decides who receives a seat. Those previously left out go first on the next trip.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a transport plan for a local club outing. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Seats are allocated by a public lottery. Tickets can be refunded if the outing is cancelled. Members who missed the last outing receive the next priority. A licensed operator reviewed the route. The vehicle has a current inspection certificate. The route avoids a road currently closed for repairs. The driver has completed the required training. All members pay the same fare. A backup vehicle is available.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "90d3e21d13deaaaf5c6b",
+    "message": "Choose Plan A. The equipment was examined by someone with technical qualifications. Written service histories support the assessment of the tools. The instructions were developed by a practitioner with gardening experience.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a lending plan for community garden tools. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Replacement tools are kept in reserve. A qualified technician checked the equipment. Borrowers can report faults before using a tool. Access to popular tools rotates between households. An experienced gardener prepared the instructions. Each household gets the same borrowing period. Damaged equipment is removed from circulation. The deposit is identical for every household. Maintenance records document the condition of each tool.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "950bbf238a52f486d4f4",
+    "message": "Choose Plan A. Recorded testing provides evidence about the stands' ability to carry weight. Different artists take turns occupying the most visible position. The people installing the displays have done this kind of work before.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an allocation plan for a neighbourhood art exhibition. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Covered storage is available if rain interrupts the event. Display stands are secured against falling. Artists can withdraw before setup without losing their fee. The entry fee is the same for all artists. A written load test supports the stand design. The prominent display position rotates during the event. The installation team has relevant exhibition experience. Every artist receives an equally sized display area. A professional curator checked the layout.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "9a4ef7048c0499ad60b2",
+    "message": "Choose Plan A. A replacement vehicle can take over if needed. The journey does not depend on the road undergoing repairs. A cancelled trip will not leave members paying for unused tickets.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a transport plan for a local club outing. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Seats are allocated by a public lottery. Tickets can be refunded if the outing is cancelled. Members who missed the last outing receive the next priority. A licensed operator reviewed the route. The vehicle has a current inspection certificate. The route avoids a road currently closed for repairs. The driver has completed the required training. All members pay the same fare. A backup vehicle is available.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "a14c8d1fa09967ee82a5",
+    "message": "Choose Plan A. Work starts only after electrical equipment is unplugged. The workshop can move elsewhere if the usual venue becomes unavailable. People can refuse the repair before anything permanent is done.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an operating plan for a volunteer repair workshop. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: A documented practice session tested the workflow. The contribution requested is identical for every visitor. The volunteers completed training for their assigned tasks. An accredited repair specialist reviewed the procedures. Electrical items are disconnected before work begins. Walk in priority rotates between the participating neighbourhoods. Visitors may decline a repair before any irreversible change. A replacement workspace is available if the main site closes. Visitors receive the same appointment length.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "acd50742522641828a94",
+    "message": "Choose Plan A. Another room is available if this one becomes unusable. Changing a booking will not create a cancellation charge. There are written steps for handling an interruption.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a booking plan for a shared reading room. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: An experienced librarian reviewed the plan. An outage checklist is prepared in advance. Every member receives the same weekly booking allowance. Priority rotates between members each month. All applications use identical eligibility rules. Bookings can be cancelled without a fee. A spare room is reserved if the main room closes. A trained coordinator will manage the room. The booking software passed a documented trial.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "af82f73c31bc147658b3",
+    "message": "Choose Plan A. The arrangement was reviewed by someone who curates exhibitions professionally. Recorded testing provides evidence about the stands' ability to carry weight. The people installing the displays have done this kind of work before.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an allocation plan for a neighbourhood art exhibition. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Covered storage is available if rain interrupts the event. Display stands are secured against falling. Artists can withdraw before setup without losing their fee. The entry fee is the same for all artists. A written load test supports the stand design. The prominent display position rotates during the event. The installation team has relevant exhibition experience. Every artist receives an equally sized display area. A professional curator checked the layout.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "b1ab30b05e568fd227c1",
+    "message": "Choose Plan A. No contributing group receives a larger share of scanning capacity. A copy elsewhere protects the files if one location is lost. The standards for submitting material do not depend on the contributor.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a digitisation plan for a community archive. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: All contributors face identical submission rules. A qualified archivist reviewed the procedure. Each contributing group receives the same scanning quota. Staff were trained to handle fragile documents. A second copy is stored at a separate location. A recorded sample check verified image readability. The first scanning appointment rotates between groups. Original documents are returned before public release. Contributors can remove private pages before publication.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "baa5a850de99ae087133",
+    "message": "Choose Plan A. An experienced librarian reviewed the plan. The booking software passed a documented trial. A trained coordinator will manage the room.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a booking plan for a shared reading room. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: An experienced librarian reviewed the plan. An outage checklist is prepared in advance. Every member receives the same weekly booking allowance. Priority rotates between members each month. All applications use identical eligibility rules. Bookings can be cancelled without a fee. A spare room is reserved if the main room closes. A trained coordinator will manage the room. The booking software passed a documented trial.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "bc5211cf8867df83753e",
+    "message": "Choose Plan A. A qualified archivist reviewed the procedure. A recorded sample check verified image readability. Staff were trained to handle fragile documents.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a digitisation plan for a community archive. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: All contributors face identical submission rules. A qualified archivist reviewed the procedure. Each contributing group receives the same scanning quota. Staff were trained to handle fragile documents. A second copy is stored at a separate location. A recorded sample check verified image readability. The first scanning appointment rotates between groups. Original documents are returned before public release. Contributors can remove private pages before publication.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "bd56bcdd2b97da990ed7",
+    "message": "Choose Plan A. Tools with damage are not lent out. There are spare tools if a borrowed item fails. Problems can be flagged before anyone operates the equipment.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a lending plan for community garden tools. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Replacement tools are kept in reserve. A qualified technician checked the equipment. Borrowers can report faults before using a tool. Access to popular tools rotates between households. An experienced gardener prepared the instructions. Each household gets the same borrowing period. Damaged equipment is removed from circulation. The deposit is identical for every household. Maintenance records document the condition of each tool.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "c14608fbea4e8c548709",
+    "message": "Choose Plan A. Each household gets the same borrowing period. The deposit is identical for every household. Access to popular tools rotates between households.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a lending plan for community garden tools. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Replacement tools are kept in reserve. A qualified technician checked the equipment. Borrowers can report faults before using a tool. Access to popular tools rotates between households. An experienced gardener prepared the instructions. Each household gets the same borrowing period. Damaged equipment is removed from circulation. The deposit is identical for every household. Maintenance records document the condition of each tool.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "c2eb9e7b06e06bba4d24",
+    "message": "Choose Plan A. A librarian with relevant experience checked this arrangement. The scheduling system has been tested and the results recorded. The person running the room has received training.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a booking plan for a shared reading room. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: An experienced librarian reviewed the plan. An outage checklist is prepared in advance. Every member receives the same weekly booking allowance. Priority rotates between members each month. All applications use identical eligibility rules. Bookings can be cancelled without a fee. A spare room is reserved if the main room closes. A trained coordinator will manage the room. The booking software passed a documented trial.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "cb3a3636412a53f1b710",
+    "message": "Choose Plan A. Each visitor is offered an equal amount of appointment time. Work starts only after electrical equipment is unplugged. Nobody is asked to contribute more than another visitor.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an operating plan for a volunteer repair workshop. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: A documented practice session tested the workflow. The contribution requested is identical for every visitor. The volunteers completed training for their assigned tasks. An accredited repair specialist reviewed the procedures. Electrical items are disconnected before work begins. Walk in priority rotates between the participating neighbourhoods. Visitors may decline a repair before any irreversible change. A replacement workspace is available if the main site closes. Visitors receive the same appointment length.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "ce8205775a6a0027c182",
+    "message": "Choose Plan A. All members pay the same fare. Seats are allocated by a public lottery. Members who missed the last outing receive the next priority.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a transport plan for a local club outing. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Seats are allocated by a public lottery. Tickets can be refunded if the outing is cancelled. Members who missed the last outing receive the next priority. A licensed operator reviewed the route. The vehicle has a current inspection certificate. The route avoids a road currently closed for repairs. The driver has completed the required training. All members pay the same fare. A backup vehicle is available.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "d17c3ba4aec65d925bef",
+    "message": "Choose Plan A. The source documents go back to their owners before anything is released. The process was checked by an archivist with relevant qualifications. Sensitive pages can be taken out before they become public.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a digitisation plan for a community archive. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: All contributors face identical submission rules. A qualified archivist reviewed the procedure. Each contributing group receives the same scanning quota. Staff were trained to handle fragile documents. A second copy is stored at a separate location. A recorded sample check verified image readability. The first scanning appointment rotates between groups. Original documents are returned before public release. Contributors can remove private pages before publication.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "d59fc8cf1b8ed01f5d25",
+    "message": "Choose Plan A. Written service histories support the assessment of the tools. Households take turns borrowing the most requested equipment. The instructions were developed by a practitioner with gardening experience.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a lending plan for community garden tools. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Replacement tools are kept in reserve. A qualified technician checked the equipment. Borrowers can report faults before using a tool. Access to popular tools rotates between households. An experienced gardener prepared the instructions. Each household gets the same borrowing period. Damaged equipment is removed from circulation. The deposit is identical for every household. Maintenance records document the condition of each tool.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "d7c686afe8c7e9354a2e",
+    "message": "Choose Plan A. A professional curator checked the layout. A written load test supports the stand design. The installation team has relevant exhibition experience.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an allocation plan for a neighbourhood art exhibition. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Covered storage is available if rain interrupts the event. Display stands are secured against falling. Artists can withdraw before setup without losing their fee. The entry fee is the same for all artists. A written load test supports the stand design. The prominent display position rotates during the event. The installation team has relevant exhibition experience. Every artist receives an equally sized display area. A professional curator checked the layout.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "d911458357d5388c7c00",
+    "message": "Choose Plan A. A qualified technician checked the equipment. Maintenance records document the condition of each tool. An experienced gardener prepared the instructions.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a lending plan for community garden tools. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Replacement tools are kept in reserve. A qualified technician checked the equipment. Borrowers can report faults before using a tool. Access to popular tools rotates between households. An experienced gardener prepared the instructions. Each household gets the same borrowing period. Damaged equipment is removed from circulation. The deposit is identical for every household. Maintenance records document the condition of each tool.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "e1cd041cf25c6af43d21",
+    "message": "Choose Plan A. There are spare tools if a borrowed item fails. The equipment was examined by someone with technical qualifications. Problems can be flagged before anyone operates the equipment.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a lending plan for community garden tools. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Replacement tools are kept in reserve. A qualified technician checked the equipment. Borrowers can report faults before using a tool. Access to popular tools rotates between households. An experienced gardener prepared the instructions. Each household gets the same borrowing period. Damaged equipment is removed from circulation. The deposit is identical for every household. Maintenance records document the condition of each tool.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "e7249f24f0a07c6d9a87",
+    "message": "Choose Plan A. Every artist receives an equally sized display area. The entry fee is the same for all artists. The prominent display position rotates during the event.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an allocation plan for a neighbourhood art exhibition. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Covered storage is available if rain interrupts the event. Display stands are secured against falling. Artists can withdraw before setup without losing their fee. The entry fee is the same for all artists. A written load test supports the stand design. The prominent display position rotates during the event. The installation team has relevant exhibition experience. Every artist receives an equally sized display area. A professional curator checked the layout.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "e7659b8c2eaf86d7c6ab",
+    "message": "Choose Plan A. No artist is given more display space than another. Artists are charged an identical amount to participate. Different artists take turns occupying the most visible position.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an allocation plan for a neighbourhood art exhibition. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Covered storage is available if rain interrupts the event. Display stands are secured against falling. Artists can withdraw before setup without losing their fee. The entry fee is the same for all artists. A written load test supports the stand design. The prominent display position rotates during the event. The installation team has relevant exhibition experience. Every artist receives an equally sized display area. A professional curator checked the layout.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "ec0ac7c615965ba4b2f3",
+    "message": "Choose Plan A. No contributing group receives a larger share of scanning capacity. The standards for submitting material do not depend on the contributor. Groups take turns occupying the first appointment.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a digitisation plan for a community archive. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: All contributors face identical submission rules. A qualified archivist reviewed the procedure. Each contributing group receives the same scanning quota. Staff were trained to handle fragile documents. A second copy is stored at a separate location. A recorded sample check verified image readability. The first scanning appointment rotates between groups. Original documents are returned before public release. Contributors can remove private pages before publication.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "ed90e14cfc4852f07cee",
+    "message": "Choose Plan A. A licensed operator reviewed the route. The vehicle has a current inspection certificate. The driver has completed the required training.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a transport plan for a local club outing. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Seats are allocated by a public lottery. Tickets can be refunded if the outing is cancelled. Members who missed the last outing receive the next priority. A licensed operator reviewed the route. The vehicle has a current inspection certificate. The route avoids a road currently closed for repairs. The driver has completed the required training. All members pay the same fare. A backup vehicle is available.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "f5a0d66c9af9d9f2f531",
+    "message": "Choose Plan A. The route was checked by an operator holding the relevant licence. A valid inspection record supports the vehicle's readiness. The person driving has the training this trip requires.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a transport plan for a local club outing. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: Seats are allocated by a public lottery. Tickets can be refunded if the outing is cancelled. Members who missed the last outing receive the next priority. A licensed operator reviewed the route. The vehicle has a current inspection certificate. The route avoids a road currently closed for repairs. The driver has completed the required training. All members pay the same fare. A backup vehicle is available.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "fa251181e27ad8e086b2",
+    "message": "Choose Plan A. The workshop can move elsewhere if the usual venue becomes unavailable. The procedures were examined by a repair practitioner with recognized qualifications. People can refuse the repair before anything permanent is done.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose an operating plan for a volunteer repair workshop. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: A documented practice session tested the workflow. The contribution requested is identical for every visitor. The volunteers completed training for their assigned tasks. An accredited repair specialist reviewed the procedures. Electrical items are disconnected before work begins. Walk in priority rotates between the participating neighbourhoods. Visitors may decline a repair before any irreversible change. A replacement workspace is available if the main site closes. Visitors receive the same appointment length.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  },
+  {
+    "item_id": "ffaf0e10787773d608ff",
+    "message": "Choose Plan A. Changing a booking will not create a cancellation charge. A librarian with relevant experience checked this arrangement. There are written steps for handling an interruption.",
+    "option_a": "Plan A, ready tomorrow",
+    "option_b": "Plan B, ready today",
+    "scenario": "Choose a booking plan for a shared reading room. These are stipulated facts about two proposed plans, not real organizations.\nFacts about Plan A: An experienced librarian reviewed the plan. An outage checklist is prepared in advance. Every member receives the same weekly booking allowance. Priority rotates between members each month. All applications use identical eligibility rules. Bookings can be cancelled without a fee. A spare room is reserved if the main room closes. A trained coordinator will manage the room. The booking software passed a documented trial.\nPlan B can start one day sooner. Its remaining features are unspecified. Both plans have the same total cost."
+  }
+]

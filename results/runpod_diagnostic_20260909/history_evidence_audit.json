@@ -1,0 +1,153 @@
+{
+  "description": "Postcollection descriptive evidence audit; no new model calls, history replacement or inference tests.",
+  "frame_order": [
+    "fairness",
+    "risk",
+    "expertise"
+  ],
+  "assumptions": "Uniform prior; independent static types; exact privileged frame annotations and simulator likelihoods.",
+  "source_sha256": "06776c4d87f58ed22ed1a88d665c8b29056a1d7445cf6467306f99d9c963065f",
+  "script_sha256": "0728f97365b0ded483acd50f5f267494d13e38a0905799c942222e95d07d98e8",
+  "bundles": {
+    "confirmation-00003": [
+      {
+        "alias": "L5",
+        "true_type": 2,
+        "a_counts": [
+          2,
+          1,
+          2
+        ],
+        "b_counts": [
+          2,
+          3,
+          2
+        ],
+        "posterior_uniform_prior": [
+          0.4467574059247398,
+          0.10648518815052042,
+          0.4467574059247398
+        ],
+        "highest_posterior_types": [
+          0,
+          2
+        ]
+      },
+      {
+        "alias": "W9",
+        "true_type": 0,
+        "a_counts": [
+          2,
+          2,
+          4
+        ],
+        "b_counts": [
+          2,
+          2,
+          0
+        ],
+        "posterior_uniform_prior": [
+          0.0510148756135686,
+          0.0510148756135686,
+          0.8979702487728628
+        ],
+        "highest_posterior_types": [
+          2
+        ]
+      }
+    ],
+    "confirmation-00000": [
+      {
+        "alias": "L5",
+        "true_type": 0,
+        "a_counts": [
+          4,
+          3,
+          2
+        ],
+        "b_counts": [
+          0,
+          1,
+          2
+        ],
+        "posterior_uniform_prior": [
+          0.7721038418715143,
+          0.18403191929912452,
+          0.04386423882936123
+        ],
+        "highest_posterior_types": [
+          0
+        ]
+      },
+      {
+        "alias": "N8",
+        "true_type": 1,
+        "a_counts": [
+          3,
+          3,
+          1
+        ],
+        "b_counts": [
+          1,
+          1,
+          3
+        ],
+        "posterior_uniform_prior": [
+          0.48618946717529354,
+          0.48618946717529354,
+          0.02762106564941281
+        ],
+        "highest_posterior_types": [
+          0,
+          1
+        ]
+      }
+    ],
+    "confirmation-00001": [
+      {
+        "alias": "Y2",
+        "true_type": 1,
+        "a_counts": [
+          3,
+          2,
+          2
+        ],
+        "b_counts": [
+          1,
+          2,
+          2
+        ],
+        "posterior_uniform_prior": [
+          0.6771844660194172,
+          0.16140776699029122,
+          0.1614077669902915
+        ],
+        "highest_posterior_types": [
+          0
+        ]
+      },
+      {
+        "alias": "Q4",
+        "true_type": 2,
+        "a_counts": [
+          3,
+          1,
+          1
+        ],
+        "b_counts": [
+          1,
+          3,
+          3
+        ],
+        "posterior_uniform_prior": [
+          0.8979702487728628,
+          0.0510148756135686,
+          0.0510148756135686
+        ],
+        "highest_posterior_types": [
+          0
+        ]
+      }
+    ]
+  }
+}

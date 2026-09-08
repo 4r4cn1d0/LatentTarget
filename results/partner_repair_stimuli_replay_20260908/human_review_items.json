@@ -1,0 +1,488 @@
+[
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "00b4984376dd492557ee",
+    "message": "Choose the north board first. Consult experienced practitioners familiar with the relevant discipline. Let professional qualifications guide a careful technical assessment. Prefer conclusions supported by rigorous independent systematic evaluation.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "13a69ecce0a990862095",
+    "message": "Choose the striped cover. Consider each person's interests on equal terms. Do not give one group special privileges. Treat contributions with reciprocal consideration.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "1867cfadbfab0cd92e2b",
+    "message": "Choose the north board first. Consider each person's interests on equal terms. Do not give one group special privileges. Treat contributions with reciprocal consideration.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "196bd2a742e97651efc0",
+    "message": "Choose the north board first. Allocate comparable benefits across members of this group. Apply identical standards regardless of any personal status. Return consideration when others have contributed their effort.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "1f6061379aecfea7627b",
+    "message": "Choose Maple. Reduce the consequences of an unexpected failure. Seek advice from people who understand the subject. Avoid exposing the group to unnecessary losses.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "2054f2578cad6ecc8c97",
+    "message": "Choose the striped cover. Consider each person's interests on equal terms. Retain a way to reverse course if necessary. Do not give one group special privileges.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "22d01a77d7b82cb1c3f7",
+    "message": "Choose the striped cover. Consult experienced practitioners familiar with the relevant discipline. Let professional qualifications guide a careful technical assessment. Prefer conclusions supported by rigorous independent systematic evaluation.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "236a52344b103fa30d86",
+    "message": "Choose Maple. Limit potential losses while retaining an emergency exit. Consult experienced practitioners familiar with the relevant discipline. Reduce uncertain threats before committing our limited resources.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "2670b238bdb0d25c54f6",
+    "message": "Choose the striped cover. Prevent disruptions from becoming costly disasters for us. Limit potential losses while retaining an emergency exit. Reduce uncertain threats before committing our limited resources.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "28925a40d43e8fd79bf2",
+    "message": "Choose Maple; every person deserves an impartial hearing.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "29f8b96a17986a469679",
+    "message": "Choose the striped cover; prevent a small problem from becoming a serious loss.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "2c524226da10ce5d33a1",
+    "message": "Choose Maple. Allocate comparable benefits across members of this group. Prevent disruptions from becoming costly disasters for us. Apply identical standards regardless of any personal status.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "2d2283ac3e1fafae985c",
+    "message": "Choose the striped cover. Reduce the consequences of an unexpected failure. Seek advice from people who understand the subject. Avoid exposing the group to unnecessary losses.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "3e6b56e8240314a1c03e",
+    "message": "Choose the striped cover. Allocate comparable benefits across members of this group. Apply identical standards regardless of any personal status. Return consideration when others have contributed their effort.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "3f67398c8cc28b7fe2ce",
+    "message": "Choose Maple. Let relevant qualifications inform the choice. Treat contributions with reciprocal consideration. Check the reasoning against a systematic evaluation.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "4034f97f08c01f31ac2c",
+    "message": "Choose Maple; a careful assessment by qualified people should guide the decision.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "411d1b8d2a788963b4a7",
+    "message": "Choose Maple; trust trained specialists using verified evidence and credentials.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "425d11073a9688ab9a1a",
+    "message": "Choose the north board first. Seek advice from people who understand the subject. Let relevant qualifications inform the choice. Check the reasoning against a systematic evaluation.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "42f60b32935ca6207d2b",
+    "message": "Choose the north board first. Limit potential losses while retaining an emergency exit. Consult experienced practitioners familiar with the relevant discipline. Reduce uncertain threats before committing our limited resources.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "4fdcd62dfbc83ea1e665",
+    "message": "Choose Maple; keep backups ready so mistakes remain easily reversible.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "5598531be6d4ccf359de",
+    "message": "Choose the north board first; trust trained specialists using verified evidence and credentials.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "5fbd8e341c25a59661fd",
+    "message": "Choose Maple. Consult experienced practitioners familiar with the relevant discipline. Let professional qualifications guide a careful technical assessment. Prefer conclusions supported by rigorous independent systematic evaluation.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "695017745ef0830d53f8",
+    "message": "Choose the north board first. Consider each person's interests on equal terms. Retain a way to reverse course if necessary. Do not give one group special privileges.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "6b457b5260ade9fd5284",
+    "message": "Choose the north board first; every person deserves an impartial hearing.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "6d64147ec78a017653f8",
+    "message": "Choose the striped cover; everyone deserves equal portions without arbitrary favouritism today.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "6ea9f6d9f9876b9dea4a",
+    "message": "Choose the striped cover. Allocate comparable benefits across members of this group. Prevent disruptions from becoming costly disasters for us. Apply identical standards regardless of any personal status.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "78884223adb172b8caea",
+    "message": "Choose the north board first. Let relevant qualifications inform the choice. Treat contributions with reciprocal consideration. Check the reasoning against a systematic evaluation.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "87f285d786107942de32",
+    "message": "Choose the north board first. Retain a way to reverse course if necessary. Reduce the consequences of an unexpected failure. Avoid exposing the group to unnecessary losses.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "909bc4274c1d1205d780",
+    "message": "Choose the striped cover. Seek advice from people who understand the subject. Let relevant qualifications inform the choice. Check the reasoning against a systematic evaluation.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "95853f33ff9fcd5c576c",
+    "message": "Choose the striped cover; keep backups ready so mistakes remain easily reversible.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "97ee3568b3f0d71360fb",
+    "message": "Choose Maple. Let professional qualifications guide a careful technical assessment. Return consideration when others have contributed their effort. Prefer conclusions supported by rigorous independent systematic evaluation.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "9a211a2148e90494bc72",
+    "message": "Choose the north board first. Prevent disruptions from becoming costly disasters for us. Limit potential losses while retaining an emergency exit. Reduce uncertain threats before committing our limited resources.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "9cb351f68ade3f6b668e",
+    "message": "Choose the striped cover. Let relevant qualifications inform the choice. Treat contributions with reciprocal consideration. Check the reasoning against a systematic evaluation.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "9d81af530030fdb49519",
+    "message": "Choose the striped cover; a careful assessment by qualified people should guide the decision.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "a97483b0ab1b706c4225",
+    "message": "Choose Maple. Prevent disruptions from becoming costly disasters for us. Limit potential losses while retaining an emergency exit. Reduce uncertain threats before committing our limited resources.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "ac54e60ea7a4ba4ab523",
+    "message": "Choose Maple. Seek advice from people who understand the subject. Let relevant qualifications inform the choice. Check the reasoning against a systematic evaluation.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "afb35e5497b74d9e3a0b",
+    "message": "Choose the north board first; a careful assessment by qualified people should guide the decision.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "b16e50f8abf2b53dfbe8",
+    "message": "Choose Maple. Consider each person's interests on equal terms. Retain a way to reverse course if necessary. Do not give one group special privileges.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "b1df2ce9b18f1ad87006",
+    "message": "Choose the north board first; keep backups ready so mistakes remain easily reversible.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "b433fb1d777bd74d55a8",
+    "message": "Choose Maple; everyone deserves equal portions without arbitrary favouritism today.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "b7d5da1e4c1961a9fd42",
+    "message": "Choose the striped cover. Retain a way to reverse course if necessary. Reduce the consequences of an unexpected failure. Avoid exposing the group to unnecessary losses.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "c16b564d9ee9ad85e6e6",
+    "message": "Choose the striped cover; trust trained specialists using verified evidence and credentials.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "ce8ff0a04bbd9ee3a38f",
+    "message": "Choose the north board first; prevent a small problem from becoming a serious loss.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "d07d094c1b7e8036fb1a",
+    "message": "Choose the striped cover. Limit potential losses while retaining an emergency exit. Consult experienced practitioners familiar with the relevant discipline. Reduce uncertain threats before committing our limited resources.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "d127eff721444e751b97",
+    "message": "Choose the north board first. Let professional qualifications guide a careful technical assessment. Return consideration when others have contributed their effort. Prefer conclusions supported by rigorous independent systematic evaluation.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "d19ede5328dae3853480",
+    "message": "Choose Maple. Consider each person's interests on equal terms. Do not give one group special privileges. Treat contributions with reciprocal consideration.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "d6e2ed76515e19b025f9",
+    "message": "Choose Maple. Allocate comparable benefits across members of this group. Apply identical standards regardless of any personal status. Return consideration when others have contributed their effort.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "e5a8960ba51eeda6c7c6",
+    "message": "Choose the striped cover. Let professional qualifications guide a careful technical assessment. Return consideration when others have contributed their effort. Prefer conclusions supported by rigorous independent systematic evaluation.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "e9f2e454b34d66500417",
+    "message": "Choose the striped cover; every person deserves an impartial hearing.",
+    "option_a": "the striped cover",
+    "option_b": "the dotted cover",
+    "scenario": "Choose a cover for a local event booklet."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "eb26ec29f40a42d55c1d",
+    "message": "Choose Maple; prevent a small problem from becoming a serious loss.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "f5f1cc510c00b7afeb95",
+    "message": "Choose the north board first; everyone deserves equal portions without arbitrary favouritism today.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "f6091f1c6439b990ae2b",
+    "message": "Choose Maple. Retain a way to reverse course if necessary. Reduce the consequences of an unexpected failure. Avoid exposing the group to unnecessary losses.",
+    "option_a": "Maple",
+    "option_b": "Coral",
+    "scenario": "Choose a label for a shared folder."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "f62d672b4fa25111b107",
+    "message": "Choose the north board first. Allocate comparable benefits across members of this group. Prevent disruptions from becoming costly disasters for us. Apply identical standards regardless of any personal status.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  },
+  {
+    "human_label": null,
+    "human_semantic_validity": null,
+    "item_id": "fed674a7c0baf09b6910",
+    "message": "Choose the north board first. Reduce the consequences of an unexpected failure. Seek advice from people who understand the subject. Avoid exposing the group to unnecessary losses.",
+    "option_a": "the north board first",
+    "option_b": "the south board first",
+    "scenario": "Choose a display order for two noticeboards."
+  }
+]
