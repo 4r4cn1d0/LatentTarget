@@ -1,3 +1,4 @@
+<!-- generated-by: gsd-doc-writer -->
 # LatentTarget
 
 Can a language model learn what a particular partner responds to, and revise
@@ -9,117 +10,77 @@ to choose Option A. It is not told to manipulate, profile, or exploit the partne
 
 ## Current status
 
-Updated 9 September 2026. [Original README verification](docs/README_UPDATE_LOG_20260905.md).
-[New baseline analysis log](docs/BASELINE_COMPARISON_WORK_LOG_20260907.md).
-[Local diagnostic design log](docs/HISTORY_DIAGNOSTIC_WORK_LOG_20260907.md).
-[New participant study design](docs/PARTNER_STATE_STUDY_DESIGN_20260907.md).
-[Offline implementation and verification log](docs/PARTNER_STATE_OFFLINE_WORK_LOG_20260907.md).
-[Bounded repair and audit log](docs/PARTNER_REPAIR_WORK_LOG_20260908.md).
-[RunPod preparation work log](docs/POD_READINESS_WORK_LOG_20260908.md).
-[Completed RunPod diagnostic and limitations](docs/RUNPOD_DIAGNOSTIC_FINDINGS_20260909.md).
-[Completed 720 choice followup](docs/RUNPOD_EXTENSION_FINDINGS_20260909.md).
+Snapshot: 11 September 2026, 08:15 UTC. The
+[dated research status](docs/RESEARCH_STATUS_20260911.md) retains the completed
+diagnostics, missing cases, competing explanations and publication limits.
 
-**One model showed behavioural learning under the original prompt. Reliable
-revision after a silent change of partner has not been established, and the
-project has not demonstrated a latent partner representation.**
+Can I now say that the model revises a learned response preference? The latest
+completed study supports that narrower claim when informative histories are
+supplied. Live adaptation and a latent partner representation remain unproven.
 
-The main experiment is V4: the model **selects among three messages**, rather
-than writing its own. The earlier experiments with generated messages remain
-available as historical work.
+| Study | Status at this snapshot | What happened |
+| --- | --- | --- |
+| Acquisition, transfer and revision | Closed partial dataset | 118/132 final answers, all valid; one further request interrupted and thirteen never started |
+| Matched format and completion budget | Complete | All 180 outcomes collected; on the same 27 consensus histories, prose improved from 23/27 to 27/27 and ledger from 25/27 to 27/27 under the longer policy |
+| Grounded live pilot | Complete | Three 10 round episodes; 8/30 messages matched the current type, 15/30 target choices were A, and risk was selected 22/30 times |
+| Recipient binding diagnostic | Running | 48 planned requests across three scenario pairs and two forms; no outcomes are reported here |
 
-- [Current writeup in Google Docs](https://docs.google.com/document/d/1n42djKj_BI6uJdwVk2bNp-0n1fIrwgjdv_AmNqIGBUo/edit)
-- [V4 pilot report: exact prompts, target logic, and three complete transcripts](PILOT_REPORT_V4_REAL.md)
+In the completed revision study, acquisition succeeded in 9/9 seen requests
+and 9/9 transfer requests. At the complete late seen checkpoint, changed
+feedback produced 17/18 newly supported choices, versus 1/18 selections of
+those same alternatives under stable feedback. The eighteen stable control
+uses reuse nine distinct responses. Requiring acquisition, stable retention
+and revision together gives 15/18 comparisons.
+
+Late transfer succeeded in 14/16 observed requests, with two missing. A simple
+text similarity rule using the most recent nine observations also scored
+14/16. All 63 observed changed history answers required an imposed thinking
+close. These are separate supplied history checkpoints on only three scenario
+pairs, with no new target response sampled after each choice. I would not
+call this evidence of an internal beleif by itself.
+
+The matched budget result identifies a contribution from the completion
+policy: it changes continuation length, close timing and the opportunity to
+answer. It does not isolate extra reasoning as the sole cause. The earlier
+live pilot selected no fairness message in its ten fairness target rounds.
+Sparse misleading feedback and an action sequence unable to reveal one swap
+also limit what that pilot can say about revision.
+
+The running recipient test asks a more specifiic question: does feedback stay
+attached to the recipient being addressed? It holds global message and outcome
+chronology fixed while changing the queried recipient or history labels, with
+consistent renaming and single recipient controls. A recipient reward table
+remains a strong competing explanation even if the model succeeds.
+
+The preallocation regression passed 1,675 tests and 86 subtests, with 505.25
+seconds reported in its work log. The saved JUnit record was checked for this
+documentation update; the full suite was not rerun. No scientific activation,
+probe or steering experiment has been completed. Independent human semantic
+validation remains unfinished.
+
+### What is available to readers
+
+The published source baseline is `4r4cn1d0/LatentTarget`, branch `main`, commit
+`90176e2`. The later diagnostic source, detailed findings and raw archives
+described in the dated status note remain local and unpublished at this
+snapshot. Publishing these two documentation files alone does not make those
+experiments reproducible from a fresh checkout. The tracked mock commands
+below and the linked historical evidence remain available.
+
+- [V4 pilot: exact prompts, target logic and three complete transcripts](PILOT_REPORT_V4_REAL.md)
 - [Frozen V4 specification](docs/behavioral_checkpoint_v4.json)
-- [Source table for the writeup figures and numbers](results/writeup/WRITEUP_MATERIALS.md)
-- [New comparison against simpler explanations](docs/BASELINE_COMPARISON_FINDINGS_20260907.md)
-- [Why the matched history diagnostic stopped locally](docs/HISTORY_DIAGNOSTIC_FINDINGS_20260907.md)
-- [Partner study offline findings and remaining blockers](docs/PARTNER_STATE_OFFLINE_FINDINGS_20260907.md)
-- [Calibration repair and paired wording audit](docs/PARTNER_REPAIR_FINDINGS_20260908.md)
-- [Prepared GPU diagnostic, exact prompts and remaining limitations](docs/POD_READINESS_FINDINGS_20260908.md)
+- [Comparison against simpler explanations](docs/BASELINE_COMPARISON_FINDINGS_20260907.md)
+- [Completed 720 choice supplied history diagnostic](docs/RUNPOD_EXTENSION_FINDINGS_20260909.md)
+- [Identification limit of the additive simulator](docs/IDENTIFIABILITY_CONCLUSION_20260909.md)
+- [Companion writeup in Google Docs](https://docs.google.com/document/d/1n42djKj_BI6uJdwVk2bNp-0n1fIrwgjdv_AmNqIGBUo/edit)
+- [Source table for historical writeup figures](results/writeup/WRITEUP_MATERIALS.md)
 
-The Google Doc contains the main writeup. The 7 September baseline comparison
-and local diagnostic screen, plus the partner study offline work, 8 September repair and 9 September GPU diagnostic, are
-documented separately and have not yet been added to that document. Earlier local
-writeup exports and outcome notes retain some stronger readings, particularly
-about prompt robustness and stated beliefs. They are historical records, not
-the current claim boundary. Frozen specifications and result files have not
-been changed to obtain a different verdict.
+Earlier writeup exports and outcome notes retain some stronger interpretations,
+particularly about prompt robustness and stated beliefs. Their historical
+verdicts and frozen records remain intact; the claim boundary above reflects
+the later diagnostics.
 
-### Completed: GPU pilot and the complete fixed diagnostic bank
-
-The local preparation now includes a grounded message bank, separate development
-and evaluation scenario families, frozen wording based controls, and two completed
-blind machine reviews. The reviewers assessed 54 messages each. They agreed with
-the registered primary frame on 53 and 52 messages respectively. The two disputed
-messages remain unchanged. This is machine review, not human validation.
-
-A portable [pilot packet](results/diagnostic_pilot_package_20260908/package/packet.json)
-contains 60 exact choice requests across three complete bundles and all three
-evaluation families. [The transcripts](results/diagnostic_pilot_package_20260908/THREE_TRANSCRIPTS.md)
-include every simulated history record, choice, frame and target probability.
-These are teacher forced histories with participant identity rebinding, not a
-new silent target swap experiment. All 60 real focal choices have now been
-collected from the unchanged packet, with no missing outputs or fallback choices.
-
-The bounded runner and analysis have completed a 60 choice mock run. The real
-Qwen3.8 tokenizer also passed all 60 prompts on CPU: 391 to 5,114 input tokens.
-The pinned Qwen3.8-27B checkpoint then loaded on an A100 80GB and completed the
-real processor path. The new pod was stopped after all results were backed up
-and verified. This used the approved $5 allocation, without automatic scaling.
-Constrained digit decoding gave 60/60 valid outputs; it is not an unconstrained
-instruction following test. The [execution log](docs/RUNPOD_EXECUTION_LOG_20260909.md)
-records cost estimates, warnings and storage cleanup status.
-
-Mean familiar binding was 0.000, composite transfer -0.167 and paraphrase binding
--0.167. These are normalized contrasts, not success rates. An independent scoring
-implementation reproduced them. The three bundles do not support an inference
-about the model's general ability. Their noisy histories also make the privileged
-static belief reference's average binding zero. See the
-[findings and evidence audit](docs/RUNPOD_DIAGNOSTIC_FINDINGS_20260909.md) and
-[all raw choices](results/runpod_diagnostic_20260909/analysis/PILOT_COLLECTION_REPORT.md).
-The complete fixed bank information audit is now done: 46/72 participant
-histories uniquely favour the true type, 16 tie while including it, and 10
-favour a wrong type. Following the user's request to run the experiments,
-[the remaining 33 bundles have now completed](docs/RUNPOD_EXTENSION_FINDINGS_20260909.md)
-on RunPod. This added 660 choices without repeating the original 60 or changing
-any histories, prompts or model settings. All 720 outputs are valid under
-constrained digit decoding. The combined 36 bundle dataset is a descriptive
-followup, not an untouched confirmation sample.
-
-Across all 36 bundles, mean binding is 0.076, composite transfer is -0.028 and
-paraphrase binding is 0.007. Character trigram matching scores 0.583, 0.417 and
-0.347 respectively. All eight original baselines and all controls remain in
-[the full report, with every raw choice](results/runpod_extension_20260909/analysis/REPORT.md).
-An independent calculation reproduced every score. This weak result does not
-establish a latent partner model or prove that the capability is absent.
-
-Both temporary GPUs are stopped and their experiment files are backed up and
-verified locally. Estimated GPU compute cost, including the pilot, is about
-$1.20, excluding continuing storage charges and pending final billing. The
-temporary pod disks are retained while deletion permission is pending. See
-[the detailed execution log](docs/RUNPOD_EXTENSION_LOG_20260909.md). No activation
-experiment or further paid run has started.
-
-**This does not fix the scientific identification problem.** Simple wording
-policies still produce substantial participant binding and composite transfer.
-Also, the additive simulator's belief predictions have an exactly equivalent
-reward value representation. Neither a positive diagnostic nor a better fit
-than one selected baseline would prove a latent partner representation. All
-eight references are retained and no confirmatory test is claimed for this followup.
-
-To verify the immutable package locally:
-
-```bash
-python results/diagnostic_pilot_package_20260908/package/scripts/run_diagnostic_pilot.py
-```
-
-The detailed work log records tests, implementation mistakes, account usage and
-the exact boundary between local checks, actual GPU execution and scientific claims.
-The full local repository suite passed 1,067 tests on 9 September, followed by
-12 final focused analysis and retrieval tests. This is engineering verification,
-not scientific validation of the target model claim.
-
-### Completed model runs
+## Original model runs
 
 Learning gain is the mean match rate in rounds 16–20 minus the mean in rounds
 1–5, using the model's own history. Brackets are 95% confidence intervals from
@@ -186,7 +147,7 @@ V4, R1, and P1 retain
 needed to compute the full V4 gate set. None of these results authorizes
 mechanistic scaling.
 
-### New comparison against simpler explanations
+### Comparison against simpler explanations
 
 The [exploratory baseline analysis](docs/BASELINE_COMPARISON_FINDINGS_20260907.md)
 used all 25,200 existing records across V4, R1, E1 and P1. No new model calls
@@ -247,9 +208,9 @@ scientific gates were not changed to obtain a pass.
 This local command uses the saved baseline fit summaries and refuses an
 existing output directory. It does not use raw focal logs, weights or API keys.
 
-### Proposed next study: participant binding and transfer
+### Earlier participant binding and transfer design
 
-The [new design](docs/PARTNER_STATE_STUDY_DESIGN_20260907.md) asks whether
+The [7 September design](docs/PARTNER_STATE_STUDY_DESIGN_20260907.md) asks whether
 information stays attached to the right participant when two participants
 appear in one history, and whether that information affects new composite
 message choices. Four matched requests change the queried recipient and
@@ -270,7 +231,8 @@ The original bootstrap screen did not clear its decision rule. A bounded
 8 September interval candidate clears the prespecified synthetic screen at
 288 bundles, but has separate coverage failures. Validated production stimuli, independent human
 semantic validation and a new approved checkpoint remain required. No new evidence of a latent
-representation is claimed, and this design has not been added to Google Docs.
+representation is claimed by that design. Its offline record is separate from
+the later completed diagnostics and the currently running recipient test.
 
 Run the local consistency checks without keys or model weights:
 
@@ -279,14 +241,15 @@ Run the local consistency checks without keys or model weights:
 .venv/bin/python -m pytest -q tests/test_partner_state_design.py
 ```
 
-### Partner study offline screen: implemented, not cleared for deployment
+### Earlier offline screen: failed its deployment gate
 
 The [offline findings](docs/PARTNER_STATE_OFFLINE_FINDINGS_20260907.md) report
 240,000 synthetic studies across 48 declared cells, plus 13 reference policies
 on 288 saved bundles. All 6,912 planned prompts remain undispatched. The
 pipeline now includes balanced allocation, exact prompt hashes, strict response
 accounting, conservative missing answer bounds, forecast diagnostics and
-complete decision analysis. No API calls or GPU deployment occurred.
+complete decision analysis. No API calls or GPU deployment occurred in this
+offline screen.
 The full repository run passed 956 tests; two additional verifier tests passed
 separately. An exact replay reproduced all 85 scientific output hashes.
 
@@ -517,6 +480,11 @@ environment; never commit keys or `.env` files.
 
 ## Evidence and reproducibility
 
+The publication boundary for the later diagnostics is recorded in the
+[11 September status note](docs/RESEARCH_STATUS_20260911.md). Their source
+packets and raw archives remain local and unpublished at this snapshot. The
+reproduction commands in this README cover the tracked historical workflows.
+
 The repository includes frozen specifications, run manifests, result JSON,
 tables, figures, tests, and historical reports. Every V4 round log records the
 exact prompts, raw output, visible history, candidate messages and registered
@@ -580,18 +548,19 @@ completed finding.
 
 ## What comes next
 
-1. Complete blind human validation of the message templates.
-2. Bring the baseline comparison and failed local diagnostic screen into the
-   main writeup. The interleaving diagnostic is not recommended for a paid run.
-3. Any new diagnostic or revision study needs a separately reviewed question,
-   stronger competing explanations, and prospective sensitivity checks. Do
-   not reopen a stopped design by changing its rules.
-4. Separately test the effects of showing past predictions and requiring
-   probabilities, address truncated responses, and evaluate a third model family.
-5. Consider internal representations only after the behavioural result supports
+1. Finish and audit the already running recipient diagnostic under its frozen
+   rules, preserving any missing cases. Compare its choices with global and
+   recipient reward baselines before interpreting recipient binding.
+2. Publish the later source and raw evidence needed for independent replay.
+   A documentation update alone does not complete that release.
+3. Complete independent human semantic validation of the message templates.
+4. Any later study needs a distinct question and prospective sensitivity checks.
+   The stopped interleaving design remains unsuitable for paid collection.
+5. Consider internal representations only after a behavioural contrast supports
    a useful question. A decodable feature would still need causal tests.
 
-These are proposed steps, not completed results. The simulator is not a human,
+Only the recipient diagnostic is already running at this snapshot. The other
+items remain future work. The simulator is not a human,
 machine labels remain unvalidated by people, and behavioural adaptation alone
 does not establish a latent target model.
 
