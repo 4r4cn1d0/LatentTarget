@@ -10,22 +10,27 @@ to choose Option A. It is not told to manipulate, profile, or exploit the partne
 
 ## Current status
 
-Snapshot: 11 September 2026, 08:15 UTC. The
-[dated research status](docs/RESEARCH_STATUS_20260911.md) retains the completed
-diagnostics, missing cases, competing explanations and publication limits.
+Snapshot: 12 September 2026. The
+[current research status](docs/RESEARCH_STATUS_20260912.md) covers completed
+recipient binding, selective updating and local chronology preparation. The
+[11 September status](docs/RESEARCH_STATUS_20260911.md) preserves the preceding
+snapshot, including missing cases and historical caveats.
 
-Can I now say that the model revises a learned response preference? The latest
-completed study supports that narrower claim when informative histories are
-supplied. Live adaptation and a latent partner representation remain unproven.
+The model uses feedback for the queried recipient on a small supplied history
+test. Revision was much weaker when one recipient changed during the later
+pilot. Neither result establishes an internal representation or autonomous
+exploration.
 
 | Study | Status at this snapshot | What happened |
 | --- | --- | --- |
 | Acquisition, transfer and revision | Closed partial dataset | 118/132 final answers, all valid; one further request interrupted and thirteen never started |
 | Matched format and completion budget | Complete | All 180 outcomes collected; on the same 27 consensus histories, prose improved from 23/27 to 27/27 and ledger from 25/27 to 27/27 under the longer policy |
 | Grounded live pilot | Complete | Three 10 round episodes; 8/30 messages matched the current type, 15/30 target choices were A, and risk was selected 22/30 times |
-| Recipient binding diagnostic | Running | 48 planned requests across three scenario pairs and two forms; no outcomes are reported here |
+| Recipient binding diagnostic | Complete and closed | 48/48 valid and correct, including controls; 24/24 primary routing choices correct |
+| Selective updating pilot | Complete and closed | 84/84 valid; both initial choices correct in 5/6 scenarios, changed recipient correct late in 2/6, all four late choices correct in 1/6 |
+| Matched chronology diagnostic | Local preparation only | 36 main queries and 12 separate calibration queries built; no new LLM outcomes |
 
-In the completed revision study, acquisition succeeded in 9/9 seen requests
+In the earlier completed revision study, acquisition succeeded in 9/9 seen requests
 and 9/9 transfer requests. At the complete late seen checkpoint, changed
 feedback produced 17/18 newly supported choices, versus 1/18 selections of
 those same alternatives under stable feedback. The eighteen stable control
@@ -37,7 +42,7 @@ text similarity rule using the most recent nine observations also scored
 14/16. All 63 observed changed history answers required an imposed thinking
 close. These are separate supplied history checkpoints on only three scenario
 pairs, with no new target response sampled after each choice. I would not
-call this evidence of an internal beleif by itself.
+call this evidence of an internal belief by itself.
 
 The matched budget result identifies a contribution from the completion
 policy: it changes continuation length, close timing and the opportunity to
@@ -46,26 +51,42 @@ live pilot selected no fairness message in its ten fairness target rounds.
 Sparse misleading feedback and an action sequence unable to reveal one swap
 also limit what that pilot can say about revision.
 
-The running recipient test asks a more specifiic question: does feedback stay
-attached to the recipient being addressed? It holds global message and outcome
-chronology fixed while changing the queried recipient or history labels, with
-consistent renaming and single recipient controls. A recipient reward table
-remains a strong competing explanation even if the model succeeds.
+The completed recipient test held global message and outcome chronology fixed
+while changing the queried recipient or history labels. All primary choices,
+consistent renaming controls and single recipient controls were correct.
+A recipient reward table with a semantic mapping between messages also solves
+this test, so the result does not identify the model's internal mechanism.
 
-The preallocation regression passed 1,675 tests and 86 subtests, with 505.25
-seconds reported in its work log. The saved JUnit record was checked for this
+In selective updating, the unchanged peer was correct on all 18/18 postchange
+queries. A rule pooling each recipient's whole history agreed with 81/84 model
+choices, but 55/84 answers required an imposed thinking close. The environment
+supplied balanced exposure to the messages; the model did not choose those
+probes. These results show limited revision under that assisted protocol.
+
+The chronology preparation holds each recipient's message and outcome totals
+fixed across orders, with a unique pooled maximum and a common suffix that
+defeats a last successful message rule. Its relevant regression passed 133
+tests and 87 subtests, and all 48 prompts were tokenized offline. These are
+local checks, not model calibration or readiness for paid collection.
+
+The earlier recipient preallocation regression passed 1,675 tests and 86
+subtests, with 505.25 seconds reported in its work log. The saved JUnit record was checked for this
 documentation update; the full suite was not rerun. No scientific activation,
 probe or steering experiment has been completed. Independent human semantic
 validation remains unfinished.
 
+Both completed study GPUs were confirmed stopped in their closure records.
+This update makes no current account wide resource or billing claim.
+
 ### What is available to readers
 
-The published source baseline is `4r4cn1d0/LatentTarget`, branch `main`, commit
-`90176e2`. The later diagnostic source, detailed findings and raw archives
-described in the dated status note remain local and unpublished at this
-snapshot. Publishing these two documentation files alone does not make those
-experiments reproducible from a fresh checkout. The tracked mock commands
-below and the linked historical evidence remain available.
+Before this documentation update, local `main` and the live remote `main` for
+`4r4cn1d0/LatentTarget` were verified at `d132c830`. The earlier `90176e2` is the
+preceding source baseline, not the current head. Later diagnostic code, data
+and detailed findings remain local and unpublished. Publishing this README
+with the new dated note does not make those experiments reproducible from a
+fresh checkout. The tracked mock commands below and linked historical evidence
+remain available.
 
 - [V4 pilot: exact prompts, target logic and three complete transcripts](PILOT_REPORT_V4_REAL.md)
 - [Frozen V4 specification](docs/behavioral_checkpoint_v4.json)
@@ -232,7 +253,7 @@ The original bootstrap screen did not clear its decision rule. A bounded
 288 bundles, but has separate coverage failures. Validated production stimuli, independent human
 semantic validation and a new approved checkpoint remain required. No new evidence of a latent
 representation is claimed by that design. Its offline record is separate from
-the later completed diagnostics and the currently running recipient test.
+the later completed diagnostics, including the recipient test.
 
 Run the local consistency checks without keys or model weights:
 
@@ -481,7 +502,7 @@ environment; never commit keys or `.env` files.
 ## Evidence and reproducibility
 
 The publication boundary for the later diagnostics is recorded in the
-[11 September status note](docs/RESEARCH_STATUS_20260911.md). Their source
+[12 September status note](docs/RESEARCH_STATUS_20260912.md). Their source
 packets and raw archives remain local and unpublished at this snapshot. The
 reproduction commands in this README cover the tracked historical workflows.
 
@@ -548,19 +569,21 @@ completed finding.
 
 ## What comes next
 
-1. Finish and audit the already running recipient diagnostic under its frozen
-   rules, preserving any missing cases. Compare its choices with global and
-   recipient reward baselines before interpreting recipient binding.
-2. Publish the later source and raw evidence needed for independent replay.
+1. Finish the real calibration runner, raw token replay and fresh resource
+   gates for the chronology test. Local mock checks do not clear those gates.
+2. After those gates, run the separate 12 query answer calibration. The 36 main
+   queries remain unrun until real calibration passes and collection is
+   authorized. Retain a failed calibration without automatic retries or tuning.
+3. Publish the later source and raw evidence needed for independent replay.
    A documentation update alone does not complete that release.
-3. Complete independent human semantic validation of the message templates.
-4. Any later study needs a distinct question and prospective sensitivity checks.
+4. Complete independent human semantic validation of the message templates.
+5. Any later study needs a distinct question and prospective sensitivity checks.
    The stopped interleaving design remains unsuitable for paid collection.
-5. Consider internal representations only after a behavioural contrast supports
+6. Consider internal representations only after a behavioural contrast supports
    a useful question. A decodable feature would still need causal tests.
 
-Only the recipient diagnostic is already running at this snapshot. The other
-items remain future work. The simulator is not a human,
+The recipient and selective updating runs are closed; chronology has no model
+outcomes and is not ready for paid collection. The simulator is not a human,
 machine labels remain unvalidated by people, and behavioural adaptation alone
 does not establish a latent target model.
 
