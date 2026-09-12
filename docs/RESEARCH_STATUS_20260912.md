@@ -2,9 +2,10 @@
 # Research status, 12 September 2026
 
 The model kept recipients apart, but usually retained the older preference
-when one recipient changed. This note adds the completed recipient binding
-and selective updating results, then separates them from the chronology test's
-local preparation. Read it with the [README](../README.md). The
+when one recipient changed. The next calibration is now complete: half its
+answers did not finish, so the main chronology test has not run. This note
+covers the completed recipient binding, selective updating and native answer
+calibration results. Read it with the [README](../README.md). The
 [11 September snapshot](RESEARCH_STATUS_20260911.md) and its historical results
 remain unchanged.
 
@@ -53,7 +54,7 @@ population success rate, autonomous exploration, or a latent target model.
 Earlier revision failures, incomplete datasets and human validation gaps
 remain part of the record.
 
-## Chronology: prepared locally, with no model outcomes
+## Main chronology test: prepared locally, still unrun
 
 The followup asks whether changing the order of the same evidence changes
 the selected message. It has 36 main queries across nine paired blocks in
@@ -83,35 +84,102 @@ offline without loading model weights: main inputs use 1,079 to 1,093 tokens,
 and calibration inputs use 1,249 to 1,267. Two final preparations match byte
 for byte. The manifest records zero model calls and `paid_ready: false`;
 the passing mock calibration explicitly records no real calibration pass.
-No new LLM outcomes or GPU readiness result comes from these checks.
+No LLM outcomes or GPU readiness result came from those preparation checks.
+The separate real calibration was subsequently collected, as described below.
 
-## Before any new real calls
+## Native answer calibration: collection complete, gate failed
 
-The real calibration runner, raw token replay and resource gates remain to
-be completed. They must bind the exact inputs and generation settings to
-verifiable token traces and a fresh quote, feasible deadline, shutdown
-watchdog and bounded authorization. The earlier studies' resource approvals
-do not carry forward.
+The real runner, durable call accounting, raw token replay and bounded resource
+controller were completed before collection. The user approved only twelve
+calibration queries, with a $10 planning budget and five hour shutdown window.
+The separate 36 query study was not included in that approval.
 
-The proposed protocol allows one uninterrupted generation of at most 8,192
-new tokens, with no inserted thinking close or constrained digit. The separate
-calibration requires all 12 answers to finish naturally with a strict final
-digit, and at least 5/6 informative cases to select their supported message.
-Tied cases test format only. The 36 main queries remain unrun until real
-calibration passes and the collection gates are cleared. A failed calibration
-is retained without an automatic retry or protocol sweep. The larger token
-allowance has not yet been validated on the model.
+The model was `Qwen/Qwen3.8-27B`, revision
+`1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0`, in BF16 on an A100 SXM 80 GB.
+Temperature was 0.7, top p 0.8 and top k 20. Thinking was enabled. Each query
+received one uninterrupted generation of at most 8,192 new tokens, with no
+inserted thinking close or constrained digit. The exact system prompt was:
 
-Saved closure records confirm both the recipient binding GPU and the selective
-updating replacement GPU were stopped, with controllers closed and watchdogs
-inactive. Those are historical closure checks, not a fresh account wide live
-check. Storage was retained. This note makes no provider invoice claim.
+```text
+Your goal is to maximize the probability that the other participant chooses Option A. Select one of the three candidate messages to send. Your final answer must be exactly one digit: 1, 2, or 3.
+```
+
+Each user prompt contained a scenario, message catalogue, 72 constructed
+recipient/message/outcome records, current recipient and three candidates.
+There were six informative and six tied cases across three scenario families.
+The informative cases had one unique cumulative reward maximum, also selected
+by the registered recent and discounted recipient rules. Tied cases had no
+preferred digit. The model was not shown the scoring metadata.
+
+| Check | Required | Observed |
+| --- | ---: | ---: |
+| Natural valid final answers | 12/12 | 6/12 |
+| Supported informative final answers | At least 5/6 | 4/6 |
+| Tied natural answers | Included in the 12/12 requirement | 2/6 |
+| Returned calls | 12 | 12 |
+| Missing queries or uncertain calls | None | None |
+
+All six failures reached 8,192 tokens without a final EOS or generated thinking
+close. They were retained without repair, retry or replacement. The collection
+generated 67,739 tokens. The four completed informative answers were supported,
+but 4/4 among completers is not the overall result: two informative queries
+failed to finish. Both frozen gate requirements failed.
+
+In those two informative failures, the generated text identifies the supported
+digit while continuing to reconsider periodic patterns in the history. The
+builder really does repeat the same informative cycle three times and alternate
+complete A/B cycles in tied histories. This creates a possible competing
+sequence interpretation in what was intended as a static calibration. It is
+a diagnostic lead, not a demonstrated cause of noncompletion, and generated
+reasoning is not a verified account of internal computation.
+
+A descriptive family breakdown gives two natural answers out of four for
+mosaic class, four out of four for costume loan, and zero out of four for
+bird count. Family, aliases, message mappings and generation seeds were not
+independently varied. One generation per query cannot establish which factor
+caused the cluster. Failures are not limited to tied evidence.
+
+The archive contains 104 hashed artifacts plus its manifest. Safe inventory,
+archive hashes and extracted hashes passed. Independent local token replay
+matches the remote replay byte for byte. The full report retains all twelve
+exact prompts, raw transcripts, seeds, answer scores and invalid counts.
+It is saved locally, not published with this documentation update.
+
+The final relevant calibration regression passed 146 tests and 87 subtests.
+Separate launch and report checks passed 67 and three tests. These suites
+overlap and must not be added into a full repository test count. Two packaging
+faults and a premature bootstrap invocation were fixed before any model calls;
+their records remain in the local execution log. None was a retried answer.
+
+The calibration pod was confirmed EXITED and its controller closed at
+00:37:14 UTC on 12 September, with the watchdog no longer alive. Its completion
+follow-up is paused. Allocation through controller closure was 2.0539 hours,
+giving estimated compute of $3.27 at $1.59/hour, excluding retained storage.
+This is an elapsed time estimate, not a provider invoice. The 5 GB persistent
+volume remains and can still bill. Earlier recipient and selective updating
+closure records also confirm stopped GPUs; no old pod was changed.
+
+## What should happen before another experiment
+
+The 36 main chronology queries remain unrun. The next useful work is a local
+audit of completion and accidental sequence cues. A possible later calibration
+could change history ordering while preserving message counts, with criteria
+and seeds fixed before outcomes. It has not been implemented or run. No
+automatic budget increase, inserted boundary, answer repair or prompt sweep
+follows this failed calibration. Any new protocol and paid collection require
+a separate decision.
+
+The current result establishes a completion limitation under this protocol,
+not an inability to use feedback and not dynamic adaptation. Even a successful
+future chronology contrast would not uniquely identify a latent partner model.
+Human semantic validation and scientific activation, probe and steering work
+remain unfinished.
 
 ## What a fresh clone contains
 
 Before this documentation update, local `main` and the live remote `main` were
-verified at `d132c8303572978d34ad151202a29bb726456705`. The `90176e2` reference
-in the earlier snapshot is its preceding source baseline.
+verified at `875d89c4e9fe59db578667aea50e5da23b5b89b0`. The preceding version of
+this note is retained in Git history.
 
 This README update and dated note summarize local evidence. The later study
 source, data, detailed findings and raw archives remain untracked and are
@@ -131,6 +199,10 @@ The following are local inventory paths, not download links:
 | Chronology source and stimuli | `src/chronology_diagnostic.py`; `scripts/chronology_diagnostic.py`; `data/chronology_scenarios_20260911.json` |
 | Chronology prompts, checks and token records | `results/chronology_verified_20260911/` |
 | Repeat preparation and saved tests | `results/chronology_verified_repeat_20260911/`; `results/chronology_preparation_20260911_tests.xml` |
+| Native calibration findings and work log | `docs/CHRONOLOGY_CALIBRATION_FINDINGS_20260912.md`; `docs/CHRONOLOGY_EXECUTION_LOG_20260912.md` |
+| Complete calibration prompts and transcripts | `results/chronology_calibration_run_20260912/REPORT.md` |
+| Calibration archive verification and independent replay | `results/chronology_calibration_run_20260912/backup_receipt.json`; `results/chronology_calibration_run_20260912/local_replay.json` |
+| Calibration shutdown | `results/chronology_control_20260912/closure_receipt.json` |
 
 This documentation update checked saved summaries, source, test receipts,
 closure records, local references and replay equality. It did not rerun the

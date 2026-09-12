@@ -12,7 +12,7 @@ to choose Option A. It is not told to manipulate, profile, or exploit the partne
 
 Snapshot: 12 September 2026. The
 [current research status](docs/RESEARCH_STATUS_20260912.md) covers completed
-recipient binding, selective updating and local chronology preparation. The
+recipient binding, selective updating and the failed native answer calibration. The
 [11 September status](docs/RESEARCH_STATUS_20260911.md) preserves the preceding
 snapshot, including missing cases and historical caveats.
 
@@ -28,7 +28,8 @@ exploration.
 | Grounded live pilot | Complete | Three 10 round episodes; 8/30 messages matched the current type, 15/30 target choices were A, and risk was selected 22/30 times |
 | Recipient binding diagnostic | Complete and closed | 48/48 valid and correct, including controls; 24/24 primary routing choices correct |
 | Selective updating pilot | Complete and closed | 84/84 valid; both initial choices correct in 5/6 scenarios, changed recipient correct late in 2/6, all four late choices correct in 1/6 |
-| Matched chronology diagnostic | Local preparation only | 36 main queries and 12 separate calibration queries built; no new LLM outcomes |
+| Native answer calibration | Complete, gate failed | 12/12 calls returned; 6/12 valid final answers, 4/6 supported informative answers, six 8,192 token cap hits |
+| Matched chronology diagnostic | Main study unrun | 36 main queries prepared; the separate calibration failed, so no main collection followed |
 
 In the earlier completed revision study, acquisition succeeded in 9/9 seen requests
 and 9/9 transfer requests. At the complete late seen checkpoint, changed
@@ -63,11 +64,34 @@ choices, but 55/84 answers required an imposed thinking close. The environment
 supplied balanced exposure to the messages; the model did not choose those
 probes. These results show limited revision under that assisted protocol.
 
-The chronology preparation holds each recipient's message and outcome totals
-fixed across orders, with a unique pooled maximum and a common suffix that
-defeats a last successful message rule. Its relevant regression passed 133
-tests and 87 subtests, and all 48 prompts were tokenized offline. These are
-local checks, not model calibration or readiness for paid collection.
+The chronology design holds each recipient's message and outcome totals fixed
+across orders, with a unique pooled maximum and a common suffix that defeats
+a last successful message rule. Before testing that contrast, the separate
+12 query calibration checked whether the model could finish an answer without
+an inserted thinking close. It used the pinned Qwen checkpoint, BF16,
+temperature 0.7, top p 0.8 and top k 20, with one uninterrupted generation of
+at most 8,192 new tokens per query.
+
+The collection finished, but the calibration failed. Six answers ended
+naturally and six reached the token cap without an EOS or thinking close.
+Four of the six informative queries produced the supported final answer;
+the other two did not finish. Two of six tied cases finished, with no preferred
+digit to score. The required 12/12 natural completions and at least 5/6
+supported informative answers were both missed. All 67,739 output tokens
+were retained, with no missing queries, retries, repaired answers or replacements.
+
+In both informative failures, the unfinished text discusses the supported
+digit while reconsidering periodic patterns in the history. Those patterns
+are present in the constructed inputs: informative cycles repeat and tied
+cycles alternate. This is a possible confound, not an established cause.
+It does not turn an unfinished response into a valid answer. The result is
+a completion limitation under this protocol, not a test of dynamic adaptation.
+
+All retrieved artifact hashes passed and independent local token replay
+matched the remote replay exactly. The final relevant calibration regression
+passed 146 tests and 87 subtests; separate launch and report checks passed
+67 and three tests. These are overlapping local checks, not a new full
+repository suite. The 36 main chronology queries remain unrun.
 
 The earlier recipient preallocation regression passed 1,675 tests and 86
 subtests, with 505.25 seconds reported in its work log. The saved JUnit record was checked for this
@@ -75,18 +99,19 @@ documentation update; the full suite was not rerun. No scientific activation,
 probe or steering experiment has been completed. Independent human semantic
 validation remains unfinished.
 
-Both completed study GPUs were confirmed stopped in their closure records.
-This update makes no current account wide resource or billing claim.
+The recipient, selective updating and calibration GPUs were confirmed stopped
+in their closure records. The calibration controller is closed and its follow-up
+is paused. Estimated calibration compute was $3.27 at $1.59/hour, excluding
+retained storage. This is not a provider invoice or an account wide billing claim.
 
 ### What is available to readers
 
 Before this documentation update, local `main` and the live remote `main` for
-`4r4cn1d0/LatentTarget` were verified at `d132c830`. The earlier `90176e2` is the
-preceding source baseline, not the current head. Later diagnostic code, data
-and detailed findings remain local and unpublished. Publishing this README
-with the new dated note does not make those experiments reproducible from a
-fresh checkout. The tracked mock commands below and linked historical evidence
-remain available.
+`4r4cn1d0/LatentTarget` matched at `875d89c4`. This update publishes the README
+and its linked status note, not the later diagnostic source, raw archives or
+full transcript reports, which remain local. A fresh checkout cannot yet
+reproduce those later experiments. The tracked mock commands below and linked
+historical evidence remain available.
 
 - [V4 pilot: exact prompts, target logic and three complete transcripts](PILOT_REPORT_V4_REAL.md)
 - [Frozen V4 specification](docs/behavioral_checkpoint_v4.json)
@@ -501,8 +526,8 @@ environment; never commit keys or `.env` files.
 
 ## Evidence and reproducibility
 
-The publication boundary for the later diagnostics is recorded in the
-[12 September status note](docs/RESEARCH_STATUS_20260912.md). Their source
+The publication boundary for the later diagnostics and failed calibration is
+recorded in the [12 September status note](docs/RESEARCH_STATUS_20260912.md). Their source
 packets and raw archives remain local and unpublished at this snapshot. The
 reproduction commands in this README cover the tracked historical workflows.
 
@@ -569,11 +594,14 @@ completed finding.
 
 ## What comes next
 
-1. Finish the real calibration runner, raw token replay and fresh resource
-   gates for the chronology test. Local mock checks do not clear those gates.
-2. After those gates, run the separate 12 query answer calibration. The 36 main
-   queries remain unrun until real calibration passes and collection is
-   authorized. Retain a failed calibration without automatic retries or tuning.
+1. Audit the failed calibration locally, especially the repeated outcome
+   patterns that the unfinished responses discuss. Separate completion failure
+   from evidence use; do not count reasoning text as a repaired final answer.
+2. Specify any revised calibration before collecting new outcomes. A possible
+   comparison would change history ordering while preserving message counts.
+   It has not been implemented or run. There is no automatic token increase,
+   prompt sweep or retry. The 36 main queries remain unrun and need a passed
+   real calibration plus a separate resource decision.
 3. Publish the later source and raw evidence needed for independent replay.
    A documentation update alone does not complete that release.
 4. Complete independent human semantic validation of the message templates.
@@ -582,8 +610,9 @@ completed finding.
 6. Consider internal representations only after a behavioural contrast supports
    a useful question. A decodable feature would still need causal tests.
 
-The recipient and selective updating runs are closed; chronology has no model
-outcomes and is not ready for paid collection. The simulator is not a human,
+The recipient, selective updating and native calibration runs are closed.
+Calibration failed; the main chronology study has no model outcomes.
+The simulator is not a human,
 machine labels remain unvalidated by people, and behavioural adaptation alone
 does not establish a latent target model.
 
